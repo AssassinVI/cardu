@@ -248,3 +248,70 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', end
 }
 
 /*---------------- 熱門情報 END -----------------*/
+
+
+/*----------------------- 各連結滑鼠經過 ------------------------*/
+
+.footer_btn a:hover{ color: #e59118; }
+.tab_list li a:hover{ color: #e59118; }
+.hotCard .content_tab h4:hover{ color: #e59118; }
+.ccard .swiper-slide div a:hover{ color: #e59118; }
+
+/*-- 新聞 --*/
+.news_list_txt h3:hover{ color: #e59118; }
+.cards-3 a:hover{ color: #e59118; }
+
+
+/*-- 卡排行 --*/
+.rank_care a h5:hover{ color: #e59118 !important; }
+
+/*-- 卡情報 --*/
+.change_law a:hover{ color: #e59118; }
+.change_law h5:hover{ color: #e59118;  }
+.ticketbg .bank_3 h5:hover{ color: #e59118; }
+.card_name:hover{ color: #e59118; }
+.bank_list ul li a:hover{ color: #e59118; }
+.bank_list.type_card h5 a:hover{  color: #e59118; }
+.all_color a:hover{ color: #e59118; }
+.detail_title .debit_card .debit_limit li a:hover{ color: #e59118; }
+
+/*-- 優行動PAY --*/
+.cards-two a:hover{ color: #e59118; }
+
+/*-- 優旅行 --*/
+.travel_share h6:hover{ color: #e59118;  }
+.hotCard .content_tab .img_b:hover{ color: #e59118;  }
+.hotCard .content_tab .img_c:hover{ color: #e59118;  }
+.hotCard .content_tab .journey_icon a:hover{ color: #e59118; }
+.travel_text h6:hover{ color: #e59118; }
+.japan_list a:hover{ color: #e59118; }
+
+/*----------------------- 各連結滑鼠經過 END ------------------------*/
+
+
+
+
+/*----------------------- 各按鈕滑鼠經過 ------------------------*/
+button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
+
+/*-- 新聞 --*/
+.card_list div:nth-child(1) .btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
+
+/*-- 卡情報 --*/
+.apply_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
+.detail_title .row.ticketbg .applycard_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
+.detail_title .debit_card .applycard_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
+.detail_title .onlinebg .applycard_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
+.online_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
+
+/*----------------------- 各按鈕滑鼠經過 END ------------------------*/
+
+
+
+/*----------------------------- 優旅行 更新 ----------------------------------*/
+ .hotCard .content_tab .img_b{ width: auto; height: auto; margin-bottom: 15px; color: #000;}
+ .hotCard .content_tab .img_b div{ width: 300px; height: 200px; margin: auto;}
+
+ .hotCard .content_tab .img_c{ width: auto; height: auto; color: #000; }
+ .hotCard .content_tab .img_c div{ width: 150px; height: 100px; margin: auto;}
+/*----------------------------- 優旅行 更新 END ----------------------------------*/

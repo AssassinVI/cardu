@@ -5,14 +5,14 @@
 <div class="col-md-12 col">
     <div class="tab_one footer_btn">
        <div class="content_tab">
-           <a href="#">關於卡優新聞網｜</a>
-           <a href="#">服務總覽｜</a>
-           <a href="#">服務條款｜</a>
-           <a href="#">隱私權聲明｜</a>
-           <a href="#">廣告刊登｜</a>
-           <a href="#">行銷合作｜</a>
-           <a href="#">聯絡我們｜</a>
-           <a href="#">其他聲明</a>
+           <a href="#">關於卡優新聞網</a>｜
+           <a href="#">服務總覽</a>｜
+           <a href="#">服務條款</a>｜
+           <a href="#">隱私權聲明</a>｜
+           <a href="#">廣告刊登</a>｜
+           <a href="#">行銷合作</a>｜
+           <a href="#">聯絡我們</a>｜
+           <a href="#">其他聲明</a>｜
        </div> 
     </div>
     
