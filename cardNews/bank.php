@@ -65,38 +65,103 @@
 
                   <div class="col-md-12 col">
                   
-                      <div id="iNews" class="cardshap news_slide">
-                          <!-- <div class="title hole">新聞專題</div> -->
-                          
-
+                      <!-- 四小三大輪播 -->
+                      <div id="new_iNews" class="cardshap new_slide">
                           <div class="swiper-container">
                               <div class="swiper-wrapper">
-                                  <div class="swiper-slide" style="background-image: url(../img/component/photo1.jpg);"> 
-                                    <a href="#" title="新聞">
-                                        <div  class="ani word shadow_text" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s">新光三越週慶強強滾　首日6店業績逾14.9億</div>
-                                    </a>
+                                  <div class="swiper-slide" > 
+
+                                    <div class="slide_div">
+                                      <div class="slide_img">
+                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
+                                      </div>
+                                      <div class="slide_list">
+                                        <a class="active" href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
+                                          <h4>ATM「靠臉」就能領錢　台新</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
+                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                      </div>
+                                    </div>
+                                    
                                   </div>
-                                  <div class="swiper-slide" style="background-image: url(../img/component/photo2.jpg);"> 
-                                    <a href="#" title="新聞">
-                                        <div  class="ani word shadow_text" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s">ATM「靠臉」就能領錢　台新內湖分行首上線</div>
-                                    </a>
+                                  <div class="swiper-slide" "> 
+                                    <div class="slide_div">
+                                      <div class="slide_img">
+                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
+                                      </div>
+                                      <div class="slide_list">
+                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
+                                          <h4>ATM「靠臉」就能領錢　台新</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
+                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                      </div>
+                                    </div>
                                   </div>
-                                  <div class="swiper-slide" style="background-image: url(../img/component/photo3.jpg);"> 
-                                    <a href="#" title="新聞">
-                                        <div  class="ani word shadow_text" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s">跨年4天連假玩翻台北　#Party101之夜看煙火</div>
-                                    </a>
+                                  <div class="swiper-slide" "> 
+                                    <div class="slide_div">
+                                      <div class="slide_img">
+                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
+                                      </div>
+                                      <div class="slide_list">
+                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
+                                          <h4>ATM「靠臉」就能領錢　台新</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
+                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                      </div>
+                                    </div>
                                   </div>
                               </div>
                               <!-- 如果需要分页器 -->
                               <div class="swiper-pagination"></div>
-                              
-                              <!-- 如果需要导航按钮 -->
-                              <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
-                              <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
-                              
-                          </div>
 
+                          </div>
                       </div>
+                      <!-- 四小三大輪播 END -->
                   
                   </div>
 
@@ -617,51 +682,153 @@
                     <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">
                            <div class="title_tab hole">
-                               <h4>熱門辦卡 </h4>
+                               <h4>熱門情報</h4>
                                <span>謹慎理財 信用至上</span>
                            </div>
                            <div class="content_tab">
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                   <a class="img_a" href="#">
-                                     <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                   </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
+                                <!-- 熱門情報輪播 -->
+                            <div class="swiper-container HotNews_slide">
+                                <div class="swiper-wrapper">
 
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                   <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                   <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
+                                    <div class="swiper-slide" > 
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                          <a class="img_a" href="#">
+                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                          </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
 
-                               <div class="row no-gutters">
-                                 <div  class="col-5">
-                                  <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                         <a class="img_a" href="#">
+                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                          <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div  class="col-5">
+                                         <a class="img_a" href="#">
+                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="swiper-slide" > 
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                          <a class="img_a" href="#">
+                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                          </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                         <a class="img_a" href="#">
+                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                          <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div  class="col-5">
+                                         <a class="img_a" href="#">
+                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="swiper-slide" > 
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                          <a class="img_a" href="#">
+                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                          </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                         <a class="img_a" href="#">
+                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                          <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div  class="col-5">
+                                         <a class="img_a" href="#">
+                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 如果需要导航按钮 -->
+                                <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                                
+                            </div>
+                            <!-- 熱門情報輪播 END -->
                            </div>
                        </div>
                     </div>

@@ -64,16 +64,16 @@
                   <!--特別議題-->
                     <div class="col-md-12 col">
 
-                        <div class="cardshap darkpurple_tab ">
+                        <div class="cardshap darkpurple_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link active pl-30 py-2" id="title_5-tab" data-toggle="tab" href="#title_5" role="tab" aria-controls="title_5" aria-selected="true">新卡人氣排行</a>
+                            <a class="nav-link active pl-30 py-2" id="title_5-tab" href="javascript:;" tab-target="#title_5" aria-selected="true">新卡人氣排行</a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link py-2" id="title_6-tab" data-toggle="tab" href="#title_6" role="tab" aria-controls="title_6" aria-selected="false">辦卡人氣排行</a>
+                            <a class="nav-link py-2" id="title_6-tab" href="javascript:;" tab-target="#title_6" aria-selected="false">辦卡人氣排行</a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link py-2" id="title_7-tab" data-toggle="tab" href="#title_7" role="tab" aria-controls="title_7" aria-selected="false">點閱人氣排行</a>
+                            <a class="nav-link py-2" id="title_7-tab" href="javascript:;" tab-target="#title_7" aria-selected="false">點閱人氣排行</a>
                           </li>
                           
                         </ul>
@@ -81,11 +81,7 @@
                           <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
 
                                 <!--信用卡推薦-->
-                    
 
-                       
-                       
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters mx-2 py-3 bankbg_list">
 
@@ -187,11 +183,6 @@
                               </div>
                             </div>
 
-
-
-
-                           
-                          </div>
                          
                         
                       
@@ -200,10 +191,6 @@
                      <!--廣告-->
                     <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
                          
-                    
-
-                       
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters mx-2 py-3 bankbg_list">
 
@@ -298,24 +285,12 @@
                               </div>
                             </div>
 
-
-
-
-                           
-                          </div>
-                         
-                        
-                      
                     
                     <!--信用卡推薦end -->
                      <!--廣告-->
                     <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
                           
                   
-
-                      
-                        
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters mx-2 py-3 bankbg_list">
 
@@ -443,23 +418,11 @@
                             </div>
 
 
-
-
-                           
-                          </div>
-                         
-                        
-                      
                    
                     <!--信用卡推薦end -->
                           </div>
                           <div class="tab-pane fade" id="title_6" role="tabpanel" aria-labelledby="title_6-tab">
                            <!--信用卡推薦-->
-                    
-
-                       
-                        
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters mx-2 py-3 bankbg_list">
                               <div class="col-md-1 hv-center popular_prize">
@@ -472,8 +435,9 @@
 
                               <div class="col-md-4 text-center">
                                 <a class="popular_list_img" href="#">
-                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
+                               
                               </div>
                               <div class="col-md-4 card_list_txt">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>
@@ -487,12 +451,11 @@
                               </div>
                               <div class="col-md-3 hv-center">
                                 <div class="rank_btn">
-                                  <button type="button" class="btn btn-orange">立即辦卡</button>
-                                  <button type="button" class="btn btn-gray">加入比較</button>
-                                </div>
+                                        <button type="button" class="btn btn-orange">立即辦卡</button>
+                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                    </div>
                               </div>
                             </div>
-
 
                             <div class="row no-gutters mx-2 py-3 bankbg_list">
                               <div class="col-md-1 hv-center popular_prize">
@@ -527,6 +490,7 @@
                               </div>
                             </div>
 
+                            
                             <div class="row no-gutters mx-2 py-3 bankbg_list">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span>
@@ -538,9 +502,8 @@
 
                               <div class="col-md-4 text-center">
                                 <a class="popular_list_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
-                               
                               </div>
                               <div class="col-md-4 card_list_txt">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>
@@ -554,18 +517,13 @@
                               </div>
                               <div class="col-md-3 hv-center">
                                 <div class="rank_btn">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
-                                    </div>
+                                  <button type="button" class="btn btn-orange">立即辦卡</button>
+                                  <button type="button" class="btn btn-gray">加入比較</button>
+                                </div>
                               </div>
                             </div>
 
 
-
-
-                           
-                          </div>
-                         
                        
                       
                     
@@ -573,10 +531,6 @@
                     <!--廣告-->
                     <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
                          
-                    
-
-                        
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters mx-2 py-3 bankbg_list">
                               <div class="col-md-1 hv-center popular_prize">
@@ -673,14 +627,6 @@
                                     </div>
                               </div>
                             </div>
-
-
-
-
-                           
-                          </div>
-                         
-                        
                       
                     
                     <!--信用卡推薦end -->
@@ -688,10 +634,6 @@
                     <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
                           
                     
-
-                      
-                        
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters mx-2 py-3 bankbg_list">
                               <div class="col-md-1 hv-center popular_prize">
@@ -822,13 +764,6 @@
                               </div>
                             </div>
 
-
-
-
-                           
-                          </div>
-                         
-                        
                       
                     
                     <!--信用卡推薦end -->
@@ -838,49 +773,11 @@
                           <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
                               <!--信用卡推薦-->
                     
-
-                       
-                       
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
-
                             <div class="row no-gutters mx-2 py-3 bankbg_list">
                                <div class="col-md-1 hv-center popular_prize">
                                    <span>
                                     <img src="../img/component/cardNews/crown.png">
                                     <h1 class=" hv-center mb-0">1</h1>
-                                   </span>
-                              </div>
-
-
-                              <div class="col-md-4 text-center">
-                                <a class="popular_list_img" href="#">
-                                  <img src="../img/component/card1.png" alt="" title="新聞">
-                                </a>
-                              </div>
-                              <div class="col-md-4 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-3 hv-center">
-                                <div class="rank_btn">
-                                  <button type="button" class="btn btn-orange">立即辦卡</button>
-                                  <button type="button" class="btn btn-gray">加入比較</button>
-                                </div>
-                              </div>
-                            </div>
-
-
-                            <div class="row no-gutters mx-2 py-3 bankbg_list">
-                               <div class="col-md-1 hv-center popular_prize">
-                                   <span>
-                                    <img src="../img/component/cardNews/crown.png">
-                                    <h1 class=" hv-center mb-0">2</h1>
                                    </span>
                               </div>
 
@@ -909,11 +806,12 @@
                               </div>
                             </div>
 
+
                             <div class="row no-gutters mx-2 py-3 bankbg_list">
                                <div class="col-md-1 hv-center popular_prize">
                                    <span>
                                     <img src="../img/component/cardNews/crown.png">
-                                    <h1 class=" hv-center mb-0">3</h1>
+                                    <h1 class=" hv-center mb-0">2</h1>
                                    </span>
                               </div>
 
@@ -941,15 +839,41 @@
                                     </div>
                               </div>
                             </div>
+                       
+
+                            <div class="row no-gutters mx-2 py-3 bankbg_list">
+                               <div class="col-md-1 hv-center popular_prize">
+                                   <span>
+                                    <img src="../img/component/cardNews/crown.png">
+                                    <h1 class=" hv-center mb-0">3</h1>
+                                   </span>
+                              </div>
 
 
+                              <div class="col-md-4 text-center">
+                                <a class="popular_list_img" href="#">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                </a>
+                              </div>
+                              <div class="col-md-4 card_list_txt">
+                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                <ul>
+                                  <li>國內現金回饋1.22%</li>
+                                  <li>國外現金回饋2.22%</li>
+                                  <li>感應式刷卡快速結帳</li>
+                                  <li>高額旅遊平安險</li>
+                                  <li>華航機票優惠</li>
+                                </ul>
+                              </div>
+                              <div class="col-md-3 hv-center">
+                                <div class="rank_btn">
+                                  <button type="button" class="btn btn-orange">立即辦卡</button>
+                                  <button type="button" class="btn btn-gray">加入比較</button>
+                                </div>
+                              </div>
+                            </div>
 
 
-                           
-                          </div>
-                         
-                        
-                      
                     
                     <!--信用卡推薦end -->
                     <!--廣告-->
@@ -957,8 +881,6 @@
                          
                     
 
-                       
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters mx-2 py-3 bankbg_list">
                                <div class="col-md-1 hv-center popular_prize">
@@ -1058,10 +980,6 @@
 
 
 
-
-                           
-                          </div>
-                         
                         
                       
                    
@@ -1071,9 +989,6 @@
                           
                     
 
-                      
-                      
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters mx-2 py-3 bankbg_list">
                                <div class="col-md-1 hv-center popular_prize">
@@ -1206,11 +1121,6 @@
 
 
 
-
-                           
-                          </div>
-                         
-                        
                       
                    
                     <!--信用卡推薦end -->

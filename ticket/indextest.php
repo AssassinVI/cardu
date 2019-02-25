@@ -155,7 +155,7 @@
                   </div>
 
                     <!--廣告-->
-                    <div class="col-md-12 col"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
+                    <div class="col-md-12 col banner"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
                     
                    <!--特別議題-->
                     <div class="col-md-12 col">
@@ -172,32 +172,32 @@
                           <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
 
                             <div class="row no-gutters ticket_card">
-                                <div class="col-md-3 cards-4 col-6 pb-3">
-                                  <div class="cardshap ticket_img hv-center py-md-2">
+                                <div class="col-md-3 cards-4 col-6 py-2">
+                                  <div class="cardshap ticket_img hv-center">
                                   <a href="#" title="悠遊卡">
                                     <img src="../img/component/ticket/easycard.png">
                                     <h4>悠遊卡</h4>
                                   </a>
                                 </div>
                                 </div>
-                                <div class="col-md-3 cards-4 col-6 pb-3">
-                                  <div class="cardshap ticket_img hv-center py-md-2">
+                                <div class="col-md-3 cards-4 col-6 py-2">
+                                  <div class="cardshap ticket_img hv-center">
                                   <a href="#" title="一卡通">
                                     <img src="../img/component/ticket/IPass.png">
                                     <h4>一卡通</h4>
                                   </a>
                                 </div>
                                 </div>
-                                <div class="col-md-3 cards-4 col-6 pb-3">
-                                  <div class="cardshap ticket_img hv-center py-md-2">
+                                <div class="col-md-3 cards-4 col-6 py-2">
+                                  <div class="cardshap ticket_img hv-center">
                                   <a href="#" title="iCash">
                                     <img src="../img/component/ticket/icash.png">
                                     <h4>iCash</h4>
                                   </a>
                                 </div>
                                 </div>
-                                <div class="col-md-3 cards-4 col-6 pb-3">
-                                   <div class="cardshap ticket_img hv-center py-md-2">
+                                <div class="col-md-3 cards-4 col-6 py-2">
+                                   <div class="cardshap ticket_img hv-center">
                                   <a href="#" title="Happy Cash">
                                     <img src="../img/component/ticket/happycash.png">
                                     <h4>Happy Cash</h4>
@@ -807,7 +807,7 @@
                            <div class="title_tab hole">
                                <h4>優票證</h4>
                            </div>
-                        <div class="tab-content ccard_back" id="myTabContent">
+                        <div style="background-image: url(../img/component/t_card.png);" class="tab-content ccard_back" id="myTabContent">
                           <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">
                             <form class="row search_from">
 

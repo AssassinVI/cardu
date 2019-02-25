@@ -72,7 +72,7 @@
                       <div class="cardshap ">
                         <div class="pt-3 detail_title">
                          <div class="col-md-12 col">
-                            <div class="row ticketbg2">
+                            <div style="background-image: url(../img/component/pinkabout_bg.jpg);" class="row ticketbg2">
                              
                               <div class="col-md-7 col">
                               <h1>悠遊卡</h1>

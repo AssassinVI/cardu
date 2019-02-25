@@ -193,7 +193,7 @@
                            <div class="cardshap point-4">
                              <a href="#" title="點數平台">
                               <div>
-                               <i class="fa fa-database"></i>
+                               <img src="../img/component/icon/point.png">
                                </div>
                              <h1>點數平台</h1>
                              
@@ -205,7 +205,7 @@
                           <div class="cardshap point-4">
                             <a href="#" title="點數店家">
                            <div>
-                              <i class="fa fa-font-awesome"></i>
+                              <img src="../img/component/icon/point_2.png">
                             </div>
                             <h1>集點店家</h1>
                            

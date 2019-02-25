@@ -65,87 +65,104 @@
 
                   <div class="col-md-12 col">
                   
-                      <div class="myCarousel">
-                          <div class="news_live cardshap">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide img_div" pagination-index="1" style="background-image: url(../img/component/slide_photo1.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >新光三越週慶強強滾　首日6店業績逾14.9億</div>
-                                      </a>
+                      <!-- 四小三大輪播 -->
+                      <div id="new_iNews" class="cardshap new_slide">
+                          <div class="swiper-container">
+                              <div class="swiper-wrapper">
+                                  <div class="swiper-slide" > 
+
+                                    <div class="slide_div">
+                                      <div class="slide_img">
+                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
+                                      </div>
+                                      <div class="slide_list">
+                                        <a class="active" href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
+                                          <h4>ATM「靠臉」就能領錢　台新</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
+                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                      </div>
                                     </div>
-                                    <div class="swiper-slide img_div" pagination-index="2" style="background-image: url(../img/component/slide_photo2.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >ATM「靠臉」就能領錢　台新內湖分行首上線</div>
-                                      </a>
+                                    
+                                  </div>
+                                  <div class="swiper-slide" "> 
+                                    <div class="slide_div">
+                                      <div class="slide_img">
+                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
+                                      </div>
+                                      <div class="slide_list">
+                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
+                                          <h4>ATM「靠臉」就能領錢　台新</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
+                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                      </div>
                                     </div>
-                                    <div class="swiper-slide img_div" pagination-index="3" style="background-image: url(../img/component/slide_photo3.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
-                                      </a>
+                                  </div>
+                                  <div class="swiper-slide" "> 
+                                    <div class="slide_div">
+                                      <div class="slide_img">
+                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
+                                      </div>
+                                      <div class="slide_list">
+                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
+                                          <h4>ATM「靠臉」就能領錢　台新</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
+                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                      </div>
                                     </div>
-                                    <div class="swiper-slide img_div" pagination-index="4" style="background-image: url(../img/component/U20181204080844.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide img_div" pagination-index="5" style="background-image: url(../img/component/U20181212084227.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
-                                      </a>
-                                    </div>
-                                </div>
-                                
-                            </div>
+                                  </div>
+                              </div>
+                              <!-- 如果需要分页器 -->
+                              <div class="swiper-pagination"></div>
 
                           </div>
-                          <div class="slide_pagination">
-
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                   <div class="swiper-slide" pagination-index="1"> 
-                                      <a href="javascript:;"  class="cardshap" title="新聞">
-                                          <img src="../img/component/slide_photo1.jpg" alt="">
-                                          <div  class="word" >新光三越週慶強強滾...</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide" pagination-index="2"> 
-                                      <a href="javascript:;"  class="cardshap" title="新聞">
-                                          <img src="../img/component/slide_photo2.jpg" alt="">
-                                          <div  class="word" >ATM「靠臉」就能...</div>
-                                      </a>
-                                    </div>
-                                   <div class="swiper-slide" pagination-index="3"> 
-                                      <a href="javascript:;" class="cardshap" title="新聞">
-                                          <img src="../img/component/slide_photo3.jpg" alt="">
-                                          <div  class="word" >跨年4天連假...</div>
-                                      </a>
-                                    </div>  
-                                    <div class="swiper-slide" pagination-index="4"> 
-                                      <a href="javascript:;"  class="cardshap" title="新聞">
-                                          <img src="../img/component/U20181204080844.jpg" alt="">
-                                          <div  class="word" >ATM「靠臉」就能...</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide" pagination-index="5"> 
-                                      <a href="javascript:;"  class="cardshap" title="新聞">
-                                          <img src="../img/component/U20181212084227.jpg" alt="">
-                                          <div  class="word" >ATM「靠臉」就能...</div>
-                                      </a>
-                                    </div>
-
-                                </div>
-                                
-                            </div>
-
-                            <!-- 如果需要导航按钮 -->
-                            <div class="green_tab">
-                              <div class="swiper-button-prev  title_tab"><i class=" fa fa-angle-down"></i></div>
-                              <div class="swiper-button-next  title_tab"><i class=" fa fa-angle-up"></i></div>
-                            </div>
-
-                           </div>
                       </div>
+                      <!-- 四小三大輪播 END -->
+                  
                   
                   </div>
 

@@ -64,16 +64,16 @@
                   <!--特別議題-->
                     <div class="col-md-12 col">
 
-                        <div class="cardshap darkpurple_tab ">
+                        <div class="cardshap darkpurple_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link active pl-30 py-2" id="title_5-tab" data-toggle="tab" href="#title_5" role="tab" aria-controls="title_5" aria-selected="true">新手快搜</a>
+                            <a class="nav-link active pl-30 py-2" id="title_5-tab" href="javascript:;" tab-target="#title_5" aria-selected="true">新手快搜</a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link py-2" id="title_6-tab" data-toggle="tab" href="#title_6" role="tab" aria-controls="title_6" aria-selected="false">卡片比一比</a>
+                            <a class="nav-link py-2" id="title_6-tab" href="javascript:;" tab-target="#title_6" aria-selected="false">卡片比一比</a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link py-2" id="title_7-tab" data-toggle="tab" href="#title_7" role="tab" aria-controls="title_7" aria-selected="false">權益比一比</a>
+                            <a class="nav-link py-2" id="title_7-tab" href="javascript:;" tab-target="#title_7" aria-selected="false">權益比一比</a>
                           </li>
                           
                         </ul>
@@ -84,10 +84,6 @@
                     <div class="col-md-12 col">
 
                        
-                        
-                        
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
-                           
                             <div class="ranksearch_list">
                              <p>我們依您所偏好的信用卡優惠及用途，推薦適合的信用卡</p>
                              <h6>1.信用卡優惠(可複選)</h6>
@@ -120,11 +116,7 @@
                              <div class="col-md-12 col hv-center">
                                 <a class="rank_button" href="search_detail.php">開始找卡</a>
                             </div>
-                            
-                            
 
-                        </div>
-                      
                     </div>
                     <!--信用卡推薦end -->
                            
