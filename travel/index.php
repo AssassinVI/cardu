@@ -323,36 +323,38 @@
                             <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
                                 <div class="row no-gutters">
                                     <div class="col-3 cards-3 travel_share">
-                                        <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                       <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                   </a>
-                                    </div>
-                                    <div class="col-3 cards-3 travel_share">
-                                        <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                       <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
+                                       <a href="#">
+                                         <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                         </div>
+                                         <h6>遊日血拚大回饋，信用卡大調查</h6>
                                        </a>
+                                       <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
                                     </div>
                                     <div class="col-3 cards-3 travel_share">
-                                        <a href="#">
+                                      <a href="#">
                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <h6>遊日血拚大回饋，信用卡大調查</h6>
+                                      </a>
                                        <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                   </a>
                                     </div>
                                     <div class="col-3 cards-3 travel_share">
-                                        <a href="#">
+                                      <a href="#">
                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <h6>遊日血拚大回饋，信用卡大調查</h6>
+                                       
+                                      </a>
+                                      <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
+                                    </div>
+                                    <div class="col-3 cards-3 travel_share">
+                                       <a href="#">
+                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                        </div>
+                                        <h6>遊日血拚大回饋，信用卡大調查</h6>
+                                       
+                                       </a>
                                        <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                   </a>
                                     </div>
                                 </div>
                             </div>
@@ -371,37 +373,40 @@
                             <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
                                 <div class="row no-gutters">
                                     <div class="col-3 cards-3 travel_share">
-                                        <a href="#">
+                                      <a href="#">
                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        
                                        <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                       <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                   </a>
+                                      </a>
+                                      <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
                                     </div>
                                     <div class="col-3 cards-3 travel_share">
-                                        <a href="#">
+                                      <a href="#">
                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                       <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                   </a>
+                                       
+                                      </a>
+                                      <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
                                     </div>
                                     <div class="col-3 cards-3 travel_share">
-                                        <a href="#">
+                                      <a href="#">
                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                       <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                   </a>
+                                       
+                                      </a>
+                                      <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
                                     </div>
                                     <div class="col-3 cards-3 travel_share">
-                                        <a href="#">
+                                      <a href="#">
                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                       <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                   </a>
+                                       
+                                      </a>
+                                      <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
                                     </div>
                                 </div>
                             </div>
@@ -417,22 +422,22 @@
                                 <a class="more_link" href="Swipe_second.php"></a>
                             </div>
                             <div class="content_tab">
-                                <div class="row hv-center">
+
+                                  <div class=" travel_main">
+                                    <a class="img_b" href="#">
+                                     <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/U20181204080844.jpg);"></div>
+                                     <h6>信用卡海外回饋尬車　花旗2.68%訂房折</h6>
+                                   </a>
+                                 </div>
+
+
                                   <div class="travel_main">
                                     <a class="img_b" href="#">
                                      <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/U20181204080844.jpg);"></div>
+                                     <h6>信用卡海外回饋尬車　花旗2.68%訂房折</h6>
                                    </a>
-                                   <a><h6>信用卡海外回饋尬車　花旗2.68%訂房折</h6></a>
                                  </div>
-                                </div>
-                               <div class="row hv-center">
-                                  <div class="travel_main">
-                                    <a class="img_b" href="#">
-                                     <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/U20181204080844.jpg);"></div>
-                                   </a>
-                                   <a><h6>信用卡海外回饋尬車　花旗2.68%訂房折</h6></a>
-                                 </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -450,8 +455,8 @@
                                     <div class="travel_sort">
                                     <a class="img_c" href="#">
                                       <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                   </a>
-                                  <a><h6>AirAsia 2/1直飛</h6></a>
+                                      <h6>AirAsia 2/1直飛</h6>
+                                    </a>
                                     </div>
                                   </div>
                                 
@@ -459,8 +464,9 @@
                                     <div class="travel_sort">
                                     <a class="img_c" href="#">
                                       <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                      <h6>AirAsia 2/1直飛</h6>
                                    </a>
-                                  <a><h6>AirAsia 2/1直飛</h6></a>
+                                  
                                     </div>
                                   </div>
                                   <hr>
@@ -468,16 +474,18 @@
                                     <div class="travel_sort">
                                     <a class="img_c" href="#">
                                       <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                      <h6>AirAsia 2/1直飛</h6>
                                    </a>
-                                  <a><h6>AirAsia 2/1直飛</h6></a>
+                                  
                                     </div>
                                   </div>
                                 <div class="col-6">
                                     <div class="travel_sort">
                                     <a class="img_c" href="#">
                                       <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                      <h6>AirAsia 2/1直飛</h6>
                                    </a>
-                                  <a><h6>AirAsia 2/1直飛</h6></a>
+                                  
                                     </div>
                                   </div>
                                   <hr>
@@ -485,8 +493,9 @@
                                     <div class="travel_sort">
                                     <a class="img_c" href="#">
                                       <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                      <h6>AirAsia 2/1直飛</h6>
                                    </a>
-                                  <a><h6>AirAsia 2/1直飛</h6></a>
+                                  
                                     </div>
                                   </div>
                                 
@@ -494,8 +503,9 @@
                                     <div class="travel_sort">
                                     <a class="img_c" href="#">
                                       <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                      <h6>AirAsia 2/1直飛</h6>
                                    </a>
-                                  <a><h6>AirAsia 2/1直飛</h6></a>
+                                  
                                     </div>
                                   </div>
 

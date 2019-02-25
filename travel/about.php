@@ -274,21 +274,25 @@
                                    <a href="#">
                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
+                                      <div class="travel_text col">
+                                        <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
+                                        <hr>
+                                        <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                                      </div>
                                    </a>
-                                   <div class="travel_text col">
-                                   <a><h6>旅行社代退訂爭議多　消保處提醒4點要</h6></a>
-                                   <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
-                                   </div>
+                                   
                                 </div>
                                 <div class="col-6 cards-2">
                                    <a href="#">
                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
+                                       <div class="travel_text col">
+                                        <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
+                                        <hr>
+                                        <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                                      </div>
                                    </a>
-                                    <div class="travel_text col">
-                                   <a><h6>旅行社代退訂爭議多　消保處提醒4點要</h6></a>
-                                   <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
-                                   </div>
+                                    
                                 </div>
                                 
                             </div>
@@ -321,21 +325,25 @@
                                    <a href="#">
                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
+                                      <div class="travel_text col">
+                                        <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
+                                        <hr>
+                                        <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                                      </div>
                                    </a>
-                                   <div class="travel_text col">
-                                   <a><h6>旅行社代退訂爭議多　消保處提醒4點要</h6></a>
-                                   <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
-                                   </div>
+                                   
                                 </div>
                                 <div class="col-6 cards-2">
                                    <a href="#">
                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
+                                       <div class="travel_text col">
+                                        <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
+                                        <hr>
+                                        <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                                      </div>
                                    </a>
-                                    <div class="travel_text col">
-                                   <a><h6>旅行社代退訂爭議多　消保處提醒4點要</h6></a>
-                                   <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
-                                   </div>
+                                    
                                 </div>
                                 
                             </div>
@@ -367,21 +375,25 @@
                                    <a href="#">
                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
+                                      <div class="travel_text col">
+                                        <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
+                                        <hr>
+                                        <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                                      </div>
                                    </a>
-                                   <div class="travel_text col">
-                                   <a><h6>旅行社代退訂爭議多　消保處提醒4點要</h6></a>
-                                   <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
-                                   </div>
+                                   
                                 </div>
                                 <div class="col-6 cards-2">
                                    <a href="#">
                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
+                                       <div class="travel_text col">
+                                        <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
+                                        <hr>
+                                        <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                                      </div>
                                    </a>
-                                    <div class="travel_text col">
-                                   <a><h6>旅行社代退訂爭議多　消保處提醒4點要</h6></a>
-                                   <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
-                                   </div>
+                                    
                                 </div>
                                 
                             </div>
