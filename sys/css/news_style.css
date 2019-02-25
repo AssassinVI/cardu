@@ -1,0 +1,22 @@
+.news_div{ width: 750px; margin:auto; }
+.news_div h2{  font-weight: 600; color: #3c4f97; font-size: 26px; }
+.news_div p{ font-size: 1.5rem; }
+.news_div .img_div{ padding: 5px; border-bottom: 1px solid #e9e9e9; }
+.second_div{     margin: 1.5rem 0; }
+.second_div h4{ font-weight: 500; font-size: 2rem; margin:5px 0;}
+.second_div p{ margin:0; }
+.img_div img{ width: 100%; }
+.img_div p, p .img_div p{ margin: 5px 0 0 0; font-size: 13px; }
+.txt_div { margin: 2rem 0; }
+.txt_div p{ font-size: 18px; letter-spacing: 1px; line-height: 1.7; margin: 2rem 0; text-align: justify;}
+.remark_p{ margin:2rem 0; }
+
+.news_info{ padding: 10px; border: 2px dashed #9b4e4e; }
+.news_info p{ margin:0; } 
+
+.Warning_txt{ font-size: 20px; color: #824040; }
+
+.store_logo{ width: 80px; }
+.bank_logo{ width: 30px; }
+
+.over-85{ overflow: auto; height: 88vh; }

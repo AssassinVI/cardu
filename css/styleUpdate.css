@@ -1,0 +1,250 @@
+/*-- 各版區被景色 --*/
+.index_body{
+  background-color: #efefef;
+}
+.news_body{
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f2f4ff+0,eeedee+100 */
+background: rgb(242,244,255); /* Old browsers */
+/*background: -moz-linear-gradient(top, rgba(242,244,255,1) 0%, rgba(238,237,238,1) 100%); 
+background: -webkit-linear-gradient(top, rgba(242,244,255,1) 0%,rgba(238,237,238,1) 100%); 
+background: linear-gradient(to bottom, rgba(242,244,255,1) 0%,rgba(238,237,238,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f4ff', endColorstr='#eeedee',GradientType=0 ); */
+}
+.rank_body{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f5efff+19,eeedee+100 */
+    background: rgb(245,239,255); /* Old browsers */
+/*    background: -moz-linear-gradient(top, rgba(245,239,255,1) 19%, rgba(238,237,238,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(245,239,255,1) 19%,rgba(238,237,238,1) 100%); 
+    background: linear-gradient(to bottom, rgba(245,239,255,1) 19%,rgba(238,237,238,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5efff', endColorstr='#eeedee',GradientType=0 ); */
+}
+.cardNews_body{
+ /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#faf5e6+0,fffaed+47,eeedee+100 */
+ background: rgb(250,245,230); /* Old browsers */
+/* background: -moz-linear-gradient(top, rgba(250,245,230,1) 0%, rgba(255,250,237,1) 47%, rgba(238,237,238,1) 100%); 
+ background: -webkit-linear-gradient(top, rgba(250,245,230,1) 0%,rgba(255,250,237,1) 47%,rgba(238,237,238,1) 100%); 
+ background: linear-gradient(to bottom, rgba(250,245,230,1) 0%,rgba(255,250,237,1) 47%,rgba(238,237,238,1) 100%); 
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faf5e6', endColorstr='#eeedee',GradientType=0 ); */
+}
+.pay_body{
+ /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f0feff+0,efeeef+100 */
+ 	background: rgb(240,254,255); /* Old browsers */
+ 	/*background: -moz-linear-gradient(top, rgba(240,254,255,1) 0%, rgba(239,238,239,1) 100%); 
+ 	background: -webkit-linear-gradient(top, rgba(240,254,255,1) 0%,rgba(239,238,239,1) 100%); 
+ 	background: linear-gradient(to bottom, rgba(240,254,255,1) 0%,rgba(239,238,239,1) 100%); 
+ 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0feff', endColorstr='#efeeef',GradientType=0 ); */
+}
+
+.ticket_body{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fff2f5+0,efeeef+100 */
+background: rgb(255,242,245); /* Old browsers */
+/*background: -moz-linear-gradient(top, rgba(255,242,245,1) 0%, rgba(239,238,239,1) 100%); 
+background: -webkit-linear-gradient(top, rgba(255,242,245,1) 0%,rgba(239,238,239,1) 100%); 
+background: linear-gradient(to bottom, rgba(255,242,245,1) 0%,rgba(239,238,239,1) 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff2f5', endColorstr='#efeeef',GradientType=0 ); */
+}
+.point_body{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fff3ef+0,efeeef+100 */
+background: rgb(255,243,239); /* Old browsers */
+/*background: -moz-linear-gradient(top, rgba(255,243,239,1) 0%, rgba(239,238,239,1) 100%); 
+background: -webkit-linear-gradient(top, rgba(255,243,239,1) 0%,rgba(239,238,239,1) 100%); 
+background: linear-gradient(to bottom, rgba(255,243,239,1) 0%,rgba(239,238,239,1) 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff3ef', endColorstr='#efeeef',GradientType=0 ); */
+}
+.travel_body{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f0fbe7+0,efeeef+100 */
+background: rgb(240,251,231); /* Old browsers */
+/*background: -moz-linear-gradient(top, rgba(240,251,231,1) 0%, rgba(239,238,239,1) 100%); 
+background: -webkit-linear-gradient(top, rgba(240,251,231,1) 0%,rgba(239,238,239,1) 100%); 
+background: linear-gradient(to bottom, rgba(240,251,231,1) 0%,rgba(239,238,239,1) 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', endColorstr='#efeeef',GradientType=0 ); */
+}
+
+/*-- 通用 --*/
+.w-100{ width: 100%; }
+.v-center{
+    display: flex; 
+    align-items: center;
+}
+
+/*-- 右邊div --*/
+.index-content-right.move{ position: absolute;}
+
+/*-- 搜尋按鈕 --*/
+.search_box .search_box_btn{ padding: 5px 35px; }
+
+/*-- 卡情報-單卡-重要權益 --*/
+.imp_int_title{ background-color: #ccc; padding: 7px; }
+.imp_int{  }
+.imp_int .card-header{ padding: 12px 6px; height: 130px;}
+.imp_int .card-header .angle_down{ font-size: 40px; color: #7e7e7e; }
+.imp_int .collapse_txt{ font-size: 14px; color: #9b9b9b; }
+
+
+/*--------------------------------- 一大三小NEWS(輪播) ----------------------------------*/
+.myCarousel .news_live{
+  width:580px;
+  height: 390px;
+  display: inline-block;
+}
+
+.myCarousel .news_live img{
+  width:100%;
+}
+
+.myCarousel .news_live .swiper-container{
+  height: 100%;
+}
+
+.myCarousel .news_live a{ display: block; width: 100%; height: 100%; }
+
+.myCarousel .news_live .word {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    top: 331px;
+    left: 0;
+    z-index: 69;
+    background-color: rgba(0,0,0,0.40);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 0 0 30px;
+}
+
+.myCarousel .news_live .swiper-button-next, .myCarousel .news_live .swiper-container-rtl .swiper-button-prev {
+    height: 100%;
+    width: 45px;
+    right: -7%;
+    top: 6%;
+}
+
+.myCarousel .news_live .swiper-button-prev, .myCarousel .news_live .swiper-container-rtl .swiper-button-next {
+    height: 100%;
+    width: 45px;
+    left: -7%;
+    top: 6%;
+}
+
+.myCarousel .news_live .swiper-button-prev i, .myCarousel .news_live .swiper-button-next i {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #6a6a6a;
+    line-height: 2.2rem;
+    border-radius: 50px;
+}
+
+.slide_pagination{position: relative; display: inline-block; vertical-align: top; margin-top: 28px; margin-left: 5px;}
+.slide_pagination .cardshap{ background: none; border-radius: 10px 0 10px 0;}
+.slide_pagination .swiper-container{ width: 158px; height: 340px; }
+.slide_pagination .swiper-container .swiper-slide a{ display: block; position: relative; }
+.slide_pagination .swiper-container .swiper-slide .word{ color: #333; font-size: 14px; width: 100%; background-color: #fff; position: absolute; bottom: 0; }
+.slide_pagination .swiper-container .swiper-slide img{ width: 100%; }
+.slide_pagination .swiper-button-prev, .slide_pagination .swiper-button-next{  width: 100%; left: 0; font-size: 25px;  height: 25px; border-radius: 3px;}
+.slide_pagination .swiper-button-next, .swiper-container-rtl .swiper-button-prev{ top: -6px; }
+.slide_pagination .swiper-button-prev, .swiper-container-rtl .swiper-button-next{ top: auto; bottom: -23px; }
+
+
+/*------------------------------------ 新輪播 ------------------------------------------*/
+  #new_iNews{ height: 335px; overflow: hidden; position: relative; }
+
+  .new_slide{ position: relative; height: 100%; background: none;}
+  .new_slide .swiper-container{
+      height: 100%;
+  }
+
+
+  .new_slide .swiper-slide a{
+      display: block;
+  }
+
+  .new_slide .swiper-button-prev, .new_slide .swiper-container-rtl .swiper-button-next{
+         
+         color: #fff;
+         width: 45px;
+         height: 45px;
+         left: -7%;
+         top: 44%;
+  }
+
+  .new_slide .swiper-button-next, .new_slide .swiper-container-rtl .swiper-button-prev{
+       
+       color: #fff;
+       width: 45px;
+       height: 45px;
+       right: -7%;
+       top: 44%;
+  }
+
+  .new_slide .swiper-button-next.swiper-button-disabled, .new_slide .swiper-button-prev.swiper-button-disabled{
+     opacity: 0.4;
+  }
+
+  .new_slide .swiper-container-horizontal>.swiper-pagination-bullets{
+    bottom: 0%;
+    text-align: left;
+  }
+
+  .new_slide .swiper-pagination-bullet{
+    width: 15px;
+    height: 15px;
+    background: #333;
+    opacity: .4;
+  }
+
+  .new_slide .swiper-pagination-bullet-active{
+    background: #273e8e;
+    opacity: 0.9;
+  }
+
+  .new_slide .swiper-slide .word{
+    position: absolute;
+    bottom: 0;
+    font-size: 23px;
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    padding: 0.5rem 0rem;
+    text-align: center;
+  }
+  
+  .new_slide .slide_div{ display: flex; }
+  .new_slide .slide_div .slide_img { display: inline-block; width: 450px; height: 300px;}
+  .new_slide .slide_div .slide_img a{display: none; width: 100%; height: 100%; }
+  .new_slide .slide_div .slide_img a.active{ display: block; }
+  .new_slide .slide_div .slide_list{ display: inline-block; width: 300px; background-color: #fff; }
+  .new_slide .slide_div .slide_list a{ padding: 14px 15px;}
+  .new_slide .slide_div .slide_list a.active{ background-color: #e9e9e9; }
+  .new_slide .slide_div .slide_list a h4{ font-size: 17px; font-weight: 600; color: #304594; }
+  .new_slide .slide_div .slide_list a p{ color: #333;  font-size: 13px;  margin: 0; }
+
+  /*---------------- 熱門情報 -----------------*/
+
+.HotNews_slide .swiper-button-prev i, .HotNews_slide .swiper-button-next i{
+   width: 35px;
+   height: 35px;
+   text-align: center;
+   background-color: rgba(255, 255, 255, 0.5);
+   color: #6a6a6a;
+   line-height: 2.2rem;
+   border-radius: 50px;
+}
+
+.HotNews_slide .swiper-button-prev, .HotNews_slide .swiper-container-rtl .swiper-button-next{
+       height: 100%;
+       width: 45px;
+       left: -15%;
+       top: 6%;
+}
+
+.HotNews_slide .swiper-button-next, .HotNews_slide .swiper-container-rtl .swiper-button-prev{
+      height: 100%;
+      width: 45px;
+     right: -15%;
+     top: 6%;
+}
+
+/*---------------- 熱門情報 END -----------------*/

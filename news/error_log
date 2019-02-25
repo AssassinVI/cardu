@@ -1,0 +1,5 @@
+[15-Feb-2019 14:36:09 Asia/Taipei] PHP Fatal error:  Call to undefined function wp_is_mobile() in /home/srltw/public_html/cardu/news/second.php on line 34
+[15-Feb-2019 14:36:16 Asia/Taipei] PHP Fatal error:  Call to undefined function wp_is_mobile() in /home/srltw/public_html/cardu/news/second.php on line 34
+[15-Feb-2019 14:40:07 Asia/Taipei] PHP Warning:  require(../share_area/conn): failed to open stream: No such file or directory in /home/srltw/public_html/cardu/news/second.php on line 2
+[15-Feb-2019 14:40:07 Asia/Taipei] PHP Warning:  require(../share_area/conn): failed to open stream: No such file or directory in /home/srltw/public_html/cardu/news/second.php on line 2
+[15-Feb-2019 14:40:07 Asia/Taipei] PHP Fatal error:  require(): Failed opening required '../share_area/conn' (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/srltw/public_html/cardu/news/second.php on line 2
