@@ -125,7 +125,7 @@
                         <div class="tab-pane fade" id="title_6" role="tabpanel" aria-labelledby="title_6-tab">
                         
                          <div class="row">
-                         <div class="col-md-4 col">
+                         <div class="col-md-4 col card_list_txt text-center">
                              <div class="rank_care ">
                              <form class="row search_from">
                              <select>
@@ -146,7 +146,7 @@
                              </form>
                            <a href="#">
                            <img src="../img/component/card3.png">
-                           <h6>匯豐銀行現金回饋玉璽卡</h6>
+                           <h4>匯豐銀行現金回饋玉璽卡</h4>
                            </a>
                            </div>
                          </div>

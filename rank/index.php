@@ -275,7 +275,7 @@
                           <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
 
   
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
 
 
                                <div class="col-md-1 hv-center popular_prize">
@@ -295,19 +295,19 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                                 <div class="rank_btn">
-                                  <button type="button" class="btn btn-orange">立即辦卡</button>
+                                  <button type="button" class="btn btn-warning">立即辦卡</button>
                                   <button type="button" class="btn btn-gray">加入比較</button>
                                 </div>
+                                <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
 
 
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
 
 
                               <div class="col-md-1 hv-center popular_prize">
@@ -327,18 +327,18 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                               <div class="rank_btn">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
-                                    </div>
+                                <button type="button" class="btn btn-warning">立即辦卡</button>
+                                <button type="button" class="btn btn-gray">加入比較</button>
                               </div>
+                              <span>謹慎理財 信用至上</span>
+                            </div>
                             </div>
 
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
 
 
                               <div class="col-md-1 hv-center popular_prize">
@@ -358,20 +358,20 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                                 <div class="rank_btn">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
                                         <button type="button" class="btn btn-gray">加入比較</button>
                                     </div>
+                                    <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
 
 
 
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
 
                               <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
@@ -390,18 +390,18 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                                 <div class="rank_btn">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
                                         <button type="button" class="btn btn-gray">加入比較</button>
                                     </div>
+                                    <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
 
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
 
                               <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
@@ -420,14 +420,14 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                                  <div class="rank_btn">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
                                         <button type="button" class="btn btn-gray">加入比較</button>
                                     </div>
+                                    <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
 
@@ -436,7 +436,7 @@
                           <div class="tab-pane fade" id="title_6" role="tabpanel" aria-labelledby="title_6-tab">
                            
 
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">1</h1>
@@ -456,18 +456,18 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                                 <div class="rank_btn">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
                                         <button type="button" class="btn btn-gray">加入比較</button>
                                     </div>
+                                    <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
 
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">2</h1>
@@ -487,19 +487,19 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                               <div class="rank_btn">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
                                         <button type="button" class="btn btn-gray">加入比較</button>
                                     </div>
+                                    <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
 
                             
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">3</h1>
@@ -518,20 +518,20 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                                 <div class="rank_btn">
-                                  <button type="button" class="btn btn-orange">立即辦卡</button>
+                                  <button type="button" class="btn btn-warning">立即辦卡</button>
                                   <button type="button" class="btn btn-gray">加入比較</button>
                                 </div>
+                                <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
 
 
 
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">4</h1>
@@ -551,18 +551,18 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                                 <div class="rank_btn">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
                                         <button type="button" class="btn btn-gray">加入比較</button>
                                     </div>
+                                    <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
 
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">5</h1>
@@ -582,14 +582,14 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                                  <div class="rank_btn">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
                                         <button type="button" class="btn btn-gray">加入比較</button>
                                     </div>
+                                    <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
 
@@ -598,7 +598,7 @@
                           <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
                               
                     
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">1</h1>
@@ -618,19 +618,19 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                               <div class="rank_btn">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
                                         <button type="button" class="btn btn-gray">加入比較</button>
                                     </div>
+                                    <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
 
 
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">2</h1>
@@ -650,19 +650,19 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                                 <div class="rank_btn">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
                                         <button type="button" class="btn btn-gray">加入比較</button>
                                     </div>
+                                    <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
                        
 
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
                                   <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">3</h1>
@@ -681,19 +681,19 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                                 <div class="rank_btn">
-                                  <button type="button" class="btn btn-orange">立即辦卡</button>
+                                  <button type="button" class="btn btn-warning">立即辦卡</button>
                                   <button type="button" class="btn btn-gray">加入比較</button>
                                 </div>
+                                <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
 
 
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
                                   <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">4</h1>
@@ -713,18 +713,18 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                                 <div class="rank_btn">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
                                         <button type="button" class="btn btn-gray">加入比較</button>
                                     </div>
+                                    <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
 
-                            <div class="row no-gutters mx-2 py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 bankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">5</h1>
@@ -744,14 +744,14 @@
                                   <li>國外現金回饋2.22%</li>
                                   <li>感應式刷卡快速結帳</li>
                                   <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
                                 </ul>
                               </div>
-                              <div class="col-md-2 hv-center">
+                              <div class="col-md-2">
                                  <div class="rank_btn">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
-                                    </div>
+                                    <button type="button" class="btn btn-warning">立即辦卡</button>
+                                    <button type="button" class="btn btn-gray">加入比較</button>
+                                  </div>
+                                    <span>謹慎理財 信用至上</span>
                               </div>
                             </div>
 

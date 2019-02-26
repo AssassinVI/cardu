@@ -85,7 +85,7 @@
                                         <h5 class=" money_main text-center mb-0">匯豐銀行<br><span>現金回饋玉璽卡_玉璽</span></h5>
                                     </a>
                                   <div class="rank_btn  hv-center">
-                                     <button type="button" class="btn btn-orange">立即辦卡</button>
+                                     <button type="button" class="btn btn-warning">立即辦卡</button>
                                   </div>
                                  </div>
                                </td>
@@ -96,7 +96,7 @@
                                         <h5 class=" money_main text-center mb-0">匯豐銀行<br><span>現金回饋玉璽卡_玉璽</span></h5>
                                     </a>
                                   <div class="rank_btn  hv-center">
-                                     <button type="button" class="btn btn-orange">立即辦卡</button>
+                                     <button type="button" class="btn btn-warning">立即辦卡</button>
                                   </div>
                                  </div>
                                </td>
@@ -107,7 +107,7 @@
                                         <h5 class=" money_main text-center mb-0">匯豐銀行<br><span>現金回饋玉璽卡_玉璽</span></h5>
                                     </a>
                                   <div class="rank_btn  hv-center">
-                                     <button type="button" class="btn btn-orange">立即辦卡</button>
+                                     <button type="button" class="btn btn-warning">立即辦卡</button>
                                   </div>
                                  </div>
                                </td>
