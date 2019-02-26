@@ -185,7 +185,7 @@
                                       <p class="mb-0">國內：1.2%，國外：2.2% <br> (當月消費3,000元以上)</p>
                                     </div>
                                     <div class="col-1 hv-center">
-                                      <button class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1">
+                                      <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                     </div>
@@ -211,7 +211,7 @@
                                       <p class="mb-0">旅平險：800萬</p>
                                     </div>
                                     <div class="col-1 hv-center">
-                                      <button class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2">
+                                      <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                     </div>
@@ -237,7 +237,7 @@
                                       <p class="mb-0">一年兩次 <br> (前兩個月消費1萬元)</p>
                                     </div>
                                     <div class="col-1 hv-center">
-                                      <button class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3">
+                                      <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                     </div>
@@ -263,7 +263,7 @@
                                       <p class="mb-0">100公里 <br> (前三個月累積消費3千元以上)</p>
                                     </div>
                                     <div class="col-1 hv-center">
-                                      <button class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4">
+                                      <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                     </div>
