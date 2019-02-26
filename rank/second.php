@@ -207,17 +207,16 @@
                             </div>
                             <div class="accordion imp_int" id="accordionExample">
                                
-                              <div class="card">
+                              <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row w-h-100">
                                   
-                                     <div class="col-1 hv-center modal_prize">
+                                     <div class="col-md-1 hv-center modal_prize">
                                       <span>
-                                        <img src="../img/component/cardNews/crown.png">
                                       <h1 class=" hv-center mb-0">1</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -225,28 +224,29 @@
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-2 hv-center">
+                                     <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
-                                    <div class="col-md-12 row hv-center">
+                                    <div class="col-md-12 row">
                                      
-                                      <div class="col-1 hv-center">
+                                      <div class="col-md-1">
+                                        <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-7 hv-center">
+                                      <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1">
                                         <i class="fa fa-angle-down"></i>
@@ -266,16 +266,15 @@
                                 </div>
                               </div>
 
-                              <div class="card">
+                              <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int2">
                                   <div class="row w-h-100">
-                                    <div class="col-1 hv-center modal_prize">
+                                    <div class="col-md-1 hv-center modal_prize">
                                       <span>
-                                        <img src="../img/component/cardNews/crown.png">
                                       <h1 class=" hv-center mb-0">2</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -284,27 +283,27 @@
                                        
                                       </div>
                                     </div>
-                                    <div class="col-2 hv-center">
+                                    <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                       <p class=" hv-center mb-0">無</p>
                                     </div>
-                                     <div class="col-md-12 row hv-center">
+                                     <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                         <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2">
                                         <i class="fa fa-angle-down"></i>
@@ -323,44 +322,43 @@
                                 </div>
                               </div>
 
-                              <div class="card">
+                              <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int3">
                                   <div class="row w-h-100">
-                                      <div class="col-1 hv-center modal_prize">
+                                      <div class="col-md-1 hv-center modal_prize">
                                       <span>
-                                        <img src="../img/component/cardNews/crown.png">
                                       <h1 class=" hv-center mb-0">3</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
-                                       <div class="rank_care ">
+                                    <div class="col-md-4 hv-center">
+                                       <div class="rank_care">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                           <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡<br><span>VISA_玉璽卡</span></h5>
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-2 hv-center">
+                                     <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                      <div class="col-md-12 row hv-center">
+                                      <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3">
                                         <i class="fa fa-angle-down"></i>
@@ -382,15 +380,15 @@
                                <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
                                <!--banner end -->
 
-                              <div class="card">
+                              <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int4">
                                   <div class="row w-h-100">
-                                     <div class="col-1 hv-center modal_prize">
+                                     <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class=" hv-center mb-0">4</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -398,27 +396,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                      <div class="col-2 hv-center">
+                                      <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                       <p class=" hv-center mb-0">無</p>
                                     </div>
-                                       <div class="col-md-12 row hv-center">
+                                       <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4">
                                         <i class="fa fa-angle-down"></i>
@@ -437,15 +435,15 @@
                                 </div>
                               </div>
 
-                               <div class="card">
+                               <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int5">
                                   <div class="row w-h-100">
-                                     <div class="col-1 hv-center modal_prize">
+                                     <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class=" hv-center mb-0">5</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -453,27 +451,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-2 hv-center">
+                                     <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                  <div class="col-md-12 row hv-center">
+                                  <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt5" aria-expanded="true" aria-controls="imp_int_txt5">
                                         <i class="fa fa-angle-down"></i>
@@ -492,15 +490,15 @@
                                 </div>
                               </div>
 
-                               <div class="card">
+                               <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int6">
                                   <div class="row w-h-100">
-                                     <div class="col-1 hv-center modal_prize">
+                                     <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class=" hv-center mb-0">6</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                       <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -508,27 +506,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                      <div class="col-2 hv-center">
+                                      <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                   <div class="col-md-12 row hv-center">
+                                   <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt6" aria-expanded="true" aria-controls="imp_int_txt6">
                                         <i class="fa fa-angle-down"></i>
@@ -551,15 +549,15 @@
                                <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
                                <!--banner end -->
 
-                               <div class="card">
+                               <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int7">
                                   <div class="row w-h-100">
-                                     <div class="col-1 hv-center modal_prize">
+                                     <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class=" hv-center mb-0">7</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -567,27 +565,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-2 hv-center">
+                                     <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                  <div class="col-md-12 row hv-center">
+                                  <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                         <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt7" aria-expanded="true" aria-controls="imp_int_txt7">
                                         <i class="fa fa-angle-down"></i>
@@ -606,15 +604,15 @@
                                 </div>
                               </div>
 
-                               <div class="card">
+                               <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int8">
                                   <div class="row w-h-100">
-                                     <div class="col-1 hv-center modal_prize">
+                                     <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class=" hv-center mb-0">8</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -622,27 +620,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-2 hv-center">
+                                     <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                   <div class="col-md-12 row hv-center">
+                                   <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt8" aria-expanded="true" aria-controls="imp_int_txt8">
                                         <i class="fa fa-angle-down"></i>
@@ -661,15 +659,15 @@
                                 </div>
                               </div>
 
-                               <div class="card">
+                               <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int9">
                                   <div class="row w-h-100">
-                                     <div class="col-1 hv-center modal_prize">
+                                     <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class=" hv-center mb-0">9</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -677,27 +675,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                      <div class="col-2 hv-center">
+                                      <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                   <div class="col-md-12 row hv-center">
+                                   <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt9" aria-expanded="true" aria-controls="imp_int_txt9">
                                         <i class="fa fa-angle-down"></i>
@@ -716,15 +714,15 @@
                                 </div>
                               </div>
 
-                               <div class="card">
+                               <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int10">
                                   <div class="row w-h-100">
-                                      <div class="col-1 hv-center modal_prize">
+                                      <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class=" hv-center mb-0">10</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -732,27 +730,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-2 hv-center">
+                                     <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                   <div class="col-md-12 row hv-center">
+                                   <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt10" aria-expanded="true" aria-controls="imp_int_txt10">
                                         <i class="fa fa-angle-down"></i>
@@ -786,16 +784,15 @@
                             </div>
                             <div class="accordion imp_int" id="accordionExample">
 
-                                <div class="card">
+                                <div class="card rank_hot">
                                 <div class="card-header money_header  hv-center" id="imp_int1">
                                   <div class="row w-h-100">
-                                      <div class="col-1 hv-center modal_prize">
+                                      <div class="col-md-1 hv-center modal_prize">
                                       <span>
-                                        <img src="../img/component/cardNews/crown.png">
                                       <h1 class=" hv-center mb-0">1</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -803,27 +800,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-2 hv-center">
+                                     <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                       <p class=" hv-center mb-0">無</p>
                                     </div>
-                                   <div class="col-md-12 row hv-center">
+                                   <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1">
                                         <i class="fa fa-angle-down"></i>
@@ -842,16 +839,15 @@
                                 </div>
                               </div>
 
-                              <div class="card">
+                              <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int2">
                                   <div class="row w-h-100">
-                                    <div class="col-1 hv-center modal_prize">
+                                    <div class="col-md-1 hv-center modal_prize">
                                       <span>
-                                        <img src="../img/component/cardNews/crown.png">
                                       <h1 class=" hv-center mb-0">2</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -859,27 +855,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                    <div class="col-2 hv-center">
+                                    <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                   <div class="col-md-12 row hv-center">
+                                   <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2">
                                         <i class="fa fa-angle-down"></i>
@@ -898,16 +894,15 @@
                                 </div>
                               </div>
 
-                              <div class="card">
+                              <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int3">
                                   <div class="row w-h-100">
-                                     <div class="col-1 hv-center modal_prize">
+                                     <div class="col-md-1 hv-center modal_prize">
                                       <span>
-                                        <img src="../img/component/cardNews/crown.png">
                                       <h1 class=" hv-center mb-0">3</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -915,27 +910,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-2 hv-center">
+                                     <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                  <div class="col-md-12 row hv-center">
+                                  <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                         <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3">
                                         <i class="fa fa-angle-down"></i>
@@ -957,15 +952,15 @@
                                <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
                                <!--banner end -->
 
-                              <div class="card">
+                              <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int4">
                                   <div class="row w-h-100">
-                                     <div class="col-1 hv-center modal_prize">
+                                     <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class=" hv-center mb-0">4</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -973,27 +968,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                      <div class="col-2 hv-center">
+                                      <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                   <div class="col-md-12 row hv-center">
+                                   <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                         <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4">
                                         <i class="fa fa-angle-down"></i>
@@ -1012,15 +1007,15 @@
                                 </div>
                               </div>
 
-                               <div class="card">
+                               <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int5">
                                   <div class="row w-h-100">
-                                     <div class="col-1 hv-center modal_prize">
+                                     <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class=" hv-center mb-0">5</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -1028,27 +1023,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-2 hv-center">
+                                     <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                   <div class="col-md-12 row hv-center">
+                                   <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt5" aria-expanded="true" aria-controls="imp_int_txt5">
                                         <i class="fa fa-angle-down"></i>
@@ -1067,15 +1062,15 @@
                                 </div>
                               </div>
 
-                               <div class="card">
+                               <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int6">
                                   <div class="row w-h-100">
-                                     <div class="col-1 hv-center modal_prize">
+                                     <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class=" hv-center mb-0">6</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                       <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -1083,27 +1078,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                      <div class="col-2 hv-center">
+                                      <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                   <div class="col-md-12 row hv-center">
+                                   <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt6" aria-expanded="true" aria-controls="imp_int_txt6">
                                         <i class="fa fa-angle-down"></i>
@@ -1126,15 +1121,15 @@
                                <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
                                <!--banner end -->
 
-                               <div class="card">
+                               <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int7">
                                   <div class="row w-h-100">
-                                      <div class="col-1 hv-center modal_prize">
+                                      <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class=" hv-center mb-0">7</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -1142,27 +1137,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-2 hv-center">
+                                     <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                     <p class=" hv-center mb-0">無</p>
                                     </div>
-                                   <div class="col-md-12 row hv-center">
+                                   <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt7" aria-expanded="true" aria-controls="imp_int_txt7">
                                         <i class="fa fa-angle-down"></i>
@@ -1181,15 +1176,15 @@
                                 </div>
                               </div>
 
-                               <div class="card">
+                               <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int8">
                                   <div class="row w-h-100">
-                                     <div class="col-1 hv-center modal_prize">
+                                     <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class=" hv-center mb-0">8</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -1197,27 +1192,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-2 hv-center">
+                                     <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                  <div class="col-md-12 row hv-center">
+                                  <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                       <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt8" aria-expanded="true" aria-controls="imp_int_txt8">
                                         <i class="fa fa-angle-down"></i>
@@ -1236,15 +1231,15 @@
                                 </div>
                               </div>
 
-                               <div class="card">
+                               <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int9">
                                   <div class="row w-h-100">
-                                    <div class="col-1 hv-center modal_prize">
+                                    <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class=" hv-center mb-0">9</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -1252,27 +1247,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                      <div class="col-2 hv-center">
+                                      <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                      <p class=" hv-center mb-0">無</p>
                                     </div>
-                                   <div class="col-md-12 row hv-center">
+                                   <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-7 hv-center">
+                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt9" aria-expanded="true" aria-controls="imp_int_txt9">
                                         <i class="fa fa-angle-down"></i>
@@ -1291,15 +1286,15 @@
                                 </div>
                               </div>
 
-                               <div class="card">
+                               <div class="card rank_hot">
                                 <div class="card-header money_header hv-center" id="imp_int10">
                                   <div class="row w-h-100">
-                                       <div class="col-1 hv-center modal_prize">
+                                       <div class="col-md-1 hv-center modal_prize">
                                       <span>
                                       <h1 class="hv-center mb-0">10</h1>
                                       </span>
                                      </div>
-                                    <div class="col-4 hv-center">
+                                    <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
@@ -1307,27 +1302,27 @@
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-2 hv-center">
+                                     <div class="col-md-2 hv-center">
                                       <p class=" hv-center mb-0">1.2%</p>
                                      </div>
-                                    <div class="col-2 hv-center border-left border-right">
+                                    <div class="col-md-2 hv-center border-left border-right">
                                       <p class=" hv-center mb-0">1.2%</p>
                                     </div>
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                     <p class=" hv-center mb-0">無</p>
                                     </div>
-                                   <div class="col-md-12 row hv-center">
+                                   <div class="col-md-12 row">
                                      
-                                      <div class="col-1">
+                                      <div class="col-md-1">
                                         <p class="hv-center mb-0"></p>
                                       </div>
-                                       <div class="col-4 hv-center">
+                                       <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-orange">立即辦卡</button>
+                                       <button type="button" class="btn btn-warning">立即辦卡</button>
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                      <div class="col-7 hv-center">
+                                      <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                          <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt10" aria-expanded="true" aria-controls="imp_int_txt10">
                                         <i class="fa fa-angle-down"></i>
@@ -1527,7 +1522,7 @@
 
                      <div class="col-md-12 col">
                        
-                       <div class="cardshap purple_tab mouseHover_tab">
+                       <div class="cardshap darkpurple_tab mouseHover_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item">
                             <a class="nav-link active  pl-30" id="card-tab" tab-target="#card" href="javascript:;" aria-selected="true">
