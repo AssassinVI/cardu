@@ -250,6 +250,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', end
 /*---------------- 熱門情報 END -----------------*/
 
 
+
+
+
+
+
 /*----------------------- 各連結滑鼠經過 ------------------------*/
 
 .footer_btn a:hover{ color: #e59118; }
@@ -291,6 +296,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', end
 
 
 
+
+
 /*----------------------- 各按鈕滑鼠經過 ------------------------*/
 button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
 
@@ -308,6 +315,8 @@ button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
 
 
 
+
+
 /*----------------------------- 優旅行 更新 ----------------------------------*/
  .hotCard .content_tab .img_b{ width: auto; height: auto; margin-bottom: 15px; color: #000;}
  .hotCard .content_tab .img_b div{ width: 300px; height: 200px; margin: auto;}
@@ -315,3 +324,15 @@ button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
  .hotCard .content_tab .img_c{ width: auto; height: auto; color: #000; }
  .hotCard .content_tab .img_c div{ width: 150px; height: 100px; margin: auto;}
 /*----------------------------- 優旅行 更新 END ----------------------------------*/
+
+
+
+
+
+
+/*----------------------------- 卡排行 更新 ----------------------------------*/
+
+.ranksearch_list ul li .active{ color: #ffffff; background-color: #6e29a3; }
+.ranksearch_list .warr_txt{ display: inline-block; font-size: 12px; padding: 0; }
+
+/*----------------------------- 卡排行 更新 END ----------------------------------*/

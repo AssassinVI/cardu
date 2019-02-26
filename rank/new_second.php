@@ -84,32 +84,32 @@
                     <div class="col-md-12 col">
 
                        
-                            <div class="ranksearch_list">
-                             <p>我們依您所偏好的信用卡優惠及用途，推薦適合的信用卡</p>
+                            <div class="ranksearch_list new_hand_search">
+                             <p>我們依您所偏好的信用卡優惠及用途，推薦適合的信用卡<span class="warr_txt text-danger">(請點擊下方選項，若要取消請再次點擊即可)</span></p>
                              <h6>1.信用卡優惠(可複選)</h6>
                             <ul>
-                            <li><a href="#">現金回饋</a></li>
-                            <li><a href="#">紅利集點</a></li>
-                            <li><a href="#">哩程累積</a></li>
-                            <li><a href="#">市區停車</a></li>
-                            <li><a href="#">旅遊保險</a></li>
-                            <li><a href="#">分期0利率</a></li>
-                            <li><a href="#">機場貴賓室</a></li>
-                            <li><a href="#">免費機場停車</a></li>
-                            <li><a href="#">免費機場接送</a></li>
+                            <li><a rank="現金回饋" class="" href="#">現金回饋</a></li>
+                            <li><a rank="紅利集點" class="" href="#">紅利集點</a></li>
+                            <li><a rank="哩程累積" class="" href="#">哩程累積</a></li>
+                            <li><a rank="市區停車" class="" href="#">市區停車</a></li>
+                            <li><a rank="旅遊保險" class="" href="#">旅遊保險</a></li>
+                            <li><a rank="分期0利率" class="" href="#">分期0利率</a></li>
+                            <li><a rank="機場貴賓室" class="" href="#">機場貴賓室</a></li>
+                            <li><a rank="免費機場停車" class="" href="#">免費機場停車</a></li>
+                            <li><a rank="免費機場接送" class="" href="#">免費機場接送</a></li>
                             </ul>
                             </div>
 
-                            <div class="ranksearch_list">
+                            <div class="ranksearch_list new_hand_search">
                              <h6>2.消費用途(可複選)</h6>
                             <ul>
-                            <li><a href="#">加油</a></li>
-                            <li><a href="#">電影</a></li>
-                            <li><a href="#">餐飲</a></li>
-                            <li><a href="#">交通通勤</a></li>
-                            <li><a href="#">航空旅遊</a></li>
-                            <li><a href="#">百貨購物</a></li>
-                            <li><a href="#">量販超市</a></li>
+                            <li><a rank="加油" class="" href="#">加油</a></li>
+                            <li><a rank="電影" class="" href="#">電影</a></li>
+                            <li><a rank="餐飲" class="" href="#">餐飲</a></li>
+                            <li><a rank="交通通勤" class="" href="#">交通通勤</a></li>
+                            <li><a rank="航空旅遊" class="" href="#">航空旅遊</a></li>
+                            <li><a rank="百貨購物" class="" href="#">百貨購物</a></li>
+                            <li><a rank="量販超市" class="" href="#">量販超市</a></li>
                             </ul>
                             </div>
                             
@@ -227,27 +227,27 @@
 
                           <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
                             <div class="col-md-12 col">
-                            <div class="ranksearch_list">
-                             <p>請選擇要比較的權益項目，(最多3項)</p>
+                            <div class="ranksearch_list rights_search">
+                             <p>請選擇要比較的權益項目，(最多3項)<span class="warr_txt text-danger">(請點擊下方選項，若要取消請再次點擊即可)</span></p>
                              
                             <ul>
-                            <li><a href="#"><img src="../img/component/debitcard1.png" title="新聞">現金回饋</a></li>
-                            <li><a href="#"><img src="../img/component/debitcard1.png" title="新聞">紅利集點</a></li>
-                            <li><a href="#"><img src="../img/component/debitcard1.png" title="新聞">點數折抵現金</a></li>
-                            <li><a href="#"><img src="../img/component/debitcard1.png" title="新聞">哩程累積</a></li>
-                            <li><a href="#"><img src="../img/component/debitcard1.png" title="新聞">聯名優惠</a></li>
-                            <li><a href="#"><img src="../img/component/debitcard1.png" title="新聞">購物優惠</a></li>
-                            <li><a href="#"><img src="../img/component/debitcard1.png" title="新聞">旅遊保險</a></li>
-                            <li><a href="#"><img src="../img/component/debitcard1.png" title="新聞">機場接送</a></li>
-                            <li><a href="#"><img src="../img/component/debitcard1.png" title="新聞">機場貴賓室</a></li>
-                            <li><a href="#"><img src="../img/component/debitcard1.png" title="新聞">一般停車</a></li>
-                            <li><a href="#"><img src="../img/component/debitcard1.png" title="新聞">機場停車</a></li>
-                            <li><a href="#"><img src="../img/component/debitcard1.png" title="新聞">道路教授</a></li>
+                            <li><a rank="現金回饋" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">現金回饋</a></li>
+                            <li><a rank="紅利集點" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">紅利集點</a></li>
+                            <li><a rank="點數折抵現金" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">點數折抵現金</a></li>
+                            <li><a rank="哩程累積" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">哩程累積</a></li>
+                            <li><a rank="聯名優惠" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">聯名優惠</a></li>
+                            <li><a rank="購物優惠" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">購物優惠</a></li>
+                            <li><a rank="旅遊保險" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">旅遊保險</a></li>
+                            <li><a rank="機場接送" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">機場接送</a></li>
+                            <li><a rank="機場貴賓室" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">機場貴賓室</a></li>
+                            <li><a rank="一般停車" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">一般停車</a></li>
+                            <li><a rank="機場停車" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">機場停車</a></li>
+                            <li><a rank="道路教授" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">道路教授</a></li>
                             
                             </ul>
                             </div>
 
-                            <div class="ranksearch_list">
+                            <div class="ranksearch_list rights_checked">
                              <p>您選擇要比較的權益項目順序如下方所列，點選【開始比較】即可進行權益比一比</p>
                             <ul>
                             <li>

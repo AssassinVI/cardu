@@ -13,3 +13,5 @@
     <script type="text/javascript" src="<?php echo $URL;?>/js/main.js"></script>
     <!-- 新輪播 -->
     <script type="text/javascript" src="<?php echo $URL;?>/js/new_slide.js"></script>
+    <!-- 卡排行用 -->
+    <script type="text/javascript" src="<?php echo $URL;?>/js/rank.js"></script>
