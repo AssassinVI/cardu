@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+            //--- 工具提示框 ---
+            $('[data-toggle="tooltip"]').tooltip();
+
             $('#new_card').collapse();
 
             //-- 卷軸監控回調 --

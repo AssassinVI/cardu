@@ -236,7 +236,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -304,7 +304,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -372,7 +372,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -441,7 +441,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -509,7 +509,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -578,7 +578,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -647,7 +647,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -714,7 +714,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -781,7 +781,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -848,7 +848,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -934,7 +934,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -1002,7 +1002,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -1070,7 +1070,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -1139,7 +1139,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -1206,7 +1206,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -1275,7 +1275,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -1343,7 +1343,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -1410,7 +1410,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -1477,7 +1477,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -1544,7 +1544,7 @@
                                       <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
                                     <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0">自動加值5% 點數回饋</p>
+                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
                                     </div>
                                     <div class="col-md hv-center">
                                        <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
@@ -1589,13 +1589,12 @@
                             
                            
                           </div>
+                          
+                          <a class="rank_more" href="#">顯示更多卡片</a>
+                          
                         </div>
                       </div>
-                       <div class="col-md-12 col">
-                          <div class="rank_more hv-center">
-                          <a href="#">顯示更多卡片</a>
-                          </div>
-                        </div>
+                       
                     </div>
                    
                     

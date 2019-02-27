@@ -311,6 +311,10 @@ button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
 .detail_title .onlinebg .applycard_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
 .online_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
 
+/*-- 卡排行 --*/
+.rank_button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
+.rank_more:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
+
 /*----------------------- 各按鈕滑鼠經過 END ------------------------*/
 
 
@@ -336,3 +340,20 @@ button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
 .ranksearch_list .warr_txt{ display: inline-block; font-size: 12px; padding: 0; }
 
 /*----------------------------- 卡排行 更新 END ----------------------------------*/
+
+
+
+
+
+
+/*----------------------------- 工具提示框 ----------------------------------*/
+
+.tooltip-inner{padding: .7rem 1rem; color: #000; text-align: left; background-color: #fff; border-radius: 0.8rem; border: 1px solid #d0b3e9; box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15); }
+.tooltip .arrow::after{ position: absolute; content: ""; border-color: transparent; border-style: solid; }
+.bs-tooltip-auto[x-placement^=bottom] .arrow::after, .bs-tooltip-bottom .arrow::after { bottom: -1px; border-width: 0 0.5rem .5rem; border-bottom-color: #ffffff;}
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before, .bs-tooltip-bottom .arrow::before{ bottom: 0; border-width: 0 .5rem .5rem; border-bottom-color: #d0b3e9; }
+
+/*----------------------------- 工具提示框 END ----------------------------------*/
+
+
+
