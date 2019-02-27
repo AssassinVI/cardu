@@ -18,6 +18,7 @@ a:hover{ text-decoration: none; }
 
         
 .container {
+  position: relative;
   margin-right: auto;
   margin-left: auto;
 
@@ -157,17 +158,14 @@ a:hover{ text-decoration: none; }
   .apply_btn{
    width: 110px;
    height: 40px;
-   background-color: #253d95;
-   color:#ffffff;
+   background-color: #ffc107;
+   color: #212529;
    text-align: center;
    line-height: 40px;
    border-radius: 5px;
-   font-weight: bold;
  }
  
- .apply_btn:hover{
-  color:#ffffff;
- } 
+
 
  .more_search{ position: absolute; width: 33px; right: 5px; margin-top: 2px; height: 0px; overflow: hidden; z-index: 10;}
  .more_search a{ margin-bottom: 5px;  display: block; }
@@ -1878,11 +1876,18 @@ a:hover{ text-decoration: none; }
 .detail_title .card_btn .btn-orange{ background-color: #253d95; color: #fff; } 
 .detail_title .card_btn .btn-gray{ background-color: #797979; color: #fff; } 
 .detail_title .card_btn button {
-    font-size: 18px;
+    font-size: 16px;
     margin: 10px;
-    font-weight: bold;
+    
   }
-.detail_title .row.newcard_g{border: dashed 1px #ccc; padding:10px;}
+.detail_title .row.newcard_g{
+  padding:10px;
+  position: relative;
+  bottom: 0px;
+  transition: all 0.3s;
+  box-shadow: 4px 4px 12px 2px rgba(71,71,72,0.5);
+}
+
 .detail_title .row.newcard_g span{color:#32b16c; font-size: 18px; padding:5px;}
 .detail_title .row.ticketbg .col-5{text-align: center;}
 .detail_title .row.ticketbg hr{margin: 10px 0}
@@ -1965,15 +1970,17 @@ a:hover{ text-decoration: none; }
   margin:0;
 }
 
-.detail_title .row.ticketbg .applycard_btn{
+.applycard_btn{
   width:180px;
-  background-color: #253d95;
-  color:#ffffff;
+  background-color: #ffc926;
+  color:#4b4f56;
   border-radius: 5px;
   line-height: 40px;
-  font-weight: bold;
   font-size: 18px;
   text-align: center;
+  display: block;
+  margin:5px auto;
+  font-weight: bold;
 }
 
 
@@ -1987,19 +1994,6 @@ a:hover{ text-decoration: none; }
   }
 
 
-.detail_title .debit_card .applycard_btn {
-  width:180px;
-  height:40px;
-  margin: 10px auto;
-  background-color: #253d95;
-  display:block;
-  color:#ffffff;
-  border-radius: 5px;
-  text-align: center;
-  line-height: 40px;
-  font-weight: bold;
-  font-size: 18px;
-}
 
 .detail_title .debit_card i{padding-right:5px;}
 
@@ -2219,13 +2213,20 @@ a:hover{ text-decoration: none; }
   font-family: 微軟正黑體;
 }
 
-.ticketbg .bank_3 .card_btn .btn-orange{ background-color: #fc9b1b; color: #fff; } 
-.ticketbg .bank_3 .card_btn .btn-gray{ background-color: #797979; color: #fff; } 
-.ticketbg .bank_3 .card_btn button {
+.bank_btn button {
+    width:100px;
+    height: 35px;
+    background-color: #797979;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
     padding: 3px 10px;
-    font-size: 16px;
-    margin: 0 10px;
+    font-size: 15px;
+    margin: 0 5px;
+    cursor:pointer;
+    border: none;
   }
+
 .ticketbg .bank_3 .bank_icon img{
   padding:10px  0;
 
@@ -2233,8 +2234,11 @@ a:hover{ text-decoration: none; }
 
 .onlinebg{
   background-color: #f8f9fa;
-  box-shadow: 2px 2px 10px -2px rgba(146,146,148,0.5);
   margin-bottom: 30px;
+  position: relative;
+  bottom: 0px;
+  transition: all 0.3s;
+  box-shadow: 4px 4px 12px 2px rgba(71,71,72,0.5);
 }
 
 .onlinebg h4{
@@ -2254,16 +2258,6 @@ a:hover{ text-decoration: none; }
     margin: 0;
   }
 
-.detail_title .onlinebg .applycard_btn{
-  width:180px;
-  background-color: #253d95;
-  display:inline-block;
-  color:#ffffff;
-  border-radius: 5px;
-  line-height: 40px;
-  font-weight: bold;
-  font-size: 18px;
-}
 
 .detail_title .onlinebg .applycard_btn i {
     margin-right: 5px;
@@ -2277,6 +2271,8 @@ a:hover{ text-decoration: none; }
 .detail_content p{ font-size: 20px; letter-spacing: 0.5px; line-height: 1.8;  }
 .detail_content .sub_title{font-size:1rem; line-height: 1;}
 .detail_content span{padding:5px 0; display: inline-block;}
+.detail_content .shop_card h5{color: #3f57b5; font-weight: bold;}
+.detail_content .shop_txt{font-size: 18px;}
 .detail_content .paybg{background-color:#f2f2f2; width:750px;}
 .detail_content .paybg p{font-size: 16px; margin: 0; padding:5px 0;}
 .card_list { border-bottom: 1px solid #ececec; }
@@ -2284,9 +2280,9 @@ a:hover{ text-decoration: none; }
 .card_list_img img{ width: 200px;}
 .card_list_img.cardall_list img{width:160px; height: 102px;}
 /*.card_list_txt{ padding: 0.5rem; }*/
-.card_list_txt h4{ font-size: 16px; font-weight: 600; color: #273e96;  margin-bottom: 1rem;}
+.card_list_txt h4{ font-size: 18px; font-weight: 600; color: #273e96;}
 .card_list_txt ul{ padding-left: 1.3rem; margin: 0;}
-.card_list_txt ul li{ font-size: 14px; margin-bottom: 3px;}
+.card_list_txt ul li{ font-size: 16px;}
 .card_list div:nth-child(1) .btn{ background-color: #f68225;  border: none; }
 .card_list div:nth-child(3) .card_list_img{ height: 150px; width:225px; margin:auto; }
 .card_list div:nth-child(3) p{  margin: 0; margin-top: 5px; text-align: center; font-size: 14px;}
@@ -2297,15 +2293,19 @@ a:hover{ text-decoration: none; }
   color:#263d95;
   font-weight: bold;
   font-size: 18px;
-  margin-top: 5px;
   display: block;
    }
 
 .bank_list ul li{
   list-style-type: none;
   font-size: 15px;
-  padding-bottom: 20px;
+  padding-bottom: 8px;
 }
+
+.rank_hot .col-md-1{max-width: 50px; flex: auto;}
+.rank_hot .col-md-4{max-width: 215px;flex: auto;}
+.rank_hot .col-md-5{max-width: 300px;flex: auto;}
+.rank_hot .col-md-2{max-width: 185px;flex: auto;}
 
 .bankbg_list:nth-child(even){
   background-color:#f5f6f7;
@@ -2340,7 +2340,7 @@ a:hover{ text-decoration: none; }
 }
 
 .credit_table .cards_div{ padding: 8px 0; }
-.credit_table>.row{ border-bottom: 1px solid #ccc; padding: 10px 0; }
+.credit_table>.row{ padding: 10px 0; }
 
 .tab-content .credit_card.active{ background-color: #253d95; color: #ffffff;}
 
@@ -2390,8 +2390,9 @@ a:hover{ text-decoration: none; }
   border-radius: 50%;
 }
 .online_btn{
-  background-color:#f68225;
-  border-color:#f68225;
+  background-color:#ffc107;
+  border-color:#ffc107;
+  color: #212529;
 }
  
 .online_care{
@@ -2434,7 +2435,7 @@ a:hover{ text-decoration: none; }
 
 .rank_care img{
  width:220px;
- height: 153px;
+ height: 147px;
  margin:10px auto;
 }
 
@@ -2490,10 +2491,12 @@ a:hover{ text-decoration: none; }
 
 .rank_boot table{width:100%;}
 .rank_boot td{
+  width:310px;
   border-bottom: 1px solid #ccc;
   text-align: center;
   padding: 10px 0;
 }
+.rank_boot tr td:nth-child(3){ background-color: #f5f6f7;}
 /*----------------------------------------- 卡片比一比end ----------------------------------------------*/
 
 /*----------------------------------------- 現金回饋 ----------------------------------------------*/
@@ -2503,13 +2506,23 @@ a:hover{ text-decoration: none; }
 
 
 .modal_prize h1{
-  margin: 0;
-    margin-top: 15px;
+    margin-top: 85px;
     font-weight: bold;
     font-family: arial;
     z-index: 1;
-    font-size: 30px;
+    font-size: 25px;
     color: #601986;
+}
+
+.modal_prize .top_prize{
+  position: absolute;
+    top: 80px;
+    width: 40px;
+    height: 51px;
+    text-align: center;
+    background-image: url(../img/component/topNew_img.png);
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .card b{display: none;}
