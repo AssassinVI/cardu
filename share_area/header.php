@@ -411,3 +411,41 @@
             <p>top</p>
           </a>
         </div>
+
+        <!-- 左邊浮動廣告 -->
+        <div class="left-ad">
+          
+        </div>
+
+        <!-- 右邊浮動廣告 -->
+        <div class="right-ad">
+
+          <!-- 卡片比一比 -->
+          <div class="card_compare">
+            <h4><button class="contrast_card_close" type="button">Ｘ</button></h4>
+            
+            <div class="card_compare_div">
+              <p class="text-center m-0">卡片比一比</p>
+
+              <div class="contrast_card_div">
+                <!-- <div class="card">
+                  <button type="button">Ｘ</button>
+                  <a href="#"><img class="w-100" src="../img/component/card3.png" alt=""></a>
+                </div>
+                <div class="card">
+                  <button type="button">Ｘ</button>
+                  <a href="#"><img class="w-100" src="../img/component/card3.png" alt=""></a>
+                </div>
+                <div class="card">
+                  <button type="button">Ｘ</button>
+                  <a href="#"><img class="w-100" src="../img/component/card3.png" alt=""></a>
+                </div> -->
+              </div>
+              
+              <button class="contrast_card_submit" type="button">比較卡片</button>
+            </div>
+            
+          </div>
+          
+        </div>
+        

@@ -43,6 +43,16 @@ $(document).ready(function() {
                   scroll_x=0;
                 }
               }
+
+              //-- 左右浮動廣告 --
+              if (top>0) {
+                $('.right-ad').css('top', top-197);
+                $('.left-ad').css('top', top-197);
+              }
+              else{
+                $('.right-ad').css('top', 10);
+                $('.left-ad').css('top', 10);
+              }
               
             });
 
