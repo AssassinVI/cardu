@@ -191,7 +191,7 @@
                            <div class="row">
                          <div class="col-md-6 col">
                            <div class="cardshap point-4">
-                             <a href="#" title="點數平台">
+                             <a href="http://cardu.srl.tw/point/about.php" title="點數平台">
                               <div>
                                <img src="../img/component/icon/point.png">
                                </div>
@@ -203,7 +203,7 @@
                         
                         <div class="col-md-6 col">
                           <div class="cardshap point-4">
-                            <a href="#" title="點數店家">
+                            <a href="http://cardu.srl.tw/point/shop.php" title="點數店家">
                            <div>
                               <img src="../img/component/icon/point_2.png">
                             </div>
@@ -643,16 +643,15 @@
                            <div class="title_tab hole">
                                <h4>優集點</h4>
                            </div>
-                        <div class="tab-content ccard_back" id="myTabContent">
+                        <div class="tab-content ucard_back" id="myTabContent">
                           <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">
                             <form class="row search_from">
 
                                 <div class="col-9">
                                   <select>
-                                      <option value="">--所有票證--</option>
-                                      <option value="悠遊卡">悠遊卡</option>
-                                      <option value="一卡通">一卡通</option>
-                                      <option value="iCash">iCash</option>
+                                      <option value="">--點數平台--</option>
+                                      <option value="UUPON">UUPON</option>
+                                      <option value="OPENPOINT">OPENPOINT</option>
                                       <option value="Happy Cash">Happy Cash</option>
                                   </select>
 

@@ -590,16 +590,15 @@
                            <div class="title_tab hole">
                                <h4>優集點</h4>
                            </div>
-                        <div class="tab-content ccard_back" id="myTabContent">
+                        <div class="tab-content ucard_back" id="myTabContent">
                           <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">
                             <form class="row search_from">
 
                                <div class="col-9">
                                   <select>
-                                      <option value="">--所有票證--</option>
-                                      <option value="悠遊卡">悠遊卡</option>
-                                      <option value="一卡通">一卡通</option>
-                                      <option value="iCash">iCash</option>
+                                      <option value="">--點數平台--</option>
+                                      <option value="UUPON">UUPON</option>
+                                      <option value="OPENPOINT">OPENPOINT</option>
                                       <option value="Happy Cash">Happy Cash</option>
                                   </select>
 

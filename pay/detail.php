@@ -476,7 +476,7 @@
                         <div class="title_tab hole">
                                <h4>優行動pay</h4>
                            </div>
-                        <div class="tab-content ccard_back" id="myTabContent">
+                        <div class="tab-content pcard_back" id="myTabContent">
                           <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">
                             <form class="row search_from">
 
