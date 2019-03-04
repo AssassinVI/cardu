@@ -109,3 +109,33 @@ $('.contrast_card_close').click(function(event) {
 });
 
 /*------------------------ 加入比較 END -----------------------------*/
+
+
+
+
+
+
+
+
+
+
+/*------------------------------ 顯示更多卡片 --------------------------------*/
+$('.rank_more').click(function(event) {
+  var _this=$(this);
+  var show_num=$(this).attr('show_num');
+  var x=0;
+  $.each($(this).parent().find('.d-none'), function(index, val) {
+    
+    //-- 判斷一次展開的數量 --
+    if (x<show_num) {
+      $(this).removeClass('d-none');
+      x++;
+    }
+     
+    //-- 無可展開，隱藏按鈕 --
+    if ($(this).parent().find('.d-none').length<1) {
+       _this.addClass('d-none');
+     }
+  });
+
+});

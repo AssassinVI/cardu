@@ -185,6 +185,41 @@
                                 <td>一</td>
                                </tr>
 
+                               <tr class="d-none">
+                                <td>聯名優惠</td>
+                                <td>一</td>
+                                <td>一</td>
+                                <td>一</td>
+                               </tr>
+
+                               <tr class="d-none">
+                                <td>聯名優惠</td>
+                                <td>一</td>
+                                <td>一</td>
+                                <td>一</td>
+                               </tr>
+
+                               <tr class="d-none">
+                                <td>聯名優惠</td>
+                                <td>一</td>
+                                <td>一</td>
+                                <td>一</td>
+                               </tr>
+
+                               <tr class="d-none">
+                                <td>聯名優惠</td>
+                                <td>一</td>
+                                <td>一</td>
+                                <td>一</td>
+                               </tr>
+
+                               <tr class="d-none">
+                                <td>聯名優惠</td>
+                                <td>一</td>
+                                <td>一</td>
+                                <td>一</td>
+                               </tr>
+
                             </table>
                           </form>
 
@@ -192,14 +227,14 @@
 
                     <!--信用卡推薦end -->
                   
-                        
+                     <a class="rank_more" show_num="5" href="javascript:;">顯示更多資訊</a>   
                          
                 </div>
                 <div class="col-md-12 col">
                   <div class="row">
-                  <div class="rank_more hv-center">
-                  <a href="#">顯示更多資訊</a>
-                  </div>
+                  
+                   
+                  
                   </div>
               </div>
 

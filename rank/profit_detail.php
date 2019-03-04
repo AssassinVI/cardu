@@ -407,16 +407,157 @@
                         </div>
                     </div>
 
+
+                    <div class="d-none">
+                      <hr class="profit_line">
+                    <div class="row profit_bg">
+                         <div class="col-md-1 col hv-center profit_prize rank_hot">
+                           
+                           <h1 class=" hv-center mb-0">7</h1>
+                         </div>
+                         <div class="col-md-3 col profit_list">
+                             <div class="rank_care money_main ">
+                           <a href="#">
+                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
+                           
+                           </a>
+                           <div class="profit_btn  hv-center">
+                             <button type="button" class="btn btn-warning">立即辦卡</button>
+                             <button type="button" class="btn btn-gray">加入比較</button>
+                           </div>
+                           </div>
+                         </div>
+                        
+                        <div class="col-md-3 col profit_list">
+                           <div class="rank_care money_main">
+                           <a href="#">
+                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
+                           </a>
+                           <div class="profit_btn  hv-center">
+                             <button type="button" class="btn btn-warning">立即辦卡</button>
+                             <button type="button" class="btn btn-gray">加入比較</button>
+                           </div>
+                           </div>
+                        </div>
+                        
+                        <div class="col-md-3 col profit_list">
+                          <div class="rank_care money_main">
+                              <a href="#">
+                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
+                           </a>
+                           <div class="profit_btn  hv-center">
+                            
+                             <button type="button" class="btn btn-gray">加入比較</button>
+                           </div>
+                           </div>
+                        </div>
+                    </div>
+
+                    <hr class="profit_line">
+                    <div class="row profit_bg">
+                         <div class="col-md-1 col hv-center profit_prize rank_hot">
+                           
+                           <h1 class=" hv-center mb-0">8</h1>
+                         </div>
+                         <div class="col-md-3 col profit_list">
+                             <div class="rank_care money_main ">
+                           <a href="#">
+                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
+                           
+                           </a>
+                           <div class="profit_btn  hv-center">
+                             <button type="button" class="btn btn-warning">立即辦卡</button>
+                             <button type="button" class="btn btn-gray">加入比較</button>
+                           </div>
+                           </div>
+                         </div>
+                        
+                        <div class="col-md-3 col profit_list">
+                           <div class="rank_care money_main">
+                           <a href="#">
+                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
+                           </a>
+                           <div class="profit_btn  hv-center">
+                             <button type="button" class="btn btn-warning">立即辦卡</button>
+                             <button type="button" class="btn btn-gray">加入比較</button>
+                           </div>
+                           </div>
+                        </div>
+                        
+                        <div class="col-md-3 col profit_list">
+                          <div class="rank_care money_main">
+                              <a href="#">
+                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
+                           </a>
+                           <div class="profit_btn  hv-center">
+                            
+                             <button type="button" class="btn btn-gray">加入比較</button>
+                           </div>
+                           </div>
+                        </div>
+                    </div>
+
+                    <hr class="profit_line">
+                    <div class="row profit_bg">
+                         <div class="col-md-1 col hv-center profit_prize rank_hot">
+                           
+                           <h1 class=" hv-center mb-0">9</h1>
+                         </div>
+                         <div class="col-md-3 col profit_list">
+                             <div class="rank_care money_main ">
+                           <a href="#">
+                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
+                           
+                           </a>
+                           <div class="profit_btn  hv-center">
+                             <button type="button" class="btn btn-warning">立即辦卡</button>
+                             <button type="button" class="btn btn-gray">加入比較</button>
+                           </div>
+                           </div>
+                         </div>
+                        
+                        <div class="col-md-3 col profit_list">
+                           <div class="rank_care money_main">
+                           <a href="#">
+                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
+                           </a>
+                           <div class="profit_btn  hv-center">
+                             <button type="button" class="btn btn-warning">立即辦卡</button>
+                             <button type="button" class="btn btn-gray">加入比較</button>
+                           </div>
+                           </div>
+                        </div>
+                        
+                        <div class="col-md-3 col profit_list">
+                          <div class="rank_care money_main">
+                              <a href="#">
+                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
+                           </a>
+                           <div class="profit_btn  hv-center">
+                            
+                             <button type="button" class="btn btn-gray">加入比較</button>
+                           </div>
+                           </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <a class="rank_more" show_num="1" href="javascript:;">顯示更多卡片</a>
+
                   </div>
                     <!--信用卡推薦end -->
                 </div>
 
 
-                <div class="col-md-12 col">
-                  <div class="rank_more hv-center">
-                  <a href="#">顯示更多卡片</a>
-                  </div>
-                </div>
                  
         
             </div>
