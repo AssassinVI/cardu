@@ -63,12 +63,13 @@
 
                     <!--信用卡推薦-->
                     <div class="col-md-12 col">
-                      <div class="rank_search">
+                      <div class="rank_search bank_search cardshap py-md-2">
                       <p>搜尋條件:
                         <a href="#">現金回饋</a>、<a href="#">交通通勤</a>、<a href="#">百貨購物</a><span><a href="#">【變更新手快搜條件】</a></span>
                       </p>
+                      </div>
                     </div>
-
+                      <div class="col-md-12 col">
                         <div class="cardshap darkpurple_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab">

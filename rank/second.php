@@ -248,7 +248,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -316,7 +316,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -384,7 +384,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -453,7 +453,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -521,7 +521,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -590,7 +590,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -659,7 +659,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -726,7 +726,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -793,7 +793,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -860,7 +860,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -946,7 +946,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1014,7 +1014,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1082,7 +1082,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1151,7 +1151,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1218,7 +1218,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1287,7 +1287,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1355,7 +1355,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1422,7 +1422,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1489,7 +1489,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1556,7 +1556,7 @@
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray">加入比較</button>
+                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>

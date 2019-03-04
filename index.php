@@ -4,7 +4,7 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     
     <title>卡優新聞網-理財、消費、支付卡資訊網站</title>
@@ -1069,8 +1069,8 @@
                                         </p>
                                     </div>
                                     <div class="card_btn  hv-center">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                  </div>
                                  <div class="col-4 cards-3">
@@ -1087,8 +1087,8 @@
                                         </p>
                                     </div>
                                     <div class="card_btn  hv-center">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                  </div>
                                  <div class="col-4 cards-3">
@@ -1105,8 +1105,8 @@
                                         </p>
                                     </div>
                                     <div class="card_btn  hv-center">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                  </div>
                              </div>
@@ -1126,8 +1126,8 @@
                                         </p>
                                     </div>
                                     <div class="card_btn  hv-center">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                  </div>
                                  <div class="col-4 cards-3">
@@ -1144,8 +1144,8 @@
                                         </p>
                                     </div>
                                     <div class="card_btn  hv-center">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                  </div>
                                  <div class="col-4 cards-3">
@@ -1162,8 +1162,8 @@
                                         </p>
                                     </div>
                                     <div class="card_btn  hv-center">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                  </div>
                              </div>
@@ -1183,8 +1183,8 @@
                                         </p>
                                     </div>
                                     <div class="card_btn  hv-center">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                  </div>
                                  <div class="col-4 cards-3">
@@ -1201,8 +1201,8 @@
                                         </p>
                                     </div>
                                     <div class="card_btn  hv-center">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                  </div>
                                  <div class="col-4 cards-3">
@@ -1219,8 +1219,8 @@
                                         </p>
                                     </div>
                                     <div class="card_btn  hv-center">
-                                        <button type="button" class="btn btn-orange">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-warning">立即辦卡</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                  </div>
                              </div>

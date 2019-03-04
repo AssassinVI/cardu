@@ -383,3 +383,23 @@ button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
 
 
 
+/*----------------------------- 卡片比一比 ----------------------------------*/
+
+.card_compare{display: none; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); }
+.card_compare h4{ 
+  margin: 0;
+text-align: right;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d9c2f9+1,9147cb+76 */
+background: rgb(217,194,249); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(217,194,249,1) 1%, rgba(145,71,203,1) 76%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(217,194,249,1) 1%,rgba(145,71,203,1) 76%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(217,194,249,1) 1%,rgba(145,71,203,1) 76%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9c2f9', endColorstr='#9147cb',GradientType=0 ); /* IE6-9 */
+}
+.card_compare h4 button{ font-size: 15px; background-color: #9146cb; border: 1px solid #9146cb; color: #f5f0ff;  padding: 5px;  vertical-align: top; }
+.card_compare_div{ padding: 5px; border: 1px solid #9146cb; }
+.card_compare_div button{ background-color: #ffd400; color: #000; width: 100%; border: none; padding: 5px; margin-top: 3px; border-radius: 5px; }
+.card_compare .card{ width: 100px; border: 1px dashed #ccc; margin: 2px 0;}
+.card_compare .card button{ position: absolute; right: -2px; top: -5px; background-color: #903fce; border: none; border-radius: 50%; font-size: 12px; font-weight: 600; width: 18px; height: 18px; padding: 0; color: #fff; }
+
+/*----------------------------- 卡片比一比 END ----------------------------------*/
