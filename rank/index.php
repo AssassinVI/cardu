@@ -99,7 +99,7 @@
                                        </div>
 
                                        <div class="swiper-slide" index="8"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/rank/card_rank8.png" alt="手刷禮" title="手刷禮"> <br> 手刷禮</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/rank/card_rank8.png" alt="首刷禮" title="首刷禮"> <br> 首刷禮</a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="9"> 
@@ -194,7 +194,7 @@
                            <div class="rank-4">
                              <a href="<?php echo $URL;?>/rank/new_second.php">
                               <div>
-                               <i class="fa fa-trophy"></i>
+                               <img src="../img/component/rank_1.png">
                                </div>
                              <h1>新手快搜</h1>
                              <p>不知道該如何找信用卡嗎?讓新手快搜幫你找到最速配的信用卡!</p>
@@ -206,7 +206,7 @@
                           <div class="rank-4">
                             <a href="<?php echo $URL;?>/rank/new_second.php">
                            <div>
-                              <i class="fa fa-trophy"></i>
+                              <img src="../img/component/rank_2.png">
                             </div>
                             <h1>卡片比一比</h1>
                             <p>各銀行信用卡完整蒐集，動動滑鼠比一比!</p>
@@ -218,7 +218,7 @@
                           <div class="rank-4">
                             <a href="<?php echo $URL;?>/rank/new_second.php">
                             <div>
-                               <i class="fa fa-trophy"></i>
+                               <img src="../img/component/rank_3.png">
                                </div>
                             <h1>權益比一比</h1>
                             <p>信金回饋、紅利集點、哩程累積等信用卡權益大比拚!</p> 
@@ -273,6 +273,10 @@
                         </ul>
                         <div class="tab-content p-0" id="myTabContent">
                           <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
+                            <!--廣告-->
+                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                           <!--banner end -->
+                            <!--卡比較-->
 
   
                             <div class="row no-gutters py-3 bankbg_list rank_hot">
@@ -300,7 +304,7 @@
                               <div class="col-md-2">
                                 <div class="rank_btn">
                                   <button type="button" class="btn btn-warning">立即辦卡</button>
-                                  <button type="button" class="btn btn-gray">加入比較</button>
+                                  <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                 </div>
                                 <span>謹慎理財 信用至上</span>
                               </div>
@@ -332,7 +336,7 @@
                               <div class="col-md-2">
                               <div class="rank_btn">
                                 <button type="button" class="btn btn-warning">立即辦卡</button>
-                                <button type="button" class="btn btn-gray">加入比較</button>
+                                <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                               </div>
                               <span>謹慎理財 信用至上</span>
                             </div>
@@ -363,7 +367,7 @@
                               <div class="col-md-2">
                                 <div class="rank_btn">
                                         <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                     <span>謹慎理財 信用至上</span>
                               </div>
@@ -395,7 +399,7 @@
                               <div class="col-md-2">
                                 <div class="rank_btn">
                                         <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                     <span>謹慎理財 信用至上</span>
                               </div>
@@ -425,7 +429,7 @@
                               <div class="col-md-2">
                                  <div class="rank_btn">
                                         <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                     <span>謹慎理財 信用至上</span>
                               </div>
@@ -434,6 +438,9 @@
                            
                           </div>
                           <div class="tab-pane fade" id="title_6" role="tabpanel" aria-labelledby="title_6-tab">
+                             <!--廣告-->
+                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+                           <!--banner end -->
                            
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot">
@@ -461,7 +468,7 @@
                               <div class="col-md-2">
                                 <div class="rank_btn">
                                         <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                     <span>謹慎理財 信用至上</span>
                               </div>
@@ -492,7 +499,7 @@
                               <div class="col-md-2">
                               <div class="rank_btn">
                                         <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                     <span>謹慎理財 信用至上</span>
                               </div>
@@ -523,7 +530,7 @@
                               <div class="col-md-2">
                                 <div class="rank_btn">
                                   <button type="button" class="btn btn-warning">立即辦卡</button>
-                                  <button type="button" class="btn btn-gray">加入比較</button>
+                                  <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                 </div>
                                 <span>謹慎理財 信用至上</span>
                               </div>
@@ -556,7 +563,7 @@
                               <div class="col-md-2">
                                 <div class="rank_btn">
                                         <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                     <span>謹慎理財 信用至上</span>
                               </div>
@@ -587,7 +594,7 @@
                               <div class="col-md-2">
                                  <div class="rank_btn">
                                         <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                     <span>謹慎理財 信用至上</span>
                               </div>
@@ -596,7 +603,9 @@
 
                           </div>
                           <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
-                              
+                             <!--廣告-->
+                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+                           <!--banner end -->  
                     
                             <div class="row no-gutters py-3 bankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
@@ -623,7 +632,7 @@
                               <div class="col-md-2">
                               <div class="rank_btn">
                                         <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                     <span>謹慎理財 信用至上</span>
                               </div>
@@ -655,7 +664,7 @@
                               <div class="col-md-2">
                                 <div class="rank_btn">
                                         <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                     <span>謹慎理財 信用至上</span>
                               </div>
@@ -686,7 +695,7 @@
                               <div class="col-md-2">
                                 <div class="rank_btn">
                                   <button type="button" class="btn btn-warning">立即辦卡</button>
-                                  <button type="button" class="btn btn-gray">加入比較</button>
+                                  <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                 </div>
                                 <span>謹慎理財 信用至上</span>
                               </div>
@@ -718,7 +727,7 @@
                               <div class="col-md-2">
                                 <div class="rank_btn">
                                         <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray">加入比較</button>
+                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                     </div>
                                     <span>謹慎理財 信用至上</span>
                               </div>
@@ -749,7 +758,7 @@
                               <div class="col-md-2">
                                  <div class="rank_btn">
                                     <button type="button" class="btn btn-warning">立即辦卡</button>
-                                    <button type="button" class="btn btn-gray">加入比較</button>
+                                    <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
                                   </div>
                                     <span>謹慎理財 信用至上</span>
                               </div>
