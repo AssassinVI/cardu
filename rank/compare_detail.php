@@ -76,7 +76,7 @@
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
                           <form class="rank_boot">
                             <table>
-                              <tr>
+                              <tr class="rank_boot_title">
                                 <td>信用卡名稱</td>
                                 <td>  
                                   <div class="rank_care ">
@@ -156,7 +156,10 @@
                               
                                <tr>
                                 <td>現金回饋</td>
-                                <td>國內1.22%，國外2.22%</td>
+                                <td>
+                                  <div><img src="../img/component/prize_r.png"></div>
+                                  國內1.22%，國外2.22%
+                                </td>
                                 <td>國內1.2%，國外2.2%</td>
                                 <td>國內1.2%，國外2.2%</td>
                                </tr>
