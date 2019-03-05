@@ -124,7 +124,7 @@
 
                         <div class="tab-pane fade" id="title_6" role="tabpanel" aria-labelledby="title_6-tab">
                         
-                         <div class="row">
+                         <div class="row compare_bg">
                          <div class="col-md-4 col card_list_txt text-center">
                              <div class="rank_care ">
                              <form class="row search_from">

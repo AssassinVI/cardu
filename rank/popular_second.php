@@ -81,7 +81,7 @@
                           <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
 
                             <!--廣告-->
-                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
+                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                            <!--banner end -->
 
 
@@ -185,7 +185,7 @@
                     
                     <!--信用卡推薦end -->
                      <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
+                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                          
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot">
@@ -282,7 +282,7 @@
                     
                     <!--信用卡推薦end -->
                      <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
+                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                           
                   
 
@@ -579,7 +579,7 @@
 
                           <div class="tab-pane fade" id="title_6" role="tabpanel" aria-labelledby="title_6-tab">
                            <!--廣告-->
-                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
+                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                            <!--banner end -->
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot">
@@ -681,7 +681,7 @@
                     
                     <!--信用卡推薦end -->
                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
+                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                          
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot">
@@ -781,7 +781,7 @@
                     
                     <!--信用卡推薦end -->
                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
+                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                           
                     
 
@@ -1086,7 +1086,7 @@
 
                           <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
                              <!--廣告-->
-                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
+                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                            <!--banner end -->
                     
                             <div class="row no-gutters py-3 bankbg_list rank_hot">
@@ -1187,7 +1187,7 @@
                     
                     <!--信用卡推薦end -->
                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
+                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                          
                     
 
@@ -1293,7 +1293,7 @@
                    
                     <!--信用卡推薦end -->
                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
+                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                           
                     
 

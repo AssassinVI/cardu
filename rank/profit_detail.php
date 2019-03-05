@@ -267,7 +267,7 @@
                     </div>
 
                      <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
+                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                     <!--banner end -->
                      
                       <div class="row profit_bg">

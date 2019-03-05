@@ -65,7 +65,7 @@
                     <div class="col-md-12 col">
                       <div class="rank_search bank_search cardshap py-md-2">
                       <p>搜尋條件:
-                        <a href="#">現金回饋</a>、<a href="#">交通通勤</a>、<a href="#">百貨購物</a><span><a href="#">【變更新手快搜條件】</a></span>
+                        <a href="#">現金回饋</a>、<a href="#">交通通勤</a>、<a href="#">百貨購物</a><span><a href="new_second.php">【變更新手快搜條件】</a></span>
                       </p>
                       </div>
                     </div>
@@ -78,7 +78,7 @@
                         </ul>
                         
                           <!--信用卡推薦-->
-                       <div class="col-md-12 col">
+                       <div class="col-md-12 col0">
 
                        
                         <div class="tab-content p-0" id="myTabContent">
@@ -170,7 +170,7 @@
                     
                     <!--信用卡推薦end -->
                     <!--廣告-->
-                    <div class="col-md-12 col"><img src="http://placehold.it/750x140" alt="banner"></div><!--banner end -->
+                    <div class="col-md-12 col"><img src="http://placehold.it/750x150" alt="banner"></div><!--banner end -->
                          
                   
 
@@ -264,7 +264,7 @@
                     
                     <!--信用卡推薦end -->
                     <!--廣告-->
-                    <div class="col-md-12 col"><img src="http://placehold.it/750x140" alt="banner"></div><!--banner end -->
+                    <div class="col-md-12 col"><img src="http://placehold.it/750x150" alt="banner"></div><!--banner end -->
                           
                     
 

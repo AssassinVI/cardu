@@ -205,14 +205,14 @@
                               <div class="col-3 text-center">其他卡片</div>
                             </div>
                              <!--廣告-->
-                             <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div><!--banner end -->
+                             <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div><!--banner end -->
                             <div class="accordion imp_int" id="accordionExample">
                                
-                              <div class="card rank_hot">
+                              <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">1</h1>
                                      </div>
@@ -254,7 +254,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -276,11 +276,11 @@
                                 </div>
                               </div>
 
-                              <div class="card rank_hot">
+                              <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">2</h1>
                                      </div>
@@ -322,7 +322,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -344,11 +344,11 @@
                                 </div>
                               </div>
 
-                              <div class="card rank_hot">
+                              <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">3</h1>
                                      </div>
@@ -390,7 +390,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -413,11 +413,11 @@
                               </div>
                              
 
-                              <div class="card rank_hot">
+                              <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">4</h1>
                                      </div>
@@ -459,7 +459,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -481,11 +481,11 @@
                                 </div>
                               </div>
 
-                               <div class="card rank_hot">
+                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">5</h1>
                                      </div>
@@ -527,7 +527,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt5" aria-expanded="true" aria-controls="imp_int_txt5">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt5" aria-expanded="true" aria-controls="imp_int_txt5" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -549,13 +549,13 @@
                                 </div>
                               </div>
                                <!--廣告-->
-                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
+                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                               <!--banner end -->
-                               <div class="card rank_hot">
+                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">6</h1>
                                      </div>
                                     </div>
@@ -596,7 +596,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt6" aria-expanded="true" aria-controls="imp_int_txt6">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt6" aria-expanded="true" aria-controls="imp_int_txt6" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -620,11 +620,11 @@
 
                               
 
-                               <div class="card rank_hot">
+                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">7</h1>
                                      </div>
                                     </div>
@@ -665,7 +665,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt7" aria-expanded="true" aria-controls="imp_int_txt7">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt7" aria-expanded="true" aria-controls="imp_int_txt7" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -687,11 +687,11 @@
                                 </div>
                               </div>
 
-                               <div class="card rank_hot">
+                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">8</h1>
                                      </div>
                                     </div>
@@ -732,7 +732,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt8" aria-expanded="true" aria-controls="imp_int_txt8">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt8" aria-expanded="true" aria-controls="imp_int_txt8" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -754,11 +754,11 @@
                                 </div>
                               </div>
 
-                               <div class="card rank_hot">
+                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">9</h1>
                                      </div>
                                     </div>
@@ -799,7 +799,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt9" aria-expanded="true" aria-controls="imp_int_txt9">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt9" aria-expanded="true" aria-controls="imp_int_txt9" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -821,11 +821,11 @@
                                 </div>
                               </div>
 
-                               <div class="card rank_hot">
+                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">10</h1>
                                      </div>
                                     </div>
@@ -866,7 +866,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt10" aria-expanded="true" aria-controls="imp_int_txt10">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt10" aria-expanded="true" aria-controls="imp_int_txt10" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -893,7 +893,7 @@
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">11</h1>
                                      </div>
                                     </div>
@@ -934,7 +934,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt11" aria-expanded="true" aria-controls="imp_int_txt11">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt11" aria-expanded="true" aria-controls="imp_int_txt11" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -961,7 +961,7 @@
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">12</h1>
                                      </div>
                                     </div>
@@ -1002,7 +1002,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt12" aria-expanded="true" aria-controls="imp_int_txt12">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt12" aria-expanded="true" aria-controls="imp_int_txt12" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1029,7 +1029,7 @@
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">13</h1>
                                      </div>
                                     </div>
@@ -1070,7 +1070,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt13" aria-expanded="true" aria-controls="imp_int_txt13">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt13" aria-expanded="true" aria-controls="imp_int_txt13" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1097,7 +1097,7 @@
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">14</h1>
                                      </div>
                                     </div>
@@ -1138,7 +1138,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt14" aria-expanded="true" aria-controls="imp_int_txt14">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt14" aria-expanded="true" aria-controls="imp_int_txt14" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1165,7 +1165,7 @@
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">15</h1>
                                      </div>
                                     </div>
@@ -1206,7 +1206,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt15" aria-expanded="true" aria-controls="imp_int_txt15">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt15" aria-expanded="true" aria-controls="imp_int_txt15" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1249,15 +1249,15 @@
                                <div class="col-3 text-center">其他卡片</div>
                             </div>
                              <!--廣告-->
-                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
+                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                               <!--banner end -->
                             <div class="accordion imp_int" id="accordionExample">
 
-                                <div class="card rank_hot">
+                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">1</h1>
                                      </div>
@@ -1299,7 +1299,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1321,11 +1321,11 @@
                                 </div>
                               </div>
 
-                              <div class="card rank_hot">
+                              <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">2</h1>
                                      </div>
@@ -1367,7 +1367,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1389,11 +1389,11 @@
                                 </div>
                               </div>
 
-                             <div class="card rank_hot">
+                             <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">3</h1>
                                      </div>
@@ -1435,7 +1435,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1458,11 +1458,11 @@
                               </div>
                               
 
-                              <div class="card rank_hot">
+                              <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">4</h1>
                                      </div>
@@ -1504,7 +1504,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1525,11 +1525,11 @@
                                   </div>
                                 </div>
                               </div>
-                               <div class="card rank_hot">
+                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">5</h1>
                                      </div>
@@ -1571,7 +1571,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt5" aria-expanded="true" aria-controls="imp_int_txt5">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt5" aria-expanded="true" aria-controls="imp_int_txt5" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1593,13 +1593,13 @@
                                 </div>
                               </div>
                                 <!--廣告-->
-                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x140" alt="banner"></div></div>
+                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                               <!--banner end -->
-                               <div class="card rank_hot">
+                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">6</h1>
                                      </div>
                                     </div>
@@ -1640,7 +1640,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt6" aria-expanded="true" aria-controls="imp_int_txt6">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt6" aria-expanded="true" aria-controls="imp_int_txt6" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1663,11 +1663,11 @@
                               </div>
 
                              
-                               <div class="card rank_hot">
+                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">7</h1>
                                      </div>
                                     </div>
@@ -1708,7 +1708,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt7" aria-expanded="true" aria-controls="imp_int_txt7">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt7" aria-expanded="true" aria-controls="imp_int_txt7" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1730,11 +1730,11 @@
                                 </div>
                               </div>
 
-                               <div class="card rank_hot">
+                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">8</h1>
                                      </div>
                                     </div>
@@ -1775,7 +1775,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt8" aria-expanded="true" aria-controls="imp_int_txt8">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt8" aria-expanded="true" aria-controls="imp_int_txt8" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1797,11 +1797,11 @@
                                 </div>
                               </div>
 
-                               <div class="card rank_hot">
+                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">9</h1>
                                      </div>
                                     </div>
@@ -1842,7 +1842,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt9" aria-expanded="true" aria-controls="imp_int_txt9">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt9" aria-expanded="true" aria-controls="imp_int_txt9" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1864,11 +1864,11 @@
                                 </div>
                               </div>
 
-                               <div class="card rank_hot">
+                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">10</h1>
                                      </div>
                                     </div>
@@ -1909,7 +1909,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt10" aria-expanded="true" aria-controls="imp_int_txt10">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt10" aria-expanded="true" aria-controls="imp_int_txt10" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -1936,7 +1936,7 @@
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">11</h1>
                                      </div>
                                     </div>
@@ -1977,7 +1977,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt11" aria-expanded="true" aria-controls="imp_int_txt11">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt11" aria-expanded="true" aria-controls="imp_int_txt11" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -2004,7 +2004,7 @@
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">12</h1>
                                      </div>
                                     </div>
@@ -2045,7 +2045,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt12" aria-expanded="true" aria-controls="imp_int_txt12">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt12" aria-expanded="true" aria-controls="imp_int_txt12" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -2072,7 +2072,7 @@
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">13</h1>
                                      </div>
                                     </div>
@@ -2113,7 +2113,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt13" aria-expanded="true" aria-controls="imp_int_txt13">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt13" aria-expanded="true" aria-controls="imp_int_txt13" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -2140,7 +2140,7 @@
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">14</h1>
                                      </div>
                                     </div>
@@ -2181,7 +2181,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt14" aria-expanded="true" aria-controls="imp_int_txt14">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt14" aria-expanded="true" aria-controls="imp_int_txt14" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
@@ -2208,7 +2208,7 @@
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
-                                      <div class="col-md-1 hv-center modal_prize">
+                                      <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">15</h1>
                                      </div>
                                     </div>
@@ -2249,7 +2249,7 @@
                                       </div>
                                       <div class="col-md-7 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
-                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt15" aria-expanded="true" aria-controls="imp_int_txt15">
+                                        <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt15" aria-expanded="true" aria-controls="imp_int_txt15" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                       </div>
