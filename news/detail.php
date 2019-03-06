@@ -21,14 +21,15 @@
     <meta http-equiv="pragma" content="no-cache"/>
     <meta property="fb:admins" content="100000121777752" />
     <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
-    <meta property="og:site_name" content="卡優新聞網" />
+    <meta property="fb:app_id" content="319016928941764" />
+    <meta property="og:site_name" content="卡優新聞網-新聞內頁" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="卡優新聞網" />
+    <meta property="og:title" content="卡優新聞網-新聞內頁" />
+    <meta property="og:image" content="http://cardu.srl.tw/img/component/photo1.jpg" />
     <meta property="og:description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" />
-    <meta property="og:url" content="https://www.cardu.com.tw" />
-    <meta property="og:see_also" content="https://www.cardu.com.tw" />
+    <meta property="og:url" content="<?php echo $FB_URL;?>" />
+    <meta property="og:see_also" content="<?php echo $FB_URL;?>" />
       
       
     <?php 
@@ -83,16 +84,16 @@
                             <div class="col-md-4 col-12">
                                <div class="search_div hv-center">
                                 <div class="fb-like mr-2" data-href="http://srl.tw/cardu/news_detail.html" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
-                                 <a class="search_btn" href="#"><img src="../img/component/search/fb.png" alt="" title="分享"></a>
-                                 <a class="search_btn" href="#"><img src="../img/component/search/line.png" alt="" title="Line"></a>
-                                <a class="search_btn" href="#"><img src="../img/component/search/message.png" alt="" title="訊息"></a>
+                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://www.facebook.com/dialog/feed?app_id=319016928941764&display=popup&link=<?php echo $FB_URL;?>&redirect_uri=https://www.facebook.com/', 'FB分享', config='height=600,width=800');"><img src="../img/component/search/fb.png" alt="" title="分享"></a>
+                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://social-plugins.line.me/lineit/share?url=<?php echo $FB_URL;?>', 'LINE分享', config='height=600,width=800');"><img src="../img/component/search/line.png" alt="" title="Line"></a>
+                                <a class="search_btn" href="#fb_message"><img src="../img/component/search/message.png" alt="" title="訊息"></a>
                                  <a id="arrow_btn" class="search_btn" href="javascript:;"><img src="../img/component/search/arrow.png" alt="" title="更多"></a>
                                </div>
                                <div class="more_search">
-                                 <a href="#"><img src="../img/component/search/print.png" alt="" title="列印"></a>
-                                 <a href="#"><img src="../img/component/search/work.png" alt="" title="收藏"></a>
-                                 <a href="#"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
-                                 <a href="#"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
+                                 <a target="_blank" href="print.php"><img src="../img/component/search/print.png" alt="" title="列印"></a>
+                                 <a href="javascript:;" data-fancybox data-src="#member_div"><img src="../img/component/search/work.png" alt="" title="收藏"></a>
+                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_mail.php"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
+                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
                                </div>
                             </div>
                           </div> 
@@ -339,7 +340,7 @@
 
 
                     <!--Facebook留言-->
-                    <div class="col-md-12 col">
+                    <div id="fb_message" class="col-md-12 col">
 
                         <div class="cardshap blue_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -350,7 +351,7 @@
                         <div class="tab-content" id="myTabContent">
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
-                            <div class="fb-comments" data-width="100%" data-href="http://srl.tw/cardu/news_detail.html" data-numposts="5"></div>
+                            <div class="fb-comments" data-width="100%" data-href="<?php echo $FB_URL;?>" data-numposts="5"></div>
                            
                           </div>
                         </div>
@@ -375,51 +376,153 @@
                     <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one blue_tab">
                            <div class="title_tab hole">
-                               <h4>熱門辦卡 </h4>
+                               <h4>熱門情報</h4>
                                <span>謹慎理財 信用至上</span>
                            </div>
                            <div class="content_tab">
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                   <a class="img_a" href="#">
-                                     <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                   </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
+                               <!-- 熱門情報輪播 -->
+                            <div class="swiper-container HotNews_slide">
+                                <div class="swiper-wrapper">
 
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                   <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                   <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
+                                    <div class="swiper-slide" > 
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                          <a class="img_a" href="#">
+                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                          </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
 
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                         <a class="img_a" href="#">
+                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                          <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div  class="col-5">
+                                         <a class="img_a" href="#">
+                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="swiper-slide" > 
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                          <a class="img_a" href="#">
+                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                          </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                         <a class="img_a" href="#">
+                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                          <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div  class="col-5">
+                                         <a class="img_a" href="#">
+                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="swiper-slide" > 
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                          <a class="img_a" href="#">
+                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                          </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                         <a class="img_a" href="#">
+                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                          <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div  class="col-5">
+                                         <a class="img_a" href="#">
+                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 如果需要导航按钮 -->
+                                <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                                
+                            </div>
+                            <!-- 熱門情報輪播 END -->
                            </div>
                        </div>
                     </div>

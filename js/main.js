@@ -594,13 +594,17 @@ $(document).ready(function() {
 
 
             /*-- 滑鼠經過切換Tab (右邊無LOGO的Tab) --*/
-            $('.mouseHover_other_tab .nav-link').mouseenter(function(event) {
+            $('.mouseHover_other_tab>ul>li>.nav-link').mouseenter(function(event) {
                $(this).parents('.mouseHover_other_tab').find('.nav-link').removeClass('active show');
                $(this).parents('.mouseHover_other_tab').find('.tab-pane').removeClass('active show');
                $(this).parents('.mouseHover_other_tab').find('.nav-link').attr('aria-selected', 'false');
                $(this).attr('aria-selected', 'true');
                $(this).addClass('active show');
                $($(this).attr('tab-target')).addClass('active show');
+
+               //-- 例外 --
+               $('.exception .nav-link').addClass('active show');
+               $('.exception .tab-pane').addClass('active show');
 
             });
 
@@ -633,6 +637,23 @@ $(document).ready(function() {
                 $(this).find('i').addClass('fa-angle-down');
               }
             });
+
+
+
+
+
+
+          /*--------------------------------------------- 內頁轉寄、回報錯誤 fancybox ---------------------------------------------*/
+          
+          $('.close_fancybox').click(function(event) {
+            parent.jQuery.fancybox.close();
+          });
+           
+          /*--------------------------------------------- 內頁轉寄、回報錯誤 fancybox END ---------------------------------------------*/
+
+
+
+
 
 
           /*---------------------------------------- 右邊DIV跟隨功能 -----------------------------------------*/
@@ -818,3 +839,43 @@ else{
 });
 
 
+
+
+
+
+
+/*--- checkout 功能  ---*/
+// =============================== 檢查input ====================================
+function check_input(id,txt) {
+
+         if($(id).length>0){
+           
+           //-- 核取方塊、選取方塊 --
+           if ($(id).attr('type')=='radio' || $(id).attr('type')=='checkbox') {
+             
+             if($(id+':checked').val()==undefined){
+              $(id).css('borderColor', 'red');
+               return txt;
+            }else{
+               $(id).css('borderColor', 'rgba(0,0,0,0.1)');
+               return "";
+            }
+           }
+
+           else{
+             if ($(id).val()=='') {
+               $(id).css('borderColor', 'red');
+               return txt;
+            }else{
+               $(id).css('borderColor', 'rgba(0,0,0,0.1)');
+               return "";
+            }
+           }
+
+         }
+         else{
+          return txt;
+         }
+          
+  }
+/*--- checkout 功能 END ---*/

@@ -80,7 +80,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', end
 .imp_int{  }
 .imp_int .card-header{ padding: 12px 6px; height: 130px;}
 .imp_int .card-header .angle_down{ font-size: 40px; color: #7e7e7e; }
-.imp_int .collapse_txt{ font-size: 14px; color: #9b9b9b; }
+.imp_int .collapse_txt{ font-size: 15px; color: #9b9b9b; }
 
 
 /*--------------------------------- 一大三小NEWS(輪播) ----------------------------------*/
@@ -301,21 +301,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', end
 
 
 /*----------------------- 各按鈕滑鼠經過 ------------------------*/
-button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
+button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
 
 /*-- 新聞 --*/
-.card_list div:nth-child(1) .btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
+.card_list div:nth-child(1) .btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
 
 /*-- 卡情報 --*/
-.apply_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
-.detail_title .row.ticketbg .applycard_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
-.detail_title .debit_card .applycard_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
-.detail_title .onlinebg .applycard_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
-.online_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
+.apply_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
+.detail_title .row.ticketbg .applycard_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
+.detail_title .debit_card .applycard_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
+.detail_title .onlinebg .applycard_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
+.online_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
 
 /*-- 卡排行 --*/
-.rank_button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
-.rank_more:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
+.rank_button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
+.rank_more:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
 
 /*----------------------- 各按鈕滑鼠經過 END ------------------------*/
 
@@ -364,7 +364,7 @@ button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
 
 /*----------------------------- 左邊浮動廣告 ----------------------------------*/
 
-.left-ad{ position: absolute; top: 10px; left: -100px; }
+.left-ad{ position: absolute; top: 10px; left: -180px; }
 
 /*----------------------------- 左邊浮動廣告 END ----------------------------------*/
 
@@ -373,7 +373,7 @@ button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
 
 /*----------------------------- 右邊浮動廣告 ----------------------------------*/
 
-.right-ad{ position: absolute; top: 10px; right: -100px; }
+.right-ad{ position: absolute; top: 10px; right: -180px; }
 
 /*----------------------------- 右邊浮動廣告 END ----------------------------------*/
 
@@ -385,9 +385,9 @@ button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3); }
 
 
 
-/*----------------------------- 卡片比一比 ----------------------------------*/
+/*----------------------------- 卡片比一比(功能) ----------------------------------*/
 
-.card_compare{display: none; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); }
+.card_compare{display: none; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); width: 180px; }
 .card_compare h4{ 
   margin: 0;
 text-align: right;
@@ -401,7 +401,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9c2f9', end
 .card_compare h4 button{ font-size: 15px; background-color: #9146cb; border: 1px solid #9146cb; color: #f5f0ff;  padding: 5px;  vertical-align: top; }
 .card_compare_div{ padding: 5px; border: 1px solid #9146cb; }
 .card_compare_div button{ background-color: #ffd400; color: #000; width: 100%; border: none; padding: 5px; margin-top: 3px; border-radius: 5px; }
-.card_compare .card{ width: 100px; border: 1px dashed #ccc; margin: 2px 0;}
+.card_compare .card{ width: 100px; border: 1px dashed #ccc; margin: 2px auto;}
 .card_compare .card button{ position: absolute; right: -2px; top: -5px; background-color: #903fce; border: none; border-radius: 50%; font-size: 12px; font-weight: 600; width: 18px; height: 18px; padding: 0; color: #fff; }
 
-/*----------------------------- 卡片比一比 END ----------------------------------*/
+/*----------------------------- 卡片比一比(功能) END ----------------------------------*/
+
+
+
+
+
+
+/*----------------------------- 卡片比一比(內頁) ----------------------------------*/
+.rank_boot_title{ background-color: #fff; }
+/*----------------------------- 卡片比一比(內頁) END ----------------------------------*/
