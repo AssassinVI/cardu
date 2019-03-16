@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/維基百科</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">原爆資料館</h3><p2 class="p2">第二次世界大戰時，美軍在長崎投下第二顆原子彈，造成長崎市死傷十幾萬人，市街大部分燒毀，戰後重新整建。原爆資料館內收藏了這場核爆的詳盡資料與遺物，其中包括了15萬名罹難者的相片、簡單的物品如瓶子及燒焦了的和服等，見證了當時的原爆是多麼的厲害。</p2></div>
+    </div>
+</body>
+</html>

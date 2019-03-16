@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/維基百科</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">豬苗代湖</h3><p2 class="p2">豬苗代湖是日本第四大淡水湖，因火山活動而形成，面積103.31平方公里，深93.5公尺。水質相當清澈透明，其清澈程度位居日本第三；天空倒映在水面上，像一面鏡子一樣，又有「天鏡湖」之稱，磐梯山依偎著湖畔，每個季節都有不同風貌。每年10月到隔年4月，會有許多天鵝、候鳥來此湖過境，遊客可以乘船遊湖或是租借腳踏車，欣賞湖畔風光。</p2></div>
+    </div>
+</body>
+</html>

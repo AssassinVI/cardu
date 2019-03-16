@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/層雲峽觀光協會</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">層雲峽</h3><p2 class="p2">層雲峽是日本北海道上川町的一座峽谷，位於大雪山國立公園境內，為石狩川沿岸一段約24公里長的斷崖峭壁。是大雪山主要的觀光景點。峽谷旁有層雲峽溫泉，是北海道規模較大的溫泉街之一，除了溫泉之外，層雲峽還有流星瀑布、銀河瀑布等景點。</p2></div>
+    </div>
+</body>
+</html>

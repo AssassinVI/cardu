@@ -128,7 +128,7 @@ $(document).ready(function() {
             $('#menu > ul> li').mouseenter(function(event) {
               if ($(this).find('.dropDown_menu').length>0) {
                 $(this).children('a').css({
-                  'background-image': 'url(../img/component/menuOverBr.png)',
+                  'background-image': 'url(/img/component/menuOverBr.png)',
                   'color':'#1d368c'
                 });
                 $(this).find('.dropDown_menu').css('display', 'block');
@@ -348,7 +348,7 @@ $(document).ready(function() {
                   for ( var i = 4; i <= 6; i++) {
                    var txt='<div class="swiper-slide">'+
                                         '<div class="w-h-100 hv-center">'+
-                                          '<a href="#" title="台新銀行比漾聯名卡"><span class="top_Medal">'+i+'</span><img src="../img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
+                                          '<a href="#" title="台新銀行比漾聯名卡"><span class="top_Medal">'+i+'</span><img src="/img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
                                         '</div>'+
                                     '</div>';
                     ccard_Swiper.appendSlide(txt);
@@ -357,7 +357,7 @@ $(document).ready(function() {
                   for ( var i = 1; i <= 3; i++) {
                    var txt='<div class="swiper-slide">'+
                                         '<div class="w-h-100 hv-center">'+
-                                          '<a href="#" title="台新銀行比漾聯名卡"><span class="top_Medal">'+i+'</span><img src="../img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
+                                          '<a href="#" title="台新銀行比漾聯名卡"><span class="top_Medal">'+i+'</span><img src="/img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
                                         '</div>'+
                                     '</div>';
                     ccard_Swiper.appendSlide(txt);
@@ -416,7 +416,7 @@ $(document).ready(function() {
                   for ( var i = 4; i <= 6; i++) {
                    var txt='<div class="swiper-slide">'+
                                         '<div class="w-h-100 hv-center">'+
-                                          '<a href="#" title="台新銀行比漾聯名卡"><img src="../img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
+                                          '<a href="#" title="台新銀行比漾聯名卡"><img src="/img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
                                         '</div>'+
                                     '</div>';
                     ccard_Swiper.appendSlide(txt);
@@ -425,7 +425,7 @@ $(document).ready(function() {
                   for ( var i = 1; i <= 3; i++) {
                    var txt='<div class="swiper-slide">'+
                                         '<div class="w-h-100 hv-center">'+
-                                          '<a href="#" title="台新銀行比漾聯名卡"><img src="../img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
+                                          '<a href="#" title="台新銀行比漾聯名卡"><img src="/img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
                                         '</div>'+
                                     '</div>';
                     ccard_Swiper.appendSlide(txt);
@@ -650,6 +650,27 @@ $(document).ready(function() {
           });
            
           /*--------------------------------------------- 內頁轉寄、回報錯誤 fancybox END ---------------------------------------------*/
+
+
+
+
+
+
+
+
+          /*--------------------------------------------- 優旅行 日本嬉遊去 景點 ---------------------------------------------*/
+
+          $('.map>div>div').mouseenter(function(event) {
+            $(this).find('div').css('display', 'block');
+          });
+
+          $('.map>div>div').mouseleave(function(event) {
+            $(this).find('div').css('display', 'none');
+          });
+
+          /*--------------------------------------------- 優旅行 日本嬉遊去 景點 END ---------------------------------------------*/
+
+
 
 
 

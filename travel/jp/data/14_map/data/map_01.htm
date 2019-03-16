@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/維基百科</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">弘前城</h3><p2 class="p2">「弘前城」指的為天守閣以及弘前公園的部分。於西元1611年建築完成，當中的五層建築─天守閣於西元1627年遭雷擊燒毀，經重建後現為三層建築，目前作為展示歷史文物的「弘前城史料館」。此外，公園內種植著2600棵櫻花樹，為日本國內著名的賞櫻勝地。冬天則搭配雪燈籠祭展出雪燈籠與冰雕，呈現出別有風情的雪景面貌。</p2></div>
+    </div>
+</body>
+</html>

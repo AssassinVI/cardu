@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/沖繩美麗海水族館</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">沖繩美麗海水族館</h3><p2 class="p2">位於日本沖繩縣國頭郡本部町的海洋博公園內，是沖繩的著名景點，該館以沖繩的海洋為展示概念，展出珊瑚礁、黑潮之海、深海等各式海洋生物，其中最著名的有世界第一尾成功長期飼養的鯨鯊及蝠魟。水族館旁亦設有海豚表演、海龜館、海牛館等主題館，是可以近距離感受海洋魅力的好去處。</p2></div>
+    </div>
+</body>
+</html>

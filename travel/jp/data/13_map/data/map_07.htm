@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/維基百科</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">登別地獄谷</h3><p2 class="p2">地獄谷是位日本北海道登別市的一個火山口遺跡，鄰近洞爺湖，大約在一萬年前形成，有直徑大約450米的地方依然在噴白煙，而且寸草不生，又有強烈硫磺味，由於就像在地獄之中，因而得名。地獄谷提供多達11種不同礦物質的泉水給附近的有名的登別溫泉，早在百多年前已有人懂得在地獄谷開採泉水。</p2></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/卡優新聞網</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">嵐山</h3><p2 class="p2">嵐山是日本京都府京都市的一個觀光地，以賞楓葉(秋季)和櫻花(春季)而知名。「嵐山」這地名原本是專指位於桂川右岸、屬於京都市西京區一部份的嵐山地區，而河對岸、屬於右京區的地區則名為嵯峨野，但近年來許多觀光導覽資料都概括性地，將以橫跨桂川的渡月橋為中心之河左右兩岸周邊地區，合稱為嵐山。</p2></div>
+    </div>
+</body>
+</html>

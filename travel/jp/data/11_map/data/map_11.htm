@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/卡優新聞網</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">涉谷</h3><p2 class="p2">集合日本年輕人最前端流行資訊的城市，為日本流行與時尚重要發源地。澀谷不僅是東京通往首都圈東南郊區的重要轉運點，擁有多家連鎖百貨公司，為東急集團的大本營。澀谷站前的八公銅像是澀谷著名地標；而澀谷站前十字路口則是東京知名城市地景之一，一天約有50萬行人在此通行，在交通高峰期還可看到上千人同時穿越馬路的驚人景象。</p2></div>
+    </div>
+</body>
+</html>

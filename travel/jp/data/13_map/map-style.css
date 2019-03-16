@@ -1,0 +1,285 @@
+@import url("reset.css");
+
+#MAP{
+	width:640px;
+	height:426px;
+	margin:0 auto;
+	/*margin-top:50px;*/
+	margin-top:10px;
+	margin-left: -17px;
+	position:relative;
+}
+
+#Abashiri,#Kitami,#Sounkyo,#Shikisai,#Akan,#Kushiro,
+#Church,#tokachi,#Farm,#Noboribetsu,#Otaru,
+#Hokkaido,#Lake,#Bear,#Hakodate,#NCA,#HA,#AA{
+	position:absolute;
+}
+#Abashiri-01,#Kitami-01,#Sounkyo-01,#Shikisai-01,#Akan-01,#Kushiro-01,
+#Church-01,#tokachi-01,#Farm-01,#Noboribetsu-01,#Otaru-01,
+#Hokkaido-01,#Lake-01,#Bear-01,#Hakodate-01{
+	display:none;
+	position:absolute;
+	z-index:99;
+}
+
+/*網走地標*/
+#Abashiri{
+	right:161px;
+	top:100px;
+	}
+/*網走內容區塊*/	
+#Abashiri-01{
+	right:-150px;
+	top:40px;
+}
+#Abashiri:hover #Abashiri-01{
+	display:block;}
+/*網走結束*/
+
+/*北見狐狸村地標*/
+#Kitami{
+	right:167px;
+	top:141px;}
+	
+/*北見狐狸村內容區塊*/	
+#Kitami-01{
+	right:-150px;
+	top:30px;
+}
+
+#Kitami:hover #Kitami-01{
+	display:block;}
+/*北見狐狸村結束*/	
+
+/*層雲峽地標*/	
+#Sounkyo{
+	right:210px;
+	top:170px;}
+	
+#Sounkyo:hover #Sounkyo-01{
+	display:block;}
+
+/*層雲峽內容區塊*/
+#Sounkyo-01{
+	right:-180px;
+	bottom:0px;
+}
+/*層雲峽結束*/
+
+/*四季彩之丘地標*/
+#Shikisai{
+	right:214px;
+	top:198px;}	
+
+#Shikisai:hover #Shikisai-01{
+	display:block;}
+
+/*四季彩之丘內容區塊*/
+#Shikisai-01{
+	right:-132px;
+	top:30px;
+}
+/*四季彩之丘結束*/
+
+
+/*阿寒湖地標*/	
+#Akan{
+	right:145px;
+	top: 202px;
+}
+	
+#Akan:hover #Akan-01{
+	display:block;}
+
+/*阿寒湖內容區塊*/
+#Akan-01{
+	right:--130px;
+	top:30px;
+}
+/*阿寒湖內容結束*/
+
+
+/*釧路濕原地標*/
+#Kushiro{
+	right: 84px;
+	top: 219px;
+}
+#Kushiro:hover  #Kushiro-01{
+	display:block;
+}
+
+/*釧路濕原內容區塊*/
+#Kushiro-01{
+	left:-30px;
+	top:30px;
+}
+/*釧路濕原內容結束*/
+
+
+/*水之教堂地標*/
+#Church{
+	right:225px;
+	bottom: 155px;
+}
+	
+#Church:hover #Church-01{
+	display:block;}
+
+/*水之教堂內容區塊*/
+#Church-01{
+	right:-180px;
+	bottom:0px;
+}
+/*水之教堂內容結束*/
+
+
+
+/*十勝が丘公園地標*/
+#tokachi{
+	right:144px;
+	bottom: 118px;
+}
+#tokachi:hover #tokachi-01{
+	display:block;}
+
+/*十勝が丘公園內容區塊*/
+#tokachi-01{
+	right:10px;
+	top:30px;
+}
+/*十勝が丘公園內容結束*/
+
+
+/*富田農場地標*/
+#Farm{
+	left:260px;
+	bottom:183px;
+}
+	
+#Farm:hover #Farm-01{
+	display:block;}
+
+/*富田農場內容區塊*/
+#Farm-01{
+	left:70px;
+	bottom:0px;
+}	
+/*富田農場內容結束*/
+
+
+/*登別地獄谷地標*/
+#Noboribetsu{
+	left:232px;
+	bottom: 103px;
+}
+
+/*登別地獄谷內容區塊*/	
+#Noboribetsu:hover #Noboribetsu-01{
+	display:block;}
+
+#Noboribetsu-01{
+	left:-105px;
+	bottom:35px;
+}
+/*登別地獄谷內容結束*/
+
+/*小樽運河地標*/	
+#Otaru{
+	left: 126px;
+	bottom: 185px;
+}
+/*小樽運河內容區塊*/	
+#Otaru:hover #Otaru-01{
+	display:block;}
+
+#Otaru-01{
+	left:65px;
+	top:-5px;
+}
+/*小樽運河內容結束*/
+
+/*北海道大學地標*/
+#Hokkaido{
+	left: 130px;
+	bottom: 148px;
+}
+#Hokkaido:hover #Hokkaido-01{
+	display:block;}
+
+/*北海道大學內容區塊*/	
+#Hokkaido-01{
+	left:0px;
+	top:30px;
+}
+/*北海道大學內容結束*/
+
+
+/*洞爺湖地標*/
+#Lake{
+	left: 90px;
+	bottom: 106px;
+}	
+#Lake:hover #Lake-01{
+	display:block;}
+
+/*洞爺湖內容區塊*/
+#Lake-01{
+	left:60px;
+	top:0px;
+}
+/*洞爺湖內容結束*/
+
+
+/*熊牧場地標*/
+#Bear{
+	left: 130px;
+	bottom: 73px;
+}
+#Bear:hover #Bear-01{
+	display:block;}
+
+/*熊牧場內容區塊*/
+#Bear-01{
+	left:65px;
+	top:-20px;
+}
+/*熊牧場內容結束*/	
+
+
+/*函館地標*/
+#Hakodate{
+	left: 135px;
+	bottom: 20px;
+}
+#Hakodate:hover #Hakodate-01{
+	display:block;}
+
+/*函館內容區塊*/
+#Hakodate-01{
+	left:50px;
+	bottom:10px;
+}
+/*函館內容結束*/
+
+/*新千歲機場地標*/
+#NCA{
+	left:168px;
+	bottom:123px;}
+
+/*新千歲機場結束*/
+
+/*函館機場地標*/
+#HA{
+	left:189px;
+	bottom:10px;}
+
+/*函館機場結束*/
+
+
+/*旭川機場地標*/
+#AA{
+	left:285px;
+	top:176px;}
+
+/*旭川機場結束*/

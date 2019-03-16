@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/維基百科</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">霧島神社</h3><p2 class="p2">霧島神宮為南九州最大的神宮，也是霧島的地標，祭祀著日本傳說中的日本開國之神「瓊瓊杵尊」。神社內有紅色迴廊的社殿和曲線優美的唐式山形牆，朱紅社殿被指定重要文物。神宮的外參道大鳥居，高22.4公尺，兩柱間隔16公尺為西日本最壯大。坂本龍馬在遭遇暗殺後，曾與妻子到霧島深山的溫泉療傷，並在霧島神社住過一宿，對於寺院裡的大杉樹及殿宇等建築表示贊嘆。</p2></div>
+    </div>
+</body>
+</html>

@@ -177,7 +177,7 @@
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);" title="新聞"></a>
                           </div>
                           <div class="col-md-8 pl-3 news_list_txt">
-                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(航空名稱)</a></small>
+                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(xxx)</a></small>
                             <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -191,7 +191,7 @@
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);" title="新聞"></a>
                           </div>
                           <div class="col-md-8 pl-3 news_list_txt">
-                             <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(航空名稱)</a></small>
+                             <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(xxx)</a></small>
                             <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -205,7 +205,7 @@
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);" title="新聞"></a>
                           </div>
                           <div class="col-md-8 pl-3 news_list_txt">
-                             <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(航空名稱)</a></small>
+                             <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(xxx)</a></small>
                             <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -218,7 +218,7 @@
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);" title="新聞"></a>
                           </div>
                           <div class="col-md-8 pl-3 news_list_txt">
-                             <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(航空名稱)</a></small>
+                             <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(xxx)</a></small>
                             <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -232,7 +232,7 @@
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);" title="新聞"></a>
                           </div>
                           <div class="col-md-8 pl-3 news_list_txt">
-                             <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(航空名稱)</a></small>
+                             <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(xxx)</a></small>
                             <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -246,7 +246,7 @@
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);" title="新聞"></a>
                           </div>
                           <div class="col-md-8 pl-3 news_list_txt">
-                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(航空名稱)</a></small>
+                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(xxx)</a></small>
                             <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -259,7 +259,7 @@
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);" title="新聞"></a>
                           </div>
                           <div class="col-md-8 pl-3 news_list_txt">
-                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(航空名稱)</a></small>
+                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(xxx)</a></small>
                             <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -273,7 +273,7 @@
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);" title="新聞"></a>
                           </div>
                           <div class="col-md-8 pl-3 news_list_txt">
-                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(航空名稱)</a></small>
+                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(xxx)</a></small>
                             <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -287,7 +287,7 @@
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);" title="新聞"></a>
                           </div>
                           <div class="col-md-8 pl-3 news_list_txt">
-                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(航空名稱)</a></small>
+                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(xxx)</a></small>
                             <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -301,7 +301,7 @@
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);" title="新聞"></a>
                           </div>
                           <div class="col-md-8 pl-3 news_list_txt">
-                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(航空名稱)</a></small>
+                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(xxx)</a></small>
                             <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -315,7 +315,7 @@
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);" title="新聞"></a>
                           </div>
                           <div class="col-md-8 pl-3 news_list_txt">
-                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(航空名稱)</a></small>
+                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(xxx)</a></small>
                             <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -329,7 +329,7 @@
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);" title="新聞"></a>
                           </div>
                           <div class="col-md-8 pl-3 news_list_txt">
-                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(航空名稱)</a></small>
+                            <a href="#" title="新聞"><h3>AirAsia 2/1直飛名古屋</h3></a><small><a href="#" title="新聞">(xxx)</a></small>
                             <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -375,110 +375,291 @@
             <div class="index-content-right col0">
                 
                 <div class="row">
-                    <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one green_tab">
-                           <div class="title_tab hole">
-                               <h4>旅行最熱門 </h4>
-                              
-                           </div>
-                           <div class="content_tab">
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                   <a class="img_a" href="#">
-                                     <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                   </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
-                               <hr>
-
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                   <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                   <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
-                               <hr>
-
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
-                           </div>
-                       </div>
-                    </div>
-
-                    
-
                      <div class="col-md-12 col">
-                      <form class="row search_from">
-                      <input type="text" class="journey_search" value="請輸入優旅行要查詢的字串">  
-                      <button class="search_color">搜尋</button>
-                      </form>  
-                    </div> 
+                            <div class="cardshap hotCard tab_one green_tab">
+                                <div class="title_tab hole">
+                                    <h4>熱門情報</h4>
+                                    <span>謹慎理財 信用至上</span>
+                                </div>
+                                <div class="content_tab">
+                                     <!-- 熱門情報輪播 -->
+                            <div class="swiper-container HotNews_slide">
+                                <div class="swiper-wrapper">
+
+                                    <div class="swiper-slide" > 
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                          <a class="img_a" href="#">
+                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                          </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                         <a class="img_a" href="#">
+                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                          <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div  class="col-5">
+                                         <a class="img_a" href="#">
+                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="swiper-slide" > 
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                          <a class="img_a" href="#">
+                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                          </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                         <a class="img_a" href="#">
+                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                          <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div  class="col-5">
+                                         <a class="img_a" href="#">
+                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="swiper-slide" > 
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                          <a class="img_a" href="#">
+                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                          </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                         <a class="img_a" href="#">
+                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                          <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div  class="col-5">
+                                         <a class="img_a" href="#">
+                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 如果需要导航按钮 -->
+                                <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                                
+                            </div>
+                            <!-- 熱門情報輪播 END -->
+                                </div>
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="col-md-12 col">
+                         <div class="green_tab">
+                          <form class="row search_from">
+                           <input type="text" class="journey_search" value="請輸入優旅行要查詢的字串">  
+                           <button>搜尋</button>
+                          </form>
+                         </div>  
+                        </div>
+
+                         <div class="col-md-12 col">
+                           <div class="cardshap hotCard tab_one green_tab">
+                               <div class="title_tab hole">
+                                   <h4>旅行地區 </h4>
+                                  
+                               </div>
+                              <div class="content_tab">
+                                 <div class="journey_icon">
+                                   <div class="row no-gutters">
+                                     <div class="col-6">
+                                      <a href="#"> <i class="fa fa-angle-double-right"></i>日本</a>
+                                     </div>
+                                     <div class="col-6">
+                                      <a href="#"><i class="fa fa-angle-double-right"></i>韓國</a>
+                                     </div>
+                                   </div>
+                                   <hr>
+                                    <div class="row no-gutters">
+                                     <div class="col-6">
+                                      <a href="#"><i class="fa fa-angle-double-right"></i>東南亞</a>
+                                     </div>
+                                     <div class="col-6">
+                                      <a href="#"><i class="fa fa-angle-double-right"></i>中港澳</a>
+                                     </div>
+                                   </div>
+                                   <hr>
+                                    <div class="row no-gutters">
+                                     <div class="col-6">
+                                      <a href="#"><i class="fa fa-angle-double-right"></i>台灣</a>
+                                     </div>
+                                     <div class="col-6">
+                                      <a href="#"><i class="fa fa-angle-double-right"></i>其他地區</a>
+                                     </div>
+                                   </div>
+                                 </div>
+
+                               </div>
+                           </div>
+                        </div>
+
+                        <!-- 廣告 -->
+                            <div class="col-md-12 col">
+                                <img src="http://placehold.it/300x250" alt="">
+                            </div>
+                         
+                          <!-- 辦卡推薦 -->
+                           <div class="col-md-12 col">
+                           <div class="cardshap hotCard tab_one green_tab">
+                               <div class="title_tab hole">
+                                   <h4>辦卡推薦 </h4>
+                               </div>
+                               <div class="content_tab">
+                                   <div class="row no-gutters">
+                                     <div class="col-5">
+                                      <a class="img_a" href="#">
+                                        <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                        
+                                      </a>
+                                      <span>謹慎理財 信用至上</span>
+                                     </div>
+                                     <div class="col-7">
+                                      <a href="#">
+                                        <h4>匯豐現金回饋玉璽卡</h4>
+                                      </a>
+                                       <p><b>★</b>國內現金回饋1.22%<br><b> ★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
+                                     </div>
+                                   </div>
+
+                                   <div class="row no-gutters">
+                                     <div class="col-5">
+                                      <a class="img_a" href="#">
+                                        <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+
+                                      </a> 
+                                      <span>謹慎理財 信用至上</span>
+                                     </div>
+                                     <div class="col-7">
+                                      <a href="#">
+                                        <h4>匯豐現金回饋玉璽卡</h4>
+                                      </a>
+                                        <p><b>★</b>國內現金回饋1.22%<br><b> ★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
+                                     </div>
+                                   </div>
+
+                               </div>
+                           </div>
+                        </div>
+                        <!--辦卡推薦end-->
+                        <!-- 廣告 -->
+                            <div class="col-md-12 col">
+                                <img src="http://placehold.it/300x250" alt="">
+                            </div>
+                        <!-- 廣告end-->
+                        <div class="col-md-12 col">
+                           <div class="cardshap tab_one green_tab">
+                               <div class="title_tab hole">
+                                   <h4>熱門旅行</h4>
+                               </div>
+                               <div class="content_tab">
+                                   <ul class="tab_list cardu_li">
+                                    <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                                    <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                                    <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                                    <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                                </ul>
+                               </div>
+                           </div>
+                        </div>
+                        <!-- 廣告 -->
+                            <div class="col-md-12 col">
+                                <img src="http://placehold.it/300x250" alt="">
+                            </div>
+                        <!-- 廣告end-->
+                        <!-- 廣告 -->
+                            <div class="col-md-12 col">
+                                <img src="http://placehold.it/300x250" alt="">
+                            </div>
+                        <!-- 廣告end-->
+  
                   
-
-
-
-
-                    
-                    
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                    
-
-                  
-
-                    
                     <?php 
                      //-- 共用footer --
                      require '../share_area/footer.php';

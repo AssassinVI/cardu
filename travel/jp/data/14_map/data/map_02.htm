@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/十和田湖國立公園協會</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">十和田湖</h3><p2 class="p2">橫跨青森縣與秋田縣間的十和田湖，是約在2,000年前火山噴發後所形成，標高400公尺的二重火山湖。無論是春芽嫩綠或是秋染楓紅時分、白雪皚皚宛如仙境般的冬季，十和田湖隨著季節變化展現不同風貌，適合踏青的5月至6月，以及10月中至10月底最佳賞楓時期，秋季楓葉燒紅整個八甲田山區時，楓紅片片映照於湖面上形成的絕美的湖光倒影，一年可吸引350萬名旅客來此遊覽。</p2></div>
+    </div>
+</body>
+</html>

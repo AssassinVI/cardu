@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/卡優新聞網</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">祉園</h3><p2 class="p2">祇園是京都繁華區的代表地段，以觀賞舞妓或藝妓舞藝的「花街」聞名。「祇園」位於八坂神社前，以四條通為主要街道，自鴨川開始到東大路通及八坂神社，沿路可見御茶屋、日本料理店及酒吧，也有著名歌舞伎劇場「南座」。走在兩側裝設格子戶的古老木造建築巷道中，可體驗到古都昔時的風雅情調。由北部的新橋通至白川沿路的地區，被指定為「重要傳統建造物群保存地區」，南部包括花見小路的地區受京都市指定為「歷史景觀保全修景地區」，這兩個地區皆受政府保護，成為京都文化、觀光的名勝。</p2></div>
+    </div>
+</body>
+</html>

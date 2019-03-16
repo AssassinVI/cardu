@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/卡優新聞網</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">伏見稻荷大社</h3><p2 class="p2">伏見稻荷大社位於稻荷山的山麓，在傳統上整個稻荷山的範圍都被視為是神域的範圍。由於每年都有大量的香客前來神社祭拜求取農作豐收、生意興隆、交通安全，使得該神社成為京都地區香火最盛的神社之一。另外，起源於江戶時代的習俗，前來此地許願的人們往往會捐款在神社境內豎立一座鳥居來表達對神明的敬意，使得伏見稻荷大社的範圍內豎有數量驚人的大小鳥居，而以「千本鳥居」之名聞名日本全國及海外。</p2></div>
+    </div>
+</body>
+</html>

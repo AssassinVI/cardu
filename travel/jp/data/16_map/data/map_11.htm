@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/浦添市網站</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">浦添大公園</h3><p2 class="p2">浦添大公園離那霸市區只需約15分鐘車程，是一個位置優越的縣營綜合公園，佔地面積廣達37萬平方公尺。這座公園中最受歡迎的是遊樂廣場，其中全長90公尺以上的超長滾輪式溜滑梯，不僅是當地人親子假日的熱門據點，就連觀光客也常來遊玩，已成為口耳相傳的熱門親子景點。</p2></div>
+    </div>
+</body>
+</html>

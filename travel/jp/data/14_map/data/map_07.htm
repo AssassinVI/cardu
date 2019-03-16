@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/中尊寺官網</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">中尊寺</h3><p2 class="p2">中尊寺是天台宗的東北總寺院，寺內保存有建於天治元年(西元1124年)的日本第一號國寶金色堂。金色堂的內外全部貼上金箔，並用鑲嵌金銀珠寶的漆泥金畫裝飾。平泉曾經是黃金的產地，在將近100年的時間裡一直作為日本地方城市的先驅，金色堂成爲平泉的黃金文化的繁榮象徵。寺內寶物館‧讚衡藏保存了多項國寶和重要文化財，是一座歷史藝術寶庫。</p2></div>
+    </div>
+</body>
+</html>

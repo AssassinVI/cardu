@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/維基百科</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">田澤湖</h3><p2 class="p2">田澤湖是周長20公里的近圓形的破火山口湖，為秋田縣內唯一的天然大湖，以清澈的湖水為特徵，在陽光下閃著翡翠般的光澤。水深423.4米，為日本最深的湖泊，因為深度足夠，即使是寒冷的冬天，湖面也不會結冰。湖畔矗立著辰子銅像，另一邊還有瑞士村、田澤湖香草園等景點，遊客可以選擇搭乘「田澤湖一周線」觀光巴士，瀏覽完整的湖畔風光。</p2></div>
+    </div>
+</body>
+</html>

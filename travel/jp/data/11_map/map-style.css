@@ -1,0 +1,310 @@
+@import url("reset.css");
+
+#MAP{
+	width:640px;
+	height:426px;
+	margin:0 auto;
+	/*margin-top:50px;*/
+	margin-top:10px;
+	margin-left: -17px;
+	position:relative;
+}
+#UENO,#AKIBA,#TOKYO,#ASAKUSA,#GINZA,#TSUKIJI,#ODAIBA,
+#SHINAGAWA,#DAIKANYAMA,#TSUNAGU,#ROPPONGI,#HARAJUKU,
+#SHINJUKU,#KICHIJOJI,#IKEBUKURO,#KEIKYU,#NIA{
+	position:absolute;
+}
+#UENO-01,#AKIBA-01,#TOKYO-01,#ASAKUSA-01,#GINZA-01,#TSUKIJI-01,#ODAIBA-01,
+#SHINAGAWA-01,#DAIKANYAMA-01,#TSUNAGU-01,#ROPPONGI-01,#HARAJUKU-01,
+#SHINJUKU-01,#KICHIJOJI-01,#IKEBUKURO-01{
+	display:none;
+	position:absolute;
+	z-index:99;
+}
+/*#UENO-02,#AKIBA-02,#TOKYO-02,#ASAKUSA-02,#GINZA-02,#TSUKIJI-02,#ODAIBA-02,
+#SHINAGAWA-02,#DAIKANYAMA-02,#TSUNAGU-02,#ROPPONGI-02,#HARAJUKU-02,
+#SHINJUKU-02,#KICHIJOJI-02,#IKEBUKURO-02{
+	display:none;
+	position:absolute;
+	width:180px;
+	height: 32px;
+	background-color:rgba(0,0,0,0.4);
+	border-bottom-left-radius:7px;
+	border-bottom-right-radius:7px;
+	right:0px;
+	bottom:0px;
+	z-index: 98;
+}
+#UENO-02 p,#AKIBA-02 p,#TOKYO-02 p,#ASAKUSA-02 p,#GINZA-02 p,#TSUKIJI-02 p,#ODAIBA-02 p,
+#SHINAGAWA-02 p,#DAIKANYAMA-02 p,#TSUNAGU-02 p,#ROPPONGI-02 p,#HARAJUKU-02 p,
+#SHINJUKU-02 p,#KICHIJOJI-02 p,#IKEBUKURO-02 p{
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+	line-height: 32px;
+	font-weight: bold;
+	font-family: "微軟正黑體";
+}*/
+/*上野地標*/
+#UENO{
+	right:193px;
+	top:82px;
+	}
+/*上野內容區塊*/	
+#UENO-01{
+	right:-180px;
+	top:-70px;
+}
+#UENO:hover #UENO-01,
+#UENO:hover #UENO-02,
+#UENO-01:hover #UENO-01{
+	display:block;}
+/*上野結束*/
+
+/*秋葉原地標*/
+#AKIBA{
+	right:193px;
+	top:140px;}
+	
+/*秋葉原內容區塊*/	
+#AKIBA-01{
+	right:-180px;
+	top:-70px;
+}
+
+#AKIBA:hover #AKIBA-01,
+#AKIBA:hover #AKIBA-02,
+#AKIBA-01:hover #AKIBA-01{
+	display:block;}
+/*秋葉原結束*/	
+
+/*東京地標*/	
+#TOKYO{
+	right:200px;
+	top:198px;}
+	
+#TOKYO:hover #TOKYO-01,
+#TOKYO:hover #TOKYO-02,
+#TOKYO-01:hover #TOKYO-01{
+	display:block;}
+
+/*東京內容區塊*/
+#TOKYO-01{
+	right:-180px;
+	top:-85px;
+}
+/*東京結束*/
+
+/*淺草地標*/
+#ASAKUSA{
+	right:105px;
+	top:82px;}	
+
+#ASAKUSA:hover #ASAKUSA-01,
+#ASAKUSA:hover #ASAKUSA-02,
+#ASAKUSA-01:hover #ASAKUSA-01{
+	display:block;}
+
+/*淺草內容區塊*/
+#ASAKUSA-01{
+	right:-102px;
+	top:48px;
+}
+/*淺草結束*/
+
+
+/*成田機場地標*/
+#NIA{
+	right:15px;
+	top:120px;}
+
+/*成田機場結束*/
+#GINZA{
+	right: 161px;
+	top: 230px;
+}
+	
+#GINZA:hover #GINZA-01,
+#GINZA:hover #GINZA-02{
+	display:block;}
+
+/*銀座內容區塊*/
+#GINZA-01{
+	right:-130px;
+	top:-115px;
+}
+/*銀座內容結束*/
+
+/*築地地標*/
+#TSUKIJI{
+	right: 170px;
+	top: 268px;
+}
+#TSUKIJI:hover  #TSUKIJI-01,	
+#TSUKIJI:hover #TSUKIJI-02{
+	display:block;}
+
+/*築地內容區塊*/
+#TSUKIJI-01{
+	right:50px;
+	top:-20px;
+}
+/*築地內容結束*/
+
+
+/*台場地標*/
+#ODAIBA{
+	right: 143px;
+	top: 346px;
+}
+	
+#ODAIBA:hover #ODAIBA-01,
+#ODAIBA:hover #ODAIBA-02{
+	display:block;}
+
+/*台場內容區塊*/
+#ODAIBA-01{
+	right:-136px;
+	top:-115px;
+}
+/*台場內容結束*/
+
+/*羽田機場地標*/
+#KEIKYU{
+	right: 247px;
+	top: 386px;
+}
+/*羽田機場內容結束*/
+
+
+/*品川地標*/
+#SHINAGAWA{
+	right:300px;
+	top: 283px;
+}
+#SHINAGAWA:hover #SHINAGAWA-01,
+#SHINAGAWA:hover #SHINAGAWA-02{
+	display:block;}
+
+/*品川內容區塊*/
+#SHINAGAWA-01{
+	right:50px;
+	top:10px;
+}
+/*品川內容結束*/
+
+
+/*代官山地標*/
+#DAIKANYAMA{
+	left:99px;
+	bottom: 120px;
+}
+	
+#DAIKANYAMA:hover #DAIKANYAMA-01,
+#DAIKANYAMA:hover #DAIKANYAMA-02{
+	display:block;}
+
+/*代官山內容區塊*/
+#DAIKANYAMA-01{
+	left:48px;
+	bottom:-100px;
+}	
+/*代官山內容結束*/
+
+
+/*涉谷地標*/
+#TSUNAGU{
+	left:147px;
+	bottom: 143px;
+}
+
+/*涉谷內容區塊*/	
+#TSUNAGU:hover #TSUNAGU-01,
+#TSUNAGU:hover #TSUNAGU-02{
+	display:block;}
+
+#TSUNAGU-01{
+	left:-125px;
+	bottom:45px;
+}
+/*涉谷內容結束*/
+
+/*六本木地標*/	
+#ROPPONGI{
+	left: 200px;
+	bottom: 150px;
+}
+/*六本木內容區塊*/	
+#ROPPONGI:hover #ROPPONGI-01,
+#ROPPONGI:hover #ROPPONGI-02{
+	display:block;}
+
+#ROPPONGI-01{
+	left:-118px;
+	top:50px;
+}
+/*六本木內容結束*/
+
+/*原宿地標*/
+#HARAJUKU{
+	left: 147px;
+	bottom: 194px;
+}
+#HARAJUKU:hover #HARAJUKU-01,
+#HARAJUKU:hover #HARAJUKU-02{
+	display:block;}
+
+/*原宿內容區塊*/	
+#HARAJUKU-01{
+	left:-65px;
+	bottom:45px;
+}
+/*原宿內容結束*/
+
+/*新宿地標*/
+#SHINJUKU{
+	left: 147px;
+	bottom: 258px;
+}	
+#SHINJUKU:hover #SHINJUKU-01,
+#SHINJUKU:hover #SHINJUKU-02{
+	display:block;}
+
+/*新宿內容區塊*/
+#SHINJUKU-01{
+	left:-55px;
+	top:-115px;
+}
+/*新宿內容結束*/
+
+/*吉祥寺地標*/
+#KICHIJOJI{
+	left: 65px;
+	bottom: 253px;
+}
+#KICHIJOJI:hover #KICHIJOJI-01,
+#KICHIJOJI:hover #KICHIJOJI-02{
+	display:block;}
+
+/*吉祥寺內容區塊*/
+#KICHIJOJI-01{
+	left:48px;
+	top:0px;
+}
+/*吉祥寺內容結束*/	
+
+/*池袋地標*/
+#IKEBUKURO{
+	left: 168px;
+	top: 48px;
+}
+#IKEBUKURO:hover #IKEBUKURO-01,
+#IKEBUKURO:hover #IKEBUKURO-02{
+	display:block;}
+
+/*池袋內容區塊*/
+#IKEBUKURO-01{
+	left:-100px;
+	top:50px;
+}
+/*池袋內容結束*/

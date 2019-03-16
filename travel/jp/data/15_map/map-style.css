@@ -1,0 +1,272 @@
+@import url("reset.css");
+
+#MAP{
+	width:640px;
+	height:426px;
+	margin:0 auto;
+	/*margin-top:50px;*/
+	margin-top:10px;
+	margin-left: -17px;
+	position:relative;
+}
+
+#MOJIKO,#DAZAIFU,#YUFUIN,#BAPPU,#FA,#GINZA,
+#ASO,#KUMAMOTO,#KUMAMOTOOFFICE,#SAKURAJIMA,#MANAGAHA,
+#KIRISHIMA,#RICESAYAMA,#ATOMICBOMB,#HUIS,#HAKATA{
+	position:absolute;
+}
+#MOJIKO-01,#DAZAIFU-01,#YUFUIN-01,#BAPPU-01,#FA-01,#GINZA-01,#ASO-01,
+#KUMAMOTO-01,#KUMAMOTOOFFICE-01,#SAKURAJIMA-01,#MANAGAHA-01,#KIRISHIMA-01,
+#RICESAYAMA-01,#ATOMICBOMB-01,#HUIS-01,#HAKATA-01{
+	display:none;
+	position:absolute;
+	z-index:99;
+}
+
+/*門司港地標*/
+#MOJIKO{
+	right:230px;
+	top:2px;
+	}
+/*門司港內容區塊*/	
+#MOJIKO-01{
+	right:-180px;
+	top:2px;
+}
+#MOJIKO:hover #MOJIKO-01{
+	display:block;}
+/*門司港結束*/
+
+/*太宰府天滿宮地標*/
+#DAZAIFU{
+	right:245px;
+	top:55px;}
+	
+/*太宰府天滿宮內容區塊*/	
+#DAZAIFU-01{
+	right:-180px;
+	top:-20px;
+}
+
+#DAZAIFU:hover #DAZAIFU-01{
+	display:block;}
+/*太宰府天滿宮結束*/	
+
+/*由布院地標*/	
+#YUFUIN{
+	right:246px;
+	top:98px;}
+	
+#YUFUIN:hover #YUFUIN-01{
+	display:block;}
+
+/*由布院內容區塊*/
+#YUFUIN-01{
+	right:-180px;
+	top:-75px;
+}
+/*由布院結束*/
+
+/*別府地獄溫泉地標*/
+#BAPPU{
+	right:143px;
+	top:86px;}	
+
+#BAPPU:hover #BAPPU-01{
+	display:block;}
+
+/*別府地獄溫泉內容區塊*/
+#BAPPU-01{
+	right:-132px;
+	top:30px;
+}
+/*別府地獄溫泉結束*/
+
+
+/*福岡機場地標*/
+#FA{
+	left:195px;
+	top:20px;}
+
+/*福岡機場結束*/
+
+
+/*草千里地標*/	
+#GINZA{
+	right: 208px;
+	top: 145px;
+}
+	
+#GINZA:hover #GINZA-01{
+	display:block;}
+
+/*草千里內容區塊*/
+#GINZA-01{
+	right:-180px;
+	top:0px;
+}
+/*草千里內容結束*/
+
+/*阿蘇山地標*/
+#ASO{
+	right: 205px;
+	top: 175px;
+}
+#ASO:hover  #ASO-01{
+	display:block;
+}
+
+/*阿蘇山內容區塊*/
+#ASO-01{
+	right:-180px;
+	top:-20px;
+}
+/*阿蘇山內容結束*/
+
+
+/*熊本城地標*/
+#KUMAMOTO{
+	right:285px;
+	top: 145px;
+}
+	
+#KUMAMOTO:hover #KUMAMOTO-01{
+	display:block;}
+
+/*熊本城內容區塊*/
+#KUMAMOTO-01{
+	right:-136px;
+	top:-120px;
+}
+/*熊本城內容結束*/
+
+
+
+/*熊本熊辦公室地標*/
+#KUMAMOTOOFFICE{
+	left:232px;
+	top: 183px;
+}
+#KUMAMOTOOFFICE:hover #KUMAMOTOOFFICE-01,
+#KUMAMOTOOFFICE:hover #KUMAMOTOOFFICE-02{
+	display:block;}
+
+/*熊本熊辦公室內容區塊*/
+#KUMAMOTOOFFICE-01{
+	right:10px;
+	top:30px;
+}
+/*熊本熊辦公室內容結束*/
+
+
+/*櫻島地標*/
+#SAKURAJIMA{
+	left:300px;
+	bottom:65px;
+}
+	
+#SAKURAJIMA:hover #SAKURAJIMA-01{
+	display:block;}
+
+/*櫻島內容區塊*/
+#SAKURAJIMA-01{
+	left:60px;
+	bottom:0px;
+}	
+/*櫻島內容結束*/
+
+
+/*軍艦島地標*/
+#MANAGAHA{
+	left:112px;
+	bottom: 180px;
+}
+
+/*軍艦島內容區塊*/	
+#MANAGAHA:hover #MANAGAHA-01{
+	display:block;}
+
+#MANAGAHA-01{
+	left:-105px;
+	bottom:35px;
+}
+/*軍艦島內容結束*/
+
+/*霧島神社地標*/	
+#KIRISHIMA{
+	left: 292px;
+	bottom: 112px;
+}
+/*霧島神社內容區塊*/	
+#KIRISHIMA:hover #KIRISHIMA-01{
+	display:block;}
+
+#KIRISHIMA-01{
+	left:65px;
+	top:-5px;
+}
+/*霧島神社內容結束*/
+
+/*稻佐山地標*/
+#RICESAYAMA{
+	left: 138px;
+	/*bottom: 212px;*/
+	bottom: 207px;
+}
+#RICESAYAMA:hover #RICESAYAMA-01{
+	display:block;}
+
+/*稻佐山內容區塊*/	
+#RICESAYAMA-01{
+	left:0px;
+	/*top:30px;*/
+	top:32px;
+}
+/*稻佐山內容結束*/
+
+/*原爆資料館地標*/
+#ATOMICBOMB{
+	left: 125px;
+	top: 152px;
+}	
+#ATOMICBOMB:hover #ATOMICBOMB-01{
+	display:block;}
+
+/*原爆資料館內容區塊*/
+#ATOMICBOMB-01{
+	left:0px;
+	top:30px;
+}
+/*原爆資料館內容結束*/
+
+
+/*豪斯登堡地標*/
+#HUIS{
+	left: 130px;
+	top: 115px;
+}
+#HUIS:hover #HUIS-01{
+	display:block;}
+
+/*豪斯登堡內容區塊*/
+#HUIS-01{
+	left:0px;
+	top:30px;
+}
+/*豪斯登堡內容結束*/	
+
+
+/*博多運河城地標*/
+#HAKATA{
+	left: 172px;
+	top: 58px;
+}
+#HAKATA:hover #HAKATA-01{
+	display:block;}
+
+/*博多運河城內容區塊*/
+#HAKATA-01{
+	left:-100px;
+	top:32px;
+}
+/*博多運河城內容結束*/

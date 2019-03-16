@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/天童市官網</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">天童公園</h3><p2 class="p2">天童是將棋的故鄉，出產的將棋量占全日本95%。據傳江戶時代末期，武士生活清苦便做起了生產將棋的副業，變成了此地的「特產」。每天四月，在天童公園會舉行「真人版將棋」，由真人扮演棋子，相當有趣。這裡也出產溫泉，不想進旅館泡湯的旅客，也可以選擇戶外足湯，在公園附近的街道旁，分別設立三處免費足湯，走累了請務必來這裡泡泡腳唷。</p2></div>
+    </div>
+</body>
+</html>

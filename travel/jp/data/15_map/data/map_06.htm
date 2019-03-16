@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/由布院溫泉協會</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">由布院</h3><p2 class="p2">由布院稱為由布院溫泉，又因為在湯布院町，故又稱為湯布院溫泉，是九州有名的溫泉渡假勝地。由布院坐落在優美的由布嶽山腳下，起初這裡只是金鱗湖周邊幾處小溫泉療養所，在1970年後，各式活動在此舉辦，這裡的溫泉也聞名全日本，在《最想去的溫泉》排行榜裡名列前茅。</p2></div>
+    </div>
+</body>
+</html>

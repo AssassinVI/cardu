@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/卡優新聞網</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">清水寺</h3><p2 class="p2">清水寺是一座位於日本京都府京都市東山區清水的寺院，於778年前後由延鎮上人起造。清水寺的山號為音羽山，主要供奉千手觀音，原本屬於法相宗這一宗派但目前已獨立，成為北法相宗的大本山。清水寺與金閣寺、嵐山天龍寺等同為京都境內最著名的名勝古蹟，一年四季前來朝拜的香客或來訪的觀光客是絡驛不絕。清水寺於1994年以身為古都京都的文化財之一部分，列名至世界文化遺產中。</p2></div>
+    </div>
+</body>
+</html>

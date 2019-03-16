@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/維基百科</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">國際通</h3><p2 class="p2">國際通是沖繩縣那霸市縣廳前交差點至安里三叉路之間的一段約1.6公里的大街。該大街是那霸市最繁華的商業街。國際通最早建成於1933年，是當時連接原那霸市中心至首里市的最短的路線，原名「新縣道」。1944年沖繩島戰役之後，美國佔領了琉球群島，將路更名為國際通。沖繩人也紛紛來到這裡經商，百貨、商場等拔地而起，國際通成為那霸最繁華的地段，被人稱為「奇跡的一英里」。</p2></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/維基百科</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">磐梯熱海溫泉</h3><p2 class="p2">磐梯熱海溫泉於800年前鎌倉時代發跡，是一處歷史悠久的溫泉地，自古便作為治病健體的著名溫泉而遠近聞名。相傳古代有一位叫荻姬的美人得了不治之病，在不動明王指示下尋得此湯，浸泡後疾病遂痊癒，因此又稱「荻姬之湯」或「美人湯」。溫泉泉質為鹼性單純泉，透明無色且無臭無味，目前共有16家風呂和2家共同浴場，提供不含住宿的泡湯服務。</p2></div>
+    </div>
+</body>
+</html>

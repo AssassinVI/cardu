@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/卡優新聞網</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">銀座</h3><p2 class="p2">銀座以高級購物商店聞名，是東京最具代表性地區之一。銀座是高級商店街象徵，故不少時尚名店紛紛在此設點，成為聚集各種頂尖時尚品牌地方，也吸引不少觀光客前來朝聖，故從1970年起，銀座通開始實施星期六、日禁止車輛行駛，行人能夠在大街上自由走動的「步行街」制度。此制度持續至今，假日來到銀座大街上無需在意車輛或紅綠燈，可自由自在享受購物樂趣。</p2></div>
+    </div>
+</body>
+</html>

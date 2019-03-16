@@ -1,0 +1,264 @@
+@import url("reset.css");
+
+#MAP{
+	width:640px;
+	height:426px;
+	margin:0 auto;
+	/*margin-top:50px;*/
+	margin-top:10px;
+	margin-left: -17px;
+	position:relative;
+}
+
+#Hirosaki,#Lake,#Aomori,#Tazawa,#Kakunodate,#Longquan,
+#Matsushima,#Kisuke,#Chusonji,#Sendai,#Tendo,
+#Temple,#Inawashiro,#Aizuwakamatsu,#BAO{
+	position:absolute;
+}
+#Hirosaki-01,#Lake-01,#Aomori-01,#Tazawa-01,#Kakunodate-01,#Longquan-01,
+#Matsushima-01,#Kisuke-01,#Chusonji-01,#Sendai-01,#Tendo-01,
+#Temple-01,#Inawashiro-01,#Aizuwakamatsu-01,#BAO-01{
+	display:none;
+	position:absolute;
+	z-index:99;
+}
+
+/*弘前城地標*/
+#Hirosaki{
+	right:208px;
+	top:54px;
+	}
+/*弘前城內容區塊*/	
+#Hirosaki-01{
+	right:10px;
+	top:30px;
+}
+#Hirosaki:hover #Hirosaki-01{
+	display:block;}
+/*弘前城結束*/
+
+/*十和田湖地標*/
+#Lake{
+	right:142px;
+	top:60px;}
+	
+/*十和田湖內容區塊*/	
+#Lake-01{
+	right:20px;
+	top:30px;
+}
+
+#Lake:hover #Lake-01{
+	display:block;}
+/*十和田湖結束*/	
+
+/*奧入瀨溪地標*/	
+#Aomori{
+	right:92px;
+	top:88px;}
+	
+#Aomori:hover #Aomori-01{
+	display:block;}
+
+/*奧入瀨溪內容區塊*/
+#Aomori-01{
+	right:0px;
+	top:30px;
+}
+/*奧入瀨溪結束*/
+
+/*田澤湖地標*/
+#Tazawa{
+	right:222px;
+	top:122px;}	
+
+#Tazawa:hover #Tazawa-01{
+	display:block;}
+
+/*田澤湖內容區塊*/
+#Tazawa-01{
+	right:30px;
+	top:30px;
+}
+/*田澤湖結束*/
+
+
+/*角館地標*/	
+#Kakunodate{
+	right:200px;
+	top: 146px;
+}
+	
+#Kakunodate:hover #Kakunodate-01{
+	display:block;}
+
+/*角館內容區塊*/
+#Kakunodate-01{
+	right:-130px;
+	top:30px;
+}
+/*角館內容結束*/
+
+
+/*龍泉洞地標*/
+#Longquan{
+	right:78px;
+	top: 188px;
+}
+#Longquan:hover  #Longquan-01{
+	display:block;
+}
+
+/*龍泉洞內容區塊*/
+#Longquan-01{
+	left:-40px;
+	top:30px;
+}
+/*龍泉洞內容結束*/
+
+
+/*松島灣地標*/
+#Matsushima{
+	right:150px;
+	bottom: 140px;
+}
+	
+#Matsushima:hover #Matsushima-01{
+	display:block;}
+
+/*松島灣內容區塊*/
+#Matsushima-01{
+	left:25px;
+	top:30px;
+}
+/*松島灣內容結束*/
+
+
+
+/*喜助牛舌店地標*/
+#Kisuke{
+	right:158px;
+	bottom: 112px;
+}
+#Kisuke:hover #Kisuke-01{
+	display:block;}
+
+/*喜助牛舌店內容區塊*/
+#Kisuke-01{
+	right:0px;
+	bottom:32px;
+}
+/*喜助牛舌店內容結束*/
+
+
+/*中尊寺地標*/
+#Chusonji{
+	left:353px;
+	bottom:142px;
+}
+	
+#Chusonji:hover #Chusonji-01{
+	display:block;}
+
+/*中尊寺內容區塊*/
+#Chusonji-01{
+	left:70px;
+	bottom:5px;
+}	
+/*勝連城跡內容結束*/
+
+
+/*仙台城跡地標*/
+#Sendai{
+	left:258px;
+	bottom:108px;
+}
+
+/*仙台城跡內容區塊*/	
+#Sendai:hover #Sendai-01{
+	display:block;}
+
+#Sendai-01{
+	left:-105px;
+	bottom:30px;
+}
+/*仙台城跡內容結束*/
+
+/*天童公園地標*/	
+#Tendo{
+	left: 188px;
+	bottom: 125px;
+}
+/*天童公園內容區塊*/	
+#Tendo:hover #Tendo-01{
+	display:block;}
+
+#Tendo-01{
+	left:65px;
+	top:-5px;
+}
+/*天童公園內容結束*/
+
+/*山寺地標*/
+#Temple{
+	left: 198px;
+	bottom: 99px;
+}
+#Temple:hover #Temple-01{
+	display:block;}
+
+/*山寺內容區塊*/	
+#Temple-01{
+	left:50px;
+	bottom:0px;
+}
+/*山寺內容結束*/
+
+
+/*豬苗代湖地標*/
+#Inawashiro{
+	left: 202px;
+	bottom: 68px;
+}	
+#Inawashiro:hover #Inawashiro-01{
+	display:block;}
+
+/*豬苗代湖內容區塊*/
+#Inawashiro-01{
+	left:70px;
+	bottom:0px;
+}
+/*豬苗代湖內容結束*/
+
+
+/*會津若松城地標*/
+#Aizuwakamatsu{
+	left: 128px;
+	bottom: 49px;
+}
+#Aizuwakamatsu:hover #Aizuwakamatsu-01{
+	display:block;}
+
+/*會津若松城內容區塊*/
+#Aizuwakamatsu-01{
+	left:90px;
+	bottom:0px;
+}
+/*會津若松城內容結束*/	
+
+
+/*磐梯熱海溫泉地標*/
+#BAO{
+	left: 258px;
+	bottom: 30px;
+}
+#BAO:hover #BAO-01{
+	display:block;}
+
+/*磐梯熱海溫泉內容區塊*/
+#BAO-01{
+	left:100px;
+	bottom:0px;
+}
+/*磐梯熱海溫泉內容結束*/
+

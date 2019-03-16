@@ -1,0 +1,264 @@
+@import url("reset.css");
+
+#MAP{
+	width:640px;
+	height:426px;
+	margin:0 auto;
+	/*margin-top:50px;*/
+	margin-top:10px;
+	margin-left: -17px;
+	position:relative;
+}
+
+#Lanshan,#GPT,#Heian,#Gion,#Shijo,#Kiyomizu,
+#Fushimi,#Todaiji,#Shinsaibashi,#Osaka,#USJ,
+#POK,#ASHK,#Kobe,#Himeji{
+	position:absolute;
+}
+#Lanshan-01,#GPT-01,#Heian-01,#Gion-01,#Shijo-01,#Kiyomizu-01,
+#Fushimi-01,#Todaiji-01,#Shinsaibashi-01,#Osaka-01,#USJ-01,
+#POK-01,#ASHK-01,#Kobe-01,#Himeji-01{
+	display:none;
+	position:absolute;
+	z-index:99;
+}
+
+/*嵐山地標*/
+#Lanshan{
+	left:255px;
+	top:27px;
+	}
+/*嵐山內容區塊*/	
+#Lanshan-01{
+	right:5px;
+	top:30px;
+}
+#Lanshan:hover #Lanshan-01{
+	display:block;}
+/*嵐山結束*/
+
+/*金閣寺地標*/
+#GPT{
+	right:218px;
+	top:6px;}
+	
+/*金閣寺內容區塊*/	
+#GPT-01{
+	left:10px;
+	top:30px;
+}
+
+#GPT:hover #GPT-01{
+	display:block;}
+/*金閣寺結束*/	
+
+/*平安神宮地標*/	
+#Heian{
+	right:156px;
+	top:34px;}
+	
+#Heian:hover #Heian-01{
+	display:block;}
+
+/*平安神宮內容區塊*/
+#Heian-01{
+	left:20px;
+	top:28px;
+}
+/*平安神宮結束*/
+
+/*祇園地標*/
+#Gion{
+	right:164px;
+	top:60px;}	
+
+#Gion:hover #Gion-01{
+	display:block;}
+
+/*祇園內容區塊*/
+#Gion-01{
+	left:10px;
+	top:30px;
+}
+/*祇園結束*/
+
+
+/*四条河原町地標*/	
+#Shijo{
+	right:268px;
+	top:58px;
+}
+	
+#Shijo:hover #Shijo-01{
+	display:block;}
+
+/*四条河原町內容區塊*/
+#Shijo-01{
+	left:0px;
+	top:30px;
+}
+/*四条河原町內容結束*/
+
+
+/*-清水寺地標*/
+#Kiyomizu{
+	right:127px;
+	top: 110px;
+}
+#Kiyomizu:hover  #Kiyomizu-01{
+	display:block;
+}
+
+/*-清水寺內容區塊*/
+#Kiyomizu-01{
+	left:0px;
+	top:30px;
+}
+/*-清水寺內容結束*/
+
+
+/*伏見稻荷大社地標*/
+#Fushimi{
+	right:89px;
+	top: 139px;
+}
+	
+#Fushimi:hover #Fushimi-01{
+	display:block;}
+
+/*伏見稻荷大社內容區塊*/
+#Fushimi-01{
+	left:10px;
+	top:30px;
+}
+/*伏見稻荷大社內容結束*/
+
+
+
+/*東大寺地標*/
+#Todaiji{
+	right:116px;
+	bottom: 178px;
+}
+#Todaiji:hover #Todaiji-01{
+	display:block;}
+
+/*東大寺內容區塊*/
+#Todaiji-01{
+	right:67px;
+	bottom:-30px;
+}
+/*東大寺內容結束*/
+
+
+/*心齋橋地標*/
+#Shinsaibashi{
+	left:305px;
+	bottom:130px;
+}
+	
+#Shinsaibashi:hover #Shinsaibashi-01{
+	display:block;}
+
+/*心齋橋內容區塊*/
+#Shinsaibashi-01{
+	left:70px;
+	bottom:5px;
+}	
+/*心齋橋內容結束*/
+
+
+/*大阪城地標*/
+#Osaka{
+	left:318px;
+	bottom:162px;
+}
+
+/*大阪城內容區塊*/	
+#Osaka:hover #Osaka-01{
+	display:block;}
+
+#Osaka-01{
+	left:-105px;
+	bottom:30px;
+}
+/*大阪城內容結束*/
+
+/*環球影城地標*/	
+#USJ{
+	left:175px;
+	bottom: 95px;
+}
+/*環球影城內容區塊*/	
+#USJ:hover #USJ-01{
+	display:block;}
+
+#USJ-01{
+	left:65px;
+	top:-5px;
+}
+/*環球影城內容結束*/
+
+/*神戶港地標*/
+#POK{
+	left: 166px;
+	bottom: 212px;
+}
+#POK:hover #POK-01{
+	display:block;}
+
+/*神戶港內容區塊*/	
+#POK-01{
+	left:65px;
+	bottom:0px;
+}
+/*神戶港內容結束*/
+
+
+/*有馬溫泉地標*/
+#ASHK{
+	left: 163px;
+	top: 88px;
+}	
+#ASHK:hover #ASHK-01{
+	display:block;}
+
+/*有馬溫泉內容區塊*/
+#ASHK-01{
+	left:65px;
+	bottom:0px;
+}
+/*有馬溫泉內容結束*/
+
+
+/*神戶北野地標*/
+#Kobe{
+	left: 108px;
+	top: 132px;
+}
+#Kobe:hover #Kobe-01{
+	display:block;}
+
+/*神戶北野內容區塊*/
+#Kobe-01{
+	left:65px;
+	bottom:0px;
+}
+/*神戶北野內容結束*/	
+
+
+/*姬路城地標*/
+#Himeji{
+	left: 13px;
+	bottom: 235px;
+}
+#Himeji:hover #Himeji-01{
+	display:block;}
+
+/*姬路城內容區塊*/
+#Himeji-01{
+	left:70px;
+	bottom:0px;
+}
+/*姬路城內容結束*/
+

@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/卡優新聞網</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">金閣寺</h3><p2 class="p2">金閣寺又名鹿苑寺，是一座最早完成於1397年(應永四年)的日本佛寺，由於寺內核心建築「舍利殿」的外牆全是以金箔裝飾，所以又被暱稱為「金閣寺」。除了是知名的觀光旅遊景點之外，也被日本政府指定為國寶，並於1994年以「古都京都文化財」的一部份被聯合國教科文組織指定為世界文化遺產的重要歷史建築。 </p2></div>
+    </div>
+</body>
+</html>

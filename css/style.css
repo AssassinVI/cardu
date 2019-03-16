@@ -10,7 +10,7 @@ body{
 
 body, html, h1,h2,h3,h4,h5,p,span,a,div{ font-family: Microsoft JhengHei; }
 
-a:hover{ text-decoration: none; }
+a:hover{ text-decoration: none; color:#000000; }
 
 /*---------------共用------------------*/
 
@@ -74,6 +74,10 @@ a:hover{ text-decoration: none; }
 
 .flex-x-center{
     justify-content: center;
+}
+
+.w-100{
+  width: 100%;
 }
 
 .w-h-100{
@@ -1046,46 +1050,8 @@ a:hover{ text-decoration: none; }
 
 /*--------------------- 卡排行 END -----------------------*/
 
-/*------------------ 旅遊 ---------------------*/
 
-.japan_list{
- bottom: 0px;
- transition: all 0.3s;
- position: relative;
-}
 
-.japan_list .img_div{
- height:210px;
- border-radius: 20px 0 0 0;
- margin:auto;
- 
-
-}
-
-.japan_list big{
- position:absolute;
- top:10px;
- right:45px;
- color:#ffffff;
- font-size: 30px;
- text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
-}
-
-.japan_list a{
- color:#107816;
- font-size: 15px;
- font-weight: bold;
-
-}
-
-.japan_list span img{
- width:15px;
- height:16px;
-}
-
-.japan_list:hover{
- bottom: 10px;
-}
 
 
 /*------------------ TABs ---------------------*/
@@ -1114,11 +1080,10 @@ a:hover{ text-decoration: none; }
  
 }
 
-
-.tab-content .credit_icon {
+.credit_icon {
   padding:0;
 }
-.tab-content .credit_icon li{
+.credit_icon li{
   width:80px;
   height:85px;
   margin:10px;
@@ -1459,9 +1424,7 @@ a:hover{ text-decoration: none; }
    padding:16.3px 10px;
 }
 
-.tab_one .content_tab hr{
-   margin:8px 0;
-}
+
 
 .tab_one .content_tab .active_date{
     margin: 0;
@@ -1491,53 +1454,14 @@ a:hover{ text-decoration: none; }
   
  
 }
-.hotCard .content_tab .travel_main{ 
-  text-align:center;
-}
- 
+
+
 .hotCard .content_tab .travel_main h6{ 
   margin:5px 0;
 }
  
-.hotCard .content_tab .travel_sort{ 
-  text-align:center;
-  padding-bottom: 1px;
-  margin-bottom: 17px;
-  border-bottom: 1px dashed #ccc;
-}
- 
-.hotCard .content_tab .travel_sort h6{ 
-  margin:10px 0;
-}
 
-/*----------------------------------------- 優旅行footer ----------------------------------------------*/
-.travel_info{
-  border:1px #cccccc solid;
-  padding:5px 0;
-}
-.travel_info img{
-  width:185px;
-  height: 100px;
 
-}
-.travel_info li{
-  display: inline-block;
-}
-.travel_info ul{
-  padding:0;
-}
-.travel_info li a{
-  font-size:15px;
-  color:#000000;
-}
-
-.travel_info p{
-  font-size: 14px;
-  color:#949494;
-  line-height: 10px;
-}
-
-/*----------------------------------------- 優旅行footer end ----------------------------------------------*/
 
 
  
@@ -1569,25 +1493,17 @@ a:hover{ text-decoration: none; }
 }
 
 
-.hotCard .content_tab .journey_icon a{
-  color:#3f57b5;
+.journey_icon a{
+  color:#549c58;
+  font-weight: bold;
+  margin:0 auto;
 }
 
-.hotCard .content_tab .journey_icon hr{
-  margin:5px 0;
+.journey_icon hr{
+ margin:0;
 }
 
-.search_from .journey_search{
-  width:75%;
-}
 
-.search_from .search_color{
-    border-radius: 15px;
-    cursor: pointer;
-    background-color:#05700b;
-    color:#ffffff;
-    margin-left:10px;
-}
 
 
 /*----------------------- 百葉窗 Tab (新卡訊) ---------------------------*/
@@ -1713,6 +1629,7 @@ a:hover{ text-decoration: none; }
 }
 
  .cards-2 .img_div{
+    width:343px;
     height: 225px;
 } 
 
@@ -1816,28 +1733,89 @@ a:hover{ text-decoration: none; }
     padding: 0 10px;
 }
 
-.travel_photo .img_div{
-  border-radius: 20px 0 20px 0;
- 
-}
- 
-.travel_text {
-  display:block;
-  text-align:center;
-}
+/*--------------------------------- 優旅行----------------------------------*/
  
 .travel_text h6{
+ text-align: center;
  font-weight: bold;
- color:#3f57b5;
+ color:#549c58;
+ margin: 0 auto;
 }
 
 .travel_text p{
- position: relative;
+  font-size: 14px;
+  color:#000;
+}
+.travel_text hr{
+  width: 95%;
+  text-align: center;
+  margin: 16px auto;
+}
+
+.travel_main{
+  background-color: #ffffff;
+  border-radius: 5px 0 5px 0;
+  overflow: hidden;
+  width:360px;
+  margin: auto;
+  box-shadow: 0px 0px 12px 1px rgba(71,71,72,0.1);
+
+}
+
+.travel_main h6{
+ font-weight: bold;
+ color:#549c58;
+ margin-top: 8px;
+ font-size: 17px;
+ padding:0 10px;
+}
+
+.travel_main p{
+ color:#000000;
+ display: block;
+ font-size: 15px;
+ padding:0 10px;
+}
+
+
+.travel_main .img_div {
+    border-radius: 5px 0 0 0;
+    margin: auto;
+    width:360px;
+    height: 240px;
+}
+
+.travel_about{
+  margin: 0 auto;
+}
+
+.travel_about h6{
+ font-weight: bold;
+ color:#549c58;
+ font-size: 17px;
+ margin-top: 8px;
+ padding:0 10px;
+}
+
+.travel_about p{
+ font-size: 15px;
+ margin-top: 8px;
+ padding: 0 10px;
  color:#000000;
 }
 
-.travel_text hr{
-  margin:10px 0;
+.travel_about .img_div{
+  width:343px;
+  height: 225px;
+  margin: auto;
+}
+
+.travel_about span a{
+  color: #fff;
+  background-color: #afafaf;
+  border-radius: 8px;
+  padding: 2px 5px;
+  margin: 0px 2px;
 }
 
 
@@ -1853,7 +1831,47 @@ a:hover{ text-decoration: none; }
  padding: 5px 0;
  text-align: left;
 }
+
+.japan_list{
+ bottom: 0px;
+ transition: all 0.3s;
+ position: relative;
+ box-shadow: 4px 4px 12px 2px rgba(71,71,72,0.5);
+}
+
+.japan_list .img_div{
+ height:210px;
+ border-radius: 20px 0 0 0;
+ margin:auto;
  
+
+}
+
+.japan_list big{
+ position:absolute;
+ top:10px;
+ right:45px;
+ color:#ffffff;
+ font-size: 30px;
+ text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
+}
+
+.japan_list a{
+ color:#107816;
+ font-size: 15px;
+ font-weight: bold;
+
+}
+
+.japan_list span img{
+ width:15px;
+ height:16px;
+}
+
+.japan_list:hover{
+ bottom: 10px;
+}
+
  
 .travel_list{
   padding-left:62px;
@@ -1861,7 +1879,7 @@ a:hover{ text-decoration: none; }
 
 .travel_list h6{
  font-weight: bold;
- color:#3f57b5;
+ color:#549c58;
  margin-top:10px;
 }
 
@@ -1871,8 +1889,266 @@ a:hover{ text-decoration: none; }
  text-align: left;
 }
 
+/*------- 東京 ------*/
+
+.map .UENO {
+  position: absolute;
+    right: 265px;
+    top: 150px;
+}
+
+.map .UENO-01 {
+  position: absolute;
+    right: -179px;
+    top: -72px;
+    display: none;
+    z-index: 1;
+}
+
+.map .AKIBA {
+  position: absolute;
+    right: 265px;
+    top: 206px;
+}
+
+.map .AKIBA-01 {
+  position: absolute;
+    right: -180px;
+    top: -67px;
+    display: none;
+    z-index: 1;
+}
+
+.map .TOKYO {
+  position: absolute;
+    right: 270px;
+    top: 259px;
+}
+
+.map .TOKYO-01 {
+  position: absolute;
+    right: -184px;
+    top: -77px;
+    display: none;
+    z-index: 1;
+}
+
+.map .ASAKUSA {
+  position: absolute;
+    right: 170px;
+    top: 156px;
+}
+
+.map .ASAKUSA-01 {
+  position: absolute;
+    right: -80px;
+    top: 43px;
+    display: none;
+    z-index: 1;
+}
+
+.map .NIA {
+  position: absolute;
+    right: 91px;
+    top: 192px;
+}
+.map .GINZA {
+  position: absolute;
+    right: 234px;
+    top: 288px;
+}
+
+.map .GINZA-01 {
+  position: absolute;
+    right: -126px;
+    top: -115px;
+    display: none;
+    z-index: 1;
+}
+
+.map .TSUKIJI {
+  position: absolute;
+    right: 243px;
+    top: 324px;
+}
+
+.map .TSUKIJI-01 {
+  position: absolute;
+    right: 54px;
+    top: -12px;
+    display: none;
+    z-index: 1;
+}
+
+.map .SHINAGAWA {
+  position: absolute;
+    right: 365px;
+    top: 337px;
+}
+
+.map .SHINAGAWA-01 {
+  position: absolute;
+    right: 50px;
+    top: -11px;
+    display: none;
+    z-index: 1;
+}
+
+.map .KEIKYU {
+  position: absolute;
+    right: 312px;
+    top: 438px;
+}
+.map .DAIKANYAMA {
+  position: absolute;
+    right: 543px;
+    top: 314px;
+}
+
+.map .DAIKANYAMA-01 {
+  position: absolute;
+    right: -180px;
+    top: 29px;
+    display: none;
+    z-index: 1;
+}
+
+.map .TSUNAGU {
+  position: absolute;
+    right: 498px;
+    top: 290px;
+}
+
+.map .TSUNAGU-01 {
+  position: absolute;
+    right: 8px;
+    top: -113px;
+    display: none;
+    z-index: 1;
+
+}
+
+.map .ODAIBA {
+  position: absolute;
+    right: 218px;
+    top: 398px;
+}
+
+.map .ODAIBA-01 {
+  position: absolute;
+    right: -136px;
+    top: -114px;
+    display: none;
+    z-index: 1;
+}
 
 
+.map .ROPPONGI {
+  position: absolute;
+    right: 448px;
+    top: 284px;
+}
+
+.map .ROPPONGI-01 {
+  position: absolute;
+    right: 8px;
+    top: 48px;
+    display: none;
+    z-index: 1;
+}
+
+.map .HARAJUKU {
+  position: absolute;
+    right: 499px;
+    top: 238px;
+}
+
+.map .HARAJUKU-01 {
+  position: absolute;
+    right: -64px;
+    top: -113px;
+    display: none;
+    z-index: 1;
+
+}
+
+.map .SHINJUKU {
+  position: absolute;
+    right: 498px;
+    top: 178px;
+}
+
+.map .SHINJUKU-01 {
+  position: absolute;
+    right: 8px;
+    top: -111px;
+    display: none;
+    z-index: 1;
+}
+
+.map .KICHIJOJI {
+  position: absolute;
+    right: 576px;
+    top: 189px;
+}
+
+.map .KICHIJOJI-01 {
+  position: absolute;
+    right: -178px;
+    top: -34px;
+    display: none;
+    z-index: 1;
+}
+
+.map .IKEBUKURO {
+  position: absolute;
+    right: 482px;
+    top: 117px;
+}
+
+.map .IKEBUKURO-01 {
+  position: absolute;
+    right: -65px;
+    top: 49px;
+    display: none;
+    z-index: 1;
+}
+
+/*------- 關西 ------*/
+
+/*-- 旅遊景點存放 fancybox --*/
+.fancybox-div{ display: none; }
+.view_title{color: #549c58;}
+
+
+
+/*------- 飛往資訊 ------*/
+
+.sky_info {padding:0;}
+
+.sky_info li{
+  width:180px;
+  height:50px;
+  background-color: #797979;
+  color:#fff;
+  display: inline-block;
+  margin:10px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 5px;
+}
+
+.sky_info li a{color:#fff;}
+
+.sky_text{
+  font-weight: bold;
+  color:#549c58;
+}
+
+
+
+
+/*--------------------------------- 優旅行end--------------------------------------------------*/
 
 
 /*--------------------------------- NEWS 4塊 tab (如特別議題) ----------------------------------*/
@@ -1922,12 +2198,20 @@ a:hover{ text-decoration: none; }
     margin: 10px;
     
   }
-.detail_title .row.newcard_g{
+.newcard_g{
   padding:10px;
   position: relative;
   bottom: 0px;
   transition: all 0.3s;
   box-shadow: 4px 4px 12px 2px rgba(71,71,72,0.5);
+}
+
+.prizecard_g{
+    padding: 10px;
+    position: relative;
+    bottom: 0px;
+    transition: all 0.3s;
+    box-shadow: 2px 1px 5px rgba(71,71,72,0.5);
 }
 
 .detail_title .row.newcard_g span{color:#32b16c; font-size: 18px; padding:5px;}
@@ -2022,7 +2306,6 @@ a:hover{ text-decoration: none; }
   text-align: center;
   display: block;
   margin:5px auto;
-  font-weight: bold;
 }
 
 
@@ -2040,13 +2323,40 @@ a:hover{ text-decoration: none; }
 .detail_title .debit_card i{padding-right:5px;}
 
 .detail_title .debit_card ul {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   padding-left:10px;
+  width:100%;
 }
 
 .detail_title .debit_card ul li {
   display:inline-block;
   list-style: none;
+}
+
+.detail_title .crecard_icon{
+  padding-left:0;
+  margin:0;
+}
+.crecard_icon li {
+    width: 60px;
+    height: 55px;
+    display: inline-block;
+    background-color: #ffffff;
+    border-radius: 20px 0 20px 0;
+    border: 1px solid #ccc;
+}
+
+.crecard_icon li img{
+  width:45%;
+  display: block;
+  margin:5px auto;
+}
+
+.crecard_icon li a {
+    color: #000000;
+    display: block;
+    text-align: center;
+    font-size: 14px;
 }
 
 .credit_prize{
@@ -2064,12 +2374,30 @@ a:hover{ text-decoration: none; }
   margin: 0 5px;
 }
 
+.blue_icon a {
+    width: 33px;
+    height: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #22398f;
+    color: #fff;
+}
+
+.blue_icon i{
+  font-size: 20px;
+  padding: 0;
+  margin-left: 4px;
+  margin-top: 2px;
+}
 
 
 .detail_title .debit_card .debit_limit li a{
- border:1px solid #898989;
+ border:1px solid #ccc;
  padding:5px;
  border-radius: 10%;
+ display: inline-block;
 
 }
 .detail_title .debit_card .debit_list li {
@@ -2089,6 +2417,36 @@ a:hover{ text-decoration: none; }
   line-height:40px;
   border-radius: 5px;
 
+}
+
+.crecard_prize .top_prize {
+    position: absolute;
+    top: 4px;
+    left:-2px;
+    width: 40px;
+    height: 51px;
+    text-align: center;
+    background-image: url(../img/component/topNew_img.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+}
+
+.crecard_prize h1 {
+    margin: 0;
+    font-weight: bold;
+    font-family: arial;
+    z-index: 1;
+    font-size: 25px;
+    color: #601986;
+    position: absolute;
+}
+
+.crecard_prize h6{
+  font-weight: bold;
+  padding-left: 26px;
+  padding-top: 5px;
+  color: #b24242;
 }
 
 .txt_detail{
@@ -2316,7 +2674,7 @@ a:hover{ text-decoration: none; }
 .detail_content .shop_txt{font-size: 18px;}
 .detail_content .paybg{background-color:#f2f2f2; width:750px;}
 .detail_content .paybg p{font-size: 16px; margin: 0; padding:5px 0;}
-.card_list { border-bottom: 1px solid #ececec; }
+.card_list { border-bottom: 1px solid #ccd0d5; }
 .card_list_img { display: block; width: 100%; text-align: center;}
 .card_list_img img{ width: 200px;}
 .card_list_img.cardall_list img{width:160px; height: 102px;}
@@ -2324,7 +2682,7 @@ a:hover{ text-decoration: none; }
 .card_list_txt h4{ font-size: 18px; font-weight: 600; color: #273e96;}
 .card_list_txt ul{ padding-left: 1.3rem; margin: 0;}
 .card_list_txt ul li{ font-size: 16px;}
-.card_list div:nth-child(1) .btn{ background-color: #f68225;  border: none; }
+.card_list div:nth-child(1) .btn{ background-color: #ffc107; color: #212529; border: none; }
 .card_list div:nth-child(3) .card_list_img{ height: 150px; width:225px; margin:auto; }
 .card_list div:nth-child(3) p{  margin: 0; margin-top: 5px; text-align: center; font-size: 14px;}
 
@@ -2545,6 +2903,8 @@ a:hover{ text-decoration: none; }
   padding: 10px 0;
 }
 .rank_boot tr td:nth-child(3){ background-color: #f5f6f7;}
+
+.compare_bg .col:nth-child(2){ background-color: #f5f6f7;}
 /*----------------------------------------- 卡片比一比end ----------------------------------------------*/
 
 /*----------------------------------------- 現金回饋 ----------------------------------------------*/
@@ -2574,6 +2934,12 @@ a:hover{ text-decoration: none; }
 }
 
 .card b{display: none;}
+
+.rank_second .col-md-1{max-width: 6%; padding: 0; flex: auto;}
+.rank_second .col-md-11{max-width: 94%; padding: 0;}
+
+
+
 
 /*----------------------------------------- 現金回饋end ----------------------------------------------*/
 
@@ -2750,6 +3116,13 @@ color: #fff;
     background-image: url(../img/component/select_back_brown.jpg);
 }
 
+.brown_tab .card_list_txt b{
+    color: #ce9f30;
+    font-size: 2px;
+    margin-right: 5px;
+    
+}
+
 
 
 
@@ -2888,6 +3261,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 .blueGreen_tab .search_from input{ 
     background-color: #dff4f9;
 }
+
+.blueGreen_tab .card_list_txt b{
+    color: #187c9b;
+    font-size: 2px;
+    margin-right: 5px;
+    
+}
  
 .blueGreen_tab .search_from button{
    color: #fff;
@@ -2916,6 +3296,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
     background: -webkit-linear-gradient(top, rgba(204,157,46,1) 0%,rgba(229,184,78,1) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, rgba(204,157,46,1) 0%,rgba(229,184,78,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc9d2e', endColorstr='#e5b84e',GradientType=0 ); /* IE6-9 */
+}
+.brown_tab.hotCard .content_tab b{
+    color: #cc9d2e;
+    font-size: 2px;
 }
 
 .brown_tab .title.hole{
@@ -3010,6 +3394,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f29233', end
    background: linear-gradient(to bottom, rgba(5,112,11,1) 1%,rgba(88,176,93,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05700b', endColorstr='#58b05d',GradientType=0 ); /* IE6-9 */
 }
+.green_tab .search_from input{
+  background-color:#e9fbea;
+  width: 75%;
+  margin-right: 10px;
+  box-shadow: 2px 2px 10px 2px rgba(136,136,138,0.5);
+ }
+
+.green_tab .search_from button{
+  color: #fff;
+
+   background: rgb(5,112,11); /* Old browsers */
+   background: -moz-linear-gradient(top, rgba(5,112,11,1) 1%, rgba(88,176,93,1) 100%); /* FF3.6-15 */
+   background: -webkit-linear-gradient(top, rgba(5,112,11,1) 1%,rgba(88,176,93,1) 100%); /* Chrome10-25,Safari5.1-6 */
+   background: linear-gradient(to bottom, rgba(5,112,11,1) 1%,rgba(88,176,93,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05700b', endColorstr='#58b05d',GradientType=0 ); /* IE6-9 */
+}
 
 .green_tab .title.hole{
 background: -moz-linear-gradient(left, rgba(40,130,53,1) 37%, rgba(58,141,90,1) 50%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
@@ -3017,6 +3417,8 @@ background: -webkit-linear-gradient(left, rgba(40,130,53,1) 37%,rgba(58,141,90,1
 background: linear-gradient(to right, rgba(40,130,53,1) 37%,rgba(58,141,90,1) 50%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#288235', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
 }
+
+
 
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 單頁型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*----------------------------------------- 粉紅色 ------------------------------------------------*/

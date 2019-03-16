@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/卡優新聞網</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">山寺</h3><p2 class="p2">山寺全名是寶珠山立石寺，由慈覺大師於貞觀2年(西元860年)開闢為天臺宗的修行聖地。擁有經長年水蝕風化，奇岩林立、風化洞穴豐富的名勝風景。目前寺內占地約33萬坪，立於入口的根本中堂為日本最古老的佛堂，以櫸木建造而成。從山門到內院超過800級石階相連，建有仁王門、開山堂、納經堂、五大堂等歷史悠久的建築，構成一片靜寂的山寺景色。</p2></div>
+    </div>
+</body>
+</html>

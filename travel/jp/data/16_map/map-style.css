@@ -1,0 +1,264 @@
+@import url("reset.css");
+
+#MAP{
+	width:640px;
+	height:426px;
+	margin:0 auto;
+	/*margin-top:50px;*/
+	margin-top:10px;
+	margin-left: -17px;
+	position:relative;
+}
+
+#CA,#Nakijin,#AUI,#Sea,#Manzamoo,#Pink-Mermaid,
+#Ryukyu,#Residual,#Katsuren,#American,#urasoe-park,
+#Naminoue,#Shuri,#Kokusai,#Yuquan{
+	position:absolute;
+}
+#CA-01,#Nakijin-01,#AUI-01,#Sea-01,#Manzamoo-01,#Pink-Mermaid-01,
+#Ryukyu-01,#Residual-01,#Katsuren-01,#American-01,#urasoe-park-01,
+#Naminoue-01,#Shuri-01,#Kokusai-01,#Yuquan-01{
+	display:none;
+	position:absolute;
+	z-index:99;
+}
+
+/*美麗海水族館地標*/
+#CA{
+	left:235px;
+	top:2px;
+	}
+/*美麗海水族館內容區塊*/	
+#CA-01{
+	right:10px;
+	top:30px;
+}
+#CA:hover #CA-01{
+	display:block;}
+/*美麗海水族館結束*/
+
+/*今歸仁城地標*/
+#Nakijin{
+	left:287px;
+	top:26px;}
+	
+/*今歸仁城內容區塊*/	
+#Nakijin-01{
+	right:10px;
+	top:30px;
+}
+
+#Nakijin:hover #Nakijin-01{
+	display:block;}
+/*今歸仁城結束*/	
+
+/*古宇利島地標*/	
+#AUI{
+	right:168px;
+	top:0px;}
+	
+#AUI:hover #AUI-01{
+	display:block;}
+
+/*古宇利島內容區塊*/
+#AUI-01{
+	left:0px;
+	top:30px;
+}
+/*古宇利島結束*/
+
+/*海中展望台地標*/
+#Sea{
+	right:285px;
+	top:106px;}	
+
+#Sea:hover #Sea-01{
+	display:block;}
+
+/*海中展望台內容區塊*/
+#Sea-01{
+	right:-80px;
+	top:30px;
+}
+/*海中展望台結束*/
+
+
+/*萬座毛地標*/	
+#Manzamoo{
+	right:335px;
+	top: 137px;
+}
+	
+#Manzamoo:hover #Manzamoo-01{
+	display:block;}
+
+/*萬座毛內容區塊*/
+#Manzamoo-01{
+	right:--130px;
+	top:30px;
+}
+/*萬座毛內容結束*/
+
+
+/*真榮田岬地標*/
+#Pink-Mermaid{
+	right:385px;
+	top: 173px;
+}
+#Pink-Mermaid:hover  #Pink-Mermaid-01{
+	display:block;
+}
+
+/*真榮田岬內容區塊*/
+#Pink-Mermaid-01{
+	left:-30px;
+	top:30px;
+}
+/*釧路濕原內容結束*/
+
+
+/*琉球村地標*/
+#Ryukyu{
+	right:308px;
+	bottom: 203px;
+}
+	
+#Ryukyu:hover #Ryukyu-01{
+	display:block;}
+
+/*琉球村內容區塊*/
+#Ryukyu-01{
+	right:-180px;
+	bottom:0px;
+}
+/*琉球村內容結束*/
+
+
+
+/*殘波岬地標*/
+#Residual{
+	left:163px;
+	bottom: 190px;
+}
+#Residual:hover #Residual-01{
+	display:block;}
+
+/*殘波岬內容區塊*/
+#Residual-01{
+	right:10px;
+	top:30px;
+}
+/*殘波岬內容結束*/
+
+
+/*勝連城跡地標*/
+#Katsuren{
+	left:320px;
+	bottom:143px;
+}
+	
+#Katsuren:hover #Katsuren-01{
+	display:block;}
+
+/*勝連城跡內容區塊*/
+#Katsuren-01{
+	left:70px;
+	bottom:0px;
+}	
+/*勝連城跡內容結束*/
+
+
+/*美國村地標*/
+#American{
+	left:184px;
+	bottom: 138px;
+}
+
+/*美國村內容區塊*/	
+#American:hover #American-01{
+	display:block;}
+
+#American-01{
+	left:-105px;
+	bottom:30px;
+}
+/*美國村內容結束*/
+
+/*浦添大公園地標*/	
+#urasoe-park{
+	left: 196px;
+	bottom: 100px;
+}
+/*浦添大公園內容區塊*/	
+#urasoe-park:hover #urasoe-park-01{
+	display:block;}
+
+#urasoe-park-01{
+	left:65px;
+	top:-5px;
+}
+/*浦添大公園內容結束*/
+
+/*波上宮地標*/
+#Naminoue{
+	left: 158px;
+	bottom: 72px;
+}
+#Naminoue:hover #Naminoue-01{
+	display:block;}
+
+/*波上宮內容區塊*/	
+#Naminoue-01{
+	left:50px;
+	bottom:0px;
+}
+/*波上宮內容結束*/
+
+
+/*首里城地標*/
+#Shuri{
+	left: 240px;
+	bottom:67px;
+}	
+#Shuri:hover #Shuri-01{
+	display:block;}
+
+/*首里城內容區塊*/
+#Shuri-01{
+	left:70px;
+	bottom:0px;
+}
+/*首里城內容結束*/
+
+
+/*國際通地標*/
+#Kokusai{
+	left: 215px;
+	bottom: 42px;
+}
+#Kokusai:hover #Kokusai-01{
+	display:block;}
+
+/*國際通內容區塊*/
+#Kokusai-01{
+	left:70px;
+	bottom:0px;
+}
+/*國際通內容結束*/	
+
+
+/*玉泉洞地標*/
+#Yuquan{
+	left: 235px;
+	bottom: 12px;
+}
+#Yuquan:hover #Yuquan-01{
+	display:block;}
+
+/*玉泉洞內容區塊*/
+#Yuquan-01{
+	left:70px;
+	bottom:0px;
+}
+/*玉泉洞內容結束*/
+

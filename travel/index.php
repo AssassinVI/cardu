@@ -147,7 +147,190 @@
                           </div>
                       </div>
                       <!-- 四小三大輪播 END -->
+                       
                         </div>
+                      <!--旅行分享-->
+                    <div class="col-md-12 col">
+
+                        <div class="cardshap green_tab">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                          <li class="nav-item news_tab news_tab_three">
+                            <a class="nav-link active  pl-30 py-2" id="box-tab"  href="second.php" tab-target="#box" aria-selected="true">旅行分享</a>
+                            <a class="top_link" href="all.php"></a>
+                          </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                          <div class="tab-pane fade show active" id="box" role="tabpanel" aria-labelledby="box-tab">
+
+                            <div class="row no-gutters travel_text">
+                                <div class="col-4 cards-3">
+                                   <a href="#">
+                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       </div>
+                                       <h6 class="mt-2">遊日血拼賺回饋　必備信用</h6>
+                                       <p>喜歡出國趴趴走嗎？但又不想把<br>預算都砸在交通上，許多人都會</p>
+                                   </a>
+                                </div>
+                                <div class="col-4 cards-3">
+                                   <a href="#">
+                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       </div>
+                                       <h6 class="mt-2">遊日血拼賺回饋　必備信用</h6>
+                                       <p>喜歡出國趴趴走嗎？但又不想把<br>預算都砸在交通上，許多人都會</p>
+                                   </a>
+                                </div>
+                                <div class="col-4 cards-3">
+                                   <a href="#">
+                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       </div>
+                                       <h6 class="mt-2">遊日血拼賺回饋　必備信用</h6>
+                                       <p>喜歡出國趴趴走嗎？但又不想把<br>預算都砸在交通上，許多人都會</p>
+                                   </a>
+                                </div>
+                            </div>
+                           
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--旅行分享end -->
+                    <!--行程推薦-->
+                    <div class="col-md-12 col">
+
+                        <div class="cardshap green_tab">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                          <li class="nav-item news_tab news_tab_three">
+                            <a class="nav-link active  pl-30 py-2" id="box-tab"  href="second.php" tab-target="#box" aria-selected="true">行程推薦</a>
+                            <a class="top_link" href="all.php"></a>
+                          </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                          <div class="tab-pane fade show active" id="box" role="tabpanel" aria-labelledby="box-tab">
+
+                            <div class="row no-gutters travel_text">
+                                <div class="col-4 cards-3">
+                                   <a href="#">
+                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       </div>
+                                       <h6 class="mt-2">遊日血拼賺回饋　必備信用</h6>
+                                       <p>喜歡出國趴趴走嗎？但又不想把<br>預算都砸在交通上，許多人都會</p>
+                                   </a>
+                                </div>
+                                <div class="col-4 cards-3">
+                                   <a href="#">
+                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       </div>
+                                       <h6 class="mt-2">遊日血拼賺回饋　必備信用</h6>
+                                       <p>喜歡出國趴趴走嗎？但又不想把<br>預算都砸在交通上，許多人都會</p>
+                                   </a>
+                                </div>
+                                <div class="col-4 cards-3">
+                                   <a href="#">
+                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       </div>
+                                       <h6 class="mt-2">遊日血拼賺回饋　必備信用</h6>
+                                       <p>喜歡出國趴趴走嗎？但又不想把<br>預算都砸在交通上，許多人都會</p>
+                                   </a>
+                                </div>
+                            </div>
+                           
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--行程推薦end -->
+                     <!--廣告-->
+                <div class="col-md-12 row">
+                    <div class="col-md-6 col ">
+                        <div class="cardshap hotCard tab_one green_tab">
+                            <div class="title_tab hole">
+                                <h4>刷卡秘笈 </h4>
+                                <a class="more_link" href="Swipe_second.php"></a>
+                            </div>
+                            <div class="content_tab">
+                               <div class="row no-gutters hv-center">
+                                  <div class="travel_text">
+                                    <a class="img_b" href="#">
+                                     <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/U20181204080844.jpg);"></div>
+                                     <h6 class="mt-2">信用卡海外回饋尬車　花旗2.68%訂房折</h6>
+                                   </a>
+                                  </div>
+
+
+                                  <div class="travel_text">
+                                    <a class="img_b" href="#">
+                                     <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/U20181204080844.jpg);"></div>
+                                     <h6 class="mt-2">信用卡海外回饋尬車　花旗2.68%訂房折</h6>
+                                   </a>
+                                 </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col ">
+                        <div class="cardshap hotCard tab_one green_tab">
+                            <div class="title_tab hole">
+                                <h4>優惠情報 </h4>
+                                 <a class="more_link" href="banefit.php"></a>
+                            </div>
+                            <div class="content_tab">
+
+                                <div class="row no-gutters travel_text">
+
+                                  <div class="col-md-6">
+                                    <a class="img_c" href="#">
+                                      <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                      <h6 class="mt-2">AirAsia 2/1直飛</h6>
+                                    </a>
+                                  </div>
+                                
+                                 <div class="col-md-6">
+                                    <a class="img_c" href="#">
+                                      <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                      <h6 class="mt-2">AirAsia 2/1直飛</h6>
+                                   </a>
+                                  </div>
+                                  <hr>
+                                <div class="col-md-6">
+                                    <a class="img_c" href="#">
+                                      <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                      <h6 class="mt-2">AirAsia 2/1直飛</h6>
+                                   </a>
+                                  </div>
+                                <div class="col-md-6">
+                                    <a class="img_c" href="#">
+                                      <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                      <h6 class="mt-2">AirAsia 2/1直飛</h6>
+                                   </a>
+                                  </div>
+                                  <hr>
+
+                                <div class="col-md-6">
+                                    <a class="img_c" href="#">
+                                      <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                      <h6 class="mt-2">AirAsia 2/1直飛</h6>
+                                   </a>
+                                  </div>
+                                
+                                 <div class="col-md-6">
+                                    <a class="img_c" href="#">
+                                      <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                      <h6 class="mt-2">AirAsia 2/1直飛</h6>
+                                   </a>
+                                  </div>
+                                 <hr>
+                                </div>
+                               
+
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                        </div>
+                <!--優惠情報end-->
+                     
+                     
                     </div>
                 </div>
                 <!--版面左側end-->
@@ -307,227 +490,102 @@
                                 </div>
                             </div>
                         </div>
-                        </p>
+
+                        <div class="col-md-12 col">
+                         <div class="green_tab">
+                          <form class="row search_from">
+                           <input type="text" class="journey_search" value="請輸入優旅行要查詢的字串">  
+                           <button>搜尋</button>
+                          </form>
+                         </div>  
+                        </div> 
+                       
+                        <!-- 廣告 -->
+                        <div class="col-md-12 col">
+                            <img src="http://placehold.it/300x250" alt="">
+                        </div>
+                        <!-- 辦卡推薦 -->
+                       <div class="col-md-12 col">
+                       <div class="cardshap hotCard tab_one green_tab">
+                           <div class="title_tab hole">
+                               <h4>辦卡推薦 </h4>
+                           </div>
+                           <div class="content_tab">
+                               <div class="row no-gutters">
+                                 <div class="col-5">
+                                  <a class="img_a" href="#">
+                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                    
+                                  </a>
+                                  <span>謹慎理財 信用至上</span>
+                                 </div>
+                                 <div class="col-7">
+                                  <a href="#">
+                                    <h4>匯豐現金回饋玉璽卡</h4>
+                                  </a>
+                                   <p><b>★</b>國內現金回饋1.22%<br><b> ★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
+                                 </div>
+                               </div>
+
+                               <div class="row no-gutters">
+                                 <div class="col-5">
+                                  <a class="img_a" href="#">
+                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+
+                                  </a> 
+                                  <span>謹慎理財 信用至上</span>
+                                 </div>
+                                 <div class="col-7">
+                                  <a href="#">
+                                    <h4>匯豐現金回饋玉璽卡</h4>
+                                  </a>
+                                    <p><b>★</b>國內現金回饋1.22%<br><b> ★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
+                                 </div>
+                               </div>
+
+                           </div>
+                       </div>
+                    </div>
+                    <!--辦卡推薦end-->
+                    <!-- 廣告 -->
+                        <div class="col-md-12 col">
+                            <img src="http://placehold.it/300x250" alt="">
+                        </div>
+                    <!-- 廣告end-->
+                    <div class="col-md-12 col">
+                       <div class="cardshap tab_one green_tab">
+                           <div class="title_tab hole">
+                               <h4>熱門旅行</h4>
+                           </div>
+                           <div class="content_tab">
+                               <ul class="tab_list cardu_li">
+                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                            </ul>
+                           </div>
+                       </div>
+                    </div>
+                    <!-- 廣告 -->
+                        <div class="col-md-12 col">
+                            <img src="http://placehold.it/300x250" alt="">
+                        </div>
+                    <!-- 廣告end-->
+                    <!-- 廣告 -->
+                        <div class="col-md-12 col">
+                            <img src="http://placehold.it/300x250" alt="">
+                        </div>
+                    <!-- 廣告end-->
+                    <?php 
+                     //-- 共用footer --
+                     require '../share_area/footer.php';
+                    ?>
                     </div>
                 </div>
                 <!--版面中間-->
-                <div class="col-md-12 col">
-                    <div class="cardshap green_tab">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item news_tab">
-                                <a class="nav-link active pl-30 py-2" id="special_1-tab" data-toggle="tab" href="#special_1" role="tab" aria-controls="special_1" aria-selected="true">旅行分享</a>
-                                <a class="top_link" href="second.php"></a>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
-                                <div class="row no-gutters">
-                                    <div class="col-3 cards-3 travel_share">
-                                       <a href="#">
-                                         <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                         </div>
-                                         <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                       </a>
-                                       <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                    </div>
-                                    <div class="col-3 cards-3 travel_share">
-                                      <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                      </a>
-                                       <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                    </div>
-                                    <div class="col-3 cards-3 travel_share">
-                                      <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                       
-                                      </a>
-                                      <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                    </div>
-                                    <div class="col-3 cards-3 travel_share">
-                                       <a href="#">
-                                        <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                        </div>
-                                        <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                       
-                                       </a>
-                                       <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col">
-                    <div class="cardshap green_tab">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item news_tab">
-                                <a class="nav-link active pl-30 py-2" id="special_1-tab" data-toggle="tab" href="#special_1" role="tab" aria-controls="special_1" aria-selected="true">行程推薦</a>
-                                <a class="top_link" href="second.php"></a>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
-                                <div class="row no-gutters">
-                                    <div class="col-3 cards-3 travel_share">
-                                      <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       
-                                       <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                      </a>
-                                      <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                    </div>
-                                    <div class="col-3 cards-3 travel_share">
-                                      <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                       
-                                      </a>
-                                      <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                    </div>
-                                    <div class="col-3 cards-3 travel_share">
-                                      <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                       
-                                      </a>
-                                      <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                    </div>
-                                    <div class="col-3 cards-3 travel_share">
-                                      <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <h6>遊日血拚大回饋，信用卡大調查</h6>
-                                       
-                                      </a>
-                                      <p>喜歡出國趴趴走嗎？但又不想把預算都砸在交通上，許多人都會選擇</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--廣告-->
-                <div class="col-md-12 row">
-                    <div class="col-md-4 col ">
-                        <div class="cardshap hotCard tab_one green_tab">
-                            <div class="title_tab hole">
-                                <h4>刷卡秘笈 </h4>
-                                <a class="more_link" href="Swipe_second.php"></a>
-                            </div>
-                            <div class="content_tab">
-
-                                  <div class=" travel_main">
-                                    <a class="img_b" href="#">
-                                     <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/U20181204080844.jpg);"></div>
-                                     <h6>信用卡海外回饋尬車　花旗2.68%訂房折</h6>
-                                   </a>
-                                 </div>
-
-
-                                  <div class="travel_main">
-                                    <a class="img_b" href="#">
-                                     <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/U20181204080844.jpg);"></div>
-                                     <h6>信用卡海外回饋尬車　花旗2.68%訂房折</h6>
-                                   </a>
-                                 </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col ">
-                        <div class="cardshap hotCard tab_one green_tab">
-                            <div class="title_tab hole">
-                                <h4>優惠情報 </h4>
-                                 <a class="more_link" href="banefit.php"></a>
-                            </div>
-                            <div class="content_tab">
-
-                                <div class="row no-gutters">
-
-                                  <div class="col-6">
-                                    <div class="travel_sort">
-                                    <a class="img_c" href="#">
-                                      <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                      <h6>AirAsia 2/1直飛</h6>
-                                    </a>
-                                    </div>
-                                  </div>
-                                
-                                 <div class="col-6">
-                                    <div class="travel_sort">
-                                    <a class="img_c" href="#">
-                                      <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                      <h6>AirAsia 2/1直飛</h6>
-                                   </a>
-                                  
-                                    </div>
-                                  </div>
-                                  <hr>
-                                <div class="col-6">
-                                    <div class="travel_sort">
-                                    <a class="img_c" href="#">
-                                      <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                      <h6>AirAsia 2/1直飛</h6>
-                                   </a>
-                                  
-                                    </div>
-                                  </div>
-                                <div class="col-6">
-                                    <div class="travel_sort">
-                                    <a class="img_c" href="#">
-                                      <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                      <h6>AirAsia 2/1直飛</h6>
-                                   </a>
-                                  
-                                    </div>
-                                  </div>
-                                  <hr>
-                                <div class="col-6">
-                                    <div class="travel_sort">
-                                    <a class="img_c" href="#">
-                                      <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                      <h6>AirAsia 2/1直飛</h6>
-                                   </a>
-                                  
-                                    </div>
-                                  </div>
-                                
-                                 <div class="col-6">
-                                    <div class="travel_sort">
-                                    <a class="img_c" href="#">
-                                      <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                      <h6>AirAsia 2/1直飛</h6>
-                                   </a>
-                                  
-                                    </div>
-                                  </div>
-
-                                </div>
-                               
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 廣告 -->
-                    <div class="col-md-4 hv-center">
-                      <div>
-                        <div class="col">
-                            <img src="http://placehold.it/300x250" alt="">
-                        </div>
-                        <div class="col">
-                           <img src="http://placehold.it/300x250" alt="">
-                      </div>
-                    </div>
-                   </div>
-
-                        </div>
+                
+               
                         <!--版面中間end-->
                          <!--廣告-->
                     <div class="col-md-12 row">
@@ -539,33 +597,6 @@
                         </div>
                     </div>
                     <!--廣告end-->
-                 
-                   <div class="col-md-12 col">
-                    <div class="travel_info">
-                      <div class="row no-gutters">
-                      <div class="col-4 hv-center">
-                        <img src="../img/component/logo_footer.png">
-                      </div>
-                      
-                     
-                      <div class="col-8">
-                        <ul>
-                          <li><a href="#">關於卡優新聞網｜</a></li>
-                          <li><a href="#">服務總覽｜</a></li>
-                          <li><a href="#">服務條款｜</a></li>
-                          <li><a href="#">隱私權聲明｜</a></li>
-                          <li><a href="#">廣告刊登｜</a></li>
-                          <li><a href="#">行銷合作｜</a></li>
-                          <li><a href="#">聯絡我們｜</a></li>
-                          <li><a href="#">其他聲明｜</a></li>
-                        </ul>
-                        <p>威辰資通 版權所有 Copyright Ⓒ Starwin All Rights Reserved.</p>
-                        <p>台北市中三北路三段27號7樓</p>
-                        <p>TEL：(02)2591-3300</p>
-                      </div>
-                    </div>
-                    </div>
-                   </div>
                   
                     </div>
                 </div>

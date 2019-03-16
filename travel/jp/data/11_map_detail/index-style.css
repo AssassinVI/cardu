@@ -1,0 +1,297 @@
+/*@import url("reset.css");*/
+#dt_artical{
+	font-family:"微軟正黑體", "華康黑體 Std W3", "Arial Unicode MS";
+    font-size:20px;
+	width: 640px;
+	/*height:1780px;*/
+	margin:0 auto;
+    background-color: #fff;
+}
+.dt_title{
+	width: 640px;
+	height: 48px;
+	background-color: #8BAB74;
+	margin-top:30px;
+}
+.dt_title img{
+	float: left;
+	margin-top: 8px;
+}
+.dt_title h2{
+	/*text-align: right;*/
+	text-align: left;
+	/*width: 223px;*/
+	font-size: 16px;
+	color:#fff;
+	line-height: 48px;
+	margin-left: 65px;
+	font-family: "微軟正黑體";
+}
+.dt_route{
+	width: 640px;
+	height: 48px;
+	margin-top:10px;
+	position: relative;
+}
+.dt_route img{
+	display: inline-block;
+	width: 20px;
+	height: 30px;
+	position: absolute;
+	left: 20px;
+	top:10px;
+}
+.dt_route p{
+	display: inline-block;
+	/*width: 308px;*/
+	color: #8BAB74;
+	font-size: 18px;
+	font-family: "微軟正黑體";
+	/*font-size: 14px;*/
+	padding-left:50px;
+	padding-top: 13px;
+	text-align: center;
+}
+.dt_main{
+	height: 426px;
+	position: relative;
+}
+.dt_main-word{
+	width: 640px;
+	height: 0px;
+	bottom: 0;
+	background-color:rgba(0,0,0,0.5);
+	position: absolute;
+	overflow: hidden;
+	line-height:25px;
+	transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+
+}
+.dt_main-word p{
+	display: block;
+	width:615px;
+	height: 0;
+	padding-top: 5px;
+	margin:0 auto;
+	font-size: 15px;
+	font-family: "微軟正黑體";
+	color: #fff;
+	text-align: justify;
+}
+.dt_main:hover .dt_main-word{
+	height: 138px;
+}
+
+.dt_title02{
+	width: 640px;
+	height: 56px;
+	position: relative;
+	z-index: 99;
+}
+
+.dt_title02 ul{
+	width: 600px;
+	list-style: none;
+	position: absolute;
+	bottom:25px;
+}
+
+.dt_title02 ul li{
+	float: left;
+	font-size: 18px;
+	color: #fff;
+	font-family: "微軟正黑體";
+	font-weight: bold;
+}
+#dt_time{
+	position: absolute;
+	left: 20px;
+	top: -15px;
+}
+
+#dt_name{
+	position: absolute;
+	left: 120px;
+	top: -15px;
+}
+#dt_icon{
+	position: absolute;
+	right: 170px;
+	top:-18px;
+}
+#dt_style{
+	position: absolute;
+	/*right: 20px;*/
+	float: left;
+	left: 440px;
+	top: -15px;
+}
+
+#dt_time01{
+	position: absolute;
+	left: 20px;
+	float: left;
+	font-size: 18px;
+	color: #8BAB74;
+	font-family: "微軟正黑體";
+	padding-right: 20px;
+	font-weight: bold;
+}
+#dt_name01{
+	position: absolute;
+	left: 120px;
+	font-size: 18px;
+	color: #8BAB74;
+	font-family: "微軟正黑體";
+	font-weight: bold;
+}
+
+.dt_color01{
+	width: 640px;
+	height: 25px;
+	background-color: rgba(255,255,255,0.2);
+	position: absolute;
+}
+.dt_color02{
+	width: 640px;
+	height: 50px;
+	background-color: #9CBE4D;
+}
+.dt_triangle{
+	width: 0;
+    height: 0;
+    margin-left: 80px;
+    border-style: solid;
+    border-width: 6px 6px 0 6px;
+    border-color: #9cbe4d transparent transparent transparent;
+}
+
+.dt_main02{
+	width: 640px;
+	height: 330px;
+	/*margin-top: -22px;*/
+}
+
+.dt_main02 ul{
+	list-style: none;
+	padding-top: 15px;
+}
+
+.dt_main02 ul li{
+	float: left;
+	font-size: 18px;
+	font-family: "微軟正黑體";
+	color: #8BAB74;
+}
+.dt_main02 img{
+	display: block;
+}
+.dt_main02-word{
+	/*position: relative;*/
+	position:absolute;
+	width: 640px;
+	height: 330px;
+}
+.dt_main02-word img{
+	position: absolute;
+	display: block;
+	top:60px;
+	left: 20px;
+}
+.dt_main02-word h6{
+	display: inline-block;
+	position: absolute;
+	left: 20px;
+	bottom: 30px;
+	color: #222;
+	font-size: 14px;
+	font-weight: normal;
+	font-family:  "微軟正黑體";
+}
+.dt_main02-word p{
+	width: 260px;
+	position: absolute;
+	right: 20px;
+	display:inline-block;
+	font-size: 15px;
+	padding-top: 45px;
+	line-height:25px;
+	font-family:  "微軟正黑體";
+}
+.dt_title03{
+	width: 640px;
+	height: 56px;
+	position: relative;
+	margin-top: -7px;
+	z-index: 2;
+}
+
+.dt_title03 ul{
+	width: 600px;
+	list-style: none;
+	position: absolute;
+	bottom:25px;
+}
+
+.dt_title03 ul li{
+	float: left;
+	font-size: 18px;
+	color: #fff;
+	font-family: "微軟正黑體";
+	font-weight: bold;
+}
+.dt_title04{
+	width: 640px;
+	height: 56px;
+	position: relative;
+	margin-top: -7px;
+	z-index: 1;
+}
+
+.dt_title04 ul{
+	width: 600px;
+	list-style: none;
+	position: absolute;
+	bottom:25px;
+}
+
+.dt_title04 ul li{
+	float: left;
+	font-size: 18px;
+	color: #fff;
+	font-family: "微軟正黑體";
+	font-weight: bold;
+}
+.dt_title05{
+	width: 640px;
+	height: 56px;
+	position: relative;
+	margin-top: -7px;
+	z-index: 3;
+}
+
+.dt_title05 ul{
+	width: 600px;
+	list-style: none;
+	position: absolute;
+	bottom:25px;
+}
+
+.dt_title05 ul li{
+	float: left;
+	font-size: 18px;
+	color: #fff;
+	font-family: "微軟正黑體";
+	font-weight: bold;
+}
+
+
+.dt_memo01{
+    position:absolute;
+	top:300px;
+	font-size:15px; 
+	left:20px;
+	font-family:  "微軟正黑體";
+}

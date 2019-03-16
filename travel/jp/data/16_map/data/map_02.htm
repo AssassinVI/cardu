@@ -1,0 +1,40 @@
+<?
+    $map_id = trim($_REQUEST['map_id']);
+	$img_now_date = date("YmdHis");
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style type="text/css">
+    
+	.h2  {
+	    font-family: '微軟正黑體','新細明體',Arial, Helvetica, sans-serif;
+	    font-size: larger;
+	    line-height: 8px;
+	    text-decoration: none;
+	    color: #28b01e;
+	    font-style: normal;
+    }
+	
+	.p2  {
+	    color: #444444;
+	    font-size: 15px;
+	    line-height:25px;
+    }
+    
+
+</style>
+
+<body>
+    <div style="width:640px;">
+        <div style="width:315px; display:inline-block; vertical-align:top; margin-top:20px;">
+            <img src="images/<?=$map_id?>_Big.jpg?<?=$img_now_date?>" width="315" alt=""/><br>
+            <p2 class="p2">圖/維基百科</p2>
+        </div>
+        <div style="width:315px; padding-left:5px; display:inline-block;"><h3 class="h2">古宇利島</h3><p2 class="p2">古宇利島是位於沖繩本島北部屋我地島以北，屬今歸仁村的一座島嶼。以其美麗的海洋景觀和琉球人起源傳說(創世神阿摩美久祈求天帝所賜的一對男女)而聞名。面積3.13km，周長約8公里，外形幾乎為圓形，是一座隆起的珊瑚礁小島，島上大多數人從事農業，也有一些人從事漁業和服務業，主要農產品是甘蔗和紅芋，海膽也十分有名。</p2></div>
+    </div>
+</body>
+</html>
