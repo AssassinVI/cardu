@@ -87,6 +87,7 @@
 	  $key=array_keys($array_data);//陣列鍵名
 	  $where_key=array_keys($where);
 	  $data='';
+	  $where_sql='';
 
 	  for ($i=0; $i < count($array_data) ; $i++) { 
 	  	if ($i==count($array_data)-1) {
@@ -96,13 +97,24 @@
 	  	}
 	  }
 
-	  $sql_query="UPDATE ".$tb_name." SET ".$data." WHERE ".$where_key[0]."=:".$where_key[0];
+	  for ($i=0; $i < count($where) ; $i++) { 
+	  	if ($i==count($where)-1) {
+	  	  $where_sql.=$where_key[$i].'=:'.$where_key[$i];
+	  	}else{
+	  	  $where_sql.=$where_key[$i].'=:'.$where_key[$i].' AND ';
+	  	}
+	  }
+
+	  $sql_query="UPDATE ".$tb_name." SET ".$data." WHERE ".$where_sql;
 
 		$sql=$this->pdo_obj->prepare($sql_query);
 	  for ($i=0; $i < count($array_data) ; $i++) { 
 	  		$sql->bindparam(':'.$key[$i], $array_data[$key[$i]]);
 	  	}	
-	  	$sql->bindparam(':'.$where_key[0], $where[$where_key[0]]);
+	  for ($i=0; $i < count($where) ; $i++) { 
+	  		$sql->bindparam(':'.$where_key[$i], $where[$where_key[$i]]);
+	  	}
+
 		$sql->execute();
 	}
 

@@ -110,7 +110,7 @@ if ($('#ckeditor').length>0) {
                 
                 var file_name=controller.value.split('\\');
                 var type=file_name[2].split('.');
-                var re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png)$/i;
+                var re = /(\.pdf|\.jpg|\.jpeg|\.bmp|\.gif|\.png)$/i;
                 
                 if (re.exec(file_name[2])) {
 

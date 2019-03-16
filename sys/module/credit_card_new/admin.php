@@ -8,79 +8,91 @@
 <?php include("../../core/page/header02.php");//載入頁面heaer02?>
 <?php 
 if ($_POST) {
-  // ======================== 刪除 ===========================
-  	//----------------------- 代表圖刪除 -------------------------------
-    if (!empty($_POST['type']) && $_POST['type']=='delete') { 
-    	if (!empty($_POST['aPic'])) {
-    		$param=['aPic'=>''];
-            $where=['Tb_index'=>$_POST['Tb_index']];
-            pdo_update('credit_card', $param, $where);
-            unlink('../../img/'.$_POST['aPic']);
-    	}
-       exit();
-  	}
-	if (empty($_POST['Tb_index'])) {//新增
-		$Tb_index='note'.date('YmdHis').rand(0,99);
+ 
+
+
+  	//------------------------------ 新增 ----------------------------
+
+	if (empty($_POST['Tb_index'])) {
+		$Tb_index='ccard'.date('YmdHis').rand(0,99);
+		$cc_group_id='ccgroup'.date('YmdHis').rand(0,99);
      
-     //===================== 代表圖 ========================
-      if (!empty($_FILES['aPic']['name'])){
+     //===================== 用卡申請書檔案 ========================
+      if (!empty($_FILES['cc_doc_path']['name'])){
 
-      	 $type=explode('.', $_FILES['aPic']['name']);
-      	 $aPic=$Tb_index.'.'.$type[count($type)-1];
-         fire_upload('aPic', $aPic); 
+      	 $type=explode('.', $_FILES['cc_doc_path']['name']);
+      	 $cc_doc_path=$Tb_index.'.'.$type[count($type)-1];
+         other_fire_upload('cc_doc_path', $cc_doc_path); 
+      }
+      else{
+      	$cc_doc_path='';
       }
 
-	$param=  ['Tb_index'=>$Tb_index,
-			          'note_type'=>$_POST['note_type'],
-			             'aTitle'=>$_POST['aTitle'],
-			               'note'=>$_POST['note'],
-			               'aPic'=>$aPic,
-			           'aPic_txt'=>$_POST['aPic_txt'],
-			               'aTXT'=>$_POST['aTXT'],
-			               'aUrl'=>$_POST['aUrl'],
-			          'StartDate'=>$_POST['StartDate'],
-			            'EndDate'=>$_POST['EndDate'],
-			        'OnLineOrNot'=>$_POST['OnLineOrNot']
-			         ];
-	pdo_insert('credit_card', $param);
-	location_up('admin.php?MT_id='.$_POST['mt_id'],'成功新增');
+    $cc_attr=implode(',', $_POST['cc_attr']);
+    $cc_publish=empty($_POST['cc_publish']) ? date('Y-m-d'): $_POST['cc_publish'];
+
+    $cc_card_orglevel_num=count($_POST['cc_card_orglevel']);
+
+    for ($i=0; $i <$cc_card_orglevel_num ; $i++) { 
+    	
+    	$cc_card_orglevel_one=explode(',', $_POST['cc_card_orglevel'][$i]);
+
+       	$param=  ['Tb_index'=>$Tb_index.$i,
+       	          'cc_group_id'=>$cc_group_id,
+       		   'cc_cardname'=>$_POST['cc_cardname'],
+       			  'cc_bi_pk'=>$_POST['cc_bi_pk'],
+       			   'cc_attr'=>$cc_attr,
+       			'cc_cardorg'=>$cc_card_orglevel_one[0],
+       		  'cc_cardlevel'=>$cc_card_orglevel_one[1],
+                   'cc_doc_url'=>$_POST['cc_doc_url'],
+                  'cc_doc_name'=>$_POST['cc_doc_name'],
+       		   'cc_doc_path'=>$cc_doc_path,
+       			'cc_publish'=>$cc_publish
+       			 ];
+       	pdo_insert('credit_card', $param);
+    }
+    
+	//-- 跳至修改單卡權益 --
+	location_up('admin.php?MT_id='.$_POST['mt_id'].'&bank_id='.$_POST['cc_bi_pk'].'&Tb_index='.$Tb_index.'0','成功新增');
    }
-   else{  //修改
-   	$Tb_index =$_POST['Tb_index'];
 
-   	 //===================== 代表圖 ========================
-      if (!empty($_FILES['aPic']['name'])) {
+   //修改
+   else{  
+ //   	$Tb_index =$_POST['Tb_index'];
 
-      	 $type=explode('.', $_FILES['aPic']['name']);
-      	 $aPic=$Tb_index.'.'.$type[count($type)-1];
-         fire_upload('aPic', $aPic);
-        $aPic_param=['aPic'=>$aPic];
-        $aPic_where=['Tb_index'=>$Tb_index];
-        pdo_update('credit_card', $aPic_param, $aPic_where);
+ //   	 //===================== 代表圖 ========================
+ //      if (!empty($_FILES['aPic']['name'])) {
 
-      }
+ //      	 $type=explode('.', $_FILES['aPic']['name']);
+ //      	 $aPic=$Tb_index.'.'.$type[count($type)-1];
+ //         fire_upload('aPic', $aPic);
+ //        $aPic_param=['aPic'=>$aPic];
+ //        $aPic_where=['Tb_index'=>$Tb_index];
+ //        pdo_update('credit_card', $aPic_param, $aPic_where);
+
+ //      }
     
     
-    $param=  [
-			          'note_type'=>$_POST['note_type'],
-			             'aTitle'=>$_POST['aTitle'],
-			               'note'=>$_POST['note'],
-			           'aPic_txt'=>$_POST['aPic_txt'],
-			               'aTXT'=>$_POST['aTXT'],
-			               'aUrl'=>$_POST['aUrl'],
-			          'StartDate'=>$_POST['StartDate'],
-			            'EndDate'=>$_POST['EndDate'],
-			        'OnLineOrNot'=>$_POST['OnLineOrNot']
-			 ];
-    $where= ['Tb_index'=>$Tb_index] ;
-	pdo_update('credit_card', $param, $where);
+ //    $param=  [
+	// 		          'note_type'=>$_POST['note_type'],
+	// 		             'aTitle'=>$_POST['aTitle'],
+	// 		               'note'=>$_POST['note'],
+	// 		           'aPic_txt'=>$_POST['aPic_txt'],
+	// 		               'aTXT'=>$_POST['aTXT'],
+	// 		               'aUrl'=>$_POST['aUrl'],
+	// 		          'StartDate'=>$_POST['StartDate'],
+	// 		            'EndDate'=>$_POST['EndDate'],
+	// 		        'OnLineOrNot'=>$_POST['OnLineOrNot']
+	// 		 ];
+ //    $where= ['Tb_index'=>$Tb_index] ;
+	// pdo_update('credit_card', $param, $where);
 	
-	location_up('admin.php?MT_id='.$_POST['mt_id'],'成功更新');
+	// location_up('admin.php?MT_id='.$_POST['mt_id'],'成功更新');
    }
 }
 if ($_GET) {
  	//-- 銀行 --
-   $row_bank=$NewPdo->select("SELECT Tb_index, bi_shortname, bi_code FROM bank_info ORDER BY OrderBy ASC");
+   $row_bank=$NewPdo->select("SELECT * FROM bank_info ORDER BY OrderBy ASC");
 
    //-- 信用卡屬性 --
    $attr=$NewPdo->select("SELECT Tb_index, attr_name FROM card_attr WHERE mt_id='site2018110516373341' ORDER BY OrderBy ASC");
@@ -107,7 +119,7 @@ if ($_GET) {
 					</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
-					<form id="put_form" action="manager.php" method="POST" enctype='multipart/form-data' class="form-horizontal">
+					<form id="put_form" action="admin.php" method="POST" enctype='multipart/form-data' class="form-horizontal">
 						
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="cc_cardname"><span class="text-danger">*</span> 信用卡名稱</label>
@@ -147,11 +159,11 @@ if ($_GET) {
 								<?php
 								     foreach ($org as $org_one) {
 								      echo '<div class="card_level">';
-								      echo '<label><input type="checkbox" name="cc_cardorg[]" value="'.$org_one['Tb_index'].'"> '.$org_one['org_nickname'].'</label>';
+								      echo '<label><input type="checkbox" name="cc_cardorg[]" > '.$org_one['org_nickname'].'</label>';
                                       echo '<div>';
                                        $card_level=$NewPdo->select("SELECT level_id FROM org_level WHERE org_id=:org_id", ['org_id'=>$org_one['Tb_index']]);
                                        foreach ($card_level as $card_level_one) {
-                                       	echo '<label><input type="checkbox" name="cc_cardlevel[]" value="'.$card_level_one['level_id'].'"> '.$level_name[$card_level_one['level_id']].'</label>｜';
+                                       	echo '<label><input type="checkbox" name="cc_card_orglevel[]" value="'.$org_one['Tb_index'].','.$card_level_one['level_id'].'"> '.$level_name[$card_level_one['level_id']].'</label>｜';
                                        }
 								      echo '</div>';
 								      echo '</div>';
@@ -198,6 +210,7 @@ if ($_GET) {
 							<label class="col-md-2 control-label" for="cc_doc_path"> 信用卡申請書檔案</label>
 							<div class="col-md-4">
 								<input type="file" name="cc_doc_path" class="form-control" id="cc_doc_path" onchange="file_viewer_load_new(this, '#img_box')">
+								<span class="text-danger">檔名規則：西元年月日-銀行-卡名</span>
 							</div>
 							
 						</div>
@@ -267,6 +280,10 @@ if ($_GET) {
 		$('.choose_apply').change(function(event) {
 			$('.cc_apply_url').css('display', 'none');
 			$('.cc_apply_file').css('display', 'none');
+			$('#cc_doc_url').val('');
+			$('#cc_doc_name').val('');
+			$('#cc_doc_path').val('');
+			$('#img_box').html('');
 		   //-- 網址 --
 		   if ($(this).val()==1) {
              $('.cc_apply_url').css('display', 'block');
@@ -277,6 +294,8 @@ if ($_GET) {
 		   }
 		});
     
+
+
           //-- 展開卡等 --
           $('.card_level [name="cc_cardorg[]"]').change(function(event) {
           	if ($(this).prop('checked')==true) {
@@ -288,14 +307,16 @@ if ($_GET) {
           	}
           });
 
+
+
           $("#submit_btn").click(function(event) {
           		var err_txt='';
-          		err_txt = err_txt + check_input( '[name="note_type"]', '單元分類，' );
-          		err_txt = err_txt + check_input( '[name="aTitle"]', '主題名稱，' );
-          		err_txt = err_txt + check_input( '[name="StartDate"]', '活動時間(開始)，' );
-          		err_txt = err_txt + check_input( '[name="EndDate"]', '活動時間(結束)，' );
-          		err_txt = CKEDITOR.instances.ckeditor.getData()=='' ? err_txt + '內容介紹，' : err_txt;
-                err_txt = $('[name="aPic"]').val()=='' && $('[name="old_img"]').val()==undefined ? err_txt + '主圖檔' : err_txt;
+          		err_txt = err_txt + check_input( '[name="cc_cardname"]', '信用卡名稱，' );
+          		err_txt = err_txt + check_input( '[name="cc_bi_pk"]', '發卡單位，' );
+          		err_txt = err_txt + check_input( '[name="cc_attr[]"]', '信用卡屬性，' );
+          		// err_txt = err_txt + check_input( '[name="cc_cardorg[]"]', '發卡組織，' );
+          		err_txt = err_txt + check_input( '[name="cc_card_orglevel[]"]', '發卡組織/卡等' );
+
 
           		if (err_txt!='') {
           		 alert("請輸入"+err_txt+"!!");
@@ -303,10 +324,12 @@ if ($_GET) {
           		}
           		else{
 
-          	   $('#put_form').submit();
+          	     $('#put_form').submit();
           		}
 
           });
+
+
     //------------------------------ 刪圖 ---------------------------------
           $("#one_del_img").click(function(event) { 
 			if (confirm('是否要刪除圖檔?')) {
