@@ -85,7 +85,7 @@
                            <!--banner end -->
 
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
 
 
                                <div class="col-md-1 hv-center popular_prize">
@@ -98,26 +98,30 @@
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                <div class="rank_btn">
-                                  <button type="button" class="btn btn-warning">立即辦卡</button>
-                                  <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
                                 </div>
-                                <span>謹慎理財 信用至上</span>
-                              </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
 
 
                               <div class="col-md-1 hv-center popular_prize">
@@ -130,25 +134,29 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
 
 
                               <div class="col-md-1 hv-center popular_prize">
@@ -161,22 +169,26 @@
                                 </a>
                                
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                          
@@ -188,10 +200,9 @@
                     <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                          
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
 
                               <div class="col-md-1 hv-center popular_prize">
-                                   <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">4</h1>
                               </div>
                               <div class="col-md-4 text-center">
@@ -200,28 +211,31 @@
                                 </a>
                                
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
 
                               <div class="col-md-1 hv-center popular_prize">
-                                   <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">5</h1>
                               </div>
                               <div class="col-md-4 text-center">
@@ -230,25 +244,29 @@
                                 </a>
                                
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                 <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
 
                               <div class="col-md-1 hv-center popular_prize">
                                    <span>
@@ -261,22 +279,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                     
@@ -286,7 +308,7 @@
                           
                   
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
 
                               <div class="col-md-1 hv-center popular_prize">
                                    <span>
@@ -299,25 +321,29 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                 <button type="button" class="btn btn-warning">立即辦卡</button>
-                                 <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                              </div>
-                               <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
 
                               <div class="col-md-1 hv-center popular_prize">
                                    <span>
@@ -330,25 +356,29 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                <div class="rank_btn">
-                                   <button type="button" class="btn btn-warning">立即辦卡</button>
-                                   <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
                                 </div>
-                                <span>謹慎理財 信用至上</span>
-                              </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
 
                               <div class="col-md-1 hv-center popular_prize">
                                    <span>
@@ -361,25 +391,29 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                             <div class="row no-gutters py-3 bankbg_list rank_hot">
+                             <div class="row no-gutters py-3 rankbg_list rank_hot">
 
                               <div class="col-md-1 hv-center popular_prize">
                                    <span>
@@ -392,22 +426,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
@@ -424,22 +462,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
 
@@ -457,22 +499,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
@@ -489,22 +535,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
@@ -521,22 +571,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
@@ -553,25 +607,29 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                          <a class="rank_more" show_num="10" href="javascript:;">顯示更多卡片</a>
+                          <a class="rank_more warning-layered btnOver" show_num="10" href="javascript:;">顯示更多卡片</a>
                    
                     <!--信用卡推薦end -->
                           </div>
@@ -582,7 +640,7 @@
                            <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                            <!--banner end -->
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">1</h1>
@@ -595,25 +653,29 @@
                                 </a>
                                
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">2</h1>
@@ -626,26 +688,30 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                             
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                   <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">3</h1>
@@ -657,22 +723,26 @@
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                <div class="rank_btn">
-                                  <button type="button" class="btn btn-warning">立即辦卡</button>
-                                  <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
                                 </div>
-                                <span>謹慎理財 信用至上</span>
-                              </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
 
@@ -684,9 +754,8 @@
                     <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                          
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
-                                  <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">4</h1>
                               </div>
 
@@ -697,27 +766,30 @@
                                 </a>
                                
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
-                                   <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">5</h1>
                               </div>
 
@@ -728,25 +800,29 @@
                                 </a>
                                
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                 <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">6</h1>
@@ -760,22 +836,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                              </div>
-                               <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
                       
                     
@@ -785,7 +865,7 @@
                           
                     
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">7</h1>
@@ -799,25 +879,29 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                              </div>
-                               <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">8</h1>
@@ -831,25 +915,29 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
                                 </div>
-                                <span>謹慎理財 信用至上</span>
-                              </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">9</h1>
@@ -863,25 +951,29 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">10</h1>
@@ -895,22 +987,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
 
@@ -928,22 +1024,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
 
@@ -961,22 +1061,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
@@ -993,22 +1097,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
@@ -1025,22 +1133,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
@@ -1057,22 +1169,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                       
@@ -1089,7 +1205,7 @@
                            <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                            <!--banner end -->
                     
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">1</h1>
@@ -1102,26 +1218,30 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
                                   <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">2</h1>
@@ -1134,26 +1254,30 @@
                                 </a>
                                
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
                        
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">3</h1>
@@ -1165,22 +1289,26 @@
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                <div class="rank_btn">
-                                  <button type="button" class="btn btn-warning">立即辦卡</button>
-                                  <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
                                 </div>
-                                <span>謹慎理財 信用至上</span>
-                              </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
 
@@ -1192,9 +1320,8 @@
                     
 
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
-                                   <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">4</h1>
                               </div>
 
@@ -1205,27 +1332,30 @@
                                 </a>
                                
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
-                                  <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">5</h1>
                               </div>
 
@@ -1236,25 +1366,29 @@
                                 </a>
                                
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                 <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                               <div class="col-md-1 hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">6</h1>
@@ -1268,22 +1402,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                              </div>
-                               <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                           
@@ -1298,7 +1436,7 @@
                     
 
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">7</h1>
@@ -1312,25 +1450,29 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                              </div>
-                               <span>謹慎理財 信用至上</span>
-                              </div>
+                             <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">8</h1>
@@ -1344,25 +1486,29 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                                <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                             <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
                                 </div>
-                                <span>謹慎理財 信用至上</span>
-                              </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">9</h1>
@@ -1376,25 +1522,29 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
-                            <div class="row no-gutters py-3 bankbg_list rank_hot">
+                            <div class="row no-gutters py-3 rankbg_list rank_hot">
                                <div class="col-md-1 hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">10</h1>
@@ -1408,22 +1558,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
@@ -1440,22 +1594,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
@@ -1472,22 +1630,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
@@ -1504,22 +1666,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
@@ -1536,22 +1702,26 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
@@ -1568,26 +1738,30 @@
                                 </a>
                                 
                               </div>
-                              <div class="col-md-5 card_list_txt">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
-                                <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-2">
-                              <div class="rank_btn">
-                                        <button type="button" class="btn btn-warning">立即辦卡</button>
-                                        <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
-                                    </div>
-                                    <span>謹慎理財 信用至上</span>
-                              </div>
+                              <div class="col-md-7 card_list_txt rank_color">
+                               <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                               <div class="row no-gutters">
+                                <div class="col-md-5 card_list_txt rank_color">
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2">
+                                  <div class="rank_btn">
+                                    <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                  </div>
+                                  <span>謹慎理財 信用至上</span>
+                                </div>
+                               </div>
+                             </div>
                             </div>
                             
                           
-                            <a class="rank_more" show_num="10" href="javascript:;">顯示更多卡片</a>
+                            <a class="rank_more warning-layered btnOver" show_num="10" href="javascript:;">顯示更多卡片</a>
                           
                       
                    
@@ -1856,7 +2030,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>★國內現金回饋1.22%<br> ★國外現金回饋2.22%<br>★高額旅遊平安險<br>★華航機票優惠</p>
+                                   <p><b>★</b>國內現金回饋1.22%<br> <b>★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
                                  </div>
                                </div>
 
@@ -1872,7 +2046,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                    <p>★國內現金回饋1.22%<br> ★國外現金回饋2.22%<br>★高額旅遊平安險<br>★華航機票優惠</p>
+                                    <p><b>★</b>國內現金回饋1.22%<br> <b>★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
                                  </div>
                                </div>
 
@@ -1896,7 +2070,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>●國內消費享1.22% <br> ●國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br><b> ●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
 
@@ -1910,7 +2084,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>●國內消費享1.22% <br> ●國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br><b> ●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
                                <div class="row no-gutters">
@@ -1923,7 +2097,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>●國內消費享1.22% <br> ●國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br><b> ●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
 

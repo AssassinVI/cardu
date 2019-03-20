@@ -254,7 +254,7 @@
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1">
                                         <i class="fa fa-angle-down"></i>
@@ -312,7 +312,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2">
                                         <i class="fa fa-angle-down"></i>
@@ -368,7 +368,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3">
                                         <i class="fa fa-angle-down"></i>
@@ -426,7 +426,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4">
                                         <i class="fa fa-angle-down"></i>
@@ -481,7 +481,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt5" aria-expanded="true" aria-controls="imp_int_txt5">
                                         <i class="fa fa-angle-down"></i>
@@ -536,7 +536,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt6" aria-expanded="true" aria-controls="imp_int_txt6">
                                         <i class="fa fa-angle-down"></i>
@@ -595,7 +595,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt7" aria-expanded="true" aria-controls="imp_int_txt7">
                                         <i class="fa fa-angle-down"></i>
@@ -650,7 +650,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt8" aria-expanded="true" aria-controls="imp_int_txt8">
                                         <i class="fa fa-angle-down"></i>
@@ -705,7 +705,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt9" aria-expanded="true" aria-controls="imp_int_txt9">
                                         <i class="fa fa-angle-down"></i>
@@ -760,7 +760,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt10" aria-expanded="true" aria-controls="imp_int_txt10">
                                         <i class="fa fa-angle-down"></i>
@@ -831,7 +831,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1">
                                         <i class="fa fa-angle-down"></i>
@@ -887,7 +887,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2">
                                         <i class="fa fa-angle-down"></i>
@@ -943,7 +943,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3">
                                         <i class="fa fa-angle-down"></i>
@@ -1001,7 +1001,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4">
                                         <i class="fa fa-angle-down"></i>
@@ -1056,7 +1056,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt5" aria-expanded="true" aria-controls="imp_int_txt5">
                                         <i class="fa fa-angle-down"></i>
@@ -1111,7 +1111,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt6" aria-expanded="true" aria-controls="imp_int_txt6">
                                         <i class="fa fa-angle-down"></i>
@@ -1170,7 +1170,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt7" aria-expanded="true" aria-controls="imp_int_txt7">
                                         <i class="fa fa-angle-down"></i>
@@ -1225,7 +1225,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt8" aria-expanded="true" aria-controls="imp_int_txt8">
                                         <i class="fa fa-angle-down"></i>
@@ -1280,7 +1280,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                       <div class="col-md-7 hv-center">
+                                       <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt9" aria-expanded="true" aria-controls="imp_int_txt9">
                                         <i class="fa fa-angle-down"></i>
@@ -1335,7 +1335,7 @@
                                        <button type="button" class="btn btn-gray">加入比較</button>
                                        </div>
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                          <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt10" aria-expanded="true" aria-controls="imp_int_txt10">
                                         <i class="fa fa-angle-down"></i>

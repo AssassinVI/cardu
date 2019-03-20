@@ -62,13 +62,14 @@
 
 
                     <div class="col-md-12 col">
-
-                      <div class="rank_search">
+                      <div class="rank_search bank_search cardshap py-md-2">
                       <p>根據您所設定的權益比較條件:
-                        <a href="#">1.現金回饋</a>、<a href="#">2.旅遊保險</a>、<a href="#">3.機場接送</a>，依序顯示下列信用卡
+                        <span id="search_rank_arr" class="text-primary"></span>
+                        ，依序顯示下列信用卡
                       </p>
                       </div>
-
+                    </div>
+                    <div class="col-md-12 col">
                         <div class="cardshap darkpurple_tab ">
 
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -143,8 +144,8 @@
                             <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                          </div>
@@ -156,8 +157,8 @@
                             <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -170,7 +171,7 @@
                            </a>
                            <div class="profit_btn  hv-center">
                              
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -188,8 +189,8 @@
                             <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                          </div>
@@ -201,8 +202,8 @@
                             <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -215,7 +216,7 @@
                            </a>
                            <div class="profit_btn  hv-center">
                             
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -233,8 +234,8 @@
                             <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                          </div>
@@ -246,8 +247,8 @@
                             <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -260,7 +261,7 @@
                            </a>
                            <div class="profit_btn  hv-center">
                             
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -282,8 +283,8 @@
                             <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                          </div>
@@ -295,8 +296,8 @@
                             <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -309,7 +310,7 @@
                            </a>
                            <div class="profit_btn  hv-center">
                              
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -328,8 +329,8 @@
                            
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                          </div>
@@ -341,8 +342,8 @@
                             <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -355,7 +356,7 @@
                            </a>
                            <div class="profit_btn  hv-center">
                             
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -374,8 +375,8 @@
                            
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                          </div>
@@ -387,8 +388,8 @@
                             <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -401,7 +402,7 @@
                            </a>
                            <div class="profit_btn  hv-center">
                             
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -423,8 +424,8 @@
                            
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                          </div>
@@ -436,8 +437,8 @@
                             <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -450,7 +451,7 @@
                            </a>
                            <div class="profit_btn  hv-center">
                             
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -470,8 +471,8 @@
                            
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                          </div>
@@ -483,8 +484,8 @@
                             <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -497,7 +498,7 @@
                            </a>
                            <div class="profit_btn  hv-center">
                             
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -517,8 +518,8 @@
                            
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                          </div>
@@ -530,8 +531,8 @@
                             <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
                            </a>
                            <div class="profit_btn  hv-center">
-                             <button type="button" class="btn btn-warning">立即辦卡</button>
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
@@ -544,14 +545,14 @@
                            </a>
                            <div class="profit_btn  hv-center">
                             
-                             <button type="button" class="btn btn-gray">加入比較</button>
+                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
                            </div>
                            </div>
                         </div>
                     </div>
                     </div>
 
-                    <a class="rank_more" show_num="1" href="javascript:;">顯示更多卡片</a>
+                    <a class="rank_more warning-layered btnOver" show_num="1" href="javascript:;">顯示更多卡片</a>
 
                   </div>
                     <!--信用卡推薦end -->
@@ -809,13 +810,15 @@
                                  <div class="col-5">
                                   <a class="img_a" href="#">
                                     <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                    
                                   </a>
+                                  <span>謹慎理財 信用至上</span>
                                  </div>
                                  <div class="col-7">
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                   <p><b>★</b>國內現金回饋1.22%<br> <b>★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
                                  </div>
                                </div>
 
@@ -823,13 +826,15 @@
                                  <div class="col-5">
                                   <a class="img_a" href="#">
                                     <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
+
+                                  </a> 
+                                  <span>謹慎理財 信用至上</span>
                                  </div>
                                  <div class="col-7">
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                    <p><b>★</b>國內現金回饋1.22%<br> <b>★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
                                  </div>
                                </div>
 
@@ -854,7 +859,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>●國內消費享1.22% <br> ●國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br><b> ●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
 
@@ -868,7 +873,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>●國內消費享1.22% <br> ●國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br><b> ●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
                                <div class="row no-gutters">
@@ -931,6 +936,24 @@
      //-- 共用JS --
      require '../share_area/share_js.php';
     ?>
+
+     <script type="text/javascript">
+
+      $(window).on('load',function(event) {
+        //-- 讀取查詢條件 --
+        if (sessionStorage.getItem('profit_rank_arr')!=null) {
+          var rank_arr=sessionStorage.getItem('profit_rank_arr').split(',');
+          var rank_arr_txt='';
+          for (var i = 0; i < rank_arr.length; i++) {
+            rank_arr_txt+=(i+1)+'.'+rank_arr[i]+'，';
+          }
+          rank_arr_txt=rank_arr_txt.slice(0,-1);
+          $('#search_rank_arr').html(rank_arr_txt);
+        }
+        
+      });
+
+    </script>
 
   </body>
 </html>

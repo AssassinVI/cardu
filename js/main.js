@@ -5,6 +5,10 @@ $(document).ready(function() {
 
             $('#new_card').collapse();
 
+
+
+
+
             //-- 卷軸監控回調 --
             var scroll_x=0;
             $(window).bind('scroll resize', function() {
@@ -53,8 +57,11 @@ $(document).ready(function() {
                 $('.right-ad').css('top', 10);
                 $('.left-ad').css('top', 10);
               }
-              
             });
+            //-- 卷軸監控回調 END --
+
+
+
 
 
             //-- TOP Btn --
@@ -63,6 +70,10 @@ $(document).ready(function() {
                 scrollTop:0
                },1000);
             });
+
+
+
+
 
 
             //-- 判斷目前頁面，並對MENU反白 --
@@ -95,6 +106,10 @@ $(document).ready(function() {
             }
 
 
+
+
+
+
             //-- 展開搜尋欄 --
             $('#searchBtn').click(function(event) {
                $(".search_box").slideToggle('200');
@@ -103,6 +118,45 @@ $(document).ready(function() {
             $('.search_box .close_btn').click(function(event) {
                $(".search_box").slideUp('200');
             });
+
+
+
+
+
+
+
+            //----------------- 信用卡 ICON MouseOver/MouseOut ------------------------
+            //-MouseOver-
+            $('.ccard_icon_js').mouseenter(function(event) {
+              var src_url=$(this).find('img').attr('src').split('/');
+              var src=src_url[src_url.length-1].split('.');
+                  src[0]=src[0]+'_down';
+
+                  src_url[src_url.length-1]=src.join('.');
+
+
+              $(this).find('img').attr('src', src_url.join('/'));
+            });
+
+            //-MouseOut-
+            $('.ccard_icon_js').mouseleave(function(event) {
+               var src_url=$(this).find('img').attr('src').split('/');
+               var src=src_url[src_url.length-1].split('.');
+               var src_old=src[0].split('_');
+                   src[0]=src_old[0];
+
+                   src_url[src_url.length-1]=src.join('.');
+
+
+               $(this).find('img').attr('src', src_url.join('/'));
+
+            });
+
+
+            //----------------- 信用卡 ICON MouseOver END ------------------------
+
+
+
             
 
             //-- 首頁油價資訊切換 --
@@ -122,6 +176,11 @@ $(document).ready(function() {
               }
             },5000);
             //-- 首頁油價資訊切換 END --
+
+
+
+
+
 
 
             /*-- Menu --*/
@@ -146,6 +205,12 @@ $(document).ready(function() {
             });
 
 
+
+
+
+
+
+
             /*--- 切換 TAB ----*/
             $('.nav-tabs .nav-link').click(function(event) {
                // alert($(this).attr('aria-selected'));
@@ -168,6 +233,12 @@ $(document).ready(function() {
             });
 
 
+
+
+
+
+
+
             /*-- 滑鼠經過 MENU 單元提示 --*/
             $('#menu .dropDown_menu .row>div').mouseenter(function(event) {
                TweenMax.to($(this).find('h4'), 0.2, { "border-bottom": "3px solid #334896"});
@@ -177,6 +248,13 @@ $(document).ready(function() {
                TweenMax.to($(this).find('h4'), 0.2, { "border-bottom": "1px solid #ccc"});
             });
             /*-- 滑鼠經過 MENU 單元提示 END --*/
+
+
+
+
+
+
+
 
             
             /*-- 新聞專題 --*/
@@ -210,7 +288,6 @@ $(document).ready(function() {
               });  
 
              $('.news_slide').mouseenter(function(event) {
-
               $(".news_slide .swiper-button-prev").css('left', '0%');
               $(".news_slide .swiper-button-next").css('right', '0%');
                news_Swiper.autoplay.stop();
@@ -223,6 +300,16 @@ $(document).ready(function() {
                news_Swiper.autoplay.start();
              });
              /*-- 新聞專題 END --*/
+
+
+
+
+
+
+
+
+
+
 
              /*-- 多專題-輪播 --*/
              var card_news_Swiper1 = new Swiper ('#iNewsR01 .swiper-container', {
@@ -299,6 +386,16 @@ $(document).ready(function() {
                 card_news_Swiper2.autoplay.start();
               });
              /*-- 多專題-輪播 END --*/
+
+
+
+
+
+
+
+
+
+
             
             
             /*-- 卡排行 --*/
@@ -369,6 +466,17 @@ $(document).ready(function() {
             /*--- 卡排行 END ---*/
 
 
+
+
+
+
+
+
+
+
+
+
+
             /*-- 卡總覽 --*/
             var card_all_Swiper = new Swiper ('.card_all .swiper-container', {
                 slidesPerView : 6,
@@ -437,6 +545,19 @@ $(document).ready(function() {
             /*--- 卡總覽 END ---*/
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
             /*--------- 一大三小新聞專題 -----------*/
             var pagination_Swiper = new Swiper ('.slide_pagination .swiper-container', {
                direction : 'vertical',
@@ -499,6 +620,18 @@ $(document).ready(function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
             /*------------------------ 熱門情報 輪播 --------------------------*/
 
             var news_Swiper = new Swiper ('.HotNews_slide.swiper-container', {
@@ -533,6 +666,18 @@ $(document).ready(function() {
 
             /*------------------------ 熱門情報 輪播 END --------------------------*/
 
+
+
+
+
+
+
+
+
+
+
+
+
             /*--------- 分享 Bar 下拉 --------- */
             $('#arrow_btn').click(function(event) {
 
@@ -543,8 +688,12 @@ $(document).ready(function() {
               else{
                 TweenMax.to($('.more_search'), 0.3, { "height": "0px"});
               }
-              
             });
+
+
+
+
+
 
 
             /*-- tab 切換功能 (首頁卡情報...) --*/
@@ -562,6 +711,13 @@ $(document).ready(function() {
               tab_parent.find('.content_tab [tab="'+tab_num+'"]').addClass('show');
               
             });
+
+
+
+
+
+
+
 
 
             /*-- 滑鼠經過切換Tab (右邊有LOGO的Tab) --*/
@@ -592,7 +748,6 @@ $(document).ready(function() {
                }
             });
 
-
             /*-- 滑鼠經過切換Tab (右邊無LOGO的Tab) --*/
             $('.mouseHover_other_tab>ul>li>.nav-link').mouseenter(function(event) {
                $(this).parents('.mouseHover_other_tab').find('.nav-link').removeClass('active show');
@@ -606,6 +761,9 @@ $(document).ready(function() {
                $('.exception .nav-link').addClass('active show');
                $('.exception .tab-pane').addClass('active show');
 
+               /*--- 右邊DIV跟隨功能(給予) ---*/
+               get_right_div();
+
             });
 
             /*-- 滑鼠經過切換Tab (右邊無LOGO的Tab) --*/
@@ -617,7 +775,18 @@ $(document).ready(function() {
                $(this).addClass('active show');
                $($(this).attr('tab-target')).addClass('active show');
 
+               /*--- 右邊DIV跟隨功能(給予) ---*/
+               get_right_div();
+
             });
+
+
+
+
+
+
+
+
 
 
             /*-- 卡情報-單卡-百葉窗 --*/
@@ -637,6 +806,10 @@ $(document).ready(function() {
                 $(this).find('i').addClass('fa-angle-down');
               }
             });
+
+
+
+
 
 
 
@@ -789,6 +962,13 @@ $(document).ready(function() {
             /*---------------------------------------------------- 右邊DIV跟隨功能 END ------------------------------------------*/
 
 
+
+
+
+
+
+
+
             //--------------------------------------------------- 手機JS ----------------------------------------------------
             //--------------------------------------------------- 手機JS ----------------------------------------------------
             //--------------------------------------------------- 手機JS ----------------------------------------------------
@@ -835,8 +1015,17 @@ $(document).ready(function() {
 $(window).on('load', function(event) {
 
 /*--- 右邊DIV跟隨功能(給予) ---*/
+get_right_div();
 
-//-- 畫面高 --
+
+});
+
+
+
+
+/*==================== 右邊DIV跟隨功能(給予) ===========================*/
+function get_right_div() {
+  //-- 畫面高 --
 var window_height=$(window).height();
 //-- 左DIV高 --
 var left_div_height=$('.index-content-left .row').height();
@@ -849,18 +1038,28 @@ var left_div_width=$('.index-content-left').width();
 if (left_div_height>window_height && left_div_height>right_div_height) {
   $('.index-content-right').addClass('move');
   $('.index-content-right.move').css('margin-left', left_div_width+'px');
+
 }
 else{
-  $('.index-content-right').removeClass('move');
-  $('.index-content-right.move').css('margin-left', '0px');
+  
+  $('.index-content-right').attr('style', '');
+
+if ($('.index-content-right').attr('style')!=undefined) {
+
+  if($('.index-content-right').attr('style').indexOf('absolute')!=-1) {
+    $('.index-content-right').removeClass('move');
+  }
+  else{
+    $('.index-content-right').removeClass('move');
+    $('.index-content-right').css('margin-left', '0px');
+  }
+
+}
+  
+ }
 }
 
-/*--- 右邊DIV跟隨功能(給予) END ---*/
-
-});
-
-
-
+/*==================== 右邊DIV跟隨功能(給予) END ===========================*/
 
 
 

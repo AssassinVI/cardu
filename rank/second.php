@@ -195,7 +195,7 @@
                             <a class="nav-link py-2 pl-0 flex-x-center" id="goodSet-tab"  tab-target="#goodSet" aria-selected="false">無門檻</a>
                           </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content p-0" id="myTabContent">
                           <div class="tab-pane fade active show" id="goodTicket" role="tabpanel" aria-labelledby="goodTicket-tab">
                               <div class="row imp_int_title">
                               <div class="col-1 text-center"></div>
@@ -247,12 +247,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" card_id="ccard20190320001" card_img="../img/component/card3.png" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -315,12 +315,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" card_id="ccard20190320002" card_img="../img/component/card3.png" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -356,7 +356,7 @@
                                     <div class="col-md-11">
                                       <div class="row">
                                         <div class="col-md-12">
-                                          <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
+                                          <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡3</h5>
                                         </div>
                                          <div class="row w-h-100">
                                   
@@ -383,12 +383,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" card_id="ccard20190320003" card_img="../img/component/card3.png" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -411,6 +411,10 @@
                                   </div>
                                 </div>
                               </div>
+
+                               <!--廣告-->
+                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                              <!--banner end -->
                              
 
                               <div class="card rank_hot rank_second">
@@ -418,7 +422,6 @@
                                   <div class="row">
                                     <div class="col-md-1">
                                       <div class="hv-center modal_prize">
-                                        <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">4</h1>
                                      </div>
                                     </div>
@@ -452,12 +455,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -486,7 +489,6 @@
                                   <div class="row">
                                     <div class="col-md-1">
                                       <div class="hv-center modal_prize">
-                                        <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">5</h1>
                                      </div>
                                     </div>
@@ -520,12 +522,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt5" aria-expanded="true" aria-controls="imp_int_txt5" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -548,9 +550,7 @@
                                   </div>
                                 </div>
                               </div>
-                               <!--廣告-->
-                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
-                              <!--banner end -->
+                              
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
@@ -589,12 +589,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt6" aria-expanded="true" aria-controls="imp_int_txt6" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -618,7 +618,9 @@
                                 </div>
                               </div>
 
-                              
+                              <!--廣告-->
+                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                              <!--banner end -->
 
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
@@ -658,12 +660,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt7" aria-expanded="true" aria-controls="imp_int_txt7" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -725,12 +727,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt8" aria-expanded="true" aria-controls="imp_int_txt8" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -792,12 +794,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt9" aria-expanded="true" aria-controls="imp_int_txt9" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -859,12 +861,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt10" aria-expanded="true" aria-controls="imp_int_txt10" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -927,12 +929,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt11" aria-expanded="true" aria-controls="imp_int_txt11" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -995,12 +997,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt12" aria-expanded="true" aria-controls="imp_int_txt12" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1063,12 +1065,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt13" aria-expanded="true" aria-controls="imp_int_txt13" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1131,12 +1133,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt14" aria-expanded="true" aria-controls="imp_int_txt14" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1199,12 +1201,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt15" aria-expanded="true" aria-controls="imp_int_txt15" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1228,7 +1230,7 @@
                                 </div>
                               </div>
 
-                              <a class="rank_more" show_num="10" href="javascript:;">顯示更多卡片</a>
+                              <a class="rank_more warning-layered btnOver" show_num="10" href="javascript:;">顯示更多卡片</a>
                                
                             </div>
 
@@ -1292,12 +1294,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1360,12 +1362,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1428,12 +1430,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1457,13 +1459,15 @@
                                 </div>
                               </div>
                               
+                               <!--廣告-->
+                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                              <!--banner end -->
 
                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1">
                                       <div class="hv-center modal_prize">
-                                        <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">4</h1>
                                      </div>
                                     </div>
@@ -1497,12 +1501,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1530,7 +1534,6 @@
                                   <div class="row">
                                     <div class="col-md-1">
                                       <div class="hv-center modal_prize">
-                                        <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">5</h1>
                                      </div>
                                     </div>
@@ -1564,12 +1567,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt5" aria-expanded="true" aria-controls="imp_int_txt5" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1592,9 +1595,7 @@
                                   </div>
                                 </div>
                               </div>
-                                <!--廣告-->
-                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
-                              <!--banner end -->
+                               
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
@@ -1633,12 +1634,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt6" aria-expanded="true" aria-controls="imp_int_txt6" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1662,7 +1663,10 @@
                                 </div>
                               </div>
 
-                             
+                               <!--廣告-->
+                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                              <!--banner end -->
+                              
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
@@ -1701,12 +1705,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt7" aria-expanded="true" aria-controls="imp_int_txt7" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1768,12 +1772,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt8" aria-expanded="true" aria-controls="imp_int_txt8" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1835,12 +1839,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt9" aria-expanded="true" aria-controls="imp_int_txt9" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1902,12 +1906,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt10" aria-expanded="true" aria-controls="imp_int_txt10" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -1970,12 +1974,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt11" aria-expanded="true" aria-controls="imp_int_txt11" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -2038,12 +2042,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt12" aria-expanded="true" aria-controls="imp_int_txt12" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -2106,12 +2110,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt13" aria-expanded="true" aria-controls="imp_int_txt13" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -2174,12 +2178,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt14" aria-expanded="true" aria-controls="imp_int_txt14" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -2242,12 +2246,12 @@
                                       
                                        <div class="col-md-4 hv-center">
                                        <div class="profit_btn  hv-center">
-                                       <button type="button" class="btn btn-warning">立即辦卡</button>
-                                       <button type="button" class="btn btn-gray add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-7 hv-center">
+                                      <div class="col-md-8 hv-center">
                                         <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt15" aria-expanded="true" aria-controls="imp_int_txt15" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
@@ -2271,7 +2275,7 @@
                                 </div>
                               </div>
 
-                              <a class="rank_more" show_num="10" href="javascript:;">顯示更多卡片</a>
+                              <a class="rank_more warning-layered btnOver" show_num="10" href="javascript:;">顯示更多卡片</a>
                             </div>
                             
                            
@@ -2546,7 +2550,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>★國內現金回饋1.22%<br> ★國外現金回饋2.22%<br>★高額旅遊平安險<br>★華航機票優惠</p>
+                                   <p><b>★</b>國內現金回饋1.22%<br> <b>★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
                                  </div>
                                </div>
 
@@ -2562,7 +2566,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                    <p>★國內現金回饋1.22%<br> ★國外現金回饋2.22%<br>★高額旅遊平安險<br>★華航機票優惠</p>
+                                    <p><b>★</b>國內現金回饋1.22%<br> <b>★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
                                  </div>
                                </div>
 
@@ -2586,7 +2590,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>●國內消費享1.22% <br> ●國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
 
@@ -2600,7 +2604,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>●國內消費享1.22% <br> ●國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
                                <div class="row no-gutters">
@@ -2613,7 +2617,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>●國內消費享1.22% <br> ●國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
 
