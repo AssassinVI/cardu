@@ -156,7 +156,7 @@
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab news_tab_three">
                             <a class="nav-link active  pl-30 py-2" id="box-tab"  href="second.php" tab-target="#box" aria-selected="true">旅行分享</a>
-                            <a class="top_link" href="all.php"></a>
+                            <a class="top_link" href="second.php"></a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -200,8 +200,8 @@
                         <div class="cardshap green_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link active  pl-30 py-2" id="box-tab"  href="second.php" tab-target="#box" aria-selected="true">行程推薦</a>
-                            <a class="top_link" href="all.php"></a>
+                            <a class="nav-link active  pl-30 py-2" id="box-tab"  href="share_second.php" tab-target="#box" aria-selected="true">行程推薦</a>
+                            <a class="top_link" href="share_second.php"></a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">

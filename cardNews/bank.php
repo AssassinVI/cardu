@@ -99,7 +99,7 @@
                                     </div>
                                     
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
@@ -127,7 +127,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
@@ -222,9 +222,9 @@
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
 
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                         </div>
@@ -245,9 +245,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                           </div>
@@ -268,9 +268,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                           </div>
@@ -295,9 +295,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                         </div>
@@ -318,9 +318,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                             </div>
@@ -341,9 +341,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                             </div>
@@ -378,9 +378,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                         </div>
@@ -401,9 +401,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                           </div>
@@ -424,9 +424,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                           </div>
@@ -451,9 +451,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                         </div>
@@ -474,9 +474,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                             </div>
@@ -497,9 +497,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                             </div>
@@ -534,9 +534,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                         </div>
@@ -557,9 +557,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                           </div>
@@ -580,9 +580,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                           </div>
@@ -607,9 +607,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                         </div>
@@ -630,9 +630,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" class="btn-gray" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" class="btn-gray" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                             </div>
@@ -653,9 +653,9 @@
                              <img src="../img/component/cardNews/jcb.png" title="jcb">
                              <img src="../img/component/bank 4.png" title="美國">
                              </div>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">銀行網址</button>
-                                <button type="button" class="btn btn-gray" title="新聞">信用卡網址</button>
+                              <div class="bank_btn  hv-center">
+                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
+                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
                               </div>
                             </div>
                             </div>
@@ -927,7 +927,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>★國內現金回饋1.22%<br> ★國外現金回饋2.22%<br>★高額旅遊平安險<br>★華航機票優惠</p>
+                                   <p><b>★</b>國內現金回饋1.22%<br><b> ★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
                                  </div>
                                </div>
 
@@ -943,14 +943,14 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                    <p>★國內現金回饋1.22%<br> ★國外現金回饋2.22%<br>★高額旅遊平安險<br>★華航機票優惠</p>
+                                    <p><b>★</b>國內現金回饋1.22%<br><b> ★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
                                  </div>
                                </div>
 
                            </div>
                        </div>
                     </div>
-                      <div class="col-md-12 col">
+                     <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">
                            <div class="title_tab hole">
                                <h4>瀏覽過信用卡 </h4>
@@ -967,7 +967,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
 
@@ -981,7 +981,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
                                <div class="row no-gutters">
@@ -994,7 +994,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
 
@@ -1002,7 +1002,6 @@
                            </div>
                        </div>
                     </div>
-
                     
                     
                     <!-- 廣告 -->

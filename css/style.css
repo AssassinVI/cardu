@@ -1084,17 +1084,10 @@ a:hover{ text-decoration: none; color:#000000; }
   padding:0;
 }
 .credit_icon li{
-  width:80px;
-  height:85px;
-  margin:10px;
+  width:100px;
   display:inline-block;
   background-color: #ffffff;
-  border-radius: 20px 0 20px 0;
-  border: 1px solid #ccc;
-  position: relative;
-  bottom: 0px;
-  transition: all 0.3s;
- 
+
 }
 
 .tab-content .credit_icon li a{
@@ -1107,14 +1100,9 @@ a:hover{ text-decoration: none; color:#000000; }
 .tab-content .credit_icon img{
   display: block;
   margin:8px auto;
-  width: 40px;
 }
 
 
-.tab-content .credit_icon li:hover{
-  border: 1px solid #2d4593;
-  bottom:10px;
-}
 
 .tab-content .credit_card{
   width:200px;
@@ -1133,7 +1121,8 @@ a:hover{ text-decoration: none; color:#000000; }
 
 .tab-content .credit_boot th{
   text-align: center;
-  background-color: #cccccc;
+  background-color: #d4ad53;
+  color:#fff;
   padding:5px 0;
   }
 
@@ -1732,7 +1721,10 @@ a:hover{ text-decoration: none; color:#000000; }
     font-size: 15px;
     padding: 0 10px;
 }
-
+/*--------------------------------- 集點店家----------------------------------*/
+.shop_img img{
+  width:225px;
+}
 /*--------------------------------- 優旅行----------------------------------*/
  
 .travel_text h6{
@@ -1754,7 +1746,7 @@ a:hover{ text-decoration: none; color:#000000; }
 
 .travel_main{
   background-color: #ffffff;
-  border-radius: 5px 0 5px 0;
+  border-radius: 5px;
   overflow: hidden;
   width:360px;
   margin: auto;
@@ -2115,6 +2107,450 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 /*------- 關西 ------*/
+.map .Lanshan {
+  position: absolute;
+    right: 395px;
+    top: 98px;
+}
+
+.map .Lanshan-01 {
+  position: absolute;
+    right: -8px;
+    top: 30px;
+    z-index: 1;
+    display: none;
+}
+
+.map .GPT{
+  position: absolute;
+    right: 295px;
+    top: 80px;
+}
+
+.map .GPT-01{
+  position: absolute;
+    right: -124px;
+    top: 29px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Heian{
+  position: absolute;
+    right: 227px;
+    top: 106px;
+}
+
+.map .Heian-01{
+  position: absolute;
+    right: -133px;
+    top: 25px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Gion{
+  position: absolute;
+    right: 234px;
+    top: 130px;
+}
+
+.map .Gion-01{
+  position: absolute;
+    right: -110px;
+    top: 28px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Shijo{
+  position: absolute;
+    right: 337px;
+    top: 130px;
+}
+
+.map .Shijo-01{
+  position: absolute;
+    right: -52px;
+    top: 29px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Kiyomizu{
+  position: absolute;
+    right: 197px;
+    top: 176px;
+}
+
+.map .Kiyomizu-01{
+  position: absolute;
+    right: -95px;
+    top: 28px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Fushimi{
+  position: absolute;
+    right: 160px;
+    top: 205px;
+}
+
+.map .Fushimi-01{
+  position: absolute;
+    right: -55px;
+    top: 34px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Todaiji{
+  position: absolute;
+    right: 191px;
+    top: 265px;
+}
+
+.map .Todaiji-01{
+  position: absolute;
+    right: -80px;
+    top: 34px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Shinsaibashi{
+  position: absolute;
+    right: 327px;
+    top: 319px;
+}
+
+.map .Shinsaibashi-01{
+  position: absolute;
+    right: -117px;
+    top: 30px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Osaka{
+  position: absolute;
+    right: 313px;
+    top: 289px;
+}
+
+.map .Osaka-01{
+  position: absolute;
+    right: -97px;
+    top: 33px;
+    z-index: 1;
+    display: none;
+}
+
+.map .USJ{
+  position: absolute;
+    right: 456px;
+    top: 342px;
+}
+
+.map .USJ-01{
+  position: absolute;
+    right: -181px;
+    top: -6px;
+    z-index: 1;
+    display: none;
+}
+
+.map .POK{
+  position: absolute;
+    right: 466px;
+    top: 232px;
+}
+
+.map .POK-01{
+  position: absolute;
+    right: -181px;
+    top: -66px;
+    z-index: 1;
+    display: none;
+}
+
+.map .ASHK{
+  position: absolute;
+    right: 468px;
+    top: 154px;
+}
+
+.map .ASHK-01{
+  position: absolute;
+    right: -180px;
+    top: -66px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Kobe{
+  position: absolute;
+    right: 520px;
+    top: 198px;
+}
+
+.map .Kobe-01{
+  position: absolute;
+    right: -181px;
+    top: -93px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Himeji{
+  position: absolute;
+    right: 609px;
+    top: 210px;
+}
+
+.map .Himeji-01{
+  position: absolute;
+    right: -115px;
+    top: 50px;
+    z-index: 1;
+    display: none;
+}
+
+/*------- 北海道 ------*/
+
+.map .Abashiri{
+  position: absolute;
+    right: 234px;
+    top: 167px;
+}
+
+.map .Abashiri-01{
+  position: absolute;
+    right: 55px;
+    top: -80px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Kitami{
+  position: absolute;
+    right: 237px;
+    top: 208px;
+}
+
+.map .Kitami-01{
+  position: absolute;
+    right: -142px;
+    top: 30px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Sounkyo{
+  position: absolute;
+    right: 282px;
+    top: 234px;
+}
+
+.map .Sounkyo-01{
+  position: absolute;
+    right: 55px;
+    top: -123px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Shikisai{
+  position: absolute;
+    right: 285px;
+    top: 262px;
+}
+
+.map .Shikisai-01{
+  position: absolute;
+    right: 78px;
+    top: -140px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Akan{
+  position: absolute;
+    right: 222px;
+    top: 265px;
+}
+
+.map .Akan-01{
+  position: absolute;
+    right: -115px;
+    top: 50px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Kushiro{
+  position: absolute;
+    right: 162px;
+    top: 280px;
+}
+
+.map .Kushiro-01{
+  position: absolute;
+    right: -66px;
+    top: 29px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Church{
+  position: absolute;
+    right: 290px;
+    top: 298px;
+}
+
+.map .Church-01{
+  position: absolute;
+    right: -115px;
+    top: 50px;
+    z-index: 1;
+    display: none;
+}
+
+.map .tokachi{
+  position: absolute;
+    right: 213px;
+    top: 332px;
+}
+
+.map .tokachi-01{
+  position: absolute;
+    right: -80px;
+    top: 26px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Farm{
+  position: absolute;
+    right: 374px;
+    top: 271px;
+}
+
+.map .Farm-01{
+  position: absolute;
+    right: 7px;
+    top: -154px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Noboribetsu{
+  position: absolute;
+    right: 379px;
+    top: 346px;
+}
+
+.map .Noboribetsu-01{
+  position: absolute;
+    right: -181px;
+    top: -16px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Otaru{
+  position: absolute;
+    right: 500px;
+    top: 266px;
+}
+
+.map .Otaru-01{
+  position: absolute;
+    right: -8px;
+    top: -121px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Hokkaido{
+  position: absolute;
+    right: 480px;
+    top: 303px;
+}
+
+.map .Hokkaido-01{
+  position: absolute;
+    right: 14px;
+    top: -121px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Lake{
+  position: absolute;
+    right: 536px;
+    top: 342px;
+}
+
+.map .Lake-01{
+  position: absolute;
+    right: -42px;
+    top: -120px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Bear{
+  position: absolute;
+    right: 495px;
+    top: 373px;
+}
+
+.map .Bear-01{
+  position: absolute;
+    right: -182px;
+    top: -30px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Hakodate{
+  position: absolute;
+    right: 510px;
+    top: 413px;
+}
+
+.map .Hakodate-01{
+  position: absolute;
+    right: -183px;
+    top: -64px;
+    z-index: 1;
+    display: none;
+}
+
+.map .NCA{
+  position: absolute;
+    right: 463px;
+    top: 333px;
+}
+
+.map .HA{
+  position: absolute;
+    right: 435px;
+    top: 440px;
+}
+
+.map .AA{
+  position: absolute;
+    right: 350px;
+    top: 240px;
+}
+
+
+
+
+
 
 /*-- 旅遊景點存放 fancybox --*/
 .fancybox-div{ display: none; }
@@ -2200,10 +2636,8 @@ a:hover{ text-decoration: none; color:#000000; }
   }
 .newcard_g{
   padding:10px;
-  position: relative;
-  bottom: 0px;
-  transition: all 0.3s;
-  box-shadow: 4px 4px 12px 2px rgba(71,71,72,0.5);
+  border: 2px #ce9f30 solid;
+  border-radius: 5px;
 }
 
 .prizecard_g{
@@ -2214,7 +2648,7 @@ a:hover{ text-decoration: none; color:#000000; }
     box-shadow: 2px 1px 5px rgba(71,71,72,0.5);
 }
 
-.detail_title .row.newcard_g span{color:#32b16c; font-size: 18px; padding:5px;}
+.detail_title .row.newcard_g span{color:#ce9f30; font-size: 18px; padding:5px;}
 .detail_title .row.ticketbg .col-5{text-align: center;}
 .detail_title .row.ticketbg hr{margin: 10px 0}
 .detail_title .row.ticketbg h6{font-weight: bold; margin:10px 0;letter-spacing: 1.5px;}
@@ -2331,26 +2765,28 @@ a:hover{ text-decoration: none; color:#000000; }
 .detail_title .debit_card ul li {
   display:inline-block;
   list-style: none;
+  margin:0 3px;
 }
 
 .detail_title .crecard_icon{
   padding-left:0;
   margin:0;
 }
-.crecard_icon li {
+
+/*.crecard_icon li {
     width: 60px;
     height: 55px;
     display: inline-block;
     background-color: #ffffff;
     border-radius: 20px 0 20px 0;
     border: 1px solid #ccc;
-}
+}*/
 
-.crecard_icon li img{
+/*.crecard_icon li img{
   width:45%;
   display: block;
   margin:5px auto;
-}
+}*/
 
 .crecard_icon li a {
     color: #000000;
@@ -2374,16 +2810,8 @@ a:hover{ text-decoration: none; color:#000000; }
   margin: 0 5px;
 }
 
-.blue_icon a {
-    width: 33px;
-    height: 33px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background-color: #22398f;
-    color: #fff;
-}
+
+
 
 .blue_icon i{
   font-size: 20px;
@@ -2685,8 +3113,9 @@ a:hover{ text-decoration: none; color:#000000; }
 .card_list div:nth-child(1) .btn{ background-color: #ffc107; color: #212529; border: none; }
 .card_list div:nth-child(3) .card_list_img{ height: 150px; width:225px; margin:auto; }
 .card_list div:nth-child(3) p{  margin: 0; margin-top: 5px; text-align: center; font-size: 14px;}
-
+.bank_all_small_img img{ width:160px;}
 .bank_all_img img{ width:200px;}
+
 
 .card_name{ 
   color:#263d95;
@@ -2703,6 +3132,7 @@ a:hover{ text-decoration: none; color:#000000; }
 
 .rank_hot .col-md-1{max-width: 50px; flex: auto;}
 .rank_hot .col-md-4{max-width: 215px;flex: auto;}
+.rank_hot .col-md-7{max-width: 485px;flex: auto;}
 .rank_hot .col-md-5{max-width: 300px;flex: auto;}
 .rank_hot .col-md-2{max-width: 185px;flex: auto;}
 
@@ -2779,6 +3209,11 @@ a:hover{ text-decoration: none; color:#000000; }
   padding:0 10px;
 } 
 
+.bank_main.hole:before{
+  position: absolute;
+  top: 5px;
+}
+
 .bank_main h5{
  color:#666;
  margin:10px 0;
@@ -2788,6 +3223,8 @@ a:hover{ text-decoration: none; color:#000000; }
  padding-bottom: 5px;
  padding-left: 15px;
 }
+
+
 
 .bank_main.gray_hole{
   position: absolute;
@@ -2841,13 +3278,12 @@ a:hover{ text-decoration: none; color:#000000; }
 
 .rank_care img{
  width:220px;
- height: 147px;
  margin:10px auto;
 }
 
 .rank_care h1{
  width:220px;
- height: 153px;
+ height: 147px;
  border:1px #cccccc dashed;
  border-radius: 8px;
  margin:10px auto;
@@ -2868,7 +3304,7 @@ a:hover{ text-decoration: none; color:#000000; }
 
 
 .money_main{
-  font-size: 18px;
+  font-size: 20px;
     font-weight: bold;
     color:#273e96 !important;
     padding-bottom: 5px;
@@ -2934,9 +3370,14 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 .card b{display: none;}
+.card-header{background: none;}
+.card:nth-child(odd) {
+    background-color: #f5f6f7;
+}
+.card{border:none;}
 
 .rank_second .col-md-1{max-width: 6%; padding: 0; flex: auto;}
-.rank_second .col-md-11{max-width: 94%; padding: 0;}
+.rank_second .col-md-11{max-width: 94%; padding: 0; flex: auto;}
 
 
 
@@ -3120,7 +3561,12 @@ color: #fff;
     color: #ce9f30;
     font-size: 2px;
     margin-right: 5px;
-    
+}
+
+.brown_tab .row.imp_int_title{
+    background-color: #d4ad53;
+    color:#fff;
+    font-weight: bold;
 }
 
 
@@ -3211,6 +3657,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
     background-color: #fcede8;
     background-image: url(../img/component/select_back_darkbrown.jpg);
 }
+
+.Darkbrown_tab .row.imp_int_title{
+    background-color: #b97253;
+    color:#fff;
+    font-weight: bold;
+    }
  
 .Darkbrown_tab .search_from button{
      color: #fff;

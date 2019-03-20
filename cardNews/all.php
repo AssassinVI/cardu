@@ -66,7 +66,7 @@
 
                   <div class="col-md-12 col">
                   
-                       <!-- 四小三大輪播 -->
+                      <!-- 四小三大輪播 -->
                       <div id="new_iNews" class="cardshap new_slide">
                           <div class="swiper-container">
                               <div class="swiper-wrapper">
@@ -100,7 +100,7 @@
                                     </div>
                                     
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
@@ -128,7 +128,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
@@ -187,26 +187,26 @@
 
                           
                             <ul class="credit_icon">
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
-                            <li><a href="#"><img src="../img/component/debitcard.png" title="新聞"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon1.png" title="量販卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon2.png" title="百貨卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon3.png" title="航空卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon4.png" title="加油卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon5.png" title="悠遊卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon6.png" title="一卡通"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon7.png" title="餐飲卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon8.png" title="行動支付"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon9.png" title="感應卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon10.png" title="購物卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon11.png" title="交通卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon12.png" title="旅遊卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon13.png" title="飯店卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon14.png" title="電影卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon15.png" title="休閒卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon16.png" title="保險卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon17.png" title="女性卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon18.png" title="電信卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon19.png" title="分期卡"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon20.png" title="公益卡"></a></li>
                             </ul>
                             
                             <ul class="nav " id="myTab" role="tablist">
@@ -217,6 +217,7 @@
                                 <a class=" credit_card hv-center" id="DebitCard-tab" data-toggle="tab" href="#DebitCard" role="tab" aria-controls="DebitCard" aria-selected="false">金融卡<i class="fa fa-angle-down"></i></a>
                               </li>
                             </ul>
+                            <hr>
                             <div class="tab-content" id="myTabContent">
                               <div class="tab-pane fade show active" id="CreditCard" role="tabpanel" aria-labelledby="CreditCard-tab">
                                <div class="credit_table">
@@ -228,7 +229,7 @@
                                    <div class="col-10">
                                      <div class="row cards_div bankbg_list">
                                        <div class="col-5 hv-center">
-                                           <a class="bank_all_img card_name text-center" href="#">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
                                             <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
                                            </a>
                                        </div>
@@ -236,8 +237,41 @@
                                            <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php">白金卡</a>
                                        </div> 
                                      </div>
+                                     <div class="row cards_div bankbg_list">
+                                       <div class="col-5 hv-center">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                           </a>
+                                       </div>
+                                       <div class="col-7 h-center col0 all_color">
+                                           <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php">白金卡</a>
+                                       </div> 
+                                     </div>
+                                     <div class="row cards_div bankbg_list">
+                                       <div class="col-5 hv-center">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                           </a>
+                                       </div>
+                                       <div class="col-7 h-center col0 all_color">
+                                           <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php">白金卡</a>
+                                       </div> 
+
+                                     </div>
+                                     <div class="row cards_div bankbg_list">
+                                       <div class="col-5 hv-center">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                           </a>
+                                       </div>
+                                       <div class="col-7 h-center col0 all_color">
+                                           <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php">白金卡</a>
+                                       </div> 
+
+                                     </div>
                                    </div>
                                  </div>
+                                  <a class="rank_more" show_num="10" href="javascript:;">顯示更多卡片</a>
 
                                  <div class="row">
                                    <div class="col-2 hv-center">
@@ -246,7 +280,7 @@
                                    <div class="col-10">
                                      <div class="row cards_div bankbg_list">
                                        <div class="col-5 hv-center">
-                                           <a class="bank_all_img card_name text-center" href="#">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
                                             <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
                                            </a>
                                        </div>
@@ -256,7 +290,7 @@
                                      </div>
                                      <div class="row cards_div bankbg_list">
                                        <div class="col-5 hv-center">
-                                           <a class="bank_all_img card_name text-center" href="#">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
                                             <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
                                            </a>
                                        </div>
@@ -266,7 +300,17 @@
                                      </div>
                                      <div class="row cards_div bankbg_list">
                                        <div class="col-5 hv-center">
-                                           <a class="bank_all_img card_name text-center" href="#">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                           </a>
+                                       </div>
+                                       <div class="col-7 h-center col0 all_color">
+                                           <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php" title="新聞">白金卡</a>
+                                       </div> 
+                                     </div>
+                                     <div class="row cards_div bankbg_list">
+                                       <div class="col-5 hv-center">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
                                             <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
                                            </a>
                                        </div>
@@ -276,6 +320,7 @@
                                      </div>
                                    </div>
                                  </div>
+                                <a class="rank_more" show_num="10" href="javascript:;">顯示更多卡片</a>
 
                                  <div class="row">
                                    <div class="col-2 hv-center">
@@ -284,7 +329,7 @@
                                    <div class="col-10">
                                      <div class="row cards_div bankbg_list">
                                        <div class="col-5 hv-center">
-                                           <a class="bank_all_img card_name text-center" href="#">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
                                             <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
                                            </a>
                                        </div>
@@ -294,7 +339,27 @@
                                      </div>
                                      <div class="row cards_div bankbg_list">
                                        <div class="col-5 hv-center">
-                                           <a class="bank_all_img card_name text-center" href="#">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                           </a>
+                                       </div>
+                                       <div class="col-7 h-center col0 all_color">
+                                           <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php" title="新聞">白金卡</a>
+                                       </div> 
+                                     </div>
+                                     <div class="row cards_div bankbg_list">
+                                       <div class="col-5 hv-center">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                           </a>
+                                       </div>
+                                       <div class="col-7 h-center col0 all_color">
+                                           <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php" title="新聞">白金卡</a>
+                                       </div> 
+                                     </div>
+                                     <div class="row cards_div bankbg_list">
+                                       <div class="col-5 hv-center">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
                                             <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
                                            </a>
                                        </div>
@@ -304,6 +369,7 @@
                                      </div>
                                    </div>
                                  </div>
+                                 <a class="rank_more" show_num="10" href="javascript:;">顯示更多卡片</a>
 
                                </div>
                               </div>
@@ -319,7 +385,7 @@
                                     <div class="col-10">
                                       <div class="row cards_div bankbg_list">
                                         <div class="col-5 hv-center">
-                                            <a class="bank_all_img card_name text-center" href="#">
+                                            <a class="bank_all_small_img card_name text-center" href="#">
                                              <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
                                             </a>
                                         </div>
@@ -327,9 +393,39 @@
                                             <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php" title="新聞">白金卡</a>
                                         </div> 
                                       </div>
+                                      <div class="row cards_div bankbg_list">
+                                        <div class="col-5 hv-center">
+                                            <a class="bank_all_small_img card_name text-center" href="#">
+                                             <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                            </a>
+                                        </div>
+                                        <div class="col-7 h-center col0 all_color">
+                                            <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php" title="新聞">白金卡</a>
+                                        </div> 
+                                      </div>
+                                      <div class="row cards_div bankbg_list">
+                                        <div class="col-5 hv-center">
+                                            <a class="bank_all_small_img card_name text-center" href="#">
+                                             <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                            </a>
+                                        </div>
+                                        <div class="col-7 h-center col0 all_color">
+                                            <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php" title="新聞">白金卡</a>
+                                        </div> 
+                                      </div>
+                                      <div class="row cards_div bankbg_list">
+                                       <div class="col-5 hv-center">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                           </a>
+                                       </div>
+                                       <div class="col-7 h-center col0 all_color">
+                                           <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php" title="新聞">白金卡</a>
+                                       </div> 
+                                     </div>
                                     </div>
                                   </div>
-
+                                  <a class="rank_more" show_num="10" href="javascript:;">顯示更多卡片</a>
                                   <div class="row">
                                     <div class="col-2 hv-center">
                                         <a class="card_name text-center" href="#"><img src="../img/component/cardNews/flower.png" alt="" title="新聞"><br>國泰世華</a>
@@ -337,7 +433,7 @@
                                     <div class="col-10">
                                       <div class="row cards_div bankbg_list">
                                         <div class="col-5 hv-center">
-                                            <a class="bank_all_img card_name text-center" href="#">
+                                            <a class="bank_all_small_img card_name text-center" href="#">
                                              <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
                                             </a>
                                         </div>
@@ -347,7 +443,7 @@
                                       </div>
                                       <div class="row cards_div bankbg_list">
                                         <div class="col-5 hv-center">
-                                            <a class="bank_all_img card_name text-center" href="#">
+                                            <a class="bank_all_small_img card_name text-center" href="#">
                                              <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
                                             </a>
                                         </div>
@@ -357,7 +453,7 @@
                                       </div>
                                       <div class="row cards_div bankbg_list">
                                         <div class="col-5 hv-center">
-                                            <a class="bank_all_img card_name text-center" href="#">
+                                            <a class="bank_all_small_img card_name text-center" href="#">
                                              <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
                                             </a>
                                         </div>
@@ -365,9 +461,19 @@
                                             <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php" title="新聞">白金卡</a>
                                         </div> 
                                       </div>
+                                      <div class="row cards_div bankbg_list">
+                                       <div class="col-5 hv-center">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                           </a>
+                                       </div>
+                                       <div class="col-7 h-center col0 all_color">
+                                           <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php" title="新聞">白金卡</a>
+                                       </div> 
+                                     </div>
                                     </div>
                                   </div>
-
+                                  <a class="rank_more" show_num="10" href="javascript:;">顯示更多卡片</a>
                                   <div class="row">
                                     <div class="col-2 hv-center">
                                         <a class="card_name text-center" href="#"><img src="../img/component/cardNews/timthumb.png" alt="" title="新聞"><br>國泰世華</a>
@@ -375,7 +481,7 @@
                                     <div class="col-10">
                                       <div class="row cards_div bankbg_list">
                                         <div class="col-5 hv-center">
-                                            <a class="bank_all_img card_name text-center" href="#">
+                                            <a class="bank_all_small_img card_name text-center" href="#">
                                              <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
                                             </a>
                                         </div>
@@ -385,7 +491,7 @@
                                       </div>
                                       <div class="row cards_div bankbg_list">
                                         <div class="col-5 hv-center">
-                                            <a class="bank_all_img card_name text-center" href="#">
+                                            <a class="bank_all_small_img card_name text-center" href="#">
                                              <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
                                             </a>
                                         </div>
@@ -393,9 +499,30 @@
                                             <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php" title="新聞">白金卡</a>
                                         </div> 
                                       </div>
+                                      <div class="row cards_div bankbg_list">
+                                        <div class="col-5 hv-center">
+                                            <a class="bank_all_small_img card_name text-center" href="#">
+                                             <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                            </a>
+                                        </div>
+                                        <div class="col-7 h-center col0 all_color">
+                                            <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php" title="新聞">白金卡</a>
+                                        </div> 
+                                      </div>
+                                      <div class="row cards_div bankbg_list">
+                                       <div class="col-5 hv-center">
+                                           <a class="bank_all_small_img card_name text-center" href="#">
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                           </a>
+                                       </div>
+                                       <div class="col-7 h-center col0 all_color">
+                                           <a href="bank.php"><img src="../img/component/cardNews/visa.png" title="新聞"></a> <a href="creditcard.php" title="新聞">無限卡</a>、<a href="creditcard.php" title="新聞">御璽卡</a>、<a href="creditcard.php" title="新聞">白金卡</a>
+                                       </div> 
+                                     </div>
+                                      
                                     </div>
                                   </div>
-
+                                  <a class="rank_more" show_num="10" href="javascript:;">顯示更多卡片</a>
                                  
                                 </div>
 
@@ -408,30 +535,34 @@
 
                           <div class="tab-pane tab-ones fade" id="goodSet" role="tabpanel" aria-labelledby="goodSet-tab">
 
-                            <div class="row no-gutters">
-                              <div class="col-4 cards-3">
-                                <a href="#">
-                                 <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                     
-                                 </div>
-                                 <p>遊日血拚大回饋，信用卡大調查</p>
+                            <div class="change_law">
+                              <div class="col-md-12">
+                                <a href="#" title="新聞">
+                                <h5>中國信託-108年市區停車、貴賓室…權益超彈性！<span>(2018/11/21)</span></h5>
+                                <p>108年度中國信託市區停車、機場接/送、機場停車、機場貴賓室、道路救援、旅平險權益變更，門檻任選超彈性。</p>
                                 </a>
                               </div>
-                              <div class="col-4 cards-3">
-                                <a href="#">
-                                  <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                     
+                              <div class="col-md-12 col0">
+                                <div class="row">
+                                  <div class="col-6">
+                                    <ul class="cardu_li">
+                                    <li><a href="#" title="新聞"> 兆豐銀行-108年度各卡年費</a></li>
+                                    <hr>
+                                    <li><a href="#" title="新聞"> 兆豐銀行-108年度各卡年費</a></li>
+                                    <hr>
+                                    <li><a href="#" title="新聞"> 兆豐銀行-108年度各卡年費</a></li>
+                                    </ul>
                                   </div>
-                                  <p>遊日血拚大回饋，信用卡大調查</p>
-                                </a>
-                              </div>
-                               <div class="col-4 cards-3">
-                                <a href="#">
-                                  <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                      
+                                  <div class="col-6">
+                                    <ul class="cardu_li">
+                                    <li><a href="#" title="新聞"> 兆豐銀行-108年度各卡年費</a></li>
+                                    <hr>
+                                    <li><a href="#" title="新聞"> 兆豐銀行-108年度各卡年費</a></li>
+                                    <hr>
+                                    <li><a href="#" title="新聞"> 兆豐銀行-108年度各卡年費</a></li>
+                                    </ul>
                                   </div>
-                                  <p>遊日血拚大回饋，信用卡大調查</p>
-                                </a>
+                               </div>
                               </div>
                             </div>
                            
@@ -471,7 +602,7 @@
                                 <a class="bank_all_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
-                                <a class="btn btn-info mt-2" href="#">立即辦卡</a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
                               </div>
                               <div class="col-md-4 card_list_txt">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>
@@ -494,7 +625,7 @@
                                 <a class="bank_all_img" href="#">
                                   <img src="../img/component/card2.png" alt="" title="新聞">
                                 </a>
-                                <a class="btn btn-info mt-2" href="#">立即辦卡</a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
                               </div>
                               <div class="col-md-4 card_list_txt">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>
@@ -517,7 +648,7 @@
                                 <a class="bank_all_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="btn btn-info mt-2" href="#">立即辦卡</a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
                               </div>
                               <div class="col-md-4 card_list_txt">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>
@@ -566,154 +697,51 @@
                     <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">
                            <div class="title_tab hole">
-                               <h4>熱門情報</h4>
+                               <h4>熱門辦卡 </h4>
                                <span>謹慎理財 信用至上</span>
                            </div>
                            <div class="content_tab">
-                               <!-- 熱門情報輪播 -->
-                            <div class="swiper-container HotNews_slide">
-                                <div class="swiper-wrapper">
+                               <div class="row no-gutters">
+                                 <div class="col-5">
+                                   <a class="img_a" href="#">
+                                     <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                   </a>
+                                 </div>
+                                 <div class="col-7">
+                                  <a href="#">
+                                    <h4>匯豐現金回饋玉璽卡</h4>
+                                  </a>
+                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                 </div>
+                               </div>
 
-                                    <div class="swiper-slide" > 
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                          <a class="img_a" href="#">
-                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                          </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
+                               <div class="row no-gutters">
+                                 <div class="col-5">
+                                  <a class="img_a" href="#">
+                                   <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                  </a>
+                                 </div>
+                                 <div class="col-7">
+                                  <a href="#">
+                                   <h4>匯豐現金回饋玉璽卡</h4>
+                                  </a>
+                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                 </div>
+                               </div>
 
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                         <a class="img_a" href="#">
-                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                          <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div  class="col-5">
-                                         <a class="img_a" href="#">
-                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div class="swiper-slide" > 
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                          <a class="img_a" href="#">
-                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                          </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                         <a class="img_a" href="#">
-                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                          <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div  class="col-5">
-                                         <a class="img_a" href="#">
-                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div class="swiper-slide" > 
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                          <a class="img_a" href="#">
-                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                          </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                         <a class="img_a" href="#">
-                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                          <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div  class="col-5">
-                                         <a class="img_a" href="#">
-                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- 如果需要导航按钮 -->
-                                <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
-                                <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
-                                
-                            </div>
-                            <!-- 熱門情報輪播 END -->
-
+                               <div class="row no-gutters">
+                                 <div class="col-5">
+                                  <a class="img_a" href="#">
+                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                  </a>
+                                 </div>
+                                 <div class="col-7">
+                                  <a href="#">
+                                    <h4>匯豐現金回饋玉璽卡</h4>
+                                  </a>
+                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                 </div>
+                               </div>
                            </div>
                        </div>
                     </div>

@@ -80,7 +80,46 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', end
 .imp_int{  }
 .imp_int .card-header{ padding: 12px 6px; height: 130px;}
 .imp_int .card-header .angle_down{ font-size: 40px; color: #7e7e7e; }
-.imp_int .collapse_txt{ font-size: 15px; color: #9b9b9b; }
+.imp_int .collapse_txt{ font-size: 16px; color: #9b9b9b; }
+
+
+
+
+/*-- 漸層按鈕 --*/
+.warning-layered{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffeaa3+0,eeb600+47,ffc711+100 */
+background: rgb(255,234,163); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(255,234,163,1) 0%, rgba(238,182,0,1) 47%, rgba(255,199,17,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(255,234,163,1) 0%,rgba(238,182,0,1) 47%,rgba(255,199,17,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(255,234,163,1) 0%,rgba(238,182,0,1) 47%,rgba(255,199,17,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffeaa3', endColorstr='#ffc711',GradientType=0 ); /* IE6-9 */
+  color: #000;
+  border: none;
+}
+
+.gray-layered{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d1d1d1+0,767676+47,878787+100 */
+  background: rgb(209,209,209); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(209,209,209,1) 0%, rgba(118,118,118,1) 47%, rgba(135,135,135,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(209,209,209,1) 0%,rgba(118,118,118,1) 47%,rgba(135,135,135,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(209,209,209,1) 0%,rgba(118,118,118,1) 47%,rgba(135,135,135,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1d1d1', endColorstr='#878787',GradientType=0 ); /* IE6-9 */
+
+  border: none;
+  color: #fff;
+}
+
+
+.gray-layered.active{
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#8294d6+0,253d95+46,253d95+100 */
+background: rgb(130,148,214); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(130,148,214,1) 0%, rgba(37,61,149,1) 46%, rgba(37,61,149,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(130,148,214,1) 0%,rgba(37,61,149,1) 46%,rgba(37,61,149,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(130,148,214,1) 0%,rgba(37,61,149,1) 46%,rgba(37,61,149,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8294d6', endColorstr='#253d95',GradientType=0 ); /* IE6-9 */
+
+  border: none;
+}
 
 
 /*--------------------------------- 一大三小NEWS(輪播) ----------------------------------*/
@@ -301,21 +340,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', end
 
 
 /*----------------------- 各按鈕滑鼠經過 ------------------------*/
-button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
+.btnOver{ position: relative; top: 0; left: 0; }
+.btnOver:hover{ top: 2px; left: 1px;}
 
 /*-- 新聞 --*/
-.card_list div:nth-child(1) .btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
 
 /*-- 卡情報 --*/
-.apply_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
+/*.apply_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
 .detail_title .row.ticketbg .applycard_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
 .detail_title .debit_card .applycard_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
 .detail_title .onlinebg .applycard_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
-.online_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
+.online_btn:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }*/
 
 /*-- 卡排行 --*/
-.rank_button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
-.rank_more:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
+/*.rank_button:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }
+.rank_more:hover{ box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); }*/
 
 /*----------------------- 各按鈕滑鼠經過 END ------------------------*/
 
@@ -402,7 +441,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9c2f9', end
 .card_compare_div{ padding: 5px; border: 1px solid #9146cb; }
 .card_compare_div button{ background-color: #ffd400; color: #000; width: 100%; border: none; padding: 5px; margin-top: 3px; border-radius: 5px; }
 .card_compare .card{ width: 100px; border: 1px dashed #ccc; margin: 2px auto;}
-.card_compare .card button{ position: absolute; right: -2px; top: -5px; background-color: #903fce; border: none; border-radius: 50%; font-size: 12px; font-weight: 600; width: 18px; height: 18px; padding: 0; color: #fff; }
+.card_compare .card button{ position: absolute; right: -20px; top: 15px; background-color: #903fce; border: none; border-radius: 50%; font-size: 12px; font-weight: 600; width: 18px; height: 18px; padding: 0; color: #fff; }
 
 /*----------------------------- 卡片比一比(功能) END ----------------------------------*/
 

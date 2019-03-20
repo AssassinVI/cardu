@@ -107,7 +107,7 @@
                                     </div>
                                     
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
@@ -135,7 +135,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide"> 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
@@ -188,8 +188,8 @@
                              <h4>Apple Pay</h4>
                             </a>
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                         </div>
@@ -201,8 +201,8 @@
                              <h4>Google Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -214,8 +214,8 @@
                              <h4>Samsung Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -231,8 +231,8 @@
                              <h4>Apple Pay</h4>
                             </a>
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                         </div>
@@ -244,8 +244,8 @@
                              <h4>Google Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -257,8 +257,8 @@
                              <h4>Samsung Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -284,8 +284,8 @@
                              <h4>Apple Pay</h4>
                             </a>
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                         </div>
@@ -297,8 +297,8 @@
                              <h4>Google Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -310,8 +310,8 @@
                              <h4>Samsung Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -327,8 +327,8 @@
                              <h4>Apple Pay</h4>
                             </a>
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                         </div>
@@ -340,8 +340,8 @@
                              <h4>Google Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -353,8 +353,8 @@
                              <h4>Samsung Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -380,8 +380,8 @@
                              <h4>Apple Pay</h4>
                             </a>
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                         </div>
@@ -393,8 +393,8 @@
                              <h4>Google Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -406,8 +406,8 @@
                              <h4>Samsung Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -423,8 +423,8 @@
                              <h4>Apple Pay</h4>
                             </a>
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                         </div>
@@ -436,8 +436,8 @@
                              <h4>Google Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -449,8 +449,8 @@
                              <h4>Samsung Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>

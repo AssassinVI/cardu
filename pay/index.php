@@ -373,7 +373,7 @@
                             <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodTicket-tab" href="second.php" tab-target="#goodTicket" aria-selected="true">懶人包</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link py-2 pl-0 flex-x-center" id="goodSet-tab" href="second.php" tab-target="#goodSet" aria-selected="false">熱分享</a>
+                            <a class="nav-link py-2 pl-0 flex-x-center" id="goodSet-tab" href="second.php" tab-target="#goodSet" aria-selected="false">樂分享</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">

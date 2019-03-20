@@ -77,14 +77,14 @@
                     <div class="col-md-12 col">
 
                       <div class="cardshap ">
-                        <div class="row pt-3 mx-3 detail_title">
+                        <div class="row no-gutters pt-3 mx-3 detail_title">
                           <div class="col-8">
                           <h2>
                             <i><img src="../img/component/pay.png"></i>元大銀行元大鑽金卡_VISA_御璽卡
                           </h2>
                           </div>
 
-                           <div class="col-4">
+                           <div class="col-md-4">
                                <div class="search_div hv-center">
                                  
                                 <div class="fb-like mr-2" data-href="http://srl.tw/cardu/news_detail.html" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
@@ -100,58 +100,63 @@
                                  <a href="#"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
                                </div>
                             </div>
-                            <div class=" col-12 row debit_card col ">
-                            <div class="col-5 text-center col0">
+                            <div class=" col-md-12 row debit_card col ">
+                            <div class="col-md-5 text-center col0">
                              <img src="../img/component/cardNews/card_big.png" title="新聞"><br>
                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange"><i class="fa fa-credit-card"></i>立即辦卡</button>
-                                <button type="button" class="btn btn-gray">加入比較</button>
+                                <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                <button type="button" class="btn gray-layered btnOver">加入比較</button>
                               </div>
                             
 
                             </div>
-                            <div class="col-7">
+                            <div class="col-md-7">
                              <div class="row no-gutters">
-                              <div class="col-9">
-                                <div class="credit_prize cardshap h-center">
-                                  <img src="../img/component/cardNews/crown.png">
-                                  <h4>現金回饋NO.1</h4>
-                                </div>
+                              
+                                
                                <ul>
-                               <li><a><img src="../img/component/cardNews/visa.png" title="新聞"></a></li>
-                               <li><a><img src="../img/component/cardNews/visa.png" title="新聞"></a></li>
+                                 <li class="mr-2"><a href="#"><img src="../img/component/cardNews/icon/no_1.png"></a>
+                                 <li class="mr-2"><a href="#"><img src="../img/component/cardNews/icon/no_1.png"></a>
+                                 
                                </ul>
+
+                               <ul>
+                                <li><a><img src="../img/component/cardNews/visa.png" title="新聞"></a></li>
+                                <li><a><img src="../img/component/cardNews/visa.png" title="新聞"></a></li>
+                               </ul>
+
                                 <ul class="debit_limit">
                                 <li><a href="#" title="新聞">無限卡</a></li>
                                 </ul>
+
+                               <ul class="crecard_icon">
+                               <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon3.png" title="感應卡"></a></li>
+                               <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon3.png" title="感應卡"></a></li>
+                               <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon3.png" title="感應卡"></a></li>
+                               <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon3.png" title="感應卡"></a></li>
+                               <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon/ccard-icon3.png" title="感應卡"></a></li>
+                               </ul>
+                             
+                             
+                             <ul class="blue_icon">
+                             <li><a href="#"><img src="../img/component/cardNews/icon/blue_1.png"></a></li>
+                             <li><a href="#"><img src="../img/component/cardNews/icon/blue_1.png"></a></li>
+                             <li><a href="#"><img src="../img/component/cardNews/icon/blue_1.png"></a></li>
+                             <li><a href="#"><img src="../img/component/cardNews/icon/blue_1.png"></a></li>
+                             <li><a href="#"><img src="../img/component/cardNews/icon/blue_1.png"></a></li>
+                             <li><a href="#"><img src="../img/component/cardNews/icon/blue_1.png"></a></li>
+                             </ul>
                              
                              </div>
 
-                              </div>
+                            
 
 
                              
                             
                              
                              
-                             <ul class="debit_list">
-                               <li><img src="../img/component/debitcard.png" title="新聞"></li>
-                               <li><img src="../img/component/debitcard.png" title="新聞"></li>
-                               <li><img src="../img/component/debitcard.png" title="新聞"></li>
-                               <li><img src="../img/component/debitcard.png" title="新聞"></li>
-                               <li><img src="../img/component/debitcard.png" title="新聞"></li>
-                               <li><img src="../img/component/debitcard.png" title="新聞"></li>
-                             </ul>
                              
-                             
-                             <ul>
-                             <li><img src="../img/component/debitcard1.png" title="新聞"></li>
-                             <li><img src="../img/component/debitcard1.png" title="新聞"></li>
-                             <li><img src="../img/component/debitcard1.png" title="新聞"></li>
-                             <li><img src="../img/component/debitcard1.png" title="新聞"></li>
-                             <li><img src="../img/component/debitcard1.png" title="新聞"></li>
-                             <li><img src="../img/component/debitcard1.png" title="新聞"></li>
-                             </ul>
 
                              
 
@@ -162,11 +167,11 @@
                            
                           </div> 
                             <div class="row no-gutters mt-2 mb-3 newcard_g cardshap">
-                            <div class="col-6"><span><i class="fa fa-check-circle"></i></span>網路消費2.5%現金回饋 </div>
-                            <div class="col-6"><span><i class="fa fa-check-circle"></i></span>一般消費紅利2倍</div>
-                            <div class="col-6"><span><i class="fa fa-check-circle"></i></span>3期分期0利率</div>
-                            <div class="col-6"><span><i class="fa fa-check-circle"></i></span>首次自動加值OPENPOINT點數 </div> 
-                            <div class="col-6"><span><i class="fa fa-check-circle"></i></span>首次自動加值OPENPOINT點數 </div> 
+                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>網路消費2.5%現金回饋 </div>
+                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>一般消費紅利2倍</div>
+                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>3期分期0利率</div>
+                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>首次自動加值OPENPOINT點數 </div> 
+                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>首次自動加值OPENPOINT點數 </div> 
                           </div> 
                          
                         </div>
@@ -207,17 +212,17 @@
                             </div>
                             <div class="accordion imp_int" id="accordionExample">
 
-                              <div class="card">
+                              <div class="card txt_detail">
                                 <div class="card-header hv-center" id="imp_int1">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0"><img src="../img/component/debitcard1.png" alt="">現金回饋</p>
+                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">現金回饋</p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">國內：1.2%，國外：2.2% <br> (當月消費3,000元以上)</p>
                                     </div>
                                     <div class="col-1 hv-center">
-                                      <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1">
+                                      <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                     </div>
@@ -233,17 +238,17 @@
                                 </div>
                               </div>
 
-                              <div class="card">
+                              <div class="card txt_detail">
                                 <div class="card-header hv-center" id="imp_int2">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0"><img src="../img/component/debitcard1.png" alt="">旅遊保險</p>
+                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">旅遊保險</p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">旅平險：800萬</p>
                                     </div>
                                     <div class="col-1 hv-center">
-                                      <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2">
+                                      <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                     </div>
@@ -259,17 +264,17 @@
                                 </div>
                               </div>
 
-                              <div class="card">
+                              <div class="card txt_detail">
                                 <div class="card-header hv-center" id="imp_int3">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0"><img src="../img/component/debitcard1.png" alt="">機場接送</p>
+                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">機場接送</p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">一年兩次 <br> (前兩個月消費1萬元)</p>
                                     </div>
                                     <div class="col-1 hv-center">
-                                      <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3">
+                                      <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                     </div>
@@ -285,17 +290,17 @@
                                 </div>
                               </div>
 
-                              <div class="card">
+                              <div class="card txt_detail">
                                 <div class="card-header hv-center" id="imp_int4">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0"><img src="../img/component/debitcard1.png" alt="">道路救援</p>
+                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">道路救援</p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">100公里 <br> (前三個月累積消費3千元以上)</p>
                                     </div>
                                     <div class="col-1 hv-center">
-                                      <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4">
+                                      <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
                                     </div>
@@ -424,6 +429,10 @@
                                 </tr>
                                 </tbody>
                               </table>
+                               <div class="card_btn  text-center pt-2">
+                                        <button type="button" class="btn warning-layered btnOver">權益比一比</button>
+                                        <button type="button" class="btn gray-layered btnOver">清除</button>
+                                </div>
                             </form>
                            
                           </div>
@@ -564,16 +573,16 @@
                                 <a class="card_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
-                                <a class="btn btn-info mt-2" href="#">立即辦卡</a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
                               </div>
-                              <div class="col-md-4 card_list_txt">
+                              <div class="col-md-4 card_list_txt rank_color">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>
                                 <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
+                                  <li><b>●</b>國內現金回饋1.22%</li>
+                                  <li><b>●</b>國外現金回饋2.22%</li>
+                                  <li><b>●</b>感應式刷卡快速結帳</li>
+                                  <li><b>●</b>高額旅遊平安險</li>
+                                  <li><b>●</b>華航機票優惠</li>
                                 </ul>
                               </div>
                               <div class="col-md-4 ">
@@ -587,16 +596,16 @@
                                 <a class="card_list_img" href="#">
                                   <img src="../img/component/card2.png" alt="">
                                 </a>
-                                <a class="btn btn-info mt-2" href="#">立即辦卡</a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
                               </div>
-                              <div class="col-md-4 card_list_txt">
+                              <div class="col-md-4 card_list_txt rank_color">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>
                                 <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
+                                  <li><b>●</b>國內現金回饋1.22%</li>
+                                  <li><b>●</b>國外現金回饋2.22%</li>
+                                  <li><b>●</b>感應式刷卡快速結帳</li>
+                                  <li><b>●</b>高額旅遊平安險</li>
+                                  <li><b>●</b>華航機票優惠</li>
                                 </ul>
                               </div>
                               <div class="col-md-4 ">
@@ -610,16 +619,16 @@
                                 <a class="card_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="">
                                 </a>
-                                <a class="btn btn-info mt-2" href="#">立即辦卡</a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
                               </div>
-                              <div class="col-md-4 card_list_txt">
+                              <div class="col-md-4 card_list_txt rank_color">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>
                                 <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
+                                  <li><b>●</b>國內現金回饋1.22%</li>
+                                  <li><b>●</b>國外現金回饋2.22%</li>
+                                  <li><b>●</b>感應式刷卡快速結帳</li>
+                                  <li><b>●</b>高額旅遊平安險</li>
+                                  <li><b>●</b>華航機票優惠</li>
                                 </ul>
                               </div>
                               <div class="col-md-4 ">
@@ -889,7 +898,7 @@
                     
                     </div>
 
-                    <div class="col-md-12 col">
+                     <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">
                            <div class="title_tab hole">
                                <h4>辦卡推薦 </h4>
@@ -898,36 +907,39 @@
                                <div class="row no-gutters">
                                  <div class="col-5">
                                   <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                    
                                   </a>
+                                  <span>謹慎理財 信用至上</span>
                                  </div>
                                  <div class="col-7">
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                   <p><b>★</b>國內現金回饋1.22%<br><b> ★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
                                  </div>
                                </div>
 
                                <div class="row no-gutters">
                                  <div class="col-5">
                                   <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
+                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+
+                                  </a> 
+                                  <span>謹慎理財 信用至上</span>
                                  </div>
                                  <div class="col-7">
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                    <p><b>★</b>國內現金回饋1.22%<br><b> ★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
                                  </div>
                                </div>
 
                            </div>
                        </div>
                     </div>
-
-                    <div class="col-md-12 col">
+                     <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">
                            <div class="title_tab hole">
                                <h4>瀏覽過信用卡 </h4>
@@ -937,41 +949,41 @@
                                <div class="row no-gutters">
                                  <div class="col-5">
                                   <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
                                   </a>
                                  </div>
                                  <div class="col-7">
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
 
                                <div class="row no-gutters">
                                  <div class="col-5">
                                   <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
                                   </a>
                                  </div>
                                  <div class="col-7">
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
                                <div class="row no-gutters">
                                  <div class="col-5">
                                   <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
                                   </a>
                                  </div>
                                  <div class="col-7">
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
 
@@ -979,7 +991,6 @@
                            </div>
                        </div>
                     </div>
-                    
                      <!-- 廣告 -->
                     <div class="col-md-12 col">
                         <img src="http://placehold.it/300x250" alt="">

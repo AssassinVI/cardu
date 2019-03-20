@@ -228,12 +228,46 @@
                                        </div>
 
                                        <div class="swiper-slide" index="11"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news11.png" alt="購物卡" title="購物卡"> <br> 購物卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news11.png" alt="交通卡" title="交通卡"> <br> 交通卡</a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="12"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news12.png" alt="購物卡" title="購物卡"> <br> 購物卡</a></div>
-                                       </div>                                     
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news12.png" alt="旅遊卡" title="旅遊卡"> <br> 旅遊卡</a></div>
+                                       </div>   
+                                       
+                                       <!-- 新增8張卡 -->
+                                       <div class="swiper-slide" index="13"> 
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news13.png" alt="飯店卡" title="飯店卡"> <br> 飯店卡</a></div>
+                                       </div> 
+
+                                       <div class="swiper-slide" index="14"> 
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news14.png" alt="電影卡" title="電影卡"> <br> 電影卡</a></div>
+                                       </div> 
+
+                                       <div class="swiper-slide" index="15"> 
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news15.png" alt="休閒卡" title="休閒卡"> <br> 休閒卡</a></div>
+                                       </div> 
+
+                                       <div class="swiper-slide" index="16"> 
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news16.png" alt="保險卡" title="保險卡"> <br> 保險卡</a></div>
+                                       </div> 
+
+                                       <div class="swiper-slide" index="17"> 
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news17.png" alt="女性卡" title="女性卡"> <br> 女性卡</a></div>
+                                       </div> 
+
+                                       <div class="swiper-slide" index="18"> 
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news18.png" alt="電信卡" title="電信卡"> <br> 電信卡</a></div>
+                                       </div>         
+
+                                       <div class="swiper-slide" index="19"> 
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news19.png" alt="分期卡" title="分期卡"> <br> 分期卡</a></div>
+                                       </div> 
+
+                                       <div class="swiper-slide" index="20"> 
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news20.png" alt="公益卡" title="公益卡"> <br> 公益卡</a></div>
+                                       </div>  
+                                       <!-- 新增8張卡 END -->                         
                                    </div>
 
                                </div>
@@ -1175,7 +1209,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>★國內現金回饋1.22%<br> ★國外現金回饋2.22%<br>★高額旅遊平安險<br>★華航機票優惠</p>
+                                   <p><b>★</b>國內現金回饋1.22%<br><b> ★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
                                  </div>
                                </div>
 
@@ -1191,7 +1225,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                    <p>★國內現金回饋1.22%<br> ★國外現金回饋2.22%<br>★高額旅遊平安險<br>★華航機票優惠</p>
+                                    <p><b>★</b>國內現金回饋1.22%<br><b> ★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
                                  </div>
                                </div>
 
@@ -1215,7 +1249,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
 
@@ -1229,7 +1263,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
                                <div class="row no-gutters">
@@ -1242,7 +1276,7 @@
                                   <a href="#">
                                     <h4>匯豐現金回饋玉璽卡</h4>
                                   </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
                                  </div>
                                </div>
 

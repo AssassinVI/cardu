@@ -78,7 +78,7 @@
                             </div>
                             <div class="col-6">
                                <div class="search_div hv-center">
-                                 <a class="apply_btn mr-2" href="#"><i class="fa fa-credit-card"></i>立即辦卡</a>
+                                 <a class="apply_btn warning-layered btnOver mr-2" href="#">立即辦卡</a>
                                 <div class="fb-like mr-2" data-href="http://srl.tw/cardu/news_detail.html" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
                                  <a class="search_btn" href="#"><img src="../img/component/search/fb.png" alt="" title="分享"></a>
                                  <a class="search_btn" href="#"><img src="../img/component/search/line.png" alt="" title="Line"></a>
@@ -288,16 +288,16 @@
                                 <a class="card_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
-                                <a class="btn btn-info mt-2" href="#">立即辦卡</a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
                               </div>
-                              <div class="col-md-4 card_list_txt">
+                              <div class="col-md-4 card_list_txt rank_color">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>
                                 <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
+                                  <li><b>●</b>國內現金回饋1.22%</li>
+                                  <li><b>●</b>國外現金回饋2.22%</li>
+                                  <li><b>●</b>感應式刷卡快速結帳</li>
+                                  <li><b>●</b>高額旅遊平安險</li>
+                                  <li><b>●</b>華航機票優惠</li>
                                 </ul>
                               </div>
                               <div class="col-md-4 ">
@@ -311,16 +311,16 @@
                                 <a class="card_list_img" href="#">
                                   <img src="../img/component/card2.png" alt="" title="新聞">
                                 </a>
-                                <a class="btn btn-info mt-2" href="#">立即辦卡</a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
                               </div>
-                              <div class="col-md-4 card_list_txt">
+                              <div class="col-md-4 card_list_txt rank_color">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>
                                 <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
+                                  <li><b>●</b>國內現金回饋1.22%</li>
+                                  <li><b>●</b>國外現金回饋2.22%</li>
+                                  <li><b>●</b>感應式刷卡快速結帳</li>
+                                  <li><b>●</b>高額旅遊平安險</li>
+                                  <li><b>●</b>華航機票優惠</li>
                                 </ul>
                               </div>
                               <div class="col-md-4 ">
@@ -334,16 +334,16 @@
                                 <a class="card_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="btn btn-info mt-2" href="#">立即辦卡</a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
                               </div>
-                              <div class="col-md-4 card_list_txt">
+                              <div class="col-md-4 card_list_txt rank_color">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>
                                 <ul>
-                                  <li>國內現金回饋1.22%</li>
-                                  <li>國外現金回饋2.22%</li>
-                                  <li>感應式刷卡快速結帳</li>
-                                  <li>高額旅遊平安險</li>
-                                  <li>華航機票優惠</li>
+                                  <li><b>●</b>國內現金回饋1.22%</li>
+                                  <li><b>●</b>國外現金回饋2.22%</li>
+                                  <li><b>●</b>感應式刷卡快速結帳</li>
+                                  <li><b>●</b>高額旅遊平安險</li>
+                                  <li><b>●</b>華航機票優惠</li>
                                 </ul>
                               </div>
                               <div class="col-md-4 ">

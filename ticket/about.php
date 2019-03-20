@@ -74,8 +74,8 @@
                                <div class="col-5 col">
                                <img class="pay_img" src="../img/component/easycard2.png" title="新聞">
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange">我要訂閱</button>
-                                <button type="button" class="btn btn-gray">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver">我要訂閱</button>
+                                <button type="button" class="btn gray-layered btnOver">前往官網</button>
                               </div>
                               </div>
                              

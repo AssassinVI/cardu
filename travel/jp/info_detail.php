@@ -283,44 +283,44 @@
                        </div>   
 
                       <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one green_tab">
-                           <div class="title_tab hole">
-                               <h4>旅行地區 </h4>
-                              
-                           </div>
-                           <div class="content_tab">
-                             <div class="journey_icon">
-                               <div class="row no-gutters">
-                                 <div class="col-6">
-                                  <a href="#"> <i class="fa fa-arrow-circle-right mr-2"></i>日本</a>
-                                 </div>
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>韓國</a>
-                                 </div>
-                               </div>
-                               <hr>
-                                <div class="row no-gutters">
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>東南亞</a>
-                                 </div>
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>中港澳</a>
-                                 </div>
-                               </div>
-                               <hr>
-                                <div class="row no-gutters">
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>台灣</a>
-                                 </div>
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>其他地區</a>
-                                 </div>
-                               </div>
+                         <div class="cardshap hotCard tab_one green_tab">
+                             <div class="title_tab hole">
+                                 <h4>區域分類</h4>
+                                
                              </div>
+                             <div class="content_tab">
+                               <div class="journey_icon">
+                                 <div class="row no-gutters">
+                                   <div class="col-6">
+                                    <a href="#"> <i class="fa fa-arrow-circle-right mr-2"></i>東京篇</a>
+                                   </div>
+                                   <div class="col-6">
+                                    <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>東北篇</a>
+                                   </div>
+                                 </div>
+                                 <hr>
+                                  <div class="row no-gutters">
+                                   <div class="col-6">
+                                    <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>關西篇</a>
+                                   </div>
+                                   <div class="col-6">
+                                    <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>九州篇</a>
+                                   </div>
+                                 </div>
+                                 <hr>
+                                  <div class="row no-gutters">
+                                   <div class="col-6">
+                                    <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>北海道篇</a>
+                                   </div>
+                                   <div class="col-6">
+                                    <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>沖繩篇</a>
+                                   </div>
+                                 </div>
+                               </div>
 
-                           </div>
-                       </div>
-                    </div>
+                             </div>
+                         </div>
+                      </div>
 
                     <!-- 廣告 -->
                         <div class="col-md-12 col">

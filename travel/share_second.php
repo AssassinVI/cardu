@@ -222,8 +222,113 @@
                            </div>
                          </div>
 
+                         <div class="col-md-6">
+                          <div class="travel_main mb-3">
+                           <a href="#">
+                             <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                              <div>
+                               <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
+                               <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                             </div>
+                           </a>
+                            
+                            </div>
+                         </div>
+
+                         <div class="col-md-6">
+                          <div class="travel_main mb-3">
+                          <a href="#">
+                            <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                             <div>
+                               <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
+                               <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                             </div>
+                          </a>
+                           
+                            </div>
+                         </div>
+
+                         <div class="col-md-6">
+                          <div class="travel_main mb-3">
+                           <a href="#">
+                             <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                              <div>
+                               <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
+                               <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                             </div>
+                           </a> 
+                            
+                           </div>
+                         </div>
+
+                         <div class="col-md-6">
+                          <div class="travel_main mb-3">
+                          <a href="#">
+                            <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                             <div>
+                               <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
+                               <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                             </div>
+                          </a> 
+                           
+                            </div>
+                         </div>
+
+                         <div class="col-md-6">
+                          <div class="travel_main mb-3">
+                           <a href="#">
+                             <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                              <div>
+                               <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
+                               <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                             </div>
+                           </a> 
+                            
+                          </div>
+                         </div>
+
+                         <div class="col-md-6">
+                          <div class="travel_main mb-3">
+                          <a href="#">
+                            <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                             <div>
+                               <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
+                               <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                             </div>
+                          </a>   
+                           
+                          </div>
+                         </div>
+
+                         <div class="col-md-6">
+                          <div class="travel_main mb-3">
+                           <a href="#">
+                             <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                              <div>
+                               <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
+                               <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                             </div>
+                           </a> 
+                            
+                          </div>
+                         </div>
+
+                         <div class="col-md-6">
+                          <div class="travel_main mb-3">
+                          <a href="#">
+                            <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                             <div>
+                               <h6>旅行社代退訂爭議多  消保處提醒4點要123</h6>
+                               <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
+                             </div>
+                          </a>  
+                           </div>
+
+                         </div>
+
                        </div>
                     </div>
+
 
 
                     
@@ -444,28 +549,28 @@
                              <div class="journey_icon">
                                <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"> <i class="fa fa-angle-double-right"></i>日本</a>
+                                  <a href="#"> <i class="fa fa-arrow-circle-right mr-2"></i>日本</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-angle-double-right"></i>韓國</a>
-                                 </div>
-                               </div>
-                               <hr>
-                                <div class="row no-gutters">
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-angle-double-right"></i>東南亞</a>
-                                 </div>
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-angle-double-right"></i>中港澳</a>
+                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>韓國</a>
                                  </div>
                                </div>
                                <hr>
                                 <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-angle-double-right"></i>台灣</a>
+                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>東南亞</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-angle-double-right"></i>其他地區</a>
+                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>中港澳</a>
+                                 </div>
+                               </div>
+                               <hr>
+                                <div class="row no-gutters">
+                                 <div class="col-6">
+                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>台灣</a>
+                                 </div>
+                                 <div class="col-6">
+                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>其他地區</a>
                                  </div>
                                </div>
                              </div>

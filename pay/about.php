@@ -74,8 +74,8 @@
                               <div class="col-5 col">
                                <img class="h-center" src="../img/component/apple pay.png" title="新聞">
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange">我要訂閱</button>
-                                <button type="button" class="btn btn-gray">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver">我要訂閱</button>
+                                <button type="button" class="btn gray-layered btnOver">前往官網</button>
                               </div>
                             </div>
                              
@@ -168,15 +168,15 @@
                                    </div>
                                    <!--廣告end-->
                            <!--信用卡推薦-->
-                    <div class="col-md-12 col">
+                    <div class="col-md-12 col0">
 
-                        <div class="cardshap darkpurple_tab exception">
+                        <div class="cardshap blueGreen_tab exception">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab">
                             <a class="nav-link active pl-30 py-2" id="special_1-tab" aria-selected="true">信用卡推薦</a>
                           </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content px-0" id="myTabContent">
                           <div class="tab-pane fade show active"  role="tabpanel" >
 
                             <div class="row no-gutters mx-2 py-3 card_list">
@@ -184,7 +184,7 @@
                                 <a class="card_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
-                                <a class="btn btn-info mt-2" href="#">立即辦卡</a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
                               </div>
                               <div class="col-md-4 card_list_txt rank_color">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>
@@ -207,7 +207,7 @@
                                 <a class="card_list_img" href="#">
                                   <img src="../img/component/card2.png" alt="" title="新聞">
                                 </a>
-                                <a class="btn btn-info mt-2" href="#">立即辦卡</a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
                               </div>
                               <div class="col-md-4 card_list_txt rank_color">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>
@@ -230,7 +230,7 @@
                                 <a class="card_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="btn btn-info mt-2" href="#">立即辦卡</a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
                               </div>
                               <div class="col-md-4 card_list_txt rank_color">
                                 <h4>匯豐銀行 MasterCard 鈦金卡</h4>

@@ -456,7 +456,7 @@
             
             <div class="card_compare_div">
               <p class="text-center m-0">卡片比一比</p>
-
+              
               <div class="contrast_card_div">
                 <!-- <div class="card">
                   <button type="button">Ｘ</button>
@@ -471,10 +471,11 @@
                   <a href="#"><img class="w-100" src="../img/component/card3.png" alt=""></a>
                 </div> -->
               </div>
+              <div class="text-center">
+                <a class="contrast_card_submit btn warning-layered btnOver" href="/rank/compare_detail.php" >比較卡片</a>
+              </div>
               
-              <button class="contrast_card_submit" type="button">比較卡片</button>
             </div>
-            
           </div>
           
         </div>
