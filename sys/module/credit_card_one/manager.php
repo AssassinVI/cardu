@@ -188,7 +188,7 @@ if ($_POST) {
 
 if ($_GET) {
  	//-- 銀行 --
-   $row_bank=$NewPdo->select("SELECT Tb_index, bi_shortname, bi_code FROM bank_info ORDER BY OrderBy ASC");
+   $row_bank=$NewPdo->select("SELECT * FROM bank_info ORDER BY OrderBy ASC");
 
    //-- 信用卡屬性 --
    $attr=$NewPdo->select("SELECT Tb_index, attr_name FROM card_attr WHERE mt_id='site2018110516373341' ORDER BY OrderBy ASC");
@@ -205,7 +205,7 @@ if ($_GET) {
 
 
    //-- 讀取信用卡組資料 --
-   $row_card=$NewPdo->select("SELECT * FROM credit_card WHERE cc_group_id=:cc_group_id ", ['cc_group_id'=>$_GET['cc_group_id']], 'one');
+   $row_card=$NewPdo->select("SELECT * FROM credit_card WHERE Tb_index=:Tb_index ", ['Tb_index'=>$_GET['Tb_index']], 'one');
    $cc_attr=explode(',', $row_card['cc_attr']);
 
    $cc_doc_url_check=empty($row_card['cc_doc_url']) ? '':'selected';
@@ -214,7 +214,11 @@ if ($_GET) {
    $cc_doc_url_display=!empty($row_card['cc_doc_url']) ? 'style="display: block"':'';
    $cc_doc_path_display=!empty($row_card['cc_doc_path']) ? 'style="display: block"':'';
 
+   //-- 信用卡群 --
+   $row_cc_group=$NewPdo->select("SELECT cc_group_id ,cc_cardname FROM credit_card WHERE cc_bi_pk=:cc_bi_pk GROUP BY cc_group_id", ['cc_bi_pk'=>$row_card['cc_bi_pk']]);
 
+   //-- 卡等 --
+   $row_cc_level=$NewPdo->select("SELECT Tb_index ,cc_cardlevel FROM credit_card WHERE cc_group_id=:cc_group_id ", ['cc_group_id'=>$row_card['cc_group_id']]);
 }
 ?>
 
@@ -224,7 +228,57 @@ if ($_GET) {
 		<div class="col-lg-9">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<header>信用卡資料編輯
+					<header>
+						信用卡資料編輯
+
+                        <!-- 信用卡選擇 -->
+						<div class="text-center">
+							<select class="bank">
+								<?php
+                                 foreach ($row_bank as $row_bank_one) {
+                                 	if ($row_card['cc_bi_pk']==$row_bank_one['Tb_index']) {
+                                 	  echo '<option selected value="'.$row_bank_one['Tb_index'].'"> ['.$row_bank_one['bi_code'].']'.$row_bank_one['bi_shortname'].'</option>';
+                                 	}
+                                 	else{
+                                 	  echo '<option value="'.$row_bank_one['Tb_index'].'"> ['.$row_bank_one['bi_code'].']'.$row_bank_one['bi_shortname'].'</option>';
+                                 	}
+                                 	
+                                 }
+                     		  	?>
+							</select>
+
+							<select class="cc_group">
+								<?php
+                                 foreach ($row_cc_group as $row_cc_group_one) {
+                                 	if ($row_card['cc_group_id']==$row_cc_group_one['cc_group_id']) {
+                                 	  echo '<option selected value="'.$row_cc_group_one['cc_group_id'].'">'.$row_cc_group_one['cc_cardname'].'</option>';
+                                 	}
+                                 	else{
+                                 	  echo '<option value="'.$row_cc_group_one['cc_group_id'].'">'.$row_cc_group_one['cc_cardname'].'</option>';
+                                 	}
+                                 	
+                                 }
+                     		  	?>
+							</select>
+
+							<select class="ccard">
+								
+								<?php 
+                                  foreach ($row_cc_level as $row_cc_level_one) {
+                                   $cc_status_name= empty($row_card['cc_status_name']) ? '':'('.$row_card['cc_status_name'].')';
+                                   if ($row_card['Tb_index']==$row_cc_level_one['Tb_index']){
+                                     echo '<option selected value="'.$row_cc_level_one['Tb_index'].'">'.$level_name[$row_cc_level_one['cc_cardlevel']].$cc_status_name.'</option>';
+                                   }
+                                   else{
+                                   	 echo '<option value="'.$row_cc_level_one['Tb_index'].'">'.$level_name[$row_cc_level_one['cc_cardlevel']].$cc_status_name.'</option>';
+                                   }
+                                  	
+                                  }
+								 ?>
+							</select>
+						</div>
+
+                        
 					</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">

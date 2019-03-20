@@ -33,7 +33,7 @@ if ($_GET) {
                  <div class="panel-body">
                      <form id="search_st_form" class="form-horizontal" method="POST" action="admin_list.php?MT_id=<?php echo$_GET['MT_id']; ?>">
                      	<div class="form-group">
-                     		<label class="col-md-2 control-label">發卡單位</label>
+                     		<label class="col-md-2 control-label"><span class="text-danger">*</span>發卡單位</label>
                      		<div class="col-md-10">
                      		  <select class="form-control" id="select_bank" name="cc_bi_pk">
                             <option value="">請選擇</option>
@@ -54,7 +54,7 @@ if ($_GET) {
                      	</div>
                       
                       <div class="form-group">
-                            <label class="col-md-2 control-label">信用卡名稱</label>
+                            <label class="col-md-2 control-label"><span class="text-danger">*</span>信用卡名稱</label>
                             <div class="col-md-10 ">
                               <select class="form-control" id="select_card" name="st_name">
                                <option value="">請選擇</option>
@@ -84,7 +84,18 @@ if ($_GET) {
 	$(document).ready(function() {
 		
      $('#search_btn').click(function(event) {
-      location.href="manager.php?MT_id=<?php echo $_GET['MT_id'];?>&cc_group_id="+$('#select_card').val();
+      var err_txt='';
+          err_txt = $('#select_bank :selected').val()=='' ? err_txt + '發卡單位，' :'' ;
+          err_txt = $('#select_card :selected').val()=='' ? err_txt + '信用卡名稱' :'' ; 
+
+          if (err_txt!='') {
+           alert("請輸入"+err_txt+"!!");
+
+          }
+          else{
+            
+            location.href="manager.php?MT_id=<?php echo $_GET['MT_id'];?>&cc_group_id="+$('#select_card').val();
+           }
      });
      
 

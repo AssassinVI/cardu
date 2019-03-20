@@ -28,12 +28,12 @@ if ($_GET) {
 		<div class="col-lg-4">
 			<div class="panel panel-success">
                  <div class="panel-heading">
-                     修改信用卡群組
+                     修改單卡權益
                  </div>
                  <div class="panel-body">
                      <form id="search_st_form" class="form-horizontal" method="POST" action="admin_list.php?MT_id=<?php echo$_GET['MT_id']; ?>">
                      	<div class="form-group">
-                     		<label class="col-md-2 control-label">發卡單位</label>
+                     		<label class="col-md-2 control-label"><span class="text-danger">*</span>發卡單位</label>
                      		<div class="col-md-10">
                      		  <select class="form-control" id="select_bank" name="cc_bi_pk">
                             <option value="">請選擇</option>
@@ -54,9 +54,18 @@ if ($_GET) {
                      	</div>
                       
                       <div class="form-group">
-                            <label class="col-md-2 control-label">信用卡名稱</label>
+                            <label class="col-md-2 control-label"><span class="text-danger">*</span>信用卡名稱</label>
                             <div class="col-md-10 ">
-                              <select class="form-control" id="select_card" name="st_name">
+                              <select class="form-control" id="select_card" >
+                               <option value="">請選擇</option>
+                              </select>
+                            </div>
+                      </div>
+
+                      <div class="form-group">
+                            <label class="col-md-2 control-label"><span class="text-danger">*</span>信用卡卡等</label>
+                            <div class="col-md-10 ">
+                              <select class="form-control" id="select_card_level" >
                                <option value="">請選擇</option>
                               </select>
                             </div>
@@ -82,9 +91,23 @@ if ($_GET) {
 <?php  include("../../core/page/footer01.php");//載入頁面footer01.php?>
 <script type="text/javascript">
 	$(document).ready(function() {
+
 		
      $('#search_btn').click(function(event) {
-      location.href="manager.php?MT_id=<?php echo $_GET['MT_id'];?>&cc_group_id="+$('#select_card').val();
+
+          var err_txt='';
+          err_txt = $('#select_bank :selected').val()=='' ? err_txt + '發卡單位，' :'' ;
+          err_txt = $('#select_card :selected').val()=='' ? err_txt + '信用卡名稱，' :'' ; 
+          err_txt = $('#select_card_level :selected').val()=='' ? err_txt + '信用卡卡等' :'' ; 
+
+          if (err_txt!='') {
+           alert("請輸入"+err_txt+"!!");
+
+          }
+          else{
+            
+            location.href="manager.php?MT_id=<?php echo $_GET['MT_id'];?>&Tb_index="+$('#select_card_level').val();
+           }
      });
      
 
@@ -126,6 +149,48 @@ if ($_GET) {
        }
        
      });
+
+
+
+     //-- 改變信用卡 --
+     $('#select_card').change(function(event) {
+       if ($(this).val()!=''){
+         $.ajax({
+           url: 'admin_ajax.php',
+           type: 'POST',
+           dataType: 'json',
+           data: {
+            type:'show_cc_level',
+            cc_group_id:$(this).val(),
+            show_stop_cc:$('#show_stop_cc:checked').val()
+          },
+          success:function (data) {
+            $("#select_card_level").html('<option value="">請選擇</option>');
+            
+            //-- 正常使用 --
+            $.each(data, function(index, val) {
+              if (this['cc_stop_publish']=='0' && this['cc_stop_card']=='0') {
+                $("#select_card_level").append('<option value="'+this['Tb_index']+'">'+this['level_name']+'</option>');
+
+              }
+            });
+            
+            //-- 停發/停卡 --
+            $.each(data, function(index, val){
+              if (this['cc_stop_publish']=='1' || this['cc_stop_card']=='1'){
+                   $("#select_card_level").append('<option status="stop" value="'+this['Tb_index']+'">'+this['level_name']+'('+this['cc_status_name']+')</option>');
+              }
+            });
+          }
+         });
+       }
+       else{
+         $("#select_card_level").html('<option value="">請選擇</option>');
+       }
+     });
+
+
+
 
      //-- 顯示停發或停卡 --
      $('#show_stop_cc').change(function(event) {

@@ -35,7 +35,7 @@ if ($_POST) {
       if (!empty($_FILES['card_image_hover']['name'])){
 
       	 $type=explode('.', $_FILES['card_image_hover']['name']);
-      	 $card_image_hover=$Tb_index.'_hover'.'.'.$type[count($type)-1];
+      	 $card_image_hover=$Tb_index.'_down'.'.'.$type[count($type)-1];
          fire_upload('card_image_hover', $card_image_hover); 
       }
       else{ $card_image_hover='';}
@@ -74,7 +74,7 @@ if ($_POST) {
       if (!empty($_FILES['card_image_hover']['name'])) {
 
       	 $type=explode('.', $_FILES['card_image_hover']['name']);
-      	 $card_image_hover=$Tb_index.date('His').'_hover'.'.'.$type[count($type)-1];
+      	 $card_image_hover=$Tb_index.date('His').'_down'.'.'.$type[count($type)-1];
          fire_upload('card_image_hover', $card_image_hover);
         $card_image_hover_param=['card_image_hover'=>$card_image_hover];
         $card_image_hover_where=['Tb_index'=>$Tb_index];
