@@ -86,30 +86,35 @@
                        
                             <div class="ranksearch_list new_hand_search">
                              <p>我們依您所偏好的信用卡優惠及用途，推薦適合的信用卡<span class="warr_txt text-danger">(請點擊下方選項，若要取消請再次點擊即可)</span></p>
+                             <div class="text-right reset_div">
+                               <a id="reset_new_btn" href="javascript:;" class="btn gray-layered btnOver">重選</a>
+                             </div>
+                             
+
                              <h6>1.信用卡優惠(可複選)</h6>
                             <ul>
-                            <li><a rank="現金回饋" class="" href="#">現金回饋</a></li>
-                            <li><a rank="紅利集點" class="" href="#">紅利集點</a></li>
-                            <li><a rank="哩程累積" class="" href="#">哩程累積</a></li>
-                            <li><a rank="市區停車" class="" href="#">市區停車</a></li>
-                            <li><a rank="旅遊保險" class="" href="#">旅遊保險</a></li>
-                            <li><a rank="分期0利率" class="" href="#">分期0利率</a></li>
-                            <li><a rank="機場貴賓室" class="" href="#">機場貴賓室</a></li>
-                            <li><a rank="免費機場停車" class="" href="#">免費機場停車</a></li>
-                            <li><a rank="免費機場接送" class="" href="#">免費機場接送</a></li>
+                            <li><a rank="現金回饋" class="" href="javascript:;">現金回饋</a></li>
+                            <li><a rank="紅利集點" class="" href="javascript:;">紅利集點</a></li>
+                            <li><a rank="哩程累積" class="" href="javascript:;">哩程累積</a></li>
+                            <li><a rank="市區停車" class="" href="javascript:;">市區停車</a></li>
+                            <li><a rank="旅遊保險" class="" href="javascript:;">旅遊保險</a></li>
+                            <li><a rank="分期0利率" class="" href="javascript:;">分期0利率</a></li>
+                            <li><a rank="機場貴賓室" class="" href="javascript:;">機場貴賓室</a></li>
+                            <li><a rank="免費機場停車" class="" href="javascript:;">免費機場停車</a></li>
+                            <li><a rank="免費機場接送" class="" href="javascript:;">免費機場接送</a></li>
                             </ul>
                             </div>
 
                             <div class="ranksearch_list new_hand_search">
                              <h6>2.消費用途(可複選)</h6>
                             <ul>
-                            <li><a rank="加油" class="" href="#">加油</a></li>
-                            <li><a rank="電影" class="" href="#">電影</a></li>
-                            <li><a rank="餐飲" class="" href="#">餐飲</a></li>
-                            <li><a rank="交通通勤" class="" href="#">交通通勤</a></li>
-                            <li><a rank="航空旅遊" class="" href="#">航空旅遊</a></li>
-                            <li><a rank="百貨購物" class="" href="#">百貨購物</a></li>
-                            <li><a rank="量販超市" class="" href="#">量販超市</a></li>
+                            <li><a rank="加油" class="" href="javascript:;">加油</a></li>
+                            <li><a rank="電影" class="" href="javascript:;">電影</a></li>
+                            <li><a rank="餐飲" class="" href="javascript:;">餐飲</a></li>
+                            <li><a rank="交通通勤" class="" href="javascript:;">交通通勤</a></li>
+                            <li><a rank="航空旅遊" class="" href="javascript:;">航空旅遊</a></li>
+                            <li><a rank="百貨購物" class="" href="javascript:;">百貨購物</a></li>
+                            <li><a rank="量販超市" class="" href="javascript:;">量販超市</a></li>
                             </ul>
                             </div>
                             
@@ -229,7 +234,10 @@
                             <div class="col-md-12 col">
                             <div class="ranksearch_list rights_search">
                              <p>請選擇要比較的權益項目，(最多3項)<span class="warr_txt text-danger">(請點擊下方選項，若要取消請再次點擊即可)</span></p>
-                             
+                             <div class="text-right reset_div">
+                               <a id="reset_profit_btn" href="javascript:;" class="btn gray-layered btnOver">重選</a>
+                             </div>
+                             <h6>1.權益項目(可複選)</h6>
                             <ul>
                             <li><a rank="現金回饋" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">現金回饋</a></li>
                             <li><a rank="紅利集點" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">紅利集點</a></li>

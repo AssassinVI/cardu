@@ -21,10 +21,31 @@ $('.new_hand_search ul li a').click(function(event) {
 
 //-- 開始找卡 --
 $('#easy_rank').click(function(event) {
-  sessionStorage.setItem("rank_arr", rank_arr.join(','));
-  location.href='search_detail.php';
+  if (rank_arr[0]!=undefined) {
+    sessionStorage.setItem("rank_arr", rank_arr.join(','));
+    location.href='search_detail.php';
+  }else{
+    alert('至少選擇一種搜尋條件');
+  }
+  
 });
 
+
+//-- 重選 --
+$('.reset_div #reset_new_btn').click(function(event) {
+  if (sessionStorage.getItem('rank_arr')!=null) {
+    rank_arr=[];
+    sessionStorage.removeItem('rank_arr');
+    $('.new_hand_search ul li a').removeClass('active');
+  }
+  else if(rank_arr[0]!=undefined){
+    rank_arr=[];
+    $('.new_hand_search ul li a').removeClass('active');
+  }
+  else{
+    alert('您尚未選擇搜尋條件');
+  }
+});
 /*------------------------ 卡排行(新手快搜) END -----------------------------*/
 
 
@@ -74,6 +95,25 @@ $('.rights_search ul li a').click(function(event) {
 $('#profit_rank').click(function(event) {
   sessionStorage.setItem("profit_rank_arr", rank_rights_arr.join(','));
   location.href='profit_detail.php';
+});
+
+
+//-- 重選 --
+$('.reset_div #reset_profit_btn').click(function(event) {
+  if (sessionStorage.getItem('profit_rank_arr')!=null) {
+    rank_rights_arr=[];
+    sessionStorage.removeItem('profit_rank_arr');
+    $('.rights_search ul li a').removeClass('active');
+    $('.rights_checked ul').html('');
+  }
+  else if(rank_rights_arr[0]!=undefined){
+    rank_rights_arr=[];
+    $('.rights_search ul li a').removeClass('active');
+    $('.rights_checked ul').html('');
+  }
+  else{
+    alert('您尚未選擇搜尋條件');
+  }
 });
 /*------------------------ 卡排行(權益比一比) END -----------------------------*/
 
@@ -230,18 +270,30 @@ $('.rank_more').click(function(event) {
 
 
 
-/*------------------------------ 卡片比一比凍結 --------------------------------*/
+
+//--------------------------------- 卷軸監控回調 -----------------------------
+
 $(window).bind('scroll resize', function(){
   var top=$(this).scrollTop();
   
+  /*-- 卡片比一比凍結 --*/
   if (top>215) {
     TweenMax.to($('.rank_boot_title'), 0, { y:(top-215)});
   }
   else{
     TweenMax.to($('.rank_boot_title'), 0, { y:0});
   }
+  /*--卡片比一比凍結 END --*/
+
+  /*-- 卡排行 --*/
+  if (top>398-87) {
+    TweenMax.to($('.rank_card_title'), 0, { y:(top-398+87 ), 'z-index':10, 'position':'relative'});
+  }
+  else{
+    TweenMax.to($('.rank_card_title'), 0, { y:0});
+  }
+  /*--卡排行 END --*/
 
   
-  
 });
-/*------------------------------ 卡片比一比凍結 END --------------------------------*/
+//-------------------------------- 卷軸監控回調 END ------------------------------
