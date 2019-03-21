@@ -188,48 +188,88 @@
                         <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
                           <ul class="online_list">
-                            <li><a class="gray-layered btnOver active" href="#" title="新聞">合作金庫 </a></li>
-                            <li><a class="gray-layered btnOver" href="#" title="新聞">上海銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="#" title="新聞">台北富邦 </a></li>
-                            <li><a class="gray-layered btnOver" href="#" title="新聞">花旗銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="#" title="新聞">花旗銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="#" title="新聞">澳盛銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="#" title="新聞">匯豐銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="#" title="新聞">元大銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="#" title="新聞">玉山銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="#" title="新聞">凱基銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="#" title="新聞">台新銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="#" title="新聞">日盛銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="#" title="新聞">美國運通 </a></li>
+                          <?php 
+                            $bank_row=$pdo->select("SELECT * FROM bank_info WHERE bd_src>0");
+                            $bank_num=count($bank_row);
+                            $rand=rand(0,$bank_num);
+                            for ($i=0; $i < $bank_num; $i++) { 
+                              if ($rand==$i) {
+                                echo '<li>
+                                       <a class="gray-layered btnOver active" href="javascript:;" bank_id="'.$bank_row[$i]['Tb_index'].'" title="'.$bank_row[$i]['bi_shortname'].'">
+                                       '.$bank_row[$i]['bi_shortname'].' 
+                                       </a>
+                                      </li>';
+                              }
+                              else{
+                                echo '<li>
+                                       <a class="gray-layered btnOver" href="javascript:;" bank_id="'.$bank_row[$i]['Tb_index'].'" title="'.$bank_row[$i]['bi_shortname'].'">
+                                       '.$bank_row[$i]['bi_shortname'].' 
+                                       </a>
+                                      </li>';
+                              }
+                            }
+                            
+                            //-- 亂數選出銀行資訊 --
+                            //-- 立即辦卡-檔案 --
+                            if ($bank_row[$rand]['bd_src']=='1') {
+                              $path='../other_file/'.$bank_row[$rand]['bd_path'];
+                            }
+                            //-- 立即辦卡-連結 --
+                            elseif($bank_row[$rand]['bd_src']=='2'){
+                              $path=$bank_row[$rand]['bd_url'];
+                            }
+
+                            //-- 地址 --
+                            $bank_adds=explode(',', $bank_row[$rand]['bi_addr']);
+                            $bank_adds=$bank_adds[0].$bank_adds[1];
+
+                          ?>
+                            <!-- <li><a class="gray-layered btnOver" href="javascript:;" bank_id="bank201810311633483" title="合作金庫">合作金庫 </a></li>
+                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="bank201810311633487" title="上海銀行">上海銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="台北富邦">台北富邦 </a></li>
+                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="台北富邦">花旗銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="花旗銀行">花旗銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="澳盛銀行">澳盛銀行 </a></li>
+                            <li><a class="gray-layered btnOver active" href="javascript:;" bank_id="" title="匯豐銀行">匯豐銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="元大銀行">元大銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="玉山銀行">玉山銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="凱基銀行">凱基銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="台新銀行">台新銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="日盛銀行">日盛銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="美國運通">美國運通 </a></li> -->
                           </ul>
 
-                          <div class="pt-3 detail_title">
+                          <div id="<?php echo $bank_row[$rand]['Tb_index'];?>" class="bank_div">
+                          <!-- 銀行簡介 -->
+                          <div id="bank_detial" class="pt-3 detail_title">
                           <div class="col-md-12">
                             <div class="row onlinebg cardshap">
                               
                              <div class="col-5 col hv-center">
                               <div class="text-center">
-                              <img src="../img/component/cardbg2.png" title="新聞">
-                              <h6>銀行代碼：081</h6>
-                              <a class="applycard_btn warning-layered btnOver" href="#">立即辦卡</a>
+                              <img src="../sys/img/<?php echo $bank_row[$rand]['bi_logo'];?>" title="<?php echo $bank_row[$rand]['bi_shortname'];?>">
+                              <h6>銀行代碼：<?php echo $bank_row[$rand]['bi_code'];?></h6>
+                              <a target="_blank" class="applycard_btn warning-layered btnOver" href="<?php echo $path;?>">立即辦卡</a>
                               </div>
                              </div>
                              
                              <div class="col-7 col">
-                             <h4>匯豐(台灣)商業銀行(簡稱匯豐銀行)</h4>
+                             <h4><?php echo $bank_row[$rand]['bi_fullname'];?>(簡稱<?php echo $bank_row[$rand]['bi_shortname'];?>)</h4>
                              <hr>
-                             <p>總行電話：02-2349-3456 <br>           
-                                信用卡服務專線：0800-025-168<br>
-                                總行地址：110 台北市信義區基隆路一段333號14樓<br>
-                                銀行網址：<a href="http://www.hsbc.com.tw">http://www.hsbc.com.tw</a>
+                             <p>總行電話：<?php echo $bank_row[$rand]['bi_tel'];?> <br>           
+                                信用卡服務專線：<?php echo $bank_row[$rand]['bi_tel_card'];?><br>
+                                總行地址：<?php echo $bank_adds;?><br>
+                                銀行網址：<a href="<?php echo $bank_row[$rand]['bi_bank_url'];?>"><?php echo $bank_row[$rand]['bi_bank_url'];?></a>
                               </p>
                              </div>
                              
                            </div> 
                           </div> 
                          </div>
-                        
-                        <div class="row no-gutters mx-2 py-3">    
+                         <!-- 銀行簡介 END -->
+                         
+                        <!-- 銀行單卡 -->
+                        <div id="bank_card" class="row no-gutters mx-2 py-3">    
                         <div class="col-md-12 row">
                         <div class="col-md-4 text-center">
                           <a class="bank_all_img" href="#"><img src="../img/component/card1.png" alt="" title="新聞"></a>
@@ -248,6 +288,9 @@
                         </div>
                         </div>
                         </div>
+                        <!-- 銀行單卡 END -->
+                        </div>
+
                         <hr>
                          <div class="online_care">
                          <h5 class="text-center">－謹慎理財，信用至上，辦卡前請詳閱申請書－</h5>
@@ -781,3 +824,6 @@
 
   </body>
 </html>
+<?php 
+ $pdo=NULL;
+?>

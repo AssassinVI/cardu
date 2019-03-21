@@ -63,7 +63,6 @@ $(document).ready(function() {
 
 
 
-
             //-- TOP Btn --
             $('.top_div a').click(function(event) {
                $('html,body').animate({
@@ -806,6 +805,73 @@ $(document).ready(function() {
                 $(this).find('i').addClass('fa-angle-down');
               }
             });
+
+
+
+
+
+
+
+
+            /*-- 卡情報-線上辦卡 --*/
+
+            $('.online_list li a').click(function(event) {
+              if ($('.bank_div').attr('id')!=$(this).attr('bank_id')) {
+                $('.online_list li a').removeClass('active');
+                $(this).addClass('active');
+                $.ajax({
+                  url: '../cardNews/online_ajax.php',
+                  type: 'POST',
+                  dataType: 'json',
+                  data: {
+                    type:'online',
+                    Tb_index: $(this).attr('bank_id')
+                  },
+                  success:function (data) {
+                    
+                    $('.bank_div').attr('id', data[0]['Tb_index']);
+                    
+                    //-- 立即辦卡-檔案 --
+                    if (data[0]['bd_src']=='1') {
+                      var path='../other_file/'+data[0]['bd_path'];
+                    }
+                    //-- 立即辦卡-連結 --
+                    else if(data[0]['bd_src']=='2'){
+                      var path=data[0]['bd_url'];
+                    }
+
+                    var bank_adds=data[0]['bi_addr'].split(',');
+                        bank_adds=bank_adds[0]+bank_adds[1];
+
+                    var txt='<div class="col-md-12">'+
+                            '<div class="row onlinebg cardshap">'+
+                              
+                             '<div class="col-5 col hv-center">'+
+                             '<div class="text-center">'+
+                              '<img src="../sys/img/'+data[0]['bi_logo']+'" title="'+data[0]['bi_shortname']+'">'+
+                              '<h6>銀行代碼：'+data[0]['bi_code']+'</h6>'+
+                              '<a target="_blank" class="applycard_btn warning-layered btnOver" href="'+path+'">立即辦卡</a>'+
+                              '</div>'+
+                             '</div>'+
+                             
+                             '<div class="col-7 col">'+
+                             '<h4>'+data[0]['bi_fullname']+'(簡稱'+data[0]['bi_shortname']+')</h4>'+
+                             '<hr>'+
+                             '<p>總行電話：'+data[0]['bi_tel']+' <br>'+           
+                                '信用卡服務專線：'+data[0]['bi_tel_card']+'<br>'+
+                                '總行地址：'+bank_adds+'<br>'+
+                                '銀行網址：<a href="'+data[0]['bi_bank_url']+'">'+data[0]['bi_bank_url']+'</a>'+
+                              '</p>'+
+                             '</div>'+
+                             
+                           '</div>'+
+                          '</div> ';
+                    $('#bank_detial').html(txt);
+                  }
+                });
+              }
+            });
+            /*-- 卡情報-線上辦卡 END --*/
 
 
 
