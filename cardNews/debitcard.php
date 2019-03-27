@@ -178,7 +178,10 @@
                                 <div class="card-header hv-center" id="imp_int1">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">現金回饋</p>
+                                      <p class="hv-center mb-0">
+                                        <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="現金回饋">
+                                        <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">現金回饋
+                                      </p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">國內：1.2%，國外：2.2% <br> (當月消費3,000元以上)</p>
@@ -192,10 +195,19 @@
                                 </div>
                                 <div id="imp_int_txt1" class="collapse" aria-labelledby="imp_int1" data-parent="#accordionExample">
                                   <div class="card-body">
-                                    <p class="collapse_txt mb-0">
-                                     國內消費：1.2%，國外消費：2.2% <br>
-                                     優惠期限至105/06/30，回饋金額無上限
-                                    </p>
+                                    <div class="row w-h-100">
+                                     <div class="col-3">
+                                     </div>
+                                     <div class="col-8">
+                                       <p class="collapse_txt mb-0">
+                                        國內消費：1.2%，國外消費：2.2% <br>
+                                        優惠期限至105/06/30，回饋金額無上限
+                                       </p>
+                                     </div>
+                                     <div class="col-1">
+                                     </div>
+                                    
+                                  </div>
                                   </div>
                                 </div>
                               </div>
@@ -204,7 +216,10 @@
                                 <div class="card-header hv-center" id="imp_int2">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">旅遊保險</p>
+                                      <p class="hv-center mb-0">
+                                        <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="旅遊保險">
+                                        <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">旅遊保險
+                                      </p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">旅平險：800萬</p>
@@ -218,10 +233,19 @@
                                 </div>
                                 <div id="imp_int_txt2" class="collapse" aria-labelledby="imp_int2" data-parent="#accordionExample">
                                   <div class="card-body">
-                                    <p class="collapse_txt mb-0">
-                                     國內消費：1.2%，國外消費：2.2% <br>
-                                     優惠期限至105/06/30，回饋金額無上限
-                                    </p>
+                                    <div class="row w-h-100">
+                                     <div class="col-3">
+                                     </div>
+                                     <div class="col-8">
+                                       <p class="collapse_txt mb-0">
+                                        國內消費：1.2%，國外消費：2.2% <br>
+                                        優惠期限至105/06/30，回饋金額無上限
+                                       </p>
+                                     </div>
+                                     <div class="col-1">
+                                     </div>
+                                    
+                                  </div>
                                   </div>
                                 </div>
                               </div>
@@ -230,7 +254,10 @@
                                 <div class="card-header hv-center" id="imp_int3">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">機場接送</p>
+                                      <p class="hv-center mb-0">
+                                       <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="機場接送">
+                                        <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">機場接送
+                                      </p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">一年兩次 <br> (前兩個月消費1萬元)</p>
@@ -244,10 +271,19 @@
                                 </div>
                                 <div id="imp_int_txt3" class="collapse" aria-labelledby="imp_int3" data-parent="#accordionExample">
                                   <div class="card-body">
-                                    <p class="collapse_txt mb-0">
-                                     國內消費：1.2%，國外消費：2.2% <br>
-                                     優惠期限至105/06/30，回饋金額無上限
-                                    </p>
+                                    <div class="row w-h-100">
+                                     <div class="col-3">
+                                     </div>
+                                     <div class="col-8">
+                                       <p class="collapse_txt mb-0">
+                                        國內消費：1.2%，國外消費：2.2% <br>
+                                        優惠期限至105/06/30，回饋金額無上限
+                                       </p>
+                                     </div>
+                                     <div class="col-1">
+                                     </div>
+                                    
+                                  </div>
                                   </div>
                                 </div>
                               </div>
@@ -256,7 +292,10 @@
                                 <div class="card-header hv-center" id="imp_int4">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">道路救援</p>
+                                      <p class="hv-center mb-0">
+                                        <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="道路救援">
+                                        <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">道路救援
+                                      </p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">100公里 <br> (前三個月累積消費3千元以上)</p>
@@ -270,15 +309,29 @@
                                 </div>
                                 <div id="imp_int_txt4" class="collapse" aria-labelledby="imp_int4" data-parent="#accordionExample">
                                   <div class="card-body">
-                                    <p class="collapse_txt mb-0">
-                                     國內消費：1.2%，國外消費：2.2% <br>
-                                     優惠期限至105/06/30，回饋金額無上限
-                                    </p>
+                                    <div class="row w-h-100">
+                                     <div class="col-3">
+                                     </div>
+                                     <div class="col-8">
+                                       <p class="collapse_txt mb-0">
+                                        國內消費：1.2%，國外消費：2.2% <br>
+                                        優惠期限至105/06/30，回饋金額無上限
+                                       </p>
+                                     </div>
+                                     <div class="col-1">
+                                     </div>
+                                    
+                                  </div>
                                   </div>
                                 </div>
                               </div>
 
                             </div>
+
+                            <div class="card_btn  text-center pt-2">
+                                     <button id="profit_compare" type="button" class="btn warning-layered btnOver">權益比一比</button>
+                                     <button id="profit_clean" type="button" class="btn gray-layered btnOver">清除</button>
+                             </div>
 
                           </div>
 

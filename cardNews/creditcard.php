@@ -115,8 +115,18 @@
                               
                                 
                                <ul>
-                                 <li class="mr-2"><a href="#"><img src="../img/component/cardNews/icon/no_1.png"></a>
-                                 <li class="mr-2"><a href="#"><img src="../img/component/cardNews/icon/no_1.png"></a>
+                                 <li class="mr-2">
+                                  <a href="#"><img src="../img/component/ccprize.png">
+                                    <h5>現金回饋</h5>
+                                    <b>1</b>
+                                  </a>
+                                 </li>
+                                 <li class="mr-2">
+                                  <a href="#"><img src="../img/component/ccprize.png">
+                                    <h5>現金回饋</h5>
+                                    <b>1</b>
+                                  </a>
+                                </li>
                                  
                                </ul>
 
@@ -216,7 +226,10 @@
                                 <div class="card-header hv-center" id="imp_int1">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">現金回饋</p>
+                                      <p class="hv-center mb-0">
+                                        <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="現金回饋">
+                                        <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">現金回饋
+                                      </p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">國內：1.2%，國外：2.2% <br> (當月消費3,000元以上)</p>
@@ -230,19 +243,31 @@
                                 </div>
                                 <div id="imp_int_txt1" class="collapse" aria-labelledby="imp_int1" data-parent="#accordionExample">
                                   <div class="card-body">
-                                    <p class="collapse_txt mb-0">
-                                     國內消費：1.2%，國外消費：2.2% <br>
-                                     優惠期限至105/06/30，回饋金額無上限
-                                    </p>
+                                    <div class="row w-h-100">
+                                     <div class="col-3">
+                                     </div>
+                                     <div class="col-8">
+                                       <p class="collapse_txt mb-0">
+                                        國內消費：1.2%，國外消費：2.2% <br>
+                                        優惠期限至105/06/30，回饋金額無上限
+                                       </p>
+                                     </div>
+                                     <div class="col-1">
+                                     </div>
+                                    
                                   </div>
                                 </div>
+                              </div>
                               </div>
 
                               <div class="card txt_detail">
                                 <div class="card-header hv-center" id="imp_int2">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">旅遊保險</p>
+                                      <p class="hv-center mb-0">
+                                        <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="旅遊保險">
+                                        <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">旅遊保險
+                                      </p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">旅平險：800萬</p>
@@ -256,10 +281,19 @@
                                 </div>
                                 <div id="imp_int_txt2" class="collapse" aria-labelledby="imp_int2" data-parent="#accordionExample">
                                   <div class="card-body">
-                                    <p class="collapse_txt mb-0">
-                                     國內消費：1.2%，國外消費：2.2% <br>
-                                     優惠期限至105/06/30，回饋金額無上限
-                                    </p>
+                                    <div class="row w-h-100">
+                                     <div class="col-3">
+                                     </div>
+                                     <div class="col-8">
+                                       <p class="collapse_txt mb-0">
+                                        國內消費：1.2%，國外消費：2.2% <br>
+                                        優惠期限至105/06/30，回饋金額無上限
+                                       </p>
+                                     </div>
+                                     <div class="col-1">
+                                     </div>
+                                    
+                                  </div>
                                   </div>
                                 </div>
                               </div>
@@ -268,7 +302,10 @@
                                 <div class="card-header hv-center" id="imp_int3">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">機場接送</p>
+                                      <p class="hv-center mb-0">
+                                        <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="機場接送">
+                                        <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">機場接送
+                                      </p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">一年兩次 <br> (前兩個月消費1萬元)</p>
@@ -282,10 +319,19 @@
                                 </div>
                                 <div id="imp_int_txt3" class="collapse" aria-labelledby="imp_int3" data-parent="#accordionExample">
                                   <div class="card-body">
-                                    <p class="collapse_txt mb-0">
-                                     國內消費：1.2%，國外消費：2.2% <br>
-                                     優惠期限至105/06/30，回饋金額無上限
-                                    </p>
+                                    <div class="row w-h-100">
+                                     <div class="col-3">
+                                     </div>
+                                     <div class="col-8">
+                                       <p class="collapse_txt mb-0">
+                                        國內消費：1.2%，國外消費：2.2% <br>
+                                        優惠期限至105/06/30，回饋金額無上限
+                                       </p>
+                                     </div>
+                                     <div class="col-1">
+                                     </div>
+                                    
+                                  </div>
                                   </div>
                                 </div>
                               </div>
@@ -294,7 +340,10 @@
                                 <div class="card-header hv-center" id="imp_int4">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">道路救援</p>
+                                      <p class="hv-center mb-0">
+                                        <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="道路救援">
+                                        <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">道路救援
+                                      </p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">100公里 <br> (前三個月累積消費3千元以上)</p>
@@ -308,15 +357,28 @@
                                 </div>
                                 <div id="imp_int_txt4" class="collapse" aria-labelledby="imp_int4" data-parent="#accordionExample">
                                   <div class="card-body">
-                                    <p class="collapse_txt mb-0">
-                                     國內消費：1.2%，國外消費：2.2% <br>
-                                     優惠期限至105/06/30，回饋金額無上限
-                                    </p>
+                                    <div class="row w-h-100">
+                                     <div class="col-3">
+                                     </div>
+                                     <div class="col-8">
+                                       <p class="collapse_txt mb-0">
+                                        國內消費：1.2%，國外消費：2.2% <br>
+                                        優惠期限至105/06/30，回饋金額無上限
+                                       </p>
+                                     </div>
+                                     <div class="col-1">
+                                     </div>
+                                    
+                                  </div>
                                   </div>
                                 </div>
                               </div>
 
                             </div>
+                            <div class="card_btn  text-center pt-2">
+                                     <button id="profit_compare" type="button" class="btn warning-layered btnOver">權益比一比</button>
+                                     <button id="profit_clean" type="button" class="btn gray-layered btnOver">清除</button>
+                             </div>
                            
                           </div>
                           <div class="tab-pane fade" id="special_2" role="tabpanel" aria-labelledby="special_2-tab">
@@ -331,23 +393,23 @@
                                </thead>
                                <tbody>
                                 <tr>
-                                  <td><input type="checkbox" name="條件">申辦條件</td>
+                                  <td><input type="checkbox" name="all_profit" value="申辦條件">　申辦條件</td>
                                   <td>1.正卡20歲以上；附卡15歲以上，且為正卡持卡人之父母、配偶、配偶父母、兄弟姐妹、子女。<br>
                                       2.固定年收入120萬以上，或近2個月平均資產達150萬元以上。
                                   </td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">年費</td>
+                                  <td><input type="checkbox" name="all_profit" value="年費">　年費</td>
                                   <td>1.正卡：8,000元，首年優惠6,600元<br>
                                       2.附卡免年費
                                   </td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">循環起息日</td>
+                                  <td><input type="checkbox" name="all_profit" value="循環起息日">　循環起息日</td>
                                   <td>入帳日起。</td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">逾期違約金</td>
+                                  <td><input type="checkbox" name="all_profit" value="逾期違約金">　逾期違約金</td>
                                   <td>當期繳款發生延滯時，違約金300 元；<br> 
                                       連續2期發生繳款延滯時，違約金400元；<br> 
                                       連續3期發生繳款延滯時，違約金500元。<br>
@@ -355,33 +417,33 @@
                                   </td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">預借現金</td>
+                                  <td><input type="checkbox" name="all_profit" value="預借現金">　預借現金</td>
                                   <td>預借現金手續費：（每筆預借金額 × 3.5％) ＋150元 。</td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">哩程數累積</td>
+                                  <td><input type="checkbox" name="all_profit" value="哩程數累積">　哩程數累積</td>
                                   <td>1.海外：消費金額換算新臺幣計算，人民幣兌換新臺幣每11元換1哩；其他外幣兌換新臺幣每12元換1哩<br> 
                                       2.國內：新臺幣每22元換1哩
                                   </td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">旅遊保險</td>
+                                  <td><input type="checkbox" name="all_profit" value="旅遊保險">　旅遊保險</td>
                                   <td>旅行平安險NT5,000萬元，海外全程險NT1,000萬元</td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">機場停車優惠</td>
+                                  <td><input type="checkbox" name="all_profit" value="機場停車優惠">　機場停車優惠</td>
                                   <td>支付當次國外旅遊八成以上團費或全額機票且當次金額滿1萬元以上，可享當次免費機場停車優惠，每次最高30天、一年不限次。<br>
                                       ※須事先撥打專線02-27458080輸入個人資料後再按896或以網路預約停車服務。
                                   </td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">機場接送</td>
+                                  <td><input type="checkbox" name="all_profit" value="機場接送">　機場接送</td>
                                   <td>1.正卡：8,000元，首年優惠6,600元<br>
                                       2.附卡免年費
                                   </td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">機場貴賓室</td>
+                                  <td><input type="checkbox" name="all_profit" value="機場貴賓室">　機場貴賓室</td>
                                   <td>107/4/1~12/31 <br>
                                       使用服務時，每戶消費達以下任一情形，即可享1年4次：<br> 
                                       1.前90天內刷卡支付國外旅遊機票/團費金額達2萬元以上 <br>
@@ -393,45 +455,45 @@
                                   </td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">掛失自負</td>
+                                  <td><input type="checkbox" name="all_profit" value="掛失自負">　掛失自負</td>
                                   <td>1.銀行負擔自電話掛失起之前24小時以後被冒用之損失。<br> 
                                       2.自付額以新台幣3000元為上限。
                                   </td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">掛失補卡費用</td>
+                                  <td><input type="checkbox" name="all_profit" value="掛失補卡費用">　掛失補卡費用</td>
                                   <td>無須支付掛失手續費</td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">國外簽帳消費手續費</td>
+                                  <td><input type="checkbox" name="all_profit" value="國外簽帳消費手續費">　國外簽帳消費手續費</td>
                                   <td>依各國際組織依約所列之結匯日匯率轉換為新台幣，並加計1.5％之手續費。(VISA/MasterCard卡國外外幣交易加收交易金額之1.5%，國外新臺幣交易加收交易金額之1.3%；JCB卡國外外幣交易加收交易金額之1.5%；AE卡國外非美金交易加收交易金額之2%，國外美金交易加收交易金額之0.5%)
                                   </td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">調閱簽帳單費用</td>
+                                  <td><input type="checkbox" name="all_profit" value="調閱簽帳單費用">　調閱簽帳單費用</td>
                                   <td>鼎極卡不收取。</td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">緊急替代卡手續費</td>
+                                  <td><input type="checkbox" name="all_profit" value="緊急替代卡手續費">　緊急替代卡手續費</td>
                                   <td>免收手續費。</td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">溢付款退回匯款處理費</td>
+                                  <td><input type="checkbox" name="all_profit" value="溢付款退回匯款處理費">溢付款退回匯款處理費</td>
                                   <td>鼎極卡不收取</td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">轉卡手續費</td>
+                                  <td><input type="checkbox" name="all_profit" value="轉卡手續費">　轉卡手續費</td>
                                   <td>卡片毀損補發手續費：無</td>
                                 </tr>
                                  <tr>
-                                  <td><input type="checkbox" name="條件">補寄帳單費用</td>
+                                  <td><input type="checkbox" name="all_profit" value="補寄帳單費用">　補寄帳單費用</td>
                                   <td>補發兩個月以前之帳單，每個月份補發手續費100元。 </td>
                                 </tr>
                                 </tbody>
                               </table>
                                <div class="card_btn  text-center pt-2">
-                                        <button type="button" class="btn warning-layered btnOver">權益比一比</button>
-                                        <button type="button" class="btn gray-layered btnOver">清除</button>
+                                        <button id="all_profit_compare" type="button" class="btn warning-layered btnOver">權益比一比</button>
+                                        <button id="all_profit_clean" type="button" class="btn gray-layered btnOver">清除</button>
                                 </div>
                             </form>
                            

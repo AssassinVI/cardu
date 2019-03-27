@@ -1132,6 +1132,11 @@ a:hover{ text-decoration: none; color:#000000; }
   border: 1px solid #dcdcdc;
   }
 
+.tab-content .credit_boot input{
+  width:18px;
+  height:18px;
+}
+
 .tab-content .online_list{
   padding-left:1rem;
  
@@ -1154,7 +1159,7 @@ a:hover{ text-decoration: none; color:#000000; }
   background-color:#898989;
   display: inline-block;
   text-align: center;
-  margin:8px 2px;
+  margin:8px 3.5px;
   border-radius: 5px;
   color:#ffffff;
 
@@ -2547,9 +2552,435 @@ a:hover{ text-decoration: none; color:#000000; }
     top: 240px;
 }
 
+/*------- 東北 ------*/
 
+.map .Hirosaki{
+  position: absolute;
+    right: 280px;
+    top: 124px;
+}
 
+.map .Hirosaki-01{
+  position: absolute;
+    right: 70px;
+    top: -42px;
+    z-index: 1;
+    display: none;
+}
 
+.map .Lake{
+  position: absolute;
+    right: 216px;
+    top: 130px;
+}
+
+.map .Lake-01{
+  position: absolute;
+    right: -124px;
+    top: 35px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Aomori{
+  position: absolute;
+    right: 168px;
+    top: 157px;
+}
+
+.map .Aomori-01{
+  position: absolute;
+    right: -75px;
+    top: 30px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Tazawa{
+  position: absolute;
+    right: 291px;
+    top: 186px;
+}
+
+.map .Tazawa-01{
+  position: absolute;
+    right: 67px;
+    top: -93px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Kakunodate{
+  position: absolute;
+    right: 271px;
+    top: 211px;
+}
+
+.map .Kakunodate-01{
+  position: absolute;
+    right: -179px;
+    top: -20px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Longquan{
+  position: absolute;
+    right: 153px;
+    top: 250px;
+}
+
+.map .Longquan-01{
+  position: absolute;
+    right: -62px;
+    top: 29px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Matsushima{
+  position: absolute;
+    right: 220px;
+    top: 312px;
+}
+
+.map .Matsushima-01{
+  position: absolute;
+    right: -115px;
+    top: 32px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Kisuke{
+  position: absolute;
+    right: 227px;
+    top: 336px;
+}
+
+.map .Kisuke-01{
+  position: absolute;
+    right: -135px;
+    top: -120px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Chusonji{
+  position: absolute;
+    right: 285px;
+    top: 308px;
+}
+
+.map .Chusonji-01{
+  position: absolute;
+    right: -135px;
+    top: -120px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Sendai{
+  position: absolute;
+    right: 374px;
+    top: 337px;
+}
+
+.map .Sendai-01{
+  position: absolute;
+    right: -181px;
+    top: -16px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Tendo{
+  position: absolute;
+    right: 440px;
+    top: 324px;
+}
+
+.map .Tendo-01{
+  position: absolute;
+    right: -8px;
+    top: -121px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Temple{
+  position: absolute;
+    right: 448px;
+    top: 348px;
+}
+
+.map .Temple-01{
+  position: absolute;
+    right: 14px;
+    top: -146px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Inawashiro{
+  position: absolute;
+    right: 426px;
+    top: 379px;
+}
+
+.map .Inawashiro-01{
+  position: absolute;
+    right: -182px;
+    top: -32px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Aizuwakamatsu{
+  position: absolute;
+    right: 482px;
+    top: 396px;
+}
+
+.map .Aizuwakamatsu-01{
+  position: absolute;
+    right: 16px;
+    top: -119px;
+    z-index: 1;
+    display: none;
+}
+
+.map .BAO{
+  position: absolute;
+    right: 343px;
+    top: 413px;
+}
+
+.map .BAO-01{
+  position: absolute;
+    right: -183px;
+    top: -64px;
+    z-index: 1;
+    display: none;
+}
+
+/*------- 九州 ------*/
+
+.map .MOJIKO{
+  position: absolute;
+    right: 295px;
+    top: 78px;
+}
+
+.map .MOJIKO-01{
+  position: absolute;
+    right: -181px;
+    top: 5px;
+    z-index: 1;
+    display: none;
+}
+
+.map .DAZAIFU{
+  position: absolute;
+    right: 305px;
+    top: 125px;
+}
+
+.map .DAZAIFU-01{
+  position: absolute;
+    right: -180px;
+    top: -18px;
+    z-index: 1;
+    display: none;
+}
+
+.map .YUFUIN{
+  position: absolute;
+    right: 320px;
+    top: 167px;
+}
+
+.map .YUFUIN-01{
+  position: absolute;
+    right: -216px;
+    top: -36px;
+    z-index: 1;
+    display: none;
+}
+
+.map .BAPPU{
+  position: absolute;
+    right: 213px;
+    top: 155px;
+}
+
+.map .BAPPU-01{
+  position: absolute;
+    right: -117px;
+    top: 36px;
+    z-index: 1;
+    display: none;
+}
+
+.map .FA{
+  position: absolute;
+    right: 436px;
+    top: 88px;
+}
+
+.map .GINZA{
+  position: absolute;
+    right: 271px;
+    top: 211px;
+}
+
+.map .GINZA-01{
+  position: absolute;
+    right: -179px;
+    top: -20px;
+    z-index: 1;
+    display: none;
+}
+
+.map .ASO{
+  position: absolute;
+    right: 271px;
+    top: 241px;
+}
+
+.map .ASO-01{
+  position: absolute;
+    right: -177px;
+    top: -54px;
+    z-index: 1;
+    display: none;
+}
+
+.map .KUMAMOTO{
+  position: absolute;
+    right: 350px;
+    top: 207px;
+}
+
+.map .KUMAMOTO-01{
+  position: absolute;
+    right: -252px;
+    top: -102px;
+    z-index: 1;
+    display: none;
+}
+
+.map .KUMAMOTOOFFICE{
+  position: absolute;
+    right: 370px;
+    top: 248px;
+}
+
+.map .KUMAMOTOOFFICE-01{
+  position: absolute;
+    right: -135px;
+    top: -120px;
+    z-index: 1;
+    display: none;
+}
+
+.map .SAKURAJIMA{
+  position: absolute;
+    right: 340px;
+    top: 378px;
+}
+
+.map .SAKURAJIMA-01{
+  position: absolute;
+    right: -186px;
+    top: -136px;
+    z-index: 1;
+    display: none;
+}
+
+.map .MANAGAHA{
+  position: absolute;
+    right: 514px;
+    top: 270px;
+}
+
+.map .MANAGAHA-01{
+  position: absolute;
+    right: -20px;
+    top: -125px;
+    z-index: 1;
+    display: none;
+}
+
+.map .KIRISHIMA{
+  position: absolute;
+    right: 345px;
+    top: 324px;
+}
+
+.map .KIRISHIMA-01{
+  position: absolute;
+    right: -188px;
+    top: -51px;
+    z-index: 1;
+    display: none;
+}
+
+.map .RICESAYAMA{
+  position: absolute;
+    right: 488px;
+    top: 242px;
+}
+
+.map .RICESAYAMA-01{
+  position: absolute;
+    right: 6px;
+    top: -119px;
+    z-index: 1;
+    display: none;
+}
+
+.map .ATOMICBOMB{
+  position: absolute;
+    right: 482px;
+    top: 216px;
+}
+
+.map .ATOMICBOMB-01{
+  position: absolute;
+    right: -182px;
+    top: -32px;
+    z-index: 1;
+    display: none;
+}
+
+.map .HUIS{
+  position: absolute;
+    right: 482px;
+    top: 181px;
+}
+
+.map .HUIS-01{
+  position: absolute;
+    right: 16px;
+    top: 30px;
+    z-index: 1;
+    display: none;
+}
+
+.map .HAKATA{
+  position: absolute;
+    right: 408px;
+    top: 123px;
+}
+
+.map .HAKATA-01{
+  position: absolute;
+    right: 93px;
+    top: -39px;
+    z-index: 1;
+    display: none;
+}
 
 
 /*-- 旅遊景點存放 fancybox --*/

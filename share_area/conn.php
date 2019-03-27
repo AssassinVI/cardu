@@ -6,4 +6,6 @@
    $URL='http://'.$_SERVER['HTTP_HOST'];
 
    $FB_URL='http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+   $pdo=new PDO_fun;
 ?>

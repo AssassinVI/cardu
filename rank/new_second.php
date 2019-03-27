@@ -239,18 +239,18 @@
                              </div>
                              <h6>1.權益項目(可複選)</h6>
                             <ul>
-                            <li><a rank="現金回饋" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">現金回饋</a></li>
-                            <li><a rank="紅利集點" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">紅利集點</a></li>
-                            <li><a rank="點數折抵現金" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">點數折抵現金</a></li>
-                            <li><a rank="哩程累積" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">哩程累積</a></li>
-                            <li><a rank="聯名優惠" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">聯名優惠</a></li>
-                            <li><a rank="購物優惠" class="rank_shop" href="#"><img src="../img/component/debitcard1.png" title="新聞">購物優惠</a></li>
-                            <li><a rank="旅遊保險" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">旅遊保險</a></li>
-                            <li><a rank="機場接送" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">機場接送</a></li>
-                            <li><a rank="機場貴賓室" class="rank_shop" href="#"><img src="../img/component/debitcard1.png" title="新聞">機場貴賓室</a></li>
-                            <li><a rank="一般停車" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">一般停車</a></li>
-                            <li><a rank="機場停車" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">機場停車</a></li>
-                            <li><a rank="道路教授" class="rank_shop" href="#"><img src="../img/component/debitcard1.png" title="新聞">道路教授</a></li>
+                            <li><a rank="現金回饋" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　現金回饋</a></li>
+                            <li><a rank="紅利集點" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　紅利集點</a></li>
+                            <li><a rank="點數折抵現金" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　點數折抵現金</a></li>
+                            <li><a rank="哩程累積" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　哩程累積</a></li>
+                            <li><a rank="聯名優惠" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　聯名優惠</a></li>
+                            <li><a rank="購物優惠" class="rank_shop" href="#"><img src="../img/component/debitcard1.png" title="新聞">　購物優惠</a></li>
+                            <li><a rank="旅遊保險" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　旅遊保險</a></li>
+                            <li><a rank="機場接送" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　機場接送</a></li>
+                            <li><a rank="機場貴賓室" class="rank_shop" href="#"><img src="../img/component/debitcard1.png" title="新聞">　機場貴賓室</a></li>
+                            <li><a rank="一般停車" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　一般停車</a></li>
+                            <li><a rank="機場停車" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　機場停車</a></li>
+                            <li><a rank="道路教授" class="rank_shop" href="#"><img src="../img/component/debitcard1.png" title="新聞">　道路教授</a></li>
                             
                             </ul>
                             </div>

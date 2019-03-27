@@ -812,6 +812,55 @@ $(document).ready(function() {
 
 
 
+            /*-- 卡情報-單卡-權益比一比 --*/
+            //- 權益比一比 -
+            $('#profit_compare').click(function(event) {
+              if ($('[name="imp_check"]:checked').length<1) {
+                alert('最少選擇一項權益');
+              }
+              else{
+                var rank_rights_arr=[];
+                $.each($('[name="imp_check"]:checked'), function(index, val) {
+                   rank_rights_arr.push($(this).val());
+                });
+                sessionStorage.setItem("profit_rank_arr", rank_rights_arr.join(','));
+                location.href="/rank/profit_detail.php";
+              }
+              
+            });
+
+            //- 清除 -
+            $('#profit_clean').click(function(event) {
+              $('[name="imp_check"]').prop('checked', false);
+            });
+
+
+            //- 全部權益-權益比一比 -
+            $('#all_profit_compare').click(function(event) {
+              if ($('[name="all_profit"]:checked').length<1) {
+                alert('最少選擇一項權益');
+              }
+              else{
+                var rank_rights_arr=[];
+                $.each($('[name="all_profit"]:checked'), function(index, val) {
+                   rank_rights_arr.push($(this).val());
+                });
+                sessionStorage.setItem("profit_rank_arr", rank_rights_arr.join(','));
+                location.href="/rank/profit_detail.php";
+              }
+              
+            });
+
+            //- 全部權益-清除 -
+            $('#all_profit_clean').click(function(event) {
+              $('[name="all_profit"]').prop('checked', false);
+            });
+
+
+
+
+
+
 
             /*-- 卡情報-線上辦卡 --*/
 

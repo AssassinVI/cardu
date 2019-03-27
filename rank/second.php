@@ -197,7 +197,7 @@
                         </ul>
                         <div class="tab-content p-0" id="myTabContent">
                           <div class="tab-pane fade active show" id="goodTicket" role="tabpanel" aria-labelledby="goodTicket-tab">
-                              <div class="row imp_int_title">
+                              <div class="row imp_int_title rank_card_title">
                               <div class="col-1 text-center"></div>
                               <div class="col-4 text-center">卡片名稱</div>
                               <div class="col-2 text-center">國內回饋</div>
@@ -1243,7 +1243,7 @@
                         <!---------------------- 無門檻 ----------------------------------->
 
                           <div class="tab-pane fade" id="goodSet" role="tabpanel" aria-labelledby="goodSet-tab">
-                            <div class="row imp_int_title">
+                            <div class="row imp_int_title rank_card_title">
                                <div class="col-1 text-center"></div>
                                <div class="col-4 text-center">卡片名稱</div>
                                <div class="col-2 text-center">國內回饋</div>

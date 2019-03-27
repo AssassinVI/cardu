@@ -299,10 +299,10 @@
                                <div class="row no-gutters">
                                 <div class="col-md-5 card_list_txt rank_color">
                                   <ul>
-                                    <li><b>●</b>國內現金回饋1.22%</li>
-                                    <li><b>●</b>國外現金回饋2.22%</li>
-                                    <li><b>●</b>感應式刷卡快速結帳</li>
-                                    <li><b>●</b>高額旅遊平安險</li>
+                                    <li>　<b>●</b>國內現金回饋1.22%</li>
+                                    <li>　<b>●</b>國外現金回饋2.22%</li>
+                                    <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                    <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
                                 <div class="col-md-2">
@@ -338,10 +338,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">
@@ -373,10 +373,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">
@@ -408,10 +408,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">
@@ -441,10 +441,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">
@@ -484,10 +484,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">
@@ -519,10 +519,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">
@@ -554,10 +554,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">
@@ -590,10 +590,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">
@@ -624,10 +624,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">
@@ -666,10 +666,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">
@@ -702,10 +702,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">
@@ -737,10 +737,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">
@@ -772,10 +772,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">
@@ -806,10 +806,10 @@
                                 <div class="row no-gutters">
                                  <div class="col-md-5 card_list_txt rank_color">
                                    <ul>
-                                     <li><b>●</b>國內現金回饋1.22%</li>
-                                     <li><b>●</b>國外現金回饋2.22%</li>
-                                     <li><b>●</b>感應式刷卡快速結帳</li>
-                                     <li><b>●</b>高額旅遊平安險</li>
+                                     <li>　<b>●</b>國內現金回饋1.22%</li>
+                                     <li>　<b>●</b>國外現金回饋2.22%</li>
+                                     <li>　<b>●</b>感應式刷卡快速結帳</li>
+                                     <li>　<b>●</b>高額旅遊平安險</li>
                                    </ul>
                                  </div>
                                  <div class="col-md-2">

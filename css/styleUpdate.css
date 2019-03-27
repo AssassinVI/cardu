@@ -67,6 +67,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', end
     align-items: center;
 }
 
+/*-- checkbox 加大版 --*/
+.big_checkbox{ width: 18px; height: 18px; }
+
 .d-none{ display: none; }
 
 /*-- 右邊div --*/
@@ -75,13 +78,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', end
 /*-- 搜尋按鈕 --*/
 .search_box .search_box_btn{ padding: 5px 35px; }
 
+/*-- 下拉按鈕 Hover --*/
+.angle_down:hover i{  color: #1d368c; transform: scale(1.2);}
+
 /*-- 卡情報-單卡-重要權益 --*/
 .imp_int_title{ background-color: #ccc; padding: 7px; }
-.imp_int{  }
 .imp_int .card-header{ padding: 12px 6px; height: 130px;}
 .imp_int .card-header .angle_down{ font-size: 40px; color: #7e7e7e; }
-.imp_int .collapse_txt{ font-size: 16px; color: #9b9b9b; }
-
+.imp_int .collapse_txt{ font-size: 18px; color: #9b9b9b; }
 
 
 
@@ -95,6 +99,7 @@ background: linear-gradient(to bottom, rgba(255,234,163,1) 0%,rgba(238,182,0,1) 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffeaa3', endColorstr='#ffc711',GradientType=0 ); /* IE6-9 */
   color: #000;
   border: none;
+  box-shadow: 2px 2px 2px #c98e00;
 }
 
 .gray-layered{
@@ -106,7 +111,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffeaa3', end
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1d1d1', endColorstr='#878787',GradientType=0 ); /* IE6-9 */
 
   border: none;
-  color: #fff;
+  color: #fff !important;
+  box-shadow: 2px 2px 2px #484848;
 }
 
 
@@ -119,6 +125,7 @@ background: linear-gradient(to bottom, rgba(130,148,214,1) 0%,rgba(37,61,149,1) 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8294d6', endColorstr='#253d95',GradientType=0 ); /* IE6-9 */
 
   border: none;
+  box-shadow: 2px 2px 2px #101e50;
 }
 
 
@@ -341,7 +348,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8294d6', end
 
 /*----------------------- 各按鈕滑鼠經過 ------------------------*/
 .btnOver{ position: relative; top: 0; left: 0; }
-.btnOver:hover{ top: 2px; left: 1px;}
+.btnOver:hover{ transform: translateX(1px) translateY(2px);}
 
 /*-- 新聞 --*/
 
@@ -453,3 +460,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9c2f9', end
 /*----------------------------- 卡片比一比(內頁) ----------------------------------*/
 .rank_boot_title{ background-color: #fff; }
 /*----------------------------- 卡片比一比(內頁) END ----------------------------------*/
+
+
+
+
+/*--------------------------------- 新手快搜-重選 --------------------------------------*/
+.reset_div{ padding: 0 15px; }
+/*--------------------------------- 新手快搜-重選 END --------------------------------------*/
