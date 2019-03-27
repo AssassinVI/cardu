@@ -177,11 +177,11 @@
                            
                           </div> 
                             <div class="row no-gutters mt-2 mb-3 newcard_g cardshap">
-                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>網路消費2.5%現金回饋 </div>
-                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>一般消費紅利2倍</div>
-                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>3期分期0利率</div>
-                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>首次自動加值OPENPOINT點數 </div> 
-                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>首次自動加值OPENPOINT點數 </div> 
+                            <div class="col-md-6 py-1"><span><img src="../img/component/li_brown.png"></span>網路消費2.5%現金回饋 </div>
+                            <div class="col-md-6 py-1"><span><img src="../img/component/li_brown.png"></span>一般消費紅利2倍</div>
+                            <div class="col-md-6 py-1"><span><img src="../img/component/li_brown.png"></span>3期分期0利率</div>
+                            <div class="col-md-6 py-1"><span><img src="../img/component/li_brown.png"></span>首次自動加值OPENPOINT點數 </div> 
+                            <div class="col-md-6 py-1"><span><img src="../img/component/li_brown.png"></span>首次自動加值OPENPOINT點數 </div> 
                           </div> 
                          
                         </div>

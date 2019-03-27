@@ -135,11 +135,11 @@
                            
                           </div> 
                             <div class="row no-gutters mt-2 mb-3 newcard_g cardshap">
-                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>網路消費2.5%現金回饋 </div>
-                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>一般消費紅利2倍</div>
-                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>3期分期0利率</div>
-                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>首次自動加值OPENPOINT點數 </div> 
-                            <div class="col-md-6 py-1"><span><i class="fa fa-check-circle"></i></span>首次自動加值OPENPOINT點數 </div> 
+                            <div class="col-md-6 py-1"><span><img src="../img/component/li_brown.png"></span>網路消費2.5%現金回饋 </div>
+                            <div class="col-md-6 py-1"><span><img src="../img/component/li_brown.png"></span>一般消費紅利2倍</div>
+                            <div class="col-md-6 py-1"><span><img src="../img/component/li_brown.png"></span>3期分期0利率</div>
+                            <div class="col-md-6 py-1"><span><img src="../img/component/li_brown.png"></span>首次自動加值OPENPOINT點數 </div> 
+                            <div class="col-md-6 py-1"><span><img src="../img/component/li_brown.png"></span>首次自動加值OPENPOINT點數 </div> 
                           </div> 
                          
                         </div>
@@ -178,10 +178,7 @@
                                 <div class="card-header hv-center" id="imp_int1">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0">
-                                        <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="現金回饋">
-                                        <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">現金回饋
-                                      </p>
+                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">　現金回饋</p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">國內：1.2%，國外：2.2% <br> (當月消費3,000元以上)</p>
@@ -216,10 +213,7 @@
                                 <div class="card-header hv-center" id="imp_int2">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0">
-                                        <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="旅遊保險">
-                                        <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">旅遊保險
-                                      </p>
+                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">　旅遊保險</p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">旅平險：800萬</p>
@@ -254,10 +248,7 @@
                                 <div class="card-header hv-center" id="imp_int3">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0">
-                                       <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="機場接送">
-                                        <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">機場接送
-                                      </p>
+                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">　機場接送</p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">一年兩次 <br> (前兩個月消費1萬元)</p>
@@ -292,10 +283,7 @@
                                 <div class="card-header hv-center" id="imp_int4">
                                   <div class="row w-h-100">
                                     <div class="col-3 hv-center">
-                                      <p class="hv-center mb-0">
-                                        <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="道路救援">
-                                        <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">道路救援
-                                      </p>
+                                      <p class="hv-center mb-0"><img src="../img/component/cardNews/icon/blue_1.png" alt="">　道路救援</p>
                                     </div>
                                     <div class="col-8 v-center border-left border-right">
                                       <p class="mb-0">100公里 <br> (前三個月累積消費3千元以上)</p>
@@ -327,11 +315,6 @@
                               </div>
 
                             </div>
-
-                            <div class="card_btn  text-center pt-2">
-                                     <button id="profit_compare" type="button" class="btn warning-layered btnOver">權益比一比</button>
-                                     <button id="profit_clean" type="button" class="btn gray-layered btnOver">清除</button>
-                             </div>
 
                           </div>
 
