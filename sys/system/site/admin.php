@@ -44,7 +44,7 @@
 <table id="product-table"  class="table table-hover ">
   <caption style=" text-align:right">
   <a href="#" id="sort_btn" class="btn btn-white btn-sm"><i class="fa fa-sort-amount-desc"></i> 更新排序</a>
-  <a href="manager.php" class="btn btn-white btn-sm"><i class="fa fa-folder-open-o"></i> 建立大分類</a> <a href="manager_data.php" class="btn btn-white btn-sm"><i class="fa fa-file-text-o"></i> 建立第一層單元</a> |　 <a href="#" onclick="jQuery('#product-table').treetable('expandAll'); return false;">全部展開</a> | <a href="#" onclick="jQuery('#product-table').treetable('collapseAll'); return false;">全部收合</a>
+  <!-- <a href="manager.php" class="btn btn-white btn-sm"><i class="fa fa-folder-open-o"></i> 建立大分類</a> <a href="manager_data.php" class="btn btn-white btn-sm"><i class="fa fa-file-text-o"></i> 建立第一層單元</a> | -->　 <a href="#" onclick="jQuery('#product-table').treetable('expandAll'); return false;">全部展開</a> | <a href="#" onclick="jQuery('#product-table').treetable('collapseAll'); return false;">全部收合</a>
   </caption>
   <thead>
     <tr>
@@ -132,8 +132,8 @@
                      <a href="manager_data.php?Tb_index='.$row['Tb_index'].'&parent_id='.$row['parent_id'].'&weblang='.$weblang.'" class="btn btn-white btn-sm">
                         <i class="fa fa-pencil-square-o "></i> 修改</a> 
 
-                     <a href="admin.php?Tb_index='.$row['Tb_index'].'" class="btn btn-white btn-sm" onclick="if (!confirm(\'確定要刪除 ['.$row['MT_Name'].'] ?\')) {return false;}">
-                        <i class="fa fa-trash-o "></i> 刪除</a>
+                     <!--<a href="admin.php?Tb_index='.$row['Tb_index'].'" class="btn btn-white btn-sm" onclick="if (!confirm(\'確定要刪除 ['.$row['MT_Name'].'] ?\')) {return false;}">
+                        <i class="fa fa-trash-o "></i> 刪除</a>-->
                   </td>
                </tr>';
      return $txt;
@@ -162,15 +162,15 @@
           
     if ($_SESSION['admin_per']=='admin') {
 
-         $txt.='<a href="manager.php?parent_id='.$row['Tb_index'].'" class="btn btn-white btn-sm"><i class="fa fa-folder-open-o"></i> 建立子分類</a>';
+         $txt.='<!--<a href="manager.php?parent_id='.$row['Tb_index'].'" class="btn btn-white btn-sm"><i class="fa fa-folder-open-o"></i> 建立子分類</a>-->';
        }   
-          $txt.='    <a href="manager_data.php?parent_id='.$row['Tb_index'].'" class="btn btn-white btn-sm"><i class="fa fa-file-text-o "></i> 建立單元</a>
+          $txt.='    <!--<a href="manager_data.php?parent_id='.$row['Tb_index'].'" class="btn btn-white btn-sm"><i class="fa fa-file-text-o "></i> 建立單元</a>-->
 
                      <a href="manager.php?Tb_index='.$row['Tb_index'].'&parent_id='.$row['parent_id'].'&weblang='.$weblang.'" class="btn btn-white btn-sm">
                         <i class="fa fa-pencil-square-o "></i> 修改</a> 
 
-                     <a href="admin.php?Tb_index='.$row['Tb_index'].'" class="btn btn-white btn-sm" onclick="if (!confirm(\'確定要刪除 ['.$row['MT_Name'].'] ?\')) {return false;}">
-                        <i class="fa fa-trash-o "></i> 刪除</a>
+                    <!-- <a href="admin.php?Tb_index='.$row['Tb_index'].'" class="btn btn-white btn-sm" onclick="if (!confirm(\'確定要刪除 ['.$row['MT_Name'].'] ?\')) {return false;}">
+                        <i class="fa fa-trash-o "></i> 刪除</a>-->
                   </td>
                </tr>';
      return $txt;

@@ -53,7 +53,7 @@ if ($_POST) {
     }
     
 	//-- 跳至修改單卡權益 --
-	location_up('admin.php?MT_id='.$_POST['mt_id'].'&bank_id='.$_POST['cc_bi_pk'].'&Tb_index='.$Tb_index.'0','成功新增');
+	location_up('../credit_card_one/manager.php?MT_id=site2019031616304770&Tb_index='.$Tb_index.'0','成功新增');
    }
 
    //修改

@@ -70,6 +70,11 @@ $parent_id=pdo_select("SELECT parent_id FROM maintable WHERE Tb_index=:Tb_index"
         .page span{ padding: 2px 8px; margin-left: 3px; background: #009587; color: #fff; }
         .page a{ padding: 2px 8px; color: #009688; margin-left: 3px; border: 1px solid #e1e1e1; }
 
+        .panel_tool_div{ display: inline-block; float: right; }
+        .panel_tool_div button, .panel_tool_div a, 
+        .panel_tool_div button:hover, .panel_tool_div a:hover, 
+        .panel_tool_div button:focus, .panel_tool_div a:focus{ color: #333; }
+
         /* -- DataTable --*/
         /*-- 讀取動畫 --*/
         .ns_loading{
@@ -85,4 +90,17 @@ $parent_id=pdo_select("SELECT parent_id FROM maintable WHERE Tb_index=:Tb_index"
           font-size: 25px;
           text-align: center;
         }
+
+
+        /*-- 信用卡功能 (checkbox) --*/
+        .card_func{ position: relative; margin: 5px;}
+        .card_func input{ position: absolute; margin:0; top:0; right: 0; width: 15px; height: 15px; }
+
+        /*-- 信用卡優惠 (checkbox) --*/
+        .card_pref{ margin: 5px; padding: 3px; border: 1px solid #ccc; border-radius: 5px; }
+
+        /*-- 信用卡權益 --*/
+        #eq_list div{ border-bottom: 1px solid #ccc; }
+        #eq_list div a{display: inline-block; padding:8px 0; font-size: 15px; }
+        #interest_div, .schedule_div{ display: none; }
      </style>
