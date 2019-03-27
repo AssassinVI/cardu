@@ -6,7 +6,7 @@ require '../../core/inc/ssp.class.php';
 
 
 // DB table to use
-$table = 'bank_info';
+$table = 'search_label';
  
 // Table's primary key
 $primaryKey = 'Tb_index';
@@ -14,43 +14,13 @@ $primaryKey = 'Tb_index';
 
 
 $columns = array(
-	array( 'db' => 'bi_code', 'dt' => 0 ),
-    array( 'db' => 'bi_shortname', 'dt' => 1 ),
-    array( 
-    	'db' => 'bi_logo',  
-    	'dt' => 2, 
-    	'formatter'=>function( $d, $row ){
-    		return '<img style="width: 50px;" src="../../img/'.$d.'">';
-    	}
-    ),
-    array( 'db' => 'bi_tel',  'dt' => 3 ),
-    array( 'db' => 'bi_tel_card',  'dt' => 4 ),
-    array( 
-    	'db' => 'bi_addr',  
-    	'dt' => 5,
-    	'formatter'=>function( $d, $row ){
-    		$bi_addr=explode(',', $d);
-    		return $bi_addr[0].$bi_addr[1];
-    	}
-    ),
-    array( 
-    	'db' => 'OnLineOrNot',  
-    	'dt' => 6,
-    	'formatter'=>function( $d, $row ){
-    		$OnLineOrNot= $d=='0' ? '下線':'上線';
-    		return $OnLineOrNot;
-    	}
-    ),
+	array( 'db' => 'lb_name', 'dt' => 0 ),
     array(
         'db'        => 'Tb_index',
-        'dt'        => 7,
+        'dt'        => 1,
         'formatter' => function( $d, $row ) {
 
-            return '            <a href="manager.php?MT_id=' . $_GET['MT_id'] . '&Tb_index=' . $d . '" >
-								<button type="button" class="btn btn-rounded btn-info btn-sm">
-								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								編輯</button>
-								</a>
+            return '            
 
 								<a href="admin.php?MT_id=' . $_GET['MT_id'] . '&Tb_index=' . $d . '"
 								   onclick="if (!confirm(\'確定要刪除 [' . $d . '] ?\')) {return false;}">

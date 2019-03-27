@@ -124,7 +124,7 @@ $(document).ready(function() {
 
 
 
-            //----------------- 信用卡 ICON MouseOver/MouseOut ------------------------
+            //----------------- 信用卡、權益項目 ICON MouseOver/MouseOut ------------------------
             //-MouseOver-
             $('.ccard_icon_js').mouseenter(function(event) {
               var src_url=$(this).find('img').attr('src').split('/');
@@ -152,7 +152,10 @@ $(document).ready(function() {
             });
 
 
-            //----------------- 信用卡 ICON MouseOver END ------------------------
+            //----------------- 信用卡、權益項目 ICON MouseOver END ------------------------
+
+
+
 
 
 

@@ -255,7 +255,7 @@
                                      <div class="row cards_div bankbg_list">
                                        <div class="col-5 hv-center">
                                            <a class="bank_all_small_img card_name text-center" href="#">
-                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡1-1
                                            </a>
                                        </div>
                                        <div class="col-7 h-center col0 all_color">
@@ -265,7 +265,7 @@
                                      <div class="row cards_div bankbg_list">
                                        <div class="col-5 hv-center">
                                            <a class="bank_all_small_img card_name text-center" href="#">
-                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡2
                                            </a>
                                        </div>
                                        <div class="col-7 h-center col0 all_color">
@@ -275,7 +275,7 @@
                                      <div class="row cards_div bankbg_list">
                                        <div class="col-5 hv-center">
                                            <a class="bank_all_small_img card_name text-center" href="#">
-                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡3
                                            </a>
                                        </div>
                                        <div class="col-7 h-center col0 all_color">
@@ -564,17 +564,17 @@
                           <div class="tab-pane tab-ones fade" id="goodSet" role="tabpanel" aria-labelledby="goodSet-tab">
 
                             <ul class="credit_icon">
-                            <li><a href="#"><img src="../sys/img/ccard_icon_small/ccard_icon1.png" title="首年免年費"></a></li>
-                            <li><a href="#"><img src="../sys/img/ccard_icon_small/ccard_icon2.png" title="現金回饋"></a></li>
-                            <li><a href="#"><img src="../sys/img/ccard_icon_small/ccard_icon3.png" title="紅利集點"></a></li>
-                            <li><a href="#"><img src="../sys/img/ccard_icon_small/ccard_icon4.png" title="哩程累積"></a></li>
-                            <li><a href="#"><img src="../sys/img/ccard_icon_small/ccard_icon5.png" title="免費機場停車"></a></li>
-                            <li><a href="#"><img src="../sys/img/ccard_icon_small/ccard_icon6.png" title="免費機場貴賓室"></a></li>
-                            <li><a href="#"><img src="../sys/img/ccard_icon_small/ccard_icon7.png" title="免費機場接送"></a></li>
-                            <li><a href="#"><img src="../sys/img/ccard_icon_small/ccard_icon8.png" title="旅遊保險"></a></li>
-                            <li><a href="#"><img src="../sys/img/ccard_icon_small/ccard_icon9.png" title="道路救援"></a></li>
-                            <li><a href="#"><img src="../sys/img/ccard_icon_small/ccard_icon10.png" title="市區停車優惠"></a></li>
-                            <li><a href="#"><img src="../sys/img/ccard_icon_small/ccard_icon11.png" title="利息零利率"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon_small/ccard-icon1.png" title="首年免年費"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon_small/ccard-icon2.png" title="現金回饋"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon_small/ccard-icon3.png" title="紅利集點"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon_small/ccard-icon4.png" title="哩程累積"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon_small/ccard-icon5.png" title="免費機場停車"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon_small/ccard-icon6.png" title="免費機場貴賓室"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon_small/ccard-icon7.png" title="免費機場接送"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon_small/ccard-icon8.png" title="旅遊保險"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon_small/ccard-icon9.png" title="道路救援"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon_small/ccard-icon10.png" title="市區停車優惠"></a></li>
+                            <li><a class="ccard_icon_js" href="#"><img src="../sys/img/ccard_icon_small/ccard-icon11.png" title="利息零利率"></a></li>
                             </ul>
                             
                              <div class="col-md-12 col">
@@ -591,10 +591,10 @@
                                         <div class="w-h-100 menu cardtext">
                                           <ul class="nav " id="myTab" role="tablist">
                                             <li class="nav-item">
-                                              <a class="cre_card active" id="CreditCard-tab" data-toggle="tab" href="#CreditCard" role="tab" aria-controls="CreditCard" aria-selected="true">信用卡</a>
+                                              <a class="cre_card active" id="int-CreditCard-tab" data-toggle="tab" href="#int-CreditCard" role="tab" aria-controls="int-CreditCard" aria-selected="true">信用卡</a>
                                             </li>
                                             <li class="nav-item">
-                                              <a class="deb_card" id="DebitCard-tab" data-toggle="tab" href="#DebitCard" role="tab" aria-controls="DebitCard" aria-selected="false">金融卡</a>
+                                              <a class="deb_card" id="int-DebitCard-tab" data-toggle="tab" href="#int-DebitCard" role="tab" aria-controls="int-DebitCard" aria-selected="false">金融卡</a>
                                             </li>
                                           </ul>
                                         </div>
@@ -606,7 +606,7 @@
 
 
                             <div class="tab-content" id="myTabContent">
-                              <div class="tab-pane fade show active" id="CreditCard" role="tabpanel" aria-labelledby="CreditCard-tab">
+                              <div class="tab-pane fade show active" id="int-CreditCard" role="tabpanel" aria-labelledby="int-CreditCard-tab">
                                <div class="credit_table">
 
                                  <div class="row">
@@ -617,7 +617,7 @@
                                      <div class="row cards_div bankbg_list">
                                        <div class="col-5 hv-center">
                                            <a class="bank_all_small_img card_name text-center" href="#">
-                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡1
                                            </a>
                                        </div>
                                        <div class="col-7 h-center col0 all_color">
@@ -627,7 +627,7 @@
                                      <div class="row cards_div bankbg_list">
                                        <div class="col-5 hv-center">
                                            <a class="bank_all_small_img card_name text-center" href="#">
-                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡2
                                            </a>
                                        </div>
                                        <div class="col-7 h-center col0 all_color">
@@ -637,7 +637,7 @@
                                      <div class="row cards_div bankbg_list">
                                        <div class="col-5 hv-center">
                                            <a class="bank_all_small_img card_name text-center" href="#">
-                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡
+                                            <img src="../img/component/card1.png" alt="" title="新聞"><br>現金回饋御璽卡3
                                            </a>
                                        </div>
                                        <div class="col-7 h-center col0 all_color">
@@ -761,7 +761,7 @@
                                </div>
                               </div>
 
-                              <div class="tab-pane fade" id="DebitCard" role="tabpanel" aria-labelledby="DebitCard-tab">
+                              <div class="tab-pane fade" id="int-DebitCard" role="tabpanel" aria-labelledby="int-DebitCard-tab">
 
                                 <div class="credit_table">
 
