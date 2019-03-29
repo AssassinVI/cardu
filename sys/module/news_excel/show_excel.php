@@ -67,6 +67,7 @@
                       .$StartDate.$EndDate.$ns_st_vfdate.$ns_en_vfdate.$ns_keyWord_txt;
 
     $sql_query=substr($sql_query, 0,-4);
+    $sql_query.=" ORDER BY ns_vfdate DESC";
 
    $row=$pdo->select($sql_query, $where);
 

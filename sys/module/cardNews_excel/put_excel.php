@@ -104,6 +104,7 @@
                       .$area_news_type_txt.$activity_s_date.$activity_e_date.$StartDate.$EndDate.$ns_st_vfdate.$ns_en_vfdate.$ns_keyWord_txt;
 
     $sql_query=substr($sql_query, 0,-4);
+    $sql_query.=" ORDER BY ns_vfdate DESC";
 
    $row=$pdo->select($sql_query, $where);
 
