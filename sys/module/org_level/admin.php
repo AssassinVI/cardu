@@ -69,7 +69,7 @@ if ($_GET) {
 
 							//-- 卡等資料 --
 							$level_txt='';
-							$sql_level=$pdo->prepare("SELECT * FROM card_attr WHERE mt_id=:mt_id  ORDER BY OrderBy ASC");
+							$sql_level=$pdo->prepare("SELECT * FROM card_level WHERE mt_id=:mt_id  ORDER BY OrderBy ASC");
 							$sql_level->execute( ["mt_id"=>'site2018110611041573'] );
 							while ($row_level=$sql_level->fetch(PDO::FETCH_ASSOC)){
 								 

@@ -61,7 +61,7 @@ $columns = array(
             //-- 主標 --
             $row_name=pdo_select("SELECT ns_ftitle FROM appNews WHERE Tb_index=:Tb_index", ['Tb_index'=>$d]);
             return '            
-                                <a href="javascript:;" onclick="window.open(\'newsView_windows.php?Tb_index='.$d.'\', \''.$row_name['ns_ftitle'].'\', config=\'height=800,width=900\');" class="btn btn-rounded btn-default btn-sm">
+                                <a href="javascript:;" onclick="window.open(\'../news_public/newsView_windows.php?Tb_index='.$d.'\', \''.$row_name['ns_ftitle'].'\', config=\'height=800,width=900\');" class="btn btn-rounded btn-default btn-sm">
                                 <i class="fa fa-binoculars" aria-hidden="true"></i>
                                 預覽
                                 </a>
