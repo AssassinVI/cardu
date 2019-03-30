@@ -37,7 +37,9 @@ $company = pdo_select("SELECT * FROM company_base WHERE webLang='tw'", 'no');
      <!-- FancyBox -->
      <link rel="stylesheet" type="text/css" href="../../js/plugins/fancyBox/jquery.fancybox.min.css">
 <style type="text/css">
+    body, .panel-default>.panel-heading{ color: #000; }
     body, html, h1, h2, h3, h4, h5, p, span, a, div{ font-family: Microsoft JhengHei; }
+    .nowrap{white-space: nowrap;}
     #page-wrapper{ margin:0; }
 
     /*-- 讀取動畫 --*/

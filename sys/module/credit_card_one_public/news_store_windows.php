@@ -62,7 +62,7 @@
 						
 						<div class="form-group">
 						  <div class="col-md-12 ">
-							<label>無商店 <input id="no_store" type="radio" name="ns_store" st_name="無商店" value="no"></label>
+							<label>無商店 <input id="no_store" type="radio" name="cc_store_id" st_name="無商店" value="no"></label>
 						  </div>
 						</div>
 					</form>
@@ -281,7 +281,7 @@
 		  	   	            '<td>'+this['st_second_type']+'</td>'+
 		  	   	            '<td>'+this['st_name']+'</td>'+
 		  	   	            '<td>'+this['OnLineOrNot']+'</td>'+
-		  	   	            '<td><input type="radio" name="ns_store" st_name="'+this['st_name']+'" value="'+this['Tb_index']+'"></td>'+
+		  	   	            '<td><input type="radio" name="cc_store_id" st_name="'+this['st_name']+'" value="'+this['Tb_index']+'"></td>'+
 		  	   	          '</tr>';
 		  	      $("#search_div tbody").append(txt);
 		  	   });
@@ -345,7 +345,7 @@
 		  	   	            '<td>'+this['st_second_type']+'</td>'+
 		  	   	            '<td>'+this['st_name']+'</td>'+
 		  	   	            '<td>'+this['OnLineOrNot']+'</td>'+
-		  	   	            '<td><input type="radio" name="ns_store" st_name="'+this['st_name']+'" value="'+this['Tb_index']+'"></td>'+
+		  	   	            '<td><input type="radio" name="cc_store_id" st_name="'+this['st_name']+'" value="'+this['Tb_index']+'"></td>'+
 		  	   	          '</tr>';
 		  	      $("#search_div tbody").append(txt);
 		  	   });
@@ -356,13 +356,13 @@
 
         
         //-- 選擇商店 --
-        $('#search_div tbody').on('change', '[name="ns_store"]', function(event) {
+        $('#search_div tbody').on('change', '[name="cc_store_id"]', function(event) {
         	$('#no_store').prop('checked', false);
         });
 
         //-- 選擇無商店 --
         $('#no_store').change(function(event) {
-        	$('[name="ns_store"]').prop('checked', false);
+        	$('[name="cc_store_id"]').prop('checked', false);
         	$('#no_store').prop('checked', true);
         });
 
@@ -372,9 +372,9 @@
             $("#over_store",parent.document).html('');
 
               //-- 商店 --
-              $("#over_store",parent.document).append( '<span class="btn btn-success">'+$('[name="ns_store"]:checked').attr('st_name')+' <input type="hidden" name="ns_store" value="'+$('[name="ns_store"]:checked').val()+'"></span> ' );
+              $("#over_store",parent.document).append( '<span class="btn btn-success">'+$('[name="cc_store_id"]:checked').attr('st_name')+' <input type="hidden" name="cc_store_id" value="'+$('[name="cc_store_id"]:checked').val()+'"></span> ' );
               //-- 記錄暫存 --
-              sessionStorage.setItem("ns_store", $('[name="ns_store"]:checked').val());
+              sessionStorage.setItem("cc_store_id", $('[name="cc_store_id"]:checked').val());
 
               parent.jQuery.fancybox.close();	
           	

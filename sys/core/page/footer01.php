@@ -180,8 +180,8 @@ function save_img_btn(ajax_php, file_id) {
 
 /* ======================== 重設表單 ========================== */
 function clean_all() {
-   if (confirm("是否要重設表單??")) {
-      window.location.reload();
+   if (confirm("是否要放棄??")) {
+      window.history.back();
    }
 }
 

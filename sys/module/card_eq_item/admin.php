@@ -45,10 +45,6 @@ if ($_GET) {
 	</div>
 	<div class="row">
 
-		<?php 
-		 //-- 信用卡 --
-         if ($_GET['MT_id']=='site2019021216245137') {
-        ?>
 
         		<div class="col-lg-12">
         			<div class="panel panel-default">
@@ -123,9 +119,6 @@ if ($_GET) {
         		</div>
         	</div>
         	
-        <?php
-         }
-		?>
 		
 
 	<div class="col-lg-12">

@@ -22,7 +22,8 @@
   elseif($_POST['type']=='ch_eq_content'){
       
       //-- 信用卡權益項目 --
-      $row_card_eq=$pdo->select("SELECT * FROM credit_card_eq WHERE card_id=:card_id AND eq_id=:eq_id", ['card_id'=>$_POST['card_id'], 'eq_id'=>$_POST['eq_id']] );
+      $row_card_eq=$pdo->select("SELECT * FROM credit_card_eq WHERE EndDate>=:today AND card_id=:card_id AND eq_id=:eq_id", 
+                                ['today'=>date('Y-m-d'), 'card_id'=>$_POST['card_id'], 'eq_id'=>$_POST['eq_id']] );
       echo json_encode($row_card_eq);
   }
 
@@ -36,19 +37,22 @@
     if ($row_card_eq['totle']==0) {
 
       $Tb_index='ceq'.date('YmdHis').rand(0,99);
+      $group_id=empty($_POST['interest_content_group_id']) ? 'group'.date('YmdHis').rand(0,99) : $_POST['interest_content_group_id'];
+      $StartDate=empty($_POST['StartDate']) ? date('Y-m-d'):$_POST['StartDate'];
       $EndDate=empty($_POST['EndDate']) ? '2100-12-31':$_POST['EndDate'];
       $param=[
        'Tb_index'=>$Tb_index,
        'card_id'=>$_POST['card_id'],
        'bank_id'=>$_POST['bank_id'],
+       'group_id'=>$group_id,
        'eq_id'=>$_POST['eq_id'],
        'number_data'=>$_POST['number_data'],
        'content'=>$_POST['content'],
        'sm_content'=>$_POST['sm_content'],
        'note'=>$_POST['note'],
        'kiman'=>$_SESSION['admin_name'],
-       'cdata'=>date('Y-m-d'),
-       'StartDate'=>$_POST['StartDate'],
+       'cdata'=>date('Y-m-d H:i:s'),
+       'StartDate'=>$StartDate,
        'EndDate'=>$EndDate
 
       ];
@@ -58,10 +62,11 @@
 
     //-- 修改 --
     else{
-      
+      $group_id=empty($_POST['interest_content_group_id']) ? 'group'.date('YmdHis').rand(0,99) : $_POST['interest_content_group_id'];
       $param=[
        'number_data'=>$_POST['number_data'],
        'content'=>$_POST['content'],
+       'group_id'=>$group_id,
        'sm_content'=>$_POST['sm_content'],
        'note'=>$_POST['note'],
        'StartDate'=>$_POST['StartDate'],
@@ -84,12 +89,14 @@
     if ($row_card_eq['totle']==1) {
 
       $Tb_index='ceq'.date('YmdHis').rand(0,99);
+      $group_id=empty($_POST['interest_content_group_id']) ? 'group'.date('YmdHis').rand(0,99) : $_POST['interest_content_group_id'];
       $EndDate=empty($_POST['EndDate']) ? '2100-12-31':$_POST['EndDate'];
       $param=[
        'Tb_index'=>$Tb_index,
        'card_id'=>$_POST['card_id'],
        'bank_id'=>$_POST['bank_id'],
        'eq_id'=>$_POST['eq_id'],
+       'group_id'=>$group_id,
        'number_data'=>$_POST['number_data'],
        'content'=>$_POST['content'],
        'sm_content'=>$_POST['sm_content'],
@@ -108,8 +115,9 @@
 
     //-- 修改 --
     elseif ($row_card_eq['totle']==2){
-      
+      $group_id=empty($_POST['interest_content_group_id']) ? 'group'.date('YmdHis').rand(0,99) : $_POST['interest_content_group_id'];
       $param=[
+       'group_id'=>$group_id,
        'number_data'=>$_POST['number_data'],
        'content'=>$_POST['content'],
        'sm_content'=>$_POST['sm_content'],

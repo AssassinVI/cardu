@@ -110,7 +110,7 @@ if ($_POST) {
 
       	 $type=explode('.', $_FILES['cc_doc_path']['name']);
       	 $cc_doc_path=$Tb_index.'.'.$type[count($type)-1];
-         fire_upload('cc_doc_path', $cc_doc_path);
+         other_fire_upload('cc_doc_path', $cc_doc_path);
         $cc_doc_path_param=['cc_doc_path'=>$cc_doc_path];
         $cc_doc_path_where=['cc_group_id'=>$_POST['cc_group_id']];
         pdo_update('credit_card', $cc_doc_path_param, $cc_doc_path_where);

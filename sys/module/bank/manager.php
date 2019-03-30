@@ -177,7 +177,7 @@ if ($_GET) {
 ?>
 
 
-<div class="wrapper wrapper-content animated fadeInRight">
+<div class="wrapper wrapper-content">
 	<div class="row">
 		<div class="col-lg-9">
 			<div class="panel panel-default">

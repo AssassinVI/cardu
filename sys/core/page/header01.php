@@ -41,7 +41,11 @@ $parent_id=pdo_select("SELECT parent_id FROM maintable WHERE Tb_index=:Tb_index"
      <link rel="stylesheet" type="text/css" href="../../js/plugins/fancyBox/jquery.fancybox.min.css">
 
      <style type="text/css">
+       body, .panel-default>.panel-heading, .form-control, .single-line{ color: #000; font-size: 15px;}
        body, html, h1, h2, h3, h4, h5, p, span, a, div{ font-family: Microsoft JhengHei; }
+
+       .nowrap{white-space: nowrap;}
+       
        .active_lang{ padding: 6px 20px; margin: 2px; font-size: 14px; background: #1690d8; color: #fff;}
        #cLogo{ color: #0e9aef; margin-bottom: 2rem;}
         body.skin-1{ background: #1e2c42; }
@@ -56,7 +60,7 @@ $parent_id=pdo_select("SELECT parent_id FROM maintable WHERE Tb_index=:Tb_index"
         .twzipcode input, .twzipcode select ,.adds{ font-size: 14px; padding: 5px; border: 1px solid #d6d6d6; }
         .adds{ width: 300px; }
             #one_img{ width: 150px; border:1px solid #d6d6d6; padding: 3px;}
-            #one_del_img, .one_del_img,#one_del_file,.one_del_file,#one_del_video{ position: absolute; border: 0px; background-color: #ff243b; color: #fff; box-shadow: 1px 1px 2px rgba(0,0,0,0.5);}
+            #one_del_img, #one_del_img_hover, .one_del_img, #one_del_file,.one_del_file,#one_del_video{ position: absolute; border: 0px; background-color: #ff243b; color: #fff; box-shadow: 1px 1px 2px rgba(0,0,0,0.5);}
         .img_check{ position: absolute; top: 40px; left: 75px; background: rgba(26,179,148,1); padding: 7px 10px; border-radius: 50px; font-size: 15px; color: #ffffff; display:none; }
         .sort_in{ padding: 3px 5px; width: 40px; border-radius: 3px; border: 1px solid #b6b6b6; }
         #img_div{ float: left; }

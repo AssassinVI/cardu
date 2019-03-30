@@ -12,10 +12,10 @@ if ($_POST) {
             unlink('../../img/'.$_POST['org_image']);
     	}else{
         //----------------------- image_hover刪除 -------------------------------
-    		$param=['card_image_hover'=>''];
+    		$param=['org_image_hover'=>''];
             $where=['Tb_index'=>$_POST['Tb_index']];
             pdo_update('card_org', $param, $where);
-            unlink('../../img/'.$_POST['card_image_hover']);
+            unlink('../../img/'.$_POST['org_image_hover']);
     	}
        exit();
   	}
@@ -32,25 +32,26 @@ if ($_POST) {
       else{ $org_image='';}
 
      //===================== image_hover圖 ========================
-      if (!empty($_FILES['card_image_hover']['name'])){
+      if (!empty($_FILES['org_image_hover']['name'])){
 
-      	 $type=explode('.', $_FILES['card_image_hover']['name']);
-      	 $card_image_hover=$Tb_index.'_hover'.'.'.$type[count($type)-1];
-         fire_upload('card_image_hover', $card_image_hover); 
+      	 $type=explode('.', $_FILES['org_image_hover']['name']);
+      	 $org_image_hover=$Tb_index.'_hover'.'.'.$type[count($type)-1];
+         fire_upload('org_image_hover', $org_image_hover); 
       }
-      else{ $card_image_hover='';}
+      else{ $org_image_hover='';}
 
       $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0:1;
       $OrderBy=pdo_select("SELECT OrderBy FROM card_org ORDER BY OrderBy DESC LIMIT 0,1", 'no');
       $OrderBy=(int)$OrderBy['OrderBy']+1;
 
-	$param=  ['Tb_index'=>$Tb_index,
-			              'mt_id'=>$_POST['mt_id'],
+	$param=  [           'Tb_index'=>$Tb_index,
+			                'mt_id'=>$_POST['mt_id'],
 			             'org_name'=>$_POST['org_name'],
-			             'org_nickname'=>$_POST['org_nickname'],
+			         'org_nickname'=>$_POST['org_nickname'],
 			            'org_image'=>$org_image,
+			      'org_image_hover'=>$org_image_hover,
 			              'OrderBy'=>$OrderBy,
-			        'OnLineOrNot'=>$OnLineOrNot
+			          'OnLineOrNot'=>$OnLineOrNot
 			         ];
 	pdo_insert('card_org', $param);
 	location_up('admin.php?MT_id='.$_POST['mt_id'],'成功新增');
@@ -70,14 +71,14 @@ if ($_POST) {
 
       }
       //-------------------- image_hover圖 ------------------------------
-      if (!empty($_FILES['card_image_hover']['name'])) {
+      if (!empty($_FILES['org_image_hover']['name'])) {
 
-      	 $type=explode('.', $_FILES['card_image_hover']['name']);
-      	 $card_image_hover=$Tb_index.date('His').'_hover'.'.'.$type[count($type)-1];
-         fire_upload('card_image_hover', $card_image_hover);
-        $card_image_hover_param=['card_image_hover'=>$card_image_hover];
-        $card_image_hover_where=['Tb_index'=>$Tb_index];
-        pdo_update('card_org', $card_image_hover_param, $card_image_hover_where);
+      	 $type=explode('.', $_FILES['org_image_hover']['name']);
+      	 $org_image_hover=$Tb_index.date('His').'_hover'.'.'.$type[count($type)-1];
+         fire_upload('org_image_hover', $org_image_hover);
+        $org_image_hover_param=['org_image_hover'=>$org_image_hover];
+        $org_image_hover_where=['Tb_index'=>$Tb_index];
+        pdo_update('card_org', $org_image_hover_param, $org_image_hover_where);
 
       }
       	//--------------------------- END -----------------------------------
@@ -144,6 +145,33 @@ if ($_GET) {
 								 <button type="button" id="one_del_img"> X </button>
 								  <span class="img_check"><i class="fa fa-check"></i></span>
 								  <img id="one_img" src="../../img/<?php echo $row['org_image'];?>" alt="請上傳代表圖檔">
+								  <input type="hidden" name="old_img" value="<?php echo $row['org_image'];?>">
+								</div>
+							</div>
+						<?php }?>		
+						</div>
+
+
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="org_image_hover">發卡組織Hover圖檔</label>
+							<div class="col-md-10">
+								<input type="file" name="org_image_hover" class="form-control" accept="image/*" id="org_image_hover" onchange="file_viewer_load_new(this, '#img_box_hover')">
+							</div>
+						</div>
+
+						<div class="form-group">
+						   <label class="col-md-2 control-label" ></label>
+						   <div id="img_box_hover" class="col-md-4">
+								
+							</div>
+						<?php if(!empty($row['org_image_hover'])){?>
+							<div  class="col-md-4">
+							   <div id="img_div" >
+							    <p>目前圖檔</p>
+								 <button type="button" id="one_del_img_hover"> X </button>
+								  <span class="img_check"><i class="fa fa-check"></i></span>
+								  <img id="one_img" src="../../img/<?php echo $row['org_image_hover'];?>" alt="請上傳代表圖檔">
+								  <input type="hidden" name="old_img_hover" value="<?php echo $row['org_image_hover'];?>">
 								</div>
 							</div>
 						<?php }?>		
@@ -217,19 +245,19 @@ if ($_GET) {
 			if (confirm('是否要刪除圖檔?')) {
 			 var data={
 			 	        Tb_index: $("#Tb_index").val(),
-                            org_image: '<?php echo $row["org_image"]?>',
+                            org_image: $(this).next().next().val(),
                             type: 'delete'
 			          };	
                ajax_in('manager.php', data, '成功刪除', 'no');
                $("#img_div").html('');
 			}
 		});
-      //------------------------------ 刪檔 ---------------------------------
-          $(".one_del_file").click(function(event) { 
-			if (confirm('是否要刪除檔案?')) {
+      //------------------------------ 刪hover圖 ---------------------------------
+          $("#one_del_img_hover").click(function(event) { 
+			if (confirm('是否要刪除圖檔?')) {
 			 var data={
 			 	        Tb_index: $("#Tb_index").val(),
-                       card_image_hover: $(this).next().next().val(),
+                       org_image_hover: $(this).next().next().val(),
                             type: 'delete'
 			          };	
                ajax_in('manager.php', data, '成功刪除', 'no');

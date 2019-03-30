@@ -32,69 +32,7 @@ if ($_GET) {
 
 ?>
 <div class="wrapper wrapper-content animated fadeInRight">
-    <div class="p-w-md m-t-sm">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2> 每日流量</h2>
-                <div class="ibox">
-                    <div class="ibox-content">
-                        <div class="flot-chart m-b-xl">
-                            <div class="flot-chart-content" id="date_use"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>新進訊息</h2>
-                <div class="ibox">
-                    <div class="ibox-content">
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                  <th>#</th>  
-                                  <th>編號</th>  
-                                  <th>E-mail</th> 
-                                  <th>姓名</th>  
-                                  <th>訊息</th>   
-                                </thead>
-                                <tbody>
-                                <?php 
-                                  $pdo=pdo_conn();
-                                  $sql=$pdo->prepare("SELECT * FROM appContacts WHERE webLang=:webLang AND process='0' ORDER BY StartDate DESC LIMIT 0,5");
-                                  $sql->execute(array(":webLang"=>$weblang));
-                                ?>
-                                    <?php $i=1; while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {?>
-                                    <tr>
-                                        <td><?php echo $i?></td>
-                                        
-                                        <td nowrap><a href="../msg/manager.php?MT_id=<?php echo $row['mt_id'];?>&Tb_index=<?php echo $row['Tb_index'];?>"><?php echo $row['Tb_index']?></a> </td>
-                                        <td><a href="mailto:<?php echo $row['UserMail']?>"><?php echo $row['UserMail']?></a></td>
-                                        <td nowrap><?php echo $row['UserName']?></td>
-                                        <td>
-                                          <?php echo $row['UserMsg']?>
-                                        </td>
-                                        <td nowrap>
-                                        <?php if($row['process']=='0'){?>
-                                        <a href="index.php?type=con_process&process=1&Tb_index=<?php echo $row['Tb_index']?>" class="text-no"><i class="fa fa-times "></i> 未處理</a> ｜
-                                        <?php }else{?>
-                                        <a href="index.php?type=con_process&process=0&Tb_index=<?php echo $row['Tb_index']?>" class="text-navy"><i class="fa fa-check-square-o "></i> 已處理</a> ｜
-                                        <?php }?>
-                                        <a href="index.php?type=contact_del&Tb_index=<?php echo $row['Tb_index']?>" class="text-muted"
-                                           onclick="if (!confirm('確定要刪除 [<?php echo $row['UserMsg']?>] ?')) {return false;}">
-                                        <i class="fa fa-trash "></i> 刪除</a></td>
-                                    </tr>
-                                    <?php $i++; } $pdo=NULL;?>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  
 </div>
         
 <?php  include("../../core/page/footer01.php");//載入頁面heaer02?>
