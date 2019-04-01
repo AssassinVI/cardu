@@ -7,7 +7,7 @@ if ($_POST) {
   for ($i=0; $i <count($_POST['Tb_index']) ; $i++) { 
     $data=["OrderBy"=>($i+1)];
     $where=["Tb_index"=>$_POST['Tb_index'][$i]];
-    pdo_update('card_func', $data, $where);
+    pdo_update('card_eq_item', $data, $where);
   }
 }
 
@@ -17,24 +17,12 @@ if ($_GET) {
 
     $where=['Tb_index'=>$_GET['Tb_index']];
 
-   	$del_row=pdo_select('SELECT card_image, card_image_hover FROM card_func WHERE Tb_index=:Tb_index', $where);
-   	if (isset($del_row['card_image'])) { unlink('../../img/'.$del_row['card_image']); }
-    if (isset($del_row['card_image_hover'])) {
-
-      $card_image_hover=explode(',', $del_row['card_image_hover']);
-      for ($i=0; $i <count($card_image_hover)-1 ; $i++) { 
-      	 unlink('../../img/'.$card_image_hover[$i]); 
-      }
-   }
-
-   	 pdo_delete('card_func', $where);
+   	$del_row=pdo_select('SELECT eq_image FROM card_eq_item WHERE Tb_index=:Tb_index', $where);
+   	if (isset($del_row['eq_image'])) { unlink('../../img/'.$del_row['eq_image']); }
+   	 pdo_delete('card_eq_item', $where);
    }
    
    $pdo=pdo_conn();
-   $sql=$pdo->prepare("SELECT * FROM card_func WHERE mt_id=:mt_id  ORDER BY OrderBy ASC");
-   $sql->execute( ["mt_id"=>$_GET['MT_id']] );
-
-
 }
 
 ?>
@@ -56,34 +44,54 @@ if ($_GET) {
 	  </div>
 	</div>
 	<div class="row">
-		<div class="col-lg-12">
+
+		
+
+	<div class="col-lg-12">
 			<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="table-responsive">
 					<table class="table table-hover">
+						<h3>全部權益項目</h3>
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>名稱</th>
-								<th>圖示</th>
-								<th>功能說明</th>
-								<th>狀態</th>
+								<th>權益項目</th>
+								<th>權益類型</th>
+								<th>量化規則</th>
 								<th class="text-right">管理</th>
 
 							</tr>
 						</thead>
 						<tbody>
 
-						<?php $i=1; while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
+						<?php 
+						  $i=1; 
+						  $sql=$pdo->prepare("SELECT * FROM card_eq_item WHERE mt_id=:mt_id ORDER BY OrderBy ASC");
+						  $sql->execute( ["mt_id"=>$_GET['MT_id']] );
+						  while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
+
+							    switch ($row['eq_type']) {
+							    	case 'txt':
+							    		$eq_type='一般文字內容';
+							    		break;
+							    	case 'big':
+							    		$eq_type='數字比大';
+							    		break;
+							    	case 'small':
+							    		$eq_type='數字比小';
+							    		break;
+							    }
+
+
                                 $OnLineOrNot=$row['OnLineOrNot']=='1' ? '使用中': '未使用';
 							?>
 							<tr>
 								<td><?php echo $i?></td>
-								<td class="nowrap"><?php echo $row['fun_name'] ?></td>
-								<td><img style="width: 50px;" src="../../img/<?php echo $row['card_image'] ?>"></td>
-								<td><?php echo $row['fun_txt'] ?></td>
-                                <td class="nowrap"><?php echo $OnLineOrNot;?></td>
-								<td class="text-right nowrap">
+								<td><?php echo $row['eq_name'] ?></td>
+								<td><?php echo $eq_type; ?></td>
+								<td><?php echo $row['eq_txt'] ?></td>
+								<td class="text-right">
 
 								<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
 								<button type="button" class="btn btn-rounded btn-info btn-sm">
@@ -92,12 +100,13 @@ if ($_GET) {
 								</a>
 
 								<a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
-								   onclick="if (!confirm('確定要刪除 [<?php echo $row['aTitle']?>] ?')) {return false;}">
+								   onclick="if (!confirm('確定要刪除 [<?php echo $row['pref_name']?>] ?')) {return false;}">
 								<button type="button" class="btn btn-rounded btn-warning btn-sm">
 								<i class="fa fa-trash" aria-hidden="true"></i>
 								刪除</button>
 								</a>
 
+					
 								</td>
 
 								<input type="hidden" class="sort_in" name="OrderBy[]" value="<?php echo $row['Tb_index'];?>">
