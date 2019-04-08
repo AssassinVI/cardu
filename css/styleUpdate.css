@@ -83,7 +83,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', end
 
 /*-- 卡情報-單卡-重要權益 --*/
 .imp_int_title{ background-color: #ccc; padding: 7px; }
-.imp_int .card-header{ padding: 12px 6px; height: 130px;}
+.imp_int .card-header{ padding: 12px 6px; /*height: 130px;*/}
 .imp_int .card-header .angle_down{ font-size: 40px; color: #7e7e7e; }
 .imp_int .collapse_txt{ font-size: 18px; color: #9b9b9b; }
 
