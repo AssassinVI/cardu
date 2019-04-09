@@ -50,7 +50,7 @@ if ($('#ckeditor').length>0) {
   }
 
 	/* ==================== 基本AJAX 新增，修改，刪除 ======================= */
-	function ajax_in(url, data, alert_txt ,replace) {
+	function ajax_in(url, data, alert_txt ,replace, callback='no') {
 		$.ajax({
 			url: url,
 			type: 'POST',
@@ -58,6 +58,7 @@ if ($('#ckeditor').length>0) {
 			success:function () {
         if (alert_txt!='no') { alert(alert_txt); }
 				if (replace!='no') { location.replace(replace); }
+        if (callback!='no') { callback }
 			}
 		});
 	}
@@ -196,6 +197,15 @@ function img_txt(dom_id) {
       }
     });
 }
+
+
+
+
+
+//============================= nl2br (易位符號轉<br>) ===================================
+function nl2br( str ) {
+return str.replace(/([^>])\n/g, '$1<br/>\n');
+} 
 
 
 

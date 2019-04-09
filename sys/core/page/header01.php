@@ -45,6 +45,22 @@ $parent_id=pdo_select("SELECT parent_id FROM maintable WHERE Tb_index=:Tb_index"
        body, html, h1, h2, h3, h4, h5, p, span, a, div{ font-family: Microsoft JhengHei; }
 
        .nowrap{white-space: nowrap;}
+
+       .tool-width{ width: 20px; }
+
+       .dis-none{display: none;}
+       
+       .px-1{ padding-left: 20px; padding-right: 20px; }
+       .px-2{ padding-left: 40px; padding-right: 40px; }
+        
+        .fancybox-slide--iframe{ padding:0 44px 0; }
+
+         .fancybox-slide--iframe .fancybox-content {
+           width  : 800px;
+           max-width  : 80%;
+           max-height : 95%;
+           margin: 0;
+       }
        
        .active_lang{ padding: 6px 20px; margin: 2px; font-size: 14px; background: #1690d8; color: #fff;}
        #cLogo{ color: #0e9aef; margin-bottom: 2rem;}
@@ -77,7 +93,7 @@ $parent_id=pdo_select("SELECT parent_id FROM maintable WHERE Tb_index=:Tb_index"
         .panel_tool_div{ display: inline-block; float: right; }
         .panel_tool_div button, .panel_tool_div a, 
         .panel_tool_div button:hover, .panel_tool_div a:hover, 
-        .panel_tool_div button:focus, .panel_tool_div a:focus{ color: #333; }
+        .panel_tool_div button:focus, .panel_tool_div a:focus{ color: #000; }
 
         /* -- DataTable --*/
         /*-- 讀取動畫 --*/
