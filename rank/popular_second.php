@@ -1,10 +1,13 @@
+<?php 
+ require '../share_area/conn.php';
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
 
 
@@ -41,9 +44,14 @@
 
     <div class="container">
 
-        <?php 
-         //-- 共用header --
-         require '../share_area/header.php';
+         <?php 
+         //-- 共用Header --
+         if (wp_is_mobile()) {
+          require '../share_area/phone/header.php';
+         }
+         else{
+          require '../share_area/header.php';
+         }
         ?>
         
         <!-- 麵包屑 -->
@@ -81,27 +89,27 @@
                           <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
 
                             <!--廣告-->
-                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                           <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                            <!--banner end -->
 
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
 
 
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                   <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">1</h1>
                               </div>
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -109,7 +117,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -124,20 +132,20 @@
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
 
 
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                   <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">2</h1>
                               </div>
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card2.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -145,7 +153,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -159,20 +167,20 @@
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
 
 
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                   <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">3</h1>
                               </div>
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -180,7 +188,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -197,24 +205,24 @@
                     
                     <!--信用卡推薦end -->
                      <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                          
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
 
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <h1 class=" hv-center mb-0">4</h1>
                               </div>
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                                
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -222,7 +230,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -235,19 +243,19 @@
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
 
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <h1 class=" hv-center mb-0">5</h1>
                               </div>
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card2.png" alt="" title="新聞">
                                 </a>
                                
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -255,7 +263,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -268,21 +276,21 @@
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
 
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">6</h1>
                                    </span>
                               </div>
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -290,7 +298,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -304,27 +312,27 @@
                     
                     <!--信用卡推薦end -->
                      <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                           
                   
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
 
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">7</h1>
                                    </span>
                               </div>
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -332,7 +340,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -345,21 +353,21 @@
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
 
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">8</h1>
                                    </span>
                               </div>
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card2.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -367,7 +375,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -380,21 +388,21 @@
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
 
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">9</h1>
                                    </span>
                               </div>
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -402,7 +410,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -415,21 +423,21 @@
 
                              <div class="row no-gutters py-3 rankbg_list rank_hot">
 
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">10</h1>
                                    </span>
                               </div>
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -437,7 +445,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -449,23 +457,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">11</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -473,7 +481,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -486,23 +494,23 @@
 
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">12</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -510,7 +518,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -522,23 +530,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">13</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -546,7 +554,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -558,23 +566,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">14</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -582,7 +590,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -594,23 +602,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">15</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -618,7 +626,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -637,26 +645,26 @@
 
                           <div class="tab-pane fade" id="title_6" role="tabpanel" aria-labelledby="title_6-tab">
                            <!--廣告-->
-                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                           <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                            <!--banner end -->
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">1</h1>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -664,7 +672,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -676,22 +684,22 @@
                             </div>
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">2</h1>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card2.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -699,7 +707,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -712,21 +720,21 @@
 
                             
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                   <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">3</h1>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -734,7 +742,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -751,25 +759,25 @@
                     
                     <!--信用卡推薦end -->
                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                          
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <h1 class=" hv-center mb-0">4</h1>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                                
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -777,7 +785,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -789,21 +797,21 @@
                             </div>
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <h1 class=" hv-center mb-0">5</h1>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card2.png" alt="" title="新聞">
                                 </a>
                                
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -811,7 +819,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -823,23 +831,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">6</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -847,7 +855,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -861,28 +869,28 @@
                     
                     <!--信用卡推薦end -->
                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                           
                     
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">7</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -890,7 +898,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -902,23 +910,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">8</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card2.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -926,7 +934,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -938,23 +946,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">9</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -962,7 +970,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -974,23 +982,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">10</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -998,7 +1006,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1011,23 +1019,23 @@
 
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">11</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1035,7 +1043,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1048,23 +1056,23 @@
 
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">12</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1072,7 +1080,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1084,23 +1092,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">13</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1108,7 +1116,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1120,23 +1128,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">14</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1144,7 +1152,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1156,23 +1164,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">15</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1180,7 +1188,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1202,26 +1210,26 @@
 
                           <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
                              <!--廣告-->
-                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                           <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                            <!--banner end -->
                     
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">1</h1>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card2.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1229,7 +1237,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1242,22 +1250,22 @@
 
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                   <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">2</h1>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1265,7 +1273,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1278,21 +1286,21 @@
                        
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span class="top_prize"></span>
                                    <h1 class=" hv-center mb-0">3</h1>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1300,7 +1308,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1315,27 +1323,27 @@
                     
                     <!--信用卡推薦end -->
                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                          
                     
 
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <h1 class=" hv-center mb-0">4</h1>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                                
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1343,7 +1351,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1355,21 +1363,21 @@
                             </div>
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <h1 class=" hv-center mb-0">5</h1>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card2.png" alt="" title="新聞">
                                 </a>
                                
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1377,7 +1385,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1389,23 +1397,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                              <div class="col-md-1 hv-center popular_prize">
+                              <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">6</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1413,7 +1421,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1431,29 +1439,29 @@
                    
                     <!--信用卡推薦end -->
                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                           
                     
 
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">7</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                             <div class="col-md-7 card_list_txt rank_color">
+                             <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1461,7 +1469,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1473,23 +1481,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">8</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card2.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                             <div class="col-md-7 card_list_txt rank_color">
+                             <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1497,7 +1505,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1509,23 +1517,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">9</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1533,7 +1541,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1545,23 +1553,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">10</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1569,7 +1577,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1581,23 +1589,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">11</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1605,7 +1613,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1617,23 +1625,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">12</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1641,7 +1649,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1653,23 +1661,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">13</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1677,7 +1685,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1689,23 +1697,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">14</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1713,7 +1721,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -1725,23 +1733,23 @@
                             </div>
 
                             <div class="row no-gutters py-3 bankbg_list rank_hot d-none">
-                               <div class="col-md-1 hv-center popular_prize">
+                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
                                    <span>
                                     <h1 class=" hv-center mb-0">15</h1>
                                    </span>
                               </div>
 
 
-                              <div class="col-md-4 text-center">
+                              <div class="col-md-4 wx-100-ph text-center">
                                 <a class="popular_list_img" href="#">
                                   <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
                                 
                               </div>
-                              <div class="col-md-7 card_list_txt rank_color">
+                              <div class="col-md-7 wx-100-ph card_list_txt rank_color">
                                <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
                                <div class="row no-gutters">
-                                <div class="col-md-5 card_list_txt rank_color">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
                                   <ul>
                                     <li>　<b>●</b>國內現金回饋1.22%</li>
                                     <li>　<b>●</b>國外現金回饋2.22%</li>
@@ -1749,7 +1757,7 @@
                                     <li>　<b>●</b>高額旅遊平安險</li>
                                   </ul>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
                                     <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
@@ -2136,9 +2144,15 @@
 
                     
                     <?php 
-                     //-- 共用footer --
-                     require '../share_area/footer.php';
+                     //-- 共用Footer --
+                     if (wp_is_mobile()) {
+                        require '../share_area/phone/footer.php';
+                     }
+                     else{
+                       require '../share_area/footer.php';
+                      }
                     ?>
+                    
                     
 
                 </div>

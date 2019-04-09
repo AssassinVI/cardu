@@ -1,10 +1,13 @@
+<?php 
+ require '../share_area/conn.php';
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
 
 
@@ -42,8 +45,13 @@
     <div class="container">
 
         <?php 
-         //-- 共用header --
-         require '../share_area/header.php';
+         //-- 共用Header --
+         if (wp_is_mobile()) {
+          require '../share_area/phone/header.php';
+         }
+         else{
+          require '../share_area/header.php';
+         }
         ?>
         
         <!-- 麵包屑 -->
@@ -281,11 +289,11 @@
 
                     
                      <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
+                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
 
 
                     <!--信用卡推薦-->
-                    <div class="col-md-12 col">
+                    <div class="col-md-12 col phone_hidden">
 
                         <div class="cardshap darkpurple_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -744,8 +752,13 @@
 
                     
                     <?php 
-                     //-- 共用footer --
-                     require '../share_area/footer.php';
+                     //-- 共用Footer --
+                     if (wp_is_mobile()) {
+                        require '../share_area/phone/footer.php';
+                     }
+                     else{
+                       require '../share_area/footer.php';
+                      }
                     ?>
                     
 

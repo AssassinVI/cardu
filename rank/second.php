@@ -1,10 +1,13 @@
+<?php 
+ require '../share_area/conn.php';
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
     
     <title>卡優新聞網-卡排行</title>
@@ -39,7 +42,12 @@
 
         <?php 
          //-- 共用Header --
-         require '../share_area/header.php';
+         if (wp_is_mobile()) {
+          require '../share_area/phone/header.php';
+         }
+         else{
+          require '../share_area/header.php';
+         }
         ?>
 
          <!-- 麵包屑 -->
@@ -67,14 +75,14 @@
                            
                            <div class="card_rank row no-gutters">
 
-                             <div class="col-2">
+                             <div class="col-md-2">
                                <div class="card_fun w-h-100 hv-center hole">
                                    <div class="text-center mt-05">
                                        <img src="../img/component/card_rank_logo.png" alt=""> <p class="mb-0 mt-025">卡排行</p>
                                    </div>
                                </div>  
                              </div>
-                             <div class="col-10">
+                             <div class="col-md-10">
                               <div class="swiper_div">
                                  <div class="swiper-container">
                                    <div class="swiper-wrapper">
@@ -198,14 +206,14 @@
                         <div class="tab-content p-0" id="myTabContent">
                           <div class="tab-pane fade active show" id="goodTicket" role="tabpanel" aria-labelledby="goodTicket-tab">
                               <div class="row imp_int_title rank_card_title">
-                              <div class="col-1 text-center"></div>
-                              <div class="col-4 text-center">卡片名稱</div>
-                              <div class="col-2 text-center">國內回饋</div>
-                              <div class="col-2 text-center">國外回饋</div>
-                              <div class="col-3 text-center">其他卡片</div>
+                              <div class="col-md-1 text-center"></div>
+                              <div class="col-md-4 text-center">卡片名稱</div>
+                              <div class="col-md-2 text-center">國內回饋</div>
+                              <div class="col-md-2 text-center">國外回饋</div>
+                              <div class="col-md-3 text-center">其他卡片</div>
                             </div>
                              <!--廣告-->
-                             <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div><!--banner end -->
+                             <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div><!--banner end -->
                             <div class="accordion imp_int" id="accordionExample">
                                
                               <div class="card rank_hot rank_second">
@@ -413,7 +421,7 @@
                               </div>
 
                                <!--廣告-->
-                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                               <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                               <!--banner end -->
                              
 
@@ -619,7 +627,7 @@
                               </div>
 
                               <!--廣告-->
-                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                               <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                               <!--banner end -->
 
                                <div class="card rank_hot rank_second">
@@ -1244,11 +1252,11 @@
 
                           <div class="tab-pane fade" id="goodSet" role="tabpanel" aria-labelledby="goodSet-tab">
                             <div class="row imp_int_title rank_card_title">
-                               <div class="col-1 text-center"></div>
-                               <div class="col-4 text-center">卡片名稱</div>
-                               <div class="col-2 text-center">國內回饋</div>
-                               <div class="col-2 text-center">國外回饋</div>
-                               <div class="col-3 text-center">其他卡片</div>
+                               <div class="col-md-1 text-center"></div>
+                               <div class="col-md-4 text-center">卡片名稱</div>
+                               <div class="col-md-2 text-center">國內回饋</div>
+                               <div class="col-md-2 text-center">國外回饋</div>
+                               <div class="col-md-3 text-center">其他卡片</div>
                             </div>
                              <!--廣告-->
                                <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
@@ -1460,7 +1468,7 @@
                               </div>
                               
                                <!--廣告-->
-                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                               <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                               <!--banner end -->
 
                               <div class="card rank_hot rank_second">
@@ -1664,7 +1672,7 @@
                               </div>
 
                                <!--廣告-->
-                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                               <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
                               <!--banner end -->
                               
                                <div class="card rank_hot rank_second">
@@ -2646,9 +2654,14 @@
 
                    
                     
-                    <?php
+                    <?php 
                      //-- 共用Footer --
-                    require '../share_area/footer.php';
+                     if (wp_is_mobile()) {
+                        require '../share_area/phone/footer.php';
+                     }
+                     else{
+                       require '../share_area/footer.php';
+                      }
                     ?>
                     
 
