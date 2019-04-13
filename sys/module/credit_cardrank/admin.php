@@ -395,7 +395,7 @@ function show_rank(rank_item=1) {
                           '<td>'+nl2br( this['ccs_typename_03'] )+'</td>'+
                           '<td>'+this['ccs_order3']+ccs_order_UpDown[2]+'</td>'+
                           '<td>'+this['ccs_memo']+'</td>'+
-                          '<td class="tool-width"><a href="javascript:;" onclick="window.open(\'../credit_cardrank_public/newsView_windows.php?Tb_index='+this['Tb_index']+'\', \'預覽\', config=\'height=800,width=900\');" class="btn btn-link"><i class="fa fa-binoculars" aria-hidden="true"></i>預覽</a></td>'+
+                          '<td class="tool-width"><a href="javascript:;" onclick="window.open(\'../credit_cardrank_public/crankView_windows.php?Tb_index='+this['Tb_index']+'\', \'預覽\', config=\'height=800,width=900\');" class="btn btn-link"><i class="fa fa-binoculars" aria-hidden="true"></i>預覽</a></td>'+
                           '<td class="tool-width"><a class="btn btn-link" href="manager.php?MT_id=site2019033016121894&rank_type_id='+this['ccs_cc_so_pk']+'&Tb_index='+this['Tb_index']+'"><i class="fa fa-pencil-square" aria-hidden="true"></i>修改</a></td>'+
                           '<td class="tool-width"><a class="btn btn-link del_crank" href="javascript:;"><i class="fa fa-trash" aria-hidden="true"></i>刪除</a></td>'+
                           '<input type="hidden" class="sort_in" name="ccs_order[]" value="'+this['Tb_index']+'">'+
