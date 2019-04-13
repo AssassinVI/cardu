@@ -3,11 +3,12 @@
 	.fancybox-slide--iframe .fancybox-content {
     width  : 700px;
     max-width  : 80%;
-    max-height : 80%;
+    max-height : 95%;
     margin: 0;
 }
 
-#over_bank{ margin-bottom: 15px; }
+#over_bank{ max-height: 150px; overflow: auto;}
+#over_org{ max-height: 150px; overflow: auto;}
 .form-group{ margin-bottom:0; padding: 1rem 0; }
 .form-group:nth-child(odd){ background-color: #f5f5f5; }
 
@@ -128,8 +129,6 @@ if ($_POST) {
       $ns_store=empty($_POST['ns_store']) ? '' : $_POST['ns_store'];
       $ns_news=empty($_POST['ns_news']) ? '' : implode(',', $_POST['ns_news']);
       $ns_label=empty($_POST['ns_label']) ? '': implode(',', $_POST['ns_label']);
-      $ns_bank=empty($_POST['ns_bank']) ? '' : implode(',', $_POST['ns_bank']);
-      $ns_org=empty($_POST['ns_org']) ? '' : implode(',', $_POST['ns_org']);
       $activity_s_date=empty($_POST['activity_s_date']) ? '' : $_POST['activity_s_date'];
       $activity_e_date=empty($_POST['activity_e_date']) ? '' : $_POST['activity_e_date'];
       $StartDate=empty($_POST['StartDate']) ? date('Y-m-d') : $_POST['StartDate'];
@@ -139,7 +138,7 @@ if ($_POST) {
 
       //-- 無發卡組織/銀行 --
       if(!empty($_POST['no_BankOrg'])){
-         $ns_bank='no';
+         $ns_card='no';
          $ns_org='no';
       }
       
@@ -163,8 +162,6 @@ if ($_POST) {
 		         'ns_photo_2'=>$ns_photo_2,
 		           'ns_alt_2'=>$_POST['ns_alt_2'],
 		           'ns_label'=>$ns_label,
-		            'ns_bank'=>$ns_bank,
-		             'ns_org'=>$ns_org,
                'ns_kiman'=>$_SESSION['admin_index'],
             'ns_reporter'=>$_SESSION['admin_name'],
                 'ns_date'=>$ns_date,
@@ -183,6 +180,46 @@ if ($_POST) {
   }
 
 	pdo_insert('appNews', $param);
+  
+  //-- 新聞銀行/組織關聯儲存 --
+  if (isset($_POST['ns_card'])) {
+    $x=1;
+    $nbc_id='news_bc'.date('YmdHis').rand(0,99);
+    foreach ($_POST['ns_card'] as $ns_card_one) {
+    $ns_card_one_arr=explode(',', $ns_card_one);
+    $param_bank_card=[
+    'Tb_index'=>$nbc_id.$x,
+    'news_id'=>$Tb_index,
+    'card_type'=>$ns_card_one_arr[0],
+    'bank_id'=>$ns_card_one_arr[1],
+    'card_group_id'=>$ns_card_one_arr[2],
+    'org_id'=>$ns_card_one_arr[3],
+    'level_id'=>$ns_card_one_arr[4],
+    ];
+    pdo_insert('appNews_bank_card', $param_bank_card);
+    $x++;
+  }
+ }
+
+  if (isset($_POST['ns_org'])) {
+    $x=1;
+    $nbc_id='news_bc'.date('YmdHis').rand(0,99);
+    foreach ($_POST['ns_org'] as $ns_org_one) {
+    $ns_org_one_arr=explode(',', $ns_org_one);
+    $param_bank_card=[
+    'Tb_index'=>$nbc_id.$x,
+    'news_id'=>$Tb_index,
+    'card_type'=>$ns_org_one_arr[0],
+    'org_id'=>$ns_org_one_arr[1],
+    'level_id'=>$ns_org_one_arr[2],
+    ];
+    pdo_insert('appNews_bank_card', $param_bank_card);
+    $x++;
+   }
+  }
+
+  //-- 新聞銀行/組織關聯儲存 END --
+  
 
 	location_up('manager_view.php?MT_id='.$_POST['mt_id'].'&Tb_index='.$Tb_index,'');
    }
@@ -281,8 +318,6 @@ if ($_POST) {
    $ns_store=empty($_POST['ns_store']) ? '' : $_POST['ns_store'];
    $ns_news=empty($_POST['ns_news']) ? '' : implode(',', $_POST['ns_news']);
    $ns_label=empty($_POST['ns_label']) ? '': implode(',', $_POST['ns_label']);
-   $ns_bank=empty($_POST['ns_bank']) ? '' : implode(',', $_POST['ns_bank']);
-   $ns_org=empty($_POST['ns_org']) ? '' : implode(',', $_POST['ns_org']);
    $activity_s_date=empty($_POST['activity_s_date']) ? '' : $_POST['activity_s_date'];
    $activity_e_date=empty($_POST['activity_e_date']) ? '' : $_POST['activity_e_date'];
    $StartDate=empty($_POST['StartDate']) ? date('Y-m-d') : $_POST['StartDate'];
@@ -292,7 +327,7 @@ if ($_POST) {
 
    //-- 無發卡組織/銀行 --
    if(!empty($_POST['no_BankOrg'])){
-      $ns_bank='no';
+      $ns_card='no';
       $ns_org='no';
    }
     
@@ -310,8 +345,6 @@ if ($_POST) {
 		           'ns_alt_1'=>$_POST['ns_alt_1'],
 		           'ns_alt_2'=>$_POST['ns_alt_2'],
 		           'ns_label'=>$ns_label,
-		            'ns_bank'=>$ns_bank,
-		             'ns_org'=>$ns_org,
                 'ns_date'=>$ns_date,
         'activity_s_date'=>$activity_s_date,
         'activity_e_date'=>$activity_e_date,
@@ -328,6 +361,49 @@ if ($_POST) {
 
     $where=array( 'Tb_index'=>$Tb_index );
 	pdo_update('appNews', $param, $where);
+
+  
+  //-- 新聞銀行/組織關聯儲存 --
+  pdo_delete('appNews_bank_card', ['news_id'=>$Tb_index]);
+
+  if (isset($_POST['ns_card'])) {
+  
+    $x=1;
+    $nbc_id='news_bc'.date('YmdHis').rand(0,99);
+    foreach ($_POST['ns_card'] as $ns_card_one) {
+    $ns_card_one_arr=explode(',', $ns_card_one);
+    $param_bank_card=[
+    'Tb_index'=>$nbc_id.$x,
+    'news_id'=>$Tb_index,
+    'card_type'=>$ns_card_one_arr[0],
+    'bank_id'=>$ns_card_one_arr[1],
+    'card_group_id'=>$ns_card_one_arr[2],
+    'org_id'=>$ns_card_one_arr[3],
+    'level_id'=>$ns_card_one_arr[4],
+    ];
+    pdo_insert('appNews_bank_card', $param_bank_card);
+    $x++;
+  }
+ }
+
+  if (isset($_POST['ns_org'])) {
+
+    $x=1;
+    $nbc_id='news_bc'.date('YmdHis').rand(0,99);
+    foreach ($_POST['ns_org'] as $ns_org_one) {
+    $ns_org_one_arr=explode(',', $ns_org_one);
+    $param_bank_card=[
+    'Tb_index'=>$nbc_id.$x,
+    'news_id'=>$Tb_index,
+    'card_type'=>$ns_org_one_arr[0],
+    'org_id'=>$ns_org_one_arr[1],
+    'level_id'=>$ns_org_one_arr[2],
+    ];
+    pdo_insert('appNews_bank_card', $param_bank_card);
+    $x++;
+   }
+  }
+
 	
   location_up('manager_view.php?MT_id='.$_POST['mt_id'].'&Tb_index='.$Tb_index,'');
   }
@@ -343,8 +419,7 @@ if ($_GET) {
     
     $ns_nt_ot_pk=empty($row['ns_nt_ot_pk']) ? '': explode(',', $row['ns_nt_ot_pk']);
     $ns_label=empty($row['ns_label']) ? '' : explode(',', $row['ns_label']);
-    $ns_bank=empty($row['ns_bank']) ? '' : explode(',', $row['ns_bank']);
-    $ns_org=empty($row['ns_org']) ? '' : explode(',', $row['ns_org']);
+    $ns_card=empty($row['ns_card']) ? '' : explode(',', $row['ns_card']);
     $ns_news=empty( $row['ns_news']) ? '' : explode(',', $row['ns_news']);
  	//$ns_date=empty($row['ns_date']) ? date('Y-m-d'): $row['ns_date'];
   //$ns_reporter=empty($row['ns_reporter']) ? $_SESSION['admin_name'] : $row['ns_reporter'];
@@ -354,6 +429,7 @@ if ($_GET) {
   $activity_e_date=empty($row['activity_e_date']) ? '' : $row['activity_e_date'];
  	$StartDate=empty($row['StartDate']) ? date('Y-m-d'): $row['StartDate'];
  	$EndDate=empty($row['EndDate']) ? date('Y-m-d', strtotime('+1 month')) : $row['EndDate'];
+
 
   //-- 顯示分類 --
   if (!empty($row['ns_nt_pk']) && $row['ns_nt_pk']!='nt201902121004593' && $row['ns_nt_pk']!='nt2019021210051224') {
@@ -492,41 +568,64 @@ if ($_GET) {
             </div>
 
             <div class="form-group">
-              <label class="col-md-2 control-label" for="ns_bank"><span class="text-danger">*</span>發卡組織&銀行關聯</label>
+              <label class="col-md-2 control-label" for="ns_card"><span class="text-danger">*</span>情報來源</label>
               <div  class="col-md-8">
                 <div id="over_bank">
 
                   <?php 
-                   if (!empty($row['ns_bank'])) {
-                    if ($row['ns_bank']!='no') {
-                      for ($i=0; $i <count($ns_bank); $i++) { 
-                                       $bank_name=pdo_select("SELECT bi_shortname, bi_code FROM bank_info WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_bank[$i]]);
-                                       echo '<span class="label">['.$bank_name['bi_code'].']'.$bank_name['bi_shortname'].' <input type="hidden" name="ns_bank[]" value="'.$ns_bank[$i].'"></span>、';
-                                    }
+
+                    if ($row['ns_card']!='no') {
+
+                      $where=['news_id'=>$_GET['Tb_index']];
+                      $row_bank_card=$NewPdo->select("SELECT nbc.card_type, nbc.bank_id, nbc.card_group_id, nbc.org_id, nbc.level_id, bk.bi_code, bk.bi_shortname, cc.cc_cardname, org.org_nickname, level.attr_name
+                                                      FROM appNews_bank_card as nbc 
+                                                      INNER JOIN bank_info as bk ON nbc.bank_id=bk.Tb_index 
+                                                      INNER JOIN credit_card as cc ON nbc.card_group_id=cc.cc_group_id 
+                                                      INNER JOIN card_org as org ON nbc.org_id=org.Tb_index 
+                                                      INNER JOIN card_level as level ON nbc.level_id=level.Tb_index 
+                                                      WHERE nbc.news_id=:news_id AND nbc.bank_id!='' AND nbc.card_group_id!='' 
+                                                      GROUP BY nbc.Tb_index
+                                                      ORDER BY nbc.bank_id, nbc.card_group_id, nbc.org_id, nbc.level_id", $where);
+
+                      foreach ($row_bank_card as $row_bank_card_one) {
+                        $card_id=$row_bank_card_one['card_type'].','.$row_bank_card_one['bank_id'].','.$row_bank_card_one['card_group_id'].','.$row_bank_card_one['org_id'].','.$row_bank_card_one['level_id'];
+                        $card_name_txt='['.$row_bank_card_one['bi_code'].']'.$row_bank_card_one['bi_shortname'].' '.$row_bank_card_one['cc_cardname'].' '.$row_bank_card_one['org_nickname'].' '.$row_bank_card_one['attr_name'];
+                        echo '<span class="label">'.$card_name_txt.' <input type="hidden" name="ns_card[]" card_name="'.$card_name_txt.'" value="'.$card_id.'"></span><br>';
+                      }
                     }
                     else{
-                       echo '<input type="hidden" name="ns_bank[]" value="no">';
+                       echo '<input type="hidden" name="ns_card[]" value="no">';
                     }
-                   }
+                   
                   ?>
 
                 </div>
                 <div id="over_org">
 
                   <?php 
-                   if(!empty($row['ns_org'])){
+
                      if ($row['ns_org']!='no') {
-                       for ($i=0; $i <count($ns_org); $i++) { 
-                                       $org_name=pdo_select("SELECT org_name FROM card_org WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_org[$i]]);
-                                       echo '<span class="label">'.$org_name['org_name'].' <input type="hidden" name="ns_org[]" value="'.$ns_org[$i].'"></span>、';
-                                    }
+
+                       //-- 銀行/組織關聯 --
+                       $where=array('news_id'=>$_GET['Tb_index']);
+                       $row_org=pdo_select("SELECT nbc.card_type, nbc.org_id, nbc.level_id, org.org_nickname, level.attr_name
+                                            FROM appNews_bank_card as nbc
+                                            INNER JOIN card_org as org ON nbc.org_id=org.Tb_index 
+                                            INNER JOIN card_level as level ON nbc.level_id=level.Tb_index 
+                                            WHERE nbc.news_id=:news_id AND nbc.bank_id='' AND nbc.card_group_id=''", $where);
+
+                       foreach ($row_org as $row_org_one) {
+                         $orglevel_name=$row_org_one['card_type']=='1' ? '所有銀行'.$row_org_one['org_nickname'].$row_org_one['attr_name'] : '所有銀行'.$row_org_one['org_nickname'].$row_org_one['attr_name'].'金融卡';
+                         echo '<span class="label">'.$orglevel_name.' <input type="hidden" name="ns_org[]" orglevel_name="'.$orglevel_name.'" value="'.$row_org_one['card_type'].','.$row_org_one['org_id'].','.$row_org_one['level_id'].'"></span><br>';
+                       }
+
                      }
                      else{
                        echo '<input type="hidden" name="ns_org[]" value="no">';
                      }
-                   }
+                   
                   ?>
-
+                  
                 </div>
               </div>
               <div class="col-md-2">
@@ -534,7 +633,7 @@ if ($_GET) {
                 <a href="../cardNews_public/newsOrg_windows.php" data-fancybox data-type="iframe" class="btn btn-info btn-block my-025">選擇發卡組織</a>
                 <a href="javascript:;" id="clean_BankOrg" class="btn btn-default btn-block my-025">清除</a>
                 <?php
-                  if ($row['ns_bank']=='no' && $row['ns_org']=='no') {
+                  if ($row['ns_card']=='no' && $row['ns_org']=='no') {
                     echo '<label><input type="checkbox" name="no_BankOrg" checked value="1"> 無發卡組織/銀行</label>';
                   }
                   else{
@@ -743,7 +842,6 @@ if ($_GET) {
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
 					<div class="row">
-
 						<div class="col-lg-4">
 						<?php if(empty($_GET['Tb_index'])){?>
 							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">預覽</button>
@@ -751,7 +849,6 @@ if ($_GET) {
 						    <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">更新</button>
 						<?php }?>
 						</div>
-
 					</div>
 					
 				</div><!-- /.panel-body -->
@@ -811,7 +908,11 @@ if ($_GET) {
               $('#over_bank').html('');
               $('#over_org').html('');
               sessionStorage.removeItem("news_bank");
-              sessionStorage.removeItem("news_org");
+              sessionStorage.removeItem("news_card");
+              sessionStorage.removeItem("news_card_name");
+              sessionStorage.removeItem("news_card_orglevel");
+              sessionStorage.removeItem("news_card_orglevel_name");
+
               $('[name="no_BankOrg"]').prop('disabled', false);
             }
           });
@@ -820,7 +921,7 @@ if ($_GET) {
           //-- 無發卡租之/銀行 --
           $('[name="no_BankOrg"]').change(function(event) {
             if ($(this).prop('checked')==true) {
-              $('#over_bank').html('<input type="hidden" name="ns_bank[]" value="no">');
+              $('#over_bank').html('<input type="hidden" name="ns_card[]" value="no">');
               $('#over_org').html('<input type="hidden" name="ns_org[]" value="no">');
             }
             else{
@@ -828,7 +929,6 @@ if ($_GET) {
               $('#over_org').html('');
             }
           });
-
 
 
           //-- 預覽、更新 ---
@@ -844,7 +944,7 @@ if ($_GET) {
           	err_txt = err_txt + check_input( '#ns_ftitle', '主標題，' );
             err_txt = err_txt + check_input( '#StartDate', '上架起始日，' );
             err_txt = err_txt + check_input( '#EndDate', '上架結束日，' );
-            if ($('[name="ns_bank[]"]').length<1 && $('[name="ns_org[]"]').length<1) {
+            if ($('[name="ns_card[]"]').length<1 && $('[name="ns_org[]"]').length<1) {
               err_txt = err_txt + '發卡組織&銀行關聯，';
             }
             err_txt = CKEDITOR.instances.ckeditor.getData()=='' ? err_txt + '內容，' : err_txt;
@@ -861,6 +961,7 @@ if ($_GET) {
              $('#put_form').submit();
           	}
           });
+
 
 
 
@@ -963,6 +1064,63 @@ if ($_GET) {
         sessionStorage.setItem("news_ot_type", news_ot_type);
     }
 
+
+    //-- 情報來源 --
+    if ($('[name="ns_card[]"]').length>0) {
+     
+     //-- 銀行 --
+     var news_bank_arr=[];
+
+      $.ajax({
+      url: '../cardNews_public/newsBank_windows_ajax.php',
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        type: 'check_bank',
+        news_id: $('#Tb_index').val()
+      },
+      success:function (data) {
+        $.each(data, function(index, val) {
+           var card_type=this['card_type']=='1' ? 'credit_card':'debit_card';
+           var card_type_name=this['card_type']=='1' ? '信用卡':'金融卡';
+           var news_bank_one=card_type+','+this['bank_id']+'|'+card_type_name+','+this['bi_shortname'];
+           news_bank_arr.push(news_bank_one);
+
+        });
+
+        //-- 銀行暫存 --
+        sessionStorage.setItem("news_bank", news_bank_arr.join('*'));
+      }
+    });
+      
+
+       var card_arr=[];
+       var card_name_arr=[];
+       $.each($('[name="ns_card[]"]'), function(index, val) {
+          card_arr.push($(this).val());
+          card_name_arr.push($(this).attr('card_name'));
+       });
+
+      //-- 記錄暫存 --
+      sessionStorage.setItem("news_card", card_arr.join('|'));
+      sessionStorage.setItem("news_card_name", card_name_arr.join(','));
+    }
+    
+    //-- 情報來源(銀行組織關聯) --
+    if ($('[name="ns_org[]"]').length>0) {
+      var news_card_orglevel_arr=[];
+      var news_card_orglevel_name_arr=[];
+      $.each($('[name="ns_org[]"]'), function(index, val) {
+         news_card_orglevel_arr.push($(this).val());
+         news_card_orglevel_name_arr.push($(this).attr('orglevel_name'));
+      });
+      
+      //-- 記錄暫存 --
+      sessionStorage.setItem("news_card_orglevel", news_card_orglevel_arr.join('|'));
+      sessionStorage.setItem("news_card_orglevel_name", news_card_orglevel_name_arr);
+    }
+
+
     //-- 新卡訊 --
     if ($('[name="area_id"][value="at2019021114160725"]').prop('checked')==true) {
       $('#ccard_sp').css('display', 'block');
@@ -992,15 +1150,15 @@ if ($_GET) {
 		}
         
         //-- 銀行關聯 --
-		if ($('[name="ns_bank[]"]').length>0) {
-            var bank_arr=[];
-			$.each($('[name="ns_bank[]"]'), function() {
-			  bank_arr.push($(this).val());
-			});
-      $('[name="no_BankOrg"]').prop('disabled', true);
-			//-- 記錄暫存 --
-      sessionStorage.setItem("news_bank", bank_arr);
-		}
+		// if ($('[name="ns_card[]"]').length>0) {
+  //           var bank_arr=[];
+		// 	$.each($('[name="ns_card[]"]'), function() {
+		// 	  bank_arr.push($(this).val());
+		// 	});
+  //     $('[name="no_BankOrg"]').prop('disabled', true);
+		// 	//-- 記錄暫存 --
+  //     sessionStorage.setItem("news_bank", bank_arr);
+		// }
 
 		//-- 發卡組織關聯 --
 		if ($('[name="ns_org[]"]').length>0) {

@@ -44,46 +44,39 @@ if ($_GET) {
 
   $Start_End_day=$row['StartDate'].' ~ '.$row['EndDate'];
 
-  //-- 情報來源 --
-  
-  //-- 銀行 --
-  $bank_name=[];
-  $bank_logo=[];
-  $bank_arr=pdo_select('SELECT Tb_index, bi_shortname, bi_logo FROM bank_info', 'no');
-  foreach ($bank_arr as $bank_one) {
-    $bank_name[$bank_one['Tb_index']]=$bank_one['bi_shortname'];
-    $bank_logo[$bank_one['Tb_index']]=$bank_one['bi_logo'];
-  }
-  //-- 組織 --
-  $org_name=[];
-  $org_arr=pdo_select('SELECT Tb_index, mt_id, org_nickname FROM card_org', 'no');
-  foreach ($org_arr as $org_one) {
-    //-- 信用卡 --
-    if ($org_one['mt_id']=='site2018110611172385') {
-      $org_name[$org_one['Tb_index']]='[信用卡]'.$org_one['org_nickname'];
-    }
-    //-- 金融卡 --
-    else{
-      $org_name[$org_one['Tb_index']]='[金融卡]'.$org_one['org_nickname'];
-    }
-    
+
+  //------------------- 情報來源 ----------------------
+
+  //-- 銀行卡 --
+  $where=['news_id'=>$_GET['Tb_index']];
+  $row_bank_card=$NewPdo->select("SELECT nbc.card_type, nbc.bank_id, nbc.card_group_id, nbc.org_id, nbc.level_id, bk.bi_code, bk.bi_shortname, bk.bi_logo, cc.cc_cardname, org.org_nickname, level.attr_name
+                                                      FROM appNews_bank_card as nbc 
+                                                      INNER JOIN bank_info as bk ON nbc.bank_id=bk.Tb_index 
+                                                      INNER JOIN credit_card as cc ON nbc.card_group_id=cc.cc_group_id 
+                                                      INNER JOIN card_org as org ON nbc.org_id=org.Tb_index 
+                                                      INNER JOIN card_level as level ON nbc.level_id=level.Tb_index 
+                                                      WHERE nbc.news_id=:news_id AND nbc.bank_id!='' AND nbc.card_group_id!='' 
+                                                      GROUP BY nbc.Tb_index
+                                                      ORDER BY nbc.bank_id, nbc.card_group_id, nbc.org_id, nbc.level_id", $where);
+
+  foreach ($row_bank_card as $row_bank_card_one) {
+    //-群組銀行-
+    $bank_card_group[$row_bank_card_one['bi_shortname']][]=$row_bank_card_one;
   }
 
-  $ns_bank_arr=explode(',', $row['ns_bank']);
-  $ns_org_arr=explode(',', $row['ns_org']);
-  $ns_bank_txt='';
-  $ns_org_txt='';
+  //-- 卡組織 --
+  $where=['news_id'=>$_GET['Tb_index']];
+  $row_orglevel=$NewPdo->select("SELECT nbc.card_type, nbc.org_id, nbc.level_id, org.org_nickname, level.attr_name
+                                                      FROM appNews_bank_card as nbc 
+                                                      INNER JOIN card_org as org ON nbc.org_id=org.Tb_index 
+                                                      INNER JOIN card_level as level ON nbc.level_id=level.Tb_index 
+                                                      WHERE nbc.news_id=:news_id AND nbc.bank_id='' AND nbc.card_group_id='' 
+                                                      ORDER BY nbc.org_id, nbc.level_id", $where);
 
-  foreach ($ns_bank_arr as $ns_bank_one) {
-    $ns_bank_txt.=$bank_name[$ns_bank_one].',';
-  }
 
-  foreach ($ns_org_arr as $ns_org_one) {
-    $ns_org_txt.=$org_name[$ns_org_one].',';
-  }
+  //----------------- 情報來源 END-----------------------
 
-  $ns_bank_org=substr($ns_bank_txt.$ns_org_txt, 0,-1) ;
-  //-- 情報來源 END--
+
 
   //---------------------------------------- 分類 ------------------------------------
   $type_arr=[];
@@ -224,7 +217,14 @@ if ($_GET) {
                   <?php 
                    //-- 銀行活動 --
                    if ($row['ns_bank']!='no' && $row['ns_org']!='no') {
-                     echo '<h4><img class="bank_logo" src="../../img/'.$bank_logo[$row['ns_bank']].'" alt=""> '.$bank_name[$row['ns_bank']].' <b>活動時間：'.$activity_date.'</b></h4>';
+                     if (count($bank_card_group)>=2) {
+                       echo '<h4><b>活動時間：'.$activity_date.'</b></h4>';
+                     }
+                     else{
+                       foreach ($bank_card_group as $key => $bank_card){
+                         echo '<h4><img class="bank_logo" src="../../img/'.$bank_card[0]['bi_logo'].'" alt=""> '.$key.' <b>活動時間：'.$activity_date.'</b></h4>';
+                       }
+                     }
                    }
                    ?>
                 </div>
@@ -256,7 +256,29 @@ if ($_GET) {
                   <div class="news_info">
                     <p>情報分類：<?php echo $newsType_txt;?></p>
                     <p>上架日期：<?php echo $Start_End_day;?></p>
-                    <p>情報來源：<?php echo $ns_bank_org;?></p>
+                    <p>情報來源：
+                     <?php 
+                       //-- 銀行卡 --
+                       foreach ($bank_card_group as $key => $bank_card) {
+                         
+                         echo '<div>'.$key.'<a class="check_bank_card" href="javascript:;">查看</a>
+                                  <div style="display: none">';
+                             
+                             foreach ($bank_card as $bank_card_one) {
+                                $card_type=$bank_card_one['card_type']=='1' ? '信用卡':'金融卡';
+                                echo $key.$bank_card_one['cc_cardname'].$bank_card_one['org_nickname'].$bank_card_one['attr_name'].'<br>';
+                             }  
+
+                         echo '   </div>
+                              </div>';
+                       }
+
+                       //-- 卡組織 --
+                       foreach ($row_orglevel as $row_orglevel_one) {
+                         echo '所有銀行'.$row_orglevel_one['org_nickname'].$row_orglevel_one['attr_name'].'<br>';
+                       }
+                     ?>
+                    </p>
                   </div>
 
                 </div>
@@ -313,8 +335,24 @@ if ($_GET) {
                    <?php echo $ns_news_name_txt;?>
                  </ul>
                 </li>
-                <li>發卡組織：<?php echo $news_orgs_txt;?></li>
-                <li>來源銀行：<?php echo $news_banks_txt;?></li>
+                <li>發卡組織：<br>
+                  <?php 
+                    //-- 卡組織 --
+                    foreach ($row_orglevel as $row_orglevel_one) {
+                      echo '所有銀行'.$row_orglevel_one['org_nickname'].$row_orglevel_one['attr_name'].'<br>';
+                    }
+                  ?>
+                </li>
+                <li>來源銀行：
+                  <?php 
+                   //-- 銀行卡 --
+                   $bank_txt='';
+                   foreach ($bank_card_group as $key => $bank_card) {
+                     $bank_txt.=$key.'、';
+                   }
+                   echo  mb_substr($bank_txt, 0,-1,'utf-8');
+                  ?>
+                </li>
                 <li>來源商店：<?php echo $ns_store['st_name'];?></li>
                 <li>撰文者：<?php echo $row['ns_reporter'];?></li>
                 <li>發布日期：<?php echo $row['ns_date'];?></li>
@@ -368,6 +406,13 @@ if ($_GET) {
          img_txt('.news_div p img');
 
 
+
+         //-- 查看展開 --
+          $('.check_bank_card').click(function(event) {
+            $(this).next().slideToggle('fast');
+          });
+
+
           $('#confirm_btn').click(function(event) {
             if ($('#ns_verify').val()!='') {
               $('#put_form').submit();
@@ -379,7 +424,7 @@ if ($_GET) {
           });
 
           $('#back_btn').click(function(event) {
-            window.history.back();
+            location.href='admin.php?MT_id=site2019011115583335';
           });
           
 

@@ -5,7 +5,7 @@ require '../../core/inc/pdo_fun_calss.php';
 require_once '../../core/inc/security.php';
 require '../../core/inc/ssp.class.php';
 
-
+$pdo=new PDO_fun;
 
 // DB table to use
 $table = 'appNews';
@@ -41,12 +41,19 @@ $columns = array(
         }),
     array( 'db' => 'ns_ftitle', 'dt' => 2 ),
     array( 
-        'db' => 'ns_bank',  
+        'db' => 'Tb_index',  
         'dt' => 3,
         'formatter'=>function( $d, $row ){
 
             //-- 銀行 (名稱) --
-            $row_bank=pdo_select("SELECT bi_shortname FROM bank_info WHERE Tb_index=:Tb_index", ['Tb_index'=>$d]);
+            $pdo=new PDO_fun;
+            $where=['news_id'=>$d];
+            $row_bank=$pdo->select("SELECT bk.bi_shortname
+                                        FROM appNews_bank_card as nbc 
+                                        INNER JOIN bank_info as bk ON nbc.bank_id=bk.Tb_index 
+                                        WHERE nbc.news_id=:news_id AND nbc.bank_id!='' AND nbc.card_group_id!='' 
+                                        GROUP BY nbc.bank_id 
+                                        LIMIT 0,1", $where, 'one');
             return $row_bank['bi_shortname'];
 
         }),
@@ -131,7 +138,7 @@ $columns = array(
 // SQL server connection information--> to config.php
 $sql_details = $DataTable_sql_conn;
 
-$pdo=new PDO_fun;
+
 //-- 單元分類 --
 $area_news_type_txt='';
 

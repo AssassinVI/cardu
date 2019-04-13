@@ -28,12 +28,6 @@ if ($_GET) {
   	$area_arr[$area_one['Tb_index']]=$area_one['at_name'];
   }
 
-  //-- 銀行資料 --
-  $bank_arr=[];
-  $bank_row=pdo_select('SELECT Tb_index, bi_shortname FROM bank_info', 'no');
-  foreach ($bank_row as $bank_one) {
-  	$bank_arr[$bank_one['Tb_index']]=$bank_one['bi_shortname'];
-  }
 
   
 
@@ -88,6 +82,16 @@ if ($_GET) {
 
 						     while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
 
+						      //-- 情報銀行 --
+						      $where=['news_id'=>$row['Tb_index']];
+						      $row_bank=$NewPdo->select("SELECT bk.bi_shortname
+						                                  FROM appNews_bank_card as nbc 
+						                                  INNER JOIN bank_info as bk ON nbc.bank_id=bk.Tb_index 
+						                                  WHERE nbc.news_id=:news_id AND nbc.bank_id!='' AND nbc.card_group_id!='' 
+						                                  GROUP BY nbc.bank_id 
+						                                  LIMIT 0,1", $where, 'one');
+
+
                               //-- 商店 --
                               $ns_store=pdo_select('SELECT * FROM store WHERE Tb_index=:Tb_index', ['Tb_index'=>$row['ns_store']]);
 
@@ -123,7 +127,7 @@ if ($_GET) {
 								<td><?php echo $ns_nt_pk['nt_name'];?></td>
 								<td><?php echo $row['ns_ftitle']; ?></td>
 								<td><?php echo $ns_store['st_name']; ?></td>
-								<td><?php echo $bank_arr[$row['ns_bank']]; ?></td>
+								<td><?php echo $row_bank['bi_shortname']; ?></td>
 								
 								<td><?php echo $StartAndEndDate;?></td>
 								<td><?php echo $row['ns_reporter'];?></td>

@@ -33,19 +33,6 @@
        $area_news_type_txt=" ns_nt_pk LIKE '%%' AND ";
    }
 
-   //-- 銀行 (名稱) --
-   $bank_names_arr=[];
-   $bank=$pdo->select("SELECT Tb_index, bi_shortname FROM bank_info");
-   foreach ($bank as $bank_one) {
-     $bank_names_arr[$bank_one['Tb_index']]=$bank_one['bi_shortname'];
-   }
-
-   //-- 組織 (名稱) --
-   $org_names_arr=[];
-   $org=$pdo->select("SELECT Tb_index, org_nickname FROM card_org");
-   foreach ($org as $org_one) {
-     $org_names_arr[$org_one['Tb_index']]=$org_one['org_nickname'];
-   }
    
 
    //-- 活動期間 --
@@ -142,8 +129,33 @@
                $row_type_arr[$row_type_one['Tb_index']]=$row_type_one['nt_name'];
             }
 
-            //-- 組織/銀行 --
-            $bank_org=empty($row_one['ns_bank']) ? $org_names_arr[$row_one['ns_org']] : $bank_names_arr[$row_one['ns_bank']] ;
+
+
+            //--------------- 組織/銀行 -------------------
+
+            //-- 情報組織 --
+            $where_org=['news_id'=>$row_one['Tb_index']];
+            $row_org=$pdo->select("SELECT org.org_nickname
+                                        FROM appNews_bank_card as nbc 
+                                        INNER JOIN card_org as org ON nbc.org_id=org.Tb_index 
+                                        WHERE nbc.news_id=:news_id AND nbc.bank_id='' AND nbc.card_group_id='' 
+                                        GROUP BY nbc.org_id 
+                                        LIMIT 0,1", $where_org, 'one');
+
+            //-- 情報銀行 --
+            $where_bank=['news_id'=>$row_one['Tb_index']];
+            $row_bank=$pdo->select("SELECT bk.bi_shortname
+                                        FROM appNews_bank_card as nbc 
+                                        INNER JOIN bank_info as bk ON nbc.bank_id=bk.Tb_index 
+                                        WHERE nbc.news_id=:news_id AND nbc.bank_id!='' AND nbc.card_group_id!='' 
+                                        GROUP BY nbc.bank_id 
+                                        LIMIT 0,1", $where_bank, 'one');
+
+            $row_bank_org=empty($row_bank['bi_shortname']) ? $row_org['org_nickname']:$row_bank['bi_shortname'];
+
+            //--------------- 組織/銀行 END -------------------
+            
+
 
             //-- 情報狀態 --
             $ns_verify_arr=['ver_0'=>'草稿', 'ver_2'=>'審核中', 'ver_3'=>'已上架', 'ver_5'=>'退稿', 'ver_7'=>'下架'];
@@ -163,7 +175,8 @@
 
           <td>'.$row_type_arr[$row_one['ns_nt_pk']].'</td>
           <td>'.$row_one['ns_ftitle'].'</td>
-          <td>'.$bank_org.'</td>
+          <td>'.$row_bank_org.'</td>
+
           <td>'.$row_one['ns_viewcount'].'</td>
           <td>'.$row_one['ns_mobvecount'].'</td>
           <td>'.$row_one['ns_proj_viewcount'].'</td>

@@ -28,12 +28,6 @@ if ($_GET) {
   	$area_arr[$area_one['Tb_index']]=$area_one['at_name'];
   }
 
-  //-- 銀行資料 --
-  $bank_arr=[];
-  $bank_row=pdo_select('SELECT Tb_index, bi_shortname FROM bank_info', 'no');
-  foreach ($bank_row as $bank_one) {
-  	$bank_arr[$bank_one['Tb_index']]=$bank_one['bi_shortname'];
-  }
 
 
    $pdo=pdo_conn();
@@ -86,6 +80,18 @@ if ($_GET) {
 						     $i=1;
 						     while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
 
+
+						      //-- 情報銀行 --
+						      $where=['news_id'=>$row['Tb_index']];
+						      $row_bank=$NewPdo->select("SELECT bk.bi_shortname
+						                                  FROM appNews_bank_card as nbc 
+						                                  INNER JOIN bank_info as bk ON nbc.bank_id=bk.Tb_index 
+						                                  WHERE nbc.news_id=:news_id AND nbc.bank_id!='' AND nbc.card_group_id!='' 
+						                                  GROUP BY nbc.bank_id 
+						                                  LIMIT 0,1", $where, 'one');
+                              //-- 情報銀行 END --
+
+
 						      $ns_nt_pk=pdo_select("SELECT area_id, nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_pk']]);
 
                               //審核狀態 ns_verify 0.草稿; 1.送一審中; 2.送二審中; 3.審核通過; 4.退回一審; 5.退稿; 6.退件 9.放棄
@@ -118,7 +124,7 @@ if ($_GET) {
 								<td><?php echo $ns_nt_pk['nt_name'];?></td>
 								<td><?php echo $row['ns_ftitle']; ?></td>
 								<td><?php echo $ns_verify;?></td>
-								<td><?php echo $bank_arr[$row['ns_bank']]; ?></td>
+								<td><?php echo $row_bank['bi_shortname']; ?></td>
 								<td><?php echo $row['ns_fwdate'];?></td>
 								<td><?php echo $row['ns_reporter'];?></td>
 						
