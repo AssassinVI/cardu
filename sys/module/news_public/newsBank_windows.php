@@ -28,7 +28,7 @@
 							<div class="col-md-9 row">
 								<?php
                                   foreach ($row_bank as $row_bank_one) {
-                                  	echo '<label class="col-xs-6"><input type="radio" name="news_bank" bankName="['.$row_bank_one['bi_code'].']'.$row_bank_one['bi_shortname'].'" value="'.$row_bank_one['Tb_index'].'"> ['.$row_bank_one['bi_code'].']'.$row_bank_one['bi_shortname'].'</label>';
+                                  	echo '<label class="col-xs-6"><input type="checkbox" name="news_bank" bankName="['.$row_bank_one['bi_code'].']'.$row_bank_one['bi_shortname'].'" value="'.$row_bank_one['Tb_index'].'"> ['.$row_bank_one['bi_code'].']'.$row_bank_one['bi_shortname'].'</label>';
                                   }
 								?>
 							</div>

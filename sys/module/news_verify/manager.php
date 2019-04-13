@@ -546,8 +546,15 @@ if ($_GET) {
 								  <?php 
 								   if(!empty($row['ns_org'])){
                                      for ($i=0; $i <count($ns_org); $i++) { 
-                                       $org_name=pdo_select("SELECT org_name FROM card_org WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_org[$i]]);
-                                       echo '<span class="label">'.$org_name['org_name'].' <input type="hidden" name="ns_org[]" value="'.$ns_org[$i].'"></span>、';
+                                       $org_name=pdo_select("SELECT mt_id, org_name FROM card_org WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_org[$i]]);
+                                       //-- 信用卡 --
+                                       if ($org_name['mt_id']=='site2018110611172385') {
+                                         echo '<span class="label">[信用卡] '.$org_name['org_name'].' <input type="hidden" name="ns_org[]" value="'.$ns_org[$i].'"></span>、';
+                                       }
+                                       //-- 金融卡 --
+                                       else{
+                                         echo '<span class="label">[金融卡] '.$org_name['org_name'].' <input type="hidden" name="ns_org[]" value="'.$ns_org[$i].'"></span>、';
+                                       }
                                     }
 								   }
 								  ?>
