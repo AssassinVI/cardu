@@ -628,45 +628,89 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-
-
             /*------------------------ 熱門情報 輪播 --------------------------*/
+            hotNews_slide = new Swiper ('.HotNews_slide', {
+                  speed:1000,
+                  loop:true,
+                  observer:true,
+                  observeParents:true,
+                  autoplay: {
+                      disableOnInteraction:false,
+                      delay: 5000
+                  },
+                  // 如果需要前进后退按钮
+                  navigation: {
+                    nextEl: '.HotNews_slide .swiper-button-next',
+                    prevEl: '.HotNews_slide .swiper-button-prev',
+                  }
+                });  
 
-            var news_Swiper = new Swiper ('.HotNews_slide.swiper-container', {
-               speed:1000,
-               loop:true,
-               autoplay: {
-                   disableOnInteraction:false,
-                   delay: 5000
-               },
-               // 如果需要前进后退按钮
-               navigation: {
-                 nextEl: '.HotNews_slide .swiper-button-next',
-                 prevEl: '.HotNews_slide .swiper-button-prev',
-               }
-              
-              
-             });  
+               $('.HotNews_slide').mouseenter(function(event) {
 
-            $('.HotNews_slide').mouseenter(function(event) {
+                $(this).find(".swiper-button-prev").css('left', '0%');
+                $(this).find(".swiper-button-next").css('right', '0%');
+                 hotNews_slide.autoplay.stop();
+               });
 
-             $(".HotNews_slide .swiper-button-prev").css('left', '0%');
-             $(".HotNews_slide .swiper-button-next").css('right', '0%');
-              news_Swiper.autoplay.stop();
+               $('.HotNews_slide').mouseleave(function(event) {
+
+                $(this).find(".swiper-button-prev").css('left', '-15%');
+                $(this).find(".swiper-button-next").css('right', '-15%');
+                 hotNews_slide.autoplay.start();
+               });
+
+            /*------------------------ 熱門情報 END --------------------------*/
+
+
+
+
+
+
+
+            /*------------------------ 主題分類 六篇 輪播 --------------------------*/
+             var x=1;
+            $.each($('.sub_slide.swiper-container'), function(index, val) {
+               
+               window['sub_slide'+x] = new Swiper ($(this), {
+                  speed:200,
+                  loop:true,
+                  observer:true,
+                  observeParents:true,
+                  autoplay: {
+                      disableOnInteraction:false,
+                      delay: 5000
+                  },
+
+                  // 如果需要前进后退按钮
+                  navigation: {
+                    nextEl: '.sub_slide .swiper-button-next',
+                    prevEl: '.sub_slide .swiper-button-prev',
+                  }
+                });  
+
+               slide_st_auto($(this), window['sub_slide'+x]);
+
+               // $(this).mouseenter(function(event) {
+
+               //  $(this).find(".swiper-button-prev").css('left', '0%');
+               //  $(this).find(".swiper-button-next").css('right', '0%');
+                
+               // });
+
+               // $(this).mouseleave(function(event) {
+
+               //  $(this).find(".swiper-button-prev").css('left', '-15%');
+               //  $(this).find(".swiper-button-next").css('right', '-15%');
+
+               // });
+               
+               x++;
             });
+            /*------------------------ 主題分類 六篇 輪播 END --------------------------*/
 
-            $('.HotNews_slide').mouseleave(function(event) {
 
-             $(".HotNews_slide .swiper-button-prev").css('left', '-15%');
-             $(".HotNews_slide .swiper-button-next").css('right', '-15%');
-              news_Swiper.autoplay.start();
-            });
 
-            /*------------------------ 熱門情報 輪播 END --------------------------*/
+
 
 
 
@@ -762,6 +806,7 @@ $(document).ready(function() {
                //-- 例外 --
                $('.exception .nav-link').addClass('active show');
                $('.exception .tab-pane').addClass('active show');
+
 
                /*--- 右邊DIV跟隨功能(給予) ---*/
                get_right_div();
@@ -1178,6 +1223,34 @@ if ($('.index-content-right').attr('style')!=undefined) {
 }
 
 /*==================== 右邊DIV跟隨功能(給予) END ===========================*/
+
+
+
+
+
+
+/*============================== 滑鼠經過暫停自動輪播 ====================================*/
+function slide_st_auto(DOM, id) {
+      
+      DOM.mouseenter(function(event) {
+
+       DOM.find(".swiper-button-prev").css('left', '0%');
+       DOM.find(".swiper-button-next").css('right', '0%');
+       id.autoplay.stop();
+      });
+
+       DOM.mouseleave(function(event) {
+
+        DOM.find(".swiper-button-prev").css('left', '-15%');
+        DOM.find(".swiper-button-next").css('right', '-15%');
+        id.autoplay.start();
+       });
+}
+/*============================== 滑鼠經過暫停自動輪播 END ====================================*/
+
+
+
+
 
 
 

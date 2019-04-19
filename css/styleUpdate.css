@@ -60,6 +60,10 @@ background: linear-gradient(to bottom, rgba(240,251,231,1) 0%,rgba(239,238,239,1
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', endColorstr='#efeeef',GradientType=0 ); */
 }
 
+.member_body{
+ background: #f0faff;
+}
+
 /*-- 通用 --*/
 .w-100{ width: 100%; }
 .v-center{
@@ -298,6 +302,35 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8294d6', end
 /*---------------- 熱門情報 END -----------------*/
 
 
+  /*---------------- 主題分類輪播 -----------------*/
+
+.sub_slide .swiper-button-prev i, .sub_slide .swiper-button-next i{
+   width: 35px;
+   height: 35px;
+   text-align: center;
+   background-color: rgba(255, 255, 255, 0.5);
+   color: #6a6a6a;
+   line-height: 2.2rem;
+   border-radius: 50px;
+}
+
+.sub_slide .swiper-button-prev, .sub_slide .swiper-container-rtl .swiper-button-next{
+       height: 100%;
+       width: 45px;
+       left: -15%;
+       top: 6%;
+}
+
+.sub_slide .swiper-button-next, .sub_slide .swiper-container-rtl .swiper-button-prev{
+      height: 100%;
+      width: 45px;
+     right: -15%;
+     top: 6%;
+}
+
+/*---------------- 主題分類輪播 END -----------------*/
+
+
 
 
 
@@ -400,6 +433,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8294d6', end
 .tooltip .arrow::after{ position: absolute; content: ""; border-color: transparent; border-style: solid; }
 .bs-tooltip-auto[x-placement^=bottom] .arrow::after, .bs-tooltip-bottom .arrow::after { bottom: -1px; border-width: 0 0.5rem .5rem; border-bottom-color: #ffffff;}
 .bs-tooltip-auto[x-placement^=bottom] .arrow::before, .bs-tooltip-bottom .arrow::before{ bottom: 0; border-width: 0 .5rem .5rem; border-bottom-color: #d0b3e9; }
+.bs-tooltip-auto[x-placement^=right] .arrow::after, .bs-tooltip-right .arrow::after { right: -1px; border-width: .5rem .5rem .5rem 0; border-right-color: #ffffff;}
+.bs-tooltip-auto[x-placement^=right] .arrow::before, .bs-tooltip-right .arrow::before{ right: 0; border-width: .5rem .5rem .5rem 0; border-right-color: #d0b3e9; }
 
 /*----------------------------- 工具提示框 END ----------------------------------*/
 
@@ -467,3 +502,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9c2f9', end
 /*--------------------------------- 新手快搜-重選 --------------------------------------*/
 .reset_div{ padding: 0 15px; }
 /*--------------------------------- 新手快搜-重選 END --------------------------------------*/
+

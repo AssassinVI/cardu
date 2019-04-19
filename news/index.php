@@ -1,3 +1,10 @@
+<?php session_start();
+//尚未加上link
+//尚未load出舊照片
+//尚未標千還未排除disable的
+require '../sys/core/inc/config.php';
+require '../sys/core/inc/function.php';
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
@@ -61,6 +68,101 @@
                 <div class="row">
 
                   <div class="col-md-12 col">
+                    <?php 
+                    //===================================
+                    //去除所有的空白
+                    //===================================
+
+                    function myTrim($str)
+                    {
+                    $search = array(" ","　","\n","\r","\t");
+                    $replace = array("","","","","");
+                    return str_replace($search, $replace, $str);
+                    }
+
+
+                    $todayis=date("Y-m-d");
+                    //===================================
+                    //取出最新 12筆資料,依審核完成時間
+                    //===================================
+                    $pdo=pdo_conn();
+                    $sql=$pdo->prepare("
+                      SELECT ns_ftitle,ns_photo_1,ns_msghtml FROM  appNews
+                      where mt_id = 'site2018111910430599' and ns_vfdate<>'0000-00-00 00:00:00' 
+                      and  StartDate<='$todayis' and EndDate>='$todayis'
+                      order by ns_vfdate desc
+                      LIMIT 0, 12
+                   
+                      ");
+                    $sql->execute();
+
+
+                    //分批取出part1---------
+                    $i=1; while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
+                      //echo "222".$row['ns_ftitle']."<br>";
+                        if($i==1){
+                          $activeornot="active";
+                        }else{
+                          $activeornot="";
+                        }
+
+                      $ns_ftitle=$row['ns_ftitle'];
+                      $ns_stitle=mb_substr(strip_tags($ns_ftitle),0, 15,"utf-8");
+                      $ns_photo_1="../sys/img/".$row['ns_photo_1'];
+                      $ns_msghtml=mb_substr(myTrim(strip_tags($row['ns_msghtml'])),0, 18,"utf-8");
+
+                      $photo1.="<a href=\"#\" index_img=\"$i\" title=\"$ns_ftitle\" class=\"img_div $activeornot\" style=\"background-image: url($ns_photo_1);\"></a>\n";
+
+
+                      $msg1.="<a class=\"$activeornot\" href=\"#\" index=\"$i\" title=\"$ns_ftitle\">
+                                <h4>$ns_stitle</h4>
+                                <p>$ns_msghtml...</p>
+                              </a>\n";
+                      if ( $i==4 ) break;
+                    $i++; } //end part1
+
+
+                    //分批取出part2---------
+                    $i=1; while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
+                      $activeornot=""; //預設後面都沒有囉
+
+                      $ns_ftitle=$row['ns_ftitle'];
+                      $ns_stitle=mb_substr(strip_tags($ns_ftitle),0, 15,"utf-8");
+                      $ns_photo_1="../sys/img/".$row['ns_photo_1'];
+                      $ns_msghtml=mb_substr(myTrim(strip_tags($row['ns_msghtml'])),0, 18,"utf-8");
+
+                      $photo2.="<a href=\"#\" index_img=\"$i\" title=\"$ns_ftitle\" class=\"img_div $activeornot\" style=\"background-image: url($ns_photo_1);\"></a>\n";
+
+
+                      $msg2.="<a class=\"$activeornot\" href=\"#\" index=\"$i\" title=\"$ns_ftitle\">
+                                <h4>$ns_stitle</h4>
+                                <p>$ns_msghtml...</p>
+                              </a>\n";
+                      if ( $i==4 ) break;
+                    $i++; } //end part2
+
+
+                    //分批取出part2---------
+                    $i=1; while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
+                      $activeornot=""; //預設後面都沒有囉
+
+                      $ns_ftitle=$row['ns_ftitle'];
+                      $ns_stitle=mb_substr(strip_tags($ns_ftitle),0, 15,"utf-8");
+                      $ns_photo_1="../sys/img/".$row['ns_photo_1'];
+                      $ns_msghtml=mb_substr(myTrim(strip_tags($row['ns_msghtml'])),0, 18,"utf-8");
+
+                      $photo3.="<a href=\"#\" index_img=\"$i\" title=\"$ns_ftitle\" class=\"img_div $activeornot\" style=\"background-image: url($ns_photo_1);\"></a>\n";
+
+
+                      $msg3.="<a class=\"$activeornot\" href=\"#\" index=\"$i\" title=\"$ns_ftitle\">
+                                <h4>$ns_stitle</h4>
+                                <p>$ns_msghtml...</p>
+                              </a>\n";
+                      if ( $i==4 ) break;
+                    $i++; } //end part2
+
+
+                    ?>
                   
                       <!-- 四小三大輪播 -->
                       <div id="new_iNews" class="cardshap new_slide">
@@ -70,85 +172,31 @@
 
                                     <div class="slide_div">
                                       <div class="slide_img">
-                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
-                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
+                                        <?php echo $photo1?>
                                       </div>
                                       <div class="slide_list">
-                                        <a class="active" href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
-                                          <h4>ATM「靠臉」就能領錢　台新</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
-                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
+                                         <?php echo $msg1?>
                                       </div>
                                     </div>
                                     
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide"> 
                                     <div class="slide_div">
                                       <div class="slide_img">
-                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
-                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
+                                        <?php echo $photo2?>
                                       </div>
                                       <div class="slide_list">
-                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
-                                          <h4>ATM「靠臉」就能領錢　台新</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
-                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
+                                        <?php echo $msg2?>
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
-                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
-                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
+                                        <?php echo $photo3?>
                                       </div>
                                       <div class="slide_list">
-                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
-                                          <h4>ATM「靠臉」就能領錢　台新</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
-                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
+                                        <?php echo $msg3?>
                                       </div>
                                     </div>
                                   </div>
@@ -164,6 +212,20 @@
 
                     <!--廣告-->
                     <div class="col-md-12 col"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
+
+                    <?php 
+                    //===================================
+                    //取出特別議題頁籤
+                    //===================================
+                      $sql_special=$pdo->prepare("
+                        SELECT nt_name,Tb_index FROM news_type
+                        where mt_id='site2018111910445721' and nt_sp=1 and nt_sp_begin_date <= '$todayis' and nt_sp_end_date >= '$todayis' 
+                        order by OrderBy  
+                        LIMIT 0, 4");
+                      $sql_special->execute();
+                      $row_specials = $sql_special->fetchAll();
+
+                    ?>
                     
                    
 
@@ -172,128 +234,133 @@
 
                         <div class="cardshap blue_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab">
-                            <a class="nav-link active pl-30 py-2" id="special_1-tab" href="second.php" tab-target="#special_1" aria-selected="true">特別議題一</a>
-                          </li>
-                          <li class="nav-item news_tab">
-                            <a class="nav-link py-2" id="special_2-tab" href="second.php" tab-target="#special_2" aria-selected="false">特別議題二</a>
-                          </li>
-                          <li class="nav-item news_tab">
-                            <a class="nav-link py-2" id="special_3-tab" href="second.php" tab-target="#special_3" aria-selected="false">特別議題三</a>
-                          </li>
-                          <li class="nav-item news_tab">
-                            <a class="nav-link py-2" id="special_4-tab" href="second.php" tab-target="#special_4" aria-selected="false">特別議題四</a>
-                          </li>
+
+                              <?php 
+                              //tab來個回圈＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+                              $i=1;
+                              foreach ($row_specials as $row_special) {
+                                if($i==1){
+                                    $activeornot="active";
+                                  }else{
+                                    $activeornot="";
+                                  }
+                              $nt_name = $row_special['nt_name'];
+
+                              echo "<li class='nav-item news_tab'>
+                                      <a class='nav-link pl-30 py-2 $activeornot' id='special_$i-tab' href='second.php' tab-target='#special_$i' aria-selected='true'>$nt_name</a>
+                                    </li>";
+                              $i++;}
+                              ?>
+
+
+
                         </ul>
+
                         <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
-                            <div class="row no-gutters">
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                            </div>
-                           
-                          </div>
-                          <div class="tab-pane fade" id="special_2" role="tabpanel" aria-labelledby="special_2-tab">
+                              <?php 
+                              //內容也來個回圈＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+                              $y=1;
+                              foreach ($row_specials as $row_special) {
+                                  if($y==1){
+                                    $activeornot="active";
+                                  }else{
+                                    $activeornot="";
+                                  }
 
-                            <div class="row no-gutters">
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo2.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo2.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo2.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                            </div>
-                           
-                          </div>
-                          <div class="tab-pane fade" id="special_3" role="tabpanel" aria-labelledby="special_3-tab">
+                                  $Tb_index = $row_special['Tb_index'];
 
-                            <div class="row no-gutters">
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo3.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo3.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo3.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                            </div>
-                           
-                          </div>
-                          <div class="tab-pane fade" id="special_4" role="tabpanel" aria-labelledby="special_4-tab">
 
-                            <div class="row no-gutters">
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
+                                  $sql_part=$pdo->prepare("
+                                    SELECT ns_ftitle,ns_photo_1,ns_msghtml FROM  appNews
+                                    where mt_id = 'site2018111910430599' and ns_nt_sp_pk='$Tb_index'
+                                    and ns_vfdate<>'0000-00-00 00:00:00' 
+                                    and  StartDate<='$todayis' and EndDate>='$todayis'
+                                    order by ns_vfdate desc
+                                    LIMIT 0, 6
+                                 
+                                    ");
+                                  $sql_part->execute();
+
+                                  //分批取出part1---------
+                                  $i=1; while ($row_part=$sql_part->fetch(PDO::FETCH_ASSOC)) {
+
+                                    $ns_ftitle=$row_part['ns_ftitle'];
+                                    $ns_msghtml=$row_part['ns_msghtml'];
+                                    $ns_photo_1="../sys/img/".$row_part['ns_photo_1'];
+
+                                    $part1.="
+                                    <div class='col-4 cards-3'>
+                                           <a href='#'>
+                                           <div class='img_div' title='$ns_ftitle' style='background-image: url($ns_photo_1);'>
+                                           </div>
+                                           <p>$ns_ftitle</p>
+                                       </a>
+                                    </div>
+                                    ";
+
+                                    if ( $i==3 ) break;
+                                  $i++; } //end part1
+
+                                  //分批取出part2---------
+                                  $i=1; while ($row_part=$sql_part->fetch(PDO::FETCH_ASSOC)) {
+
+                                    $ns_ftitle=$row_part['ns_ftitle'];
+                                    $ns_msghtml=$row_part['ns_msghtml'];
+                                    $ns_photo_1="../sys/img/".$row_part['ns_photo_1'];
+
+                                    $part2.="
+                                    <div class='col-4 cards-3'>
+                                           <a href='#'>
+                                           <div class='img_div' title='$ns_ftitle' style='background-image: url($ns_photo_1);'>
+                                           </div>
+                                           <p>$ns_ftitle</p>
+                                       </a>
+                                    </div>
+                                    ";
+
+                                    if ( $i==3 ) break;
+                                  $i++; } //end part2
+                              ?>
+
+
+
+                              <div class="tab-pane fade show <?php echo $activeornot?>" id="special_<?echo $y?>" role="tabpanel" aria-labelledby="special_<?echo $y?>-tab">
+
+                                    <div class="swiper-container sub_slide">
+                                            <div class="swiper-wrapper">
+                                              <div class="swiper-slide" > 
+                                                <div class="row no-gutters">
+
+                                                  <?php echo $part1?>
+
+                                              </div>
+                                            </div>
+
+                                            <div class="swiper-slide" > 
+                                                <div class="row no-gutters">
+
+                                                  <?php echo $part2?>
+
+
+                                              </div>
+                                            </div>
+
+                                          </div>
+                                          <!-- 如果需要导航按钮 -->
+                                          <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                          <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
                                 </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                            </div>
-                           
-                          </div>
+
+
+                          </div><!-- end special_<?echo $y?> -->
+                          <?php 
+                          $part1="";
+                          $part2="";
+                          $y++;} //結束tab內容＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝?>
+                        
+
+
                         </div>
                       </div>
                     </div>
@@ -311,108 +378,217 @@
                     <!--廣告end-->
 
 
-                    <!--特別議題-->
+                    <!--專題、卡訊、行動PAY -->
                     <div class="col-md-12 col">
 
                         <div class="cardshap blue_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link active  pl-30 py-2" id="title_1-tab" href="second.php" tab-target="#title_1" aria-selected="true">專題</a>
+                            <a class="nav-link active  pl-30 py-2" id="title_1-tab" href="second.php" tab-target="#title_1" aria-selected="true" >專題</a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link py-2" id="title_2-tab" href="second.php" tab-target="#title_2" aria-selected="false">卡訊</a>
+                            <a class="nav-link py-2" id="title_2-tab" href="second.php" tab-target="#title_2" aria-selected="false" >卡訊</a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link py-2" id="title_3-tab" href="second.php" tab-target="#title_3" aria-selected="false">行動Pay</a>
+                            <a class="nav-link py-2" id="title_3-tab" href="second.php" tab-target="#title_3" aria-selected="false" >行動Pay</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
+                         
+
+                         <!-- tab-content -->
                           <div class="tab-pane fade show active" id="title_1" role="tabpanel" aria-labelledby="title_1-tab">
+                            <div class="swiper-container sub_slide">
+                                <div class="swiper-wrapper">
+                                  <div class="swiper-slide" >
+                                    <div class="row no-gutters">
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="swiper-slide" >
+                                    <div class="row no-gutters">
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- 如果需要导航按钮 -->
+                                <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
 
-                            <div class="row no-gutters">
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
                             </div>
-                           
                           </div>
+                          <!-- tab-content END -->
+
+                          <!-- tab-content -->
                           <div class="tab-pane fade" id="title_2" role="tabpanel" aria-labelledby="title_2-tab">
+                            <div class="swiper-container sub_slide">
+                                <div class="swiper-wrapper">
+                                  <div class="swiper-slide" >
+                                    <div class="row no-gutters">
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo2.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo2.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo2.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="swiper-slide" >
+                                    <div class="row no-gutters">
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- 如果需要导航按钮 -->
+                                <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
 
-                            <div class="row no-gutters">
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo2.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo2.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo2.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
                             </div>
-                           
                           </div>
+                          <!-- tab-content END -->
+                          
+                          <!-- tab-content -->
                           <div class="tab-pane fade" id="title_3" role="tabpanel" aria-labelledby="title_3-tab">
+                            <div class="swiper-container sub_slide">
+                                <div class="swiper-wrapper">
+                                  <div class="swiper-slide" >
+                                    <div class="row no-gutters">
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo3.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo3.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo3.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="swiper-slide" >
+                                    <div class="row no-gutters">
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo2.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo2.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                        <div class="col-4 cards-3">
+                                           <a href="#">
+                                               <div class="img_div" title="新聞" style="background-image: url(../img/component/photo2.jpg);">
+                                               </div>
+                                               <p>遊日血拚大回饋，信用卡大調查</p>
+                                           </a>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- 如果需要导航按钮 -->
+                                <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
 
-                            <div class="row no-gutters">
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo3.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo3.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo3.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
                             </div>
-                           
                           </div>
+                          <!-- tab-content END -->
                          
                         </div>
                       </div>
                     </div>
-                    <!--特別議題end -->
+                    <!--專題、卡訊、行動PAY end -->
 
                     
                     
@@ -937,6 +1113,10 @@
      //-- 共用JS --
      require '../share_area/share_js.php';
     ?>
+    <script type="text/javascript">
+
+
+    </script>
 
   </body>
 </html>

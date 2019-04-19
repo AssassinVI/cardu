@@ -107,7 +107,7 @@
                   </div>
 
                     <!--廣告-->
-                    <div class="co bannerl-md-12 col banner"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
+                    <div class="col-md-12 col banner"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
                     
                    
 
@@ -200,7 +200,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -215,7 +215,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -230,7 +230,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -273,7 +273,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -288,7 +288,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -303,7 +303,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -337,7 +337,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -352,7 +352,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -367,7 +367,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -401,7 +401,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -416,7 +416,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -431,7 +431,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -465,7 +465,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -480,7 +480,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -495,7 +495,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -529,7 +529,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -544,7 +544,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -559,7 +559,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -593,7 +593,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -608,7 +608,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -623,7 +623,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -657,7 +657,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -672,7 +672,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -687,7 +687,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -721,7 +721,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -736,7 +736,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
@@ -751,7 +751,7 @@
                           </div>
                           <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
                             <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查<small>(2018/11/21)</small></h3>
+                            <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
                             </a>
                             <div class="fb_search_btn">
