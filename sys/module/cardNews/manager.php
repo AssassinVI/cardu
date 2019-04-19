@@ -459,7 +459,7 @@ if ($_GET) {
 					<form id="put_form" action="manager.php" method="POST" enctype='multipart/form-data' class="form-horizontal">
 
             <div class="form-group">
-              <label class="col-md-2 control-label" ><span class="text-danger">*</span>版區分類</label>
+              <label class="col-md-2 control-label" ><span class="text-danger">*</span>單元分類</label>
               <div class="col-md-10">
                <?php 
                  //-- 版區 --

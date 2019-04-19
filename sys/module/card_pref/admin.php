@@ -35,7 +35,7 @@ if ($_GET) {
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="col-lg-12">
 		<h2 class="text-primary"><?php echo $page_name['MT_Name']?> 列表</h2>
-		<p>本頁面條列出所有的文章清單，如需檢看或進行管理，請由每篇文章右側 管理區進行，感恩 <b class="text-danger">(點擊空白處拖曳可更改排序)</b></p>
+		<p><b class="text-danger">(點擊空白處拖曳可更改排序)</b></p>
 	   <div class="new_div">
 
         <button style="display: none;" id="sort_btn" type="button" class="btn btn-success">

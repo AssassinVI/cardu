@@ -167,7 +167,7 @@
 
          $txt.='<!--<a href="manager.php?parent_id='.$row['Tb_index'].'" class="btn btn-white btn-sm"><i class="fa fa-folder-open-o"></i> 建立子分類</a>-->';
        }   
-          $txt.='    <!--<a href="manager_data.php?parent_id='.$row['Tb_index'].'" class="btn btn-white btn-sm"><i class="fa fa-file-text-o "></i> 建立單元</a>-->
+          $txt.='    <a href="manager_data.php?parent_id='.$row['Tb_index'].'" class="btn btn-white btn-sm"><i class="fa fa-file-text-o "></i> 建立單元</a>
 
                      <a href="manager.php?Tb_index='.$row['Tb_index'].'&parent_id='.$row['parent_id'].'&weblang='.$weblang.'" class="btn btn-white btn-sm">
                         <i class="fa fa-pencil-square-o "></i> 修改</a> 

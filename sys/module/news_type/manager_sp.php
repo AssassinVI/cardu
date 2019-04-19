@@ -14,6 +14,7 @@ if ($_POST) {
   $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0:1;
 
 	$param=  ['Tb_index'=>$Tb_index,
+	          'pk'=>$_POST['pk'],
 			     'mt_id'=>$_POST['mt_id'],
 			     'nt_name'=>$_POST['nt_name'],
                   'nt_sp'=>'1',
@@ -33,6 +34,7 @@ if ($_POST) {
 
 
     $param=  [
+    	   'pk'=>$_POST['pk'],
            'nt_name'=>$_POST['nt_name'],
            'nt_sp_begin_date'=>$_POST['nt_sp_begin_date'],
            'nt_sp_end_date'=>$_POST['nt_sp_end_date'],
@@ -67,6 +69,13 @@ if ($_GET) {
 							<label class="col-md-2 control-label" for="nt_name">分類名稱</label>
 							<div class="col-md-10">
 								<input type="text" class="form-control" id="nt_name" name="nt_name" value="<?php echo $row['nt_name'];?>">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="pk">pk值</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" id="pk" name="pk" value="<?php echo $row['pk'];?>">
 							</div>
 						</div>
 

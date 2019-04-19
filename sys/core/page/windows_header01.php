@@ -39,6 +39,7 @@ $company = pdo_select("SELECT * FROM company_base WHERE webLang='tw'", 'no');
 <style type="text/css">
     body, .panel-default>.panel-heading{ color: #000; }
     body, html, h1, h2, h3, h4, h5, p, span, a, div{ font-family: Microsoft JhengHei; }
+    .btn-link:hover{ color: #000; border: 1px solid; }
     .nowrap{white-space: nowrap;}
     #page-wrapper{ margin:0; }
 

@@ -126,38 +126,6 @@ if ($_GET) {
         "ajax": "member_ajax.php?MT_id=<?php echo $_GET['MT_id'];?>",
         "processing": true,
         "serverSide": true
-        // "columns": [
-        //     { "data": "bi_code" },
-        //     { "data": "bi_shortname" },
-        //     { "data": "bi_logo" },
-        //     { "data": "bi_tel" },
-        //     { "data": "bi_tel_card" },
-        //     { "data": "bi_addr" },
-        //     { "data": "OnLineOrNot" },
-        //     { "data": "tool_btn" }
-        // ],
-
-        //  initComplete: function () {
-
-        //     this.api().columns([6]).every( function () {
-        //         var column = this;
-        //         var select = $('<select><option value=""></option></select>')
-        //             .appendTo( $(column.footer()).empty() )
-        //             .on( 'change', function () {
-        //                 var val = $.fn.dataTable.util.escapeRegex(
-        //                     $(this).val()
-        //                 );
- 
-        //                 column
-        //                     .search( val ? '^'+val+'$' : '', true, false )
-        //                     .draw();
-        //             } );
- 
-        //         column.data().unique().sort().each( function ( d, j ) {
-        //             select.append( '<option value="'+d+'">'+d+'</option>' )
-        //         } );
-        //     } );
-        // },
        
       });
 

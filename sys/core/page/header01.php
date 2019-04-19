@@ -43,6 +43,9 @@ $parent_id=pdo_select("SELECT parent_id FROM maintable WHERE Tb_index=:Tb_index"
      <style type="text/css">
        body, .panel-default>.panel-heading, .form-control, .single-line{ color: #000; font-size: 15px;}
        body, html, h1, h2, h3, h4, h5, p, span, a, div{ font-family: Microsoft JhengHei; }
+       a:hover{ text-decoration: underline; }
+       .btn-link{ padding: 5px; color: blue; }
+       .btn-link:hover{ color: #000; border: 1px solid; }
        .label{ color: #000; font-weight: 500; font-size: 13px;}
 
        .nowrap{white-space: nowrap;}

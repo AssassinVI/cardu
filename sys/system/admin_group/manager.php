@@ -103,8 +103,8 @@
 
   <?php 
   $pdo=pdo_conn();
-  $sql=$pdo->prepare("SELECT * FROM maintable WHERE weblang=:weblang ORDER BY OrderBy DESC,Tb_index ASC");
-  $sql->execute(array(':weblang'=>$weblang));
+  $sql=$pdo->prepare("SELECT * FROM maintable ORDER BY OrderBy ASC,Tb_index ASC");
+  $sql->execute();
 
   while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
     
@@ -123,7 +123,7 @@
           $site_txt=folder_txt($row['Tb_index'], 'no', $row['MT_Name'], $row['OrderBy'], $weblang, $in_Permissions);
 
           // -- 子樹狀 --
-           $sql_tree=$pdo->prepare("SELECT * FROM maintable WHERE parent_id=:parent_id ORDER BY OrderBy DESC,Tb_index ASC");
+           $sql_tree=$pdo->prepare("SELECT * FROM maintable WHERE parent_id=:parent_id ORDER BY OrderBy ASC,Tb_index ASC");
            $sql_tree->execute(array(':parent_id'=>$row['Tb_index']));
            while ($row_tree=$sql_tree->fetch(PDO::FETCH_ASSOC)) {
 
@@ -146,7 +146,7 @@
         }else{  // -- 子資料夾 --
            $txt=folder_txt($Tb_index, $parent_id, $MT_Name, $OrderBy, $weblang, $in_Permissions);
             $pdo=pdo_conn();
-            $sql=$pdo->prepare("SELECT * FROM maintable WHERE parent_id=:parent_id ORDER BY OrderBy DESC,Tb_index ASC");
+            $sql=$pdo->prepare("SELECT * FROM maintable WHERE parent_id=:parent_id ORDER BY OrderBy ASC,Tb_index ASC");
             $sql->execute(array(':parent_id'=>$Tb_index));
            while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
 

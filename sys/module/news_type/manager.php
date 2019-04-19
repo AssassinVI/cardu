@@ -14,8 +14,9 @@ if ($_POST) {
   $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0:1;
 
 	$param=  ['Tb_index'=>$Tb_index,
-			     'mt_id'=>$_POST['mt_id'],
-			     'nt_name'=>$_POST['nt_name'],
+	          'pk'=>$_POST['pk'],
+			  'mt_id'=>$_POST['mt_id'],
+			  'nt_name'=>$_POST['nt_name'],
            'nt_define'=>$_POST['nt_define'],
            'OrderBy'=>$OrderBy,
 			     'OnLineOrNot'=>$OnLineOrNot
@@ -31,6 +32,7 @@ if ($_POST) {
     $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0:1;
 
     $param=  [
+    	   'pk'=>$_POST['pk'],
            'nt_name'=>$_POST['nt_name'],
            'nt_define'=>$_POST['nt_define'],
            'OnLineOrNot'=>$OnLineOrNot
@@ -63,6 +65,13 @@ if ($_GET) {
 							<label class="col-md-2 control-label" for="nt_name">分類名稱</label>
 							<div class="col-md-10">
 								<input type="text" class="form-control" id="nt_name" name="nt_name" value="<?php echo $row['nt_name'];?>">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="pk">pk值</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" id="pk" name="pk" value="<?php echo $row['pk'];?>">
 							</div>
 						</div>
 
