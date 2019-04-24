@@ -53,8 +53,8 @@ if ($_POST) {
 	  'cc_so_type_01_cname'=>$_POST['cc_so_type_01_cname'],
 	  'cc_so_type_02_cname'=>$_POST['cc_so_type_02_cname'],
 	  'cc_so_type_03_cname'=>$_POST['cc_so_type_03_cname'],
-	   'cc_so_type_02_is_r'=>$_POST['cc_so_type_02_is_r'],
-	   'cc_so_type_03_is_r'=>$_POST['cc_so_type_03_is_r'],
+	   'cc_so_type_02_order'=>$_POST['cc_so_type_02_is_r'],
+	   'cc_so_type_03_order'=>$_POST['cc_so_type_03_is_r'],
 	    'cc_so_create_time'=>date("Y-m-d H:i:s")
 
 			         ];
@@ -96,8 +96,8 @@ if ($_POST) {
 	  'cc_so_type_01_cname'=>$_POST['cc_so_type_01_cname'],
 	  'cc_so_type_02_cname'=>$_POST['cc_so_type_02_cname'],
 	  'cc_so_type_03_cname'=>$_POST['cc_so_type_03_cname'],
-	   'cc_so_type_02_is_r'=>$_POST['cc_so_type_02_is_r'],
-	   'cc_so_type_03_is_r'=>$_POST['cc_so_type_03_is_r'],
+       'cc_so_type_02_order'=>$_POST['cc_so_type_02_is_r'],
+	    'cc_so_type_03_order'=>$_POST['cc_so_type_03_is_r'],
 			         ];
     $where= ['Tb_index'=>$Tb_index] ;
 	pdo_update('credit_cardrank_type', $param, $where);
@@ -275,6 +275,13 @@ if ($_GET) {
 <?php  include("../../core/page/footer01.php");//載入頁面footer02.php?>
 <script type="text/javascript">
 	$(document).ready(function() {
+
+
+        $('[name="cc_so_type_02_is_r"][value="<?php echo $row['cc_so_type_02_order']; ?>"]').prop('checked', true);
+        $('[name="cc_so_type_03_is_r"][value="<?php echo $row['cc_so_type_03_order']; ?>"]').prop('checked', true);
+
+
+
           $("#submit_btn").click(function(event) {
           	 var err_txt='';
           	err_txt = err_txt + check_input( '[name="cc_so_cname"]', '排行分類，' );

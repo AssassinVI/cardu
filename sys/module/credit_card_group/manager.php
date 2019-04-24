@@ -71,12 +71,13 @@ if ($_POST) {
    else{  
    	$Tb_index='ccard'.date('YmdHis').rand(0,99);
 
-    
+
    	//============================ 新增新卡等 ==============================
    	if (!empty($_POST['cc_card_orglevel']) && $_POST['cc_group_state']=='0') {
    		
 
     $cc_attr=implode(',', $_POST['cc_attr']);
+    $cc_doc_path=empty($_POST['old_file']) ? '':$_POST['old_file'] ;
     $cc_publish=empty($_POST['cc_publish']) ? date('Y-m-d'): $_POST['cc_publish'];
 
     $cc_card_orglevel_num=count($_POST['cc_card_orglevel']);
@@ -94,7 +95,7 @@ if ($_POST) {
        		  'cc_cardlevel'=>$cc_card_orglevel_one[1],
                    'cc_doc_url'=>$_POST['cc_doc_url'],
                   'cc_doc_name'=>$_POST['cc_doc_name'],
-       		   'cc_doc_path'=>$_POST['old_file'],
+       		   'cc_doc_path'=>$cc_doc_path,
        			'cc_publish'=>$cc_publish
        			 ];
        	pdo_insert('credit_card', $param);
@@ -108,8 +109,9 @@ if ($_POST) {
    	 //===================== 申請書 ========================
       if (!empty($_FILES['cc_doc_path']['name'])) {
 
-      	 $type=explode('.', $_FILES['cc_doc_path']['name']);
-      	 $cc_doc_path=$Tb_index.'.'.$type[count($type)-1];
+      	 // $type=explode('.', $_FILES['cc_doc_path']['name']);
+      	 // $cc_doc_path=$Tb_index.'.'.$type[count($type)-1];
+      	 $cc_doc_path=$_FILES['cc_doc_path']['name'];
          other_fire_upload('cc_doc_path', $cc_doc_path);
         $cc_doc_path_param=['cc_doc_path'=>$cc_doc_path];
         $cc_doc_path_where=['cc_group_id'=>$_POST['cc_group_id']];

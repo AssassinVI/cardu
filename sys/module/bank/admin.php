@@ -72,18 +72,6 @@ if ($_GET) {
 
 							</tr>
 						</thead>
-                        <tfoot>
-                                <tr>
-                                        <th>代碼</th>
-                                        <th>銀行簡稱</th>
-                                        <th>LOGO</th>
-                                        <th>總行電話</th>
-                                        <th>信用卡服務專線</th>
-                                        <th>總行地址</th>
-                                        <th>狀態</th>
-                                        <th>管理</th>
-                                 </tr>
-                         </tfoot>
 					</table>
 
 				</div>

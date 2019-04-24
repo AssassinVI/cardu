@@ -16,12 +16,15 @@ if ($_POST) {
 	if (empty($_POST['Tb_index'])) {
 		$Tb_index='ccard'.date('YmdHis').rand(0,99);
 		$cc_group_id='ccgroup'.date('YmdHis').rand(0,99);
+
+		
      
      //===================== 用卡申請書檔案 ========================
       if (!empty($_FILES['cc_doc_path']['name'])){
 
-      	 $type=explode('.', $_FILES['cc_doc_path']['name']);
-      	 $cc_doc_path=$Tb_index.'.'.$type[count($type)-1];
+      	 //$type=explode('.', $_FILES['cc_doc_path']['name']);
+      	 //$cc_doc_path=$cc_doc_name.'.'.$type[count($type)-1];
+      	 $cc_doc_path=$_FILES['cc_doc_path']['name'];
          other_fire_upload('cc_doc_path', $cc_doc_path); 
       }
       else{
