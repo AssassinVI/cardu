@@ -1,3 +1,23 @@
+
+/*------------------------ 卡比較辨識 (新手快搜, 卡片比一比, 權益比一比) -----------------------------*/
+if (location.hash=='#newHand' || location.hash=='#cardCompare' || location.hash=='#interest') {
+
+  $(location.hash+'_a').parents('.mouseHover_other_tab').find('.nav-link').removeClass('active show');
+  $(location.hash+'_a').parents('.mouseHover_other_tab').find('.tab-pane').removeClass('active show');
+  $(location.hash+'_a').parents('.mouseHover_other_tab').find('.nav-link').attr('aria-selected', 'false');
+  $(location.hash+'_a').attr('aria-selected', 'true');
+  $(location.hash+'_a').addClass('active show');
+  $($(location.hash+'_a').attr('tab-target')).addClass('active show');
+
+}
+
+
+
+
+
+
+
+
 /*------------------------ 卡排行(新手快搜) -----------------------------*/
 var rank_arr=sessionStorage.getItem('rank_arr')==null ? [] : sessionStorage.getItem('rank_arr').split(',');
 $('.new_hand_search ul li a').click(function(event) {
@@ -56,18 +76,23 @@ $('.reset_div #reset_new_btn').click(function(event) {
 
 /*------------------------ 卡排行(權益比一比) -----------------------------*/
 var rank_rights_arr=[];
+var rank_rights_txt_arr=[];
 $('.rights_search ul li a').click(function(event) {
   
     //-- 清除 --
   	if ($(this).attr('class').indexOf('active')>-1) {
   		var rank_index=rank_rights_arr.indexOf($(this).attr('rank'));
   		rank_rights_arr.splice(rank_index,1);
+
+      var rank_txt_index=rank_rights_txt_arr.indexOf($(this).html());
+      rank_rights_txt_arr.splice(rank_txt_index,1);
   	}
     //-- 加入 --
   	else{
 
       if (rank_rights_arr.length<3) {
         rank_rights_arr.push($(this).attr('rank'));
+        rank_rights_txt_arr.push($(this).html());
       }
       else{
         alert('您已經選擇三項權益');
@@ -79,11 +104,11 @@ $('.rights_search ul li a').click(function(event) {
 
   	for (var i = 0; i < rank_rights_arr.length; i++) {
   		$('.rights_search [rank="'+rank_rights_arr[i]+'"]').addClass('active');
-
+     
   		var rights_txt='<li>'+
                           '<div class="row no-gutters">'+
                             '<div class="col-3"><h2 class="hv-center">'+(i+1)+'</h2></div>'+
-                            '<div class="col-9"><span><img src="../img/component/debitcard1.png">'+rank_rights_arr[i]+'</span></div>'+
+                            '<div class="col-9 text-center"><span class="check_eq">'+rank_rights_txt_arr[i]+'</span></div>'+
                           '</div>'+
                         '</li>';
 
@@ -93,8 +118,13 @@ $('.rights_search ul li a').click(function(event) {
 
 //-- 開始找卡 --
 $('#profit_rank').click(function(event) {
-  sessionStorage.setItem("profit_rank_arr", rank_rights_arr.join(','));
-  location.href='profit_detail.php';
+  //sessionStorage.setItem("profit_rank_arr", rank_rights_arr.join(','));
+  var get_txt='?';
+  for (var i = 0; i < rank_rights_arr.length; i++) {
+    get_txt+='ci_pk0'+(i+1)+'='+rank_rights_arr[i]+'&';
+  }
+  get_txt=get_txt.slice(0, -1);
+  location.href='profit_detail.php'+get_txt;
 });
 
 
@@ -102,12 +132,14 @@ $('#profit_rank').click(function(event) {
 $('.reset_div #reset_profit_btn').click(function(event) {
   if (sessionStorage.getItem('profit_rank_arr')!=null) {
     rank_rights_arr=[];
+    rank_rights_txt_arr=[];
     sessionStorage.removeItem('profit_rank_arr');
     $('.rights_search ul li a').removeClass('active');
     $('.rights_checked ul').html('');
   }
   else if(rank_rights_arr[0]!=undefined){
     rank_rights_arr=[];
+    rank_rights_txt_arr=[];
     $('.rights_search ul li a').removeClass('active');
     $('.rights_checked ul').html('');
   }
@@ -115,7 +147,168 @@ $('.reset_div #reset_profit_btn').click(function(event) {
     alert('您尚未選擇搜尋條件');
   }
 });
+
+
+//-- 內頁權益選擇 --
+$('.change_eq_item').change(function(event) {
+
+  var href='?';
+  $.each($('.change_eq_item'), function(index, val) {
+     href+='ci_pk0'+(index+1)+'='+$(this).val()+'&';
+  });
+  href=href.slice(0, -1);
+
+  if ($('[name="ci_pk_all"]').val().indexOf($(this).val())==-1) {
+    location.href=href;
+  }
+  else{
+    alert('比較條件不可一樣，請重新選擇！');
+  }
+  
+});
+
+
+//-- 顯示更多卡片(權益比一比) --
+var sr_num=6;
+$('.rank_more.eq').click(function(event) {
+  var _this=$(this);
+  var show_num=$(this).attr('show_num');
+  var x=0;
+  
+  var data={
+    type: 'rank_more_eq', 
+    sr_num: sr_num,
+    ci_pk01: $('.ci_pk01 .change_eq_item').val()
+  }
+
+  if ($('.ci_pk02 .change_eq_item').length>0) {
+    data['ci_pk02']=$('.ci_pk02 .change_eq_item').val();
+  }
+  if ($('.ci_pk03 .change_eq_item').length>0) {
+    data['ci_pk03']=$('.ci_pk03 .change_eq_item').val();
+  }
+
+  
+  $.ajax({
+    url: '../ajax/rank_ajax.php',
+    type: 'POST',
+    data: data,
+    success:function (data_txt) {
+
+      //-- 判斷還有無資料 --
+      if (data_txt.indexOf('profit_bg')==-1) {
+        $('.rank_more.eq').css('display', 'none');
+      }
+
+      $('.profit_detail tbody').append(data_txt);
+      sr_num=sr_num+3;
+    }
+  });
+});
 /*------------------------ 卡排行(權益比一比) END -----------------------------*/
+
+
+
+
+/*------------------------ 卡片比一比 -----------------------------*/
+//-- 選擇銀行 --
+$('.c_compare_bk').change(function(event) {
+  $(this).parent().next().next().next().attr('href', 'javascript:;');
+  $(this).parent().next().next().next().html('<h1 class="hv-center">卡片一</h1>');
+  //-- 選擇銀行，撈信用卡(ajax.js) --
+  change_bk_cc('.c_compare_bk', '.show_cc_group');
+});
+//-- 選擇銀行 --
+$('.c_compare_bk2').change(function(event) {
+    $(this).parent().next().next().next().attr('href', 'javascript:;');
+    $(this).parent().next().next().next().html('<h1 class="hv-center">卡片二</h1>');
+  //-- 選擇銀行，撈信用卡(ajax.js) --
+  change_bk_cc('.c_compare_bk2', '.show_cc_group2');
+});
+//-- 選擇銀行 --
+$('.c_compare_bk3').change(function(event) {
+    $(this).parent().next().next().next().attr('href', 'javascript:;');
+    $(this).parent().next().next().next().html('<h1 class="hv-center">卡片三</h1>');
+  //-- 選擇銀行，撈信用卡(ajax.js) --
+  change_bk_cc('.c_compare_bk3', '.show_cc_group3');
+});
+
+//-- 選擇卡群組--
+$('.show_cc_group').change(function(event) {
+    $(this).parent().next().next().attr('href', 'javascript:;');
+    $(this).parent().next().next().html('<h1 class="hv-center">卡片一</h1>');
+  change_ccgroup_cc('.show_cc_group', '.show_cc');
+});
+//-- 選擇卡群組--
+$('.show_cc_group2').change(function(event) {
+    $(this).parent().next().next().attr('href', 'javascript:;');
+    $(this).parent().next().next().html('<h1 class="hv-center">卡片二</h1>');
+  change_ccgroup_cc('.show_cc_group2', '.show_cc2');
+});
+//-- 選擇卡群組--
+$('.show_cc_group3').change(function(event) {
+    $(this).parent().next().next().attr('href', 'javascript:;');
+    $(this).parent().next().next().html('<h1 class="hv-center">卡片三</h1>');
+  change_ccgroup_cc('.show_cc_group3', '.show_cc3');
+});
+
+$('.show_cc').change(function(event) {
+  //-- 選擇信用卡 顯示(卡片比一比)(ajax.js) --
+  show_cc('一',$(this));
+});
+
+$('.show_cc2').change(function(event) {
+  //-- 選擇信用卡 顯示(卡片比一比)(ajax.js) --
+  show_cc('二',$(this));
+});
+
+$('.show_cc3').change(function(event) {
+  //-- 選擇信用卡 顯示(卡片比一比)(ajax.js) --
+  show_cc('三',$(this));
+});
+
+
+//-- 開始比較 --
+$('#card_rank').click(function(event) {
+  var show_card_arr=[];
+  $.each($('[name="show_card_id"]'), function(index, val) {
+     show_card_arr.push($(this).val());
+  });
+  
+  //-- 判斷卡片數量 --
+  switch($('[name="show_card_id"]').length){
+    case 0:
+      alert('請選擇兩張信用卡做比較');
+    break;
+
+    case 1:
+      alert('請選擇兩張信用卡做比較');
+    break;
+
+    case 2:
+      if (show_card_arr[0]==show_card_arr[1]) {
+        alert('請選擇不同的卡片做比較');
+      }
+      else{
+        location.href='../rank/compare_detail.php?cc_pk01='+show_card_arr[0]+'&cc_pk02='+show_card_arr[1];
+      }
+    break;
+
+    case 3:
+      if (show_card_arr[0]==show_card_arr[1] || show_card_arr[0]==show_card_arr[2] || show_card_arr[1]==show_card_arr[2]){
+        alert('請選擇不同的卡片做比較');
+      }
+      else{
+        location.href='../rank/compare_detail.php?cc_pk01='+show_card_arr[0]+'&cc_pk02='+show_card_arr[1]+'&cc_pk03='+show_card_arr[2];
+      }
+    break;
+  }
+
+  //location.href='compare_detail.php';
+});
+
+/*------------------------ 卡片比一比 END -----------------------------*/
+
 
 
 
@@ -241,11 +434,18 @@ $(window).on('load', function(event) {
 
 
 
+
+
+
+
+
+
 /*------------------------------ 顯示更多卡片 --------------------------------*/
 $('.rank_more').click(function(event) {
   var _this=$(this);
   var show_num=$(this).attr('show_num');
   var x=0;
+  
   $.each($(this).parent().find('.d-none'), function(index, val) {
     
     //-- 判斷一次展開的數量 --
@@ -262,9 +462,6 @@ $('.rank_more').click(function(event) {
 
 });
 /*------------------------------ 顯示更多卡片 END --------------------------------*/
-
-
-
 
 
 

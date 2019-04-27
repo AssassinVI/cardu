@@ -79,6 +79,59 @@
                             <a class="nav-link active pl-30 py-2" id="special_1-tab" data-toggle="tab" href="#special_1" role="tab" aria-controls="special_1" aria-selected="true">卡片比一比</a>
                           </li>
                         </ul>
+
+
+                        <?php 
+
+                          for ($i=1; $i <=3 ; $i++) { 
+                            if (!empty($_GET['cc_pk0'.$i])) {
+
+                              ${'row_card'.$i}=$pdo->select("SELECT cc.Tb_index, cc.cc_group_id, cc.cc_bi_pk, cc.cc_fun_id, cc.cc_pref_id, cc.cc_photo, cc.cc_doc_url, cc.cc_doc_path, 
+                                                              ccd.cc_cardname, ccd.bi_shortname, ccd.org_nickname, ccd.attr_name
+                                                       FROM credit_card as cc
+                                                       INNER JOIN cc_detail as ccd ON ccd.Tb_index=cc.Tb_index
+                                                       WHERE cc.Tb_index=:Tb_index", ['Tb_index'=>$_GET['cc_pk0'.$i]], 'one');
+                              //-- 卡名 --
+                              ${'card'.$i.'_name'}=${'row_card'.$i}['cc_cardname'].'_'.${'row_card'.$i}['attr_name'];
+
+                              //-- 立即辦卡 --
+                              if (!empty(${'row_card'.$i}['cc_doc_url']) || !empty(${'row_card'.$i}['cc_doc_path'])) {
+                                $card_href=!empty(${'row_card'.$i}['cc_doc_url']) ? ${'row_card'.$i}['cc_doc_url']:${'row_card'.$i}['cc_doc_path'];
+                                ${'cc_doc'.$i}='<div class="rank_btn  hv-center"><a target="_blank"  href="'.$card_href.'" class="btn warning-layered btnOver">立即辦卡</a></div>';
+                              }
+                              else{
+                                ${'cc_doc'.$i}='<div class="rank_btn hv-center h-60px"></div>';
+                              }
+
+                              //-- 功能 --
+                              if (!empty(${'row_card'.$i}['cc_fun_id'])) {
+                                ${'cc_func'.$i}='';
+                                $cc_fun_id_arr=explode(',', ${'row_card'.$i}['cc_fun_id']);
+                                foreach ($cc_fun_id_arr as $cc_fun_id) {
+                                  $cc_func_d=$pdo->select("SELECT Tb_index, fun_name, card_image, card_image_hover FROM card_func WHERE Tb_index=:Tb_index", ['Tb_index'=>$cc_fun_id], 'one');
+                                  ${'cc_func'.$i}.='<a class="ccard_icon_js" href="../cardNews/all.php?func='.$cc_func_d['Tb_index'].'">
+                                                <img class="rankasable_img" src="../sys/img/'.$cc_func_d['card_image'].'" title="'.$cc_func_d['fun_name'].'">
+                                              </a>';
+                                }
+                              }
+
+                              //-- 優惠 --
+                              if (!empty(${'row_card'.$i}['cc_pref_id'])){
+                                ${'cc_pref'.$i}='';
+                                $cc_pref_id_arr=explode(',', ${'row_card'.$i}['cc_pref_id']);
+                                foreach ($cc_pref_id_arr as $cc_pref_id) {
+                                  $cc_pref_d=$pdo->select("SELECT Tb_index, pref_name, pref_image FROM card_pref WHERE Tb_index=:Tb_index", ['Tb_index'=>$cc_pref_id], 'one');
+                                  ${'cc_pref'.$i}.='<a href="../cardNews/all.php?pref='.$cc_pref_d['Tb_index'].'">
+                                                <img class="rankasable_img" src="../sys/img/'.$cc_pref_d['pref_image'].'" title="'.$cc_pref_d['pref_name'].'">
+                                              </a>';
+                                }
+                              }
+
+                            }
+                          }
+                          
+
+                        ?>
                         
                           <!--信用卡推薦-->
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
@@ -86,150 +139,142 @@
                             <table>
                               <tr class="rank_boot_title">
                                 <td>信用卡名稱</td>
-                                <td>  
-                                  <div class="rank_care ">
-                                    <a href="#">
-                                      <img class="rankas_img" src="../img/component/card3.png" title="新聞">
-                                        <h5 class=" money_main text-center mb-0">匯豐銀行<br><span>現金回饋玉璽卡_玉璽</span></h5>
-                                    </a>
-                                  <div class="rank_btn  hv-center">
-                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  </div>
-                                 </div>
-                               </td>
-                               <td>  
-                                  <div class="rank_care ">
-                                    <a href="#">
-                                      <img class="rankas_img" src="../img/component/card3.png" title="新聞">
-                                        <h5 class=" money_main text-center mb-0">匯豐銀行<br><span>現金回饋玉璽卡_玉璽</span></h5>
-                                    </a>
-                                  <div class="rank_btn  hv-center">
-                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  </div>
-                                 </div>
-                               </td>
-                               <td>  
-                                  <div class="rank_care ">
-                                    <a href="#">
-                                      <img class="rankas_img" src="../img/component/card3.png" title="新聞">
-                                        <h5 class=" money_main text-center mb-0">匯豐銀行<br><span>現金回饋玉璽卡_玉璽</span></h5>
-                                    </a>
-                                  <div class="rank_btn  hv-center">
-                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  </div>
-                                 </div>
-                               </td>
+                                
+                                <?php 
+                                 //-- 信用卡 --
+                                for ($i=1; $i <=3 ; $i++) { 
+                                  if (!empty($_GET['cc_pk0'.$i])) {
+                                    echo '
+                                      <td>  
+                                        <div class="rank_care">
+                                          <a href="../cardNews/creditcard.php?cc_pk='.${'row_card'.$i}['Tb_index'].'&cc_group_id='.${'row_card'.$i}['cc_group_id'].'">
+                                            <img class="rankas_img" src="../sys/img/'.${'row_card'.$i}['cc_photo'].'">
+                                          </a>
+                                          <a href="../cardNews/bank_detail.php?bi_pk='.${'row_card'.$i}['cc_bi_pk'].'">
+                                            <h5 class=" money_main text-center mb-0">'.${'row_card'.$i}['bi_shortname'].'</h5>
+                                          </a>
+                                          <a href="../cardNews/creditcard.php?cc_pk='.${'row_card'.$i}['Tb_index'].'&cc_group_id='.${'row_card'.$i}['cc_group_id'].'">
+                                             <h5 class=" money_main text-center mb-0"><span>'.${'card'.$i.'_name'}.'</span></h5>
+                                          </a>
+                                          '.${'cc_doc'.$i}.'
+                                         </div>
+                                       </td>';
+                                  }
+                                }
+                                ?>
                               </tr>
                               <tr>
                                 <td>卡的功能</td>
-                                <td>
-                                  <img class="rankasable_img" src="../img/component/debitcard.png" title="新聞">
-                                  <img class="rankasable_img" src="../img/component/debitcard.png" title="新聞">
-                                  <img class="rankasable_img" src="../img/component/debitcard.png" title="新聞">
-                                  <img class="rankasable_img" src="../img/component/debitcard.png" title="新聞">
-                                </td>
-                                 <td>
-                                  <img class="rankasable_img" src="../img/component/debitcard.png" title="新聞">
-                                  <img class="rankasable_img" src="../img/component/debitcard.png" title="新聞">
-                                  <img class="rankasable_img" src="../img/component/debitcard.png" title="新聞">
-                                </td>
-                                 <td>
-                                  <img class="rankasable_img" src="../img/component/debitcard.png" title="新聞">
-                                  <img class="rankasable_img" src="../img/component/debitcard.png" title="新聞">
-                                  <img class="rankasable_img" src="../img/component/debitcard.png" title="新聞">
-                                </td>
+
+                                <?php 
+                                  for ($i=1; $i <=3 ; $i++) { 
+                                    if (!empty($_GET['cc_pk0'.$i])){
+                                      echo '<td>'.${'cc_func'.$i}.'</td>';
+                                    }
+                                  }
+                                ?>
 
                               </tr>
                               <tr>
                                 <td>卡的權益</td>
-                                <td>
-                                  <img class="rankascard_img" src="../img/component/debitcard1.png" title="新聞">
-                                  <img class="rankascard_img" src="../img/component/debitcard1.png" title="新聞">
-                                </td>
-                                 <td>
-                                  <img class="rankascard_img" src="../img/component/debitcard1.png" title="新聞">
-                                  <img class="rankascard_img" src="../img/component/debitcard1.png" title="新聞">
-                                  <img class="rankascard_img" src="../img/component/debitcard1.png" title="新聞">
-                                  <img class="rankascard_img" src="../img/component/debitcard1.png" title="新聞">
-                                  <img class="rankascard_img" src="../img/component/debitcard1.png" title="新聞">
-                                </td>
-                                 <td>
-                                  <img class="rankascard_img" src="../img/component/debitcard1.png" title="新聞">
-                                  <img class="rankascard_img" src="../img/component/debitcard1.png" title="新聞">
-                                  <img class="rankascard_img" src="../img/component/debitcard1.png" title="新聞">
-                                  <img class="rankascard_img" src="../img/component/debitcard1.png" title="新聞">
-                                  <img class="rankascard_img" src="../img/component/debitcard1.png" title="新聞">
-                                </td>
+
+                                <?php 
+                                  for ($i=1; $i <=3 ; $i++) { 
+                                    if (!empty($_GET['cc_pk0'.$i])){
+                                      echo '<td>'.${'cc_pref'.$i}.'</td>';
+                                    }
+                                  }
+                                ?>
                               </tr>
                               
-                               <tr>
-                                <td>現金回饋</td>
-                                <td>
-                                  <div><img src="../img/component/prize_r.png"></div>
-                                  國內1.22%，國外2.22%
-                                </td>
-                                <td>國內1.2%，國外2.2%</td>
-                                <td>國內1.2%，國外2.2%</td>
-                               </tr>
-                               <tr>
-                                <td>紅利集點</td>
-                                <td>一</td>
-                                <td>一</td>
-                                <td>一</td>
-                               </tr>
-                               <tr>
-                                <td>點數折抵現金</td>
-                                <td>一</td>
-                                <td>一</td>
-                                <td>一</td>
-                               </tr>
-                               <tr>
-                                <td>哩程數累積</td>
-                                <td>一</td>
-                                <td>一</td>
-                                <td>一</td>
-                               </tr>
-                               <tr>
-                                <td>聯名優惠</td>
-                                <td>一</td>
-                                <td>一</td>
-                                <td>一</td>
-                               </tr>
 
-                               <tr class="d-none">
-                                <td>聯名優惠</td>
-                                <td>一</td>
-                                <td>一</td>
-                                <td>一</td>
-                               </tr>
+                              <?php 
+                               //-- 撈出所有權益項目 --
+                               $row_eq=$pdo->select("SELECT Tb_index, eq_name, eq_type FROM card_eq_item WHERE mt_id='site2019021216245137' ORDER BY is_im_eq DESC, OrderBy ASC");
+                               $x=1;
+                               foreach ($row_eq as $eq_one) {
+                                 $cc_eq_txt_arr=[];
+                                 $cc_eq_num_arr=[];
+                                 //-- 無資料欄位數 --
+                                 $null_tr_num=0;
+                                 //-- 依卡片撈出項目資訊 --
+                                 for ($i=1; $i <=3 ; $i++) { 
+                                    if (!empty($_GET['cc_pk0'.$i])){
+                                      ${'row_cc_eq'.$i}=$pdo->select("SELECT Tb_index, number_data, sm_content 
+                                                                      FROM credit_card_eq 
+                                                                      WHERE card_id=:card_id AND eq_id=:eq_id", 
+                                                                      ['card_id'=>$_GET['cc_pk0'.$i], 'eq_id'=>$eq_one['Tb_index']],'one');
+                                      
+                                      //-- 判斷是否無資料 --
+                                      if (empty(${'row_cc_eq'.$i}['Tb_index'])) {
+                                        $is_null_num_data='';
+                                        $null_tr_num++;
+                                      }
+                                      else{
+                                        $is_null_num_data=${'row_cc_eq'.$i}['number_data'];
+                                      }
 
-                               <tr class="d-none">
-                                <td>聯名優惠</td>
-                                <td>一</td>
-                                <td>一</td>
-                                <td>一</td>
-                               </tr>
+                                      array_push($cc_eq_txt_arr, '<td>'.${'row_cc_eq'.$i}['sm_content'].'</td>');
+                                      array_push($cc_eq_num_arr, $is_null_num_data);
+                                    }
+                                  }
+                                  
+                                  //-- 比大小 --
+                                  if ($eq_one['eq_type']!='txt') {
 
-                               <tr class="d-none">
-                                <td>聯名優惠</td>
-                                <td>一</td>
-                                <td>一</td>
-                                <td>一</td>
-                               </tr>
+                                    $win_index=0;
+                                    for ($i=0; $i <count($cc_eq_num_arr)-1 ; $i++) { 
+                                      //-- 比大 --
+                                      if ($eq_one['eq_type']=='big') {
 
-                               <tr class="d-none">
-                                <td>聯名優惠</td>
-                                <td>一</td>
-                                <td>一</td>
-                                <td>一</td>
-                               </tr>
+                                        if (!is_numeric($cc_eq_num_arr[$win_index])) {
+                                          $win_index=($i+1);
+                                        }
+                                        else if (!is_numeric($cc_eq_num_arr[($i+1)])) {
+                                          $win_index=$win_index;
+                                        }
+                                        else{
+                                          $win_index=$cc_eq_num_arr[$win_index]>=$cc_eq_num_arr[($i+1)] ? $win_index:($i+1);
+                                        }
+                                      }
+                                      //-- 比小 --
+                                      else if($eq_one['eq_type']=='small'){
 
-                               <tr class="d-none">
-                                <td>聯名優惠</td>
-                                <td>一</td>
-                                <td>一</td>
-                                <td>一</td>
-                               </tr>
+                                        if (!is_numeric($cc_eq_num_arr[$win_index])) {
+                                          $win_index=($i+1);
+                                        }
+                                        else if (!is_numeric($cc_eq_num_arr[($i+1)])) {
+                                          $win_index=$win_index;
+                                        }
+                                        else{
+                                          $win_index=$cc_eq_num_arr[$win_index]<=$cc_eq_num_arr[($i+1)] ? $win_index:($i+1);
+                                        }
+                                      }
+
+                                    }
+                                    $cc_eq_txt_arr[$win_index]='<td><div><img src="../img/component/prize_r.png"></div>'.mb_substr($cc_eq_txt_arr[$win_index], 4);
+                                  }
+
+                                  
+                                 
+                                 $d_none=$x>5 ? 'class="d-none"':'';
+
+                                 if ($null_tr_num==count($cc_eq_txt_arr)) {
+                                   $eq_txt='';
+                                 }
+                                 else{
+                                  $eq_txt='
+                                  <tr '.$d_none.'>
+                                   <td>'.$eq_one['eq_name'].'</td>
+                                   '.implode(' ', $cc_eq_txt_arr).'
+                                  </tr>';
+                                 }
+                                 
+
+                                 echo $eq_txt;
+                               $x++; }
+                              ?>
+                              
 
                             </table>
                           </form>

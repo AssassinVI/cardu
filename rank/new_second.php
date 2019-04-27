@@ -75,13 +75,13 @@
                         <div class="cardshap darkpurple_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link active pl-30 py-2" id="title_5-tab" href="javascript:;" tab-target="#title_5" aria-selected="true">新手快搜</a>
+                            <a id="newHand_a" class="nav-link active pl-30 py-2" id="title_5-tab" href="javascript:;" tab-target="#title_5" aria-selected="true">新手快搜</a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link py-2" id="title_6-tab" href="javascript:;" tab-target="#title_6" aria-selected="false">卡片比一比</a>
+                            <a id="cardCompare_a" class="nav-link py-2" id="title_6-tab" href="javascript:;" tab-target="#title_6" aria-selected="false">卡片比一比</a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link py-2" id="title_7-tab" href="javascript:;" tab-target="#title_7" aria-selected="false">權益比一比</a>
+                            <a id="interest_a" class="nav-link py-2" id="title_7-tab" href="javascript:;" tab-target="#title_7" aria-selected="false">權益比一比</a>
                           </li>
                           
                         </ul>
@@ -99,9 +99,15 @@
                              </div>
                              
 
-                             <h6>1.信用卡優惠(可複選)</h6>
+                            <h6>1.信用卡優惠(可複選)</h6>
                             <ul>
-                            <li><a rank="現金回饋" class="" href="javascript:;">現金回饋</a></li>
+                            <?php 
+                             $row_pref=$pdo->select("SELECT Tb_index, pref_name FROM card_pref WHERE mt_id='site2018110617521258' ORDER BY OrderBy ASC");
+                             foreach ($row_pref as $row_pref_one) {
+                               echo '<li><a rank="'.$row_pref_one['Tb_index'].'" class="" href="javascript:;">'.$row_pref_one['pref_name'].'</a></li>';
+                             }
+                            ?>
+                            <!-- <li><a rank="現金回饋" class="" href="javascript:;">現金回饋</a></li>
                             <li><a rank="紅利集點" class="" href="javascript:;">紅利集點</a></li>
                             <li><a rank="哩程累積" class="" href="javascript:;">哩程累積</a></li>
                             <li><a rank="市區停車" class="" href="javascript:;">市區停車</a></li>
@@ -109,13 +115,19 @@
                             <li><a rank="分期0利率" class="" href="javascript:;">分期0利率</a></li>
                             <li><a rank="機場貴賓室" class="" href="javascript:;">機場貴賓室</a></li>
                             <li><a rank="免費機場停車" class="" href="javascript:;">免費機場停車</a></li>
-                            <li><a rank="免費機場接送" class="" href="javascript:;">免費機場接送</a></li>
+                            <li><a rank="免費機場接送" class="" href="javascript:;">免費機場接送</a></li> -->
                             </ul>
                             </div>
 
                             <div class="ranksearch_list new_hand_search">
                              <h6>2.消費用途(可複選)</h6>
                             <ul>
+                              <?php 
+                               // $row_func=$pdo->select("SELECT Tb_index, fun_name FROM card_func WHERE mt_id='site2018110517362644' ORDER BY OrderBy ASC");
+                               // foreach ($row_func as $row_func_one) {
+                               //   echo '<li><a rank="'.$row_func_one['Tb_index'].'" class="" href="javascript:;">'.$row_func_one['fun_name'].'</a></li>';
+                               // }
+                              ?>
                             <li><a rank="加油" class="" href="javascript:;">加油</a></li>
                             <li><a rank="電影" class="" href="javascript:;">電影</a></li>
                             <li><a rank="餐飲" class="" href="javascript:;">餐飲</a></li>
@@ -139,90 +151,105 @@
                         
                          <div class="row compare_bg">
                          <div class="col-md-4 col card_list_txt text-center">
-                             <div class="rank_care ">
+                           <div class="rank_care ">
+
                              <form class="row search_from">
-                             <select>
-                             <option value="">選擇銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
+                             <select class="c_compare_bk">
+                                 <option value="">--選擇銀行--</option>
+                                 <?php 
+                                   $row_bank=$pdo->select("SELECT Tb_index, bi_shortname FROM bank_info ORDER BY bi_code ASC");
+                                   foreach ($row_bank as $row_bank_one) {
+                                     echo '<option value="'.$row_bank_one['Tb_index'].'">'.$row_bank_one['bi_shortname'].'</option>';
+                                   }
+                                 ?>
                              </select>
                              </form>
 
                              <form class="row search_from">
-                             <select>
-                             <option value="">選擇信用卡</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             </select>
+                             <select class="show_cc_group">
+                                 <option value="">--選擇信用卡--</option>
+                             </select> 
                              </form>
-                           <a href="#">
-                           <img src="../img/component/card3.png">
-                           <h4>匯豐銀行現金回饋玉璽卡</h4>
-                           </a>
-                           </div>
+
+                             <form class="row search_from">
+                             <select class="show_cc">
+                                 <option value="">--選擇卡等--</option>
+                             </select> 
+                             </form>
+                             <a class="show_card" href="javascript:;">
+                               <h1 class="hv-center">卡片一</h1>
+                             </a>
+                          </div>
                          </div>
                         
-                        <div class="col-md-4 col">
-                           <div class="rank_care ">
-                             <form class="row search_from">
-                             <select>
-                             <option value="">選擇銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             </select>
-                             </form>
+                        <div class="col-md-4 col card_list_txt text-center">
+                            <div class="rank_care ">
 
-                             <form class="row search_from">
-                             <select>
-                             <option value="">選擇信用卡</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             </select>
-                             </form>
-                           <a href="#">
-                           <h1 class="hv-center">卡片二</h1>
-                           </a>
+                              <form class="row search_from">
+                              <select class="c_compare_bk2">
+                                  <option value="">--選擇銀行--</option>
+                                  <?php 
+                                    $row_bank=$pdo->select("SELECT Tb_index, bi_shortname FROM bank_info ORDER BY bi_code ASC");
+                                    foreach ($row_bank as $row_bank_one) {
+                                      echo '<option value="'.$row_bank_one['Tb_index'].'">'.$row_bank_one['bi_shortname'].'</option>';
+                                    }
+                                  ?>
+                              </select>
+                              </form>
+
+                              <form class="row search_from">
+                              <select class="show_cc_group2">
+                                  <option value="">--選擇信用卡--</option>
+                              </select> 
+                              </form>
+
+                              <form class="row search_from">
+                              <select class="show_cc2">
+                                  <option value="">--選擇卡等--</option>
+                              </select> 
+                              </form>
+                              <a class="show_card" href="javascript:;">
+                                <h1 class="hv-center">卡片二</h1>
+                              </a>
                            </div>
                         </div>
                         
-                        <div class="col-md-4 col">
+                        <div class="col-md-4 col card_list_txt text-center">
                           <div class="rank_care">
                              <form class="row search_from">
-                             <select>
-                             <option value="">選擇銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             </select>
-                             </form>
+                              <select class="c_compare_bk3">
+                                  <option value="">--選擇銀行--</option>
+                                  <?php 
+                                    $row_bank=$pdo->select("SELECT Tb_index, bi_shortname FROM bank_info ORDER BY bi_code ASC");
+                                    foreach ($row_bank as $row_bank_one) {
+                                      echo '<option value="'.$row_bank_one['Tb_index'].'">'.$row_bank_one['bi_shortname'].'</option>';
+                                    }
+                                  ?>
+                              </select>
+                              </form>
 
-                             <form class="row search_from">
-                             <select>
-                             <option value="">選擇信用卡</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             <option value="匯豐銀行">匯豐銀行</option>
-                             </select>
-                             </form>
-                           <a href="#">
-                           <h1 class="hv-center">卡片三</h1>
-                           
-                           </a>
+                              <form class="row search_from">
+                              <select class="show_cc_group3">
+                                  <option value="">--選擇信用卡--</option>
+                              </select> 
+                              </form>
+
+                              <form class="row search_from">
+                              <select class="show_cc3">
+                                  <option value="">--選擇卡等--</option>
+                              </select> 
+                              </form>
+                              <a class="show_card" href="javascript:;">
+                                <h1 class="hv-center">卡片三</h1>
+                              </a>
                            </div>
                         </div>
                     </div>
-                  
 
+                    <div class="col-md-12 col hv-center">
+                     <a id="card_rank" class="rank_button gray-layered btnOver" href="javascript:;">開始比較</a>
+                    </div>
 
-                           <div class="col-md-12 col hv-center">
-                             <a class="rank_button gray-layered btnOver" href="compare_detail.php">開始比較</a>
-                           </div>
-
-                           
 
                           
 
@@ -240,34 +267,29 @@
 
                           <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
                             <div class="col-md-12 col">
-                            <div class="ranksearch_list rights_search">
+                            <div class="ranksearch_list rights_search profit_shop">
                              <p>請選擇要比較的權益項目，(最多3項)<span class="warr_txt text-danger">(請點擊下方選項，若要取消請再次點擊即可)</span></p>
                              <div class="text-right reset_div">
                                <a id="reset_profit_btn" href="javascript:;" class="btn gray-layered btnOver">重選</a>
                              </div>
                              <h6>1.權益項目(可複選)</h6>
-                            <ul>
-                            <li><a rank="現金回饋" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　現金回饋</a></li>
-                            <li><a rank="紅利集點" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　紅利集點</a></li>
-                            <li><a rank="點數折抵現金" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　點數折抵現金</a></li>
-                            <li><a rank="哩程累積" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　哩程累積</a></li>
-                            <li><a rank="聯名優惠" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　聯名優惠</a></li>
-                            <li><a rank="購物優惠" class="rank_shop" href="#"><img src="../img/component/debitcard1.png" title="新聞">　購物優惠</a></li>
-                            <li><a rank="旅遊保險" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　旅遊保險</a></li>
-                            <li><a rank="機場接送" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　機場接送</a></li>
-                            <li><a rank="機場貴賓室" class="rank_shop" href="#"><img src="../img/component/debitcard1.png" title="新聞">　機場貴賓室</a></li>
-                            <li><a rank="一般停車" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　一般停車</a></li>
-                            <li><a rank="機場停車" class="" href="#"><img src="../img/component/debitcard1.png" title="新聞">　機場停車</a></li>
-                            <li><a rank="道路教授" class="rank_shop" href="#"><img src="../img/component/debitcard1.png" title="新聞">　道路教授</a></li>
+                            <ul class="research_li">
+
+                            <?php 
+                             $row_int=$pdo->select("SELECT Tb_index, eq_name, eq_image FROM card_eq_item WHERE mt_id='site2019021216245137' AND eq_type IN ('small','big') ORDER BY OrderBy ASC");
+                             foreach ($row_int as $row_int_one) {
+                               $eq_image=empty($row_int_one['eq_image']) ? '':'<img src="../sys/img/'.$row_int_one['eq_image'].'">';
+                               echo '<li><a rank="'.$row_int_one['Tb_index'].'" class="" href="javascript:;">'.$eq_image.$row_int_one['eq_name'].'</a></li>';
+                             }
+
+                            ?>
                             
                             </ul>
                             </div>
 
                             <div class="ranksearch_list rights_checked">
                              <p>您選擇要比較的權益項目順序如下方所列，點選【開始比較】即可進行權益比一比</p>
-                            <ul>
-                            
-                            
+                            <ul class="phone_list">
                             
                             
                             </ul>

@@ -1,3 +1,13 @@
+<?php 
+ require 'sys/core/inc/config.php';
+ require 'sys/core/inc/function.php';
+ require 'sys/core/inc/pdo_fun_calss.php';
+
+   $URL='http://'.$_SERVER['HTTP_HOST'];
+   $FB_URL='http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+   $pdo=new PDO_fun;
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
@@ -242,53 +252,26 @@
                               <div class="swiper_div">
                                  <div class="swiper-container">
                                    <div class="swiper-wrapper">
-                                       <div class="swiper-slide active" index="1" > 
-                                        <div class="text-center"  ><a href="javascript:;" title="現金回饋"><img src="../img/component/icon_down/rank/card_rank1.png" alt="現金回饋" > <br> 現金回饋</a></div>
-                                       </div>
-
-                                       <div class="swiper-slide" index="2"> 
-                                        <div class="text-center" ><a href="javascript:;" title="航空里程"><img src="../img/component/icon/rank/card_rank4.png" alt="航空里程" > <br> 航空里程</a></div>
-                                       </div>
-
-                                       <div class="swiper-slide" index="3"> 
-                                        <div class="text-center" ><a href="javascript:;" title="機場接送"><img src="../img/component/icon/rank/card_rank2.png" alt="機場接送" > <br> 機場接送</a></div>
-                                       </div>
-
-                                       <div class="swiper-slide" index="4"> 
-                                        <div class="text-center" ><a href="javascript:;" title="保險"><img src="../img/component/icon/rank/card_rank5.png" alt="保險" > <br> 保險</a></div>
-                                       </div>
-
-                                       <div class="swiper-slide" index="5"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/rank/card_rank6.png" alt="加油" title="加油"> <br> 加油</a></div>
-                                       </div>
-
-                                       <div class="swiper-slide" index="6"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/rank/card_rank3.png" alt="電影" title="電影"> <br> 電影</a></div>
-                                       </div>
-
-                                       <div class="swiper-slide" index="7"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/rank/card_rank7.png" alt="分期卡" title="分期卡"> <br> 分期卡</a></div>
-                                       </div>
-
-                                       <div class="swiper-slide" index="8"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/rank/card_rank8.png" alt="手刷禮" title="手刷禮"> <br> 手刷禮</a></div>
-                                       </div>
-
-                                       <div class="swiper-slide" index="9"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/rank/card_rank9.png" alt="悠遊卡" title="悠遊卡"> <br> 悠遊卡</a></div>
-                                       </div>  
-
-                                       <div class="swiper-slide" index="10"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/rank/card_rank10.png" alt="一卡通" title="一卡通"> <br> 一卡通</a></div>
-                                       </div>
-
-                                       <div class="swiper-slide" index="11"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/rank/card_rank11.png" alt="i cash卡" title="i cash卡"> <br> i cash卡</a></div>
-                                       </div>
-
-                                       <div class="swiper-slide" index="12"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/rank/card_rank12.png" alt="網購" title="網購"> <br> 網購</a></div>
-                                       </div>                                     
+                                       <?php 
+                                      //-- 卡排行分類 --
+                                      $row_cc_type=$pdo->select("SELECT Tb_index, cc_so_cname, cc_so_photo_1, cc_so_photo_1_hover
+                                                                 FROM credit_cardrank_type 
+                                                                 WHERE cc_so_status=1 ORDER BY cc_so_order ASC");
+                                      $x=1;
+                                      foreach ($row_cc_type as $rct_one) {
+                                      	$active=$x==1 ? 'active':'';
+                                      	$active_img=$x==1 ? $rct_one['cc_so_photo_1_hover']:$rct_one['cc_so_photo_1'];
+                                      	echo '
+                                      	<div class="swiper-slide '.$active.'" index="'.$x.'" Tb_index="'.$rct_one['Tb_index'].'" > 
+                                         <div class="text-center"  >
+                                            <a href="javascript:;" title="'.$rct_one['cc_so_cname'].'">
+                                              <img src="../sys/img/'.$active_img.'" alt="'.$rct_one['cc_so_cname'].'" > <br> '.$rct_one['cc_so_cname'].'
+                                            </a>
+                                          </div>
+                                        </div>';
+                                      	$x++;
+                                      }
+                                    ?>                                    
                                    </div>
 
                                </div>
@@ -304,36 +287,34 @@
                            <div class="ccard">
                               <div class="swiper-container">
                                   <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="w-h-100 hv-center">
-                                          <a href="#" title="台新銀行比漾聯名卡"><span class="top_Medal">1</span><img src="img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="w-h-100 hv-center">
-                                            <a href="#" title="新光銀行指定卡"><span class="top_Medal">2</span><img src="img/component/card2.png" alt="新光銀行指定卡"><br>新光銀行指定卡</a>
-                                        </div>
-                                    </div>
-                                      <div class="swiper-slide">
-                                        <div class="w-h-100 hv-center">
-                                            <a href="#" title="台新銀行GoGo悠遊卡"><span class="top_Medal">3</span><img src="img/component/card3.png" alt="台新銀行GoGo悠遊卡"><br>台新銀行GoGo悠遊卡</a>
-                                        </div>
-                                    </div>
-                                      <div class="swiper-slide">
-                                        <div class="w-h-100 hv-center">
-                                            <a href="#" title="台新銀行比漾聯名卡"><span class="top_Medal">4</span><img src="img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>
-                                        </div>
-                                    </div>
-                                      <div class="swiper-slide">
-                                        <div class="w-h-100 hv-center">
-                                            <a href="#" title="新光銀行指定卡"><span class="top_Medal">5</span><img src="img/component/card2.png" alt="新光銀行指定卡"><br>新光銀行指定卡</a>
-                                        </div>
-                                    </div>
-                                      <div class="swiper-slide">
-                                        <div class="w-h-100 hv-center">
-                                            <a href="#" title="台新銀行GoGo悠遊卡"><span class="top_Medal">6</span><img src="img/component/card3.png" alt="台新銀行GoGo悠遊卡"><br>台新銀行GoGo悠遊卡</a>
-                                        </div>
-                                    </div>
+                                    <?php 
+                                      $row_ccard_rank=$pdo->select("SELECT ccs_cc_cardname, ccs_cc_pk, ccs_cc_group_id
+                                                                    FROM credit_cardrank 
+                                                                    WHERE ccs_cc_so_pk=:ccs_cc_so_pk ORDER BY ccs_order ASC LIMIT 0,6", ['ccs_cc_so_pk'=>'r_type201904010959361']);
+                                      $x=1;
+                                      foreach ($row_ccard_rank as $rcr_one) {
+                                        //-- 單卡 --
+                                        if (!empty($rcr_one['ccs_cc_pk'])) {
+                                           $row_ccard=$pdo->select("SELECT cc_photo FROM credit_card WHERE Tb_index=:Tb_index", ['Tb_index'=>$rcr_one['ccs_cc_pk']], 'one');
+                                        }
+                                        //-- 卡組 --
+                                        else{
+                                           $row_ccard=$pdo->select("SELECT cc_photo FROM credit_card WHERE cc_group_id=:cc_group_id LIMIT 0,1", ['cc_group_id'=>$rcr_one['ccs_cc_group_id']], 'one');
+                                        }
+
+                                        $ccs_cc_cardname=explode(']', $rcr_one['ccs_cc_cardname']);
+                                        $ccs_cc_shortname=mb_strlen($ccs_cc_cardname[1],'utf-8')>10 ? mb_substr($ccs_cc_cardname[1], 0,10,'utf-8'):$ccs_cc_cardname[1];
+
+                                        $cc_url=!empty($rcr_one['ccs_cc_pk']) ? '../cardNews/creditcard.php?cc_pk='.$rcr_one['ccs_cc_pk'].'&cc_group_id='.$rcr_one['ccs_cc_group_id'] : '../cardNews/type.php?gid='.$rcr_one['ccs_cc_group_id'];
+                                        echo '
+                                        <div class="swiper-slide">
+                                           <div class="w-h-100 hv-center">
+                                             <a href="'.$cc_url.'" title="'.$ccs_cc_cardname[1].'"><span class="top_Medal">'.$x.'</span><img src="../sys/img/'.$row_ccard['cc_photo'].'" alt="'.$ccs_cc_cardname[1].'"><br>'.$ccs_cc_shortname.'</a>
+                                           </div>
+                                        </div>';
+                                      	$x++;
+                                      }
+                                  	?>
                                   </div>
                                                                     
                               </div>

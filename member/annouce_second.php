@@ -86,13 +86,14 @@
                           <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
 
                            
-                             <div class="row no-gutters col">
+                             <div class="row no-gutters col post">
                                 <div class="col-md-6 cards-two">
                                    <a href="#">
                                        <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
                                         <small>網站公告</small>
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
+                                       <span>20XX-XX-XX</span>
                                    </a>
                                 </div>
 
@@ -102,18 +103,20 @@
                                         <small>網站公告</small>
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
+                                       <span>20XX-XX-XX</span>
                                    </a>
                                 </div>
                     
                             </div>
 
-                            <div class="row no-gutters col">
-                                <div class="col-md-6 cards-two">
+                            <div class="row no-gutters col post">
+                                <div class="col-md-6 cards-two ">
                                    <a href="#">
                                        <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
                                         <small>網站公告</small>
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
+                                       <span>20XX-XX-XX</span>
                                    </a>
                                 </div>
                                 <div class="col-md-6 cards-two">
@@ -122,38 +125,20 @@
                                         <small>網站公告</small>
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                    
-                            </div>
-
-                            <div class="row no-gutters col">
-                                <div class="col-md-6 cards-two">
-                                   <a href="#">
-                                       <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
-                                        <small>網站公告</small>
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-md-6 cards-two">
-                                   <a href="#">
-                                       <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
-                                        <small>網站公告</small>
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
+                                       <span>20XX-XX-XX</span>
                                    </a>
                                 </div>
                     
                             </div>
 
-                            <div class="row no-gutters col">
+                            <div class="row no-gutters col post">
                                 <div class="col-md-6 cards-two">
                                    <a href="#">
                                        <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
                                         <small>網站公告</small>
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
+                                       <span>20XX-XX-XX</span>
                                    </a>
                                 </div>
                                 <div class="col-md-6 cards-two">
@@ -162,18 +147,20 @@
                                         <small>網站公告</small>
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
+                                       <span>20XX-XX-XX</span>
                                    </a>
                                 </div>
                     
                             </div>
 
-                            <div class="row no-gutters col">
+                            <div class="row no-gutters col post">
                                 <div class="col-md-6 cards-two">
                                    <a href="#">
                                        <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
                                         <small>網站公告</small>
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
+                                       <span>20XX-XX-XX</span>
                                    </a>
                                 </div>
                                 <div class="col-md-6 cards-two">
@@ -182,6 +169,29 @@
                                         <small>網站公告</small>
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
+                                       <span>20XX-XX-XX</span>
+                                   </a>
+                                </div>
+                    
+                            </div>
+
+                            <div class="row no-gutters col post">
+                                <div class="col-md-6 cards-two">
+                                   <a href="#">
+                                       <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
+                                        <small>網站公告</small>
+                                       </div>
+                                       <p>遊日血拚大回饋，信用卡大調查</p>
+                                       <span>20XX-XX-XX</span>
+                                   </a>
+                                </div>
+                                <div class="col-md-6 cards-two">
+                                   <a href="#">
+                                       <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
+                                        <small>網站公告</small>
+                                       </div>
+                                       <p>遊日血拚大回饋，信用卡大調查</p>
+                                       <span>20XX-XX-XX</span>
                                    </a>
                                 </div>
                     

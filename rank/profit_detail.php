@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
 
-    <title>卡優新聞網-卡排行</title>
+    <title>卡優新聞網-權益比一比</title>
 
     <meta name="keywords" content="信用卡,金融卡,悠遊卡,一卡通,icash,電子票證,現金回饋,紅利,信用卡比較,信用卡優惠,首刷禮,辦卡,新卡,卡訊,行動支付,小額消費,新聞,理財,消費,3C,旅遊,日本,住宿,美食,電影,交通,好康,加油,報稅"/>  
     <meta name="description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" /> 
@@ -35,7 +35,6 @@
      //-- 共用CSS --
      require '../share_area/share_css.php';
     ?>
-
 
 
   </head>
@@ -72,7 +71,24 @@
                     <div class="col-md-12 col">
                       <div class="rank_search bank_search cardshap py-md-2">
                       <p>根據您所設定的權益比較條件:
-                        <span id="search_rank_arr" class="text-primary"></span>
+                        <span id="search_rank_arr" class="text-primary">
+                          <?php 
+                            $eq_name_txt='';
+                            if (!empty($_GET['ci_pk01'])) {
+                              $row_name1=$pdo->select("SELECT eq_name FROM card_eq_item WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['ci_pk01']], 'one');
+                              $eq_name_txt.= '1.'.$row_name1['eq_name'].'、';
+                            }
+                            if (!empty($_GET['ci_pk02'])) {
+                              $row_name2=$pdo->select("SELECT eq_name FROM card_eq_item WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['ci_pk02']], 'one');
+                              $eq_name_txt.= '2.'.$row_name2['eq_name'].'、';
+                            }
+                            if (!empty($_GET['ci_pk03'])) {
+                              $row_name3=$pdo->select("SELECT eq_name FROM card_eq_item WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['ci_pk03']], 'one');
+                              $eq_name_txt.= '3.'.$row_name3['eq_name'].'、';
+                            }
+                            echo mb_substr($eq_name_txt, 0,-1);
+                          ?>
+                        </span>
                         ，依序顯示下列信用卡
                       </p>
                       </div>
@@ -95,467 +111,270 @@
                           <thead>
                             <tr class="profit_bg">
                               <!-- 分類選項 -->
+
+                              <?php 
+                                $row_int=$pdo->select("SELECT Tb_index, eq_name FROM card_eq_item WHERE mt_id='site2019021216245137' AND eq_type IN ('small','big') ORDER BY OrderBy ASC");
+                                
+                                //-- 項目紀錄 --
+                                $ci_pk_all=[$_GET['ci_pk01']];
+                              ?>
                               <th>
                                 <p class="text-center">權益項目</p>
                               </th>
-                              <th>
+                              <th class="ci_pk01">
                                 <div class="rank_care money_main profit_width hv-center">
                                   <form class="row search_from">
-                                  <select>
-                                  <option value="">現金回饋</option>
-                                  <option value="匯豐銀行">匯豐銀行</option>
-                                  <option value="匯豐銀行">匯豐銀行</option>
-                                  <option value="匯豐銀行">匯豐銀行</option>
+                                  <select class="change_eq_item">
+                                  <?php 
+                                   foreach ($row_int as $row_int_one) {
+                                    if ($_GET['ci_pk01']==$row_int_one['Tb_index']) {
+                                      echo '<option selected value="'.$row_int_one['Tb_index'].'">'.$row_int_one['eq_name'].'</option>';
+                                    }
+                                    else{
+                                     echo '<option value="'.$row_int_one['Tb_index'].'">'.$row_int_one['eq_name'].'</option>';
+                                    }
+                                   }
+                                  ?>
                                   </select>
                                   </form>
                                 </div>
                               </th>
-                              <th>
-                                <div class="rank_care money_main profit_width hv-center">
-                                  <form class="row search_from">
-                                  <select>
-                                  <option value="">旅遊保險</option>
-                                  <option value="匯豐銀行">匯豐銀行</option>
-                                  <option value="匯豐銀行">匯豐銀行</option>
-                                  <option value="匯豐銀行">匯豐銀行</option>
-                                  </select>
-                                  </form>
-                                </div>
-                              </th>
-                              <th>
-                                <div class="rank_care money_main profit_width hv-center">
-                                  <form class="row search_from">
-                                  <select>
-                                  <option value="">旅遊保險</option>
-                                  <option value="匯豐銀行">匯豐銀行</option>
-                                  <option value="匯豐銀行">匯豐銀行</option>
-                                  <option value="匯豐銀行">匯豐銀行</option>
-                                  </select>
-                                  </form>
-                                </div>
-                              </th>
+
+                              <?php 
+                               if (!empty($_GET['ci_pk02'])) {
+
+                                 //-- 項目紀錄 --
+                                 array_push($ci_pk_all, $_GET['ci_pk02']);
+
+                                 echo '
+                                 <th class="ci_pk02">
+                                   <div class="rank_care money_main profit_width hv-center">
+                                     <form class="row search_from">
+                                     <select class="change_eq_item">';
+
+                                     foreach ($row_int as $row_int_one) {
+                                       if ($_GET['ci_pk02']==$row_int_one['Tb_index']) {
+                                        echo '<option selected value="'.$row_int_one['Tb_index'].'">'.$row_int_one['eq_name'].'</option>';
+                                      }
+                                      else{
+                                       echo '<option value="'.$row_int_one['Tb_index'].'">'.$row_int_one['eq_name'].'</option>';
+                                      }
+                                     }
+
+                                echo '</select>
+                                     </form>
+                                   </div>
+                                 </th>';
+                               }
+
+
+                               if (!empty($_GET['ci_pk03'])) {
+
+                                 //-- 項目紀錄 --
+                                 array_push($ci_pk_all, $_GET['ci_pk03']);
+
+                                 echo '
+                                 <th class="ci_pk03">
+                                   <div class="rank_care money_main profit_width hv-center">
+                                     <form class="row search_from">
+                                     <select class="change_eq_item">';
+
+                                     foreach ($row_int as $row_int_one) {
+                                       if ($_GET['ci_pk03']==$row_int_one['Tb_index']) {
+                                        echo '<option selected value="'.$row_int_one['Tb_index'].'">'.$row_int_one['eq_name'].'</option>';
+                                      }
+                                      else{
+                                       echo '<option value="'.$row_int_one['Tb_index'].'">'.$row_int_one['eq_name'].'</option>';
+                                      }
+                                     }
+
+                                echo '</select>
+                                     </form>
+                                   </div>
+                                 </th>';
+                               }
+                              ?>
+                              
                             </tr>
                             <!-- 分類選項 -->
                           </thead>
+                          
+                          <?php 
+                           //-- 項目紀錄 --
+                           $ci_pk_all=implode(',', $ci_pk_all);
+                           echo '<input type="hidden" name="ci_pk_all" value="'.$ci_pk_all.'">';
+                          ?>
+                          
                           <tbody>
-                            <tr class="profit_bg">
-                              <td>
-                                <div class="hv-center profit_prize rank_hot">
-                                <span class="top_prize"></span>
-                                <h1 class=" hv-center mb-0">1</h1>
-                              </div>
-                              </td>
-                              <td>
+
+                           <?php 
+
+                             //-- 權益項目1 --
+                             $row_eq=$pdo->select("SELECT eq_type FROM card_eq_item WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['ci_pk01']], 'one');
+                             $eq_type=$row_eq['eq_type']=='big' ? 'DESC':'ASC';
+                             $row_eq_rank=$pdo->select("SELECT  cc.Tb_index, cc.cc_group_id, cc.cc_photo, cc.cc_cardname, cc.bi_shortname, cc.org_nickname, cc.attr_name, cc.cc_doc_url, cc.cc_doc_path, cc_eq.sm_content
+                                                        FROM credit_card_eq as cc_eq
+                                                        INNER JOIN cc_detail as cc ON cc_eq.card_id=cc.Tb_index 
+                                                        WHERE cc_eq.eq_id=:eq_id
+                                                        ORDER BY cc_eq.number_data ".$eq_type." LIMIT 0,6", ['eq_id'=>$_GET['ci_pk01']]);
+                             
+                             $ci_pk01_arr=[];
+                             foreach ($row_eq_rank as $eq_rank_one) {
+                               //-- 卡名 --
+                               $card_name=$eq_rank_one['bi_shortname'].$eq_rank_one['cc_cardname'].$eq_rank_one['org_nickname'].$eq_rank_one['attr_name'];
+
+                               //-- 立即辦卡 --
+                               if (!empty($eq_rank_one['cc_doc_url'])) {
+                                 $cc_doc='<a target="_blank"  href="'.$eq_rank_one['cc_doc_url'].'" class="apply_card_btn btn warning-layered btnOver">立即辦卡</a>';
+                               }
+                               elseif(!empty($eq_rank_one['cc_doc_path'])){
+                                 $cc_doc='<a target="_blank" href="'.$eq_rank_one['cc_doc_path'].'" class="apply_card_btn btn warning-layered btnOver">立即辦卡</a>';
+                               }
+                               else{
+                                 $cc_doc='';
+                               }
+                              $ci_pk01_one= '
+                              <td class="ci_pk01">
                                 <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡123</h5>
+                                 <a href="../cardNews/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
+                                  <img class="rank_img" src="../sys/img/'.$eq_rank_one['cc_photo'].'" title="'.$eq_rank_one['sm_content'].'">
+                                  <h5 class=" money_main text-center mb-0">'.$card_name.'</h5>
                                  </a>
                                 <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  <button type="button" class="btn gray-layered btnOver">加入比較</button>
+                                  '.$cc_doc.'
+                                  <button type="button" class="btn gray-layered btnOver phone_hidden">加入比較</button>
                                 </div>
                                </div>
-                              </td>
-                              <td>
+                              </td>';
+                              array_push($ci_pk01_arr, $ci_pk01_one);
+                             }
+                             
+
+                             //-- 權益項目2 --
+                             if (!empty($_GET['ci_pk02'])) {
+
+                             $row_eq=$pdo->select("SELECT eq_type FROM card_eq_item WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['ci_pk02']], 'one');
+                             $eq_type=$row_eq['eq_type']=='big' ? 'DESC':'ASC';
+                             $row_eq_rank=$pdo->select("SELECT  cc.Tb_index, cc.cc_group_id, cc.cc_photo, cc.cc_cardname, cc.bi_shortname, cc.org_nickname, cc.attr_name, cc.cc_doc_url, cc.cc_doc_path, cc_eq.sm_content
+                                                        FROM credit_card_eq as cc_eq
+                                                        INNER JOIN cc_detail as cc ON cc_eq.card_id=cc.Tb_index 
+                                                        WHERE cc_eq.eq_id=:eq_id
+                                                        ORDER BY cc_eq.number_data ".$eq_type." LIMIT 0,6", ['eq_id'=>$_GET['ci_pk02']]);
+                             
+                             $ci_pk02_arr=[];
+                             foreach ($row_eq_rank as $eq_rank_one) {
+                               //-- 卡名 --
+                               $card_name=$eq_rank_one['bi_shortname'].$eq_rank_one['cc_cardname'].$eq_rank_one['org_nickname'].$eq_rank_one['attr_name'];
+
+                               //-- 立即辦卡 --
+                               if (!empty($eq_rank_one['cc_doc_url'])) {
+                                 $cc_doc='<a target="_blank"  href="'.$eq_rank_one['cc_doc_url'].'" class="apply_card_btn btn warning-layered btnOver">立即辦卡</a>';
+                               }
+                               elseif(!empty($eq_rank_one['cc_doc_path'])){
+                                 $cc_doc='<a target="_blank" href="'.$eq_rank_one['cc_doc_path'].'" class="apply_card_btn btn warning-layered btnOver">立即辦卡</a>';
+                               }
+                               else{
+                                 $cc_doc='';
+                               }
+                              $ci_pk02_one= '
+                              <td class="ci_pk01">
                                 <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
+                                 <a href="../cardNews/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
+                                  <img class="rank_img" src="../sys/img/'.$eq_rank_one['cc_photo'].'" title="'.$eq_rank_one['sm_content'].'">
+                                  <h5 class=" money_main text-center mb-0">'.$card_name.'</h5>
                                  </a>
                                 <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  <button type="button" class="btn gray-layered btnOver">加入比較</button>
+                                  '.$cc_doc.'
+                                  <button type="button" class="btn gray-layered btnOver phone_hidden">加入比較</button>
                                 </div>
                                </div>
-                              </td>
-                              <td>
+                              </td>';
+                              array_push($ci_pk02_arr, $ci_pk02_one);
+                             }
+                             }
+
+
+
+                             //-- 權益項目3 --
+                             if (!empty($_GET['ci_pk03'])) {
+
+                             $row_eq=$pdo->select("SELECT eq_type FROM card_eq_item WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['ci_pk03']], 'one');
+                             $eq_type=$row_eq['eq_type']=='big' ? 'DESC':'ASC';
+                             $row_eq_rank=$pdo->select("SELECT  cc.Tb_index, cc.cc_group_id, cc.cc_photo, cc.cc_cardname, cc.bi_shortname, cc.org_nickname, cc.attr_name, cc.cc_doc_url, cc.cc_doc_path, cc_eq.sm_content
+                                                        FROM credit_card_eq as cc_eq
+                                                        INNER JOIN cc_detail as cc ON cc_eq.card_id=cc.Tb_index 
+                                                        WHERE cc_eq.eq_id=:eq_id
+                                                        ORDER BY cc_eq.number_data ".$eq_type." LIMIT 0,6", ['eq_id'=>$_GET['ci_pk03']]);
+                             $ci_pk03_arr=[];
+                             foreach ($row_eq_rank as $eq_rank_one) {
+                               //-- 卡名 --
+                               $card_name=$eq_rank_one['bi_shortname'].$eq_rank_one['cc_cardname'].$eq_rank_one['org_nickname'].$eq_rank_one['attr_name'];
+
+                               //-- 立即辦卡 --
+                               if (!empty($eq_rank_one['cc_doc_url'])) {
+                                 $cc_doc='<a target="_blank"  href="'.$eq_rank_one['cc_doc_url'].'" class="apply_card_btn btn warning-layered btnOver">立即辦卡</a>';
+                               }
+                               elseif(!empty($eq_rank_one['cc_doc_path'])){
+                                 $cc_doc='<a target="_blank" href="'.$eq_rank_one['cc_doc_path'].'" class="apply_card_btn btn warning-layered btnOver">立即辦卡</a>';
+                               }
+                               else{
+                                 $cc_doc='';
+                               }
+                              $ci_pk03_one= '
+                              <td class="ci_pk01">
                                 <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
+                                 <a href="../cardNews/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
+                                  <img class="rank_img" src="../sys/img/'.$eq_rank_one['cc_photo'].'" title="'.$eq_rank_one['sm_content'].'">
+                                  <h5 class=" money_main text-center mb-0">'.$card_name.'</h5>
                                  </a>
                                 <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
+                                  '.$cc_doc.'
+                                  <button type="button" class="btn gray-layered btnOver phone_hidden">加入比較</button>
                                 </div>
                                </div>
-                              </td>
-                            </tr>
+                              </td>';
+                              array_push($ci_pk03_arr, $ci_pk03_one);
+                             }
+                             }
+                             
+                             for ($i=0; $i <6 ; $i++) { 
+                              
+                              $ci_pk01_txt=empty($ci_pk01_arr[$i]) ? '<td></td>':$ci_pk01_arr[$i];
+                              $ci_pk02_txt=empty($ci_pk02_arr[$i]) ? '<td></td>':$ci_pk02_arr[$i];
+                              $ci_pk03_txt=empty($ci_pk03_arr[$i]) ? '<td></td>':$ci_pk03_arr[$i];
+                              
+                           
+                              $top_prize=$i<3 ? '<span class="top_prize"></span>':'';
+                               echo '
+                               <tr class="profit_bg">
+                                 <td>
+                                   <div class="hv-center profit_prize rank_hot">
+                                   '.$top_prize.'
+                                   <h1 class=" hv-center mb-0">'.($i+1).'</h1>
+                                 </div>
+                                 </td>
+                                '.$ci_pk01_txt.$ci_pk02_txt.$ci_pk03_txt.'
+                               </tr>';
+
+                               //-- 廣告 --
+                               if (($i+1)%3==0) {
+                                 echo '
+                                   <td colspan="4">
+                                    <div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div>
+                                   </td>';
+                               }
+                             }
+
+
+
+                           ?>
                             
-                            <tr class="profit_bg">
-                              <td>
-                                <div class="hv-center profit_prize rank_hot">
-                                <span class="top_prize"></span>
-                                <h1 class=" hv-center mb-0">2</h1>
-                              </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                                </div>
-                               </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                                </div>
-                               </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                </div>
-                               </div>
-                              </td>
-                            </tr>
-                            
-                            <tr class="profit_bg">
-                              <td>
-                                <div class="hv-center profit_prize rank_hot">
-                                <span class="top_prize"></span>
-                                <h1 class=" hv-center mb-0">3</h1>
-                              </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                                </div>
-                               </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                                </div>
-                               </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                </div>
-                               </div>
-                              </td>
-                            </tr>
-                            <tr>
-                            <!--廣告-->
-                            <td colspan="4">
-                              <div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div>
-                            </td>
-                            
-                            <!--banner end -->
-                            </tr>
-                            <tr class="profit_bg">
-                              <td>
-                                <div class="hv-center profit_prize rank_hot">
-                                <span class="top_prize"></span>
-                                <h1 class=" hv-center mb-0">4</h1>
-                              </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                                </div>
-                               </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                                </div>
-                               </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                </div>
-                               </div>
-                              </td>
-                            </tr>
-                            
-                            <tr class="profit_bg">
-                              <td>
-                                <div class="hv-center profit_prize rank_hot">
-                                <span class="top_prize"></span>
-                                <h1 class=" hv-center mb-0">5</h1>
-                              </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                                </div>
-                               </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                                </div>
-                               </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                </div>
-                               </div>
-                              </td>
-                            </tr>
-                            
-                            <tr class="profit_bg">
-                              <td>
-                                <div class="hv-center profit_prize rank_hot">
-                                 <span class="top_prize"></span>
-                                 <h1 class=" hv-center mb-0">6</h1>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                                </div>
-                               </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                  <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                                </div>
-                               </div>
-                              </td>
-                              <td>
-                                <div class="rank_care money_main">
-                                 <a href="#">
-                                  <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                                  <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                                 </a>
-                                <div class="profit_btn  hv-center">
-                                  <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                </div>
-                               </div>
-                              </td>
-                            </tr>
                           </tbody>
                         </table>
                       </div>
 
-                    <div class="d-none">
-                      
-                    <div class="row profit_bg">
-                         <div class="col-md-1 col hv-center profit_prize rank_hot">
-                           
-                           <h1 class=" hv-center mb-0">7</h1>
-                         </div>
-                         <div class="col-md-3 col profit_list">
-                             <div class="rank_care money_main ">
-                           <a href="#">
-                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                           
-                           </a>
-                           <div class="profit_btn  hv-center">
-                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                           </div>
-                           </div>
-                         </div>
-                        
-                        <div class="col-md-3 col profit_list">
-                           <div class="rank_care money_main">
-                           <a href="#">
-                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                           </a>
-                           <div class="profit_btn  hv-center">
-                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                           </div>
-                           </div>
-                        </div>
-                        
-                        <div class="col-md-3 col profit_list">
-                          <div class="rank_care money_main">
-                              <a href="#">
-                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                           </a>
-                           <div class="profit_btn  hv-center">
-                            
-                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                           </div>
-                           </div>
-                        </div>
-                    </div>
 
-                    
-                    <div class="row profit_bg">
-                         <div class="col-md-1 col hv-center profit_prize rank_hot">
-                           
-                           <h1 class=" hv-center mb-0">8</h1>
-                         </div>
-                         <div class="col-md-3 col profit_list">
-                             <div class="rank_care money_main ">
-                           <a href="#">
-                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                           
-                           </a>
-                           <div class="profit_btn  hv-center">
-                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                           </div>
-                           </div>
-                         </div>
-                        
-                        <div class="col-md-3 col profit_list">
-                           <div class="rank_care money_main">
-                           <a href="#">
-                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                           </a>
-                           <div class="profit_btn  hv-center">
-                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                           </div>
-                           </div>
-                        </div>
-                        
-                        <div class="col-md-3 col profit_list">
-                          <div class="rank_care money_main">
-                              <a href="#">
-                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                           </a>
-                           <div class="profit_btn  hv-center">
-                            
-                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                           </div>
-                           </div>
-                        </div>
-                    </div>
-
-                    
-                    <div class="row profit_bg">
-                         <div class="col-md-1 col hv-center profit_prize rank_hot">
-                           
-                           <h1 class=" hv-center mb-0">9</h1>
-                         </div>
-                         <div class="col-md-3 col profit_list">
-                             <div class="rank_care money_main ">
-                           <a href="#">
-                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                           
-                           </a>
-                           <div class="profit_btn  hv-center">
-                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                           </div>
-                           </div>
-                         </div>
-                        
-                        <div class="col-md-3 col profit_list">
-                           <div class="rank_care money_main">
-                           <a href="#">
-                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                           </a>
-                           <div class="profit_btn  hv-center">
-                             <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                           </div>
-                           </div>
-                        </div>
-                        
-                        <div class="col-md-3 col profit_list">
-                          <div class="rank_care money_main">
-                              <a href="#">
-                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
-                            <h5 class=" money_main text-center mb-0">匯豐現金回饋玉璽卡</h5>
-                           </a>
-                           <div class="profit_btn  hv-center">
-                            
-                             <button type="button" class="btn gray-layered btnOver">加入比較</button>
-                           </div>
-                           </div>
-                        </div>
-                    </div>
-                    </div>
-
-                    <a class="rank_more warning-layered btnOver" show_num="1" href="javascript:;">顯示更多卡片</a>
+                    <a class="rank_more eq warning-layered btnOver" show_num="1" href="javascript:;">顯示更多卡片</a>
 
                   </div>
                     <!--信用卡推薦end -->
@@ -900,12 +719,12 @@
                     
                     <!-- 廣告 -->
                     <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
+                        <img src="https://placehold.it/300x250" alt="">
                     </div>
 
                     <!-- 廣告 -->
                     <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
+                        <img src="https://placehold.it/300x250" alt="">
                     </div>
 
                     
@@ -947,19 +766,19 @@
 
      <script type="text/javascript">
 
-      $(window).on('load',function(event) {
-        //-- 讀取查詢條件 --
-        if (sessionStorage.getItem('profit_rank_arr')!=null) {
-          var rank_arr=sessionStorage.getItem('profit_rank_arr').split(',');
-          var rank_arr_txt='';
-          for (var i = 0; i < rank_arr.length; i++) {
-            rank_arr_txt+=(i+1)+'.'+rank_arr[i]+'，';
-          }
-          rank_arr_txt=rank_arr_txt.slice(0,-1);
-          $('#search_rank_arr').html(rank_arr_txt);
-        }
+      // $(window).on('load',function(event) {
+      //   //-- 讀取查詢條件 --
+      //   if (sessionStorage.getItem('profit_rank_arr')!=null) {
+      //     var rank_arr=sessionStorage.getItem('profit_rank_arr').split(',');
+      //     var rank_arr_txt='';
+      //     for (var i = 0; i < rank_arr.length; i++) {
+      //       rank_arr_txt+=(i+1)+'.'+rank_arr[i]+'，';
+      //     }
+      //     rank_arr_txt=rank_arr_txt.slice(0,-1);
+      //     $('#search_rank_arr').html(rank_arr_txt);
+      //   }
         
-      });
+      // });
 
     </script>
 

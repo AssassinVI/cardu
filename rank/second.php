@@ -205,27 +205,58 @@
                         </ul>
                         <div class="tab-content p-0" id="myTabContent">
                           <div class="tab-pane fade active show" id="goodTicket" role="tabpanel" aria-labelledby="goodTicket-tab">
-                              <div class="row imp_int_title rank_card_title">
+                              <div class="row imp_int_title rank_card_title phone_hidden">
                               <div class="col-md-1 text-center"></div>
                               <div class="col-md-4 text-center">卡片名稱</div>
                               <div class="col-md-2 text-center">國內回饋</div>
                               <div class="col-md-2 text-center">國外回饋</div>
                               <div class="col-md-3 text-center">其他卡片</div>
                             </div>
-                             <!--廣告-->
-                             <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div><!--banner end -->
+                            <div class="card rank_hot rank_second">
+                                  <div class="row no-gutters">
+                                    <div class="col-md-1 hv-center wx-100-ph">
+                                        <img src="../img/component/hot.png">
+                                    </div>
+
+                                    <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="rank_care">
+                                         <a href="#">
+                                          <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                                         </a>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                                      <div class="row no-gutters">
+                                       <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                         <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                         <ul>
+                                           <li>　<b>●</b>國內現金回饋1.22%</li>
+                                           <li>　<b>●</b>國外現金回饋2.22%</li>
+                                           <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                         </ul>
+                                       </div>
+                                       <div class="col-md-2 wx-100-ph">
+                                         <img src="../img/component/ad_sm2.png">
+                                       </div>
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
+                             
                             <div class="accordion imp_int" id="accordionExample">
+
+                              
                                
                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">1</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡1</h5>
@@ -233,30 +264,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class="hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class=" hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" card_id="ccard20190320001" card_img="../img/component/card3.png" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" card_id="ccard20190320001" card_img="../img/component/card3.png" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -287,44 +322,48 @@
                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">2</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
-                                          <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡2</h5>
+                                          <h5 class="money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡2</h5>
                                         </div>
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" card_id="ccard20190320002" card_img="../img/component/card3.png" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" card_id="ccard20190320002" card_img="../img/component/card3.png" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -355,13 +394,13 @@
                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">3</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡3</h5>
@@ -369,30 +408,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" card_id="ccard20190320003" card_img="../img/component/card3.png" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" card_id="ccard20190320003" card_img="../img/component/card3.png" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -420,20 +463,47 @@
                                 </div>
                               </div>
 
-                               <!--廣告-->
-                               <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
-                              <!--banner end -->
+                               <div class="card rank_hot rank_second">
+                                  <div class="row no-gutters">
+                                    <div class="col-md-1 hv-center wx-100-ph">
+                                        <img src="../img/component/hot.png">
+                                    </div>
+
+                                    <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="rank_care">
+                                         <a href="#">
+                                          <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                                         </a>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                                      <div class="row no-gutters">
+                                       <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                         <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                         <ul>
+                                           <li>　<b>●</b>國內現金回饋1.22%</li>
+                                           <li>　<b>●</b>國外現金回饋2.22%</li>
+                                           <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                         </ul>
+                                       </div>
+                                       <div class="col-md-2 wx-100-ph">
+                                         <img src="../img/component/ad_sm2.png">
+                                       </div>
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
                              
 
                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">4</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -441,30 +511,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -495,12 +569,12 @@
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">5</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -508,30 +582,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -562,12 +640,12 @@
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">6</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -575,30 +653,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -626,19 +708,46 @@
                                 </div>
                               </div>
 
-                              <!--廣告-->
-                               <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
-                              <!--banner end -->
+                              <div class="card rank_hot rank_second">
+                                  <div class="row no-gutters">
+                                    <div class="col-md-1 hv-center wx-100-ph">
+                                        <img src="../img/component/hot.png">
+                                    </div>
+
+                                    <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="rank_care">
+                                         <a href="#">
+                                          <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                                         </a>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                                      <div class="row no-gutters">
+                                       <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                         <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                         <ul>
+                                           <li>　<b>●</b>國內現金回饋1.22%</li>
+                                           <li>　<b>●</b>國外現金回饋2.22%</li>
+                                           <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                         </ul>
+                                       </div>
+                                       <div class="col-md-2 wx-100-ph">
+                                         <img src="../img/component/ad_sm2.png">
+                                       </div>
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
 
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">7</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -646,30 +755,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -700,12 +813,12 @@
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">8</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -713,30 +826,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -767,12 +884,12 @@
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">9</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -780,30 +897,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -834,12 +955,12 @@
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">10</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -847,30 +968,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -902,12 +1027,12 @@
                               <div class="card rank_hot d-none">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">11</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -915,30 +1040,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -970,12 +1099,12 @@
                               <div class="card rank_hot d-none">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">12</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -983,30 +1112,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1038,12 +1171,12 @@
                               <div class="card rank_hot d-none">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">13</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1051,30 +1184,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1106,12 +1243,12 @@
                               <div class="card rank_hot d-none">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">14</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1119,30 +1256,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1174,12 +1315,12 @@
                               <div class="card rank_hot d-none">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">15</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1187,30 +1328,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1251,28 +1396,55 @@
                         <!---------------------- 無門檻 ----------------------------------->
 
                           <div class="tab-pane fade" id="goodSet" role="tabpanel" aria-labelledby="goodSet-tab">
-                            <div class="row imp_int_title rank_card_title">
+                            <div class="row imp_int_title rank_card_title phone_hidden">
                                <div class="col-md-1 text-center"></div>
                                <div class="col-md-4 text-center">卡片名稱</div>
                                <div class="col-md-2 text-center">國內回饋</div>
                                <div class="col-md-2 text-center">國外回饋</div>
                                <div class="col-md-3 text-center">其他卡片</div>
                             </div>
-                             <!--廣告-->
-                               <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
-                              <!--banner end -->
+                              <div class="card rank_hot rank_second">
+                                  <div class="row no-gutters">
+                                    <div class="col-md-1 hv-center wx-100-ph">
+                                        <img src="../img/component/hot.png">
+                                    </div>
+
+                                    <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="rank_care">
+                                         <a href="#">
+                                          <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                                         </a>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                                      <div class="row no-gutters">
+                                       <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                         <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                         <ul>
+                                           <li>　<b>●</b>國內現金回饋1.22%</li>
+                                           <li>　<b>●</b>國外現金回饋2.22%</li>
+                                           <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                         </ul>
+                                       </div>
+                                       <div class="col-md-2 wx-100-ph">
+                                         <img src="../img/component/ad_sm2.png">
+                                       </div>
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
                             <div class="accordion imp_int" id="accordionExample">
 
                                 <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">1</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1280,30 +1452,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1334,13 +1510,13 @@
                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">2</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1348,30 +1524,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1402,13 +1582,13 @@
                              <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                         <span class="top_prize"></span>
                                        <h1 class=" hv-center mb-0">3</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1416,30 +1596,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1467,19 +1651,46 @@
                                 </div>
                               </div>
                               
-                               <!--廣告-->
-                               <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
-                              <!--banner end -->
+                                <div class="card rank_hot rank_second">
+                                  <div class="row no-gutters">
+                                    <div class="col-md-1 hv-center wx-100-ph">
+                                        <img src="../img/component/hot.png">
+                                    </div>
+
+                                    <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="rank_care">
+                                         <a href="#">
+                                          <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                                         </a>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                                      <div class="row no-gutters">
+                                       <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                         <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                         <ul>
+                                           <li>　<b>●</b>國內現金回饋1.22%</li>
+                                           <li>　<b>●</b>國外現金回饋2.22%</li>
+                                           <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                         </ul>
+                                       </div>
+                                       <div class="col-md-2 wx-100-ph">
+                                         <img src="../img/component/ad_sm2.png">
+                                       </div>
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
 
                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">4</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1487,30 +1698,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1540,12 +1755,12 @@
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">5</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1553,30 +1768,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                       自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                       <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1607,12 +1826,12 @@
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">6</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1620,30 +1839,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1671,19 +1894,45 @@
                                 </div>
                               </div>
 
-                               <!--廣告-->
-                               <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
-                              <!--banner end -->
-                              
+                               <div class="card rank_hot rank_second">
+                                  <div class="row no-gutters">
+                                    <div class="col-md-1 hv-center wx-100-ph">
+                                        <img src="../img/component/hot.png">
+                                    </div>
+
+                                    <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="rank_care">
+                                         <a href="#">
+                                          <img class="rank_img" src="../img/component/card3.png" title="新聞">
+                                         </a>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                                      <div class="row no-gutters">
+                                       <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                         <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                         <ul>
+                                           <li>　<b>●</b>國內現金回饋1.22%</li>
+                                           <li>　<b>●</b>國外現金回饋2.22%</li>
+                                           <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                         </ul>
+                                       </div>
+                                       <div class="col-md-2 wx-100-ph">
+                                         <img src="../img/component/ad_sm2.png">
+                                       </div>
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">7</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1691,30 +1940,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1745,12 +1998,12 @@
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">8</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1758,30 +2011,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1812,12 +2069,12 @@
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">9</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1825,30 +2082,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1879,12 +2140,12 @@
                                <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">10</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1892,30 +2153,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -1947,12 +2212,12 @@
                               <div class="card rank_hot d-none">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">11</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -1960,30 +2225,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -2015,12 +2284,12 @@
                               <div class="card rank_hot d-none">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">12</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -2028,30 +2297,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -2083,12 +2356,12 @@
                               <div class="card rank_hot d-none">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">13</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -2096,30 +2369,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -2151,12 +2428,12 @@
                               <div class="card rank_hot d-none">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">14</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -2164,30 +2441,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -2219,12 +2500,12 @@
                               <div class="card rank_hot d-none">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 wx-100-ph">
                                       <div class="hv-center modal_prize">
                                        <h1 class=" hv-center mb-0">15</h1>
                                      </div>
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
                                           <h5 class=" money_main mb-0">匯豐現金回饋玉璽卡VISA_玉璽卡</h5>
@@ -2232,30 +2513,34 @@
                                          <div class="row w-h-100">
                                   
                                      
-                                    <div class="col-md-4 hv-center">
+                                    <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
                                          <a href="#">
                                           <img class="rank_img" src="../img/component/card3.png" title="新聞">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center">
-                                      <p class=" hv-center mb-0">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
+                                     <div class="col-md hv-center phone_block">
+                                      <strong>國內回饋</strong>
+                                      <p class="hv-center mb-0 phone_block">1.City Café 每杯加贈 1,000 點。2.每週六、日點數</p>
                                      </div>
-                                    <div class="col-md hv-center border-left border-right">
-                                      <p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">自動加值5% 點數回饋</p>
+                                    <div class="col-md hv-center border-left border-right phone_block">
+                                      <strong>國外卡片</strong>
+                                      <p class=" hv-center mb-0 phone_block" data-toggle="tooltip" data-placement="bottom" title="自動加值5% 點數回饋，加越多賺越多喔">
+                                        自動加值5% 點數回饋</p>
                                     </div>
-                                    <div class="col-md hv-center">
-                                       <p class=" hv-center mb-0">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
+                                    <div class="col-md hv-center phone_block">
+                                      <strong>其他卡片</strong>
+                                       <p class="hv-center mb-0 phone_block">1.指定網購/超商5%回饋2.KKBOX 線上音樂會員6折</p>
                                     </div>
 
                                     <div class="col-md-12 row">
                                      
                                       
-                                       <div class="col-md-4 hv-center">
-                                       <div class="profit_btn  hv-center">
+                                       <div class="col-md-4 hv-center wx-100-ph">
+                                       <div class="profit_btn  hv-center my-2">
                                        <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                       <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                       <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -2540,6 +2825,11 @@
                     
                     </div>
 
+                    <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
+                    </div>
+
                     <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one darkpurple_tab">
                            <div class="title_tab hole">
@@ -2580,6 +2870,10 @@
 
                            </div>
                        </div>
+                    </div>
+                    <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
                     </div>
                      <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one darkpurple_tab">

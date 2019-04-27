@@ -75,22 +75,53 @@
                         <div class="cardshap darkpurple_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link active pl-30 py-2" id="title_5-tab" href="javascript:;" tab-target="#title_5" aria-selected="true">新卡人氣排行</a>
+                            <a class="nav-link active pl-30 py-2" id="title_5-tab" href="javascript:;" tab-target="#title_5" aria-selected="true">新卡人氣<span class="phone_hidden">排行</span></a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link py-2" id="title_6-tab" href="javascript:;" tab-target="#title_6" aria-selected="false">辦卡人氣排行</a>
+                            <a class="nav-link py-2" id="title_6-tab" href="javascript:;" tab-target="#title_6" aria-selected="false">辦卡人氣<span class="phone_hidden">排行</span></a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link py-2" id="title_7-tab" href="javascript:;" tab-target="#title_7" aria-selected="false">點閱人氣排行</a>
+                            <a class="nav-link py-2" id="title_7-tab" href="javascript:;" tab-target="#title_7" aria-selected="false">點閱人氣<span class="phone_hidden">排行</span></a>
                           </li>
                           
                         </ul>
                         <div class="tab-content p-0" id="myTabContent">
                           <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
 
-                            <!--廣告-->
-                           <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
-                           <!--banner end -->
+                            <div class="row no-gutters rank_hot">
+
+
+                               <div class="col-md-1 wx-100-ph hv-center">
+                                   <img src="../img/component/hot.png">
+                               </div>
+
+                              <div class="col-md-4 wx-100-ph wx-100-ph hv-center">
+                                <a class="popular_list_img" href="#">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                </a>
+                              </div>
+
+                            
+                             <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                               
+                               <div class="row no-gutters">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                  <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <ul>
+                                    <li>　<b>●</b>國內現金回饋1.22%</li>
+                                    <li>　<b>●</b>國外現金回饋2.22%</li>
+                                    <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2 wx-100-ph">
+                                  <img src="../img/component/ad_sm2.png">
+                                </div>
+                               </div>
+                             </div>
+                                
+
+                              
+                            </div>
 
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
@@ -120,7 +151,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -156,7 +187,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -191,7 +222,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -204,8 +235,40 @@
                       
                     
                     <!--信用卡推薦end -->
-                     <!--廣告-->
-                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                     <div class="row no-gutters rank_hot">
+
+
+                               <div class="col-md-1 wx-100-ph hv-center">
+                                   <img src="../img/component/hot.png">
+                               </div>
+
+                              <div class="col-md-4 wx-100-ph wx-100-ph hv-center">
+                                <a class="popular_list_img" href="#">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                </a>
+                              </div>
+
+                            
+                             <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                               
+                               <div class="row no-gutters">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                  <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <ul>
+                                    <li>　<b>●</b>國內現金回饋1.22%</li>
+                                    <li>　<b>●</b>國外現金回饋2.22%</li>
+                                    <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2 wx-100-ph">
+                                  <img src="../img/component/ad_sm2.png">
+                                </div>
+                               </div>
+                             </div>
+                                
+
+                              
+                            </div>
                          
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
@@ -233,7 +296,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -266,7 +329,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -301,7 +364,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -311,9 +374,40 @@
 
                     
                     <!--信用卡推薦end -->
-                     <!--廣告-->
-                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
-                          
+                    <div class="row no-gutters rank_hot">
+
+
+                               <div class="col-md-1 wx-100-ph hv-center">
+                                   <img src="../img/component/hot.png">
+                               </div>
+
+                              <div class="col-md-4 wx-100-ph wx-100-ph hv-center">
+                                <a class="popular_list_img" href="#">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                </a>
+                              </div>
+
+                            
+                             <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                               
+                               <div class="row no-gutters">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                  <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <ul>
+                                    <li>　<b>●</b>國內現金回饋1.22%</li>
+                                    <li>　<b>●</b>國外現金回饋2.22%</li>
+                                    <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2 wx-100-ph">
+                                  <img src="../img/component/ad_sm2.png">
+                                </div>
+                               </div>
+                             </div>
+                                
+
+                              
+                            </div>
                   
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
@@ -343,7 +437,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -378,7 +472,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -413,7 +507,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -448,7 +542,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -484,7 +578,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -521,7 +615,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -557,7 +651,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -593,7 +687,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -629,7 +723,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -644,9 +738,40 @@
 
 
                           <div class="tab-pane fade" id="title_6" role="tabpanel" aria-labelledby="title_6-tab">
-                           <!--廣告-->
-                           <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
-                           <!--banner end -->
+                          <div class="row no-gutters rank_hot">
+
+
+                               <div class="col-md-1 wx-100-ph hv-center">
+                                   <img src="../img/component/hot.png">
+                               </div>
+
+                              <div class="col-md-4 wx-100-ph wx-100-ph hv-center">
+                                <a class="popular_list_img" href="#">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                </a>
+                              </div>
+
+                            
+                             <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                               
+                               <div class="row no-gutters">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                  <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <ul>
+                                    <li>　<b>●</b>國內現金回饋1.22%</li>
+                                    <li>　<b>●</b>國外現金回饋2.22%</li>
+                                    <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2 wx-100-ph">
+                                  <img src="../img/component/ad_sm2.png">
+                                </div>
+                               </div>
+                             </div>
+                                
+
+                              
+                            </div>
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
@@ -675,7 +800,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -710,7 +835,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -745,7 +870,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -758,8 +883,40 @@
                       
                     
                     <!--信用卡推薦end -->
-                    <!--廣告-->
-                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                   <div class="row no-gutters rank_hot">
+
+
+                               <div class="col-md-1 wx-100-ph hv-center">
+                                   <img src="../img/component/hot.png">
+                               </div>
+
+                              <div class="col-md-4 wx-100-ph wx-100-ph hv-center">
+                                <a class="popular_list_img" href="#">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                </a>
+                              </div>
+
+                            
+                             <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                               
+                               <div class="row no-gutters">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                  <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <ul>
+                                    <li>　<b>●</b>國內現金回饋1.22%</li>
+                                    <li>　<b>●</b>國外現金回饋2.22%</li>
+                                    <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2 wx-100-ph">
+                                  <img src="../img/component/ad_sm2.png">
+                                </div>
+                               </div>
+                             </div>
+                                
+
+                              
+                            </div>
                          
 
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
@@ -788,7 +945,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -822,7 +979,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -858,7 +1015,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -868,8 +1025,40 @@
                       
                     
                     <!--信用卡推薦end -->
-                    <!--廣告-->
-                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                    <div class="row no-gutters rank_hot">
+
+
+                               <div class="col-md-1 wx-100-ph hv-center">
+                                   <img src="../img/component/hot.png">
+                               </div>
+
+                              <div class="col-md-4 wx-100-ph wx-100-ph hv-center">
+                                <a class="popular_list_img" href="#">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                </a>
+                              </div>
+
+                            
+                             <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                               
+                               <div class="row no-gutters">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                  <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <ul>
+                                    <li>　<b>●</b>國內現金回饋1.22%</li>
+                                    <li>　<b>●</b>國外現金回饋2.22%</li>
+                                    <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2 wx-100-ph">
+                                  <img src="../img/component/ad_sm2.png">
+                                </div>
+                               </div>
+                             </div>
+                                
+
+                              
+                            </div>
                           
                     
 
@@ -901,7 +1090,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -937,7 +1126,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -973,7 +1162,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1009,7 +1198,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1046,7 +1235,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1083,7 +1272,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1119,7 +1308,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1155,7 +1344,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1191,7 +1380,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1209,9 +1398,40 @@
 
 
                           <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
-                             <!--廣告-->
-                           <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
-                           <!--banner end -->
+                            <div class="row no-gutters rank_hot">
+
+
+                               <div class="col-md-1 wx-100-ph hv-center">
+                                   <img src="../img/component/hot.png">
+                               </div>
+
+                              <div class="col-md-4 wx-100-ph wx-100-ph hv-center">
+                                <a class="popular_list_img" href="#">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                </a>
+                              </div>
+
+                            
+                             <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                               
+                               <div class="row no-gutters">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                  <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <ul>
+                                    <li>　<b>●</b>國內現金回饋1.22%</li>
+                                    <li>　<b>●</b>國外現金回饋2.22%</li>
+                                    <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2 wx-100-ph">
+                                  <img src="../img/component/ad_sm2.png">
+                                </div>
+                               </div>
+                             </div>
+                                
+
+                              
+                            </div>
                     
                             <div class="row no-gutters py-3 rankbg_list rank_hot">
                                <div class="col-md-1 wx-100-ph hv-center popular_prize">
@@ -1240,7 +1460,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1276,7 +1496,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1311,7 +1531,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1322,8 +1542,40 @@
 
                     
                     <!--信用卡推薦end -->
-                    <!--廣告-->
-                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                    <div class="row no-gutters rank_hot">
+
+
+                               <div class="col-md-1 wx-100-ph hv-center">
+                                   <img src="../img/component/hot.png">
+                               </div>
+
+                              <div class="col-md-4 wx-100-ph wx-100-ph hv-center">
+                                <a class="popular_list_img" href="#">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                </a>
+                              </div>
+
+                            
+                             <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                               
+                               <div class="row no-gutters">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                  <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <ul>
+                                    <li>　<b>●</b>國內現金回饋1.22%</li>
+                                    <li>　<b>●</b>國外現金回饋2.22%</li>
+                                    <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2 wx-100-ph">
+                                  <img src="../img/component/ad_sm2.png">
+                                </div>
+                               </div>
+                             </div>
+                                
+
+                              
+                            </div>
                          
                     
 
@@ -1354,7 +1606,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1388,7 +1640,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1424,7 +1676,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1438,8 +1690,40 @@
                       
                    
                     <!--信用卡推薦end -->
-                    <!--廣告-->
-                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div></div>
+                   <div class="row no-gutters rank_hot">
+
+
+                               <div class="col-md-1 wx-100-ph hv-center">
+                                   <img src="../img/component/hot.png">
+                               </div>
+
+                              <div class="col-md-4 wx-100-ph wx-100-ph hv-center">
+                                <a class="popular_list_img" href="#">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                </a>
+                              </div>
+
+                            
+                             <div class="col-md-7 wx-100-ph ad_rank rank_color">
+                               
+                               <div class="row no-gutters">
+                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+                                  <h4>　匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <ul>
+                                    <li>　<b>●</b>國內現金回饋1.22%</li>
+                                    <li>　<b>●</b>國外現金回饋2.22%</li>
+                                    <li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-2 wx-100-ph">
+                                  <img src="../img/component/ad_sm2.png">
+                                </div>
+                               </div>
+                             </div>
+                                
+
+                              
+                            </div>
                           
                     
 
@@ -1472,7 +1756,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1508,7 +1792,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1544,7 +1828,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1580,7 +1864,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1616,7 +1900,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1652,7 +1936,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1688,7 +1972,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1724,7 +2008,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>
@@ -1760,7 +2044,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     <button type="button" class="btn warning-layered btnOver">立即辦卡</button>
-                                    <button type="button" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
+                                    <button type="button" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                 </div>

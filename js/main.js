@@ -2,10 +2,72 @@ $(document).ready(function() {
 
             //--- 工具提示框 ---
             $('[data-toggle="tooltip"]').tooltip();
-
             $('#new_card').collapse();
 
 
+            
+
+
+
+            /*---------------- 信用卡快搜 ----------------------*/
+            //-- 選擇銀行 --
+            $('.c_search_bk').change(function(event) {
+
+              //-- 選擇銀行，撈信用卡(ajax.js) --
+              change_bk_cc('.c_search_bk', '.c_search_cc');
+            });
+
+            //-- 搜尋 --
+            $('#c_search_btn').click(function(event) {
+
+              var err_txt='';
+              err_txt+=check_input('.c_search_bk','銀行、');
+              err_txt+=check_input('.c_search_cc','信用卡、');
+
+              if (err_txt!='') {
+               err_txt=err_txt.slice(0,-1);
+               alert("請選擇"+err_txt+"!!");
+              }
+              else{
+                location.href='../cardNews/type.php?bi_pk01='+$('.c_search_bk').val()+'&gid='+$('.c_search_cc').val();
+              }
+              
+            });
+            /*---------------------- 信用卡快搜 END ------------------------*/
+
+
+            
+
+
+
+
+            /*---------------- 權益快搜 ----------------------*/
+            //-- 搜尋 --
+            $('#int_search_btn').click(function(event) {
+
+              var err_txt='';
+              err_txt+=check_input('.int_search_item','比較條件');
+
+              if (err_txt!='') {
+               alert("請選擇"+err_txt+"!!");
+              }
+              else if($('.int_search_item:nth-child(1)').val()==$('.int_search_item:nth-child(2)').val()){
+               alert("比較條件不可一樣，請重新選擇！");
+              } 
+              else{
+                var href_txt='', x=1;
+                $.each($('.int_search_item'), function(index, val) {
+                  if ($(this).val()!='') {
+                    href_txt+='ci_pk0'+x+'='+$(this).val()+'&';
+                    x++;
+                  }
+                });
+                href_txt=href_txt.slice(0,-1);
+                location.href='../rank/profit_detail.php?'+href_txt;
+              }
+              
+            });
+            /*---------------- 權益快搜 END ------------------------*/
 
 
 
@@ -49,13 +111,17 @@ $(document).ready(function() {
               }
 
               //-- 左右浮動廣告 --
-              if (top>0) {
+              if (top>0 && top<217) {
+                $('.right-ad').css('top', 40);
+                $('.left-ad').css('top', 40);
+              }
+              else if (top>217) {
                 $('.right-ad').css('top', top-197);
                 $('.left-ad').css('top', top-197);
               }
               else{
-                $('.right-ad').css('top', 10);
-                $('.left-ad').css('top', 10);
+                $('.right-ad').css('top', 217);
+                $('.left-ad').css('top', 217);
               }
             });
             //-- 卷軸監控回調 END --
@@ -313,6 +379,7 @@ $(document).ready(function() {
 
 
 
+
              /*-- 多專題-輪播 --*/
              var card_news_Swiper1 = new Swiper ('#iNewsR01 .swiper-container', {
                 speed:750,
@@ -337,6 +404,7 @@ $(document).ready(function() {
                        } 
                     }
               });
+             slide_st_auto($('#iNewsR01'), card_news_Swiper1);
 
              var card_news_Swiper2 = new Swiper ('#iNewsR02 .swiper-container', {
                 speed:750,
@@ -361,32 +429,33 @@ $(document).ready(function() {
                        } 
                     }
               });
+             slide_st_auto($('#iNewsR02'), card_news_Swiper2);
 
-              $('#iNewsR01').mouseenter(function(event) {
-                $(this).find('.swiper-button-prev').css('left', '0%');
-                $(this).find('.swiper-button-next').css('right', '0%');
-                card_news_Swiper1.autoplay.stop();
+              // $('#iNewsR01').mouseenter(function(event) {
+              //   $(this).find('.swiper-button-prev').css('left', '0%');
+              //   $(this).find('.swiper-button-next').css('right', '0%');
+              //   card_news_Swiper1.autoplay.stop();
                 
-              });
+              // });
 
-              $('#iNewsR01').mouseleave(function(event) {
-                $(this).find('.swiper-button-prev').css('left', '-12%');
-                $(this).find('.swiper-button-next').css('right', '-12%');
-                card_news_Swiper1.autoplay.start();
-              });
+              // $('#iNewsR01').mouseleave(function(event) {
+              //   $(this).find('.swiper-button-prev').css('left', '-12%');
+              //   $(this).find('.swiper-button-next').css('right', '-12%');
+              //   card_news_Swiper1.autoplay.start();
+              // });
 
-              $('#iNewsR02').mouseenter(function(event) {
-                $(this).find('.swiper-button-prev').css('left', '0%');
-                $(this).find('.swiper-button-next').css('right', '0%');
-                card_news_Swiper2.autoplay.stop();
+              // $('#iNewsR02').mouseenter(function(event) {
+              //   $(this).find('.swiper-button-prev').css('left', '0%');
+              //   $(this).find('.swiper-button-next').css('right', '0%');
+              //   card_news_Swiper2.autoplay.stop();
                 
-              });
+              // });
 
-              $('#iNewsR02').mouseleave(function(event) {
-                $(this).find('.swiper-button-prev').css('left', '-12%');
-                $(this).find('.swiper-button-next').css('right', '-12%');
-                card_news_Swiper2.autoplay.start();
-              });
+              // $('#iNewsR02').mouseleave(function(event) {
+              //   $(this).find('.swiper-button-prev').css('left', '-12%');
+              //   $(this).find('.swiper-button-next').css('right', '-12%');
+              //   card_news_Swiper2.autoplay.start();
+              // });
              /*-- 多專題-輪播 END --*/
 
 
@@ -401,9 +470,11 @@ $(document).ready(function() {
             
             
             /*-- 卡排行 --*/
+
+            var slide_num=$(window).width()>420 ? 6:3;
             var card_rank_Swiper = new Swiper ('.card_rank .swiper-container', {
-                slidesPerView : 6,
-                slidesPerGroup : 6,
+                slidesPerView : slide_num,
+                slidesPerGroup : slide_num,
                 speed:750,
                 // 如果需要前进后退按钮
                 navigation: {
@@ -411,12 +482,15 @@ $(document).ready(function() {
                   prevEl: '.card_rank .swiper-button-prev',
                 }
               });   
-
+            
+            var cc_slidesPerView=$(window).width()>420 ? 3:2;
+            var cc_slidesPerGroup=$(window).width()>420 ? 3:1;
             var ccard_Swiper = new Swiper ('.ccard .swiper-container', {
-                slidesPerView : 3,
-                slidesPerGroup : 3,
-                loop:true,
+                slidesPerView : cc_slidesPerView,
+                slidesPerGroup : cc_slidesPerGroup,
                 speed:750,
+                loop:true,
+                loopAdditionalSlides : 4,
                 autoplay: {
                     delay: 5000
                 },
@@ -429,42 +503,87 @@ $(document).ready(function() {
             
             var index=1;
             $('.card_rank .swiper-slide').mouseenter(function(event) {
-               
+                
+                ccard_Swiper.autoplay.stop();
+
+                //-- 舊icon還原 --
                 var old_img_arr=$('.card_rank .swiper-slide:nth-child('+index+')').find('img').attr('src').split('/');
-                old_img_arr[3]='icon';
+                var old_img=old_img_arr[old_img_arr.length-1].split('.');
+                var img_name_arr=old_img[0].split('_');
+                old_img_arr[old_img_arr.length-1]=img_name_arr[0]+'_'+img_name_arr[1]+'.'+old_img[1];
                 $('.card_rank .swiper-slide:nth-child('+index+')').find('img').attr('src', old_img_arr.join('/'));
                 $('.card_rank .swiper-slide').removeClass('active');
-
+                
+                //-- 新icon 換圖 --
                 var img_arr=$(this).find('img').attr('src').split('/');
-                img_arr[3]='icon_down';
+                var img=img_arr[img_arr.length-1].split('.');
+                var new_img=img[0]+'_down';
+                img_arr[img_arr.length-1]=new_img+'.'+img[1];
                 $(this).find('img').attr('src', img_arr.join('/'));
                 $(this).addClass('active');
 
                 //-- 切換信用卡 --
+
                 if ($(this).attr('index')!=index) {
                   ccard_Swiper.removeAllSlides();
-                  
-                  for ( var i = 4; i <= 6; i++) {
-                   var txt='<div class="swiper-slide">'+
-                                        '<div class="w-h-100 hv-center">'+
-                                          '<a href="#" title="台新銀行比漾聯名卡"><span class="top_Medal">'+i+'</span><img src="/img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
-                                        '</div>'+
-                                    '</div>';
-                    ccard_Swiper.appendSlide(txt);
-                  }
 
-                  for ( var i = 1; i <= 3; i++) {
-                   var txt='<div class="swiper-slide">'+
-                                        '<div class="w-h-100 hv-center">'+
-                                          '<a href="#" title="台新銀行比漾聯名卡"><span class="top_Medal">'+i+'</span><img src="/img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
-                                        '</div>'+
-                                    '</div>';
-                    ccard_Swiper.appendSlide(txt);
-                  }
+                  $.ajax({
+                    url: '../ajax/rank_ajax.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                      type:'slide_6_rank',
+                      ccs_cc_so_pk: $(this).attr('Tb_index')
+                    },
+                    success:function (data) {
+                      var x=1;
+                      $.each(data, function(index, val) {
+
+                        var txt='<div class="swiper-slide">'+
+                                           '<div class="w-h-100 hv-center">'+
+                                             '<a href="'+this['cc_url']+'" title="'+this['ccs_cc_cardname']+'">'+
+                                             '<span class="top_Medal">'+x+'</span><img src="../sys/img/'+this['cc_photo']+'" alt="'+this['ccs_cc_cardname']+'"><br>'+this['cc_shortname']+
+                                             '</a>'+
+                                           '</div>'+
+                                       '</div>';
+                        ccard_Swiper.appendSlide(txt);
+                      x++;
+                      });
+                      ccard_Swiper.autoplay.start();
+                    }
+                  });
+                  
+                  
+                  // for ( var i = 4; i <= 6; i++) {
+                  //  var txt='<div class="swiper-slide">'+
+                  //                       '<div class="w-h-100 hv-center">'+
+                  //                         '<a href="#" title="台新銀行比漾聯名卡"><span class="top_Medal">'+i+'</span><img src="/img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
+                  //                       '</div>'+
+                  //                   '</div>';
+                  //   ccard_Swiper.appendSlide(txt);
+                  // }
+
+                  // for ( var i = 1; i <= 3; i++) {
+                  //  var txt='<div class="swiper-slide">'+
+                  //                       '<div class="w-h-100 hv-center">'+
+                  //                         '<a href="#" title="台新銀行比漾聯名卡"><span class="top_Medal">'+i+'</span><img src="/img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
+                  //                       '</div>'+
+                  //                   '</div>';
+                  //   ccard_Swiper.appendSlide(txt);
+                  // }
                 }
 
                 index=$(this).attr('index');
             });
+
+            $('.ccard').mouseenter(function(event) {
+              ccard_Swiper.autoplay.stop();
+            });
+
+            $('.ccard').mouseleave(function(event){
+              ccard_Swiper.autoplay.start();
+            });
+
             /*--- 卡排行 END ---*/
 
 
@@ -491,23 +610,42 @@ $(document).ready(function() {
                 }
               });   
 
-            var ccard_Swiper = new Swiper ('.ccard .swiper-container', {
-                slidesPerView : 3,
-                slidesPerGroup : 3,
-                loop:true,
-                speed:750,
-                autoplay: {
-                    delay: 5000
-                },
-                // 如果需要前进后退按钮
-                navigation: {
-                  nextEl: '.ccard .swiper-button-next',
-                  prevEl: '.ccard .swiper-button-prev',
-                }
-              });   
+            // var ccard_Swiper = new Swiper ('.ccard .swiper-container', {
+            //     slidesPerView : 3,
+            //     slidesPerGroup : 3,
+            //     loop:true,
+            //     speed:750,
+            //     autoplay: {
+            //         delay: 5000
+            //     },
+            //     // 如果需要前进后退按钮
+            //     navigation: {
+            //       nextEl: '.ccard .swiper-button-next',
+            //       prevEl: '.ccard .swiper-button-prev',
+            //     }
+            //   });   
             
             var index=1;
             $('.card_all .swiper-slide').mouseenter(function(event) {
+
+
+                
+                //-- 舊icon還原 --
+                // var old_img_arr=$('.card_rank .swiper-slide:nth-child('+index+')').find('img').attr('src').split('/');
+                // var old_img=old_img_arr[old_img_arr.length-1].split('.');
+                // var img_name_arr=old_img[0].split('_');
+                // old_img_arr[old_img_arr.length-1]=img_name_arr[0]+'.'+old_img[1];
+                // $('.card_rank .swiper-slide:nth-child('+index+')').find('img').attr('src', old_img_arr.join('/'));
+                // $('.card_rank .swiper-slide').removeClass('active');
+                
+                // //-- 新icon 換圖 --
+                // var img_arr=$(this).find('img').attr('src').split('/');
+                // var img=img_arr[img_arr.length-1].split('.');
+                // var new_img=img[0]+'_down';
+                // img_arr[img_arr.length-1]=new_img+'.'+img[1];
+                // $(this).find('img').attr('src', img_arr.join('/'));
+                // $(this).addClass('active');
+
                
                 var old_img_arr=$('.card_all .swiper-slide:nth-child('+index+')').find('img').attr('src').split('/');
                 old_img_arr[3]='icon';
@@ -645,19 +783,8 @@ $(document).ready(function() {
                   }
                 });  
 
-               $('.HotNews_slide').mouseenter(function(event) {
+               slide_st_auto($('.HotNews_slide'), hotNews_slide);
 
-                $(this).find(".swiper-button-prev").css('left', '0%');
-                $(this).find(".swiper-button-next").css('right', '0%');
-                 hotNews_slide.autoplay.stop();
-               });
-
-               $('.HotNews_slide').mouseleave(function(event) {
-
-                $(this).find(".swiper-button-prev").css('left', '-15%');
-                $(this).find(".swiper-button-next").css('right', '-15%');
-                 hotNews_slide.autoplay.start();
-               });
 
             /*------------------------ 熱門情報 END --------------------------*/
 
@@ -689,20 +816,6 @@ $(document).ready(function() {
                 });  
 
                slide_st_auto($(this), window['sub_slide'+x]);
-
-               // $(this).mouseenter(function(event) {
-
-               //  $(this).find(".swiper-button-prev").css('left', '0%');
-               //  $(this).find(".swiper-button-next").css('right', '0%');
-                
-               // });
-
-               // $(this).mouseleave(function(event) {
-
-               //  $(this).find(".swiper-button-prev").css('left', '-15%');
-               //  $(this).find(".swiper-button-next").css('right', '-15%');
-
-               // });
                
                x++;
             });
@@ -1165,6 +1278,35 @@ $(document).ready(function() {
               $('#search_bar .close_btn').click(function(event) {
                  TweenMax.to("#search_bar", 0.4, { top: '0px'});
               });
+
+
+
+              /*------------------------ 主題分類 六篇 輪播 --------------------------*/
+             var x=1;
+            $.each($('.sub_ph_slide.swiper-container'), function(index, val) {
+               
+               window['sub_ph_slide'+x] = new Swiper ($(this), {
+                  speed:750,
+                  loop:true,
+                  observer:true,
+                  observeParents:true,
+                  autoplay: {
+                      disableOnInteraction:false,
+                      delay: 5000
+                  },
+
+                  // 如果需要前进后退按钮
+                  navigation: {
+                    nextEl: '.sub_ph_slide .swiper-button-next',
+                    prevEl: '.sub_ph_slide .swiper-button-prev',
+                  }
+                });  
+
+               slide_st_auto($(this), window['sub_ph_slide'+x]);
+               
+               x++;
+            });
+            /*------------------------ 主題分類 六篇 輪播 END --------------------------*/
             }
             //--------------------------------------------------- 手機JS ----------------------------------------------------
             //--------------------------------------------------- 手機JS ----------------------------------------------------
@@ -1182,6 +1324,13 @@ get_right_div();
 
 
 });
+
+
+
+
+
+
+
 
 
 
