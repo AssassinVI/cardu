@@ -144,11 +144,13 @@
                                  //-- 信用卡 --
                                 for ($i=1; $i <=3 ; $i++) { 
                                   if (!empty($_GET['cc_pk0'.$i])) {
+                                    //-- 卡片圖 --
+                                    $cc_photo=empty(${'row_card'.$i}['cc_photo']) ? 'CardSample.png':${'row_card'.$i}['cc_photo'];
                                     echo '
                                       <td>  
                                         <div class="rank_care">
                                           <a href="../cardNews/creditcard.php?cc_pk='.${'row_card'.$i}['Tb_index'].'&cc_group_id='.${'row_card'.$i}['cc_group_id'].'">
-                                            <img class="rankas_img" src="../sys/img/'.${'row_card'.$i}['cc_photo'].'">
+                                            <img class="rankas_img" src="../sys/img/'.$cc_photo.'">
                                           </a>
                                           <a href="../cardNews/bank_detail.php?bi_pk='.${'row_card'.$i}['cc_bi_pk'].'">
                                             <h5 class=" money_main text-center mb-0">'.${'row_card'.$i}['bi_shortname'].'</h5>
@@ -295,7 +297,15 @@
               </div>
 
                <!--廣告-->
-                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
+              <div class="col-md-12 col phone_hidden"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+              <!--banner end -->
+              <!--手機板廣告-->
+              <div class="col-md-12 row">
+                  <div class="col-md-6 col banner d-md-none d-sm-block ">
+                      <img src="http://placehold.it/365x100" alt="">
+                  </div>
+              </div>
+              <!--廣告end-->
 
 
                     <!--信用卡推薦-->
@@ -389,9 +399,50 @@
                       </div>
                     </div>
                     <!--信用卡推薦end -->
+                    <!--手機板信用卡推薦-->
+                            <div class="col-md-12 col d-md-none d-sm-block">
+
+                                <div class="cardshap darkpurple_tab exception">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                  <li class="nav-item news_tab">
+                                    <a class="nav-link active pl-30 py-2" id="special_1-tab" aria-selected="true">信用卡推薦</a>
+                                  </li>
+                                </ul>
+                                <div class="tab-content p-0" id="myTabContent">
+                                  <div class="tab-pane fade show active"  role="tabpanel" >
+
+                                    <div class="row no-gutters mx-2 py-3 card_list">
+                                      <div class="col-md-4 text-center">
+                                        <a class="card_list_img" href="#">
+                                          <img src="../img/component/card1.png" alt="" title="新聞">
+                                        </a>
+                                        <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
+                                      </div>
+                                      <div class="col-md-4 card_list_txt rank_color phone_card">
+                                        <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                        <ul>
+                                          <li><b>●</b>國內現金回饋1.22%</li>
+                                          <li><b>●</b>國外現金回饋2.22%</li>
+                                          <li><b>●</b>感應式刷卡快速結帳</li>
+                                          <li><b>●</b>高額旅遊平安險</li>
+                                          <li><b>●</b>華航機票優惠</li>
+                                        </ul>
+                                      </div>
+                                      <div class="col-md-4 phone_hidden">
+                                        <a class="img_div card_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                        <p>謹慎理財 信用至上</p>
+                                      </div>
+                                    </div>
+                                   
+                                  </div>
+                                 
+                                </div>
+                              </div>
+                            </div>
+                            <!--信用卡推薦end -->  
 
                     <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/365x100" alt="">
                         </div>

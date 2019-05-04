@@ -69,7 +69,7 @@
 
                 <div class="row">
 
-                  <!--特別議題-->
+                  <!--卡比較-->
                     <div class="col-md-12 col">
 
                         <div class="cardshap darkpurple_tab mouseHover_other_tab">
@@ -85,57 +85,63 @@
                           </li>
                           
                         </ul>
-                        <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
+                    <div class="tab-content" id="myTabContent">
 
-                             <!--信用卡推薦-->
+                    <!-- 信用卡快搜-->
+                    <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
                     <div class="col-md-12 col">
 
-                       
                             <div class="ranksearch_list new_hand_search">
                              <p>我們依您所偏好的信用卡優惠及用途，推薦適合的信用卡<span class="warr_txt text-danger">(請點擊下方選項，若要取消請再次點擊即可)</span></p>
                              <div class="text-right reset_div">
                                <a id="reset_new_btn" href="javascript:;" class="btn gray-layered btnOver">重選</a>
                              </div>
                              
-
                             <h6>1.信用卡優惠(可複選)</h6>
+                            
                             <ul>
-                            <?php 
-                             $row_pref=$pdo->select("SELECT Tb_index, pref_name FROM card_pref WHERE mt_id='site2018110617521258' ORDER BY OrderBy ASC");
-                             foreach ($row_pref as $row_pref_one) {
-                               echo '<li><a rank="'.$row_pref_one['Tb_index'].'" class="" href="javascript:;">'.$row_pref_one['pref_name'].'</a></li>';
-                             }
-                            ?>
-                            <!-- <li><a rank="現金回饋" class="" href="javascript:;">現金回饋</a></li>
-                            <li><a rank="紅利集點" class="" href="javascript:;">紅利集點</a></li>
-                            <li><a rank="哩程累積" class="" href="javascript:;">哩程累積</a></li>
-                            <li><a rank="市區停車" class="" href="javascript:;">市區停車</a></li>
-                            <li><a rank="旅遊保險" class="" href="javascript:;">旅遊保險</a></li>
-                            <li><a rank="分期0利率" class="" href="javascript:;">分期0利率</a></li>
-                            <li><a rank="機場貴賓室" class="" href="javascript:;">機場貴賓室</a></li>
-                            <li><a rank="免費機場停車" class="" href="javascript:;">免費機場停車</a></li>
-                            <li><a rank="免費機場接送" class="" href="javascript:;">免費機場接送</a></li> -->
+                            <li><a rank="pref201811061807131" class="card_pref" href="javascript:;">現金回饋</a></li>
+                            <li><a rank="pref201811061807133" class="card_pref" href="javascript:;">紅利集點</a></li>
+                            <li><a rank="pref201811061807135" class="card_pref" href="javascript:;">哩程累積</a></li>
+                            <li><a rank="pref201811061807139" class="card_pref" href="javascript:;">免費機場停車</a></li>
+                            <li><a rank="pref201811061807132" class="card_pref" href="javascript:;">免費機場貴賓室</a></li>
+                            <li><a rank="pref201811061807136" class="card_pref" href="javascript:;">免費機場接送</a></li>
+                            <li><a rank="pref201811061807137" class="card_pref" href="javascript:;">旅遊保險</a></li>
+                            <li><a rank="pref2018110618071310" class="card_pref" href="javascript:;">市區停車優惠</a></li>
+                            <li><a rank="pref2018110618071311" class="card_pref" href="javascript:;">分期零利率</a></li>
                             </ul>
+
+                            <!-- <ul>
+                            <?php 
+                             // $row_pref=$pdo->select("SELECT Tb_index, pref_name FROM card_pref WHERE mt_id='site2018110617521258' ORDER BY OrderBy ASC");
+                             // foreach ($row_pref as $row_pref_one) {
+                             //   echo '<li><a rank="'.$row_pref_one['Tb_index'].'" class="card_pref" href="javascript:;">'.$row_pref_one['pref_name'].'</a></li>';
+                             // }
+                            ?>
+                            </ul> -->
                             </div>
 
                             <div class="ranksearch_list new_hand_search">
                              <h6>2.消費用途(可複選)</h6>
-                            <ul>
+                             <ul>
+                              <li><a rank="fun201811061007565" class="card_func" href="javascript:;">加油</a></li>
+                              <li><a rank="fun2018110610075611" class="card_func" href="javascript:;">電影</a></li>
+                              <li><a rank="fun201811061007567" class="card_func" href="javascript:;">餐飲</a></li>
+                              <li><a rank="fun201811061007568" class="card_func" href="javascript:;">交通通勤</a></li>
+                              <li><a rank="fun201811061007561" class="card_func" href="javascript:;">航空旅遊</a></li>
+                              <li><a rank="fun201811061007563" class="card_func" href="javascript:;">百貨購物</a></li>
+                              <li><a rank="fun201811061007562" class="card_func" href="javascript:;">量販超市</a></li>                        
+                            </ul>
+
+                            <!-- <ul>
                               <?php 
                                // $row_func=$pdo->select("SELECT Tb_index, fun_name FROM card_func WHERE mt_id='site2018110517362644' ORDER BY OrderBy ASC");
                                // foreach ($row_func as $row_func_one) {
-                               //   echo '<li><a rank="'.$row_func_one['Tb_index'].'" class="" href="javascript:;">'.$row_func_one['fun_name'].'</a></li>';
+                               //   echo '<li><a rank="'.$row_func_one['Tb_index'].'" class="card_func" href="javascript:;">'.$row_func_one['fun_name'].'</a></li>';
                                // }
                               ?>
-                            <li><a rank="加油" class="" href="javascript:;">加油</a></li>
-                            <li><a rank="電影" class="" href="javascript:;">電影</a></li>
-                            <li><a rank="餐飲" class="" href="javascript:;">餐飲</a></li>
-                            <li><a rank="交通通勤" class="" href="javascript:;">交通通勤</a></li>
-                            <li><a rank="航空旅遊" class="" href="javascript:;">航空旅遊</a></li>
-                            <li><a rank="百貨購物" class="" href="javascript:;">百貨購物</a></li>
-                            <li><a rank="量販超市" class="" href="javascript:;">量販超市</a></li>
-                            </ul>
+                            </ul> -->
+
                             </div>
                             
                              <div class="col-md-12 col hv-center">
@@ -143,11 +149,11 @@
                             </div>
 
                     </div>
-                    <!--信用卡推薦end -->
-                           
-                          </div>
-
-                        <div class="tab-pane fade" id="title_6" role="tabpanel" aria-labelledby="title_6-tab">
+                  </div>
+                  <!-- 信用卡快搜end -->
+                  
+                  <!-- 卡片比一比-->
+                  <div class="tab-pane fade" id="title_6" role="tabpanel" aria-labelledby="title_6-tab">
                         
                          <div class="row compare_bg">
                          <div class="col-md-4 col card_list_txt text-center">
@@ -249,23 +255,11 @@
                     <div class="col-md-12 col hv-center">
                      <a id="card_rank" class="rank_button gray-layered btnOver" href="javascript:;">開始比較</a>
                     </div>
-
-
-                          
-
-                           
-                         
-                         
-                         
-                          
-                          
-                          
-                          
-                          
-                         
-                          </div>
-
-                          <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
+                   </div>
+                   <!-- 卡片比一比 END-->
+                    
+                    <!-- 權益比一比-->
+                    <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
                             <div class="col-md-12 col">
                             <div class="ranksearch_list rights_search profit_shop">
                              <p>請選擇要比較的權益項目，(最多3項)<span class="warr_txt text-danger">(請點擊下方選項，若要取消請再次點擊即可)</span></p>
@@ -276,7 +270,7 @@
                             <ul class="research_li">
 
                             <?php 
-                             $row_int=$pdo->select("SELECT Tb_index, eq_name, eq_image FROM card_eq_item WHERE mt_id='site2019021216245137' AND eq_type IN ('small','big') ORDER BY OrderBy ASC");
+                             $row_int=$pdo->select("SELECT Tb_index, eq_name, eq_image FROM card_eq_item WHERE mt_id='site2019021216245137' AND is_im_eq=1 AND eq_type IN ('small','big') ORDER BY OrderBy ASC");
                              foreach ($row_int as $row_int_one) {
                                $eq_image=empty($row_int_one['eq_image']) ? '':'<img src="../sys/img/'.$row_int_one['eq_image'].'">';
                                echo '<li><a rank="'.$row_int_one['Tb_index'].'" class="" href="javascript:;">'.$eq_image.$row_int_one['eq_name'].'</a></li>';
@@ -298,20 +292,27 @@
                              <div class="col-md-12 col hv-center">
                                 <a id="profit_rank" class="rank_button gray-layered btnOver" href="javascript:;" >開始比較</a>
                             </div>
-                             
                             </div>
-                             
-                           
                           </div>
+                          <!-- 權益比一比 END-->
                   
                         </div>
                       </div>
                     </div>
-                    <!--特別議題end -->
+                    <!--卡比較end -->
 
                     
                      <!--廣告-->
-                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
+                    <div class="col-md-12 col phone_hidden"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+                    <!--banner end -->
+
+                    <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
 
 
                     <!--信用卡推薦-->
@@ -405,9 +406,50 @@
                       </div>
                     </div>
                     <!--信用卡推薦end -->
+                    <!--手機板信用卡推薦-->
+                            <div class="col-md-12 col d-md-none d-sm-block">
+
+                                <div class="cardshap darkpurple_tab exception">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                  <li class="nav-item news_tab">
+                                    <a class="nav-link active pl-30 py-2" id="special_1-tab" aria-selected="true">信用卡推薦</a>
+                                  </li>
+                                </ul>
+                                <div class="tab-content p-0" id="myTabContent">
+                                  <div class="tab-pane fade show active"  role="tabpanel" >
+
+                                    <div class="row no-gutters mx-2 py-3 card_list">
+                                      <div class="col-md-4 text-center">
+                                        <a class="card_list_img" href="#">
+                                          <img src="../img/component/card1.png" alt="" title="新聞">
+                                        </a>
+                                        <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
+                                      </div>
+                                      <div class="col-md-4 card_list_txt rank_color phone_card">
+                                        <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                        <ul>
+                                          <li><b>●</b>國內現金回饋1.22%</li>
+                                          <li><b>●</b>國外現金回饋2.22%</li>
+                                          <li><b>●</b>感應式刷卡快速結帳</li>
+                                          <li><b>●</b>高額旅遊平安險</li>
+                                          <li><b>●</b>華航機票優惠</li>
+                                        </ul>
+                                      </div>
+                                      <div class="col-md-4 phone_hidden">
+                                        <a class="img_div card_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                        <p>謹慎理財 信用至上</p>
+                                      </div>
+                                    </div>
+                                   
+                                  </div>
+                                 
+                                </div>
+                              </div>
+                            </div>
+                            <!--信用卡推薦end -->  
 
                     <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/365x100" alt="">
                         </div>

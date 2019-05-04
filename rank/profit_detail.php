@@ -221,7 +221,7 @@
                              $ci_pk01_arr=[];
                              foreach ($row_eq_rank as $eq_rank_one) {
                                //-- 卡名 --
-                               $card_name=$eq_rank_one['bi_shortname'].$eq_rank_one['cc_cardname'].$eq_rank_one['org_nickname'].$eq_rank_one['attr_name'];
+                               $card_name=$eq_rank_one['bi_shortname'].'_'.$eq_rank_one['cc_cardname'].'_'.$eq_rank_one['org_nickname'].$eq_rank_one['attr_name'];
 
                                //-- 立即辦卡 --
                                if (!empty($eq_rank_one['cc_doc_url'])) {
@@ -233,16 +233,20 @@
                                else{
                                  $cc_doc='';
                                }
+
+                               //-- 卡片圖 --
+                               $cc_photo=empty($eq_rank_one['cc_photo']) ? 'CardSample.png':$eq_rank_one['cc_photo'];
+
                               $ci_pk01_one= '
                               <td class="ci_pk01">
                                 <div class="rank_care money_main">
                                  <a href="../cardNews/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
-                                  <img class="rank_img" src="../sys/img/'.$eq_rank_one['cc_photo'].'" title="'.$eq_rank_one['sm_content'].'">
+                                  <img class="rank_img" src="../sys/img/'.$cc_photo.'" title="'.$eq_rank_one['sm_content'].'">
                                   <h5 class=" money_main text-center mb-0">'.$card_name.'</h5>
                                  </a>
                                 <div class="profit_btn  hv-center">
                                   '.$cc_doc.'
-                                  <button type="button" class="btn gray-layered btnOver phone_hidden">加入比較</button>
+                                  <button type="button" card_id="'.$eq_rank_one['Tb_index'].'" cc_group_id="'.$eq_rank_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                 </div>
                                </div>
                               </td>';
@@ -264,7 +268,7 @@
                              $ci_pk02_arr=[];
                              foreach ($row_eq_rank as $eq_rank_one) {
                                //-- 卡名 --
-                               $card_name=$eq_rank_one['bi_shortname'].$eq_rank_one['cc_cardname'].$eq_rank_one['org_nickname'].$eq_rank_one['attr_name'];
+                               $card_name=$eq_rank_one['bi_shortname'].'_'.$eq_rank_one['cc_cardname'].'_'.$eq_rank_one['org_nickname'].$eq_rank_one['attr_name'];
 
                                //-- 立即辦卡 --
                                if (!empty($eq_rank_one['cc_doc_url'])) {
@@ -276,16 +280,19 @@
                                else{
                                  $cc_doc='';
                                }
+                               //-- 卡片圖 --
+                               $cc_photo=empty($eq_rank_one['cc_photo']) ? 'CardSample.png':$eq_rank_one['cc_photo'];
+
                               $ci_pk02_one= '
                               <td class="ci_pk01">
                                 <div class="rank_care money_main">
                                  <a href="../cardNews/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
-                                  <img class="rank_img" src="../sys/img/'.$eq_rank_one['cc_photo'].'" title="'.$eq_rank_one['sm_content'].'">
+                                  <img class="rank_img" src="../sys/img/'.$cc_photo.'" title="'.$eq_rank_one['sm_content'].'">
                                   <h5 class=" money_main text-center mb-0">'.$card_name.'</h5>
                                  </a>
                                 <div class="profit_btn  hv-center">
                                   '.$cc_doc.'
-                                  <button type="button" class="btn gray-layered btnOver phone_hidden">加入比較</button>
+                                  <button type="button" card_id="'.$eq_rank_one['Tb_index'].'" cc_group_id="'.$eq_rank_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                 </div>
                                </div>
                               </td>';
@@ -308,7 +315,7 @@
                              $ci_pk03_arr=[];
                              foreach ($row_eq_rank as $eq_rank_one) {
                                //-- 卡名 --
-                               $card_name=$eq_rank_one['bi_shortname'].$eq_rank_one['cc_cardname'].$eq_rank_one['org_nickname'].$eq_rank_one['attr_name'];
+                               $card_name=$eq_rank_one['bi_shortname'].'_'.$eq_rank_one['cc_cardname'].'_'.$eq_rank_one['org_nickname'].$eq_rank_one['attr_name'];
 
                                //-- 立即辦卡 --
                                if (!empty($eq_rank_one['cc_doc_url'])) {
@@ -320,16 +327,20 @@
                                else{
                                  $cc_doc='';
                                }
+
+                               //-- 卡片圖 --
+                               $cc_photo=empty($eq_rank_one['cc_photo']) ? 'CardSample.png':$eq_rank_one['cc_photo'];
+
                               $ci_pk03_one= '
                               <td class="ci_pk01">
                                 <div class="rank_care money_main">
                                  <a href="../cardNews/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
-                                  <img class="rank_img" src="../sys/img/'.$eq_rank_one['cc_photo'].'" title="'.$eq_rank_one['sm_content'].'">
+                                  <img class="rank_img" src="../sys/img/'.$cc_photo.'" title="'.$eq_rank_one['sm_content'].'">
                                   <h5 class=" money_main text-center mb-0">'.$card_name.'</h5>
                                  </a>
                                 <div class="profit_btn  hv-center">
                                   '.$cc_doc.'
-                                  <button type="button" class="btn gray-layered btnOver phone_hidden">加入比較</button>
+                                  <button type="button" card_id="'.$eq_rank_one['Tb_index'].'" cc_group_id="'.$eq_rank_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                 </div>
                                </div>
                               </td>';
@@ -344,13 +355,12 @@
                               $ci_pk03_txt=empty($ci_pk03_arr[$i]) ? '<td></td>':$ci_pk03_arr[$i];
                               
                            
-                              $top_prize=$i<3 ? '<span class="top_prize"></span>':'';
+                              $top_prize=$i<3 ? '<span class="top_prize">'.($i+1).'</span>':'<h1 class=" hv-center mb-0">'.($i+1).'</h1>';
                                echo '
                                <tr class="profit_bg">
                                  <td>
                                    <div class="hv-center profit_prize rank_hot">
                                    '.$top_prize.'
-                                   <h1 class=" hv-center mb-0">'.($i+1).'</h1>
                                  </div>
                                  </td>
                                 '.$ci_pk01_txt.$ci_pk02_txt.$ci_pk03_txt.'
@@ -374,7 +384,7 @@
                       </div>
 
 
-                    <a class="rank_more eq warning-layered btnOver" show_num="1" href="javascript:;">顯示更多卡片</a>
+                    <a class="rank_more eq warning-layered btnOver" show_num="3" href="javascript:;">顯示更多卡片</a>
 
                   </div>
                     <!--信用卡推薦end -->

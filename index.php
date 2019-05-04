@@ -288,9 +288,11 @@
                               <div class="swiper-container">
                                   <div class="swiper-wrapper">
                                     <?php 
+                                      //-- 現金回饋 隨機(無條件/有條件) --
+                                      $rand_cc_so_pk=['r_type201904010959361', 'r_type201904010959362'];
                                       $row_ccard_rank=$pdo->select("SELECT ccs_cc_cardname, ccs_cc_pk, ccs_cc_group_id
                                                                     FROM credit_cardrank 
-                                                                    WHERE ccs_cc_so_pk=:ccs_cc_so_pk ORDER BY ccs_order ASC LIMIT 0,6", ['ccs_cc_so_pk'=>'r_type201904010959361']);
+                                                                    WHERE ccs_cc_so_pk=:ccs_cc_so_pk ORDER BY ccs_order ASC LIMIT 0,6", ['ccs_cc_so_pk'=>$rand_cc_so_pk[rand(0,1)]]);
                                       $x=1;
                                       foreach ($row_ccard_rank as $rcr_one) {
                                         //-- 單卡 --
@@ -302,6 +304,9 @@
                                            $row_ccard=$pdo->select("SELECT cc_photo FROM credit_card WHERE cc_group_id=:cc_group_id LIMIT 0,1", ['cc_group_id'=>$rcr_one['ccs_cc_group_id']], 'one');
                                         }
 
+                                        //-- 卡片圖 --
+                                        $cc_photo=empty($row_ccard['cc_photo']) ? 'CardSample.png':$row_ccard['cc_photo'];
+
                                         $ccs_cc_cardname=explode(']', $rcr_one['ccs_cc_cardname']);
                                         $ccs_cc_shortname=mb_strlen($ccs_cc_cardname[1],'utf-8')>10 ? mb_substr($ccs_cc_cardname[1], 0,10,'utf-8'):$ccs_cc_cardname[1];
 
@@ -309,7 +314,7 @@
                                         echo '
                                         <div class="swiper-slide">
                                            <div class="w-h-100 hv-center">
-                                             <a href="'.$cc_url.'" title="'.$ccs_cc_cardname[1].'"><span class="top_Medal">'.$x.'</span><img src="../sys/img/'.$row_ccard['cc_photo'].'" alt="'.$ccs_cc_cardname[1].'"><br>'.$ccs_cc_shortname.'</a>
+                                             <a href="'.$cc_url.'" title="'.$ccs_cc_cardname[1].'"><span class="top_Medal">'.$x.'</span><img src="../sys/img/'.$cc_photo.'" alt="'.$ccs_cc_cardname[1].'"><br>'.$ccs_cc_shortname.'</a>
                                            </div>
                                         </div>';
                                       	$x++;

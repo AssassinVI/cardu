@@ -124,11 +124,14 @@
                                    $cc_doc='';
                                  }
 
+                                 //-- 卡片圖 --
+                                 $cc_photo=empty($row_cookie_cc['cc_photo']) ? 'CardSample.png':$row_cookie_cc['cc_photo'];
+
                                   echo '
                                   <div class="row no-gutters mx-2 py-3 bankbg_list">
                                      <div class="col-md-4 text-center">
                                        <a class="popular_list_img" href="../cardNews/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
-                                         <img src="../sys/img/'.$row_cookie_cc['cc_photo'].'" alt="'.$card_name.'" title="'.$card_name.'">
+                                         <img src="../sys/img/'.$cc_photo.'" alt="'.$card_name.'" title="'.$card_name.'">
                                        </a>
                                      </div>
                                      <div class="col-md-4 card_list_txt rank_color">

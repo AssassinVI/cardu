@@ -1,16 +1,447 @@
-
 /*------------------------ 卡比較辨識 (新手快搜, 卡片比一比, 權益比一比) -----------------------------*/
 if (location.hash=='#newHand' || location.hash=='#cardCompare' || location.hash=='#interest') {
+  url_hash();
 
-  $(location.hash+'_a').parents('.mouseHover_other_tab').find('.nav-link').removeClass('active show');
-  $(location.hash+'_a').parents('.mouseHover_other_tab').find('.tab-pane').removeClass('active show');
-  $(location.hash+'_a').parents('.mouseHover_other_tab').find('.nav-link').attr('aria-selected', 'false');
-  $(location.hash+'_a').attr('aria-selected', 'true');
-  $(location.hash+'_a').addClass('active show');
-  $($(location.hash+'_a').attr('tab-target')).addClass('active show');
-
+  $(window).bind('hashchange', function() { 
+     url_hash();
+  }); 
 }
 
+/*------------------------ 人氣排行 (新手快搜, 卡片比一比, 權益比一比) -----------------------------*/
+if (location.hash=='#newCard' || location.hash=='#addCard' || location.hash=='#viewCard') {
+     url_hash();
+
+  $(window).bind('hashchange', function() { 
+     url_hash();
+  }); 
+}
+
+
+function url_hash() {
+     $(location.hash+'_a').parents('.mouseHover_other_tab').find('.nav-link').removeClass('active show');
+     $(location.hash+'_a').parents('.mouseHover_other_tab').find('.tab-pane').removeClass('active show');
+     $(location.hash+'_a').parents('.mouseHover_other_tab').find('.nav-link').attr('aria-selected', 'false');
+     $(location.hash+'_a').attr('aria-selected', 'true');
+     $(location.hash+'_a').addClass('active show');
+     $($(location.hash+'_a').attr('tab-target')).addClass('active show');
+}
+
+
+
+
+
+/*=================================================== 卡排行 ======================================================================*/
+
+/*------------------------------- 卡排行個分類輪播 ------------------------------------*/
+var slide_num=$(window).width()>420 ? 6:3;
+var card_type_Swiper = new Swiper ('.card_type .swiper-container', {
+    slidesPerView : slide_num,
+    slidesPerGroup : slide_num,
+    speed:750,
+    // 如果需要前进后退按钮
+    navigation: {
+      nextEl: '.card_type .swiper-button-next',
+      prevEl: '.card_type .swiper-button-prev',
+    }
+  });
+
+//-- 目前輪播位置 --
+$.each($('.card_type .swiper-container .swiper-slide'), function(index, val) {
+  if ($(this).attr('class').indexOf('now')!=-1) {
+    card_type_Swiper.slideTo(index, 700, false);
+  }
+});
+
+
+var index=0;
+$('.card_type .swiper-slide').mouseenter(function(event) {
+    
+   // ccard_rank_Swiper.autoplay.stop();
+
+    //-- 舊icon還原 --
+    if ($(this).attr('class').indexOf('now')==-1 && index!=0){
+    var old_img_arr=$('.card_type .swiper-slide:nth-child('+index+')').find('img').attr('src').split('/');
+    var old_img=old_img_arr[old_img_arr.length-1].split('.');
+    var img_name_arr=old_img[0].split('_');
+    old_img_arr[old_img_arr.length-1]=img_name_arr[0]+'_'+img_name_arr[1]+'.'+old_img[1];
+    $('.card_type .swiper-slide:nth-child('+index+')').find('img').attr('src', old_img_arr.join('/'));
+    $('.card_type .swiper-slide:nth-child('+index+')').removeClass('active');
+    }
+    
+    //-- 新icon 換圖 --
+    if ($(this).attr('class').indexOf('now')==-1){
+    var img_arr=$(this).find('img').attr('src').split('/');
+    var img=img_arr[img_arr.length-1].split('.');
+    var new_img=img[0]+'_down';
+    img_arr[img_arr.length-1]=new_img+'.'+img[1];
+    $(this).find('img').attr('src', img_arr.join('/'));
+    $(this).addClass('active');
+  }
+
+    //-- 切換信用卡 --
+
+    if ($(this).attr('index')!=index) {
+      // ccard_rank_Swiper.removeAllSlides();
+
+      // $.ajax({
+      //   url: '../ajax/rank_ajax.php',
+      //   type: 'POST',
+      //   dataType: 'json',
+      //   data: {
+      //     type:'slide_6_rank',
+      //     ccs_cc_so_pk: $(this).attr('Tb_index')
+      //   },
+      //   success:function (data) {
+      //     var x=1;
+      //     $.each(data, function(index, val) {
+
+      //       var txt='<div class="swiper-slide">'+
+      //                          '<div class="w-h-100 hv-center">'+
+      //                            '<a href="'+this['cc_url']+'" title="'+this['ccs_cc_cardname']+'">'+
+      //                            '<span class="top_Medal">'+x+'</span><img src="../sys/img/'+this['cc_photo']+'" alt="'+this['ccs_cc_cardname']+'"><br>'+this['cc_shortname']+
+      //                            '</a>'+
+      //                          '</div>'+
+      //                      '</div>';
+      //       ccard_rank_Swiper.appendSlide(txt);
+      //     x++;
+      //     });
+      //     ccard_rank_Swiper.autoplay.start();
+      //   }
+      // });
+      
+    }
+    if ($(this).attr('class').indexOf('now')==-1){
+      index=$(this).attr('index');
+    }
+});  
+
+
+$('.card_type .swiper-slide').mouseleave(function(event){
+   
+   //-- 舊icon還原 --
+   if ($(this).attr('class').indexOf('now')==-1) {
+    var old_img_arr=$('.card_type .swiper-slide:nth-child('+index+')').find('img').attr('src').split('/');
+    var old_img=old_img_arr[old_img_arr.length-1].split('.');
+    var img_name_arr=old_img[0].split('_');
+    old_img_arr[old_img_arr.length-1]=img_name_arr[0]+'_'+img_name_arr[1]+'.'+old_img[1];
+    $('.card_type .swiper-slide:nth-child('+index+')').find('img').attr('src', old_img_arr.join('/'));
+    $('.card_type .swiper-slide:nth-child('+index+')').removeClass('active');
+   }
+    
+});
+/*------------------------------- 卡排行個分類輪播 END ------------------------------------*/
+
+
+
+
+
+
+
+/*------------------------------- 卡排行 切換有門檻  ------------------------------------*/
+$('.mouseHover_rank').mouseenter(function(event) {
+  var _this=$(this);
+  if ($(this).attr('ajax')=='no') {
+
+    //-- 卡排行title --
+    $.ajax({
+      url: '../ajax/rank_ajax.php',
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        type: 'rank_type',
+        rank_type_id: $(this).attr('rank_type')
+      },
+      success:function (data) {
+
+        var cc_so_type_01_cname='<a class="rank_order sp active" href="javascript:;" rank_type_id="'+data['Tb_index']+'" order="ccs_order">'+data['cc_so_type_01_cname']+'</a>';
+        var cc_so_type_02_cname=data['cc_so_type_02_order']=='1' ? '<a class="rank_order sp" href="javascript:;" rank_type_id="'+data['Tb_index']+'" order="ccs_order2">'+data['cc_so_type_02_cname']+'</a>' : data['cc_so_type_02_cname'];
+        var cc_so_type_03_cname=data['cc_so_type_03_order']=='1' ? '<a class="rank_order sp" href="javascript:;" rank_type_id="'+data['Tb_index']+'" order="ccs_order3">'+data['cc_so_type_03_cname']+'</a>' : data['cc_so_type_03_cname'];
+        var txt='<div class="col-md-1 text-center"></div>'+
+                 '<div class="col-md-4 text-center">卡片名稱</div>'+
+                 '<div class="col-md text-center">'+cc_so_type_01_cname+'</div>'+
+                 '<div class="col-md text-center">'+cc_so_type_02_cname+'</div>'+
+                 '<div class="col-md text-center">'+cc_so_type_03_cname+'</div>';
+
+        $(_this.attr('tab-target')).find('.rank_card_title').html(txt);
+      }
+    });
+    
+    //-- 卡排行資訊 --
+    $.ajax({
+      url: '../ajax/rank_ajax.php',
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        type: 'card_rank',
+        rank_type_id: $(this).attr('rank_type')
+      },
+      success:function (data) {
+        
+        $(_this.attr('tab-target')).find('.imp_int').html('');
+
+        //-- 廣告 --
+        var txt_ad='<div class="row no-gutters rank_ad">'+
+                                 '<div class="col-md-5 wx-100-ph hv-center">'+
+                                  '<div class="row">'+
+                                    '<div class="col-md-2 col-2 ">'+
+                                     '<img src="../img/component/hot.png">'+
+                                    '</div>'+
+                                    '<div class="col-md-10 col-10 hv-center pt-md-0 pt-4">'+
+                                      '<a class="popular_list_img" href="#">'+
+                                       '<img src="../img/component/card1.png" alt="" title="新聞">'+
+                                      '</a>'+
+                                    '</div>'+
+                                  '</div>'+
+                                 '</div>'+
+                               '<div class="col-md-7 wx-100-ph ad_rank rank_color">'+
+                                 '<div class="row no-gutters h-center">'+
+                                  '<div class="col-md-8 wx-100-ph card_list_txt rank_color">'+
+                                    '<h4>匯豐銀行 MasterCard 鈦金卡</h4>'+
+                                    '<ul>'+
+                                      '<li><b>●</b>國內現金回饋1.22%</li>'+
+                                      '<li><b>●</b>國外現金回饋2.22%</li>'+
+                                      '<li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>'+
+                                    '</ul>'+
+                                  '</div>'+
+                                  '<div class="col-md-4 wx-100-ph hv-center py-3 pl-4">'+
+                                    '<img src="../img/component/ad_sm2.png">'+
+                                  '</div>'+
+                                 '</div>'+
+                               '</div>'+
+                              '</div>';
+        
+        //-- 廣告0 --
+        $(_this.attr('tab-target')).find('.imp_int').append(txt_ad);
+
+        $.each(data, function(index, val) {
+           
+           //-- 單卡網址 --
+           var card_url=this['ccs_cc_cardurl']=='' ? '../cardNews/creditcard.php?cc_pk='+this['Tb_index']+'&cc_group_id='+this['cc_group_id'] : this['ccs_cc_cardurl'];
+           //-- 單卡名 --
+           var  card_name=this['ccs_cc_cardname2']=='' ? this['ccs_cc_cardname'].slice(5, this['ccs_cc_cardname'].length) : this['ccs_cc_cardname2'] ;
+           //-- 卡片圖 --
+           var cc_photo=this['cc_photo']==null ? 'CardSample.png':this['cc_photo'];
+           //-- 卡特色 --
+           var card_adv_txt1='', card_adv_txt2='', y=1;
+           if (this['cc_interest_desc']!='') {
+             var card_adv= this['cc_interest_desc'].split(/\n/);
+             for (var i = 0; i < card_adv.length; i++) {
+               if (y%2==1) {
+                card_adv_txt1+='<li><b>●</b>'+card_adv[i].slice(0,15)+'</li>';
+               }
+               else{
+                 card_adv_txt2+='<li><b>●</b>'+card_adv[i].slice(0,15)+'</li>';
+               }
+               y++;
+             }
+           }
+           //-- 立即辦卡 --
+           if (this['cc_doc_url']!='') {
+             var cc_doc='<a target="_blank" href="'+this['cc_doc_url']+'" class="btn warning-layered btnOver">立即辦卡</a>';
+           }
+           else if(this['cc_doc_path']!=''){
+             var cc_doc='<a target="_blank" href="'+this['cc_doc_path']+'" class="btn warning-layered btnOver">立即辦卡</a>';
+           }
+           else{
+             var cc_doc='';
+           }
+
+           var txt='<div class="card rank_hot rank_second">'+
+                                   '<div class="card-header money_header hv-center" id="imp_int1">'+
+                                     '<div class="row">'+
+                                       '<div class="col-md-1 ">'+
+                                         '<div class="hv-center wx-100-ph modal_prize">'+
+                                           '<span class="top_prize">'+(index+1)+'</span>'+
+                                        '</div>'+
+                                       '</div>'+
+                                       '<div class="col-md-11 wx-100-ph">'+
+                                         '<div class="row">'+
+                                           '<div class="col-md-12">'+
+                                            '<a href="'+card_url+'">'+
+                                             '<h5 class=" money_main mb-0">'+card_name+'</h5>'+
+                                            '</a>'+
+                                           '</div>'+
+                                       '<div class="row w-h-100">'+
+                                       '<div class="col-md-4 hv-center wx-100-ph">'+
+                                          '<div class="rank_care ">'+
+                                           '<a href="'+card_url+'">'+
+                                             '<img class="rank_img" src="../sys/img/'+cc_photo+'" title="'+card_name+'">'+
+                                            '</a>'+
+                                        ' </div>'+
+                                       '</div>'+
+                                        '<div class="col-md hv-center phone_block">'+
+                                         '<strong>'+this['cc_so_type_01_cname']+'</strong>'+
+                                         ccs_typename(this['ccs_typename_01_memo'], this['ccs_typename_01'])+
+                                        '</div>'+
+                                       '<div class="col-md hv-center border-left border-right phone_block">'+
+                                        '<strong>'+this['cc_so_type_02_cname']+'</strong>'+
+                                         ccs_typename(this['ccs_typename_02_memo'], this['ccs_typename_02'])+
+                                       '</div>'+
+                                       '<div class="col-md hv-center phone_block">'+
+                                         '<strong>'+this['cc_so_type_03_cname']+'</strong>'+
+                                         ccs_typename(this['ccs_typename_03_memo'], this['ccs_typename_03'], this['ccs_cc_pk2'])+
+                                       '</div>'+
+
+                                       '<div class="col-md-12 row">'+
+                                          '<div class="col-md-4 hv-center wx-100-ph">'+
+                                          '<div class="profit_btn  hv-center my-2">'+
+                                           cc_doc+
+                                          '<button type="button" card_id="'+this['Tb_index']+'" cc_group_id="'+this['cc_group_id']+'" card_name="'+card_name+'" card_img="'+cc_photo+'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>'+
+                                          '</div>'+
+                                          
+                                         '</div>'+
+                                         '<div class="col-md-8 hv-center">'+
+                                           '<p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>'+
+                                           '<button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt2'+(index+1)+'" aria-expanded="true" aria-controls="imp_int_txt2'+(index+1)+'" title="更多資訊">'+
+                                           '<i class="fa fa-angle-down"></i>'+
+                                         '</button>'+
+                                         '</div>'+
+                                        '</div>'+
+                                       '</div>'+
+                                       '</div>'+
+                                       '</div>'+
+                                   '</div>'+
+                                   '</div>'+
+                                   '<div id="imp_int_txt2'+(index+1)+'" class="collapse" aria-labelledby="imp_int1" data-parent="#accordionExample2">'+
+                                     '<div class="card-body">'+
+                                       '<div class="row no-gutters">'+
+                                         '<div class="col-md-4 hv-center">'+
+                                           '<h4><img src="https://www.cardu.com.tw/images/cardrank/tick.png">信用卡特色</h4>'+
+                                         '</div>'+
+                                         '<div class="col-md-8">'+
+                                           '<ul class="collapse_txt mb-0">'+
+                                            card_adv_txt1+                                 
+                                           '</ul>'+
+                                          '<ul class="collapse_txt mb-0">'+
+                                            card_adv_txt2+                                     
+                                          '</ul>'+
+                                         '</div>'+
+                                       '</div>'+
+                                     '</div>'+
+                                   '</div>'+
+                                 '</div>';
+          $(_this.attr('tab-target')).find('.imp_int').append(txt);
+
+          if ((index+1)==3 || (index+1)==6) {
+            $(_this.attr('tab-target')).find('.imp_int').append(txt_ad);
+          }
+
+        });
+        //-- each END --
+
+        $(_this.attr('tab-target')).append('<a class="rank_more card_rank sp warning-layered btnOver" show_num="10" rank_type_id="'+_this.attr('rank_type')+'" href="javascript:;">顯示更多卡片</a>');
+      }
+      //-- success END --
+    });
+    //-- ajax END --
+    
+    $(this).attr('ajax','yes');
+  }
+});
+
+/*------------------------------- 卡排行 切換有門檻 END ------------------------------------*/
+
+
+
+
+
+
+//-- 顯示更多卡片(卡排行) --
+
+//-- 通用 --
+var sr_rank_num=10, order='ccs_order';
+//-- 現金回饋(有門檻用) --
+var sr_rank_sp_num=10, order_sp='ccs_order';
+
+
+$('.card_rank_div').on('click', '.rank_more.card_rank', function(event) {
+  var _this=$(this);
+  var show_num=$(this).attr('show_num');
+  var rank_num=$(this).attr('class').indexOf('sp')!=-1 ? sr_rank_sp_num:sr_rank_num;
+  var this_order=$(this).attr('class').indexOf('sp')!=-1 ? order_sp:order;
+  var data={
+    type: 'card_rank_txt', 
+    sr_rank_num: rank_num,
+    sr_num_plus:show_num,
+    order:this_order,
+    rank_type_id: $(this).attr('rank_type_id')
+  }
+
+  
+  $.ajax({
+    url: '../ajax/rank_ajax.php',
+    type: 'POST',
+    data: data,
+    success:function (data_txt) {
+
+      //-- 判斷還有無資料 --
+      if (data_txt=='') {
+        _this.css('display', 'none');
+      }
+      else{
+        _this.prev().append(data_txt);
+        if (_this.attr('class').indexOf('sp')!=-1) {
+          sr_rank_sp_num=sr_rank_sp_num+parseInt(show_num);
+        }
+        else{
+          sr_rank_num=sr_rank_num+parseInt(show_num);
+        }
+      }
+    }
+  });
+});
+//-- 顯示更多卡片(卡排行) END --
+
+
+//-- 切換排序(卡排行) --
+$('.card_rank_div').on('click', '.rank_order', function(event) {
+  
+  $(this).parents('.tab-pane').find('.rank_order').removeClass('active');
+  $(this).addClass('active');
+  $(this).parents('.tab-pane').find('.rank_more').css('display', 'block');
+  $(this).parent().parent().next().html('');
+
+  var _this=$(this);
+  var show_num=$(this).parents('.tab-pane').find('.rank_more').attr('show_num');
+  if ($(this).attr('class').indexOf('sp')!=-1) {
+    sr_rank_sp_num=0;
+    order_sp=$(this).attr('order');
+  }
+  else{
+    sr_rank_num=0;
+    order=$(this).attr('order');
+  }
+  var rank_num=$(this).attr('class').indexOf('sp')!=-1 ? sr_rank_sp_num:sr_rank_num;
+
+  var data={
+    type: 'card_rank_txt', 
+    sr_rank_num: rank_num,
+    sr_num_plus:show_num,
+    order:$(this).attr('order'),
+    rank_type_id: $(this).attr('rank_type_id')
+  }
+
+  
+  $.ajax({
+    url: '../ajax/rank_ajax.php',
+    type: 'POST',
+    data: data,
+    success:function (data_txt) {
+
+      _this.parent().parent().next().append(data_txt);
+      if (_this.attr('class').indexOf('sp')!=-1) {
+        sr_rank_sp_num=sr_rank_sp_num+parseInt(show_num);
+      }
+      else{
+        sr_rank_num=sr_rank_num+parseInt(show_num);
+      }
+    }
+  });
+});
+//-- 切換排序(卡排行) END --
+
+
+/*=================================================== 卡排行 END ======================================================================*/
 
 
 
@@ -33,17 +464,29 @@ $('.new_hand_search ul li a').click(function(event) {
   }
   
   $('.new_hand_search ul li a').removeClass('active');
-
+  
   for (var i = 0; i < rank_arr.length; i++) {
   	$('.new_hand_search [rank="'+rank_arr[i]+'"]').addClass('active');
   }
+
 });
 
 //-- 開始找卡 --
 $('#easy_rank').click(function(event) {
   if (rank_arr[0]!=undefined) {
     sessionStorage.setItem("rank_arr", rank_arr.join(','));
-    location.href='search_detail.php';
+    
+    var func_id_arr=[], pref_id_arr=[];
+    for (var i = 0; i < rank_arr.length; i++) {
+      if (rank_arr[i].indexOf('fun')!=-1) {
+        func_id_arr.push(rank_arr[i]);
+      }
+      else{
+        pref_id_arr.push(rank_arr[i]);
+      }
+    }
+
+    location.href=encodeURI('search_detail.php?pref_id='+pref_id_arr.join(',')+'&fun_id='+func_id_arr.join(','));
   }else{
     alert('至少選擇一種搜尋條件');
   }
@@ -178,6 +621,7 @@ $('.rank_more.eq').click(function(event) {
   var data={
     type: 'rank_more_eq', 
     sr_num: sr_num,
+    sr_num_plus:_this.attr('show_num'),
     ci_pk01: $('.ci_pk01 .change_eq_item').val()
   }
 
@@ -199,9 +643,10 @@ $('.rank_more.eq').click(function(event) {
       if (data_txt.indexOf('profit_bg')==-1) {
         $('.rank_more.eq').css('display', 'none');
       }
-
-      $('.profit_detail tbody').append(data_txt);
-      sr_num=sr_num+3;
+      else{
+        $('.profit_detail tbody').append(data_txt);
+        sr_num=sr_num+parseInt(_this.attr('show_num'));
+      }
     }
   });
 });
@@ -317,8 +762,8 @@ $('#card_rank').click(function(event) {
 
 /*------------------------ 卡片比一比 (右邊DIV) -----------------------------*/
 //------------------------ 加入比較 -----------------------
-$('.add_contrast_card').click(function(event) {
-  
+$('body').on('click', '.add_contrast_card', function(event) {
+
   //-- 顯示卡片比一比 --
   if ($('.card_compare').css('display')=='none') {
     $('.card_compare').css('display','block');
@@ -334,18 +779,22 @@ $('.add_contrast_card').click(function(event) {
 
     var txt='<div class="card">'+
                  '<button class="del_card" card_id="'+$(this).attr('card_id')+'" type="button">Ｘ</button>'+
-                 '<a href="/cardNews/creditcard.php"><img class="w-100" src="'+$(this).attr('card_img')+'" alt=""></a>'+
+                 '<a target="_blank" title="'+$(this).attr('card_name')+'" href="/cardNews/creditcard.php?cc_pk='+$(this).attr('card_id')+'&cc_group_id='+$(this).attr('cc_group_id')+'"><img class="w-100" src="/sys/img/'+$(this).attr('card_img')+'"></a>'+
                '</div>';
     
     //- 存入Session -
     if (sessionStorage.getItem("contrast_card")==null) {
       sessionStorage.setItem("contrast_card", $(this).attr('card_id'));
+      sessionStorage.setItem("contrast_card_group_id", $(this).attr('cc_group_id'));
+      sessionStorage.setItem("contrast_card_name", $(this).attr('card_name'));
       sessionStorage.setItem("contrast_card_img", $(this).attr('card_img'));
       $('.contrast_card_div').append(txt);
     }else{
       
       if (sessionStorage.getItem("contrast_card").indexOf($(this).attr('card_id'))==-1) {
         sessionStorage.setItem("contrast_card", sessionStorage.getItem("contrast_card")+','+$(this).attr('card_id'));
+        sessionStorage.setItem("contrast_card_group_id", sessionStorage.getItem("contrast_card_group_id")+','+$(this).attr('cc_group_id'));
+        sessionStorage.setItem("contrast_card_name", sessionStorage.getItem("contrast_card_name")+','+$(this).attr('card_name'));
         sessionStorage.setItem("contrast_card_img", sessionStorage.getItem("contrast_card_img")+','+$(this).attr('card_img'));
         $('.contrast_card_div').append(txt);
       }
@@ -353,10 +802,11 @@ $('.add_contrast_card').click(function(event) {
         alert("您已經選過此卡!");
       }
     }
-    console.log(sessionStorage.getItem("contrast_card"));
-    console.log(sessionStorage.getItem("contrast_card_img"));
+
    }
 });
+
+
 
 
 //---------------------------------- 刪除卡 -------------------------------
@@ -397,6 +847,15 @@ $('.contrast_card_submit').click(function(event) {
     alert('您最少要選擇二張卡片!!');
     event.preventDefault();
   }
+  else{
+    var get_txt='?';
+    $.each($(this).parent().prev().find('.del_card'), function(index, val) {
+       get_txt+='cc_pk0'+(index+1)+'='+$(this).attr('card_id')+'&';
+       
+    });
+    get_txt=get_txt.slice(0,-1);
+    location.href='/rank/compare_detail.php'+get_txt;
+  }
 });
 
 
@@ -407,6 +866,8 @@ $(window).on('load', function(event) {
   if (sessionStorage.getItem("contrast_card")!=null){
 
     var card_arr=sessionStorage.getItem("contrast_card").split(',');
+    var card_group_id_arr=sessionStorage.getItem("contrast_card_group_id").split(',');
+    var card_name_arr=sessionStorage.getItem("contrast_card_name").split(',');
     var card_img_arr=sessionStorage.getItem("contrast_card_img").split(',');
 
     //-- 顯示卡片比一比 --
@@ -415,7 +876,7 @@ $(window).on('load', function(event) {
     for (var i = 0; i < card_arr.length; i++) {
       var txt='<div class="card">'+
                  '<button class="del_card" card_id="'+card_arr[i]+'" type="button">Ｘ</button>'+
-                 '<a href="/cardNews/creditcard.php"><img class="w-100" src="'+card_img_arr[i]+'" alt=""></a>'+
+                 '<a target="_blank" title="'+card_name_arr[i]+'" href="/cardNews/creditcard.php?cc_pk='+card_arr[i]+'&cc_group_id='+card_group_id_arr[i]+'"><img class="w-100" src="/sys/img/'+card_img_arr[i]+'"></a>'+
                '</div>';
       $('.contrast_card_div').append(txt);
     }
@@ -494,3 +955,34 @@ $(window).bind('scroll resize', function(){
   
 });
 //-------------------------------- 卷軸監控回調 END ------------------------------
+
+
+
+
+//----------------------------------- 判斷卡排行資訊 -------------------------------------------
+function ccs_typename(ccs_typename_mem, ccs_typename, ccs_cc_pk2='')
+{ 
+  var ccs_typename_a_txt='';
+  if (ccs_cc_pk2!='') {
+    var ccs_typename_a=ccs_typename.split(/\n/);
+    ccs_cc_pk2=ccs_cc_pk2.split(',');
+    for (var i = 0; i < ccs_typename_a.length; i++) {
+      var cc_url2=ccs_cc_pk2[i].indexOf('ccard')==-1 ? '../cardNews/type.php?gid='+ccs_cc_pk2[i] : '../cardNews/creditcard.php?cc_pk='+ccs_cc_pk2[i]+'&cc_group_id=';
+      ccs_typename_a_txt+='<a href="'+cc_url2+'">'+ccs_typename_a[i]+'</a>';
+    }
+  }
+  if (ccs_typename_mem=='') {
+     if (ccs_typename.length>40) {
+        var txt=ccs_cc_pk2=='' ? ccs_typename.slice(0,40)+'..' : '<div>'+ccs_typename_a_txt+'</div>';
+        return '<p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'+ccs_typename+'">'+txt+'</p>';
+     }
+     else{
+        var txt=ccs_cc_pk2=='' ? ccs_typename : '<div>'+ccs_typename_a_txt+'</div>';
+        return '<p class=" hv-center mb-0">'+txt+'</p>';
+     } 
+    }
+    else{
+        var txt=ccs_cc_pk2=='' ? ccs_typename : '<div>'+ccs_typename_a_txt+'</div>';
+        return '<p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'+ccs_typename_mem+'">'+ccs_typename+'</p>';
+   }
+}

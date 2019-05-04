@@ -355,18 +355,20 @@ $(document).ready(function() {
                     }
               });  
 
-             $('.news_slide').mouseenter(function(event) {
-              $(".news_slide .swiper-button-prev").css('left', '0%');
-              $(".news_slide .swiper-button-next").css('right', '0%');
-               news_Swiper.autoplay.stop();
-             });
+             slide_st_auto($('.news_slide'), news_Swiper);
 
-             $('.news_slide').mouseleave(function(event) {
+             // $('.news_slide').mouseenter(function(event) {
+             //  $(".news_slide .swiper-button-prev").css('left', '0%');
+             //  $(".news_slide .swiper-button-next").css('right', '0%');
+             //   news_Swiper.autoplay.stop();
+             // });
 
-              $(".news_slide .swiper-button-prev").css('left', '-7%');
-              $(".news_slide .swiper-button-next").css('right', '-7%');
-               news_Swiper.autoplay.start();
-             });
+             // $('.news_slide').mouseleave(function(event) {
+
+             //  $(".news_slide .swiper-button-prev").css('left', '-7%');
+             //  $(".news_slide .swiper-button-next").css('right', '-7%');
+             //   news_Swiper.autoplay.start();
+             // });
              /*-- 新聞專題 END --*/
 
 
@@ -472,7 +474,7 @@ $(document).ready(function() {
             /*-- 卡排行 --*/
 
             var slide_num=$(window).width()>420 ? 6:3;
-            var card_rank_Swiper = new Swiper ('.card_rank .swiper-container', {
+            var card_rank = new Swiper ('.card_rank .swiper-container', {
                 slidesPerView : slide_num,
                 slidesPerGroup : slide_num,
                 speed:750,
@@ -699,63 +701,63 @@ $(document).ready(function() {
 
 
             /*--------- 一大三小新聞專題 -----------*/
-            var pagination_Swiper = new Swiper ('.slide_pagination .swiper-container', {
-               direction : 'vertical',
-               simulateTouch : false,//禁止鼠标模拟
-               slidesPerView : 3,
-               speed:750,
-               loop:true,
-               // 如果需要前进后退按钮
-               navigation: {
-                 nextEl: '.slide_pagination .swiper-button-next',
-                 prevEl: '.slide_pagination .swiper-button-prev',
-               }
+            // var pagination_Swiper = new Swiper ('.slide_pagination .swiper-container', {
+            //    direction : 'vertical',
+            //    simulateTouch : false,//禁止鼠标模拟
+            //    slidesPerView : 3,
+            //    speed:750,
+            //    loop:true,
+            //    // 如果需要前进后退按钮
+            //    navigation: {
+            //      nextEl: '.slide_pagination .swiper-button-next',
+            //      prevEl: '.slide_pagination .swiper-button-prev',
+            //    }
 
-             });
+            //  });
 
-            var myCarousel_Swiper = new Swiper ('.myCarousel .news_live .swiper-container', {
-               speed:750,
-               simulateTouch : false,//禁止鼠标模拟
-               loop:true,
-               autoplay: {
-                   disableOnInteraction:false,
-                   delay: 5000
-               },
-               on: {
-                   slideChangeTransitionStart: function(){
-                     pagination_Swiper.slideTo(this.activeIndex+1, 750, false);
-                     //console.log(this.activeIndex+1);//切换结束时，告诉我现在是第几个slide
-                   },
-               }
-               // 如果需要前进后退按钮
-               // navigation: {
-               //   nextEl: '.myCarousel .swiper-button-next',
-               //   prevEl: '.myCarousel .swiper-button-prev',
-               // },
+            // var myCarousel_Swiper = new Swiper ('.myCarousel .news_live .swiper-container', {
+            //    speed:750,
+            //    simulateTouch : false,//禁止鼠标模拟
+            //    loop:true,
+            //    autoplay: {
+            //        disableOnInteraction:false,
+            //        delay: 5000
+            //    },
+            //    on: {
+            //        slideChangeTransitionStart: function(){
+            //          pagination_Swiper.slideTo(this.activeIndex+1, 750, false);
+            //          //console.log(this.activeIndex+1);//切换结束时，告诉我现在是第几个slide
+            //        },
+            //    }
+            //    // 如果需要前进后退按钮
+            //    // navigation: {
+            //    //   nextEl: '.myCarousel .swiper-button-next',
+            //    //   prevEl: '.myCarousel .swiper-button-prev',
+            //    // },
                
-             }); 
+            //  }); 
 
-            $('.myCarousel').mouseenter(function(event) {
-              myCarousel_Swiper.autoplay.stop();
-              //pagination_Swiper.autoplay.stop();
-            });
-
-            $('.myCarousel').mouseleave(function(event) {
-              myCarousel_Swiper.autoplay.start();
-              //pagination_Swiper.autoplay.start();
-            });
-
-            // $('.slide_pagination .swiper-button-prev').click(function(event) {
-            //   myCarousel_Swiper.slidePrev();
-            // });
-            // $('.slide_pagination .swiper-button-next').click(function(event) {
-            //   myCarousel_Swiper.slideNext();
+            // $('.myCarousel').mouseenter(function(event) {
+            //   myCarousel_Swiper.autoplay.stop();
+            //   //pagination_Swiper.autoplay.stop();
             // });
 
-            $('.slide_pagination .swiper-slide a').click(function(event) {
-              var index=parseInt($(this).parent().attr('pagination-index'));
-              myCarousel_Swiper.slideTo(index, 750, false);
-            });
+            // $('.myCarousel').mouseleave(function(event) {
+            //   myCarousel_Swiper.autoplay.start();
+            //   //pagination_Swiper.autoplay.start();
+            // });
+
+            // // $('.slide_pagination .swiper-button-prev').click(function(event) {
+            // //   myCarousel_Swiper.slidePrev();
+            // // });
+            // // $('.slide_pagination .swiper-button-next').click(function(event) {
+            // //   myCarousel_Swiper.slideNext();
+            // // });
+
+            // $('.slide_pagination .swiper-slide a').click(function(event) {
+            //   var index=parseInt($(this).parent().attr('pagination-index'));
+            //   myCarousel_Swiper.slideTo(index, 750, false);
+            // });
             /*--------- 一大三小新聞專題 END -----------*/
 
 
@@ -784,7 +786,6 @@ $(document).ready(function() {
                 });  
 
                slide_st_auto($('.HotNews_slide'), hotNews_slide);
-
 
             /*------------------------ 熱門情報 END --------------------------*/
 
@@ -950,8 +951,8 @@ $(document).ready(function() {
 
 
             /*-- 卡情報-單卡-百葉窗 --*/
-            $('.imp_int .card-header .angle_down').click(function(event) {
-              
+            $('.imp_int').on('click', '.card-header .angle_down', function(event) {
+
               //-- 展開 --
               if ($(this).find('i').attr('class')=='fa fa-angle-down') {
                 $('.imp_int .card-header .angle_down i').removeClass('fa-angle-down');
@@ -965,7 +966,9 @@ $(document).ready(function() {
                 $(this).find('i').removeClass('fa-angle-up');
                 $(this).find('i').addClass('fa-angle-down');
               }
+              
             });
+
 
 
 
@@ -1399,6 +1402,26 @@ function slide_st_auto(DOM, id) {
 
 
 
+
+//======================= 內文圖片 alt 轉圖說 ==========================
+function img_txt(dom_id) {
+
+    $.each($(dom_id), function(index, val) {
+
+      if ($(this).attr('alt')!="" && $(this).attr('alt')!=undefined) {
+        $(this).parent().html('<div class="con_img"><img src="'+$(this).attr('src')+'"><p>▲'+$(this).attr('alt')+'</p></div>'); 
+      }
+    });
+}
+
+
+
+
+
+//======================= 單卡網址 ==========================
+function card_url(cc_pk, cc_group_id) {
+  return '../cardNews/creditcard.php?cc_pk='+cc_pk+'&cc_group_id='+cc_group_id;
+}
 
 
 
