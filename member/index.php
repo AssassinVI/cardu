@@ -91,8 +91,8 @@
                     </div>
                     
 
-                    <div class="pb-3 detail_content">
-                    <div class="col-md-12 col">
+                    <div class="col-md-12 col pb-3 detail_content">
+                    <div class="">
                     <div class="cardshap primary_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item">
@@ -108,7 +108,7 @@
                             <div class="row no-gutters">
                               <div class="col-md-4 col-12 cards-3 text-center">
                                 <a href="#">
-                                 <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                 <div class="img_div w-100-ph" style="background-image: url(../img/component/photo2.jpg);">
                                      
                                  </div>
                                  <span>遊日血拚大回饋，信用卡大調查</span>
@@ -116,7 +116,7 @@
                               </div>
                               <div class="col-md-4 col-12 cards-3 text-center">
                                 <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                  <div class="img_div w-100-ph" style="background-image: url(../img/component/photo2.jpg);">
                                      
                                   </div>
                                   <span>遊日血拚大回饋，信用卡大調查</span>
@@ -124,7 +124,7 @@
                               </div>
                                <div class="col-md-4 col-12 cards-3 text-center">
                                 <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                  <div class="img_div w-100-ph" style="background-image: url(../img/component/photo2.jpg);">
                                       
                                   </div>
                                   <span>遊日血拚大回饋，信用卡大調查</span>
@@ -174,57 +174,68 @@
                           </div>
                           <div class="tab-pane fade" id="goodPerson" role="tabpanel" aria-labelledby="goodPerson-tab">
 
-                            <div class="row no-gutters">
-                              <div class="col-md-4 col-12 cards-3 text-center">
-                                <a href="#">
-                                 <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                     
-                                 </div>
-                                 <span class="px-4">遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                              <div class="col-md-4 col-12 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                     
-                                  </div>
-                                  <span class="px-4">遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                               <div class="col-md-4 col-12 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                      
-                                  </div>
-                                  <span class="px-4">遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                                
-                            </div>
+                            <ul class="fun">
+                              <li>
+                                <img src="../img/component/li.png">
+                                <span class="publish_cate">[好康活動]</span>
+                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
+                                <span class="ontime">2018/01/22~2018/02/04</span>
+                              </li>
+                              <li>
+                                <img src="../img/component/li.png">
+                                <span class="publish_cate">[好康活動]</span>
+                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
+                                <span class="ontime">2018/01/22~2018/02/04</span>
+                              </li>
+                              <li>
+                                <img src="../img/component/li.png">
+                                <span class="publish_cate">[好康活動]</span>
+                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
+                                <span class="ontime">2018/01/22~2018/02/04</span>
+                              </li>
+                              <li>
+                                <img src="../img/component/li.png">
+                                <span class="publish_cate">[好康活動]</span>
+                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
+                                <span class="ontime">2018/01/22~2018/02/04</span>
+                              </li>
+                              <li>
+                                <img src="../img/component/li.png">
+                                <span class="publish_cate">[好康活動]</span>
+                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
+                                <span class="ontime">2018/01/22~2018/02/04</span>
+                              </li>
+                              <li>
+                                <img src="../img/component/li.png">
+                                <span class="publish_cate">[好康活動]</span>
+                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
+                                <span class="ontime">2018/01/22~2018/02/04</span>
+                              </li>
+                              <li>
+                                <img src="../img/component/li.png">
+                                <span class="publish_cate">[好康活動]</span>
+                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
+                                <span class="ontime">2018/01/22~2018/02/04</span>
+                              </li>
+                              <li>
+                                <img src="../img/component/li.png">
+                                <span class="publish_cate">[好康活動]</span>
+                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
+                                <span class="ontime">2018/01/22~2018/02/04</span>
+                              </li>
+                              <li>
+                                <img src="../img/component/li.png">
+                                <span class="publish_cate">[好康活動]</span>
+                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
+                                <span class="ontime">2018/01/22~2018/02/04</span>
+                              </li>
+                            </ul>
                            
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-
-
-                    
-                   
-
-                    
-                  
-                    
-                    
-
-                   
-
-                    
-
-                   
-
-
-
 
                 </div>
             </div>

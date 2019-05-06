@@ -24,6 +24,7 @@
 	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ PDO連線 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
  	 function _pdo_conn() {
 		$this->pdo_obj = new PDO("mysql:host=localhost;dbname=".$this->_dbname, $this->_user_id, $this->_user_pwd);
+		$this->pdo_obj->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); //禁用prepared statements的模擬效果
 		$this->pdo_obj->exec("SET NAMES UTF8");
 	}
 

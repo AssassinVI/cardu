@@ -2,14 +2,14 @@
     <header>
       <div class="row no-gutters py-1 px-3" style="background: #fff;">
        <div class="col-4">
-         <img class="w-100" src="../img/component/logo_ph.png" alt="">
+         <img class="w-100" src="/img/component/logo_ph.png" alt="">
        </div> 
        <div class="col-8 tool_div">
          <div class="hv-around w-h-100">
-           <a class="img_div" href="#" style="background-image: url(../img/component/icon/icon_m1.png);"></a>
-           <a class="img_div" href="#" style="background-image: url(../img/component/icon/icon_m2.png);"></a>
-           <a class="img_div" href="#" style="background-image: url(../img/component/icon/icon_m3.png);"></a>
-           <a class="img_div search_a" href="javascript:;" style="background-image: url(../img/component/icon/icon_m4.png);"></a>
+           <a class="img_div" href="#" style="background-image: url(/img/component/icon/icon_m1.png);"></a>
+           <a class="img_div" href="#" style="background-image: url(/img/component/icon/icon_m2.png);"></a>
+           <a class="img_div" href="#" style="background-image: url(/img/component/icon/icon_m3.png);"></a>
+           <a class="img_div search_a" href="javascript:;" style="background-image: url(/img/component/icon/icon_m4.png);"></a>
            <button id="menu" class="hamburger hamburger--collapse" type="button">
              <span class="hamburger-box">
                <span class="hamburger-inner"></span>

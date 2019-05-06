@@ -72,8 +72,59 @@
                 <div class="row">
 
                   <div class="col-md-12 col">
-                  <!-- 四小三大輪播 -->
-                      <div id="new_iNews" class="cardshap new_slide">
+                  <?php 
+                       //-- 判斷是否為手機 --
+                       if (wp_is_mobile()){
+                      ?>
+                      
+                      <!-- 手機板輪播 -->
+                      <div class="myCarousel d-md-none d-sm-block">
+                          <div id="iNews" class="news_slide cardshap">
+                            <div class=" swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide img_div" pagination-index="1" style="background-image: url(../img/component/slide_photo1.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >新光三越週慶強強滾　首日6店業績逾14.9億</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="2" style="background-image: url(../img/component/slide_photo2.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >ATM「靠臉」就能領錢　台新內湖分行首上線</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="3" style="background-image: url(../img/component/slide_photo3.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="4" style="background-image: url(../img/component/U20181204080844.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="5" style="background-image: url(../img/component/U20181212084227.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
+                                      </a>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-pagination"></div>
+
+                                <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                                <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                            </div>
+                          </div>
+                      </div>
+                      <!-- 手機板輪播 END -->
+
+                      <?php 
+                       } 
+                       else{
+                      ?>
+
+                       <!-- 四小三大輪播 -->
+                      <div id="new_iNews" class="cardshap new_slide phone_hidden">
                           <div class="swiper-container">
                               <div class="swiper-wrapper">
                                   <div class="swiper-slide" > 
@@ -106,7 +157,7 @@
                                     </div>
                                     
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
@@ -134,7 +185,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
@@ -169,14 +220,54 @@
                           </div>
                       </div>
                       <!-- 四小三大輪播 END -->
+                      <?php
+                       }
+                      ?>
                   
                   
                   </div>
 
                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
-                    <!--banner end -->
+                    <div class="col-md-12 row phone_hidden">
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
+                        </div>
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
+                        </div>
+                    </div>            
                     <!--線上辦卡-->
+
+                    <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
+
                     <div class="col-md-12 col">
 
                         <div class="cardshap brown_tab ">
@@ -188,55 +279,55 @@
                         <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
                           <ul class="online_list">
-                          <?php 
-                            $bank_row=$pdo->select("SELECT * FROM bank_info WHERE bd_src>0");
-                            $bank_num=count($bank_row);
-                            $rand=rand(0,$bank_num);
-                            for ($i=0; $i < $bank_num; $i++) { 
-                              if ($rand==$i) {
-                                echo '<li>
-                                       <a class="gray-layered btnOver active" href="javascript:;" bank_id="'.$bank_row[$i]['Tb_index'].'" title="'.$bank_row[$i]['bi_shortname'].'">
-                                       '.$bank_row[$i]['bi_shortname'].' 
-                                       </a>
-                                      </li>';
+                            <?php 
+                              $bank_row=$pdo->select("SELECT * FROM bank_info WHERE bd_src>0");
+                              $bank_num=count($bank_row);
+                              $rand=rand(0,$bank_num);
+                              for ($i=0; $i < $bank_num; $i++) { 
+                                if ($rand==$i) {
+                                  echo '<li>
+                                         <a class="gray-layered btnOver active" href="javascript:;" bank_id="'.$bank_row[$i]['Tb_index'].'" title="'.$bank_row[$i]['bi_shortname'].'">
+                                         '.$bank_row[$i]['bi_shortname'].' 
+                                         </a>
+                                        </li>';
+                                }
+                                else{
+                                  echo '<li>
+                                         <a class="gray-layered btnOver" href="javascript:;" bank_id="'.$bank_row[$i]['Tb_index'].'" title="'.$bank_row[$i]['bi_shortname'].'">
+                                         '.$bank_row[$i]['bi_shortname'].' 
+                                         </a>
+                                        </li>';
+                                }
                               }
-                              else{
-                                echo '<li>
-                                       <a class="gray-layered btnOver" href="javascript:;" bank_id="'.$bank_row[$i]['Tb_index'].'" title="'.$bank_row[$i]['bi_shortname'].'">
-                                       '.$bank_row[$i]['bi_shortname'].' 
-                                       </a>
-                                      </li>';
+                              
+                              //-- 亂數選出銀行資訊 --
+                              //-- 立即辦卡-檔案 --
+                              if ($bank_row[$rand]['bd_src']=='1') {
+                                $path='../other_file/'.$bank_row[$rand]['bd_path'];
                               }
-                            }
-                            
-                            //-- 亂數選出銀行資訊 --
-                            //-- 立即辦卡-檔案 --
-                            if ($bank_row[$rand]['bd_src']=='1') {
-                              $path='../other_file/'.$bank_row[$rand]['bd_path'];
-                            }
-                            //-- 立即辦卡-連結 --
-                            elseif($bank_row[$rand]['bd_src']=='2'){
-                              $path=$bank_row[$rand]['bd_url'];
-                            }
+                              //-- 立即辦卡-連結 --
+                              elseif($bank_row[$rand]['bd_src']=='2'){
+                                $path=$bank_row[$rand]['bd_url'];
+                              }
 
-                            //-- 地址 --
-                            $bank_adds=explode(',', $bank_row[$rand]['bi_addr']);
-                            $bank_adds=$bank_adds[0].$bank_adds[1];
+                              //-- 地址 --
+                              $bank_adds=explode(',', $bank_row[$rand]['bi_addr']);
+                              $bank_adds=$bank_adds[0].$bank_adds[1];
 
-                          ?>
-                            <!-- <li><a class="gray-layered btnOver" href="javascript:;" bank_id="bank201810311633483" title="合作金庫">合作金庫 </a></li>
-                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="bank201810311633487" title="上海銀行">上海銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="台北富邦">台北富邦 </a></li>
-                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="台北富邦">花旗銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="花旗銀行">花旗銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="澳盛銀行">澳盛銀行 </a></li>
-                            <li><a class="gray-layered btnOver active" href="javascript:;" bank_id="" title="匯豐銀行">匯豐銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="元大銀行">元大銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="玉山銀行">玉山銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="凱基銀行">凱基銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="台新銀行">台新銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="日盛銀行">日盛銀行 </a></li>
-                            <li><a class="gray-layered btnOver" href="javascript:;" bank_id="" title="美國運通">美國運通 </a></li> -->
+                            ?>
+                            <!-- <li><a class="gray-layered btnOver active" href="#" title="新聞">合作金庫 </a></li>
+                            <li><a class="gray-layered btnOver" href="#" title="新聞">上海銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="#" title="新聞">台北富邦 </a></li>
+                            <li><a class="gray-layered btnOver" href="#" title="新聞">花旗銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="#" title="新聞">花旗銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="#" title="新聞">澳盛銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="#" title="新聞">匯豐銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="#" title="新聞">元大銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="#" title="新聞">玉山銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="#" title="新聞">凱基銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="#" title="新聞">台新銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="#" title="新聞">日盛銀行 </a></li>
+                            <li><a class="gray-layered btnOver" href="#" title="新聞">美國運通 </a></li> -->
                           </ul>
 
                           <div id="<?php echo $bank_row[$rand]['Tb_index'];?>" class="bank_div">
@@ -290,7 +381,7 @@
                         </div>
                         <!-- 銀行單卡 END -->
                         </div>
-
+                        
                         <hr>
                          <div class="online_care">
                          <h5 class="text-center">－謹慎理財，信用至上，辦卡前請詳閱申請書－</h5>
@@ -318,7 +409,7 @@
                       
                       
                      <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/365x100" alt="">
                         </div>
@@ -329,7 +420,7 @@
                     <!--廣告end-->
 
                     <!--信用卡推薦-->
-                    <div class="col-md-12 col">
+                    <div class="col-md-12 col phone_hidden">
 
                         <div class="cardshap brown_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -419,6 +510,49 @@
                       </div>
                     </div>
                     <!--信用卡推薦end -->
+                    <!--手機板信用卡推薦-->
+                            <div class="col-md-12 col d-md-none d-sm-block">
+
+                                <div class="cardshap brown_tab exception">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                  <li class="nav-item news_tab">
+                                    <a class="nav-link active pl-30 py-2" id="special_1-tab" aria-selected="true">信用卡推薦</a>
+                                  </li>
+                                </ul>
+                                <div class="tab-content p-0" id="myTabContent">
+                                  <div class="tab-pane fade show active"  role="tabpanel" >
+
+                                    <div class="row no-gutters mx-2 py-3 card_list">
+                                      <div class="col-md-4 text-center">
+                                        <a class="card_list_img" href="#">
+                                          <img src="../img/component/card1.png" alt="" title="新聞">
+                                        </a>
+                                        <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
+                                      </div>
+                                      <div class="col-md-4 card_list_txt rank_color phone_card">
+                                        <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                        <ul>
+                                          <li><b>●</b>國內現金回饋1.22%</li>
+                                          <li><b>●</b>國外現金回饋2.22%</li>
+                                          <li><b>●</b>感應式刷卡快速結帳</li>
+                                          <li><b>●</b>高額旅遊平安險</li>
+                                          <li><b>●</b>華航機票優惠</li>
+                                        </ul>
+                                      </div>
+                                      <div class="col-md-4 phone_hidden">
+                                        <a class="img_div card_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                        <p>謹慎理財 信用至上</p>
+                                      </div>
+                                    </div>
+                                   
+                                  </div>
+                                 
+                                </div>
+                              </div>
+                            </div>
+                            <!--信用卡推薦end -->  
+                              
+
 
 
 
@@ -668,6 +802,11 @@
                     
                     </div>
 
+                    <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
+                    </div>
+
                     <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">
                            <div class="title_tab hole">
@@ -709,6 +848,12 @@
                            </div>
                        </div>
                     </div>
+
+                    <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
+                    </div>
+                    
                      <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">
                            <div class="title_tab hole">
@@ -824,6 +969,3 @@
 
   </body>
 </html>
-<?php 
- $pdo=NULL;
-?>

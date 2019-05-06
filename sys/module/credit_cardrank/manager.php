@@ -90,6 +90,9 @@ if ($_GET) {
   
   $ccs_typename_03_readonly=empty($row['ccs_cc_pk2']) ? '':'readonly';
 
+  $card_Group=empty($row['ccs_cc_pk']) && !empty($row['ccs_cc_group_id']) ? 'checked':'';
+  $card_One= empty($row) || !empty($row['ccs_cc_pk']) ? 'checked':'';
+
 }
 ?>
 
@@ -118,7 +121,7 @@ if ($_GET) {
 							</div>
               <div class="col-md-6">
                 <a id="ccard_name_btn" href="../credit_cardrank_public/card_one_windows.php" class="btn btn-default" data-fancybox data-type="iframe" >選擇卡片</a>
-                <label><input type="radio" checked name="card_OneOrGroup" value="one">單卡</label>｜<label><input type="radio" name="card_OneOrGroup" value="group">卡組</label>
+                <label><input type="radio" <?php echo $card_One; ?> name="card_OneOrGroup" value="one">單卡</label>｜<label><input type="radio" <?php echo $card_Group; ?> name="card_OneOrGroup" value="group">卡組</label>
                 <span class="text-danger">註：先勾選信用卡為單卡或卡組</span>
               </div>
 

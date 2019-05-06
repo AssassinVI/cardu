@@ -112,6 +112,13 @@
                       </div>
                   
                   </div>
+                   <!--廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
 
                                        
                      <!--卡排行-->
@@ -132,51 +139,51 @@
                                  <div class="swiper-container">
                                    <div class="swiper-wrapper">
                                        <div class="swiper-slide active" index="1" > 
-                                        <div class="text-center" ><a href="javascript:;" title="量販卡"><img src="../img/component/icon_down/cardNews/card_news1.png" alt="量販卡" > <br> 量販卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;" title="量販卡"><img src="../img/component/icon_down/cardNews/card_news1.png" alt="量販卡" ></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="2"> 
-                                        <div class="text-center" ><a href="javascript:;" title="百貨卡"><img src="../img/component/icon/cardNews/card_news4.png" alt="百貨卡" > <br> 百貨卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;" title="百貨卡"><img src="../img/component/icon/cardNews/card_news4.png" alt="百貨卡" ></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="3"> 
-                                        <div class="text-center" ><a href="javascript:;" title="航空卡"><img src="../img/component/icon/cardNews/card_news2.png" alt="航空卡" > <br> 航空卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;" title="航空卡"><img src="../img/component/icon/cardNews/card_news2.png" alt="航空卡" ></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="4"> 
-                                        <div class="text-center" ><a href="javascript:;" title="加油卡"><img src="../img/component/icon/cardNews/card_news5.png" alt="加油卡" > <br> 加油卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;" title="加油卡"><img src="../img/component/icon/cardNews/card_news5.png" alt="加油卡" ></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="5"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news6.png" alt="悠遊卡" title="悠遊卡"> <br> 悠遊卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news6.png" alt="悠遊卡" title="悠遊卡"></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="6"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news3.png" alt="一卡通" title="一卡通"> <br> 一卡通</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news3.png" alt="一卡通" title="一卡通"></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="7"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news7.png" alt="餐飲卡" title="餐飲卡"> <br> 餐飲卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news7.png" alt="餐飲卡" title="餐飲卡"></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="8"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news8.png" alt="行動支付" title="行動支付"> <br> 行動支付</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news8.png" alt="行動支付" title="行動支付"></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="9"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news9.png" alt="感應卡" title="感應卡"> <br> 感應卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news9.png" alt="感應卡" title="感應卡"></a></div>
                                        </div>  
 
                                        <div class="swiper-slide" index="10"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news10.png" alt="購物卡" title="購物卡"> <br> 購物卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news10.png" alt="購物卡" title="購物卡"></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="11"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news11.png" alt="購物卡" title="購物卡"> <br> 購物卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news11.png" alt="購物卡" title="購物卡"></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="12"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news12.png" alt="購物卡" title="購物卡"> <br> 購物卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news12.png" alt="購物卡" title="購物卡"></a></div>
                                        </div>                                     
                                    </div>
 
@@ -239,27 +246,26 @@
                         </div>
                     </div>
                     <!--卡排行end -->
-                     <!--廣告-->
-                    <div class="col-md-12 col banner"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
+                    
                      <!--新卡訊-->
                     <div class="col-md-12 col">
 
-                        <div class="cardshap brown_tab ">
+                        <div class="cardshap brown_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab">
                             <a class="nav-link active pl-30 py-2" id="special_1-tab" data-toggle="tab" href="#special_1" role="tab" aria-controls="special_1" aria-selected="true">新卡訊</a>
                             <a class="top_link" href="#"></a>
                           </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content p-2" id="myTabContent">
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
                           
-                          <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                          <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-1">
                             <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
-                            <a href="#" title="新聞"><h3>台新銀行-比漾聯名卡</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
+                            <a href="#" title="新聞"><h3>台新銀行-比漾聯名卡</h3></a><small class="phone_hidden"><a href="#" title="新聞">(XXX)</a></small>
                             <span>店內最高1.6%；店外0.3%回饋</span>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -268,12 +274,12 @@
                           </div>
                         </div>
 
-                          <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                          <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-1">
                             <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
-                            <a href="#" title="新聞"><h3>台新銀行-比漾聯名卡</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
+                            <a href="#" title="新聞"><h3>台新銀行-比漾聯名卡</h3></a><small class="phone_hidden"><a href="#" title="新聞">(XXX)</a></small>
                             <span>店內最高1.6%；店外0.3%回饋</span>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -281,12 +287,12 @@
                             </div>
                           </div>
                         </div>
-                         <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                         <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-1">
                             <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
-                            <a href="#" title="新聞"><h3>台新銀行-比漾聯名卡</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
+                            <a href="#" title="新聞"><h3>台新銀行-比漾聯名卡</h3></a><small class="phone_hidden"><a href="#" title="新聞">(XXX)</a></small>
                             <span>店內最高1.6%；店外0.3%回饋</span>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -309,6 +315,7 @@
                         </div>
                     </div>
                     <!--廣告end-->
+                    
                      <!--特別議題一-->
                     <div class="col-md-12 col">
 
@@ -319,16 +326,36 @@
                             <a class="top_link" href="#"></a>
                           </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content p-2" id="myTabContent">
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
                             <div class="row no-gutters">
                                 <div class="col-12 bigcard py-md-2 mb-2">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                         <p>遊日血拚大回饋，信用卡大調查</p>
+                                   <!-- 手機用分類輪播 -->
+                                   <div class="sub_ph_slide swiper-container">
+                                       <div class="swiper-wrapper">
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="新光三越週慶強強滾，首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);">
+                                                 <p>新光三越週慶強強滾，首日6店</p>
+                                             </a>
+                                           </div>
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="ATM「靠臉」就能領錢，台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                                 <p>ATM「靠臉」就能領錢，台新內湖</p>
+                                             </a>
+                                           </div>
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="跨年4天連假玩翻台北，#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);">
+                                                 <p>跨年4天連假玩翻台北，#Party</p>
+                                             </a>
+                                           </div>
                                        </div>
-                                      
-                                   </a>
+
+                                       <div class="swiper-pagination"></div>
+                                       
+                                       <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                       <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                                   </div>
+                                   <!-- 手機用分類輪播 END -->
                                 </div>
                                 <div class="col-md-4 cards-3 col-6">
                                    <a href="#">
@@ -363,24 +390,44 @@
                             <a class="top_link" href="#"></a>
                           </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content p-2" id="myTabContent">
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
                           <div class="row no-gutters">
                                 <div class="col-12 bigcard py-md-2">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                        <p>遊日血拚大回饋，信用卡大調查</p>
+                                   <!-- 手機用分類輪播 -->
+                                   <div class="sub_ph_slide swiper-container">
+                                       <div class="swiper-wrapper">
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="新光三越週慶強強滾，首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);">
+                                                 <p>新光三越週慶強強滾，首日6店</p>
+                                             </a>
+                                           </div>
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="ATM「靠臉」就能領錢，台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                                 <p>ATM「靠臉」就能領錢，台新內湖</p>
+                                             </a>
+                                           </div>
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="跨年4天連假玩翻台北，#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);">
+                                                 <p>跨年4天連假玩翻台北，#Party</p>
+                                             </a>
+                                           </div>
                                        </div>
+
+                                       <div class="swiper-pagination"></div>
                                        
-                                   </a>
+                                       <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                       <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                                   </div>
+                                   <!-- 手機用分類輪播 END -->
                                 </div>
                             </div>
-                          <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                          <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-5 py-2">
                             <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
-                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                          <div class="col-md-8 col-7 pl-4 py-2 news_list_txt">
+                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small class="phone_hidden"><a href="#" title="新聞">(XXX)</a></small>
                             
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -389,12 +436,12 @@
                           </div>
                         </div>
 
-                          <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                          <div class="row no-gutters py-md-3 mx-md-4 py-1 news_list">
+                          <div class="col-md-4 col-6 py-1">
                             <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
-                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
+                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small class="phone_hidden"><a href="#" title="新聞">(XXX)</a></small>
                             
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -410,7 +457,7 @@
                       </div>
                     </div>
                     <!--特別議題2end -->
-                   <!--廣告-->
+                  <!--廣告-->
                     <div class="col-md-12 row">
                         <div class="col-md-6 col banner">
                             <img src="http://placehold.it/365x100" alt="">
@@ -427,16 +474,36 @@
                             <a class="top_link" href="#"></a>
                           </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content p-2" id="myTabContent">
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
                             <div class="row no-gutters">
                                 <div class="col-12 bigcard py-md-2 mb-2">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                         <p>遊日血拚大回饋，信用卡大調查</p>
+                                   <!-- 手機用分類輪播 -->
+                                   <div class="sub_ph_slide swiper-container">
+                                       <div class="swiper-wrapper">
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="新光三越週慶強強滾，首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);">
+                                                 <p>新光三越週慶強強滾，首日6店</p>
+                                             </a>
+                                           </div>
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="ATM「靠臉」就能領錢，台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                                 <p>ATM「靠臉」就能領錢，台新內湖</p>
+                                             </a>
+                                           </div>
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="跨年4天連假玩翻台北，#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);">
+                                                 <p>跨年4天連假玩翻台北，#Party</p>
+                                             </a>
+                                           </div>
                                        </div>
-                                      
-                                   </a>
+
+                                       <div class="swiper-pagination"></div>
+                                       
+                                       <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                       <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                                   </div>
+                                   <!-- 手機用分類輪播 END -->
                                 </div>
                                 <div class="col-md-4 cards-3 col-6">
                                    <a href="#">
@@ -471,16 +538,36 @@
                             <a class="top_link" href="#"></a>
                           </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content p-2" id="myTabContent">
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
                             <div class="row no-gutters">
                                 <div class="col-12 bigcard py-md-2 mb-2">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                         <p>遊日血拚大回饋，信用卡大調查</p>
+                                   <!-- 手機用分類輪播 -->
+                                   <div class="sub_ph_slide swiper-container">
+                                       <div class="swiper-wrapper">
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="新光三越週慶強強滾，首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);">
+                                                 <p>新光三越週慶強強滾，首日6店</p>
+                                             </a>
+                                           </div>
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="ATM「靠臉」就能領錢，台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                                 <p>ATM「靠臉」就能領錢，台新內湖</p>
+                                             </a>
+                                           </div>
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="跨年4天連假玩翻台北，#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);">
+                                                 <p>跨年4天連假玩翻台北，#Party</p>
+                                             </a>
+                                           </div>
                                        </div>
-                                      
-                                   </a>
+
+                                       <div class="swiper-pagination"></div>
+                                       
+                                       <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                       <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                                   </div>
+                                   <!-- 手機用分類輪播 END -->
                                 </div>
                                 <div class="col-md-4 cards-3 col-6">
                                    <a href="#">
@@ -505,6 +592,13 @@
                       </div>
                     </div>
                     <!--開卡文end -->
+                    <!--廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
                      <!--愛分享-->
                     <div class="col-md-12 col">
 
@@ -515,16 +609,36 @@
                             <a class="top_link" href="#"></a>
                           </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content p-2" id="myTabContent">
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
                             <div class="row no-gutters">
                                 <div class="col-12 bigcard py-md-2 mb-2">
-                                   <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                         <p>遊日血拚大回饋，信用卡大調查</p>
+                                   <!-- 手機用分類輪播 -->
+                                   <div class="sub_ph_slide swiper-container">
+                                       <div class="swiper-wrapper">
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="新光三越週慶強強滾，首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);">
+                                                 <p>新光三越週慶強強滾，首日6店</p>
+                                             </a>
+                                           </div>
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="ATM「靠臉」就能領錢，台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                                 <p>ATM「靠臉」就能領錢，台新內湖</p>
+                                             </a>
+                                           </div>
+                                           <div class="swiper-slide" > 
+                                             <a href="#" title="跨年4天連假玩翻台北，#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);">
+                                                 <p>跨年4天連假玩翻台北，#Party</p>
+                                             </a>
+                                           </div>
                                        </div>
-                                      
-                                   </a>
+
+                                       <div class="swiper-pagination"></div>
+                                       
+                                       <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                       <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                                   </div>
+                                   <!-- 手機用分類輪播 END -->
                                 </div>
                                 <div class="col-md-4 cards-3 col-6">
                                    <a href="#">
@@ -549,13 +663,7 @@
                       </div>
                     </div>
                     <!--愛分享end -->
-                     <!--廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col banner">
-                            <img src="http://placehold.it/365x100" alt="">
-                        </div>
-                    </div>
-                    <!--廣告end-->
+                    
                     <!--卡訊-->
                     <div class="col-md-12 col">
 
@@ -566,15 +674,15 @@
                             <a class="top_link" href="#"></a>
                           </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content p-2" id="myTabContent">
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
                           
-                          <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                          <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-1">
                             <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
-                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
+                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small class="phone_hidden"><a href="#" title="新聞">(XXX)</a></small>
                             
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -583,12 +691,12 @@
                           </div>
                         </div>
 
-                          <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                          <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-1">
                             <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
-                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
+                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small class="phone_hidden"><a href="#" title="新聞">(XXX)</a></small>
                             
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -596,12 +704,12 @@
                             </div>
                           </div>
                         </div>
-                         <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                         <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-1">
                             <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
-                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
+                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small class="phone_hidden"><a href="#" title="新聞">(XXX)</a></small>
                             
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -617,6 +725,13 @@
                       </div>
                     </div>
                     <!--卡訊end -->
+                    <!--廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
                     <!--首刷禮-->
                     <div class="col-md-12 col">
 
@@ -627,15 +742,15 @@
                             <a class="top_link" href="#"></a>
                           </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content p-2" id="myTabContent">
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
                           
-                          <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                          <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-1">
                             <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
-                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
+                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small class="phone_hidden"><a href="#" title="新聞">(XXX)</a></small>
                             
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -644,12 +759,12 @@
                           </div>
                         </div>
 
-                          <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                          <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-1">
                             <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
-                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
+                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small class="phone_hidden"><a href="#" title="新聞">(XXX)</a></small>
                             
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -657,12 +772,12 @@
                             </div>
                           </div>
                         </div>
-                         <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                         <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-1">
                             <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
-                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
+                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small class="phone_hidden"><a href="#" title="新聞">(XXX)</a></small>
                             
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
@@ -678,6 +793,48 @@
                       </div>
                     </div>
                     <!--首刷禮end -->
+                    <!--信用卡推薦-->
+                    <div class="col-md-12 col">
+
+                        <div class="cardshap brown_tab exception">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                          <li class="nav-item news_tab">
+                            <a class="nav-link active pl-30 py-2" id="special_1-tab" aria-selected="true">信用卡推薦</a>
+                          </li>
+                        </ul>
+                        <div class="tab-content p-0" id="myTabContent">
+                          <div class="tab-pane fade show active"  role="tabpanel" >
+
+                            <div class="row no-gutters mx-2 py-3 card_list">
+                              <div class="col-md-4 text-center">
+                                <a class="card_list_img" href="#">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                </a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
+                              </div>
+                              <div class="col-md-4 card_list_txt rank_color phone_card">
+                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                <ul>
+                                  <li><b>●</b>國內現金回饋1.22%</li>
+                                  <li><b>●</b>國外現金回饋2.22%</li>
+                                  <li><b>●</b>感應式刷卡快速結帳</li>
+                                  <li><b>●</b>高額旅遊平安險</li>
+                                  <li><b>●</b>華航機票優惠</li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4 phone_hidden">
+                                <a class="img_div card_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                <p>謹慎理財 信用至上</p>
+                              </div>
+                            </div>
+                           
+                          </div>
+                         
+                        </div>
+                      </div>
+                    </div>
+                    <!--信用卡推薦end -->    
+                   
                     
                     
 

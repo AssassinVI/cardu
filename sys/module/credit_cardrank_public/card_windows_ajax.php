@@ -108,6 +108,16 @@ if ($_POST['type']=='show_cc_level_more') {
    }
 
    $keyWords=empty($_POST['keywords']) ? '' : $_POST['keywords'];
+   // $row_cc_level= $pdo->select("SELECT cc.Tb_index as Tb_index, cc_cardorg, cc_cardlevel, cc_cardname, cc_group_id, cc_status_name, cc_group_state, cc_stop_publish, cc_stop_card
+   //                              FROM credit_card as cc 
+   //                              INNER JOIN card_org as org ON cc.cc_cardorg=org.Tb_index 
+   //                              INNER JOIN card_level as level ON cc.cc_cardlevel=level.Tb_index 
+   //                              WHERE 
+   //                              cc_bi_pk=:cc_bi_pk AND 
+   //                              cc_stop_publish='0' AND 
+   //                              cc_stop_card='0' AND 
+   //                              (cc_cardname LIKE :keyWords OR cc_interest_desc LIKE :keyWords OR org.org_nickname LIKE :keyWords OR level.attr_name LIKE :keyWords)", 
+   //                              ['cc_bi_pk'=>$_POST['cc_bi_pk'], 'keyWords'=>'%'.$keyWords.'%']);
    $row_cc_level= $pdo->select("SELECT cc.Tb_index as Tb_index, cc_cardorg, cc_cardlevel, cc_cardname, cc_group_id, cc_status_name, cc_group_state, cc_stop_publish, cc_stop_card
                                 FROM credit_card as cc 
                                 INNER JOIN card_org as org ON cc.cc_cardorg=org.Tb_index 
@@ -116,8 +126,8 @@ if ($_POST['type']=='show_cc_level_more') {
                                 cc_bi_pk=:cc_bi_pk AND 
                                 cc_stop_publish='0' AND 
                                 cc_stop_card='0' AND 
-                                (cc_cardname LIKE :keyWords OR cc_interest_desc LIKE :keyWords OR org.org_nickname LIKE :keyWords OR level.attr_name LIKE :keyWords)", 
-                                ['cc_bi_pk'=>$_POST['cc_bi_pk'], 'keyWords'=>'%'.$keyWords.'%']);
+                                (cc.cc_cardname LIKE :key_txt OR cc.cc_interest_desc LIKE :key_txt2 OR org.org_nickname LIKE :key_txt3 OR level.attr_name LIKE :key_txt4)", 
+                                ['cc_bi_pk'=>$_POST['cc_bi_pk'], 'key_txt'=>'%'.$keyWords.'%', 'key_txt2'=>'%'.$keyWords.'%', 'key_txt3'=>'%'.$keyWords.'%', 'key_txt4'=>'%'.$keyWords.'%']);
 
    for ($i=0; $i <count($row_cc_level) ; $i++) { 
      $row_cc_level[$i]['level_name']=$org_name[$row_cc_level[$i]['cc_cardorg']].'_'.$level_name[$row_cc_level[$i]['cc_cardlevel']];

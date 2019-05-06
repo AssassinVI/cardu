@@ -127,7 +127,6 @@ if ($_POST) {
 
           }
           else{
-
             $.ajax({
               url: 'card_windows_ajax.php',
               type: 'POST',
@@ -215,46 +214,46 @@ if ($_POST) {
      
 
      //-- 改變銀行 --
-     $('#select_bank').change(function(event) {
-       //-- bank_id暫存 --
-       $('[name="bank_id"]').val($(this).val());
+     // $('#select_bank').change(function(event) {
+     //   //-- bank_id暫存 --
+     //   $('[name="bank_id"]').val($(this).val());
 
-       if ($(this).val()!='') {
-       	 $.ajax({
-       	   url: 'card_windows_ajax.php',
-       	   type: 'POST',
-       	   dataType: 'json',
-       	   data: {
-       	   	type:'show_cc',
-       	    cc_bi_pk: $(this).val(),
-       	    show_stop_cc:$('#show_stop_cc:checked').val()
-       	  },
-       	  success:function (data) {
+     //   if ($(this).val()!='') {
+     //   	 $.ajax({
+     //   	   url: 'card_windows_ajax.php',
+     //   	   type: 'POST',
+     //   	   dataType: 'json',
+     //   	   data: {
+     //   	   	type:'show_cc',
+     //   	    cc_bi_pk: $(this).val(),
+     //   	    show_stop_cc:$('#show_stop_cc:checked').val()
+     //   	  },
+     //   	  success:function (data) {
 
-       	    $("#select_card").html('<option value="">請選擇</option>');
+     //   	    $("#select_card").html('<option value="">請選擇</option>');
        	    
-       	    //-- 正常使用 --
-       	    $.each(data, function(index, val) {
-       	      if (this['cc_group_state']=='0' || this['cc_group_state']=='3') {
-       	      	$("#select_card").append('<option value="'+this['cc_group_id']+'">'+this['cc_cardname']+'</option>');
+     //   	    //-- 正常使用 --
+     //   	    $.each(data, function(index, val) {
+     //   	      if (this['cc_group_state']=='0' || this['cc_group_state']=='3') {
+     //   	      	$("#select_card").append('<option value="'+this['cc_group_id']+'">'+this['cc_cardname']+'</option>');
 
-       	      }
-       	    });
+     //   	      }
+     //   	    });
             
-            //-- 停發/停卡 --
-       	    $.each(data, function(index, val){
-       	    	if (this['cc_group_state']=='1' || this['cc_group_state']=='2'){
-                   $("#select_card").append('<option status="stop" value="'+this['cc_group_id']+'">'+this['cc_cardname']+'('+this['cc_status_name']+')</option>');
-       	    	}
-       	    });
-       	  }
-       	 });
-       }
-       else{
-       	 $("#select_card").html('<option value="">請選擇</option>');
-       }
+     //        //-- 停發/停卡 --
+     //   	    $.each(data, function(index, val){
+     //   	    	if (this['cc_group_state']=='1' || this['cc_group_state']=='2'){
+     //               $("#select_card").append('<option status="stop" value="'+this['cc_group_id']+'">'+this['cc_cardname']+'('+this['cc_status_name']+')</option>');
+     //   	    	}
+     //   	    });
+     //   	  }
+     //   	 });
+     //   }
+     //   else{
+     //   	 $("#select_card").html('<option value="">請選擇</option>');
+     //   }
        
-     });
+     // });
 
 
 

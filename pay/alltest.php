@@ -73,89 +73,110 @@
 
                   <div class="col-md-12 col">
                   
-                        <div class="myCarousel">
+                         <!-- 四小三大輪播 -->
+                      <div id="new_iNews" class="cardshap new_slide">
+                          <div class="swiper-container">
+                              <div class="swiper-wrapper">
+                                  <div class="swiper-slide" > 
 
-                          <div class="news_live cardshap">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide img_div" pagination-index="1" style="background-image: url(../img/component/slide_photo1.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >新光三越週慶強強滾　首日6店業績逾14.9億</div>
-                                      </a>
+                                    <div class="slide_div">
+                                      <div class="slide_img">
+                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
+                                      </div>
+                                      <div class="slide_list">
+                                        <a class="active" href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
+                                          <h4>ATM「靠臉」就能領錢　台新</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
+                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                      </div>
                                     </div>
-                                    <div class="swiper-slide img_div" pagination-index="2" style="background-image: url(../img/component/slide_photo2.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >ATM「靠臉」就能領錢　台新內湖分行首上線</div>
-                                      </a>
+                                    
+                                  </div>
+                                  <div class="swiper-slide" > 
+                                    <div class="slide_div">
+                                      <div class="slide_img">
+                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
+                                      </div>
+                                      <div class="slide_list">
+                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
+                                          <h4>ATM「靠臉」就能領錢　台新</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
+                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                      </div>
                                     </div>
-                                    <div class="swiper-slide img_div" pagination-index="3" style="background-image: url(../img/component/slide_photo3.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
-                                      </a>
+                                  </div>
+                                  <div class="swiper-slide"> 
+                                    <div class="slide_div">
+                                      <div class="slide_img">
+                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
+                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
+                                      </div>
+                                      <div class="slide_list">
+                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
+                                          <h4>ATM「靠臉」就能領錢　台新</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
+                                          <h4>新光三越週慶強強滾　首日6店業</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
+                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
+                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
+                                        </a>
+                                      </div>
                                     </div>
-                                    <div class="swiper-slide img_div" pagination-index="4" style="background-image: url(../img/component/U20181204080844.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide img_div" pagination-index="5" style="background-image: url(../img/component/U20181212084227.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
-                                      </a>
-                                    </div>
-                                </div>
-                            </div>
+                                  </div>
+                              </div>
+                              <!-- 如果需要分页器 -->
+                              <div class="swiper-pagination"></div>
+
                           </div>
-
-                          <div class="slide_pagination">
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                   <div class="swiper-slide" pagination-index="1"> 
-                                      <a href="javascript:;"  class="cardshap" title="新聞">
-                                          <img src="../img/component/slide_photo1.jpg" alt="">
-                                          <div  class="word" >新光三越週慶強強滾...</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide" pagination-index="2"> 
-                                      <a href="javascript:;"  class="cardshap" title="新聞">
-                                          <img src="../img/component/slide_photo2.jpg" alt="">
-                                          <div  class="word" >ATM「靠臉」就能...</div>
-                                      </a>
-                                    </div>
-                                   <div class="swiper-slide" pagination-index="3"> 
-                                      <a href="javascript:;" class="cardshap" title="新聞">
-                                          <img src="../img/component/slide_photo3.jpg" alt="">
-                                          <div  class="word" >跨年4天連假...</div>
-                                      </a>
-                                    </div>  
-                                    <div class="swiper-slide" pagination-index="4"> 
-                                      <a href="javascript:;"  class="cardshap" title="新聞">
-                                          <img src="../img/component/U20181204080844.jpg" alt="">
-                                          <div  class="word" >ATM「靠臉」就能...</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide" pagination-index="5"> 
-                                      <a href="javascript:;"  class="cardshap" title="新聞">
-                                          <img src="../img/component/U20181212084227.jpg" alt="">
-                                          <div  class="word" >ATM「靠臉」就能...</div>
-                                      </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 如果需要导航按钮 -->
-                            <div class="blueGreen_tab">
-                              <div class="swiper-button-prev  title_tab"><i class=" fa fa-angle-down"></i></div>
-                              <div class="swiper-button-next  title_tab"><i class=" fa fa-angle-up"></i></div>
-                            </div>
-                         </div>
                       </div>
+                      <!-- 四小三大輪播 END -->
                   
                   </div>
                  
                   
 
                     <!--廣告-->
-                    <div class="col-md-12 col banner"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
+                    <div class="col-md-12 col"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
                     
                     <div class="col-md-12 row col0">
                       <div class="row ticketbg">
@@ -167,8 +188,8 @@
                              <h4>Apple Pay</h4>
                             </a>
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                         </div>
@@ -180,8 +201,8 @@
                              <h4>Google Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -193,8 +214,8 @@
                              <h4>Samsung Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -210,8 +231,8 @@
                              <h4>Apple Pay</h4>
                             </a>
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                         </div>
@@ -223,8 +244,8 @@
                              <h4>Google Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -236,8 +257,8 @@
                              <h4>Samsung Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -263,8 +284,8 @@
                              <h4>Apple Pay</h4>
                             </a>
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                         </div>
@@ -276,8 +297,8 @@
                              <h4>Google Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -289,8 +310,8 @@
                              <h4>Samsung Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -306,8 +327,8 @@
                              <h4>Apple Pay</h4>
                             </a>
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                         </div>
@@ -319,8 +340,8 @@
                              <h4>Google Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -332,8 +353,8 @@
                              <h4>Samsung Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -359,8 +380,8 @@
                              <h4>Apple Pay</h4>
                             </a>
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                         </div>
@@ -372,8 +393,8 @@
                              <h4>Google Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -385,8 +406,8 @@
                              <h4>Samsung Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -402,8 +423,8 @@
                              <h4>Apple Pay</h4>
                             </a>
                               <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                         </div>
@@ -415,8 +436,8 @@
                              <h4>Google Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -428,8 +449,8 @@
                              <h4>Samsung Pay</h4>
                            </a>
                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn btn-orange" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn btn-gray" title="新聞">前往官網</button>
+                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
+                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
                               </div>
                             </div>
                           </div>
@@ -456,51 +477,154 @@
                     <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one blueGreen_tab">
                            <div class="title_tab hole">
-                               <h4>熱門優惠 </h4>
+                               <h4>熱門情報</h4>
                                <span>謹慎理財 信用至上</span>
                            </div>
                            <div class="content_tab">
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                   <a class="img_a" href="#">
-                                     <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                   </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
+                               <!-- 熱門情報輪播 -->
+                            <div class="swiper-container HotNews_slide">
+                                <div class="swiper-wrapper">
 
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                   <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                   <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
+                                    <div class="swiper-slide" > 
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                          <a class="img_a" href="#">
+                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                          </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
 
-                               <div class="row no-gutters">
-                                 <div  class="col-5">
-                                  <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                         <a class="img_a" href="#">
+                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                          <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div  class="col-5">
+                                         <a class="img_a" href="#">
+                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="swiper-slide" > 
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                          <a class="img_a" href="#">
+                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                          </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                         <a class="img_a" href="#">
+                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                          <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div  class="col-5">
+                                         <a class="img_a" href="#">
+                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="swiper-slide" > 
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                          <a class="img_a" href="#">
+                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                          </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div class="col-5">
+                                         <a class="img_a" href="#">
+                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                          <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="row no-gutters">
+                                        <div  class="col-5">
+                                         <a class="img_a" href="#">
+                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                         </a>
+                                        </div>
+                                        <div class="col-7">
+                                         <a href="#">
+                                           <h4>匯豐現金回饋玉璽卡</h4>
+                                         </a>
+                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 如果需要导航按钮 -->
+                                <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                                
+                            </div>
+                            <!-- 熱門情報輪播 END -->
+
                            </div>
                        </div>
                     </div>
@@ -511,25 +635,30 @@
                            <div class="title_tab hole">
                                <h4>優票證</h4>
                            </div>
-                        <div class="tab-content ccard_back" id="myTabContent">
+                        <div class="tab-content pcard_back" id="myTabContent">
                           <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">
                             <form class="row search_from">
 
                                 <div class="col-9">
                                   <select>
-                                      <option value="">--選擇銀行--</option>
-                                      <option value="第一銀行">第一銀行</option>
-                                      <option value="台新銀行">台新銀行</option>
-                                      <option value="渣打銀行">渣打銀行</option>
+                                      <option value="">--所有支付--</option>
+                                      <option value="apple pay">apple pay</option>
+                                      <option value="samsung pay">samsung pay</option>
+                                      <option value="android pay">android pay</option>
                                   </select>
 
                                   <select>
-                                      <option value="">--選擇信用卡--</option>
-                                      <option value="JBC白金卡">JBC白金卡</option>
-                                      <option value="富邦世界卡">富邦世界卡</option>
-                                      <option value="SOGO聯名卡">SOGO聯名卡</option>
-                                  </select> 
-                                  <input type="text" value="enter text..."> 
+                                      <option value="">--所有類別--</option>
+                                      <option value="首刷禮">首刷禮</option>
+                                      <option value="購物">購物</option>
+                                      <option value="美食">美食</option>
+                                      <option value="旅遊">旅遊</option>
+                                      <option value="電影">電影</option>
+                                      <option value="休閒">休閒</option>
+                                      <option value="交通">交通</option>
+                                      <option value="藝文">藝文</option>
+                                  </select>  
+                                  <input type="text" value="enter text...">
                                 </div>
 
                                 <div class="col-3">
@@ -543,24 +672,26 @@
                           <div class="tab-pane fade" id="right" role="tabpanel" aria-labelledby="right-tab">
                             <form class="row search_from">
 
-                                <div class="col-9">
+                                 <div class="col-9">
                                   <select>
-                                      <option value="">選擇比較的權益項目</option>
-                                      <option value="年費">年費</option>
-                                      <option value="循環利息">循環利息</option>
-                                      <option value="逾期違約金">逾期違約金</option>
+                                      <option value="">--所有支付--</option>
+                                      <option value="apple pay">apple pay</option>
+                                      <option value="samsung pay">samsung pay</option>
+                                      <option value="android pay">android pay</option>
                                   </select>
 
                                   <select>
-                                      <option value="">選擇比較的權益項目</option>
-                                      <option value="年費">年費</option>
-                                      <option value="循環利息">循環利息</option>
-                                      <option value="逾期違約金">逾期違約金</option>
-                                  </select>
-
-                                  <div style="font-size: 15px;">
-                                      <label>白金卡以上 <input type="checkbox" name=""></label>｜<label>白金卡 <input type="checkbox" name=""></label>｜<label>金卡/普卡 <input type="checkbox" name=""></label>
-                                  </div>  
+                                      <option value="">--所有類別--</option>
+                                      <option value="首刷禮">首刷禮</option>
+                                      <option value="購物">購物</option>
+                                      <option value="美食">美食</option>
+                                      <option value="旅遊">旅遊</option>
+                                      <option value="電影">電影</option>
+                                      <option value="休閒">休閒</option>
+                                      <option value="交通">交通</option>
+                                      <option value="藝文">藝文</option>
+                                  </select>  
+                                  <input type="text" value="enter text...">
                                 </div>
 
                                 <div class="col-3">
@@ -575,7 +706,53 @@
                       </div>
                     
                     </div>
+                    
+                     <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
+                    </div>
+                    
+                    <div class="col-md-12 col">
+                       <div class="cardshap hotCard tab_one blueGreen_tab">
+                           <div class="title_tab hole">
+                               <h4>辦卡推薦 </h4>
+                           </div>
+                           <div class="content_tab">
+                               <div class="row no-gutters">
+                                 <div class="col-5">
+                                  <a class="img_a" href="#">
+                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                  </a>
+                                 </div>
+                                 <div class="col-7">
+                                  <a href="#">
+                                    <h4>匯豐現金回饋玉璽卡</h4>
+                                  </a>
+                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                 </div>
+                               </div>
 
+                               <div class="row no-gutters">
+                                 <div class="col-5">
+                                  <a class="img_a" href="#">
+                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                  </a>
+                                 </div>
+                                 <div class="col-7">
+                                  <a href="#">
+                                    <h4>匯豐現金回饋玉璽卡</h4>
+                                  </a>
+                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                 </div>
+                               </div>
+
+                           </div>
+                       </div>
+                    </div>
+                     <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
+                    </div>
                     
 
                     <div class="col-md-12 col">

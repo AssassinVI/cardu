@@ -1,10 +1,14 @@
+<?php 
+ require '../../share_area/conn.php';
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
 
 
 
@@ -41,9 +45,14 @@
 
     <div class="container">
 
-         <?php 
-         //-- 共用header --
-         require '../../share_area/header.php';
+        <?php 
+         //-- 共用Header --
+         if (wp_is_mobile()) {
+          require '../../share_area/phone/header.php';
+         }
+         else{
+          require '../../share_area/header.php';
+         }
         ?>
         
         <!-- 麵包屑 -->
@@ -65,8 +74,59 @@
 
                   <div class="col-md-12 col">
                   
-                      <!-- 四小三大輪播 -->
-                      <div id="new_iNews" class="cardshap new_slide">
+                      <?php 
+                       //-- 判斷是否為手機 --
+                       if (wp_is_mobile()){
+                      ?>
+                      
+                      <!-- 手機板輪播 -->
+                      <div class="myCarousel d-md-none d-sm-block">
+                          <div id="iNews" class="news_slide cardshap">
+                            <div class=" swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide img_div" pagination-index="1" style="background-image: url(../../img/component/slide_photo1.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >新光三越週慶強強滾　首日6店業績逾14.9億</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="2" style="background-image: url(../../img/component/slide_photo2.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >ATM「靠臉」就能領錢　台新內湖分行首上線</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="3" style="background-image: url(../../img/component/slide_photo3.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="4" style="background-image: url(../../img/component/U20181204080844.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="5" style="background-image: url(../../img/component/U20181212084227.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
+                                      </a>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-pagination"></div>
+
+                                <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                                <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                            </div>
+                          </div>
+                      </div>
+                      <!-- 手機板輪播 END -->
+
+                      <?php 
+                       } 
+                       else{
+                      ?>
+
+                       <!-- 四小三大輪播 -->
+                      <div id="new_iNews" class="cardshap new_slide phone_hidden">
                           <div class="swiper-container">
                               <div class="swiper-wrapper">
                                   <div class="swiper-slide" > 
@@ -99,7 +159,7 @@
                                     </div>
                                     
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../../img/component/photo1.jpg);"></a>
@@ -127,7 +187,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../../img/component/photo1.jpg);"></a>
@@ -162,9 +222,52 @@
                           </div>
                       </div>
                       <!-- 四小三大輪播 END -->
+                      <?php
+                       }
+                      ?>
                   
                   
                   </div>
+                  <!--電腦版廣告-->
+                  <div class="col-md-12 row phone_hidden">
+                      <div class="col-md-6 col ad_news">
+                        <div class="row no-gutters">
+                          <div class="col-md-6 h-center">
+                           <img src="../../img/component/ad_sm.png"> 
+                          </div>
+                         <div class="col-md-6">
+                          <div class="best">
+                           <img src="../../img/component/best.png">
+                          </div>
+                          <h6>匯豐現金回饋卡</h6>
+                          <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                         </div>
+                       </div>
+                      </div>
+                      <div class="col-md-6 col ad_news">
+                        <div class="row no-gutters">
+                          <div class="col-md-6 h-center">
+                           <img src="../../img/component/ad_sm.png"> 
+                          </div>
+                         <div class="col-md-6">
+                          <div class="best">
+                           <img src="../../img/component/best.png">
+                          </div>
+                          <h6>匯豐現金回饋卡</h6>
+                          <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                         </div>
+                       </div>
+                      </div>
+                  </div>  
+
+                  <!--手機板廣告-->
+                  <div class="col-md-12 row">
+                      <div class="col-md-6 col banner d-md-none d-sm-block ">
+                          <img src="http://placehold.it/365x100" alt="">
+                      </div>
+                  </div>
+                  <!--廣告end-->
+
 
                  
                     <!--特別議題-->
@@ -174,16 +277,16 @@
 
                         <div class="cardshap green_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab">
+                          <li class="nav-item news_tab four_tab">
                             <a class="nav-link active pl-30 py-2" id="special_1-tab" href="javascript:;" tab-target="#special_1" aria-selected="true">北海道資訊</a>
                           </li>
-                          <li class="nav-item news_tab">
+                          <li class="nav-item news_tab four_tab">
                             <a class="nav-link py-2" id="special_2-tab" href="javascript:;" tab-target="#special_2" aria-selected="false">北海道景點</a>
                           </li>
-                          <li class="nav-item news_tab">
+                          <li class="nav-item news_tab four_tab">
                             <a class="nav-link py-2" id="special_3-tab" href="javascript:;" tab-target="#special_3" aria-selected="false">飛往北海道</a>
                           </li>
-                          <li class="nav-item news_tab">
+                          <li class="nav-item news_tab four_tab">
                             <a class="nav-link py-2" id="special_4-tab" href="javascript:;" tab-target="#special_4" aria-selected="false">北海道交通</a>
                           </li>
 
@@ -192,11 +295,12 @@
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters hv-center">
-                                <img src="../../img/component/travel/hokkaido/about_3/recomm_02_content_01_13.jpg" title="新聞">
+                                <img class="wx-100-ph" src="../../img/component/travel/hokkaido/about_3/recomm_02_content_01_13.jpg" title="新聞">
                             </div>
-                            <div class="travel_about pl-5 ml-1">
+                            <div class="travel_about pl-md-5 ml-md-1">
                               <a><h6>愛上北海道的純粹自然，一窺北海道四季之美！</h6></a>
-                              <p>北海道是位於日本北端的一個島嶼，四面環海，土地遼闊，約占日本總面積的22%。北海道日與夜、四季之美，輕而易舉令人陷入永恆幸福中。<span><a href="#">more</a></span></p>
+                              <p>北海道是位於日本北端的一個島嶼，四面環海，土地遼闊，約占日本總面積的22%。北海道日與夜、四季之美，輕而易舉令人陷入永恆幸福中。<span>
+                              <a href="http://cardu.srl.tw/travel/jp/info_detail.php?type=58&pk=13">more</a></span></p>
                             </div>
                            
                           </div>
@@ -204,99 +308,99 @@
                              <div class="row no-gutters hv-center">
                               <div class="map">
                                 <div class="row no-gutters hv-center">
-                                    <img src="../../img/component/travel/hokkaido/about_3/map-bg.jpg" title="新聞">
+                                    <img class="photo" src="../../img/component/travel/hokkaido/about_3/map-bg.jpg" title="新聞">
 
 
-                                    <div class="Abashiri"><!--網走-->
+                                    <div class="Abashiri phone_hidden"><!--網走-->
                                     <a data-fancybox data-src="#Abashiri_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/01.png" width="48" height="38" ></a>
                                     <div class="Abashiri-01"><a data-fancybox data-src="#Abashiri_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/hokkaido/01-1.png" width="180" height="120"></a></div>
 
                                     </div><!--網走結束-->
 
 
-                                    <div class="Kitami"><!--北見狐狸村-->
+                                    <div class="Kitami phone_hidden"><!--北見狐狸村-->
                                     <a data-fancybox data-src="#Kitami_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/02.png" width="94" height="30"></a>
                                     <div class="Kitami-01"><a data-fancybox data-src="#Kitami_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/hokkaido/02-1.png" width="180" height="120"></a></div>
                                     </div><!--北見狐狸村結束-->
 
 
-                                    <div class="Sounkyo"><!--層雲峽-->
+                                    <div class="Sounkyo phone_hidden"><!--層雲峽-->
                                     <a data-fancybox data-src="#Sounkyo_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/03.png" width="68" height="30"></a>
                                     <div class="Sounkyo-01"><a data-fancybox data-src="#Sounkyo_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/hokkaido/03-1.png" width="180" height="120"></a></div>
                                     </div><!--層雲峽結束-->
 
 
-                                    <div class="Shikisai"><!--四季彩之丘-->
+                                    <div class="Shikisai phone_hidden"><!--四季彩之丘-->
                                     <a data-fancybox data-src="#Shikisai_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/04.png" width="94" height="30"></a>
                                     <div class="Shikisai-01"><a data-fancybox data-src="#Shikisai_detail" href="javascript:;" style="cursor:pointer;"  target="_blank"><img src="../../img/component/travel/hokkaido/04-1.png" width="180" height="120"></a></div>
                                     </div><!--四季彩之丘結束-->
 
 
-                                    <div class="Akan"><!--阿寒湖-->
+                                    <div class="Akan phone_hidden"><!--阿寒湖-->
                                     <a data-fancybox data-src="#Akan_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/05.png" width="68" height="28"></a>
                                     <div class="Akan-01"><a data-fancybox data-src="#Akan_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/hokkaido/05-1.png" width="180" height="120"></a></div>
                                     </div><!--阿寒湖結束-->
 
-                                    <div class="Kushiro"><!--釧路濕原-->
+                                    <div class="Kushiro phone_hidden"><!--釧路濕原-->
                                     <a data-fancybox data-src="#Kushiro_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/06.png" width="72" height="28"></a>
                                     <div class="Kushiro-01"><a data-fancybox data-src="#Kushiro_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/hokkaido/06-1.png" width="180" height="120"></a></div>
                                     </div><!--釧路濕原結束-->
 
-                                    <div class="Church"><!--水之教堂-->
+                                    <div class="Church phone_hidden"><!--水之教堂-->
                                     <a data-fancybox data-src="#Church_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/07.png" width="71" height="30"></a>
                                     <div class="Church-01"><a data-fancybox data-src="#Church_detail" href="javascript:;" style="cursor:pointer;"  target="_blank"><img src="../../img/component/travel/hokkaido/07-1.png" width="180" height="120"></a></div>
                                     </div><!--水之教堂結束-->
 
 
-                                    <div class="tokachi"><!--十勝が丘公園-->
+                                    <div class="tokachi phone_hidden"><!--十勝が丘公園-->
                                     <a data-fancybox data-src="#tokachi_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/08.png" width="104" height="30"></a>
                                     <div class="tokachi-01"><a data-fancybox data-src="#tokachi_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src='../../img/component/travel/hokkaido/08-1.png' width="180" height="120"></a></div>
                                     </div><!--十勝が丘公園結束-->
 
-                                    <div class="Farm"><!--富田農場-->
+                                    <div class="Farm phone_hidden"><!--富田農場-->
                                     <a data-fancybox data-src="#Farm_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/09.png" width="71" height="30"></a>
                                     <div class="Farm-01"><a data-fancybox data-src="#Farm_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/hokkaido/09-1.png" width="180" height="120"></a></div>
                                     </div><!--富田農場結束-->
 
-                                    <div class="Noboribetsu"><!--登別地獄谷-->
+                                    <div class="Noboribetsu phone_hidden"><!--登別地獄谷-->
                                     <a data-fancybox data-src="#Noboribetsu_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/10.png" width="89" height="30"></a>
                                     <div class="Noboribetsu-01"><a data-fancybox data-src="#Noboribetsu_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/hokkaido/10-1.png" width="180" height="120"></a></div>
                                     </div><!--登別地獄谷結束-->
 
-                                    <div class="Otaru"><!--小樽運河-->
+                                    <div class="Otaru phone_hidden"><!--小樽運河-->
                                     <a data-fancybox data-src="#Otaru_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/11.png" width="69" height="33"></a>
                                     <div class="Otaru-01"><a data-fancybox data-src="#Otaru_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/hokkaido/11-1.png" width="180" height="120"></a></div>
                                     </div><!--小樽運河結束-->
 
-                                    <div class="Hokkaido"><!--北海道大學-->
+                                    <div class="Hokkaido phone_hidden"><!--北海道大學-->
                                     <a data-fancybox data-src="#Hokkaido_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/12.png" width="87" height="30"></a>
                                     <div class="Hokkaido-01"><a data-fancybox data-src="#Hokkaido_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/hokkaido/12-1.png" width="180" height="120"></a></div>
                                     </div><!--北海道大學結束-->
 
-                                    <div class="Lake"><!--洞爺湖-->
+                                    <div class="Lake phone_hidden"><!--洞爺湖-->
                                     <a data-fancybox data-src="#Lake_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/13.png" width="68" height="30"></a>
                                     <div class="Lake-01"><a data-fancybox data-src="#Lake_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/hokkaido/13-1.png" width="180" height="120"></a></div>
                                     </div><!--洞爺湖結束-->
 
-                                    <div class="Bear"><!--熊牧場-->
+                                    <div class="Bear phone_hidden"><!--熊牧場-->
                                     <a data-fancybox data-src="#Bear_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/14.png" width="68" height="30"></a>
                                     <div class="Bear-01"><a data-fancybox data-src="#Bear_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/hokkaido/14-1.png" width="180" height="120"></a></div>
                                     </div><!--熊牧場結束-->
 
-                                    <div class="Hakodate"><!--函館-->
+                                    <div class="Hakodate phone_hidden"><!--函館-->
                                     <a data-fancybox data-src="#Hakodate_detail" href="javascript:;"><img src="../../img/component/travel/hokkaido/15.png" width="50" height="40"></a>
                                     <div class="Hakodate-01"><a data-fancybox data-src="#Hakodate_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/hokkaido/15-1.png" width="180" height="120"></a></div>
                                     </div><!--函館結束-->
 
-                                    <div class="NCA"><!--新千歲機場-->
+                                    <div class="NCA phone_hidden"><!--新千歲機場-->
                                     <img src="../../img/component/travel/hokkaido/16.png" width="69" height="22">
                                     </div><!--新千歲機場結束-->
 
-                                    <div class="HA"><!--函館機場-->
+                                    <div class="HA phone_hidden"><!--函館機場-->
                                     <img src="../../img/component/travel/hokkaido/17.png" width="69" height="22">
                                     </div><!--新千歲機場結束-->
 
-                                    <div class="AA"><!--旭川機場-->
+                                    <div class="AA phone_hidden"><!--旭川機場-->
                                     <img src="../../img/component/travel/hokkaido/18.png" width="69" height="22">
                                     </div><!--旭川機場結束-->
                                     
@@ -307,25 +411,25 @@
 
                             </div>
                              <div class="row no-gutters travel_list">
-                                 <div class="col-6">
-                                  <a href="#">
+                                 <div class="col-md-6 col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=13&idx=1">
                                     <h6><img src="../../img/component/icon/map-icon.png">夏日美景！富良野美瑛慢活賞花</h6>
                                   </a>
                                  </div>
-                                  <div class="col-6">
-                                  <a href="#">
+                                  <div class="col-md-6 col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=13&idx=2">
                                     <h6><img src="../../img/component/icon/map-icon.png">走訪小樽～漫步在北國小鎮風情</h6>
                                   </a>
                                  </div>
                               </div>
                               <div class="row no-gutters travel_list">
-                                 <div class="col-6">
-                                  <a href="#">
+                                 <div class="col-md-6 col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=13&idx=3">
                                     <h6><img src="../../img/component/icon/map-icon.png">釧路散策！搭火車走訪濕原秘境</h6>
                                   </a>
                                  </div>
-                                  <div class="col-6">
-                                  <a href="#">
+                                  <div class="col-md-6 col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=13&idx=4">
                                     <h6><img src="../../img/component/icon/map-icon.png">戰嚴冬！搭流冰慢車號欣賞流冰</h6>
                                   </a>
                                  </div>
@@ -335,22 +439,24 @@
                           <div class="tab-pane fade" id="special_3" role="tabpanel" aria-labelledby="special_3-tab">
 
                            <div class="row no-gutters hv-center">
-                                <img src="../../img/component/travel/hokkaido/about_3/recomm_02_content_03_13.jpg" title="新聞">
+                                <img class="wx-100-ph" src="../../img/component/travel/hokkaido/about_3/recomm_02_content_03_13.jpg" title="新聞">
                             </div>
-                             <div class="travel_about pl-5 ml-1">
+                             <div class="travel_about pl-md-5 ml-md-1">
                               <a><h6>搞定飛往北海道機票</h6></a>
-                              <p>北海道自由行第一件該做的功課就是搞定「飛機」，飛往北海道機場選擇較多，有新千歲機場、函館機場及旭川機場，計劃你的北海道之行，就從搞定你的飛機票著手吧！<span><a href="#">more</a></span></p>
+                              <p>北海道自由行第一件該做的功課就是搞定「飛機」，飛往北海道機場選擇較多，有新千歲機場、函館機場及旭川機場，計劃你的北海道之行，就從搞定你的飛機票著手吧！<span><a href="http://cardu.srl.tw/travel/jp/sky_detail.php?type=58&pk=13">more</a></span></p>
                             </div>
                            
                           </div>
                           <div class="tab-pane fade" id="special_4" role="tabpanel" aria-labelledby="special_4-tab">
 
                            <div class="row no-gutters hv-center">
-                                <img src="../../img/component/travel/hokkaido/about_3/recomm_02_content_04_13.jpg" title="新聞">
+                                <img class="wx-100-ph" src="../../img/component/travel/hokkaido/about_3/recomm_02_content_04_13.jpg" title="新聞">
                             </div>
-                             <div class="travel_about pl-5 ml-1">
+                             <div class="travel_about pl-md-5 ml-md-1">
                               <a><h6>根據旅行目的地，選擇交通工具！</h6></a>
-                              <p>抵達機場後，根據你的旅行目的地，選擇想要搭乘的交通工具，不論您想要前往北海道任一景點，都可輕鬆到達！<span><a href="#">more</a></span></p>
+                              <p>抵達機場後，根據你的旅行目的地，選擇想要搭乘的交通工具，不論您想要前往北海道任一景點，都可輕鬆到達！
+                              <span><a href="http://cardu.srl.tw/travel/jp/traffic_detail.php?type=58&pk=13">more</a></span>
+                              </p>
                             </div>
                            
                           </div>
@@ -642,7 +748,7 @@
 
                         <div class="cardshap green_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab news_tab_three">
+                          <li class="nav-item news_tab">
                             <a class="nav-link active  pl-30 py-2" id="title_1-tab" data-toggle="tab" href="#title_1" role="tab" aria-controls="title_1" aria-selected="true">北海道精選</a>
                              <a class="top_link" href="share_second.php"></a>
                           </li>
@@ -654,7 +760,7 @@
                             <div class="row no-gutters travel_about">
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/travel/hokkaido/big/Cardu2016021812254943.jpg);">
                                        </div>
                                         <h6>❤分享》尋訪日本10大奇幻自然現象</h6>
                                         <p>走訪日本這麼多次，還是有很多地方很多景色沒有看過，樂天旅遊整理出日本10大奇...</p>
@@ -663,7 +769,7 @@
                                 </div>
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/travel/hokkaido/big/Cardu2016021717331648.jpg);">
                                        </div>
                                         <h6>日本鐵路通票，是由JR集團6家公司共同提供的</h6>
                                         <p>日本鐵路通票，是由JR集團6家公司共同提供的通票，是用鐵道遊遍日本的最經濟實惠...</p>
@@ -687,7 +793,7 @@
 
                         <div class="cardshap green_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab news_tab_three">
+                          <li class="nav-item news_tab">
                             <a class="nav-link active  pl-30 py-2" id="title_1-tab" data-toggle="tab" href="#title_1" role="tab" aria-controls="title_1" aria-selected="true">北海道旅行分享</a>
                              <a class="top_link" href="share_second.php"></a>
                           </li>
@@ -699,7 +805,7 @@
                             <div class="row no-gutters travel_about">
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/travel/hokkaido/big/Cardu2019010915141916.jpg);">
                                        </div>
                                         <h6>日本自駕旅遊必讀！北海道租車懶人包</h6>
                                         <p>自助旅行，除了機票與住宿的規劃外，最重要的就是移動的交通規劃，自助旅行也會...</p>
@@ -708,7 +814,7 @@
                                 </div>
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/travel/hokkaido/big/Cardu2018122516330865.jpg);">
                                        </div>
                                         <h6>2019年起樂桃與香草航空合併　調整航</h6>
                                         <p>Peach Aviation株式会社(中文名稱：樂桃航空)與Vanilla Air(中文名稱：香草航空...</p>
@@ -731,7 +837,7 @@
 
                         <div class="cardshap green_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab news_tab_three">
+                          <li class="nav-item news_tab">
                             <a class="nav-link active  pl-30 py-2" id="title_1-tab" data-toggle="tab" href="#title_1" role="tab" aria-controls="title_1" aria-selected="true">優惠情報</a>
                              <a class="top_link" href="banefit.php"></a>
                           </li>
@@ -743,7 +849,7 @@
                             <div class="row no-gutters travel_about">
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/travel/hokkaido/big/Cardu2019012317231080.jpg);">
                                        </div>
                                         <h6>❤分享》2019網路投保旅平險選新光，</h6>
                                         <p>出國旅遊為了要玩得安心，很重要的一件事就是保旅平險！雖然大家都希望能按...</p>
@@ -752,7 +858,7 @@
                                 </div>
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/travel/hokkaido/big/Cardu2019011915035653.jpg);">
                                        </div>
                                         <h6>❤分享》酷逼啦! 國外上網卡　卡優獨，</h6>
                                         <p>到世界各地看風景吃美食，想要打卡與朋友分享卻沒有網路嗎? 不想要用貴貴的漫遊...</p>
@@ -981,28 +1087,28 @@
                              <div class="journey_icon">
                                <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"> <i class="fa fa-arrow-circle-right mr-2"></i>東京篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about.php"> <i class="fa fa-arrow-circle-right mr-2"></i>東京篇</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>東北篇</a>
-                                 </div>
-                               </div>
-                               <hr>
-                                <div class="row no-gutters">
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>關西篇</a>
-                                 </div>
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>九州篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_4.php"><i class="fa fa-arrow-circle-right mr-2"></i>東北篇</a>
                                  </div>
                                </div>
                                <hr>
                                 <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>北海道篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_2.php"><i class="fa fa-arrow-circle-right mr-2"></i>關西篇</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>沖繩篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_5.php"><i class="fa fa-arrow-circle-right mr-2"></i>九州篇</a>
+                                 </div>
+                               </div>
+                               <hr>
+                                <div class="row no-gutters">
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_3.php"><i class="fa fa-arrow-circle-right mr-2"></i>北海道篇</a>
+                                 </div>
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_6.php"><i class="fa fa-arrow-circle-right mr-2"></i>沖繩篇</a>
                                  </div>
                                </div>
                              </div>
@@ -1094,9 +1200,14 @@
                   
 
                     
-                    <?php 
-                     //-- 共用footer --
-                     require '../../share_area/footer.php';
+                     <?php 
+                     //-- 共用Footer --
+                     if (wp_is_mobile()) {
+                        require '../../share_area/phone/footer.php';
+                     }
+                     else{
+                       require '../../share_area/footer.php';
+                      }
                     ?>
                     
 
@@ -1104,7 +1215,7 @@
             </div>
             <!--版面右側end-->
              <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/468x60" alt="">
                         </div>

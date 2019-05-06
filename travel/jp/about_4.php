@@ -1,10 +1,13 @@
+<?php 
+ require '../../share_area/conn.php';
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
 
 
@@ -41,9 +44,14 @@
 
     <div class="container">
 
-         <?php 
-         //-- 共用header --
-         require '../../share_area/header.php';
+        <?php 
+         //-- 共用Header --
+         if (wp_is_mobile()) {
+          require '../../share_area/phone/header.php';
+         }
+         else{
+          require '../../share_area/header.php';
+         }
         ?>
         
         <!-- 麵包屑 -->
@@ -65,8 +73,59 @@
 
                   <div class="col-md-12 col">
                   
-                      <!-- 四小三大輪播 -->
-                      <div id="new_iNews" class="cardshap new_slide">
+                     <?php 
+                       //-- 判斷是否為手機 --
+                       if (wp_is_mobile()){
+                      ?>
+                      
+                      <!-- 手機板輪播 -->
+                      <div class="myCarousel d-md-none d-sm-block">
+                          <div id="iNews" class="news_slide cardshap">
+                            <div class=" swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide img_div" pagination-index="1" style="background-image: url(../../img/component/slide_photo1.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >新光三越週慶強強滾　首日6店業績逾14.9億</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="2" style="background-image: url(../../img/component/slide_photo2.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >ATM「靠臉」就能領錢　台新內湖分行首上線</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="3" style="background-image: url(../../img/component/slide_photo3.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="4" style="background-image: url(../../img/component/U20181204080844.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="5" style="background-image: url(../../img/component/U20181212084227.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
+                                      </a>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-pagination"></div>
+
+                                <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                                <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                            </div>
+                          </div>
+                      </div>
+                      <!-- 手機板輪播 END -->
+
+                      <?php 
+                       } 
+                       else{
+                      ?>
+
+                       <!-- 四小三大輪播 -->
+                      <div id="new_iNews" class="cardshap new_slide phone_hidden">
                           <div class="swiper-container">
                               <div class="swiper-wrapper">
                                   <div class="swiper-slide" > 
@@ -99,7 +158,7 @@
                                     </div>
                                     
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../../img/component/photo1.jpg);"></a>
@@ -127,7 +186,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../../img/component/photo1.jpg);"></a>
@@ -162,9 +221,51 @@
                           </div>
                       </div>
                       <!-- 四小三大輪播 END -->
+                      <?php
+                       }
+                      ?>
                   
                   
                   </div>
+                  <!--電腦版廣告-->
+                  <div class="col-md-12 row phone_hidden">
+                      <div class="col-md-6 col ad_news">
+                        <div class="row no-gutters">
+                          <div class="col-md-6 h-center">
+                           <img src="../../img/component/ad_sm.png"> 
+                          </div>
+                         <div class="col-md-6">
+                          <div class="best">
+                           <img src="../../img/component/best.png">
+                          </div>
+                          <h6>匯豐現金回饋卡</h6>
+                          <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                         </div>
+                       </div>
+                      </div>
+                      <div class="col-md-6 col ad_news">
+                        <div class="row no-gutters">
+                          <div class="col-md-6 h-center">
+                           <img src="../../img/component/ad_sm.png"> 
+                          </div>
+                         <div class="col-md-6">
+                          <div class="best">
+                           <img src="../../img/component/best.png">
+                          </div>
+                          <h6>匯豐現金回饋卡</h6>
+                          <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                         </div>
+                       </div>
+                      </div>
+                  </div>  
+
+                  <!--手機板廣告-->
+                  <div class="col-md-12 row">
+                      <div class="col-md-6 col banner d-md-none d-sm-block ">
+                          <img src="http://placehold.it/365x100" alt="">
+                      </div>
+                  </div>
+                  <!--廣告end-->
 
                  
                     <!--特別議題-->
@@ -174,16 +275,16 @@
 
                         <div class="cardshap green_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab">
+                          <li class="nav-item news_tab four_tab">
                             <a class="nav-link active pl-30 py-2" id="special_1-tab" href="javascript:;" tab-target="#special_1" aria-selected="true">東北資訊</a>
                           </li>
-                          <li class="nav-item news_tab">
+                          <li class="nav-item news_tab four_tab">
                             <a class="nav-link py-2" id="special_2-tab" href="javascript:;" tab-target="#special_2" aria-selected="false">東北景點</a>
                           </li>
-                          <li class="nav-item news_tab">
+                          <li class="nav-item news_tab four_tab">
                             <a class="nav-link py-2" id="special_3-tab" href="javascript:;" tab-target="#special_3" aria-selected="false">飛往東北</a>
                           </li>
-                          <li class="nav-item news_tab">
+                          <li class="nav-item news_tab four_tab">
                             <a class="nav-link py-2" id="special_4-tab" href="javascript:;" tab-target="#special_4" aria-selected="false">東北交通</a>
                           </li>
 
@@ -192,11 +293,12 @@
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters hv-center">
-                                <img src="../../img/component/travel/tour/recomm_02_content_01_14.jpg" title="新聞">
+                                <img class="wx-100-ph" src="../../img/component/travel/tour/recomm_02_content_01_14.jpg" title="新聞">
                             </div>
-                            <div class="travel_about pl-5 ml-1">
+                            <div class="travel_about pl-md-5 ml-md-1">
                               <a><h6>東北，遠離都市享受大自然的美好</h6></a>
-                              <p>厭倦都市繁華的面貌，不想跟成群觀光客人擠人？來趟東北之旅吧。這裡蘊藏著上等的溫泉，擁有原始而壯麗的大自然風貌，並伴隨純樸友善的日式人情味，去過一次就會著迷於此地的魅力。<span><a href="#">more</a></span></p>
+                              <p>厭倦都市繁華的面貌，不想跟成群觀光客人擠人？來趟東北之旅吧。這裡蘊藏著上等的溫泉，擁有原始而壯麗的大自然風貌，並伴隨純樸友善的日式人情味，去過一次就會著迷於此地的魅力。<span>
+                              <a href="http://cardu.srl.tw/travel/jp/info_detail.php?type=58&pk=14">more</a></span></p>
                             </div>
                            
                           </div>
@@ -204,109 +306,90 @@
                              <div class="row no-gutters hv-center">
                               <div class="map">
                                 <div class="row no-gutters hv-center">
-                                    <img src="../../img/component/travel/tour/map-bg.jpg" title="新聞">
+                                    <img class="photo" src="../../img/component/travel/tour/map-bg.jpg" title="新聞">
 
 
-                                    <div class="UENO"><!--上野-->
-                                    <a data-fancybox data-src="#UENO_detail" href="javascript:;"><img src="../../img/component/travel/York/01.png" width="50" height="50" ></a>
-                                    <div class="UENO-01"><a data-fancybox data-src="#UENO_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/01-1.png" width="180" height="120"></a></div>
-                                    </div><!--上野結束-->
-                                    
+                                    <div class="Hirosaki phone_hidden"><!--弘前城-->
+                                    <a data-fancybox data-src="#Hirosaki_detail" href="javascript:;"><img src="../../img/component/travel/tour/01.png" width="67" height="30" ></a>
+                                    <div class="Hirosaki-01"><a data-fancybox data-src="#Hirosaki_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/01-1.png" width="180" height="120"></a></div>
+
+                                    </div><!--弘前城結束-->
 
 
-                                    <div class="AKIBA"><!--秋葉原-->
-                                    <a data-fancybox data-src="#AKIBA_detail" href="javascript:;"><img src="../../img/component/travel/York/02.png" width="50" height="50"></a>
-                                    <div class="AKIBA-01"><a data-fancybox data-src="#AKIBA_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/02-1.png" width="180" height="120"></a></div>
-                                    </div><!--秋葉原結束-->
-                                  
+                                    <div class="Lake phone_hidden"><!--十和田湖-->
+                                    <a data-fancybox data-src="#Lake_detail" href="javascript:;"><img src="../../img/component/travel/tour/02.png" width="66" height="33"></a>
+                                    <div class="Lake-01"><a data-fancybox data-src="#Lake_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/02-1.png" width="180" height="120"></a></div>
+                                    </div><!--十和田湖結束-->
 
 
-                                    <div class="TOKYO"><!--東京-->
-                                    <a data-fancybox data-src="#TOKYO_detail" href="javascript:;"><img src="../../img/component/travel/York/04.png" width="50" height="50"></a>
-                                    <div class="TOKYO-01"><a data-fancybox data-src="#TOKYO_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/04-1.png" width="180" height="120"></a></div>
-                                    </div><!--東京結束-->
+                                    <div class="Aomori phone_hidden"><!--奧入瀨溪-->
+                                    <a data-fancybox data-src="#Aomori_detail" href="javascript:;"><img src="../../img/component/travel/tour/03.png" width="72" height="33"></a>
+                                    <div class="Aomori-01"><a data-fancybox data-src="#Aomori_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/03-1.png" width="180" height="120"></a></div>
+                                    </div><!--奧入瀨溪結束-->
 
 
-                                    <div class="ASAKUSA"><!--淺草-->
-                                    <a data-fancybox data-src="#ASAKUS_detail" href="javascript:;"><img src="../../img/component/travel/York/03.png" width="50" height="50"></a>
-                                    <div class="ASAKUSA-01"><a data-fancybox data-src="#ASAKUS_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/03-1.png" width="180" height="120"></a></div>
-                                    </div><!--淺草-->
+                                    <div class="Tazawa phone_hidden"><!--田澤湖-->
+                                    <a data-fancybox data-src="#Tazawa_detail" href="javascript:;"><img src="../../img/component/travel/tour/04.png" width="64" height="31"></a>
+                                    <div class="Tazawa-01"><a data-fancybox data-src="#Tazawa_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/04-1.png" width="180" height="120"></a></div>
+                                    </div><!--田澤湖結束-->
 
 
-                                    <div class="NIA"><!--成田機場-->
-                                    <img src="../../img/component/travel/York/16.png" width="90" height="40">
-                                    </div><!--成田機場結束-->
+                                    <div class="Kakunodate phone_hidden"><!--角館-->
+                                    <a data-fancybox data-src="#Kakunodate_detail" href="javascript:;"><img src="../../img/component/travel/tour/05.png" width="54" height="30"></a>
+                                    <div class="Kakunodate-01"><a data-fancybox data-src="#Kakunodate_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/05-1.png" width="180" height="120"></a></div>
+                                    </div><!--角館結束-->
 
-                                    <div class="GINZA"><!--銀座-->
-                                    <a data-fancybox data-src="#GINZA_detail" href="javascript:;"><img src="../../img/component/travel/York/05.png" width="50" height="50"></a>
-                                    <div class="GINZA-01"><a data-fancybox data-src="#GINZA_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/05-1.png" width="180" height="120"></a></div>
-                                    </div><!--銀座結束-->
-                                    
+                                    <div class="Longquan phone_hidden"><!--龍泉洞-->
+                                    <a data-fancybox data-src="#Longquan_detail" href="javascript:;"><img src="../../img/component/travel/tour/06.png" width="71" height="32"></a>
+                                    <div class="Longquan-01"><a data-fancybox data-src="#Longquan_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/06-1.png" width="180" height="120"></a></div>
+                                    </div><!--龍泉洞結束-->
 
-                                    <div class="TSUKIJI"><!--築地-->
-                                    <a data-fancybox data-src="#ODAIBA_detail" href="javascript:;"><img src="../../img/component/travel/York/06.png" width="50" height="50"></a>
-                                    <div class="TSUKIJI-01"><a data-fancybox data-src="#TSUKIJI_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/06-1.png" width="180" height="120"></a></div>
-                                    </div><!--築地結束-->
-                                    
+                                    <div class="Matsushima phone_hidden"><!--松島灣-->
+                                    <a data-fancybox data-src="#Matsushima_detail" href="javascript:;"><img src="../../img/component/travel/tour/07.png" width="68" height="29"></a>
+                                    <div class="Matsushima-01"><a data-fancybox data-src="#Matsushima_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/07-1.png" width="180" height="120"></a></div>
+                                    </div><!--松島灣結束-->
 
-                                    <div class="ODAIBA"><!--台場-->
-                                    <a data-fancybox data-src="#ODAIBA_detail" href="javascript:;"><img src="../../img/component/travel/York/07.png" width="50" height="50"></a>
-                                    <div class="ODAIBA-01"><a data-fancybox data-src="#ODAIBA_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/07-1.png" width="180" height="120"></a></div>
-                                    </div><!--台場結束-->
-                                    
 
-                                    <div class="KEIKYU"><!--羽田機場-->
-                                    <img src="../../img/component/travel/York/17.png" width="90" height="40">
-                                    </div><!--羽田機場結束-->
-                                    
+                                    <div class="Kisuke phone_hidden"><!--喜助牛舌店-->
+                                    <a data-fancybox data-src="#Kisuke_detail" href="javascript:;"><img src="../../img/component/travel/tour/08.png" width="90" height="32"></a>
+                                    <div class="Kisuke-01"><a data-fancybox data-src="#Kisuke_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src='../../img/component/travel/tour/08-1.png' width="180" height="120"></a></div>
+                                    </div><!--喜助牛舌店結束-->
 
-                                    <div class="SHINAGAWA"><!--品川-->
-                                    <a data-fancybox data-src="#SHINAGAWA_detail" href="javascript:;"><img src="../../img/component/travel/York/08.png" width="50" height="50"></a>
-                                    <div class="SHINAGAWA-01"><a data-fancybox data-src="#SHINAGAWA_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src='../../img/component/travel/York/08-1.png' width="180" height="120"></a></div>
-                                    </div><!--品川結束-->
-                                    
+                                    <div class="Chusonji phone_hidden"><!--中尊寺-->
+                                    <a data-fancybox data-src="#Chusonji_detail" href="javascript:;"><img src="../../img/component/travel/tour/09.png" width="69" height="32"></a>
+                                    <div class="Chusonji-01"><a data-fancybox data-src="#Chusonji_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/09-1.png" width="180" height="120"></a></div>
+                                    </div><!--中尊寺結束-->
 
-                                    <div class="DAIKANYAMA"><!--代官山-->
-                                    <a data-fancybox data-src="#DAIKANYAMA_detail" href="javascript:;"><img src="../../img/component/travel/York/10.png" width="50" height="50"></a>
-                                    <div class="DAIKANYAMA-01"><a data-fancybox data-src="#DAIKANYAMA_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/10-1.png" width="180" height="120"></a></div>
-                                    </div><!--代官山結束-->
-                                    
+                                    <div class="Sendai phone_hidden"><!--仙台城跡-->
+                                    <a data-fancybox data-src="#Sendai_detail" href="javascript:;"><img src="../../img/component/travel/tour/10.png" width="75" height="34"></a>
+                                    <div class="Sendai-01"><a data-fancybox data-src="#Sendai_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/10-1.png" width="180" height="120"></a></div>
+                                    </div><!--仙台城跡結束-->
 
-                                    <div class="TSUNAGU"><!--涉谷-->
-                                    <a data-fancybox data-src="#TSUNAGU_detail" href="javascript:;"><img src="../../img/component/travel/York/11.png" width="50" height="50"></a>
-                                    <div class="TSUNAGU-01"><a data-fancybox data-src="#TSUNAGU_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/11-1.png" width="180" height="120"></a></div>
-                                    </div><!--涉谷結束-->
-                                    
+                                    <div class="Tendo phone_hidden"><!--天童公園-->
+                                    <a data-fancybox data-src="#Tendo_detail" href="javascript:;"><img src="../../img/component/travel/tour/11.png" width="73" height="31"></a>
+                                    <div class="Tendo-01 phone_hidden"><a data-fancybox data-src="#Tendo_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/11-1.png" width="180" height="120"></a></div>
+                                    </div><!--天童公園結束-->
 
-                                    <div class="ROPPONGI"><!--六本木-->
-                                    <a data-fancybox data-src="#ROPPONGI_detail" href="javascript:;"><img src="../../img/component/travel/York/09.png" width="50" height="50"></a>
-                                    <div class="ROPPONGI-01"><a data-fancybox data-src="#ROPPONGI_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/09-1.png" width="180" height="120"></a></div>
-                                    </div><!--六本木結束-->
-                                    
+                                    <div class="Temple phone_hidden"><!--山寺-->
+                                    <a data-fancybox data-src="#Temple_detail" href="javascript:;"><img src="../../img/component/travel/tour/12.png" width="53" height="31"></a>
+                                    <div class="Temple-01"><a data-fancybox data-src="#Temple_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/12-1.png" width="180" height="120"></a></div>
+                                    </div><!--山寺結束-->
 
-                                    <div class="HARAJUKU"><!--原宿-->
-                                    <a data-fancybox data-src="#HARAJUKU_detail" href="javascript:;"><img src="../../img/component/travel/York/12.png" width="50" height="50"></a>
-                                    <div class="HARAJUKU-01"><a data-fancybox data-src="#HARAJUKU_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/12-1.png" width="180" height="120"></a></div>
-                                    </div><!--原宿結束-->
-                                    
+                                    <div class="Inawashiro phone_hidden"><!--豬苗代湖-->
+                                    <a data-fancybox data-src="#Inawashiro_detail" href="javascript:;"><img src="../../img/component/travel/tour/13.png" width="71" height="33"></a>
+                                    <div class="Inawashiro-01"><a data-fancybox data-src="#Inawashiro_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/13-1.png" width="180" height="120"></a></div>
+                                    </div><!--豬苗代湖結束-->
 
-                                    <div class="SHINJUKU"><!--新宿-->
-                                    <a data-fancybox data-src="#SHINJUKU_detail" href="javascript:;"><img src="../../img/component/travel/York/13.png" width="50" height="50"></a>
-                                    <div class="SHINJUKU-01"><a data-fancybox data-src="#SHINJUKU_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/13-1.png" width="180" height="120"></a></div>
-                                    </div><!--新宿結束-->
-                                    
+                                    <div class="Aizuwakamatsu phone_hidden"><!--會津若松城-->
+                                    <a data-fancybox data-src="#Aizuwakamatsu_detail" href="javascript:;"><img src="../../img/component/travel/tour/14.png" width="88" height="32"></a>
+                                    <div class="Aizuwakamatsu-01"><a data-fancybox data-src="#Aizuwakamatsu_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/14-1.png" width="180" height="120"></a></div>
+                                    </div><!--會津若松城結束-->
 
-                                    <div class="KICHIJOJI"><!--吉祥寺-->
-                                    <a data-fancybox data-src="#KICHIJOJI_detail" href="javascript:;"><img src="../../img/component/travel/York/14.png" width="50" height="50"></a>
-                                    <div class="KICHIJOJI-01"><a data-fancybox data-src="#KICHIJOJI_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/14-1.png" width="180" height="120"></a></div>
-                                    </div><!--吉祥寺結束-->
-                                    
+                                    <div class="BAO phone_hidden"><!--磐梯熱海溫泉-->
+                                    <a data-fancybox data-src="#BAO_detail" href="javascript:;"><img src="../../img/component/travel/tour/15.png" width="99" height="32"></a>
+                                    <div class="BAO-01"><a data-fancybox data-src="#BAO_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/tour/15-1.png" width="180" height="120"></a></div>
+                                    </div><!--磐梯熱海溫泉結束-->
 
-                                    <div class="IKEBUKURO"><!--池袋-->
-                                    <a data-fancybox data-src="#IKEBUKURO_detail" href="javascript:;"><img src="../../img/component/travel/York/15.png" width="50" height="50"></a>
-                                    <div class="IKEBUKURO-01"><a data-fancybox data-src="#IKEBUKURO_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/15-1.png" width="180" height="120"></a></div>
-                                    </div><!--池袋結束-->
-                                    
                                 </div>
                               </div>
                               
@@ -314,25 +397,25 @@
 
                             </div>
                              <div class="row no-gutters travel_list">
-                                 <div class="col-6">
-                                  <a href="#">
+                                 <div class="col-md-6 col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=14&idx=1">
                                     <h6><img src="../../img/component/icon/map-icon.png">青森絕景～十和田感受繽紛秋色</h6>
                                   </a>
                                  </div>
-                                  <div class="col-6">
-                                  <a href="#">
+                                  <div class="col-md-6 col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=14&idx=2">
                                     <h6><img src="../../img/component/icon/map-icon.png">福島漫遊～拜訪古城泡湯又暖心</h6>
                                   </a>
                                  </div>
                               </div>
                               <div class="row no-gutters travel_list">
-                                 <div class="col-6">
-                                  <a href="#">
+                                 <div class="col-md-6 col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=14&idx=3">
                                     <h6><img src="../../img/component/icon/map-icon.png">走訪仙台～品美食欣賞奧之細道</h6>
                                   </a>
                                  </div>
-                                  <div class="col-6">
-                                  <a href="#">
+                                  <div class="col-md-6 col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=14&idx=4">
                                     <h6><img src="../../img/component/icon/map-icon.png">秋田散策～陸奧小京都角館即行</h6>
                                   </a>
                                  </div>
@@ -342,22 +425,26 @@
                           <div class="tab-pane fade" id="special_3" role="tabpanel" aria-labelledby="special_3-tab">
 
                            <div class="row no-gutters hv-center">
-                                <img src="../../img/component/travel/tour/recomm_02_content_03_14.jpg" title="新聞">
+                                <img class="wx-100-ph" src="../../img/component/travel/tour/recomm_02_content_03_14.jpg" title="新聞">
                             </div>
-                             <div class="travel_about pl-5 ml-1">
-                              <a><h6>搞定飛往東北機票</h6></a>
-                              <p>不管您想要前往東北任何一個景點，搭乘前往仙台機場的飛機就對了！想要品嚐美味牛舌及擁抱自然美景，就從搞定你的飛機票著手吧！<span><a href="#">more</a></span></p>
+                             <div class="travel_about pl-md-5 ml-md-1">
+                              <a><h6>❤分享》尋訪日本10大奇幻自然現象</h6></a>
+                              <p>走訪日本這麼多次，還是有很多地方很多景色沒有看過，樂天旅遊整理出日本10大奇...
+                              <span><a href="http://cardu.srl.tw/travel/jp/sky_detail.php?type=58&pk=14">more</a></span>
+                              </p>
                             </div>
                            
                           </div>
                           <div class="tab-pane fade" id="special_4" role="tabpanel" aria-labelledby="special_4-tab">
 
                            <div class="row no-gutters hv-center">
-                                <img src="../../img/component/travel/tour/recomm_02_content_04_14.jpg" title="新聞">
+                                <img class="wx-100-ph" src="../../img/component/travel/tour/recomm_02_content_04_14.jpg" title="新聞">
                             </div>
-                             <div class="travel_about pl-5 ml-1">
+                             <div class="travel_about pl-md-5 ml-md-1">
                               <a><h6>根據旅行目的地，選擇交通工具！</h6></a>
-                              <p>抵達機場後，根據你的旅行目的地，選擇想要搭乘的交通工具，不論您想要前往東北任何景點，都可輕鬆到達！<span><a href="#">more</a></span></p>
+                              <p>抵達機場後，根據你的旅行目的地，選擇想要搭乘的交通工具，不論您想要前往東北任何景點，都可輕鬆到達！
+                              <span><a href="http://cardu.srl.tw/travel/jp/traffic_detail.php?type=58&pk=14">more</a></span>
+                              </p>
                             </div>
                            
                           </div>
@@ -370,236 +457,266 @@
                      <!-- 旅遊景點說明 -->
                      <div class="fancybox-div">
                        
-                       <!--上野-->
-                       <div id="UENO_detail" class="row">
+                       <!--弘前城-->
+                       <div id="Hirosaki_detail" style="width: 800px;">
+                        <div class="row">
                          <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/01_Big.jpg"><br>
-                           <span>圖/卡優新聞網</span>
-                         </div>
-                         <div class="col-md-6">
-                           <h3>上野</h3>
-                           <p>
-                             上野有著多元的風貌，匯集學術藝文經典，也充斥東京庶民風情。上野在明治時代成為文明開發之地，像是上野公園、上野動物園、國立博物館、國立西洋美術館等文化設施相繼建成；另外在上野站及御徒町站之間的區域，有著名的商店街「阿美橫丁」，整條街販售各式平價商店、藥妝店、還有平價美食，想要大肆血拼購物撿便宜，阿美橫丁絶對是不能錯過的地方。
-                           </p>
-                         </div>
-                       </div>
-                       <!--上野 END-->
-
-
-                       <!--秋葉原-->
-                       <div id="AKIBA_detail" class="row">
-                         <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/02_Big.jpg"><br>
+                           <img class="w-100" src="../../img/component/travel/tour/detail/01_Big.jpg"><br>
                            <span>圖/維基百科</span>
                          </div>
                          <div class="col-md-6">
-                           <h3>秋葉原</h3>
+                           <h3 class="view_title">弘前城</h3>
                            <p>
-                             秋葉原為日本最大的電器商店街，也是日本動漫文化的發源地。走出秋葉原車站，沿途可見大大小小的電器賣場及動漫產品海報。在這裡你可買到最新型的3C及動漫產品，故吸引不少電器迷及動漫迷前來朝聖，而第一家的女僕咖啡廳也誕生於此，可說是御宅族文化的發源地。
+                             「弘前城」指的為天守閣以及弘前公園的部分。於西元1611年建築完成，當中的五層建築─天守閣於西元1627年遭雷擊燒毀，經重建後現為三層建築，目前作為展示歷史文物的「弘前城史料館」。此外，公園內種植著2600棵櫻花樹，為日本國內著名的賞櫻勝地。冬天則搭配雪燈籠祭展出雪燈籠與冰雕，呈現出別有風情的雪景面貌。
                            </p>
                          </div>
                        </div>
-                       <!--秋葉原 END-->
+                     </div>
+                       <!--弘前城 END-->
 
 
-                       <!--東京-->
-                       <div id="TOKYO_detail" class="row">
+                       <!--十和田湖-->
+                       <div id="Lake_detail" style="width: 800px;">
+                        <div class="row">
                          <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/04_Big.jpg"><br>
-                           <span>圖/卡優新聞網</span>
+                           <img class="w-100" src="../../img/component/travel/tour/detail/02_Big.jpg"><br>
+                           <span>圖/十和田湖國立公園協會</span>
                          </div>
                          <div class="col-md-6">
-                           <h3>東京</h3>
+                           <h3 class="view_title">十和田湖</h3>
                            <p>
-                             以東京車站為中心，到皇居外苑之間的區域稱為丸之內，是日本政治和金融中心。具有百年歷史的東京車站是此地地標，在2012年整修竣工後，吸引不少遊客前來感受百年風華之美，在此區著名景點還有皇居及皇居外苑，皇居為日本天皇居住之地，入內參觀需要申請，皇居外苑有廣闊的草地與松木林，此處也是著名的賞櫻景點。
+                             橫跨青森縣與秋田縣間的十和田湖，是約在2,000年前火山噴發後所形成，標高400公尺的二重火山湖。無論是春芽嫩綠或是秋染楓紅時分、白雪皚皚宛如仙境般的冬季，十和田湖隨著季節變化展現不同風貌，適合踏青的5月至6月，以及10月中至10月底最佳賞楓時期，秋季楓葉燒紅整個八甲田山區時，楓紅片片映照於湖面上形成的絕美的湖光倒影，一年可吸引350萬名旅客來此遊覽。
                            </p>
                          </div>
                        </div>
-                       <!--東京 END-->
+                     </div>
+                       <!--十和田湖 END-->
 
 
-                       <!--淺草-->
-                       <div id="ASAKUS_detail" class="row">
+                       <!--奧入瀨溪-->
+                       <div id="Aomori_detail" style="width: 800px;">
+                        <div class="row">
                          <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/03_Big.jpg"><br>
-                           <span>圖/卡優新聞網</span>
+                           <img class="w-100" src="../../img/component/travel/tour/detail/03_Big.jpg"><br>
+                           <span>圖/十和田湖國立公園協會</span>
                          </div>
                          <div class="col-md-6">
-                           <h3>淺草</h3>
+                           <h3 class="view_title">奧入瀨溪</h3>
                            <p>
-                             淺草保留舊東京氛圍的風情，是初次造訪東京必去之地。淺草作為下町風情為主的旅遊景點，每天來此造訪的遊客絡繹不絕，除了懸掛大紅燈籠的雷門及淺草寺外，還有經營廚房器具相關用品的合羽橋道具街等特色商店街，也是吸引不少人前來採購的好去處。
+                             奧入瀨溪從十和田湖流出，從入口「子之口」到「燒山」源流部分就是奧入瀨溪流，長約 14 公里，沿途由茂密樹木及數十處大大小小的瀑布，隨著季節變化展現各式風情，無論春芽嫩綠或是秋染楓紅時分都別有風味。夏季為著名的人氣避暑勝地，秋季則是賞楓勝地。進入10月初開始逐漸染紅，最佳賞楓期為每年10月中至10月底。
                            </p>
                          </div>
                        </div>
-                       <!--淺草 END-->
+                     </div>
+                       <!--奧入瀨溪 END-->
+
+
+                       <!--田澤湖-->
+                       <div id="Tazawa_detail" style="width: 800px;">
+                        <div class="row">
+                         <div class="col-md-6">
+                           <img class="w-100" src="../../img/component/travel/tour/detail/04_Big.jpg"><br>
+                           <span>圖/維基百科</span>
+                         </div>
+                         <div class="col-md-6">
+                           <h3 class="view_title">田澤湖</h3>
+                           <p>
+                             田澤湖是周長20公里的近圓形的破火山口湖，為秋田縣內唯一的天然大湖，以清澈的湖水為特徵，在陽光下閃著翡翠般的光澤。水深423.4米，為日本最深的湖泊，因為深度足夠，即使是寒冷的冬天，湖面也不會結冰。湖畔矗立著辰子銅像，另一邊還有瑞士村、田澤湖香草園等景點，遊客可以選擇搭乘「田澤湖一周線」觀光巴士，瀏覽完整的湖畔風光。
+                           </p>
+                         </div>
+                       </div>
+                     </div>
+                       <!--田澤湖 END-->
                        
-                       <!--銀座-->
-                       <div id="GINZA_detail" class="row">
+                       <!--角館-->
+                       <div id="Kakunodate_detail" style="width: 800px;">
+                        <div class="row">
                          <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/05_Big.jpg"><br>
-                           <span>圖/卡優新聞網</span>
+                           <img class="w-100" src="../../img/component/travel/tour/detail/05_Big.jpg"><br>
+                           <span>圖/角館町觀光協會</span>
                          </div>
                          <div class="col-md-6">
-                           <h3>銀座</h3>
+                           <h3 class="view_title">角館</h3>
                            <p>
-                             銀座以高級購物商店聞名，是東京最具代表性地區之一。銀座是高級商店街象徵，故不少時尚名店紛紛在此設點，成為聚集各種頂尖時尚品牌地方，也吸引不少觀光客前來朝聖，故從1970年起，銀座通開始實施星期六、日禁止車輛行駛，行人能夠在大街上自由走動的「步行街」制度。此制度持續至今，假日來到銀座大街上無需在意車輛或紅綠燈，可自由自在享受購物樂趣。
+                             位於秋田縣東部，如今仍保留著江戶時代的建築與街景風貌，有「陸奧小京都」之稱。此區著名的「武家屋敷」為江戶時代武士們的住宅，沿著街道可以一一參觀不同武家的風貌。沿著檜木內川種植延綿2公里的櫻花，花季時伴隨著古色古香的建築綻放，秋天則換成楓紅，相當美麗。這裡亦有人力車與和服可以體驗，幸運的話還能遇上角館傳統祭典唷。
                            </p>
                          </div>
                        </div>
-                       <!--銀座 END-->
+                     </div>
+                       <!--角館 END-->
                       
-                       <!--築地-->
-                       <div id="TSUKIJI_detail" class="row">
+                       <!--龍泉洞-->
+                       <div id="Longquan_detail" style="width: 800px;">
+                        <div class="row">
                          <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/06_Big.jpg"><br>
-                           <span>圖/卡優新聞網</span>
+                           <img class="w-100" src="../../img/component/travel/tour/detail/06_Big.jpg"><br>
+                           <span>圖/維基百科</span>
                          </div>
                          <div class="col-md-6">
-                           <h3>築地</h3>
+                           <h3 class="view_title">龍泉洞</h3>
                            <p>
-                             築地有著日本最大海鮮批發市場而聞名，又因地利之便有各式種類豐富的料理店，也使得築地市場成為饕客們必定造訪的熱門景點。築地市場又分為場內市場及場外市場，場內市場聚集海鮮批發商，漁貨拍賣也在此進行；而場外市場則是日本著名的食品街，在此可買到各式日本食材。由於原先場內市場已不敷使用，將於2016年11月搬遷到豐洲市場。
+                             日本三大鐘乳洞之一，於1967年發現，目前洞穴已知長度為3,600公尺，專家推測總長應該有約5,000公尺，現在公開的範圍為700公尺，全程走完約30分鐘。洞穴內一年四季溫度都維持10度左右，裡面除了豐富的石灰岩洞穴景觀，還有擁有五種蝙蝠的蝙蝠洞。最值得一看的是清澈的地底湖，其中第三地底湖深達98公尺的，透明的湖水呈現碧藍色，相當壯觀。
                            </p>
                          </div>
                        </div>
-                       <!--築地 END-->
+                     </div>
+                       <!--龍泉洞 END-->
 
-                       <!--台場-->
-                       <div id="ODAIBA_detail" class="row">
+                       <!--松島灣-->
+                       <div id="Matsushima_detail" style="width: 800px;">
+                        <div class="row">
                          <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/07_Big.jpg"><br>
-                           <span>圖/卡優新聞網</span>
+                           <img class="w-100" src="../../img/component/travel/tour/detail/08_Big.jpg"><br>
+                           <span>圖/維基百科</span>
                          </div>
                          <div class="col-md-6">
-                           <h3>台場</h3>
+                           <h3 class="view_title">松島灣</h3>
                            <p>
-                             緊臨東京灣的台場，是近年來人氣急劇上升的熱門景點。台場海濱公園有著東京唯一的沙灘，還能眺望著名的彩虹大橋、自由女神像、東京鐵塔等，不論白天或黑夜，都可在此欣賞到不同的美景。除此之外，大型購物商場及各項設施在此林立，可盡情購物、玩樂及享用美食，非常適合全家大小消磨一整天的好去處。
+                             松島灣內遍布大大小小共260餘個小島，幾乎每座島嶼上都長著黑松或紅松，故將此地稱做「松島」。這裡可以搭乘遊船巡覽松島灣的島嶼風光，並在船上體驗餵食海鷗；遇上牡蠣產季時，還可以在船上享用牡蠣大餐。除了牡蠣，松島盛產的星鰻亦相當美味，不妨至附近的餐館，來碗穴子(星鰻)蓋飯飽餐一頓，品嘗鮮甜肥美的鰻魚滋味。
                            </p>
                          </div>
                        </div>
-                       <!--台場 END-->
+                     </div>
+                       <!--松島灣 END-->
                        
 
-                       <!--品川-->
-                       <div id="SHINAGAWA_detail" class="row">
+                       <!--喜助牛舌店-->
+                       <div id="Kisuke_detail" style="width: 800px;">
+                        <div class="row">
                          <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/08_Big.jpg"><br>
-                           <span>圖/維基百科</span>
+                           <img class="w-100" src="../../img/component/travel/tour/detail/11_Big.jpg"><br>
+                           <span>圖/宮城縣經濟工商觀光部</span>
                          </div>
                          <div class="col-md-6">
-                           <h3>品川</h3>
+                           <h3 class="view_title">喜助牛舌店</h3>
                            <p>
-                             為羽田機場前往東京的交通樞紐，是近年來備受矚目的新興地區。由於地利之便，在品川車站附近有多間大型酒店，區內的酒店客房數量為日本全國第一，不少旅客會選擇在此住宿。
+                             創業於1975年的老字號牛舌店「喜助」，是日本人投票排名第一的牛舌料理店，在仙台市內已開了6家分店，每家都有不同的代表料理。招牌的燒烤牛舌，以古早製法─手工撒鹽醃漬製，引出牛舌本身的鮮甜；套餐搭配宮城自產的米飯，和清爽的牛骨湯，是來仙台一定要品嘗的美妙滋味。
                            </p>
                          </div>
                        </div>
-                       <!--品川 END-->
+                     </div>
+                       <!--喜助牛舌店 END-->
 
-                       <!--代官山-->
-                       <div id="DAIKANYAMA_detail" class="row">
+                       <!--中尊寺-->
+                       <div id="Chusonji_detail" style="width: 800px;">
+                        <div class="row">
                          <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/10_Big.jpg"><br>
-                           <span>圖/維基百科</span>
+                           <img class="w-100" src="../../img/component/travel/tour/detail/07_Big.jpg"><br>
+                           <span>圖/中尊寺官網</span>
                          </div>
                          <div class="col-md-6">
-                           <h3>代官山</h3>
+                           <h3 class="view_title">中尊寺</h3>
                            <p>
-                             此區有著獨特優雅悠閒的氛圍，也是文青咖最愛的東京區域。此區高級住宅區林立，不少歐美品牌在此設點，也有不少特色小店及露天咖啡座，每家店都有著不同的風格，也吸引不少人前往感受自在悠閒的生活步調！
+                             中尊寺是天台宗的東北總寺院，寺內保存有建於天治元年(西元1124年)的日本第一號國寶金色堂。金色堂的內外全部貼上金箔，並用鑲嵌金銀珠寶的漆泥金畫裝飾。平泉曾經是黃金的產地，在將近100年的時間裡一直作為日本地方城市的先驅，金色堂成爲平泉的黃金文化的繁榮象徵。寺內寶物館‧讚衡藏保存了多項國寶和重要文化財，是一座歷史藝術寶庫。
                            </p>
                          </div>
                        </div>
-                       <!--代官山 END-->
+                     </div>
+                       <!--中尊寺 END-->
 
                          
-                       <!--涉谷-->
-                       <div id="TSUNAGU_detail" class="row">
+                       <!--仙台城跡-->
+                       <div id="Sendai_detail" style="width: 800px;">
+                        <div class="row">
                          <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/11_Big.jpg"><br>
-                           <span>圖/卡優新聞網</span>
-                         </div>
-                         <div class="col-md-6">
-                           <h3>涉谷</h3>
-                           <p>
-                             集合日本年輕人最前端流行資訊的城市，為日本流行與時尚重要發源地。澀谷不僅是東京通往首都圈東南郊區的重要轉運點，擁有多家連鎖百貨公司，為東急集團的大本營。澀谷站前的八公銅像是澀谷著名地標；而澀谷站前十字路口則是東京知名城市地景之一，一天約有50萬行人在此通行，在交通高峰期還可看到上千人同時穿越馬路的驚人景象。
-                           </p>
-                         </div>
-                       </div>
-                       <!--涉谷 END-->
-                       
-                       <!--六本木-->
-                       <div id="ROPPONGI_detail" class="row">
-                         <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/09_Big.jpg"><br>
+                           <img class="w-100" src="../../img/component/travel/tour/detail/10_Big.jpg"><br>
                            <span>圖/維基百科</span>
                          </div>
                          <div class="col-md-6">
-                           <h3>六本木</h3>
+                           <h3 class="view_title">仙台城跡</h3>
                            <p>
-                             想感受東京夜生活，欣賞百萬夜景的絕佳之地。六本木酒吧及夜店林立，由於店家大都營業到清晨，故以不夜城而聞名，也成為外國人及年輕人聚集之地。在六本木之丘森大樓，有著360度環景觀景台，可遠眺東京鐵塔、晴空塔等知名地標，入夜後的璀璨夜景更是美不勝收，六本木夜景也成為網友大推必看熱門景點。
+                             仙台城於1603年由仙台藩第一代藩主伊達政宗建造，之後270餘年成為了伊達氏的居城。居城歷經戰火後已經消失了，剩下大型石牆和重建的角樓等保留了當時的面貌，現在在本丸遺址上建造了護國神社，天守台矗立著伊達政宗騎馬雕像。仙台城位處丘陵地的高處，可以眺望仙台市區及太平洋。
                            </p>
                          </div>
                        </div>
-                       <!--六本木 END-->
+                     </div>
+                       <!--仙台城跡 END-->
                        
-                       <!--原宿-->
-                       <div id="HARAJUKU_detail" class="row">
+                       <!--天童公園-->
+                       <div id="Tendo_detail" style="width: 800px;">
+                        <div class="row">
                          <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/12_Big.jpg"><br>
-                           <span>圖/卡優新聞網</span>
+                           <img class="w-100" src="../../img/component/travel/tour/detail/09_Big.jpg"><br>
+                           <span>圖/天童市官網</span>
                          </div>
                          <div class="col-md-6">
-                           <h3>原宿</h3>
+                           <h3 class="view_title">天童公園</h3>
                            <p>
-                             融合時尚品牌及平價個性名店，是年輕人最愛的逛街好去處。原宿範圍約為明治神宮、代代木公園、竹下通、表參道這一帶。在原宿好逛又好買，一不小心荷包就會大失血，若不想逛街還可以到明治神宮散步，一走進去即可感受寧靜的氛圍，和熱鬧的街區有著天壤之別。
+                             天童是將棋的故鄉，出產的將棋量占全日本95%。據傳江戶時代末期，武士生活清苦便做起了生產將棋的副業，變成了此地的「特產」。每天四月，在天童公園會舉行「真人版將棋」，由真人扮演棋子，相當有趣。這裡也出產溫泉，不想進旅館泡湯的旅客，也可以選擇戶外足湯，在公園附近的街道旁，分別設立三處免費足湯，走累了請務必來這裡泡泡腳唷。
                            </p>
                          </div>
                        </div>
-                       <!--原宿 END-->
+                     </div>
+                       <!--天童公園 END-->
+                       
+                       <!--山寺-->
+                       <div id="Temple_detail" style="width: 800px;">
+                        <div class="row">
+                         <div class="col-md-6">
+                           <img class="w-100" src="../../img/component/travel/tour/detail/12_Big.jpg"><br>
+                           <span>圖/卡優新聞網</span>
+                         </div>
+                         <div class="col-md-6">
+                           <h3 class="view_title">山寺</h3>
+                           <p>
+                             山寺全名是寶珠山立石寺，由慈覺大師於貞觀2年(西元860年)開闢為天臺宗的修行聖地。擁有經長年水蝕風化，奇岩林立、風化洞穴豐富的名勝風景。目前寺內占地約33萬坪，立於入口的根本中堂為日本最古老的佛堂，以櫸木建造而成。從山門到內院超過800級石階相連，建有仁王門、開山堂、納經堂、五大堂等歷史悠久的建築，構成一片靜寂的山寺景色。
+                           </p>
+                         </div>
+                       </div>
+                     </div>
+                       <!--山寺 END-->
 
-                       <!--新宿-->
-                       <div id="SHINJUKU_detail" class="row">
+                       <!--豬苗代湖-->
+                       <div id="Inawashiro_detail" style="width: 800px;">
+                        <div class="row">
                          <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/13_Big.jpg"><br>
-                           <span>圖/卡優新聞網</span>
+                           <img class="w-100" src="../../img/component/travel/tour/detail/14_Big.jpg"><br>
+                           <span>圖/維基百科</span>
                          </div>
                          <div class="col-md-6">
-                           <h3>新宿</h3>
+                           <h3 class="view_title">豬苗代湖</h3>
                            <p>
-                             東京最具代表性的繁華區域，以新宿車站為中心，集結各類商業設施，也是流行資訊的發源地。新宿東側和西側、白晝和夜晚，街道氛圍迥然不同。西側為東京都廳、辦公大樓及飯店林立的商業區；東側有著以繁華熱鬧而聞名的歌舞伎町、伊勢丹等老牌百貨商場，日夜人潮絡繹不絕，是日本有名的不夜城。
+                             豬苗代湖是日本第四大淡水湖，因火山活動而形成，面積103.31平方公里，深93.5公尺。水質相當清澈透明，其清澈程度位居日本第三；天空倒映在水面上，像一面鏡子一樣，又有「天鏡湖」之稱，磐梯山依偎著湖畔，每個季節都有不同風貌。每年10月到隔年4月，會有許多天鵝、候鳥來此湖過境，遊客可以乘船遊湖或是租借腳踏車，欣賞湖畔風光。
                            </p>
                          </div>
                        </div>
-                       <!--新宿 END-->
+                     </div>
+                       <!--豬苗代湖 END-->
                         
 
-                       <!--吉祥寺-->
-                       <div id="KICHIJOJI_detail" class="row">
+                       <!--會津若松城-->
+                       <div id="Aizuwakamatsu_detail" style="width: 800px;">
+                        <div class="row">
                          <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/14_Big.jpg"><br>
-                           <span>圖/吉祥寺官網</span>
-                         </div>
-                         <div class="col-md-6">
-                           <h3>吉祥寺</h3>
-                           <p>
-                             悠閒的生活步調及建全的生活機能，成為東京票選最想讓人居住的地區。該區有著有許多個性商店、藥妝、雜貨及美食，不同於其它市中心擁擠密集，生活步調也較為悠閒，在這裡逛街可說是一種很放鬆的享受！
-                           </p>
-                         </div>
-                       </div>
-                       <!--吉祥寺 END-->
-
-                       <!--池袋-->
-                       <div id="IKEBUKURO_detail" class="row">
-                         <div class="col-md-6">
-                           <img src="../../img/component/travel/York/detail/15_Big.jpg"><br>
+                           <img class="w-100" src="../../img/component/travel/tour/detail/13_Big.jpg"><br>
                            <span>圖/維基百科</span>
                          </div>
                          <div class="col-md-6">
-                           <h3>池袋</h3>
+                           <h3 class="view_title">會津若松城</h3>
                            <p>
-                             以池袋站為中心，周遭彙集大型百貨公司、專賣店及各式餐飲店等，是東京數一數二的血拼好去處。池袋站與新宿、澀谷並列為山手線的三大副都心之一，是日本具代表性車站之一，池袋站每日使用乘客數約270萬人，僅次於新宿站，也成為日本第2大繁忙的鐵路車站。
+                             建於西元1384年，擁有600多年的歷史，是日本東北地區首屈一指的名城，也是會津若松的象徵地標。最初的名稱為黑川城，後因白色的城郭堆疊，優雅的外觀猶如白鶴從空中飛落到地面，所以後來被稱為「鶴城」。從鶴城的望樓天守閣上，能夠眺望整個會津街景，視野相當遼闊。鶴城公園內種植1,000株櫻花，春天賞花，冬天賞雪，為當地市民常去的人氣景點。
                            </p>
                          </div>
                        </div>
-                       <!--池袋 END-->  
+                     </div>
+                       <!--會津若松城 END-->
+
+                       <!--磐梯熱海溫泉-->
+                       <div id="BAO_detail" style="width: 800px;">
+                        <div class="row">
+                         <div class="col-md-6">
+                           <img class="w-100" src="../../img/component/travel/tour/detail/15_Big.jpg"><br>
+                           <span>圖/維基百科</span>
+                         </div>
+                         <div class="col-md-6">
+                           <h3 class="view_title">磐梯熱海溫泉</h3>
+                           <p>
+                             磐梯熱海溫泉於800年前鎌倉時代發跡，是一處歷史悠久的溫泉地，自古便作為治病健體的著名溫泉而遠近聞名。相傳古代有一位叫荻姬的美人得了不治之病，在不動明王指示下尋得此湯，浸泡後疾病遂痊癒，因此又稱「荻姬之湯」或「美人湯」。溫泉泉質為鹼性單純泉，透明無色且無臭無味，目前共有16家風呂和2家共同浴場，提供不含住宿的泡湯服務。
+                           </p>
+                         </div>
+                       </div>
+                     </div>
+                       <!--磐梯熱海溫泉 END-->  
                         
 
 
@@ -619,8 +736,8 @@
 
                         <div class="cardshap green_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link active  pl-30 py-2" id="title_1-tab" data-toggle="tab" href="#title_1" role="tab" aria-controls="title_1" aria-selected="true">東京精選</a>
+                          <li class="nav-item news_tab">
+                            <a class="nav-link active  pl-30 py-2" id="title_1-tab" data-toggle="tab" href="#title_1" role="tab" aria-controls="title_1" aria-selected="true">東北精選</a>
                              <a class="top_link" href="share_second.php"></a>
                           </li>
                           
@@ -631,7 +748,7 @@
                             <div class="row no-gutters travel_about">
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
                                        </div>
                                         <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
                                         <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
@@ -640,7 +757,7 @@
                                 </div>
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
                                        </div>
                                         <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
                                         <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
@@ -664,8 +781,8 @@
 
                         <div class="cardshap green_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link active  pl-30 py-2" id="title_1-tab" data-toggle="tab" href="#title_1" role="tab" aria-controls="title_1" aria-selected="true">東京旅行分享</a>
+                          <li class="nav-item news_tab">
+                            <a class="nav-link active  pl-30 py-2" id="title_1-tab" data-toggle="tab" href="#title_1" role="tab" aria-controls="title_1" aria-selected="true">東北旅行分享</a>
                              <a class="top_link" href="share_second.php"></a>
                           </li>
                           
@@ -676,7 +793,7 @@
                             <div class="row no-gutters travel_about">
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
                                        </div>
                                         <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
                                         <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
@@ -685,7 +802,7 @@
                                 </div>
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
                                        </div>
                                         <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
                                         <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
@@ -708,7 +825,7 @@
 
                         <div class="cardshap green_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab news_tab_three">
+                          <li class="nav-item news_tab">
                             <a class="nav-link active  pl-30 py-2" id="title_1-tab" data-toggle="tab" href="#title_1" role="tab" aria-controls="title_1" aria-selected="true">優惠情報</a>
                              <a class="top_link" href="banefit.php"></a>
                           </li>
@@ -720,7 +837,7 @@
                             <div class="row no-gutters travel_about">
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
                                        </div>
                                         <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
                                         <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
@@ -729,7 +846,7 @@
                                 </div>
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
                                        </div>
                                         <h6>旅行社代退訂爭議多　消保處提醒4點要123</h6>
                                         <p>進入年底時刻，不少民眾向旅行業者購買行程,<br>安排出國跨年活動。行政院消保...</p>
@@ -958,28 +1075,28 @@
                              <div class="journey_icon">
                                <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"> <i class="fa fa-arrow-circle-right mr-2"></i>東京篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about.php"> <i class="fa fa-arrow-circle-right mr-2"></i>東京篇</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>東北篇</a>
-                                 </div>
-                               </div>
-                               <hr>
-                                <div class="row no-gutters">
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>關西篇</a>
-                                 </div>
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>九州篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_4.php"><i class="fa fa-arrow-circle-right mr-2"></i>東北篇</a>
                                  </div>
                                </div>
                                <hr>
                                 <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>北海道篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_2.php"><i class="fa fa-arrow-circle-right mr-2"></i>關西篇</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>沖繩篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_5.php"><i class="fa fa-arrow-circle-right mr-2"></i>九州篇</a>
+                                 </div>
+                               </div>
+                               <hr>
+                                <div class="row no-gutters">
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_3.php"><i class="fa fa-arrow-circle-right mr-2"></i>北海道篇</a>
+                                 </div>
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_6.php"><i class="fa fa-arrow-circle-right mr-2"></i>沖繩篇</a>
                                  </div>
                                </div>
                              </div>
@@ -1072,8 +1189,13 @@
 
                     
                     <?php 
-                     //-- 共用footer --
-                     require '../../share_area/footer.php';
+                     //-- 共用Footer --
+                     if (wp_is_mobile()) {
+                        require '../../share_area/phone/footer.php';
+                     }
+                     else{
+                       require '../../share_area/footer.php';
+                      }
                     ?>
                     
 
@@ -1081,7 +1203,7 @@
             </div>
             <!--版面右側end-->
              <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/468x60" alt="">
                         </div>

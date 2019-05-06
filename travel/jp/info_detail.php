@@ -1,13 +1,16 @@
 <?php 
   $pk=$_GET['pk'];
 ?>
+<?php 
+ require '../../share_area/conn.php';
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
 
 
@@ -44,15 +47,20 @@
 
     <div class="container detail_page">
 
-         <?php 
-         //-- 共用header --
-         require '../../share_area/header.php';
+        <?php 
+         //-- 共用Header --
+         if (wp_is_mobile()) {
+          require '../../share_area/phone/header.php';
+         }
+         else{
+          require '../../share_area/header.php';
+         }
         ?>
         
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="travel.php">優旅行</a> / <a href="travel_second.php">專題</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="javascript:;">優旅行</a> / <a href="javascript:;">專題</a></p>
           </div>
         </div>
         
@@ -289,36 +297,36 @@
                                 
                              </div>
                              <div class="content_tab">
-                               <div class="journey_icon">
-                                 <div class="row no-gutters">
-                                   <div class="col-6">
-                                    <a href="#"> <i class="fa fa-arrow-circle-right mr-2"></i>東京篇</a>
-                                   </div>
-                                   <div class="col-6">
-                                    <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>東北篇</a>
-                                   </div>
+                             <div class="journey_icon">
+                               <div class="row no-gutters">
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about.php"> <i class="fa fa-arrow-circle-right mr-2"></i>東京篇</a>
                                  </div>
-                                 <hr>
-                                  <div class="row no-gutters">
-                                   <div class="col-6">
-                                    <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>關西篇</a>
-                                   </div>
-                                   <div class="col-6">
-                                    <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>九州篇</a>
-                                   </div>
-                                 </div>
-                                 <hr>
-                                  <div class="row no-gutters">
-                                   <div class="col-6">
-                                    <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>北海道篇</a>
-                                   </div>
-                                   <div class="col-6">
-                                    <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>沖繩篇</a>
-                                   </div>
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_4.php"><i class="fa fa-arrow-circle-right mr-2"></i>東北篇</a>
                                  </div>
                                </div>
-
+                               <hr>
+                                <div class="row no-gutters">
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_2.php"><i class="fa fa-arrow-circle-right mr-2"></i>關西篇</a>
+                                 </div>
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_5.php"><i class="fa fa-arrow-circle-right mr-2"></i>九州篇</a>
+                                 </div>
+                               </div>
+                               <hr>
+                                <div class="row no-gutters">
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_3.php"><i class="fa fa-arrow-circle-right mr-2"></i>北海道篇</a>
+                                 </div>
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_6.php"><i class="fa fa-arrow-circle-right mr-2"></i>沖繩篇</a>
+                                 </div>
+                               </div>
                              </div>
+
+                           </div>
                          </div>
                       </div>
 
@@ -403,8 +411,13 @@
 
                     
                     <?php 
-                     //-- 共用footer --
-                     require '../../share_area/footer.php';
+                     //-- 共用Footer --
+                     if (wp_is_mobile()) {
+                        require '../../share_area/phone/footer.php';
+                     }
+                     else{
+                       require '../../share_area/footer.php';
+                      }
                     ?>
                     
 
@@ -412,7 +425,7 @@
             </div>
             <!--版面右側end-->
              <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/468x60" alt="">
                         </div>

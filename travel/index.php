@@ -1,10 +1,14 @@
+<?php 
+ require '../share_area/conn.php';
+?>
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
     <title>卡優新聞網-優旅行</title>
     <meta name="keywords" content="信用卡,金融卡,悠遊卡,一卡通,icash,電子票證,現金回饋,紅利,信用卡比較,信用卡優惠,首刷禮,辦卡,新卡,卡訊,行動支付,小額消費,新聞,理財,消費,3C,旅遊,日本,住宿,美食,電影,交通,好康,加油,報稅" />
     <meta name="description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" />
@@ -31,8 +35,13 @@
 <body class="travel_body">
     <div class="container">
         <?php 
-         //-- 共用header --
-         require '../share_area/header.php';
+         //-- 共用Header --
+         if (wp_is_mobile()) {
+          require '../share_area/phone/header.php';
+         }
+         else{
+          require '../share_area/header.php';
+         }
         ?>
 
         <!-- 麵包屑 -->
@@ -50,8 +59,59 @@
                     <div class="row">
                         <div class="col-md-12 col">
                           
-                             <!-- 四小三大輪播 -->
-                      <div id="new_iNews" class="cardshap new_slide">
+                      <?php 
+                       //-- 判斷是否為手機 --
+                       if (wp_is_mobile()){
+                      ?>
+                      
+                      <!-- 手機板輪播 -->
+                      <div class="myCarousel d-md-none d-sm-block">
+                          <div id="iNews" class="news_slide cardshap">
+                            <div class=" swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide img_div" pagination-index="1" style="background-image: url(../img/component/slide_photo1.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >新光三越週慶強強滾　首日6店業績逾14.9億</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="2" style="background-image: url(../img/component/slide_photo2.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >ATM「靠臉」就能領錢　台新內湖分行首上線</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="3" style="background-image: url(../img/component/slide_photo3.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="4" style="background-image: url(../img/component/U20181204080844.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
+                                      </a>
+                                    </div>
+                                    <div class="swiper-slide img_div" pagination-index="5" style="background-image: url(../img/component/U20181212084227.jpg);"> 
+                                      <a href="#" title="新聞">
+                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
+                                      </a>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-pagination"></div>
+
+                                <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                                <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                            </div>
+                          </div>
+                      </div>
+                      <!-- 手機板輪播 END -->
+
+                      <?php 
+                       } 
+                       else{
+                      ?>
+
+                       <!-- 四小三大輪播 -->
+                      <div id="new_iNews" class="cardshap new_slide phone_hidden">
                           <div class="swiper-container">
                               <div class="swiper-wrapper">
                                   <div class="swiper-slide" > 
@@ -84,7 +144,7 @@
                                     </div>
                                     
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
@@ -112,7 +172,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="swiper-slide" "> 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
@@ -147,14 +207,58 @@
                           </div>
                       </div>
                       <!-- 四小三大輪播 END -->
+                      <?php
+                       }
+                      ?>
+
                        
                         </div>
+                    <!--廣告-->
+                    <div class="col-md-12 row phone_hidden">
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
+                        </div>
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
+                        </div>
+                    </div>
+                    <!--廣告end-->
+
+                    <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->    
                       <!--旅行分享-->
                     <div class="col-md-12 col">
 
                         <div class="cardshap green_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab news_tab_three">
+                          <li class="nav-item news_tab">
                             <a class="nav-link active  pl-30 py-2" id="box-tab"  href="second.php" tab-target="#box" aria-selected="true">旅行分享</a>
                             <a class="top_link" href="second.php"></a>
                           </li>
@@ -163,25 +267,25 @@
                           <div class="tab-pane fade show active" id="box" role="tabpanel" aria-labelledby="box-tab">
 
                             <div class="row no-gutters travel_text">
-                                <div class="col-4 cards-3">
+                                <div class="col-md-4 cards-3 col-12">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <h6 class="mt-2">遊日血拼賺回饋　必備信用</h6>
                                        <p>喜歡出國趴趴走嗎？但又不想把<br>預算都砸在交通上，許多人都會</p>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3">
+                                <div class="col-md-4 cards-3 col-12">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <h6 class="mt-2">遊日血拼賺回饋　必備信用</h6>
                                        <p>喜歡出國趴趴走嗎？但又不想把<br>預算都砸在交通上，許多人都會</p>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3">
+                                <div class="col-md-4 cards-3 col-12">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <h6 class="mt-2">遊日血拼賺回饋　必備信用</h6>
                                        <p>喜歡出國趴趴走嗎？但又不想把<br>預算都砸在交通上，許多人都會</p>
@@ -199,7 +303,7 @@
 
                         <div class="cardshap green_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab news_tab_three">
+                          <li class="nav-item news_tab">
                             <a class="nav-link active  pl-30 py-2" id="box-tab"  href="share_second.php" tab-target="#box" aria-selected="true">行程推薦</a>
                             <a class="top_link" href="share_second.php"></a>
                           </li>
@@ -208,25 +312,25 @@
                           <div class="tab-pane fade show active" id="box" role="tabpanel" aria-labelledby="box-tab">
 
                             <div class="row no-gutters travel_text">
-                                <div class="col-4 cards-3">
+                                <div class="col-md-4 cards-3 col-12">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <h6 class="mt-2">遊日血拼賺回饋　必備信用</h6>
                                        <p>喜歡出國趴趴走嗎？但又不想把<br>預算都砸在交通上，許多人都會</p>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3">
+                                <div class="col-md-4 cards-3 col-12">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <h6 class="mt-2">遊日血拼賺回饋　必備信用</h6>
                                        <p>喜歡出國趴趴走嗎？但又不想把<br>預算都砸在交通上，許多人都會</p>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3">
+                                <div class="col-md-4 cards-3 col-12">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <h6 class="mt-2">遊日血拼賺回饋　必備信用</h6>
                                        <p>喜歡出國趴趴走嗎？但又不想把<br>預算都砸在交通上，許多人都會</p>
@@ -277,27 +381,27 @@
 
                                 <div class="row no-gutters travel_text">
 
-                                  <div class="col-md-6">
+                                  <div class="col-md-6 col-6">
                                     <a class="img_c" href="#">
                                       <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
                                       <h6 class="mt-2">AirAsia 2/1直飛</h6>
                                     </a>
                                   </div>
                                 
-                                 <div class="col-md-6">
+                                 <div class="col-md-6 col-6">
                                     <a class="img_c" href="#">
                                       <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
                                       <h6 class="mt-2">AirAsia 2/1直飛</h6>
                                    </a>
                                   </div>
                                   <hr>
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-6">
                                     <a class="img_c" href="#">
                                       <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
                                       <h6 class="mt-2">AirAsia 2/1直飛</h6>
                                    </a>
                                   </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-6">
                                     <a class="img_c" href="#">
                                       <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
                                       <h6 class="mt-2">AirAsia 2/1直飛</h6>
@@ -305,14 +409,14 @@
                                   </div>
                                   <hr>
 
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-6">
                                     <a class="img_c" href="#">
                                       <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
                                       <h6 class="mt-2">AirAsia 2/1直飛</h6>
                                    </a>
                                   </div>
                                 
-                                 <div class="col-md-6">
+                                 <div class="col-md-6 col-6">
                                     <a class="img_c" href="#">
                                       <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
                                       <h6 class="mt-2">AirAsia 2/1直飛</h6>
@@ -578,8 +682,13 @@
                         </div>
                     <!-- 廣告end-->
                     <?php 
-                     //-- 共用footer --
-                     require '../share_area/footer.php';
+                     //-- 共用Footer --
+                     if (wp_is_mobile()) {
+                        require '../share_area/phone/footer.php';
+                     }
+                     else{
+                       require '../share_area/footer.php';
+                      }
                     ?>
                     </div>
                 </div>
@@ -588,7 +697,7 @@
                
                         <!--版面中間end-->
                          <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/468x60" alt="">
                         </div>

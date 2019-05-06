@@ -1,10 +1,13 @@
+<?php 
+ require '../share_area/conn.php';
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
 
 
@@ -42,8 +45,13 @@
     <div class="container detail_page">
 
         <?php 
-         //-- 共用header --
-         require '../share_area/header.php';
+         //-- 共用Header --
+         if (wp_is_mobile()) {
+          require '../share_area/phone/header.php';
+         }
+         else{
+          require '../share_area/header.php';
+         }
         ?>
         
         <!-- 麵包屑 -->
@@ -86,10 +94,13 @@
                               銀行網址：<a href="http://www.hsbc.com.tw">http://www.hsbc.com.tw</a>
                               </p>
                              </div>
-                             <div class="col-md-12">
+ 
+                           </div> 
+                          </div>
+                          <div class="col-md-12">
                                <div class="row">
-                                <div class="col-md-4 h-center">
-                                  <a class="applycard_btn warning-layered btnOver mx-2" href="#">立即辦卡</a>
+                                <div class="col-md-4">
+                                  <a class="applycard_btn warning-layered btnOver" href="#">立即辦卡</a>
                                 </div>
                                 <div class="col-md-8 col">
                                   <div class="bank_btn">
@@ -99,21 +110,23 @@
                                </div>
                               </div>
 
-                              </div>
-                             
-                              
-                            
-                            
-                           </div> 
                           </div> 
                          </div>
                    
                          
+                        <!--廣告-->
+                        <div class="col-md-12 col phone_hidden"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+                        <!--banner end -->
+
+                        <!--手機板廣告-->
+                        <div class="col-md-12 row">
+                            <div class="col-md-6 col banner d-md-none d-sm-block ">
+                                <img src="http://placehold.it/365x100" alt="">
+                            </div>
+                        </div>
+                        <!--廣告end-->
                         
-                          <!--廣告-->
-                        <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
-                        
-                          <!--特別議題-->
+                    <!--特別議題-->
                     <div class="col-md-12 col">
 
                         <div class="cardshap brown_tab mouseHover_other_tab">
@@ -137,9 +150,9 @@
                             <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 <div class="bank_list">
@@ -158,9 +171,9 @@
                             <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                
@@ -180,9 +193,9 @@
                             <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -198,8 +211,8 @@
                               </div>
                           </div>
                           <!--廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col">
+                    <div class="col-md-12 row phone_hidden">
+                        <div class="col-md-6 col ">
                             <img class="w-100" src="http://placehold.it/365x100" alt="" >
                         </div>
                         <div class="col-md-6 col">
@@ -207,12 +220,19 @@
                         </div>
                     </div>
                     <!--廣告end-->
+                    <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
                           <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -230,9 +250,9 @@
                           <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -250,9 +270,9 @@
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -267,15 +287,25 @@
                                 </div>
                               </div>
                           </div>
+                          
                           <!--廣告-->
-                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+                           <div class="col-md-12 col phone_hidden"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
                           <!--banner end -->
+
+                          <!--手機板廣告-->
+                          <div class="col-md-12 row">
+                              <div class="col-md-6 col banner d-md-none d-sm-block ">
+                                  <img src="http://placehold.it/365x100" alt="">
+                              </div>
+                          </div>
+                          <!--廣告end-->
+
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -293,9 +323,9 @@
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -313,9 +343,9 @@
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -331,8 +361,8 @@
                               </div>
                           </div>
                     <!--廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col">
+                    <div class="col-md-12 row phone_hidden">
+                        <div class="col-md-6 col ">
                             <img class="w-100" src="http://placehold.it/365x100" alt="">
                         </div>
                         <div class="col-md-6 col">
@@ -340,12 +370,19 @@
                         </div>
                     </div>
                     <!--廣告end-->
+                    <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -363,9 +400,9 @@
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -383,9 +420,9 @@
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -413,9 +450,9 @@
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card1.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 <div class="bank_list">
@@ -434,9 +471,9 @@
                             <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card2.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card2.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                
@@ -456,9 +493,9 @@
                             <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -474,8 +511,8 @@
                               </div>
                           </div>
                           <!--廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col">
+                    <div class="col-md-12 row phone_hidden">
+                        <div class="col-md-6 col ">
                             <img class="w-100" src="http://placehold.it/365x100" alt="">
                         </div>
                         <div class="col-md-6 col">
@@ -483,12 +520,19 @@
                         </div>
                     </div>
                     <!--廣告end-->
+                    <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
                           <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -506,9 +550,9 @@
                           <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -526,9 +570,9 @@
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -543,15 +587,25 @@
                                 </div>
                               </div>
                           </div>
+
                           <!--廣告-->
-                           <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+                           <div class="col-md-12 col phone_hidden"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
                           <!--banner end -->
+
+                          <!--手機板廣告-->
+                          <div class="col-md-12 row">
+                              <div class="col-md-6 col banner d-md-none d-sm-block ">
+                                  <img src="http://placehold.it/365x100" alt="">
+                              </div>
+                          </div>
+                          <!--廣告end-->
+
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -569,9 +623,9 @@
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -589,9 +643,9 @@
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -607,7 +661,7 @@
                               </div>
                           </div>
                     <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col">
                             <img class="w-100" src="http://placehold.it/365x100" alt="">
                         </div>
@@ -616,12 +670,19 @@
                         </div>
                     </div>
                     <!--廣告end-->
+                    <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -639,9 +700,9 @@
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -659,9 +720,9 @@
                            <div class="row no-gutters px-2 py-3 bankbg_list">
                               <div class="col-md-4">
                                 <a class="bank_all_img" href="#">
-                                  <img src="../img/component/card3.png" alt="" title="新聞"><br>
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
                                 </a>
-                                <a class="card_name" href="#">現金回饋御璽卡</a>
+                                <a class="card_name my-2" href="#">現金回饋御璽卡</a>
                               </div>
                               <div class="col-md-8 card_list_txt">
                                 
@@ -684,23 +745,23 @@
                               </div>
                             
                             <div class="row no-gutters py-2">
-                                <div class="col-4 cards-3 text-center">
+                                <div class="col-md-4 col-12 cards-3 text-center">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3 text-center">
+                                <div class="col-md-4 col-12 cards-3 text-center">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3 text-center">
+                                <div class="col-md-4 col-12 cards-3 text-center">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
                                    </a>
@@ -713,23 +774,23 @@
                               </div>
                            
                             <div class="row no-gutters py-2">
-                                <div class="col-4 cards-3 text-center">
+                                <div class="col-md-4 col-12 cards-3 text-center">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3 text-center">
+                                <div class="col-md-4 col-12 cards-3 text-center">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3 text-center">
+                                <div class="col-md-4 col-12 cards-3 text-center">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
                                    </a>
@@ -985,6 +1046,12 @@
                       </div>
                     
                     </div>
+                    <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
+                    </div>
+                     <!-- 廣告 -->
+
                      <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">
                            <div class="title_tab hole">
@@ -1026,6 +1093,12 @@
                            </div>
                        </div>
                     </div>
+                    <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
+                    </div>
+                     <!-- 廣告 -->
+                     
                      <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">
                            <div class="title_tab hole">
@@ -1111,9 +1184,14 @@
                   
 
                     
-                    <?php 
-                     //-- 共用footer --
-                     require '../share_area/footer.php';
+                   <?php 
+                     //-- 共用Footer --
+                     if (wp_is_mobile()) {
+                        require '../share_area/phone/footer.php';
+                     }
+                     else{
+                       require '../share_area/footer.php';
+                      }
                     ?>
                     
 

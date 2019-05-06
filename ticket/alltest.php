@@ -153,7 +153,7 @@
                   </div>
 
                     <!--廣告-->
-                    <div class="col-md-12 col"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
+                    <div class="col-md-12 col banner"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
                     
                     <div class="col-md-12 row col0">
                       <div class="row ticketbg">

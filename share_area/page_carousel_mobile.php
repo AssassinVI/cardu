@@ -34,9 +34,9 @@
 
               <div class="swiper-slide" title="<?php echo $ns_ftitle?>" style="background-image: url(<?php echo $ns_photo_1?>);"> 
                 <a href="detail.php?<?php echo $id?>">
-                    <div  class="word shadow_text" ><?php echo $ns_ftitle?></div>
+                    <div class="word shadow_text" ><?php echo $ns_ftitle?></div>
                 </a>
-        </div>
+              </div>
         <?php $i++; } //end ?>
 
           </div>

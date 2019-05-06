@@ -61,7 +61,7 @@ a:hover{ text-decoration: none; color:#000000; }
     align-items: center;
 }
 .hv-center{ 
-    display: flex; 
+    display: flex !important; 
     justify-content: center;
     align-items: center;
 }
@@ -84,6 +84,8 @@ a:hover{ text-decoration: none; color:#000000; }
     width: 100%;
     height: 100%;
 }
+
+.h-60px{ height: 60px; }
 
 .mt-05{
     margin-top: 0.5rem;
@@ -136,6 +138,7 @@ a:hover{ text-decoration: none; color:#000000; }
 .crumbs_row{ width: 1090px; margin:auto; }
 
 .img_div{ background-position: center; background-size: cover; }
+
 
 .clearfix {clear: both;}
 
@@ -817,23 +820,31 @@ a:hover{ text-decoration: none; color:#000000; }
 
         /*----------Index end----------*/
 
+/*--------------------- 廣告 -----------------------*/
 
+.ad_news{max-width:365px; height: 150px; background-color:#fcfaee;margin:10px auto;}
+.ad_news .best{text-align: right;}
+.ad_news h6{color:#3f57b5; font-weight: 600;}
+.ad_news p{font-size: 13px;}
+.ad_news .about_txt{font-size: 13px;line-height: 1.5;}
+
+.ad_rank .col-md-5{margin:auto 0;}
 
 /*--------------------- 卡排行 -----------------------*/
 
 /*== 選單 ==*/
 
-.card_rank .swiper-container{
+.card_rank .swiper-container, .card_type .swiper-container{
     height: 90px;
     margin:0 1rem;
 }
 
-.card_rank .swiper_div{
+.card_rank .swiper_div, .card_type .swiper_div{
    background-color: #fcf4ff;
 }
 
 
-.card_rank .swiper-slide{
+.card_rank .swiper-slide, .card_type .swiper-slide{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -843,16 +854,16 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 
-.card_rank .swiper-slide.active{
+.card_rank .swiper-slide.active, .card_type .swiper-slide.active{
   border-bottom: 8px solid rgb(140, 55, 204);
 }
 
-.card_rank .swiper-slide.active a{
+.card_rank .swiper-slide.active a, .card_type .swiper-slide.active a{
    color: rgb(124, 49, 181);
 }
 
 
-.card_rank .swiper-slide div a{
+.card_rank .swiper-slide div a, .card_type .swiper-slide div a{
     text-decoration: none;
     font-weight: 600;
     font-size: 18px;
@@ -860,7 +871,7 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 
-.card_rank .swiper_div .swiper-button-next,.card_rank .swiper_div .swiper-button-prev{
+.card_rank .swiper_div .swiper-button-next,.card_rank .swiper_div .swiper-button-prev, .card_type .swiper_div .swiper-button-next,.card_type .swiper_div .swiper-button-prev{
   height: 100%;
   top: 24%;
 }
@@ -870,13 +881,6 @@ a:hover{ text-decoration: none; color:#000000; }
   top: 10%;
 }
 
-.card_rank .swiper-slide .active{
-
-}
-
-.card_rank .swiper-slide .active div a{
-    
-}
 
 .card_rank .col-2{
    max-width: 19%;
@@ -899,6 +903,13 @@ a:hover{ text-decoration: none; color:#000000; }
     background: linear-gradient(to bottom, rgba(140,55,204,1) 0%,rgba(196,147,237,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c37cc', endColorstr='#c493ed',GradientType=0 ); /* IE6-9 */
 }
+
+
+.rank_order{ color: #fff; }
+.rank_order:hover{ text-decoration: underline; position: relative;    color: #371551;}
+.rank_order:hover:before{content: "▼"; position: absolute; right: -17px;     color: #371551;}
+.rank_order.active{ text-decoration: underline; position: relative;}
+.rank_order.active:before{content: "▼"; position: absolute; right: -17px;}
 
 
 /*--------------------- 卡總覽 -----------------------*/
@@ -1033,7 +1044,7 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 .ccard .swiper-slide div a img{
-    width: 200px;
+    height: 126px;
 }
 
 /*--------------------- 人氣卡排行 --------------------*/
@@ -1117,6 +1128,24 @@ a:hover{ text-decoration: none; color:#000000; }
   font-weight: bold;
 }
 
+.tab-content .cre_card{
+  font-size:20px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.tab-content .deb_card{
+  font-size:20px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.creditbg{
+  box-shadow: 1px 4px 3px #ccc;
+}
+
+
+
 .tab-content .credit_card i{padding-left:5px;}
 
 .tab-content .credit_boot th{
@@ -1159,7 +1188,7 @@ a:hover{ text-decoration: none; color:#000000; }
   background-color:#898989;
   display: inline-block;
   text-align: center;
-  margin:8px 3.5px;
+  margin:8px 2px;
   border-radius: 5px;
   color:#ffffff;
 
@@ -1684,7 +1713,7 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 .ticket_card .cards-4 .ticket_img{
-    margin-right:10px;
+    margin:0 5px;
     text-align: center;
     position: relative;
     bottom: 0px;
@@ -1776,7 +1805,6 @@ a:hover{ text-decoration: none; color:#000000; }
 
 
 .travel_main .img_div {
-    border-radius: 5px 0 0 0;
     margin: auto;
     width:360px;
     height: 240px;
@@ -2982,6 +3010,218 @@ a:hover{ text-decoration: none; color:#000000; }
     display: none;
 }
 
+/*------- 沖 ------*/
+
+.map .CA{
+  position: absolute;
+    right: 382px;
+    top: 77px;
+}
+
+.map .CA-01{
+  position: absolute;
+    right: 89px;
+    top: 2px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Nakijin{
+  position: absolute;
+    right: 348px;
+    top: 100px;
+}
+
+.map .Nakijin-01{
+  position: absolute;
+    right: -142px;
+    top: 30px;
+    z-index: 1;
+    display: none;
+}
+
+.map .AUI{
+  position: absolute;
+    right: 236px;
+    top: 75px;
+}
+
+.map .AUI-01{
+  position: absolute;
+    right: -113px;
+    top: 33px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Sea{
+  position: absolute;
+    right: 353px;
+    top: 175px;
+}
+
+.map .Sea-01{
+  position: absolute;
+    right: 78px;
+    top: -64px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Manzamoo{
+  position: absolute;
+    right: 398px;
+    top: 205px;
+}
+
+.map .Manzamoo-01{
+  position: absolute;
+    right: 72px;
+    top: -93px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Pink-Mermaid{
+  position: absolute;
+    right: 445px;
+    top: 238px;
+}
+
+.map .Pink-Mermaid-01{
+  position: absolute;
+    right: -251px;
+    top: 34px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Ryukyu{
+  position: absolute;
+    right: 370px;
+    top: 251px;
+}
+
+.map .Ryukyu-01{
+  position: absolute;
+    right: -188px;
+    top: -15px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Residual{
+  position: absolute;
+    right: 469px;
+    top: 266px;
+}
+
+.map .Residual-01{
+  position: absolute;
+    right: 22px;
+    top: -123px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Katsuren{
+  position: absolute;
+    right: 310px;
+    top: 310px;
+}
+
+.map .Katsuren-01{
+  position: absolute;
+    right:-180px;
+    top: -13px;
+    z-index: 1;
+    display: none;
+}
+
+.map .American{
+  position: absolute;
+    right: 442px;
+    top: 316px;
+}
+
+.map .American-01{
+  position: absolute;
+    right: -181px;
+    top: -16px;
+    z-index: 1;
+    display: none;
+}
+
+.map .urasoe-park{
+  position: absolute;
+    right: 438px;
+    top: 343px;
+}
+
+.map .urasoe-park-01{
+  position: absolute;
+    right: -187px;
+    top: -1px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Naminoue{
+  position: absolute;
+    right: 489px;
+    top: 370px;
+}
+
+.map .Naminoue-01{
+  position: absolute;
+    right: 14px;
+    top: -121px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Shuri{
+  position: absolute;
+    right: 392px;
+    top: 377px;
+}
+
+.map .Shuri-01{
+  position: absolute;
+    right: -181px;
+    top: -33px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Kokusai{
+  position: absolute;
+    right: 411px;
+    top: 401px;
+}
+
+.map .Kokusai-01{
+  position: absolute;
+    right: -205px;
+    top: -56px;
+    z-index: 1;
+    display: none;
+}
+
+.map .Yuquan{
+  position: absolute;
+    right: 396px;
+    top: 429px;
+}
+
+.map .Yuquan-01{
+  position: absolute;
+    right: -183px;
+    top: -86px;
+    z-index: 1;
+    display: none;
+}
+
 
 /*-- 旅遊景點存放 fancybox --*/
 .fancybox-div{ display: none; }
@@ -3043,6 +3283,7 @@ a:hover{ text-decoration: none; color:#000000; }
 .news_list_txt h3{  font-size: 22px; font-weight: 600; color: #3148a3; display:inline-block; }
 .news_list_txt span{display: inline-block;}
 .news_list_txt a{color:#000000;}
+.news_list_txt .date{display: block;}
 .news_list_txt small{ color: #9c9c9c; font-size: 16px; }
 .news_list_txt small a {color: #9c9c9c; font-size: 16px;}
 .news_list_txt .fb_search_btn{ position: absolute; bottom: 0; right: 0; height: 20px;}
@@ -3193,10 +3434,31 @@ a:hover{ text-decoration: none; color:#000000; }
   width:100%;
 }
 
+
 .detail_title .debit_card ul li {
   display:inline-block;
   list-style: none;
-  margin:0 3px;
+  margin:2px;
+  position: relative;
+}
+
+.detail_title .debit_card ul li h5{
+  position: absolute;
+  font-weight: bold;
+  color: #fff;
+  z-index: 1;
+  top: 10px;
+  left: 65px;
+}
+
+.detail_title .debit_card ul li b{
+  position: absolute;
+  font-family: "arial";
+  font-weight: bold;
+  color: #601986;
+  z-index: 1;
+  top: 10px;
+  left: 20px;
 }
 
 .detail_title .crecard_icon{
@@ -3204,20 +3466,7 @@ a:hover{ text-decoration: none; color:#000000; }
   margin:0;
 }
 
-/*.crecard_icon li {
-    width: 60px;
-    height: 55px;
-    display: inline-block;
-    background-color: #ffffff;
-    border-radius: 20px 0 20px 0;
-    border: 1px solid #ccc;
-}*/
 
-/*.crecard_icon li img{
-  width:45%;
-  display: block;
-  margin:5px auto;
-}*/
 
 .crecard_icon li a {
     color: #000000;
@@ -3560,13 +3809,14 @@ a:hover{ text-decoration: none; color:#000000; }
   font-size: 15px;
   padding-bottom: 8px;
 }
-
+.rank_ad .col-md-5{max-width: 285px;flex: auto;}
+.rank_ad .col-md-7{max-width: 400px;flex: auto;}
 .rank_hot .col-md-1{max-width: 50px; flex: auto;}
 .rank_hot .col-md-4{max-width: 215px;flex: auto;}
-.rank_hot .col-md-7{max-width: 485px;flex: auto;}
-.rank_hot .col-md-5{max-width: 300px;flex: auto;}
-.rank_hot .col-md-2{max-width: 185px;flex: auto;}
-
+.rank_hot .col-md-7{max-width: 465px;flex: auto; margin-left: 20px;}
+.rank_hot .col-md-5{max-width: 270px;flex: auto;}
+.rank_hot .col-md-2{max-width: 193px;flex: auto;}
+.rank_hot strong{display: none;}
 .bankbg_list:nth-child(even){
   background-color:#f5f6f7;
   border-bottom: 1px solid #dee2e6;
@@ -3612,6 +3862,7 @@ a:hover{ text-decoration: none; color:#000000; }
 .tab-content .credit_card.active{ background-color: #253d95; color: #ffffff;}
 
 .bank_list.type_card h5 a{ 
+  display: inline-block;
   font-weight: 600;
   color:#273e96;
   font-size: 20px;
@@ -3708,7 +3959,7 @@ a:hover{ text-decoration: none; color:#000000; }
  }
 
 .rank_care img{
- width:220px;
+ height:135px;
  margin:10px auto;
 }
 
@@ -3748,7 +3999,7 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 .rank_care .rankas_img{
-  width:190px;
+  /*width:190px;*/
   height: 128px;
 }
 
@@ -3779,7 +4030,7 @@ a:hover{ text-decoration: none; color:#000000; }
   height:auto !important;
 }
 
-
+.modal_prize{ height: 100%; }
 .modal_prize h1{
     margin-top: 85px;
     font-weight: bold;
@@ -3789,16 +4040,6 @@ a:hover{ text-decoration: none; color:#000000; }
     color: #601986;
 }
 
-.modal_prize .top_prize{
-  position: absolute;
-    top: 80px;
-    width: 40px;
-    height: 51px;
-    text-align: center;
-    background-image: url(../img/component/topNew_img.png);
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 .card b{display: none;}
 .card-header{background: none;}
@@ -3814,6 +4055,187 @@ a:hover{ text-decoration: none; color:#000000; }
 
 
 /*----------------------------------------- 現金回饋end ----------------------------------------------*/
+
+/*----------------------------------------- 會員專區 ----------------------------------------------*/
+.about_bg{background: url(../img/component/about_bg.jpg); margin: 0 auto; background-size: cover;}
+.about_bg h1{font-size: 30px;font-weight: bold; color:#888;}
+.about_bg h2{font-size: 25px;font-weight: bold; color:#bbb;text-align: center; padding-top: 20px;}
+.about_bg p{font-size: 20px;font-weight: bold; color:#3f57b5;}
+.about_bg button{
+    width: 90px;
+    height: 40px;
+    border-radius: 5px;
+    display: block;
+    margin: 5px;
+}
+.member_info h5{font-weight: bold; color:#3f57b5;}
+.member_info .table td, .table th{padding:8px 0;}
+.fun{padding-left: 0;}
+.fun li{list-style: none; padding: 5px;}
+.fun li:nth-child(even){
+    background-color: #f5f6f7;
+    border-bottom: 1px solid #dee2e6;
+    border-top: 1px solid #dee2e6;
+  }
+.fun .publish_cate{color:#257DB4;margin-right: 10px;}
+.fun .ontime{float: right;    font-size: 14px; color: #888;}
+.sign_info i{position: relative; left: -34px; top: 6px; font-size:25px; color:#90949c; height: 25px;}
+.sign_info h5{
+    font-size: 22px;
+    font-weight: 600;
+    color: #172f8b;
+    margin: 15px 10px;
+}
+.user_info{border: 1px solid #ccc; padding: 25px 8px; margin: 15px 0;}
+.user_info ul{padding-left: 0; padding-right: 20px; border-right: 1px solid #ccc; margin-bottom: 0;}
+.user_info li{display: inline-block; margin:0 5px;}
+.user_info p{margin:0; font-size: 16px; }
+.member_btn button{width: 160px; height:40px; border-radius: 5px; display: block; margin:5px;}
+.user_more{border-bottom: 1px dashed #ccc; padding:8px 0;margin-bottom: 15px;}
+.user_more h5{display: inline-block;}
+.user_more button{float:right;margin: 5px; top:-9px;}
+.user_more button a{color:#fff;}
+.member_more h5{display: inline-block;}
+.member_more button{float:right;margin: 5px;}  
+.member_more button a{color:#fff;} 
+
+.login_info .login_line{border: 1px solid #eee;}
+.login_info .col-sm-10{border-bottom: 1px solid #eee;}
+.login_info .col-sm-10.login_w input{width:80%;}
+.login_info .col-sm-2 {
+    background-color: #888;
+    text-align: right;
+    font-weight: bold;
+    color: #fff;
+    border-bottom: 1px #ddd solid;
+    padding: 15px;
+  }
+
+.check_in ul{padding-left:0;}
+.check_in ul li{display:inline-block;margin:10px;}
+.check_in .col-sm-3{
+    background-color: #888;
+    text-align: right;
+    font-weight: bold;
+    color: #fff;
+    border-bottom: 1px #ddd solid;
+    padding: 15px;
+}
+
+.check_in .col-sm-9{border-bottom: 1px solid #eee;}
+.check_in .login_line{border: 1px solid #eee;}
+.check_in button a{color:#fff;}
+
+#add_card{display: none;}
+#add_card .mem_logo img{width:150px;}
+#add_card .date_w input{width:15%;}
+#add_card h1{
+    font-size: 22px;
+    text-align: center;
+    font-weight: 600;
+    color: #172f8b;
+    margin: 15px 0;
+  }
+#repair_card{display: none;}
+#repair_card .mem_logo img{width:150px;}
+#repair_card .date_w input{width:15%;}
+#repair_card h1{
+    font-size: 22px;
+    text-align: center;
+    font-weight: 600;
+    color: #172f8b;
+    margin: 15px 0;
+  }
+#add_bill{display: none;}
+#add_bill .mem_logo img{width:150px;}
+#add_bill .date_w input{width:50%; margin: 0 10px;}
+#add_bill .date_w option{margin: 0 10px;}
+#add_bill h1{
+    font-size: 22px;
+    text-align: center;
+    font-weight: 600;
+    color: #172f8b;
+    margin: 15px 0;
+  }
+#add_bill h5{
+    font-size: 18px;
+    color: #172f8b;
+    margin: 15px 10px;
+  }
+#add_bill span{
+    font-size: 18px;
+    color: #172f8b;
+    margin: 15px 10px;
+  }
+#bill_update{display: none;}
+#bill_update .mem_logo img{width:150px;}
+#bill_update .date_w input{width:50%; margin: 0 10px;}
+#bill_update .date_w option{margin: 0 10px;}
+#bill_update h1{
+    font-size: 22px;
+    text-align: center;
+    font-weight: 600;
+    color: #172f8b;
+    margin: 15px 0;
+  }
+#bill_update h5{
+    font-size: 18px;
+    color: #172f8b;
+    margin: 15px 10px;
+  }
+#bill_update span{
+    font-size: 18px;
+    color: #172f8b;
+    margin: 15px 10px;
+  }
+.info_btn{
+  position: absolute;
+  right: 25px;
+  top: 15px;
+}
+.info_btn button{
+  width:85px;
+  height: 25px;
+  border-radius: 5px;
+  display: block;
+}
+
+.post p{text-align: left;}
+.post small{bottom:54px;}
+
+.error h1{
+  font-size: 28px;
+  font-weight: bold;
+  color: #32b2e8;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ccc;
+}
+.error h3{
+  font-weight: bold;
+  color: #888;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.error p{
+  font-size: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ccc;
+}
+
+.error img{
+  width:62%;
+}
+
+.error .logo_m{
+  width: 130px;
+  margin: 10px;
+}
+
+.error .col-md-8 div{
+  display: inline-block;
+}
+/*----------------------------------------- 會員專區end ----------------------------------------------*/
 
 
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 切換型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
@@ -3857,6 +4279,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a22ecc', end
 
 
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 切換型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+
 /*----------------------------------------- 藍色 ------------------------------------------------*/
 
 .blue_tab .nav-tabs .nav-item.show .nav-link, .blue_tab .nav-tabs .nav-link.active{ 
@@ -3902,7 +4326,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#243b92', end
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5572db', endColorstr='#3f54a3',GradientType=0 ); /* IE6-9 */
 }
 
-
+.blue_tab_btn button{
+    color: #fff;
+    background: rgb(85,114,219); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(85,114,219,1) 0%, rgba(63,84,163,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(85,114,219,1) 0%,rgba(63,84,163,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(85,114,219,1) 0%,rgba(63,84,163,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5572db', endColorstr='#3f54a3',GradientType=0 ); /* IE6-9 */
+}
 
 
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 切換型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
@@ -3955,6 +4386,12 @@ background: -moz-linear-gradient(top, rgba(197,72,104,1) 1%, rgba(197,72,104,1) 
 background: -webkit-linear-gradient(top, rgba(197,72,104,1) 1%,rgba(197,72,104,1) 25%,rgba(232,89,126,1) 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to bottom, rgba(197,72,104,1) 1%,rgba(197,72,104,1) 25%,rgba(232,89,126,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c54868', endColorstr='#e8597e',GradientType=0 ); /* IE6-9 */
+}
+
+.pink_tab .card_list_txt b {
+    color: #d85174;
+    font-size: 2px;
+    margin-right: 5px;
 }
  
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 切換型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
@@ -4012,7 +4449,8 @@ color: #fff;
     background: linear-gradient(to bottom, rgba(226,180,88,1) 0%,rgba(203,157,64,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2b458', endColorstr='#cb9d40',GradientType=0 ); /* IE6-9 */
 }
- 
+
+
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 切換型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*----------------------------------------- 綠色 ------------------------------------------------*/
  
@@ -4103,6 +4541,12 @@ background: -webkit-linear-gradient(top, #8f4e31 0%,#c77049 100%); /* Chrome10-2
 background: linear-gradient(to bottom, #8f4e31 0%,#c77049 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', endColorstr='#c77049',GradientType=0 ); /* IE6-9 */
 }
+
+.Darkbrown_tab .card_list_txt b {
+    color: #874b2f;
+    font-size: 2px;
+    margin-right: 5px;
+}
  
  
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 切換型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
@@ -4160,6 +4604,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
     background: linear-gradient(to bottom, rgba(24,124,155,1) 0%,rgba(56,172,198,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#187c9b', endColorstr='#38acc6',GradientType=0 ); /* IE6-9 */
 }
+
+
 
 
 
@@ -4371,6 +4817,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 
 @media (max-width: 768px){
 
+  #iNews{ height: 230px; }
+  #iNews .word{ height: 40px; line-height: 40px; top: 190px; padding:0px; font-size: 15px; }
+
   .top-space{ margin-top: 6.5rem; }
   .container-fluid{ padding:0; }
   .hamburger{ padding: 5px; }
@@ -4521,7 +4970,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
          color: #fff;
          width: 45px;
          height: 45px;
-         left: -7%;
+         left: 0%;
          top: 44%;
   }
 
@@ -4530,7 +4979,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
        color: #fff;
        width: 45px;
        height: 45px;
-       right: -7%;
+       right: 0%;
        top: 44%;
   }
 
@@ -4715,7 +5164,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 }
 
 .ccard .swiper-slide div a img{
-    width: 90%;
+    height: 90px;
     margin-top: 2rem;
 }
 
@@ -4898,7 +5347,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 
 /*---------------------------------------------- 新聞版區共用區 ----------------------------------------------*/
 
-.bigcard .img_div{width:320px; height:200px; padding:8px 0; margin:0 auto; position: relative;}
+.bigcard .img_div{display: block; width:89vw; height:43.8vw; padding:8px 0; margin:0 auto; position: relative;}
 .bigcard p{
     margin: 0;
     color: #fff;
@@ -4920,76 +5369,135 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 
 .cards-3 p {padding:5px;}
 
-
-/*---------------------------------------------- 新聞次版共用區 ----------------------------------------------*/
+/*----------------------------------------------     共用區     ---------------------------------------------*/
+.phone_hidden{display: none !important;}
+.phone_block{display: block;}
+.redius_bg{border-radius: 0;}
+.photo{width:100%;}
+.banner img{ width: 100%; }
+.w-100-ph{width:100% !important; height:210px !important;}
+.ph-center{text-align: center;}
+.wx-100-ph{max-width: 100% !important;}
+/*---------------------------------------------- 新聞次版區 ----------------------------------------------*/
+.nav-tabs .nav-item.news_tab.news_tab_three {width:33% !important;;}
 
 .col{ flex-basis: auto; }
 .container{padding:0; margin-top: 100px;}
 .index-content-right{display: none;}
-.banner img{ width: 100%; }
-.news_list{border-bottom:none; width:320px; margin:auto;}
+.news_list{border-bottom:none; margin:auto;}
 .news_list_txt p{display: none;}
 .news_list_txt h3{font-size: 17px;}
 .news_list_txt span{font-size: 14px;}
-.news_list_img {width:150px; height: 100px;}
+.news_list_txt small{display: block;}
+.news_list_img {width:42.7vw; height: 28.3vw;}
 .news_list_txt .fb_search_btn{display: none;}
-.redius_bg{border-radius: 0;}
 .page{display: none;}
-.phone_hidden{display: none;}
 
-/*----------------------------------------- 新聞次版共用區END ----------------------------------------------*/
 
-/*---------------------------------------------- 新聞內頁共用區 ----------------------------------------------*/
+
+/*---------------------------------------------- 新聞內頁 ----------------------------------------------*/
 .nav-tabs .nav-item.news_tab {width: 100%;}
-.cards-3 .img_div { width: 150px; height: 100px; }
+.cards-3 .img_div { width: 42.7vw; height: 28.3vw; }
 .crumbs_row {width:100%;}
 
-
-/*----------------------------------------- 新聞內頁共用區END ----------------------------------------------*/
-/*---------------------------------------------- pay共用區 ----------------------------------------------*/
+/*---------------------------------------------- pay區 ----------------------------------------------*/
 .ticketbg .move_3 {margin:auto;}
-.photo{width:100%;}
 .pay-4{margin:0 auto;}
 .detail_content span{padding:0;}
+.detail_title .row.ticketbg2 h1{margin-bottom: 0; padding: 0; text-align: center; font-size: 40px;}
 
 
-/*---------------------------------------------- ticket共用區 ----------------------------------------------*/
+/*---------------------------------------------- ticket區 ----------------------------------------------*/
 .ticketbg .move_2 {width:99%;}
 
-/*---------------------------------------------- 卡情報共用區 ----------------------------------------------*/
+/*---------------------------------------------- 集點區 ----------------------------------------------*/
+.ticketbg .move_2 {width:99%;}
+.detail_content .shop_txt {display: block;}
+
+
+/*---------------------------------------------- 卡情報區 ----------------------------------------------*/
+.four_tab {
+    width: 25% !important;
+    letter-spacing: 5px;
+}
 .ticketbg .bank_3 {margin:auto;}
+.bank_btn{text-align: center;}
 .card_name{text-align: center;}
-.bank_all_img img {display: block; margin:auto;}
 .imp_int .card-header {height: auto;}
 .imp_int .card-header .angle_down{line-height: 1;}
 .tab-content .credit_icon {display: block; text-align: center;}
 .nav {justify-content: center;}
+.cards-3 p {padding-top:8px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px;}
+.cards-3 span{display: block; padding:8px 0;}
+.bank_all_img img{display: block; margin:auto;}
 
-/*----------------------------------------- 卡情報單卡頁共用區----------------------------------------------*/
+/*----------------------------------------- 卡情報單卡頁區----------------------------------------------*/
 .credit_boot{overflow: auto;}
 
 
-/*-----------------------------------------卡排行共用區----------------------------------------------*/
+/*-----------------------------------------卡排行區----------------------------------------------*/
 .rank-4 {margin:auto;}
-.ccard .top_Medal{top: 10px;left: 50px;}
+.card_list_txt h4{margin-top: 10px;}
+.rank_hot .card_list_txt ul li{text-align: left;display: block;margin-left: 85px;}
+.ccard .top_Medal{top: 4px;left: 59px;}
+.rank_hot .col-md-1 {height: 60px;}
+.rank_hot strong{display: block;}
+.modal_prize h1 {margin-top: 0;}
+.modal_prize .top_prize{top:-5px;}
+.popular_prize .top_prize {position: absolute; top:8px !important;}
 .card_list_txt{text-align: center;}
 .card_list_txt ul {
     list-style: none;
     padding-left: 0;
     margin: 0;
 }
+.phone_card ul{text-align: left; margin-left: 65px;}
 .rank_boot{overflow: auto;}
 .rank_boot table{width:750px;}
 .card b{display: block;}
-.imp_int_title{display: none;}
 .card_list_txt h4 {text-align: center;}
+.ranksearch_list li {width:135px !important;}
+.ranksearch_list ul li a {font-size: 15px;}
+.ranksearch_list .rank_shop{padding:0 !important;}
+.profit_shop ul li a{text-align: left !important;}
+.profit_shop img{margin-left:8px;}
+.phone_list li{width: 280px !important;}
 
-/*----------------------------------------- 優旅行共用區----------------------------------------------*/
+
+/*----------------------------------------- 優旅行區----------------------------------------------*/
 .nav-tabs .nav-item.news_tab.news_tab_three{width:100%;}
 .travel_list {padding:0;}
 .travel_list h6{text-align: center;}
 .travel_info p {line-height:18px;}
+.dt_main02{height: 525px !important;}
+.travel_main {width: 93vw;}
+.travel_main .img_div { width: 93vw; height: 63vw;}
 
 
+/*----------------------------------------- 會員中心----------------------------------------------*/
+.about_bg .col-md-3{text-align: center;}
+.about_bg .col-md-5{text-align: center;}
+.about_bg h2 {color:#fff; margin: 0; padding: 0;}
+.sign_info .blue_tab_btn{text-align: center;}
+.sign_info .blue_tab_btn button{width:60%;}
+.login_info .col-sm-2 {
+  background-color: #fff;
+  text-align: left;
+  color: #495057;
+  border-bottom: 1px #fff solid;
+  padding: 15px;
+}
+.login_info .col-sm-10 {border-bottom: 1px solid #fff;}
+.login_info .col-sm-10.login_w input {width: 100%;}
+.user_info ul{border-right: 1px solid #fff; padding-right: 0;}
+.check_in .col-sm-3 {
+    background-color: #fff;
+    text-align: left;
+    color: #495057;
+    border-bottom: 1px #fff solid;
+    padding: 15px;
+}
+.check_in .col-sm-9 {border-bottom: 1px solid #fff;}
 
+}
 /*----- 平板畫面 END -----*/

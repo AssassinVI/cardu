@@ -87,9 +87,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', end
 
 /*-- 卡情報-單卡-重要權益 --*/
 .imp_int_title{ background-color: #ccc; padding: 7px; }
+.imp_int_title .col-md-4{ max-width: 200px; }
 .imp_int .card-header{ padding: 12px 6px; /*height: 130px;*/}
 .imp_int .card-header .angle_down{ font-size: 40px; color: #7e7e7e; }
 .imp_int .collapse_txt{ font-size: 18px; color: #000; }
+.imp_int ul.collapse_txt{ display: inline-block; padding-left: 30px; vertical-align: top; }
+.imp_int ul.collapse_txt li{ font-size: 13px; }
 
 
 
@@ -304,7 +307,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8294d6', end
 
   /*---------------- 主題分類輪播 -----------------*/
 
-.sub_slide .swiper-button-prev i, .sub_slide .swiper-button-next i{
+.sub_slide .swiper-button-prev i, .sub_slide .swiper-button-next i, .sub_ph_slide .swiper-button-prev i, .sub_ph_slide .swiper-button-next i{
    width: 35px;
    height: 35px;
    text-align: center;
@@ -314,14 +317,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8294d6', end
    border-radius: 50px;
 }
 
-.sub_slide .swiper-button-prev, .sub_slide .swiper-container-rtl .swiper-button-next{
+.sub_slide .swiper-button-prev, .sub_slide .swiper-container-rtl .swiper-button-next, .sub_ph_slide .swiper-button-prev, .sub_ph_slide .swiper-container-rtl .swiper-button-next{
        height: 100%;
        width: 45px;
        left: -15%;
        top: 6%;
 }
 
-.sub_slide .swiper-button-next, .sub_slide .swiper-container-rtl .swiper-button-prev{
+.sub_slide .swiper-button-next, .sub_slide .swiper-container-rtl .swiper-button-prev, .sub_ph_slide .swiper-button-next, .sub_ph_slide .swiper-container-rtl .swiper-button-prev{
       height: 100%;
       width: 45px;
      right: -15%;
@@ -454,7 +457,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8294d6', end
 
 /*----------------------------- 右邊浮動廣告 ----------------------------------*/
 
-.right-ad{ position: absolute; top: 10px; right: -180px; }
+.right-ad{ position: absolute; top: 217px; right: -180px; }
 
 /*----------------------------- 右邊浮動廣告 END ----------------------------------*/
 
@@ -502,4 +505,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9c2f9', end
 /*--------------------------------- 新手快搜-重選 --------------------------------------*/
 .reset_div{ padding: 0 15px; }
 /*--------------------------------- 新手快搜-重選 END --------------------------------------*/
+
+
+
+
+
+/*--------------------------------- 會員行事曆 --------------------------------------*/
+.fc-button-primary{ padding: .1em .5em; background-color: #33a0e1 !important; border-color: #35a3e5 !important;}
+.fc-button-primary:disabled{ background-color: #33a0e1 !important; border-color: #35a3e5 !important; }
+.fc-button-primary:focus{ box-shadow: 0 0 0 0.2rem rgba(51, 160, 225, 0.4) !important; }
+.fc-button .fc-icon{ display: flex; align-items: center; }
+ #calendar span{ font-size: 13px; }
+ .show_title{ display: block; position: absolute; width: 200px; top: 0; left: 0; background-color: #fff; padding: 8px 7px; font-size: 15px; border: 1px solid #cccbcc; z-index: 10;}
+/*--------------------------------- 會員行事曆 END --------------------------------------*/
+
+
+
+
+@media(max-width: 420px){
+  /*-- 卡情報-單卡-重要權益 --*/
+  .imp_int .collapse_txt{ font-size: 14px;}
+
+
+  /*-- 輪播按鈕顯示 --*/
+  .sub_ph_slide .swiper-button-prev, .sub_ph_slide .swiper-container-rtl .swiper-button-next{ left: 0%;}
+  .sub_ph_slide .swiper-button-next, .sub_ph_slide .swiper-container-rtl .swiper-button-prev{ right: 0%;}
+}
 

@@ -169,7 +169,37 @@
                   
                   </div>
 
-                                       
+                     <!--廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
+                        </div>
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
+                        </div>
+                    </div>                   
                      <!--卡排行-->
                     <div class="col-md-12 col">
                         <div id="iCardRanking" class="cardshap">
@@ -188,86 +218,97 @@
                                  <div class="swiper-container">
                                    <div class="swiper-wrapper">
                                        <div class="swiper-slide active" index="1" > 
-                                        <div class="text-center" ><a href="javascript:;" title="量販卡"><img src="../img/component/icon_down/cardNews/card_news1.png" alt="量販卡" > <br> 量販卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;" title="量販卡"><img src="../img/component/icon_down/cardNews/card_news1.png" alt="量販卡" ></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="2"> 
-                                        <div class="text-center" ><a href="javascript:;" title="百貨卡"><img src="../img/component/icon/cardNews/card_news4.png" alt="百貨卡" > <br> 百貨卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;" title="百貨卡"><img src="../img/component/icon/cardNews/card_news4.png" alt="百貨卡" ></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="3"> 
-                                        <div class="text-center" ><a href="javascript:;" title="航空卡"><img src="../img/component/icon/cardNews/card_news2.png" alt="航空卡" > <br> 航空卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;" title="航空卡"><img src="../img/component/icon/cardNews/card_news2.png" alt="航空卡" ></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="4"> 
-                                        <div class="text-center" ><a href="javascript:;" title="加油卡"><img src="../img/component/icon/cardNews/card_news5.png" alt="加油卡" > <br> 加油卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;" title="加油卡"><img src="../img/component/icon/cardNews/card_news5.png" alt="加油卡" ></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="5"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news6.png" alt="悠遊卡" title="悠遊卡"> <br> 悠遊卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news6.png" alt="悠遊卡" title="悠遊卡"></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="6"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news3.png" alt="一卡通" title="一卡通"> <br> 一卡通</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news3.png" alt="一卡通" title="一卡通"></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="7"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news7.png" alt="餐飲卡" title="餐飲卡"> <br> 餐飲卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news7.png" alt="餐飲卡" title="餐飲卡"></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="8"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news8.png" alt="行動支付" title="行動支付"> <br> 行動支付</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news8.png" alt="行動支付" title="行動支付"></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="9"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news9.png" alt="感應卡" title="感應卡"> <br> 感應卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news9.png" alt="感應卡" title="感應卡"></a></div>
                                        </div>  
 
                                        <div class="swiper-slide" index="10"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news10.png" alt="購物卡" title="購物卡"> <br> 購物卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news10.png" alt="購物卡" title="購物卡"></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="11"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news11.png" alt="交通卡" title="交通卡"> <br> 交通卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news11.png" alt="交通卡" title="交通卡"></a></div>
                                        </div>
 
                                        <div class="swiper-slide" index="12"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news12.png" alt="旅遊卡" title="旅遊卡"> <br> 旅遊卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news12.png" alt="旅遊卡" title="旅遊卡"></a></div>
                                        </div>   
                                        
-                                       <!-- 新增8張卡 -->
+                                       <!-- 新增11張卡 -->
                                        <div class="swiper-slide" index="13"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news13.png" alt="飯店卡" title="飯店卡"> <br> 飯店卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news13.png" alt="飯店卡" title="飯店卡"></a></div>
                                        </div> 
 
                                        <div class="swiper-slide" index="14"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news14.png" alt="電影卡" title="電影卡"> <br> 電影卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news14.png" alt="電影卡" title="電影卡"></a></div>
                                        </div> 
 
                                        <div class="swiper-slide" index="15"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news15.png" alt="休閒卡" title="休閒卡"> <br> 休閒卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news15.png" alt="休閒卡" title="休閒卡"></a></div>
                                        </div> 
 
                                        <div class="swiper-slide" index="16"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news16.png" alt="保險卡" title="保險卡"> <br> 保險卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news16.png" alt="保險卡" title="保險卡"></a></div>
                                        </div> 
 
                                        <div class="swiper-slide" index="17"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news17.png" alt="女性卡" title="女性卡"> <br> 女性卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news17.png" alt="女性卡" title="女性卡"></a></div>
                                        </div> 
 
                                        <div class="swiper-slide" index="18"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news18.png" alt="電信卡" title="電信卡"> <br> 電信卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news18.png" alt="電信卡" title="電信卡"></a></div>
                                        </div>         
 
                                        <div class="swiper-slide" index="19"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news19.png" alt="分期卡" title="分期卡"> <br> 分期卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news19.png" alt="分期卡" title="分期卡"></a></div>
                                        </div> 
 
                                        <div class="swiper-slide" index="20"> 
-                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news20.png" alt="公益卡" title="公益卡"> <br> 公益卡</a></div>
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news20.png" alt="公益卡" title="公益卡"></a></div>
+                                       </div>
+                                        <div class="swiper-slide" index="21"> 
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news21.png" alt="公益卡" title="icash"></a></div>
+                                       </div>
+
+                                        <div class="swiper-slide" index="22"> 
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news22.png" alt="公益卡" title="happycash"></a></div>
+                                       </div>
+
+                                        <div class="swiper-slide" index="23"> 
+                                        <div class="text-center" ><a href="javascript:;"><img src="../img/component/icon/cardNews/card_news23.png" alt="公益卡" title="網購"></a></div>
                                        </div>  
-                                       <!-- 新增8張卡 END -->                         
+                                       <!-- 新增11張卡 END -->                         
                                    </div>
 
                                </div>
@@ -279,6 +320,7 @@
                               </div>
                              </div>
                            </div>
+
 
                            <div class="ccard">
                                
@@ -940,7 +982,16 @@
                     </div>
                     <!--旅遊end -->
 
-                   
+                    <!--廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                        <div class="col-md-6 col">
+                            <img src="http://placehold.it/365x100">
+                        </div>
+                    </div>
+                    <!--廣告end-->
                     
 
                    
@@ -1190,6 +1241,10 @@
                       </div>
                     
                     </div>
+                    <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
+                    </div>
 
                     <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">
@@ -1231,6 +1286,10 @@
 
                            </div>
                        </div>
+                    </div>
+                    <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
                     </div>
                      <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">

@@ -2,13 +2,16 @@
   $pk=$_GET['pk'];
   $idx=$_GET['idx'];
 ?>
+<?php 
+ require '../../share_area/conn.php';
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
 
 
@@ -45,9 +48,14 @@
 
     <div class="container detail_page">
 
-         <?php 
-         //-- 共用header --
-         require '../../share_area/header.php';
+        <?php 
+         //-- 共用Header --
+         if (wp_is_mobile()) {
+          require '../../share_area/phone/header.php';
+         }
+         else{
+          require '../../share_area/header.php';
+         }
         ?>
         
         <!-- 麵包屑 -->
@@ -94,23 +102,23 @@
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters">
-                                <div class="col-4 cards-3 py-2">
+                                <div class="col-md-4 col-12 cards-3 py-2">
                                    <a href="?type=<?=$type?>&pk=<?=$pk?>&idx=<?=$recomm_01_id?>">
-                                       <div class="img_div" title="<?= $recomm_01_title ?>" style="background-image: url(data/<?=$pk?>_map_detail/images/main<?=$recomm_01_id?>-img.jpg);">
+                                       <div class="img_div w-100-ph" title="<?= $recomm_01_title ?>" style="background-image: url(data/<?=$pk?>_map_detail/images/main<?=$recomm_01_id?>-img.jpg);">
                                        </div>
                                        <p><?= $recomm_01_title ?></p>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3 py-2">
+                                <div class="col-md-4 col-12 cards-3 py-2">
                                    <a href="?type=<?=$type?>&pk=<?=$pk?>&idx=<?=$recomm_02_id?>">
-                                       <div class="img_div" title="<?= $recomm_02_title ?>" style="background-image: url(data/<?=$pk?>_map_detail/images/main<?=$recomm_02_id?>-img.jpg);">
+                                       <div class="img_div w-100-ph" title="<?= $recomm_02_title ?>" style="background-image: url(data/<?=$pk?>_map_detail/images/main<?=$recomm_02_id?>-img.jpg);">
                                        </div>
                                        <p><?= $recomm_02_title ?></p>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3 py-2">
+                                <div class="col-md-4 col-12 cards-3 py-2">
                                    <a href="?type=<?=$type?>&pk=<?=$pk?>&idx=<?=$recomm_03_id?>">
-                                       <div class="img_div" title="<?= $recomm_03_title ?>" style="background-image: url(data/<?=$pk?>_map_detail/images/main<?=$recomm_03_id?>-img.jpg);">
+                                       <div class="img_div w-100-ph" title="<?= $recomm_03_title ?>" style="background-image: url(data/<?=$pk?>_map_detail/images/main<?=$recomm_03_id?>-img.jpg);">
                                        </div>
                                        <p><?= $recomm_03_title ?></p>
                                    </a>
@@ -129,12 +137,19 @@
                     
                     
                     <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/365x100" alt="">
                         </div>
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/365x100">
+                        </div>
+                    </div>
+                    <!--廣告end-->
+                     <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
                         </div>
                     </div>
                     <!--廣告end-->
@@ -367,28 +382,28 @@
                              <div class="journey_icon">
                                <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"> <i class="fa fa-arrow-circle-right mr-2"></i>東京篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about.php"> <i class="fa fa-arrow-circle-right mr-2"></i>東京篇</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>東北篇</a>
-                                 </div>
-                               </div>
-                               <hr>
-                                <div class="row no-gutters">
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>關西篇</a>
-                                 </div>
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>九州篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_4.php"><i class="fa fa-arrow-circle-right mr-2"></i>東北篇</a>
                                  </div>
                                </div>
                                <hr>
                                 <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>北海道篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_2.php"><i class="fa fa-arrow-circle-right mr-2"></i>關西篇</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>沖繩篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_5.php"><i class="fa fa-arrow-circle-right mr-2"></i>九州篇</a>
+                                 </div>
+                               </div>
+                               <hr>
+                                <div class="row no-gutters">
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_3.php"><i class="fa fa-arrow-circle-right mr-2"></i>北海道篇</a>
+                                 </div>
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_6.php"><i class="fa fa-arrow-circle-right mr-2"></i>沖繩篇</a>
                                  </div>
                                </div>
                              </div>
@@ -477,8 +492,13 @@
 
                     
                     <?php 
-                     //-- 共用footer --
-                     require '../../share_area/footer.php';
+                     //-- 共用Footer --
+                     if (wp_is_mobile()) {
+                        require '../../share_area/phone/footer.php';
+                     }
+                     else{
+                       require '../../share_area/footer.php';
+                      }
                     ?>
                     
 
@@ -486,7 +506,7 @@
             </div>
             <!--版面右側end-->
              <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/468x60" alt="">
                         </div>

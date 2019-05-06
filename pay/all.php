@@ -73,399 +73,168 @@
 
                   <div class="col-md-12 col">
                   
-                         <!-- 四小三大輪播 -->
-                      <div id="new_iNews" class="cardshap new_slide">
-                          <div class="swiper-container">
-                              <div class="swiper-wrapper">
-                                  <div class="swiper-slide" > 
+                    <?php 
+                      if (wp_is_mobile()) {
 
-                                    <div class="slide_div">
-                                      <div class="slide_img">
-                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
-                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
-                                      </div>
-                                      <div class="slide_list">
-                                        <a class="active" href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
-                                          <h4>ATM「靠臉」就能領錢　台新</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
-                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                      </div>
-                                    </div>
-                                    
-                                  </div>
-                                  <div class="swiper-slide" > 
-                                    <div class="slide_div">
-                                      <div class="slide_img">
-                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
-                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
-                                      </div>
-                                      <div class="slide_list">
-                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
-                                          <h4>ATM「靠臉」就能領錢　台新</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
-                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="swiper-slide"> 
-                                    <div class="slide_div">
-                                      <div class="slide_img">
-                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
-                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
-                                      </div>
-                                      <div class="slide_list">
-                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
-                                          <h4>ATM「靠臉」就能領錢　台新</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
-                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                              <!-- 如果需要分页器 -->
-                              <div class="swiper-pagination"></div>
+                         //============================================
+                         //每頁的輪播
+                         //設定好sql後，交由 page_carousel_mobile.php執行
+                         //============================================
+                         $sql_carousel="
+                          SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
+                          where ns_verify=3 and OnLineOrNot=1
+                          and  StartDate<='$todayis' and EndDate>='$todayis'
+                          and ns_nt_pk='$Tb_index'
+                          order by ns_vfdate desc
+                          LIMIT 0, 6
+                          ";
+                          require("../share_area/page_carousel_mobile.php"); //載入手機版刊頭輪播
+                       }
+                       else{
+                         //============================================
+                         //每頁的輪播
+                         //設定好sql後，交由 page_carousel.php執行
+                         //============================================
+                         $sql_carousel="
+                          SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
+                          where ns_verify=3 and OnLineOrNot=1 
+                          and StartDate<='$todayis' and EndDate>='$todayis'
+                          and ns_nt_pk='$Tb_index'
+                          order by ns_vfdate desc
+                          LIMIT 0, 12
+                          ";
+                         require '../share_area/page_carousel.php';
+                       }
 
-                          </div>
-                      </div>
-                      <!-- 四小三大輪播 END -->
+                      ?>
                   
                   </div>
                  
                   
 
                     <!--廣告-->
-                    <div class="col-md-12 col"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
+                        </div>
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
+                        </div>
+                    </div>
+                    <!--廣告end-->
+
+                          <?php 
+                          $pdo=pdo_conn();
+                          $sql_pay=$pdo->prepare("SELECT * FROM store where st_type='st2019013117011395' and OnLineOrNot=1 order by st_name LIMIT 0, 3");
+                          $sql_pay->execute();
+
+                          $i=1; while ($row_pay=$sql_pay->fetch(PDO::FETCH_ASSOC)) {
+                            $Tb_index=$row_pay['Tb_index'];
+                            $st_name=$row_pay['st_name'];
+                            $st_logo=$row_pay['st_logo'];
+                            $st_url=$row_pay['st_url'];
+
+                            $Date[$i]="<div class='col-md-4 col'>
+                                          <div class='cardshap move_3'>
+                                          <a class='all_form' href='about.php?$Tb_index' title='$st_name'>
+                                          <img src='../sys/img/$st_logo'>
+                                          <hr>
+                                           <h4>$st_name</h4>
+                                          </a>
+                                            <div class='card_btn  hv-center'>
+
+                                            <a class='all_form' href='about.php?$Tb_index' title='$st_name'>
+                                              <button type='button' class='btn warning-layered btnOver'>詳細介紹</button>
+                                            </a>
+
+                                            <a class='all_form' href='$st_url' title='$st_name'>
+                                              <button type='button' class='btn gray-layered btnOver'>前往官網</button>
+                                            </a>
+                                            </div>
+                                          </div>
+                                      </div>";
+                          $i++; }
+
+                          $Date['header']="<div class='col-md-12 row col0'><div class='row ticketbg'>";
+                          $Date['fooder']="</div></div>";
+
+
+                          echo $Date['header'];
+                          echo $Date[1];
+                          echo $Date[2];
+                          echo $Date[3];
+                          echo $Date[4];
+                          echo $Date[5];
+                          echo $Date[6];
+                          echo $Date['fooder'];
+
+                          ?>
+
+                        
+                     <!--廣告-->
+                    <div class="col-md-12 col"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
+
+                          <?php
+                          if($i>7){
+                          echo $Date['header'];
+                          echo $Date[7];
+                          echo $Date[8];
+                          echo $Date[9];
+                          echo $Date[10];
+                          echo $Date[11];
+                          echo $Date[12];
+                          echo $Date['fooder'];
+                          }
+                          ?>
                     
-                    <div class="col-md-12 row col0">
-                      <div class="row ticketbg">
-                        <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                            <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/apple pay.png">
-                            <hr>
-                             <h4>Apple Pay</h4>
-                            </a>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                              <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/g pay.png">
-                            <hr>
-                             <h4>Google Pay</h4>
-                           </a>
-                           <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                          </div>
-                           <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                              <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/samsung pay.png">
-                            <hr>
-                             <h4>Samsung Pay</h4>
-                           </a>
-                           <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 row col0">
-                      <div class="row ticketbg">
-                        <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                            <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/apple pay.png">
-                            <hr>
-                             <h4>Apple Pay</h4>
-                            </a>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                              <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/g pay.png">
-                            <hr>
-                             <h4>Google Pay</h4>
-                           </a>
-                           <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                          </div>
-                           <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                             <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/samsung pay.png">
-                            <hr>
-                             <h4>Samsung Pay</h4>
-                           </a>
-                           <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
                      <!--廣告-->
                     <div class="col-md-12 row">
-                        <div class="col-md-6 col">
+                        <div class="col-md-6 col banner">
                             <img class="w-100" src="http://placehold.it/360x100" alt="">
                         </div>
-                        <div class="col-md-6 col">
+                        <div class="col-md-6 col banner">
                             <img class="w-100" src="http://placehold.it/360x100">
                         </div>
                     </div>
                     <!--廣告end-->
-                    <div class="col-md-12 row col0">
-                      <div class="row ticketbg">
-                        <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                            <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/apple pay.png">
-                            <hr>
-                             <h4>Apple Pay</h4>
-                            </a>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                              <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/g pay.png">
-                            <hr>
-                             <h4>Google Pay</h4>
-                           </a>
-                           <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                          </div>
-                           <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                             <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/samsung pay.png">
-                            <hr>
-                             <h4>Samsung Pay</h4>
-                           </a>
-                           <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 row col0">
-                      <div class="row ticketbg">
-                        <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                            <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/apple pay.png">
-                            <hr>
-                             <h4>Apple Pay</h4>
-                            </a>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                              <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/g pay.png">
-                            <hr>
-                             <h4>Google Pay</h4>
-                           </a>
-                           <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                          </div>
-                           <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                             <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/samsung pay.png">
-                            <hr>
-                             <h4>Samsung Pay</h4>
-                           </a>
-                           <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
+                    
+                          <?php
+                          if($i>13){
+                          echo $Date['header'];
+                          echo $Date[13];
+                          echo $Date[14];
+                          echo $Date[15];
+                          echo $Date[16];
+                          echo $Date[17];
+                          echo $Date[18];
+                          echo $Date['fooder'];
+                          }
+                          ?>
+
                      <!--廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col">
-                            <img class="w-100" src="http://placehold.it/360x100" alt="">
-                        </div>
-                        <div class="col-md-6 col">
-                            <img class="w-100" src="http://placehold.it/360x100">
-                        </div>
-                    </div>
-                    <!--廣告end-->
-                    <div class="col-md-12 row col0">
-                      <div class="row ticketbg">
-                        <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                            <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/apple pay.png">
-                            <hr>
-                             <h4>Apple Pay</h4>
-                            </a>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                              <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/g pay.png">
-                            <hr>
-                             <h4>Google Pay</h4>
-                           </a>
-                           <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                          </div>
-                           <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                             <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/samsung pay.png">
-                            <hr>
-                             <h4>Samsung Pay</h4>
-                           </a>
-                           <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                  <div class="col-md-12 row col0">
-                      <div class="row ticketbg">
-                        <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                            <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/apple pay.png">
-                            <hr>
-                             <h4>Apple Pay</h4>
-                            </a>
-                              <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                              <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/g pay.png">
-                            <hr>
-                             <h4>Google Pay</h4>
-                           </a>
-                           <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                          </div>
-                           <div class="col-md-4 col">
-                            <div class="cardshap move_3">
-                             <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/samsung pay.png">
-                            <hr>
-                             <h4>Samsung Pay</h4>
-                           </a>
-                           <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                     <!--廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col">
-                            <img class="w-100" src="http://placehold.it/360x100" alt="">
-                        </div>
-                        <div class="col-md-6 col">
-                            <img class="w-100" src="http://placehold.it/360x100">
-                        </div>
-                    </div>
-                    <!--廣告end-->
+                    <div class="col-md-12 col"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
                 </div>
             </div>
             <!--版面左側end-->
@@ -633,7 +402,7 @@
                        
                        <div class="cardshap tab_one blueGreen_tab">
                            <div class="title_tab hole">
-                               <h4>優票證</h4>
+                               <h4>優行動pay</h4>
                            </div>
                         <div class="tab-content pcard_back" id="myTabContent">
                           <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">

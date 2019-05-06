@@ -1,10 +1,13 @@
+<?php 
+ require '../../share_area/conn.php';
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
 
 
@@ -41,9 +44,14 @@
 
     <div class="container">
 
-         <?php 
-         //-- 共用header --
-         require '../../share_area/header.php';
+        <?php 
+         //-- 共用Header --
+         if (wp_is_mobile()) {
+          require '../../share_area/phone/header.php';
+         }
+         else{
+          require '../../share_area/header.php';
+         }
         ?>
         
         <!-- 麵包屑 -->
@@ -64,33 +72,33 @@
                         <div class="col-md-12 row">
                         <div class="col-md-4 col">
                            <div class="cardshap japan_list">
-                          <a href="#" title="新聞">
-                            <div class="img_div" style="background-image: url(/img/component/315x210.jpg);">
+                          <a href="about.php" title="新聞">
+                            <div class="img_div" style="background-image: url(../../img/component/travel/York.jpg);">
                              <big>東京</big>           
                             </div>
                           </a>
                               <div class="row no-gutters text-center pt-2">
                                  <div class="col-6">
-                                  <a href="#" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=11&idx=1" title="新聞">
                                     <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="#" title="新聞">
-                                    <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=11&idx=2" title="新聞">
+                                    <span><img src="/img/component/icon/map-icon.png">築地台場親子玩透透</span>
                                   </a>
                                  </div>
                               </div>
 
                                <div class="row no-gutters text-center pb-2">
                                  <div class="col-6">
-                                  <a href="#" title="新聞">
-                                   <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=11&idx=3" title="新聞">
+                                   <span><img src="/img/component/icon/map-icon.png">原宿澀谷新宿好好逛</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="#" title="新聞">
-                                   <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=11&idx=4" title="新聞">
+                                   <span><img src="/img/component/icon/map-icon.png">走進宮崎駿奇幻世界</span>
                                   </a>
                                  </div>
                               </div>
@@ -98,33 +106,33 @@
                          </div>
                         <div class="col-md-4 col">
                            <div class="cardshap japan_list">
-                          <a href="#" title="新聞">
-                            <div class="img_div" style="background-image: url(/img/component/315x210.jpg);">
+                          <a href="about_2.php" title="新聞">
+                            <div class="img_div" style="background-image: url(../../img/component/travel/kansai.jpg);">
                              <big>關西</big>           
                             </div>
                           </a>
                               <div class="row no-gutters text-center pt-2">
                                  <div class="col-6">
-                                  <a href="#" title="新聞">
-                                    <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=12&idx=1" title="新聞">
+                                    <span><img src="/img/component/icon/map-icon.png">走訪清水寺祇園之行</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="#" title="新聞">
-                                    <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=12&idx=2" title="新聞">
+                                    <span><img src="/img/component/icon/map-icon.png">搭小火車京都嵐山行</span>
                                   </a>
                                  </div>
                               </div>
 
                                <div class="row no-gutters text-center pb-2">
                                  <div class="col-6">
-                                  <a href="#" title="新聞">
-                                   <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=12&idx=3" title="新聞">
+                                   <span><img src="/img/component/icon/map-icon.png">大阪購物美食好好買</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="#" title="新聞">
-                                   <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=12&idx=4" title="新聞">
+                                   <span><img src="/img/component/icon/map-icon.png">神戶異國美食趴趴走</span>
                                   </a>
                                  </div>
                               </div>
@@ -132,33 +140,33 @@
                          </div>
                         <div class="col-md-4 col">
                            <div class="cardshap japan_list">
-                          <a href="#" title="新聞">
-                            <div class="img_div" style="background-image: url(/img/component/315x210.jpg);">
+                          <a href="about_3.php" title="新聞">
+                            <div class="img_div" style="background-image: url(../../img/component/travel/hokkaido.jpg);">
                              <big>北海道</big>           
                             </div>
                           </a>
                               <div class="row no-gutters text-center pt-2">
                                  <div class="col-6">
-                                  <a href="#" title="新聞">
-                                    <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=13&idx=1" title="新聞">
+                                    <span><img src="/img/component/icon/map-icon.png">富良野美瑛慢活賞花</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="#" title="新聞">
-                                    <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=13&idx=2" title="新聞">
+                                    <span><img src="/img/component/icon/map-icon.png">漫步小樽北國風情趣</span>
                                   </a>
                                  </div>
                               </div>
 
                                <div class="row no-gutters text-center pb-2">
                                  <div class="col-6">
-                                  <a href="#" title="新聞">
-                                   <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=13&idx=3" title="新聞">
+                                   <span><img src="/img/component/icon/map-icon.png">搭火車走訪濕原秘境</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="#" title="新聞">
-                                   <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=13&idx=4" title="新聞">
+                                   <span><img src="/img/component/icon/map-icon.png">戰嚴冬搭車欣賞流冰</span>
                                   </a>
                                  </div>
                               </div>
@@ -170,33 +178,33 @@
                         <div class="col-md-12 row">
                         <div class="col-md-4 col">
                            <div class="cardshap japan_list">
-                          <a href="#" title="新聞">
-                            <div class="img_div" style="background-image: url(/img/component/315x210.jpg);">
+                          <a href="about_4.php" title="新聞">
+                            <div class="img_div" style="background-image: url(../../img/component/travel/tour.jpg);">
                              <big>東北</big>           
                             </div>
                           </a>
                               <div class="row no-gutters text-center pt-2">
                                  <div class="col-6">
-                                  <a href="#" title="新聞">
-                                    <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=14&idx=1" title="新聞">
+                                    <span><img src="/img/component/icon/map-icon.png">十和田感受繽紛秋色</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="#" title="新聞">
-                                    <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=14&idx=2" title="新聞">
+                                    <span><img src="/img/component/icon/map-icon.png">拜訪古城泡湯又暖心</span>
                                   </a>
                                  </div>
                               </div>
 
                                <div class="row no-gutters text-center pb-2">
                                  <div class="col-6">
-                                  <a href="#" title="新聞">
-                                   <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=14&idx=3" title="新聞">
+                                   <span><img src="/img/component/icon/map-icon.png">品美食欣賞奧之細道</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="#" title="新聞">
-                                   <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=14&idx=4" title="新聞">
+                                   <span><img src="/img/component/icon/map-icon.png">陸奧小京都角館即行</span>
                                   </a>
                                  </div>
                               </div>
@@ -204,33 +212,33 @@
                          </div>
                         <div class="col-md-4 col">
                            <div class="cardshap japan_list">
-                          <a href="#" title="新聞">
-                            <div class="img_div" style="background-image: url(/img/component/315x210.jpg);">
+                          <a href="about_5.php" title="新聞">
+                            <div class="img_div" style="background-image: url(../../img/component/travel/kyushu.jpg);">
                              <big>九州</big>           
                             </div>
                           </a>
                               <div class="row no-gutters text-center pt-2">
                                  <div class="col-6">
-                                  <a href="#" title="新聞">
-                                    <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=15&idx=1" title="新聞">
+                                    <span><img src="/img/component/icon/map-icon.png">熊本火之國自然巡禮</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="#" title="新聞">
-                                    <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=15&idx=2" title="新聞">
+                                    <span><img src="/img/component/icon/map-icon.png">漫遊福岡好吃又好玩</span>
                                   </a>
                                  </div>
                               </div>
 
                                <div class="row no-gutters text-center pb-2">
                                  <div class="col-6">
-                                  <a href="#" title="新聞">
-                                   <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=15&idx=3" title="新聞">
+                                   <span><img src="/img/component/icon/map-icon.png">由布院別府泡湯之旅</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="#" title="新聞">
-                                   <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=15&idx=4" title="新聞">
+                                   <span><img src="/img/component/icon/map-icon.png">長崎白天夜晚超迷人</span>
                                   </a>
                                  </div>
                               </div>
@@ -238,33 +246,33 @@
                          </div>
                        <div class="col-md-4 col">
                            <div class="cardshap japan_list">
-                          <a href="#" title="新聞">
-                            <div class="img_div" style="background-image: url(/img/component/315x210.jpg);">
+                          <a href="about_6.php" title="新聞">
+                            <div class="img_div" style="background-image: url(../../img/component/travel/okinnawa.jpg);">
                              <big>冲繩</big>           
                             </div>
                           </a>
                               <div class="row no-gutters text-center pt-2">
                                  <div class="col-6">
-                                  <a href="#" title="新聞">
-                                    <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=16&idx=1" title="新聞">
+                                    <span><img src="/img/component/icon/map-icon.png">沖繩親子就醬玩透透</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="#" title="新聞">
-                                    <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=16&idx=2" title="新聞">
+                                    <span><img src="/img/component/icon/map-icon.png">沖繩放空浮潛賞夕照</span>
                                   </a>
                                  </div>
                               </div>
 
                                <div class="row no-gutters text-center pb-2">
                                  <div class="col-6">
-                                  <a href="#" title="新聞">
-                                   <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=16&idx=3" title="新聞">
+                                   <span><img src="/img/component/icon/map-icon.png">走訪沖繩世界遺產行</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="#" title="新聞">
-                                   <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=16&idx=4" title="新聞">
+                                   <span><img src="/img/component/icon/map-icon.png">美國村國際通趴趴走</span>
                                   </a>
                                  </div>
                               </div>
@@ -289,13 +297,13 @@
                     <div class="col-md-12 col">
 
                       <div class="cardshap ">
-                        <div class="row no-gutters py-3 mx-4 news_list">
-                          <div class="col-md-4">
+                        <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-2 pl-2">
                             <a class="img_div news_list_img" title="新聞" href="#" style="background-image: url(/img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 pl-3 news_list_txt">
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
                             <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
-                            <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
+                            <a href="#" title="新聞"><span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
                               <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
@@ -303,13 +311,13 @@
                           </div>
                         </div>
 
-                        <div class="row no-gutters py-3 mx-4 news_list">
-                          <div class="col-md-4">
+                        <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-2 pl-2">
                             <a class="img_div news_list_img" title="新聞" href="#" style="background-image: url(/img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 pl-3 news_list_txt">
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
                             <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
-                            <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
+                            <a href="#" title="新聞"><span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
                               <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
@@ -317,13 +325,13 @@
                           </div>
                         </div>
 
-                        <div class="row no-gutters py-3 mx-4 news_list">
-                          <div class="col-md-4">
+                        <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-2 pl-2">
                             <a class="img_div news_list_img" title="新聞" href="#" style="background-image: url(/img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 pl-3 news_list_txt">
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
                             <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
-                            <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
+                            <a href="#" title="新聞"><span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span></a>
                             <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
                             <div class="fb_search_btn">
                               <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
@@ -334,9 +342,70 @@
                       </div>
                     </div>
 
-                    
-                    <!--廣告-->
+                    <!--電腦版廣告-->
+                    <div class="col-md-12 col phone_hidden"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+                    <!--banner end -->
+
+                    <!--手機板廣告-->
                     <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
+                    
+
+
+                    <div class="col-md-12 col">
+
+                      <div class="cardshap ">
+                        <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-2 pl-2">
+                            <a class="img_div news_list_img" title="新聞" href="#" style="background-image: url(/img/component/photo2.jpg);"></a>
+                          </div>
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
+                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                            <a href="#" title="新聞"><span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span></a>
+                            <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
+                            <div class="fb_search_btn">
+                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-2 pl-2">
+                            <a class="img_div news_list_img" title="新聞" href="#" style="background-image: url(/img/component/photo2.jpg);"></a>
+                          </div>
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
+                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                            <a href="#" title="新聞"><span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span></a>
+                            <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
+                            <div class="fb_search_btn">
+                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                          <div class="col-md-4 col-6 py-2 pl-2">
+                            <a class="img_div news_list_img" title="新聞" href="#" style="background-image: url(/img/component/photo2.jpg);"></a>
+                          </div>
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
+                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
+                            <a href="#" title="新聞"><span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span></a>
+                            <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
+                            <div class="fb_search_btn">
+                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <!--廣告-->
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col">
                             <img src="http://placehold.it/365x100" alt="">
                         </div>
@@ -345,55 +414,14 @@
                         </div>
                     </div>
                     <!--廣告end-->
-
-
-                    <div class="col-md-12 col">
-
-                      <div class="cardshap ">
-                        <div class="row no-gutters py-3 mx-4 news_list">
-                          <div class="col-md-4">
-                            <a class="img_div news_list_img" title="新聞" href="#" style="background-image: url(/img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 pl-3 news_list_txt">
-                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
-                            <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
-                            <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
+                    <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
                         </div>
-
-                        <div class="row no-gutters py-3 mx-4 news_list">
-                          <div class="col-md-4">
-                            <a class="img_div news_list_img" title="新聞" href="#" style="background-image: url(/img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 pl-3 news_list_txt">
-                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
-                            <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
-                            <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row no-gutters py-3 mx-4 news_list">
-                          <div class="col-md-4">
-                            <a class="img_div news_list_img" title="新聞" href="#" style="background-image: url(/img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 pl-3 news_list_txt">
-                            <a href="#" title="新聞"><h3>遊日血拼大回饋 信用卡大調查</h3></a><small><a href="#" title="新聞">(XXX)</a></small>
-                            <a href="#" title="新聞"><span>活動日期:20XX/XX/XX~20XX/XX/XX</span></a>
-                            <a href="#" title="新聞"><p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p></a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
                     </div>
+                    <!--廣告end-->
+                    
 
 
 
@@ -602,28 +630,28 @@
                              <div class="journey_icon">
                                <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"> <i class="fa fa-arrow-circle-right mr-2"></i>東京篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about.php"> <i class="fa fa-arrow-circle-right mr-2"></i>東京篇</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>東北篇</a>
-                                 </div>
-                               </div>
-                               <hr>
-                                <div class="row no-gutters">
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>關西篇</a>
-                                 </div>
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>九州篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_4.php"><i class="fa fa-arrow-circle-right mr-2"></i>東北篇</a>
                                  </div>
                                </div>
                                <hr>
                                 <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>北海道篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_2.php"><i class="fa fa-arrow-circle-right mr-2"></i>關西篇</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>沖繩篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_5.php"><i class="fa fa-arrow-circle-right mr-2"></i>九州篇</a>
+                                 </div>
+                               </div>
+                               <hr>
+                                <div class="row no-gutters">
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_3.php"><i class="fa fa-arrow-circle-right mr-2"></i>北海道篇</a>
+                                 </div>
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_6.php"><i class="fa fa-arrow-circle-right mr-2"></i>沖繩篇</a>
                                  </div>
                                </div>
                              </div>
@@ -711,16 +739,21 @@
                   <!-- 廣告end-->
                     
                     <?php 
-                     //-- 共用footer --
-                     require '../../share_area/footer.php';
+                     //-- 共用Footer --
+                     if (wp_is_mobile()) {
+                        require '../../share_area/phone/footer.php';
+                     }
+                     else{
+                       require '../../share_area/footer.php';
+                      }
                     ?>
                     
 
                 </div>
             </div>
             <!--版面右側end-->
-             <!--廣告-->
-                    <div class="col-md-12 row">
+            <!--廣告-->
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/468x60" alt="">
                         </div>
@@ -728,7 +761,7 @@
                             <img src="http://placehold.it/468x60">
                         </div>
                     </div>
-                    <!--廣告end-->
+           <!--廣告end-->
         </div>
         <!--版面end-->
         

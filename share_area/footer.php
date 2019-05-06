@@ -20,7 +20,7 @@
 
 <div class="col-md-12 col">
   <div class="footer_div">
-     <img src="../img/component/logo_footer.png" alt="">
+     <img src="/img/component/logo_footer.png" alt="">
      <p>
         威辰資通 版權所有 <br>
         Copyright Ⓒ Starwin All Rights Reserved.

@@ -169,8 +169,38 @@
                   
                   </div>
 
-                    <!--廣告-->
-                    <div class="col-md-12 col"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
+                   <!--廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
+                        </div>
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
+                        </div>
+                    </div>
+                    <!--廣告end-->
                     
                    <!--特別議題-->
                     <div class="col-md-12 col">
@@ -446,8 +476,7 @@
                         </div>
                       </div>
                     </div>
-                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
+                     
                      <!--最新文章-->
                     <div class="col-md-12 col">
 
@@ -576,6 +605,16 @@
                       </div>
                     </div>
                     <!--最新文章end -->
+                    <!--廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                        <div class="col-md-6 col">
+                            <img src="http://placehold.it/365x100">
+                        </div>
+                    </div>
+                    <!--廣告end-->
                    
 
                     
@@ -822,6 +861,53 @@
                         </div>
                       </div>
                     
+                    </div>
+                    <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
+                    </div>
+
+                    <div class="col-md-12 col">
+                       <div class="cardshap hotCard tab_one pink_tab">
+                           <div class="title_tab hole">
+                               <h4>辦卡推薦 </h4>
+                           </div>
+                           <div class="content_tab">
+                               <div class="row no-gutters">
+                                 <div class="col-5">
+                                  <a class="img_a" href="#">
+                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                  </a>
+                                 </div>
+                                 <div class="col-7">
+                                  <a href="#">
+                                    <h4>匯豐現金回饋玉璽卡</h4>
+                                  </a>
+                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                 </div>
+                               </div>
+
+                               <div class="row no-gutters">
+                                 <div class="col-5">
+                                  <a class="img_a" href="#">
+                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
+                                  </a>
+                                 </div>
+                                 <div class="col-7">
+                                  <a href="#">
+                                    <h4>匯豐現金回饋玉璽卡</h4>
+                                  </a>
+                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
+                                 </div>
+                               </div>
+
+                           </div>
+                       </div>
+                    </div>
+
+                     <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
                     </div>
 
                     

@@ -1,5 +1,51 @@
-<?php 
- require '../share_area/conn.php';
+<?php session_start();
+//尚未load出舊照片
+//目前暫時用tb_index進入的內容頁
+require '../share_area/conn.php';
+require '../share_area/get_news.php';
+
+$todayis=date("Y-m-d"); //取得要查詢的日期，預設為今日
+
+//取出ID 
+$temparray=explode("?",$_SERVER[REQUEST_URI]);
+
+//echo $temparray[1];
+
+if (!$temparray[1]) {
+  location_up('back','好像有東西出錯了唷，請回上一頁');
+
+}else{
+     $sql_temp="
+      SELECT ns_ftitle,ns_stitle,ns_reporter,ns_photo_1,ns_alt_1,ns_msghtml,Tb_index,StartDate,ns_date,ns_nt_pk FROM  appNews
+      where StartDate<='$todayis' and EndDate>='$todayis'
+      and Tb_index='$temparray[1]'
+      and ns_verify=3 and OnLineOrNot=1 
+      order by ns_vfdate desc
+      ";
+     
+
+    $row=pdo_select($sql_temp, $where);
+
+
+    //取出類別資料
+    $pk = $row['ns_nt_pk'];
+
+
+    $row_pk=pdo_select("SELECT * FROM news_type WHERE Tb_index='$pk'", $where);
+
+    //echo "SELECT * FROM news_type WHERE Tb_index='$pk'";
+    $nt_pk =$row_pk['Tb_index'];
+    $nt_name =$row_pk['nt_name'];
+
+    //取出商店資料
+    $store_id = $row['ns_store'];
+    $row_store=pdo_select("SELECT * FROM `store` WHERE `Tb_index` LIKE '$store_id'", $where);
+
+    //echo "SELECT * FROM news_type WHERE Tb_index='$pk'";
+    $st_id =$row_store['Tb_index'];
+    $st_name =$row_store['nt_name'];
+    $st_logo =$row_store['st_logo'];
+    }
 ?>
 <!DOCTYPE html>
 
@@ -57,7 +103,7 @@
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="pay_second.php">優行動Pay</a> / <a href="javascript:;">購物</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/">首頁</a> / <a href="/pay/">優行動Pay</a> / <a href="javascript:;"><?php echo $nt_name?></a></p>
           </div>
         </div>
         
@@ -75,15 +121,32 @@
 
                       <div class="cardshap ">
                         <div class="pt-3 mx-3 detail_title">
-                        <h2>Android Pay支付　快樂購點數限時送</h2>
+                        <h2><?php echo $row['ns_ftitle'];?></h2>
                           <div class="row no-gutters my-3">
 
                             <div class="col-md-8 col-12">
-                              <h4>5大通路回饋點數大方送</h4>
+                              <h4><?php echo $row['ns_stitle'];?></h4>
                             </div> 
+                            <?php 
+                            //日期呈現
+                            if($row['activity_s_date'] and $row['activity_e_date']){
+                              $data_temp = "活動時間：".$row['activity_s_date']."~".$row['activity_e_date'];
+
+                            }else if($row['activity_s_date'] and !$row['activity_e_date']){
+                              $data_temp = "活動開始時間：".$row['activity_s_date'];
+
+                            }else if(!$row['activity_s_date'] and $row['activity_e_date']){
+                              $data_temp = "活動時間：即日起~".$row['activity_e_date'];
+
+                            }else if(!$row['activity_s_date'] and !$row['activity_e_date']){
+                              $data_temp ="活動時間：即日起～";
+
+                            }
+
+                            ?>
 
                             <div class="col-md-8 col-12">
-                              <a><img src="../img/component/pay.png"> </a><p>活動時間： 20XX/XX/XX~20XX/XX/XX</p>
+                              <?php if($st_logo){?><a><img src="../sys/img/<?php echo $st_logo?>"> </a><?php }?><p><?php echo $data_temp;?></p>
                             </div>
 
                             <div class="col-md-4 col-12">
@@ -108,19 +171,11 @@
 
                         <div class="pb-3 mx-3 detail_content">
                           <div class="con_img">
-                            <img src="../img/component/photo1.jpg" alt="" title="新聞">
+                            <img src="<?php echo "../sys/img/".$row['ns_photo_1'];?>" alt="<?php echo $row['ns_ftitle'];?>" title="<?php echo $row['ns_ftitle'];?>">
                            
                           </div>
                             
-                            <p>活動期間於指定通路消費使用Android Pay支付並累點，即享點數回饋： </p>
-                           
-                            <p>◎全家便利商店：使用Android Pay於全家消費支付，並使用Android Pay快樂購卡累點即加贈30點。(活動期間每人限贈一次，數量有限，送完為止)。</p>
-
-                            <p>◎愛買、遠東SOGO、Big City遠東巨城購物中心、The Mall遠企購物中心：於指定通路消費並使用Android Pay支付，同時以Android Pay快樂購卡累點成功，即贈50點，第二次加贈50點，第三次則加贈100點。</p>
-                            <p>(活動期間全通路皆可累計，每人每日限贈一次，最高限贈三次共200點，數量有限，送完為止)</p>
-
-                            <p><b>◎注意事項：</b><br> 
-                            依不同通路，活動始末時間各有不同。</p>
+                            <?php echo $row['ns_msghtml'];?>
 
                             <p><b>◎延伸閱讀：</b><br>
                             ▶▶<a href="#">橘子支嗶全家　享10%現金回饋</a><br>
@@ -151,7 +206,15 @@
 
                     
                      <!--廣告-->
-                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col hv-center banner">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                        <div class="col-md-6 col hv-center banner">
+                            <img src="http://placehold.it/365x100">
+                        </div>
+                    </div>
+                    <!--廣告end-->
 
 
                    
@@ -168,23 +231,23 @@
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters">
-                                <div class="col-md-4 cards-3 py-md-2 col-6">
+                                <div class="col-md-4 cards-3 py-md-2 col-12">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
                                 </div>
-                                <div class="col-md-4 cards-3 py-md-2 col-6">
+                                <div class="col-md-4 cards-3 py-md-2 col-12">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
                                 </div>
-                                <div class="col-md-4 cards-3 py-md-2 col-6">
+                                <div class="col-md-4 cards-3 py-md-2 col-12">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
@@ -211,23 +274,23 @@
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters">
-                                <div class="col-md-4 cards-3 py-md-2 col-6">
+                                <div class="col-md-4 cards-3 py-md-2 col-12">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
                                 </div>
-                                <div class="col-md-4 cards-3 py-md-2 col-6">
+                                <div class="col-md-4 cards-3 py-md-2 col-12">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
                                 </div>
-                                <div class="col-md-4 cards-3 py-md-2 col-6">
+                                <div class="col-md-4 cards-3 py-md-2 col-12">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
@@ -243,18 +306,131 @@
                     <!--相關好康end -->
 
                     
-                    
                     <!--廣告-->
                     <div class="col-md-12 row">
-                        <div class="col-md-6 col hv-center banner">
-                            <img src="http://placehold.it/365x100" alt="">
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
                         </div>
-                        <div class="col-md-6 col hv-center banner">
-                            <img src="http://placehold.it/365x100">
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
                         </div>
                     </div>
                     <!--廣告end-->
+                    <!--信用卡推薦-->
+                    <div class="col-md-12 col">
 
+                        <div class="cardshap blueGreen_tab phone_hidden">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                          <li class="nav-item news_tab">
+                            <a class="nav-link active pl-30 py-2" id="special_1-tab" data-toggle="tab" href="#special_1" role="tab" aria-controls="special_1" aria-selected="true">信用卡推薦</a>
+                          </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
+
+                            <div class="row no-gutters mx-2 py-3 card_list">
+                              <div class="col-md-4 text-center">
+                                <a class="card_list_img" href="#">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                </a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
+                              </div>
+                              <div class="col-md-4 card_list_txt">
+                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                <ul>
+                                  <li>國內現金回饋1.22%</li>
+                                  <li>國外現金回饋2.22%</li>
+                                  <li>感應式刷卡快速結帳</li>
+                                  <li>高額旅遊平安險</li>
+                                  <li>華航機票優惠</li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4 ">
+                                <a class="img_div card_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                <p>謹慎理財 信用至上</p>
+                              </div>
+                            </div>
+
+                            <div class="row no-gutters mx-2 py-3 card_list">
+                              <div class="col-md-4 text-center">
+                                <a class="card_list_img" href="#">
+                                  <img src="../img/component/card2.png" alt="" title="新聞">
+                                </a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
+                              </div>
+                              <div class="col-md-4 card_list_txt">
+                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                <ul>
+                                  <li>國內現金回饋1.22%</li>
+                                  <li>國外現金回饋2.22%</li>
+                                  <li>感應式刷卡快速結帳</li>
+                                  <li>高額旅遊平安險</li>
+                                  <li>華航機票優惠</li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4 ">
+                                <a class="img_div card_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                <p>謹慎理財 信用至上</p>
+                              </div>
+                            </div>
+
+                            <div class="row no-gutters mx-2 py-3 card_list">
+                              <div class="col-md-4 text-center">
+                                <a class="card_list_img" href="#">
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
+                                </a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
+                              </div>
+                              <div class="col-md-4 card_list_txt">
+                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                <ul>
+                                  <li>國內現金回饋1.22%</li>
+                                  <li>國外現金回饋2.22%</li>
+                                  <li>感應式刷卡快速結帳</li>
+                                  <li>高額旅遊平安險</li>
+                                  <li>華航機票優惠</li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4 ">
+                                <a class="img_div card_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                <p>謹慎理財 信用至上</p>
+                              </div>
+                            </div>
+
+
+
+
+                           
+                          </div>
+                         
+                        </div>
+                      </div>
+                    </div>
+                    <!--信用卡推薦end -->
+
+                    
                     
                     
 
@@ -516,10 +692,7 @@
                     
                     </div>
                     
-                     <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
+                     
                     
                     <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one blueGreen_tab">

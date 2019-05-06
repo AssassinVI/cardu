@@ -1,5 +1,43 @@
-<?php 
- require '../share_area/conn.php';
+<?php session_start();
+//尚未load出舊照片
+//目前暫時用tb_index進入的內容頁
+require '../share_area/conn.php';
+require '../share_area/get_news.php';
+
+$todayis=date("Y-m-d"); //取得要查詢的日期，預設為今日
+
+//取出ID 
+$temparray=explode("?",$_SERVER[REQUEST_URI]);
+
+//echo $temparray[1];
+
+if (!$temparray[1]) {
+  location_up('back','好像有東西出錯了唷，請回上一頁');
+
+}else{
+     $sql_temp="
+      SELECT ns_ftitle,ns_stitle,ns_reporter,ns_photo_1,ns_alt_1,ns_msghtml,Tb_index,StartDate,ns_date,ns_nt_pk FROM  appNews
+      where mt_id = 'site2018111910430599' and ns_vfdate<>'0000-00-00 00:00:00' 
+      and StartDate<='$todayis' and EndDate>='$todayis'
+      and Tb_index='$temparray[1]'
+      order by ns_vfdate desc
+      ";
+     
+    $row=pdo_select($sql_temp, $where);
+
+
+    //取出類別資料
+    $pk = $row['ns_nt_pk'];
+
+
+    $row_pk=pdo_select("SELECT * FROM news_type WHERE Tb_index='$pk'", $where);
+
+    //echo "SELECT * FROM news_type WHERE Tb_index='$pk'";
+    $nt_pk =$row_pk['Tb_index'];
+    $nt_name =$row_pk['nt_name'];
+    }
+
+
 ?>
 <!DOCTYPE html>
 
@@ -57,7 +95,7 @@
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="news.php">新聞</a> / <a href="news_second.php">焦點</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="/news/">新聞</a> / <a href="list.php?nt_pk=<?php echo $nt_pk?>"><?php echo $nt_name;?></a></p>
           </div>
         </div>
         
@@ -74,12 +112,12 @@
 
                       <div class="cardshap ">
                         <div class="pt-3 mx-3 detail_title">
-                          <h2>JCB信用卡日本遊樂去　25家現金回饋總整理</h2>
+                          <h2><?php echo $row['ns_ftitle'];?></h2>
                           <div class="row no-gutters my-3">
 
                             <div class="col-md-8 col-12">
-                              <h4>永豐遠銀4.5%最大方　大眾最高4.2%華南3.2%</h4>
-                               <p>記者 溫子豪 報導 2017/08/17</p>
+                              <h4><?php echo $row['ns_stitle'];?></h4>
+                               <p>記者 <?php echo $row['ns_reporter'];?> 報導 <?php echo $row['ns_date'];?></p>
                             </div>
                             <div class="col-md-4 col-12">
                                <div class="search_div hv-center">
@@ -90,7 +128,7 @@
                                  <a id="arrow_btn" class="search_btn" href="javascript:;"><img src="../img/component/search/arrow.png" alt="" title="更多"></a>
                                </div>
                                <div class="more_search">
-                                 <a target="_blank" href="print.php"><img src="../img/component/search/print.png" alt="" title="列印"></a>
+                                 <a target="_blank" href="print.php?<?php echo $temparray[1]?>"><img src="../img/component/search/print.png" alt="" title="列印"></a>
                                  <a href="javascript:;" data-fancybox data-src="#member_div"><img src="../img/component/search/work.png" alt="" title="收藏"></a>
                                  <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_mail.php"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
                                  <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
@@ -103,46 +141,29 @@
 
                         <div class="pb-3 mx-3 detail_content">
                           <div class="con_img">
-                            <img src="../img/component/photo1.jpg" alt="" title="新聞">
-                            <p>▲JCB砸重本舉辦「夏日遊樂祭」，在9月底前釋出日本實體商店刷卡2%起現金回饋的好康 (圖/卡優新聞網)</p>
-                          </div>
-                          
-                            <p>
-                            JCB第3年啟動「夏日遊樂祭」活動，攜手25家銀行祭出日幣消費現金回饋優惠，其中以永豐與遠銀最大方，滿額最高加碼至4.5%回饋，大眾與華南指定卡別達標也有4.2%、3.2%回饋，此外還有9家提供2.5%「賺很大」。
-                            </p>
-                            <p>
-                            　　為衝高動卡率及刷卡量，JCB再度砸重本舉辦「夏日遊樂祭」，在9月底前釋出日本實體商店刷卡2%起的現金回饋。25家發卡銀行紛紛額外加碼，像是持永豐保倍晶緻悠遊卡於日本購物滿20萬元新台幣，即享4.5%回饋，達40萬元再贈千元加油券；遠銀除了原有1%優惠外，累計滿1萬元贈150元回饋金，達10萬元再加送2,000元，回饋加總最高也有4.5%。
-                            </p>
-                            <p>
-                            　　回饋率3%以上的銀行有大眾、華南、聯邦與上海銀等4家業者，大眾JCB卡友於日本刷滿2.5萬元新台幣，登錄後回饋2.2%，而icash樂享晶緻卡友加計海外2%回饋，最高享4.2%；華南旅鑽極緻卡包含原2.2%，就有3.2%回饋；聯邦銀行「阿殺力」直接給3%福利，上海銀卡友日本消費3,000元新台幣以上，現金回饋合計也可達3%。
-                            </p>
+                            <img src="<?php echo "../sys/img/".$row['ns_photo_1'];?>" alt="<?php echo $row['ns_ftitle'];?>" title="<?php echo $row['ns_ftitle'];?>">
+                            <p>▲<?php echo $row['ns_alt_1'];?></p>
+                             
 
-                          <div class="con_img">
-                            <img src="../img/component/photo1.jpg" alt="" title="新聞">
-                            <p>▲JCB砸重本舉辦「夏日遊樂祭」，在9月底前釋出日本實體商店刷卡2%起現金回饋的好康 (圖/卡優新聞網)</p>
                           </div>
-
-                          <p>
-                            　　安泰、新光、台新、凱基、合庫、台中銀與樂天等7家銀行則祭出2.5%以上回饋。
-                            比方安泰採階級式回饋，最高刷滿60萬元新台幣回饋2.7%；新光、凱基與台中銀JCB信
-                            用卡原本就有1.5%，加總累積最高可達2.5%；樂天信用卡則是以免1.5%手續費計算，
-                            加上刷卡贈1%樂天超級點數，雖並非採現金回饋方式，不過換算後同樣有2.5%；而元
-                            大鑽金icash聯名卡、鑽金一卡通聯名卡維持海外2.2%優惠。
-                          </p>
-                          <p>
-                            　　日盛、玉山、一銀、土銀、彰銀、國泰世華、台北富邦、兆豐、陽信、中國信託與
-                            台灣永旺等11家銀行以基本2%現金回饋為主，不過若扣除1.5%海外交易手續費，還能
-                            賺回0.5%回饋金。計畫前往日本「大血拼」的持卡人，出國前必備這25家銀行JCB信用
-                            卡，讓旅程買得開心、玩得暢心！
-                          </p>
+                            
+                            <?php echo $row['ns_msghtml'];?>
                         </div>
-
+                        
                       </div>
                     </div>
 
                     
-                     <!--廣告-->
-                    <div class="col-md-12 col banner"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
+                    <!--廣告-->
+                    <div class="col-md-12 row phone_hidden">
+                        <div class="col-md-6 col hv-center banner">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                        <div class="col-md-6 col hv-center banner">
+                            <img src="http://placehold.it/365x100">
+                        </div>
+                    </div>
+                    <!--廣告end-->
 
 
                     <!--延伸閱讀-->
@@ -209,19 +230,42 @@
                       </div>
                     </div>
                     <!--延伸閱讀end -->
-
-                    
-                    
                     <!--廣告-->
-                    <div class="col-md-12 row phone_hidden">
-                        <div class="col-md-6 col hv-center banner">
-                            <img src="http://placehold.it/365x100" alt="">
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
                         </div>
-                        <div class="col-md-6 col hv-center banner">
-                            <img src="http://placehold.it/365x100">
+                        <div class="col-md-6 col ad_news">
+                          <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
                         </div>
                     </div>
                     <!--廣告end-->
+
+                    
+                    
+                    
 
                     
                     <!--信用卡推薦-->
@@ -604,6 +648,11 @@
                     
                     </div>
 
+                     <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
+                    </div>
+
                     <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one blue_tab">
                            <div class="title_tab hole">
@@ -640,6 +689,11 @@
 
                            </div>
                        </div>
+                    </div>
+
+                     <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
                     </div>
 
                     <div class="col-md-12 col">
@@ -701,12 +755,19 @@
       js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.2&appId=319016928941764&autoLogAppEvents=1';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-
+    
 
     <?php 
      //-- 共用JS --
      require '../share_area/share_js.php';
     ?>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        //-- alt 圖說 --
+        img_txt('.detail_content p img');
+      });
+    </script>
 
   </body>
 </html>

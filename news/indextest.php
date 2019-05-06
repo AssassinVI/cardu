@@ -1,6 +1,3 @@
-<?php 
- require '../share_area/conn.php';
-?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">

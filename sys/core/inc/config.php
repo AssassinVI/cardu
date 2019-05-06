@@ -10,6 +10,7 @@ function pdo_conn() {
 
 	$dsn = "mysql:host=localhost;dbname=" . $dbanme;
 	$db = new PDO($dsn, $user_id, $user_pwd);
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); //禁用prepared statements的模擬效果
 	$db->exec("SET NAMES UTF8");
 	return $db;
 }

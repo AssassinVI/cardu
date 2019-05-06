@@ -20,7 +20,7 @@ return str_replace($search, $replace, $str);
 //$y                 在此區下的頁籤序號:例如：專題＝1,卡訊=2,行動pay=3,是由系統回圈自動產生的，目前僅做為標示目前在第幾標籤用，尚無實質用途
 //spacialornot       是否為特殊議題:如果是特別議題=1，就查ns_nt_sp_pk,否則就查一般分類編號ns_nt_pk
 //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-function getNews($Tb_index,$todayis,$mt_id,$activeornot,$y,$spacialornot)
+function getNews($Tb_index,$todayis,$mt_id,$activeornot,$y,$spacialornot,$mt_id_name='mt_id')
 { 
   if ($spacialornot==1){
     $getcolumn="ns_nt_sp_pk";
@@ -30,16 +30,22 @@ function getNews($Tb_index,$todayis,$mt_id,$activeornot,$y,$spacialornot)
   }
 
     //依主題取出對映的列表＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+    //1.設定主單元編號 及 文章編號
+    //2.ns_verify=3 才能算上架中
+    //3.需在公開時間之內
+    //4.以審稿日期為主排序
+    //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
     $pdo=pdo_conn();
     $sql_part=$pdo->prepare("
       SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
-      where mt_id = '$mt_id' and $getcolumn='$Tb_index'
-      and ns_vfdate<>'0000-00-00 00:00:00' 
+      where $mt_id_name = '$mt_id' and $getcolumn='$Tb_index' 
       and  StartDate<='$todayis' and EndDate>='$todayis'
+      and ns_verify=3
       order by ns_vfdate desc
       LIMIT 0, 6
    
       ");
+
     $sql_part->execute();
 
 

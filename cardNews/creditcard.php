@@ -1,5 +1,18 @@
 <?php 
  require '../share_area/conn.php';
+ 
+ //-- 紀錄瀏覽信用卡 --
+ if (empty($_COOKIE['cc_id'])) {
+   setcookie('cc_id', $_GET['cc_pk'], time()+3600000, '/');
+ }
+ else{
+   setcookie('cc_id', $_COOKIE['cc_id'].','.$_GET['cc_pk'], time()+3600000, '/');
+ }
+
+ //echo $_COOKIE['cc_id'];
+
+ //setcookie('cc_id', '', time()-3600000,'/');
+
 ?>
 <!DOCTYPE html>
 
@@ -28,8 +41,8 @@
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:title" content="卡優新聞網" />
     <meta property="og:description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" />
-    <meta property="og:url" content="https://www.cardu.com.tw" />
-    <meta property="og:see_also" content="https://www.cardu.com.tw" />
+    <meta property="og:url" content="<?php echo $FB_URL;?>" />
+    <meta property="og:see_also" content="<?php echo $URL;?>" />
       
       
     <?php 
@@ -78,29 +91,30 @@
 
                       <div class="cardshap ">
                         <div class="row no-gutters pt-3 mx-3 detail_title">
-                          <div class="col-8">
+                          <div class="col-md-8">
                           <h2>
                             <i><img src="../img/component/pay.png"></i>元大銀行元大鑽金卡_VISA_御璽卡
                           </h2>
                           </div>
 
                            <div class="col-md-4">
+                                <!-- 分享 -->
                                <div class="search_div hv-center">
-                                 
                                 <div class="fb-like mr-2" data-href="http://srl.tw/cardu/news_detail.html" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
-                                 <a class="search_btn" href="#"><img src="../img/component/search/fb.png" alt="" title="Fb分享"></a>
-                                 <a class="search_btn" href="#"><img src="../img/component/search/line.png" alt="" title="Line分享"></a>
-                                 <a class="search_btn" href="#"><img src="../img/component/search/message.png" alt="" title="留言"></a>
-                                 <a id="arrow_btn" class="search_btn" href="javascript:;"><img src="../img/component/search/arrow.png" alt="" title="往下開啟"></a>
+                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://www.facebook.com/dialog/feed?app_id=319016928941764&display=popup&link=<?php echo $FB_URL;?>&redirect_uri=https://www.facebook.com/', 'FB分享', config='height=600,width=800');"><img src="../img/component/search/fb.png" alt="" title="分享"></a>
+                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://social-plugins.line.me/lineit/share?url=<?php echo $FB_URL;?>', 'LINE分享', config='height=600,width=800');"><img src="../img/component/search/line.png" alt="" title="Line"></a>
+                                <a class="search_btn" href="#fb_message"><img src="../img/component/search/message.png" alt="" title="訊息"></a>
+                                 <a id="arrow_btn" class="search_btn" href="javascript:;"><img src="../img/component/search/arrow.png" alt="" title="更多"></a>
                                </div>
                                <div class="more_search">
-                                 <a href="#"><img src="../img/component/search/print.png" alt="" title="列印"></a>
-                                 <a href="#"><img src="../img/component/search/work.png" alt="" title="收藏"></a>
-                                 <a href="#"><img src="../img/component/search/mail.png" alt="" title="轉寄"></a>
-                                 <a href="#"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
+                                 <a target="_blank" href="print.php?<?php echo $temparray[1]?>"><img src="../img/component/search/print.png" alt="" title="列印"></a>
+                                 <a href="javascript:;" data-fancybox data-src="#member_div"><img src="../img/component/search/work.png" alt="" title="收藏"></a>
+                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_mail.php"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
+                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
                                </div>
+                               <!-- 分享 END -->
                             </div>
-                            <div class=" col-md-12 row debit_card col ">
+                            <div class=" col-md-12 row debit_card col">
                             <div class="col-md-5 text-center col0">
                              <img src="../img/component/cardNews/card_big.png" title="新聞"><br>
                              <div class="card_btn  hv-center">
@@ -110,18 +124,18 @@
                             
 
                             </div>
-                            <div class="col-md-7">
-                             <div class="row no-gutters">
+                            <div class="col-md-7 col0">
+                             <div class="row no-gutters ph-center">
                               
                                 
                                <ul>
-                                 <li class="mr-2">
+                                 <li class="mr-md-2">
                                   <a href="#"><img src="../img/component/ccprize.png">
                                     <h5>現金回饋</h5>
                                     <b>1</b>
                                   </a>
                                  </li>
-                                 <li class="mr-2">
+                                 <li class="mr-md-2">
                                   <a href="#"><img src="../img/component/ccprize.png">
                                     <h5>現金回饋</h5>
                                     <b>1</b>
@@ -191,8 +205,17 @@
                     </div>
 
                     
-                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
+                    <!--廣告-->
+                    <div class="col-md-12 col phone_hidden"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+                    <!--banner end -->
+
+                    <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
 
                           
                      <!--特別議題-->
@@ -200,16 +223,16 @@
 
                         <div class="cardshap brown_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab">
+                          <li class="nav-item news_tab four_tab">
                             <a class="nav-link active pl-30 py-2" id="special_1-tab" href="javascript:;" tab-target="#special_1" aria-selected="true">重要權益</a>
                           </li>
-                          <li class="nav-item news_tab">
+                          <li class="nav-item news_tab four_tab">
                             <a class="nav-link py-2" id="special_2-tab" href="javascript:;" tab-target="#special_2" aria-selected="false">全部權益</a>
                           </li>
-                          <li class="nav-item news_tab">
+                          <li class="nav-item news_tab four_tab">
                             <a class="nav-link py-2" id="special_3-tab" href="javascript:;" tab-target="#special_3" aria-selected="false">資訊內容</a>
                           </li>
-                          <li class="nav-item news_tab">
+                          <li class="nav-item news_tab four_tab">
                             <a class="nav-link py-2" id="special_4-tab" href="javascript:;" tab-target="#special_4" aria-selected="false">網友留言</a>
                           </li>
                         </ul>
@@ -217,24 +240,24 @@
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row imp_int_title">
-                              <div class="col-3 text-center">權益項目</div>
-                              <div class="col-9 text-center">內容說明(謹慎理財，信用至上)</div>
+                              <div class="col-md-3 text-center">權益項目</div>
+                              <div class="col-md-9 text-center">內容說明(謹慎理財，信用至上)</div>
                             </div>
                             <div class="accordion imp_int" id="accordionExample">
 
                               <div class="card txt_detail">
                                 <div class="card-header hv-center" id="imp_int1">
                                   <div class="row w-h-100">
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                       <p class="hv-center mb-0">
                                         <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="現金回饋">
                                         <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">現金回饋
                                       </p>
                                     </div>
-                                    <div class="col-8 v-center border-left border-right">
+                                    <div class="col-md-8 ph-center border-left border-right">
                                       <p class="mb-0">國內：1.2%，國外：2.2% <br> (當月消費3,000元以上)</p>
                                     </div>
-                                    <div class="col-1 hv-center">
+                                    <div class="col-md-1 hv-center">
                                       <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt1" aria-expanded="true" aria-controls="imp_int_txt1" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
@@ -244,9 +267,9 @@
                                 <div id="imp_int_txt1" class="collapse" aria-labelledby="imp_int1" data-parent="#accordionExample">
                                   <div class="card-body">
                                     <div class="row w-h-100">
-                                     <div class="col-3">
+                                     <div class="col-md-3">
                                      </div>
-                                     <div class="col-8">
+                                     <div class="col-md-8">
                                        <p class="collapse_txt mb-0">
                                         國內消費：1.2%，國外消費：2.2% <br>
                                         優惠期限至105/06/30，回饋金額無上限
@@ -263,16 +286,16 @@
                               <div class="card txt_detail">
                                 <div class="card-header hv-center" id="imp_int2">
                                   <div class="row w-h-100">
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                       <p class="hv-center mb-0">
                                         <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="旅遊保險">
                                         <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">旅遊保險
                                       </p>
                                     </div>
-                                    <div class="col-8 v-center border-left border-right">
+                                    <div class="col-md-8 ph-center border-left border-right">
                                       <p class="mb-0">旅平險：800萬</p>
                                     </div>
-                                    <div class="col-1 hv-center">
+                                    <div class="col-md-1 hv-center">
                                       <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt2" aria-expanded="true" aria-controls="imp_int_txt2" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
@@ -282,15 +305,15 @@
                                 <div id="imp_int_txt2" class="collapse" aria-labelledby="imp_int2" data-parent="#accordionExample">
                                   <div class="card-body">
                                     <div class="row w-h-100">
-                                     <div class="col-3">
+                                     <div class="col-md-3">
                                      </div>
-                                     <div class="col-8">
+                                     <div class="col-md-8">
                                        <p class="collapse_txt mb-0">
                                         國內消費：1.2%，國外消費：2.2% <br>
                                         優惠期限至105/06/30，回饋金額無上限
                                        </p>
                                      </div>
-                                     <div class="col-1">
+                                     <div class="col-md-1">
                                      </div>
                                     
                                   </div>
@@ -301,16 +324,16 @@
                               <div class="card txt_detail">
                                 <div class="card-header hv-center" id="imp_int3">
                                   <div class="row w-h-100">
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                       <p class="hv-center mb-0">
                                         <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="機場接送">
                                         <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">機場接送
                                       </p>
                                     </div>
-                                    <div class="col-8 v-center border-left border-right">
+                                    <div class="col-md-8 ph-center border-left border-right">
                                       <p class="mb-0">一年兩次 <br> (前兩個月消費1萬元)</p>
                                     </div>
-                                    <div class="col-1 hv-center">
+                                    <div class="col-md-1 hv-center">
                                       <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt3" aria-expanded="true" aria-controls="imp_int_txt3" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
@@ -320,15 +343,15 @@
                                 <div id="imp_int_txt3" class="collapse" aria-labelledby="imp_int3" data-parent="#accordionExample">
                                   <div class="card-body">
                                     <div class="row w-h-100">
-                                     <div class="col-3">
+                                     <div class="col-md-3">
                                      </div>
-                                     <div class="col-8">
+                                     <div class="col-md-8">
                                        <p class="collapse_txt mb-0">
                                         國內消費：1.2%，國外消費：2.2% <br>
                                         優惠期限至105/06/30，回饋金額無上限
                                        </p>
                                      </div>
-                                     <div class="col-1">
+                                     <div class="col-md-1">
                                      </div>
                                     
                                   </div>
@@ -339,16 +362,16 @@
                               <div class="card txt_detail">
                                 <div class="card-header hv-center" id="imp_int4">
                                   <div class="row w-h-100">
-                                    <div class="col-3 hv-center">
+                                    <div class="col-md-3 hv-center">
                                       <p class="hv-center mb-0">
                                         <input class="big_checkbox mr-2" type="checkbox" name="imp_check" value="道路救援">
                                         <img class="mr-1" src="../img/component/cardNews/icon/blue_1.png" alt="">道路救援
                                       </p>
                                     </div>
-                                    <div class="col-8 v-center border-left border-right">
+                                    <div class="col-md-8 ph-center border-left border-right">
                                       <p class="mb-0">100公里 <br> (前三個月累積消費3千元以上)</p>
                                     </div>
-                                    <div class="col-1 hv-center">
+                                    <div class="col-md-1 hv-center">
                                       <button title="更多資訊" class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt4" aria-expanded="true" aria-controls="imp_int_txt4" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
@@ -358,15 +381,15 @@
                                 <div id="imp_int_txt4" class="collapse" aria-labelledby="imp_int4" data-parent="#accordionExample">
                                   <div class="card-body">
                                     <div class="row w-h-100">
-                                     <div class="col-3">
+                                     <div class="col-md-3">
                                      </div>
-                                     <div class="col-8">
+                                     <div class="col-md-8">
                                        <p class="collapse_txt mb-0">
                                         國內消費：1.2%，國外消費：2.2% <br>
                                         優惠期限至105/06/30，回饋金額無上限
                                        </p>
                                      </div>
-                                     <div class="col-1">
+                                     <div class="col-md-1">
                                      </div>
                                     
                                   </div>
@@ -504,23 +527,23 @@
                               </div>
                             
                             <div class="row no-gutters py-2">
-                                <div class="col-4 cards-3 text-center">
+                                <div class="col-md-4 cards-3 text-center">
                                    <a href="#">
-                                       <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3 text-center">
+                                <div class="col-md-4 cards-3 text-center">
                                    <a href="#">
-                                       <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3 text-center">
+                                <div class="col-md-4 cards-3 text-center">
                                    <a href="#">
-                                       <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
@@ -532,23 +555,23 @@
                               </div>
                           
                             <div class="row no-gutters py-2">
-                                <div class="col-4 cards-3 text-center">
+                                <div class="col-md-4 cards-3 text-center">
                                    <a href="#">
-                                       <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3 text-center">
+                                <div class="col-md-4 cards-3 text-center">
                                    <a href="#">
-                                       <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3 text-center">
+                                <div class="col-md-4 cards-3 text-center">
                                    <a href="#">
-                                       <div class="img_div" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
@@ -607,7 +630,7 @@
                    
                     
                     <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/365x100" alt="">
                         </div>
@@ -619,7 +642,7 @@
 
                     
                     <!--信用卡推薦-->
-                    <div class="col-md-12 col">
+                    <div class="col-md-12 col phone_hidden">
 
                         <div class="cardshap brown_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -699,10 +722,6 @@
                               </div>
                             </div>
 
-
-
-
-                           
                           </div>
                          
                         </div>
@@ -733,7 +752,7 @@
                     <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">
                            <div class="title_tab hole">
-                               <h4>熱門辦卡 </h4>
+                               <h4>熱門情報</h4>
                                <span>謹慎理財 信用至上</span>
                            </div>
                            <div class="content_tab">
@@ -959,6 +978,10 @@
                       </div>
                     
                     </div>
+                    <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
+                    </div>
 
                      <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">
@@ -1001,6 +1024,12 @@
                            </div>
                        </div>
                     </div>
+
+                    <!-- 廣告 -->
+                    <div class="col-md-12 col">
+                        <img src="http://placehold.it/300x250" alt="">
+                    </div>
+                    
                      <div class="col-md-12 col">
                        <div class="cardshap hotCard tab_one brown_tab">
                            <div class="title_tab hole">

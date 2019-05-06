@@ -1,11 +1,10 @@
 <?php 
- require '../sys/core/inc/config.php';
- require '../sys/core/inc/function.php';
- require '../sys/core/inc/pdo_fun_calss.php';
+ require dirname(__FILE__).'/../sys/core/inc/config.php';
+ require dirname(__FILE__).'/../sys/core/inc/function.php';
+ require dirname(__FILE__).'/../sys/core/inc/pdo_fun_calss.php';
 
-   $URL='http://'.$_SERVER['HTTP_HOST'];
-
-   $FB_URL='http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+   $URL='https://'.$_SERVER['HTTP_HOST'];
+   $FB_URL='https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
    $pdo=new PDO_fun;
 ?>

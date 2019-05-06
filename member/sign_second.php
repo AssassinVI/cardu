@@ -1,5 +1,11 @@
 <?php 
  require '../share_area/conn.php';
+
+ if ($_POST) {
+   
+   //-- GOOGLE recaptcha 驗證程式 --
+  GOOGLE_recaptcha('6Le2HRIUAAAAAJJbt4e5F6g6yuW-FmSAYg--3R43', $_POST['g-recaptcha-response'], 'back');
+ }
 ?>
 <!DOCTYPE html>
 
@@ -159,9 +165,10 @@
                                    </div>
                                  </div>
                                 <div class="row">
-                                   <label class="col-sm-2 col-form-label">*驗證碼</label>
+                                   <label class="col-sm-2 col-form-label">*驗證</label>
                                    <div class="col-sm-10 form-inline">
-                                     <input type="text" class="form-control" placeholder="*請輸入右圖驗證碼">
+                                     <!-- google 驗證碼 -->
+                                     <div class="g-recaptcha" data-sitekey="6Le2HRIUAAAAAJuw4gBeXfGm_RBmQ1ONISumalC0"></div>
                                    </div>
                                  </div>
                                 </div>
@@ -449,6 +456,9 @@
      //-- 共用jS --
      require '../share_area/share_js.php';
     ?>
+
+    <!-- GOOGLE recaptcha 驗證程式 -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
   </body>
 </html>

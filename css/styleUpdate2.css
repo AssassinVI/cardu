@@ -1,0 +1,540 @@
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 切換型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*----------------------------------------- 暗紫色 ------------------------------------------------*/
+
+.darkpurple_tab .nav-tabs .nav-item.show .nav-link, .darkpurple_tab .nav-tabs .nav-link.active { 
+color: #fff;
+background: #8d39cd; /* Old browsers */
+background: -moz-linear-gradient(top, #8d39cd 0%, #bc83e8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #8d39cd 0%,#bc83e8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #8d39cd 0%,#bc83e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8d39cd', endColorstr='#bc83e8',GradientType=0 ); /* IE6-9 */
+}
+
+.darkpurple_tab .nav-tabs{
+    border-bottom: 3px solid #bc83e8;  
+}
+
+.darkpurple_tab .nav-tabs .nav-link{ 
+    color: #b83de4;
+}
+
+.darkpurple_tab .nav-tabs .nav-item{
+   background-color: #faf3fc;
+}
+
+.darkpurple_tab .search_from select{ 
+    background-color: #f2e3f8;
+    background-image: url(../img/component/select_back_darkpurple.jpg);
+}
+
+.darkpurple_tab .card_list_txt b{
+    color: #8d39cd;
+    font-size: 2px;
+    margin-right: 5px;
+}
+
+.darkpurple_tab.hotCard .content_tab b{
+    color: #8d39cd;
+    font-size: 2px;
+}
+
+.darkpurple_tab .search_from button{
+    color: #fff;
+    background: rgb(198,113,229); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(198,113,229,1) 0%, rgba(146,83,168,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(198,113,229,1) 0%,rgba(146,83,168,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(198,113,229,1) 0%,rgba(146,83,168,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c671e5', endColorstr='#9253a8',GradientType=0 ); /* IE6-9 */
+}
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 單頁型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*----------------------------------------- 暗紫色 ------------------------------------------------*/
+.darkpurple_tab .title_tab{ 
+  color: #fff;
+background: #8d39cd; /* Old browsers */
+background: -moz-linear-gradient(top, #8d39cd 0%, #bc83e8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #8d39cd 0%,#bc83e8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #8d39cd 0%,#bc83e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8d39cd', endColorstr='#bc83e8',GradientType=0 ); /* IE6-9 */
+}
+
+.darkpurple_tab .tab_menu{ background-color: #fcf4ff; }
+.darkpurple_tab .tab_menu .menu a:hover{ color: #8d39cd;}
+.darkpurple_tab .tab_menu .menu a.ms_enter{ color: #8d39cd; }
+.darkpurple_tab .tab_menu .menu a:before{ background-color: #8d39cd; }
+.darkpurple_tab .row.imp_int_title{
+    background-color: #b069e6;
+    color:#fff;
+    font-weight: bold;
+    }
+
+.darkpurple_tab .search_from input{ background-color: #eff6fe;}
+/*----------------------------------------- 紫色end ------------------------------------------------*/
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 切換型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*----------------------------------------- 淺藍色 ------------------------------------------------*/
+
+.primary_tab .nav-tabs .nav-item.show .nav-link, .primary_tab .nav-tabs .nav-link.active { 
+color: #fff;
+background: #257db4; /* Old browsers */
+background: -moz-linear-gradient(top, #257db4 0%, #37a8ec 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #257db4 0%,#37a8ec 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #257db4 0%,#37a8ec 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#257db4', endColorstr='#37a8ec',GradientType=0 ); /* IE6-9 */
+}
+
+.primary_tab .nav-tabs{
+    border-bottom: 3px solid #37a8ec;  
+}
+
+.primary_tab .nav-tabs .nav-link{ 
+    color: #257DB4;
+}
+
+.primary_tab .nav-tabs .nav-item{
+   background-color: #fff;
+}
+
+.primary_tab .search_from select{ 
+    background-color: #fcf0d8;
+    background-image: url(../img/component/select_back_brown.jpg);
+    box-shadow: 2px 2px 10px 2px rgba(136,136,138,0.5);
+}
+
+.primary_tab .search_from button{
+    color: #fff;
+    background: rgb(198,113,229); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(198,113,229,1) 0%, rgba(146,83,168,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(198,113,229,1) 0%,rgba(146,83,168,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(198,113,229,1) 0%,rgba(146,83,168,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c671e5', endColorstr='#9253a8',GradientType=0 ); /* IE6-9 */
+}
+
+.primary_tab b{color:#2d90cd;}
+
+.primary_tab_btn button{
+   background: #00b7ea; /* Old browsers */
+background: -moz-linear-gradient(top, #00b7ea 0%, #43c4e8 43%, #0ba1bf 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #00b7ea 0%,#43c4e8 43%,#0ba1bf 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #00b7ea 0%,#43c4e8 43%,#0ba1bf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#0ba1bf',GradientType=0 ); /* IE6-9 */
+    border: none;
+    color: #fff !important;
+    box-shadow: 2px 2px 2px #484848;
+}
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 單頁型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*----------------------------------------- 淺藍色 ------------------------------------------------*/
+.primary_tab .title_tab{ 
+  color: #fff;
+background: #257db4; /* Old browsers */
+background: -moz-linear-gradient(top, #257db4 0%, #37a8ec 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #257db4 0%,#37a8ec 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #257db4 0%,#37a8ec 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#257db4', endColorstr='#37a8ec',GradientType=0 ); /* IE6-9 */
+}
+
+.primary_tab .search_from input{ 
+    background-color: #eff6fe;
+}
+
+.primary_tab .tab-content small {
+    background-color: #37a8ec;
+}
+/*----------------------------------------- 淺藍色end ------------------------------------------------*/
+
+/*----------------------------------------- 卡排行版區 ------------------------------------------------*/
+.rank-4{
+	width:223px;
+	height:220px;
+	background-color:#ffffff; 
+	display:block;
+	border-radius: 20px 0 20px 0;
+    position: relative;
+    bottom: 0px;
+    transition: all 0.3s;
+    box-shadow: 4px 4px 12px 2px rgba(71,71,72,0.5);
+}
+
+
+
+
+.rank-4 h1{
+	text-align: center;
+	padding:5px 0;
+	font-family: 微軟正黑體;
+	font-weight: bold;
+	margin-top: 0px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid;
+}
+
+.rank-4 div{
+	text-align: center;
+	font-size:36px;
+}
+
+
+
+
+.rank-4 p{
+	font-size:15px;
+	padding: 3px 0;
+}
+
+.rank-4 a{
+	display:block;
+	height:100%;
+	color:#757275;
+	padding:20px;
+}
+
+.rank-4:hover{
+    bottom: 10px;
+}
+
+.rank_color ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+.rankbg_list{
+  padding:20px 0 !important;
+  }
+
+.rankbg_list:nth-child(even){
+  background-color:#f5f6f7;
+  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
+  }
+
+/*----------------------------------------- 卡排行版區end ------------------------------------------------*/
+
+
+
+/*----------------------------------------- 新手快搜 ---------------------------------------------------*/
+.rank_search p{
+padding:0 15px;
+margin:5px 0;
+display: inline-block;
+}
+
+.rank_search span a{
+color:#000000;
+font-weight: bold;
+
+}
+
+.rank_search button{
+background-color: #797979;
+color: #fff;
+display: inline-block;
+margin-right: 20px;
+float: right;
+}
+
+.rank_search button a{
+color: #fff;
+}
+.ranksearch_list img{
+    position: absolute;
+    left: 13px;
+    top: 6px;
+    margin-right: 15px;
+}
+
+.ranksearch_list .check_eq img{
+    left: 0px;
+}
+.ranksearch_list h6{
+	color:#8d39ce;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.ranksearch_list span{
+	color:#000000;
+}
+
+.ranksearch_list ul{
+	padding:0 10px;
+}
+
+.ranksearch_list li{
+	display:inline-block;
+	width:220px;
+	height: 50px;
+	line-height: 50px;
+	border:1px #757275 solid;
+	margin: 5px 3px;
+	font-size:15px;
+}
+
+
+
+.ranksearch_list ul li a{
+    position: relative;
+	display:block;
+	color:#757275;
+    text-align: center;
+}
+
+
+.ranksearch_list ul li a:hover{
+    color:#ffffff;
+    background-color:#8d39ce;
+
+}
+
+.rank_button{
+    width:230px;
+    height:50px;
+    background-color:#797979;
+    text-align: center;
+    line-height: 48px;
+    color:#ffffff;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.rank_button:hover{
+    color:#ffffff;
+}
+
+.rank_more{
+	width:100%;
+	display:block;
+	background-color:#fccc24;
+	text-align: center; 
+	padding:10px;
+	border-radius: 5px;
+	 color: #000;
+    margin-top: 10px;
+}
+
+.rank_more a{
+	color:#000000;
+}
+
+.rank_research{
+	border:1px solid #cccccc;
+}
+.rank_research p{
+	color:#e60012;
+	text-align: center;
+	padding:10px;
+	margin:0;
+}
+.rank_change{
+	border:1px solid #cccccc;
+	padding:10px;
+}
+.rank_change a{
+	display:block;
+	margin:10px 0;
+}
+
+
+.change_main{
+	margin:10px 0;
+	font-weight: bold;
+	color:#8d39ce;
+}
+
+.search_hot span{
+	font-size: 12px;
+    display: block;
+    text-align: center;
+}  
+
+
+.search_hot .col-md-4{max-width: 235px;flex: auto;}
+.search_hot .col-md-6{max-width: 330px;flex: auto;}
+.search_hot .col-md-2{max-width: 185px;flex: auto;}
+
+
+.ranksearch_list .rank_shop{
+text-align: left;
+padding: 0px 30px;
+}
+
+
+
+
+/*----------------------------------------- 新手快搜end ------------------------------------------------*/
+
+
+/*----------------------------------------- 權益比一比 -------------------------------------------------*/
+.ranksearch_list h2{
+	width:50px;
+	height: 50px;
+	background-color:#8d39ce;
+	color:#ffffff;
+	font-family: arial;
+	font-weight: bold;
+}
+
+.ranksearch_list span{
+    color:#757275;
+}
+
+.rank_care .rank_img{
+ width:auto;
+ height:127px;
+ display: block;
+}
+
+.rank_care.profit_width .search_from select {
+width:200px;
+ margin:5px;
+	
+}
+
+.profit_list{
+	width: 300px;   
+}
+
+
+
+.profit_btn button, .profit_btn a{
+	width:96px;
+	height:30px;
+	line-height: 18px;
+	display:inline-block;
+	margin:0 3px;
+	
+}
+
+.profit_btn .btn-orange {
+    background-color: #fc9b1b;
+    color: #fff;
+}
+
+.profit_btn .btn-gray {
+    background-color: #797979;
+    color: #fff;
+}
+
+.rank_number{
+	font-family: arial;
+	font-weight: bold;
+	color:#8d39ce;
+}
+
+.ranksearch_txt{
+	padding:0 12px;
+}
+
+.profit_prize{position: relative;}
+.profit_prize h1{
+	margin: 0;
+    margin-right: 3px;
+    font-weight: bold;
+    font-family: arial;
+    z-index: 1;
+    font-size: 25px;
+    color: #601986;
+}
+
+/*.profit_prize .top_prize{
+	position: absolute;
+    width: 40px;
+    height: 51px;
+    top:-5px;
+    text-align: center;
+    background-image: url(../img/component/topNew_img.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}*/
+
+.profit_boot{overflow:auto;}
+.profit_detail{margin: 0 10px;}
+.profit_detail {width:750px;}
+
+.profit_bg th:nth-child(3){ background-color: #f5f6f7;}
+.profit_bg td:nth-child(3){ background-color: #f5f6f7;}
+.profit_bg td{border-bottom: 1px solid #ccc;}
+
+
+
+
+/*----------------------------------------- 權益比一比end ----------------------------------------------*/
+
+/*----------------------------------------- 新卡人氣排行 -------------------------------------------------*/
+.popular_list_img img{
+	height:127px;
+}
+
+.rank_btn a {
+    width: 150px;
+    height: 40px;
+    display: block;
+    margin: 10px auto;
+}
+
+.rank_btn button{
+	width:150px;
+	height:40px;
+	display:block;
+	margin:10px auto;
+}
+
+.rank_btn .btn-orange {
+    background-color: #fc9b1b;
+    color: #fff;
+}
+
+.rank_btn .btn-gray {
+    background-color: #797979;
+    color: #fff;
+}
+.rank_hot span{
+	font-size: 12px;
+    display: block;
+    text-align: center;
+}  
+
+
+.popular_prize h1{
+	margin: 0;
+    font-weight: bold;
+    font-family: arial;
+    z-index: 1;
+    font-size: 25px;
+    color: #601986;
+}
+
+.popular_prize .top_prize , .profit_prize .top_prize, .modal_prize .top_prize{
+    position: absolute;
+    font-weight: bold;
+    font-family: arial;
+    font-size: 25px;
+    line-height: 1.6;
+    color: #601986;
+    width: 40px;
+    height: 51px;
+    text-align: center;
+    background-image: url(../img/component/topNew_img.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/*----------------------------------------- 新卡人氣排行end ----------------------------------------------*/
+
+/*----------------------------------------- 會員中心 -------------------------------------------------*/
+
+/*----------------------------------------- 會員中心end ----------------------------------------------*/
+
+
+
+
+@media (max-width: 420px){
+    .ranksearch_list ul{ padding:0px; text-align: center; }
+    .ranksearch_list ul li a{ text-align: left; padding-left: 7px; }
+    .ranksearch_list img{ position: relative; top: 0; left: 0; margin:0; width: 26px;}
+}
+
+
+
+
+

@@ -70,34 +70,34 @@
                                    <div class="col-md-3">
                                     <h4>卡優排行</h4>
                                     <ul class="ul-2-part">
-                                      <li><a href="/rank/second.php">現金回饋</a></li>
-                                      <li><a href="/rank/second.php">航空里程</a></li>
-                                      <li><a href="/rank/second.php">機場接送</a></li>
-                                      <li><a href="/rank/second.php">首刷禮</a></li>
-                                      <li><a href="/rank/second.php">保險</a></li>
+                                      <li><a href="/rank/second.php?1">現金回饋</a></li>
+                                      <li><a href="/rank/second.php?3">航空里程</a></li>
+                                      <li><a href="/rank/second.php?6">機場接送</a></li>
+                                      <li><a href="/rank/second.php?14">首刷禮</a></li>
+                                      <li><a href="/rank/second.php?15">保險</a></li>
                                     </ul>
                                     <ul class="ul-2-part">
-                                      <li><a href="/rank/second.php">加油</a></li>
-                                      <li><a href="/rank/second.php">電影</a></li>
-                                      <li><a href="/rank/second.php">分期卡</a></li>
-                                      <li><a href="/rank/second.php">交通票證</a></li>
-                                      <li><a href="/rank/second.php">網購</a></li>
+                                      <li><a href="/rank/second.php?10">加油</a></li>
+                                      <li><a href="/rank/second.php?9">電影</a></li>
+                                      <li><a href="/rank/second.php?8">分期卡</a></li>
+                                      <li><a href="/rank/second.php?11">悠遊卡</a></li>
+                                      <li><a href="/rank/second.php?16">網購</a></li>
                                     </ul>
                                   </div>
                                    <div class="col-md-3">
                                     <h4>人氣排行</h4>
                                     <ul>
-                                      <li><a href="/rank/popular_second.php">新卡人氣排行</a></li>
-                                      <li><a href="/rank/popular_second.php">辦卡人氣排行</a></li>
-                                      <li><a href="/rank/popular_second.php">點閱人氣排行</a></li>
+                                      <li><a href="/rank/popular_second.php#newCard">新卡人氣排行</a></li>
+                                      <li><a href="/rank/popular_second.php#addCard">辦卡人氣排行</a></li>
+                                      <li><a href="/rank/popular_second.php#viewCard">點閱人氣排行</a></li>
                                     </ul>
                                   </div>
                                    <div class="col-md-3">
                                     <h4>卡比較</h4>
                                     <ul>
-                                      <li><a href="/rank/new_second.php">新手快搜</a></li>
-                                      <li><a href="/rank/new_second.php">卡片比一比</a></li>
-                                      <li><a href="/rank/new_second.php">權益比一比</a></li>
+                                      <li><a href="/rank/new_second.php#newHand">新手快搜</a></li>
+                                      <li><a href="/rank/new_second.php#cardCompare">卡片比一比</a></li>
+                                      <li><a href="/rank/new_second.php#interest">權益比一比</a></li>
                                     </ul>
                                   </div>
                                    <div class="col-md-3">
@@ -395,7 +395,7 @@
             <!-- 會員登入 -->
             <div id="member_div" >
               <div class="mem_logo">
-                <img src="../img/component/logo_ph.png"  alt="">
+                <img src="/img/component/logo_ph.png"  alt="">
               </div>
               <h2>卡優會員登入</h2>
               <form id="form_login" action="#" method="POST">
@@ -444,12 +444,11 @@
 
         <!-- 左邊浮動廣告 -->
         <div class="left-ad">
-          
         </div>
 
         <!-- 右邊浮動廣告 -->
         <div class="right-ad">
-
+           <img src="http://placehold.it/180x300" alt="banner">
           <!-- 卡片比一比 -->
           <div class="card_compare">
             <h4><button class="contrast_card_close" type="button">Ｘ</button></h4>
@@ -472,9 +471,9 @@
                 </div> -->
               </div>
               <div class="text-center">
-                <a class="contrast_card_submit btn warning-layered btnOver" href="/rank/compare_detail.php" >比較卡片</a>
+                <a class="contrast_card_submit btn warning-layered btnOver" href="javascript:;" >比較卡片</a>
               </div>
-              
+
             </div>
           </div>
           

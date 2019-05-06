@@ -1,11 +1,13 @@
+<?php 
+ require '../share_area/conn.php';
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
 
     <title>卡優新聞網-優旅行</title>
@@ -41,9 +43,14 @@
 
     <div class="container detail_page">
 
-         <?php 
-         //-- 共用header --
-         require '../share_area/header.php';
+          <?php 
+         //-- 共用Header --
+         if (wp_is_mobile()) {
+          require '../share_area/phone/header.php';
+         }
+         else{
+          require '../share_area/header.php';
+         }
         ?>
         
         <!-- 麵包屑 -->
@@ -71,23 +78,25 @@
                            
                           <div class="row no-gutters my-3">
 
-                            <div class="col-8">
+                            <div class="col-md-8">
                              <p>記者 溫子豪 報導 2017/08/17</p>
                             </div>
-                            <div class="col-4">
+                            <div class="col-md-4">
+                               <!-- 分享 -->
                                <div class="search_div hv-center">
                                 <div class="fb-like mr-2" data-href="http://srl.tw/cardu/news_detail.html" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
-                                 <a class="search_btn" href="#"><img src="../img/component/search/fb.png" alt="" title="Fb分享"></a>
-                                 <a class="search_btn" href="#"><img src="../img/component/search/line.png" alt="" title="Line分享"></a>
-                                 <a class="search_btn" href="#"><img src="../img/component/search/message.png" alt="" title="留言"></a>
-                                 <a id="arrow_btn" class="search_btn" href="javascript:;"><img src="../img/component/search/arrow.png" alt="" title="往下開啟"></a>
+                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://www.facebook.com/dialog/feed?app_id=319016928941764&display=popup&link=<?php echo $FB_URL;?>&redirect_uri=https://www.facebook.com/', 'FB分享', config='height=600,width=800');"><img src="../img/component/search/fb.png" alt="" title="分享"></a>
+                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://social-plugins.line.me/lineit/share?url=<?php echo $FB_URL;?>', 'LINE分享', config='height=600,width=800');"><img src="../img/component/search/line.png" alt="" title="Line"></a>
+                                <a class="search_btn" href="#fb_message"><img src="../img/component/search/message.png" alt="" title="訊息"></a>
+                                 <a id="arrow_btn" class="search_btn" href="javascript:;"><img src="../img/component/search/arrow.png" alt="" title="更多"></a>
                                </div>
                                <div class="more_search">
-                                 <a href="#"><img src="../img/component/search/print.png" alt="" title="列印"></a>
-                                 <a href="#"><img src="../img/component/search/work.png" alt="" title="收藏"></a>
-                                 <a href="#"><img src="../img/component/search/mail.png" alt="" title="轉寄"></a>
-                                 <a href="#"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
+                                 <a target="_blank" href="print.php?<?php echo $temparray[1]?>"><img src="../img/component/search/print.png" alt="" title="列印"></a>
+                                 <a href="javascript:;" data-fancybox data-src="#member_div"><img src="../img/component/search/work.png" alt="" title="收藏"></a>
+                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_mail.php"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
+                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
                                </div>
+                               <!-- 分享 END -->
                             </div>
                           </div> 
 
@@ -108,6 +117,18 @@
                             <p>▲JCB砸重本舉辦「夏日遊樂祭」，在9月底前釋出日本實體商店刷卡2%起現金回饋的好康 (圖/卡優新聞網)</p>
                           </div>
 
+                          <!--廣告-->
+                          <div class="col-md-12 col phone_hidden"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+                          <!--banner end -->
+
+                          <!--手機板廣告-->
+                          <div class="col-md-12 row">
+                              <div class="col-md-6 col banner d-md-none d-sm-block ">
+                                  <img src="http://placehold.it/365x100" alt="">
+                              </div>
+                          </div>
+                          <!--廣告end-->
+
                           <p>
                             　許多人可能不知道，香港這個國際大都會其實約有四分之三的土地屬於郊野，今年港旅局與《國家地理》合作，邀請二位世界頂級攝影師拍攝一系列富有感染力的照片及影片，吸引旅客在十一月至三月的遠足旺季親身投入大自然，探索香港大自然的美景。《香港登山遠足、單車旅遊指南》共規劃觀鳥、賞蝶、賞花、歷史文化、美景拍攝、地質奇觀及海濱單車遊等七大主題路線，整理最值得探訪的生態景觀、奇岩怪石與適合拍照打卡的翠綠山巒等景觀，且多條路線僅距離香港都會區一小時車程就可以抵達，是十分值得喜歡秘境的台灣旅客深入探索的精彩路線。
                           </p>
@@ -125,6 +146,18 @@
                             <p>▲JCB砸重本舉辦「夏日遊樂祭」，在9月底前釋出日本實體商店刷卡2%起現金回饋的好康 (圖/卡優新聞網)</p>
                           </div>
 
+                          <!--廣告-->
+                          <div class="col-md-12 col phone_hidden"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+                          <!--banner end -->
+
+                          <!--手機板廣告-->
+                          <div class="col-md-12 row">
+                              <div class="col-md-6 col banner d-md-none d-sm-block ">
+                                  <img src="http://placehold.it/365x100" alt="">
+                              </div>
+                          </div>
+                          <!--廣告end-->
+
                           <p>
                             　被譽為世界最精采的燈光音樂匯演之一的「幻彩詠香江」，今年於特定日子會安排在多幢大廈樓頂綻放煙火，照亮維港兩岸的冬日夜空。至於聖誕節絕不能缺少的聖誕樹，今年位於香港摩天輪旁的《魔方樹》是法國創作團隊1024 Architecture對傳統聖誕樹的全新演繹。高25米的《魔方樹》以發光的鋼架結構作為樹枝，配以巧妙擺放的燈光裝飾以及音樂，構成一場精彩的聖誕匯演。至於中環皇后像廣場的標誌性傳統聖誕樹，將繼續成為旅客熱切期待的景點，並與《魔方樹》共同營造濃厚的節日氣氛。
                           </p>
@@ -141,7 +174,24 @@
                       </div>
                     </div>
 
+                    <!--廣告-->
+                    <div class="col-md-12 row phone_hidden">
+                        <div class="col-md-6 col hv-center">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                        <div class="col-md-6 col hv-center">
+                            <img src="http://placehold.it/365x100">
+                        </div>
+                    </div>
+                    <!--廣告end-->
 
+                    <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
 
                     <!--延伸閱讀-->
                     <div class="col-md-12 col">
@@ -156,23 +206,23 @@
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                             <div class="row no-gutters">
-                                <div class="col-4 cards-3 py-2">
+                                <div class="col-md-4 col-12 cards-3 py-md-2">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3 py-2">
+                                <div class="col-md-4 col-12 cards-3 py-md-2">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
                                 </div>
-                                <div class="col-4 cards-3 py-2">
+                                <div class="col-md-4 col-12 cards-3 py-md-2">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
                                        </div>
                                        <p>遊日血拚大回饋，信用卡大調查</p>
                                    </a>
@@ -189,16 +239,7 @@
 
                     
                     
-                    <!--廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col hv-center">
-                            <img src="http://placehold.it/365x100" alt="">
-                        </div>
-                        <div class="col-md-6 col hv-center">
-                            <img src="http://placehold.it/365x100">
-                        </div>
-                    </div>
-                    <!--廣告end-->
+                   
 
                     
                    
@@ -427,28 +468,28 @@
                              <div class="journey_icon">
                                <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"> <i class="fa fa-arrow-circle-right mr-2"></i>日本</a>
+                                  <a href="jp.php"> <i class="fa fa-arrow-circle-right mr-2"></i>日本</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>韓國</a>
-                                 </div>
-                               </div>
-                               <hr>
-                                <div class="row no-gutters">
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>東南亞</a>
-                                 </div>
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>中港澳</a>
+                                  <a href="kr.php"><i class="fa fa-arrow-circle-right mr-2"></i>韓國</a>
                                  </div>
                                </div>
                                <hr>
                                 <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>台灣</a>
+                                  <a href="sa.php"><i class="fa fa-arrow-circle-right mr-2"></i>東南亞</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>其他地區</a>
+                                  <a href="cn.php"><i class="fa fa-arrow-circle-right mr-2"></i>中港澳</a>
+                                 </div>
+                               </div>
+                               <hr>
+                                <div class="row no-gutters">
+                                 <div class="col-6">
+                                  <a href="tw.php"><i class="fa fa-arrow-circle-right mr-2"></i>台灣</a>
+                                 </div>
+                                 <div class="col-6">
+                                  <a href="other.php"><i class="fa fa-arrow-circle-right mr-2"></i>其他地區</a>
                                  </div>
                                </div>
                              </div>
@@ -538,8 +579,13 @@
 
                     
                     <?php 
-                     //-- 共用footer --
-                     require '../share_area/footer.php';
+                     //-- 共用Footer --
+                     if (wp_is_mobile()) {
+                        require '../share_area/phone/footer.php';
+                     }
+                     else{
+                       require '../share_area/footer.php';
+                      }
                     ?>
                     
 
@@ -547,7 +593,7 @@
             </div>
             <!--版面右側end-->
              <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/468x60" alt="">
                         </div>

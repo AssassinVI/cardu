@@ -1,10 +1,13 @@
+<?php 
+ require '../../share_area/conn.php';
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
 
 
@@ -41,9 +44,14 @@
 
     <div class="container">
 
-         <?php 
-         //-- 共用header --
-         require '../../share_area/header.php';
+        <?php 
+         //-- 共用Header --
+         if (wp_is_mobile()) {
+          require '../../share_area/phone/header.php';
+         }
+         else{
+          require '../../share_area/header.php';
+         }
         ?>
         
         <!-- 麵包屑 -->
@@ -81,105 +89,105 @@
                              <div class="row no-gutters hv-center">
                               <div class="map">
                                 <div class="row no-gutters hv-center">
-                                    <img src="../../img/component/map-bg0.jpg" title="新聞">
+                                    <img class="photo" src="../../img/component/map-bg0.jpg" title="新聞">
 
 
-                                    <div class="UENO"><!--上野-->
+                                    <div class="UENO phone_hidden"><!--上野-->
                                     <a data-fancybox data-src="#UENO_detail" href="javascript:;"><img src="../../img/component/travel/York/01.png" width="50" height="50" ></a>
                                     <div class="UENO-01"><a data-fancybox data-src="#UENO_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/01-1.png" width="180" height="120"></a></div>
                                     </div><!--上野結束-->
                                     
 
 
-                                    <div class="AKIBA"><!--秋葉原-->
+                                    <div class="AKIBA phone_hidden"><!--秋葉原-->
                                     <a data-fancybox data-src="#AKIBA_detail" href="javascript:;"><img src="../../img/component/travel/York/02.png" width="50" height="50"></a>
                                     <div class="AKIBA-01"><a data-fancybox data-src="#AKIBA_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/02-1.png" width="180" height="120"></a></div>
                                     </div><!--秋葉原結束-->
                                   
 
 
-                                    <div class="TOKYO"><!--東京-->
+                                    <div class="TOKYO phone_hidden"><!--東京-->
                                     <a data-fancybox data-src="#TOKYO_detail" href="javascript:;"><img src="../../img/component/travel/York/04.png" width="50" height="50"></a>
                                     <div class="TOKYO-01"><a data-fancybox data-src="#TOKYO_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/04-1.png" width="180" height="120"></a></div>
                                     </div><!--東京結束-->
 
 
-                                    <div class="ASAKUSA"><!--淺草-->
+                                    <div class="ASAKUSA phone_hidden"><!--淺草-->
                                     <a data-fancybox data-src="#ASAKUS_detail" href="javascript:;"><img src="../../img/component/travel/York/03.png" width="50" height="50"></a>
                                     <div class="ASAKUSA-01"><a data-fancybox data-src="#ASAKUS_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/03-1.png" width="180" height="120"></a></div>
                                     </div><!--淺草-->
 
 
-                                    <div class="NIA"><!--成田機場-->
+                                    <div class="NIA phone_hidden"><!--成田機場-->
                                     <img src="../../img/component/travel/York/16.png" width="90" height="40">
                                     </div><!--成田機場結束-->
 
-                                    <div class="GINZA"><!--銀座-->
-                                    <a data-fancybox data-src="#GINZA_detail" href="javascript:;"><img src="../../img/component/travel/York/05.png" width="50" height="50"></a>
-                                    <div class="GINZA-01"><a data-fancybox data-src="#GINZA_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/05-1.png" width="180" height="120"></a></div>
+                                    <div class="GINZAA phone_hidden"><!--銀座-->
+                                    <a data-fancybox data-src="#GINZAA_detail" href="javascript:;"><img src="../../img/component/travel/York/05.png" width="50" height="50"></a>
+                                    <div class="GINZAA-01"><a data-fancybox data-src="#GINZAA_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/05-1.png" width="180" height="120"></a></div>
                                     </div><!--銀座結束-->
                                     
 
-                                    <div class="TSUKIJI"><!--築地-->
+                                    <div class="TSUKIJI phone_hidden"><!--築地-->
                                     <a data-fancybox data-src="#TSUKIJI_detail" href="javascript:;"><img src="../../img/component/travel/York/06.png" width="50" height="50"></a>
                                     <div class="TSUKIJI-01"><a data-fancybox data-src="#TSUKIJI_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/06-1.png" width="180" height="120"></a></div>
                                     </div><!--築地結束-->
                                     
 
-                                    <div class="ODAIBA"><!--台場-->
+                                    <div class="ODAIBA phone_hidden"><!--台場-->
                                     <a data-fancybox data-src="#ODAIBA_detail" href="javascript:;"><img src="../../img/component/travel/York/07.png" width="50" height="50"></a>
                                     <div class="ODAIBA-01"><a data-fancybox data-src="#ODAIBA_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/07-1.png" width="180" height="120"></a></div>
                                     </div><!--台場結束-->
                                     
 
-                                    <div class="KEIKYU"><!--羽田機場-->
+                                    <div class="KEIKYU phone_hidden"><!--羽田機場-->
                                     <img src="../../img/component/travel/York/17.png" width="90" height="40">
                                     </div><!--羽田機場結束-->
                                     
 
-                                    <div class="SHINAGAWA"><!--品川-->
+                                    <div class="SHINAGAWA phone_hidden"><!--品川-->
                                     <a data-fancybox data-src="#SHINAGAWA_detail" href="javascript:;"><img src="../../img/component/travel/York/08.png" width="50" height="50"></a>
                                     <div class="SHINAGAWA-01"><a data-fancybox data-src="#SHINAGAWA_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src='../../img/component/travel/York/08-1.png' width="180" height="120"></a></div>
                                     </div><!--品川結束-->
                                     
 
-                                    <div class="DAIKANYAMA"><!--代官山-->
+                                    <div class="DAIKANYAMA phone_hidden"><!--代官山-->
                                     <a data-fancybox data-src="#DAIKANYAMA_detail" href="javascript:;"><img src="../../img/component/travel/York/10.png" width="50" height="50"></a>
                                     <div class="DAIKANYAMA-01"><a data-fancybox data-src="#DAIKANYAMA_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/10-1.png" width="180" height="120"></a></div>
                                     </div><!--代官山結束-->
                                     
 
-                                    <div class="TSUNAGU"><!--涉谷-->
+                                    <div class="TSUNAGU phone_hidden"><!--涉谷-->
                                     <a data-fancybox data-src="#TSUNAGU_detail" href="javascript:;"><img src="../../img/component/travel/York/11.png" width="50" height="50"></a>
                                     <div class="TSUNAGU-01"><a data-fancybox data-src="#TSUNAGU_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/11-1.png" width="180" height="120"></a></div>
                                     </div><!--涉谷結束-->
                                     
 
-                                    <div class="ROPPONGI"><!--六本木-->
+                                    <div class="ROPPONGI phone_hidden"><!--六本木-->
                                     <a data-fancybox data-src="#ROPPONGI_detail" href="javascript:;"><img src="../../img/component/travel/York/09.png" width="50" height="50"></a>
                                     <div class="ROPPONGI-01"><a data-fancybox data-src="#ROPPONGI_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/09-1.png" width="180" height="120"></a></div>
                                     </div><!--六本木結束-->
                                     
 
-                                    <div class="HARAJUKU"><!--原宿-->
+                                    <div class="HARAJUKU phone_hidden"><!--原宿-->
                                     <a data-fancybox data-src="#HARAJUKU_detail" href="javascript:;"><img src="../../img/component/travel/York/12.png" width="50" height="50"></a>
                                     <div class="HARAJUKU-01"><a data-fancybox data-src="#HARAJUKU_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/12-1.png" width="180" height="120"></a></div>
                                     </div><!--原宿結束-->
                                     
 
-                                    <div class="SHINJUKU"><!--新宿-->
+                                    <div class="SHINJUKU phone_hidden"><!--新宿-->
                                     <a data-fancybox data-src="#SHINJUKU_detail" href="javascript:;"><img src="../../img/component/travel/York/13.png" width="50" height="50"></a>
                                     <div class="SHINJUKU-01"><a data-fancybox data-src="#SHINJUKU_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/13-1.png" width="180" height="120"></a></div>
                                     </div><!--新宿結束-->
                                     
 
-                                    <div class="KICHIJOJI"><!--吉祥寺-->
+                                    <div class="KICHIJOJI phone_hidden"><!--吉祥寺-->
                                     <a data-fancybox data-src="#KICHIJOJI_detail" href="javascript:;"><img src="../../img/component/travel/York/14.png" width="50" height="50"></a>
                                     <div class="KICHIJOJI-01"><a data-fancybox data-src="#KICHIJOJI_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/14-1.png" width="180" height="120"></a></div>
                                     </div><!--吉祥寺結束-->
                                     
 
-                                    <div class="IKEBUKURO"><!--池袋-->
+                                    <div class="IKEBUKURO phone_hidden"><!--池袋-->
                                     <a data-fancybox data-src="#IKEBUKURO_detail" href="javascript:;"><img src="../../img/component/travel/York/15.png" width="50" height="50"></a>
                                     <div class="IKEBUKURO-01"><a data-fancybox data-src="#IKEBUKURO_detail" href="javascript:;" style="cursor:pointer;" target="_blank"><img src="../../img/component/travel/York/15-1.png" width="180" height="120"></a></div>
                                     </div><!--池袋結束-->
@@ -277,7 +285,7 @@
                        <!--淺草 END-->
                        
                        <!--銀座-->
-                       <div id="GINZA_detail" style="width: 800px;">
+                       <div id="GINZAA_detail" style="width: 800px;">
                         <div class="row">
                          <div class="col-md-6">
                            <img class="w-100" src="../../img/component/travel/York/detail/05_Big.jpg"><br>
@@ -485,9 +493,8 @@
 
                         <div class="cardshap green_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab news_tab_three">
+                          <li class="nav-item news_tab">
                             <a class="nav-link active  pl-30 py-2" id="title_1-tab" data-toggle="tab" href="#title_1" role="tab" aria-controls="title_1" aria-selected="true">建議行程</a>
-                             <a class="top_link" href="share_second.php"></a>
                           </li>
                           
                         </ul>
@@ -497,7 +504,7 @@
                             <div class="row no-gutters travel_about text-center">
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
                                        </div>
                                         <h6><img src="../../img/component/icon/map-icon.png">超殺攻略！淺草晴空塔趴趴GO</h6>
                                    </a>
@@ -505,7 +512,7 @@
                                 </div>
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
                                        </div>
                                        <h6><img src="../../img/component/icon/map-icon.png">超殺攻略！淺草晴空塔趴趴GO</h6>
                                    </a>
@@ -516,7 +523,7 @@
                             <div class="row no-gutters travel_about text-center">
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
                                        </div>
                                         <h6><img src="../../img/component/icon/map-icon.png">超殺攻略！淺草晴空塔趴趴GO</h6>
                                    </a>
@@ -524,7 +531,7 @@
                                 </div>
                                 <div class="col-md-6">
                                    <a href="#">
-                                       <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                       <div class="img_div wx-100-ph" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
                                        </div>
                                         <h6><img src="../../img/component/icon/map-icon.png">超殺攻略！淺草晴空塔趴趴GO</h6>
                                     
@@ -554,23 +561,23 @@
                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
                            <div class="row no-gutters">
-                               <div class="col-4 cards-3 py-2">
+                               <div class="col-md-4 cards-3 py-2">
                                   <a href="#">
-                                      <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                      <div class="img_div w-100-ph" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
                                       </div>
                                       <p>遊日血拚大回饋，信用卡大調查</p>
                                   </a>
                                </div>
-                               <div class="col-4 cards-3 py-2">
+                               <div class="col-md-4 cards-3 py-2">
                                   <a href="#">
-                                      <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                      <div class="img_div w-100-ph" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
                                       </div>
                                       <p>遊日血拚大回饋，信用卡大調查</p>
                                   </a>
                                </div>
-                               <div class="col-4 cards-3 py-2">
+                               <div class="col-md-4 cards-3 py-2">
                                   <a href="#">
-                                      <div class="img_div" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
+                                      <div class="img_div w-100-ph" title="新聞" style="background-image: url(../../img/component/photo1.jpg);">
                                       </div>
                                       <p>遊日血拚大回饋，信用卡大調查</p>
                                   </a>
@@ -588,7 +595,7 @@
                    
                    
                    <!--廣告-->
-                   <div class="col-md-12 row">
+                   <div class="col-md-12 row phone_hidden">
                        <div class="col-md-6 col hv-center">
                            <img src="http://placehold.it/365x100" alt="">
                        </div>
@@ -597,6 +604,13 @@
                        </div>
                    </div>
                    <!--廣告end-->
+                   <!--手機板廣告-->
+                  <div class="col-md-12 row">
+                      <div class="col-md-6 col banner d-md-none d-sm-block ">
+                          <img src="http://placehold.it/365x100" alt="">
+                      </div>
+                  </div>
+                  <!--廣告end-->
 
                    
                    
@@ -853,28 +867,28 @@
                              <div class="journey_icon">
                                <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"> <i class="fa fa-arrow-circle-right mr-2"></i>東京篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about.php"> <i class="fa fa-arrow-circle-right mr-2"></i>東京篇</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>東北篇</a>
-                                 </div>
-                               </div>
-                               <hr>
-                                <div class="row no-gutters">
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>關西篇</a>
-                                 </div>
-                                 <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>九州篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_4.php"><i class="fa fa-arrow-circle-right mr-2"></i>東北篇</a>
                                  </div>
                                </div>
                                <hr>
                                 <div class="row no-gutters">
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>北海道篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_2.php"><i class="fa fa-arrow-circle-right mr-2"></i>關西篇</a>
                                  </div>
                                  <div class="col-6">
-                                  <a href="#"><i class="fa fa-arrow-circle-right mr-2"></i>沖繩篇</a>
+                                  <a href="http://cardu.srl.tw/travel/jp/about_5.php"><i class="fa fa-arrow-circle-right mr-2"></i>九州篇</a>
+                                 </div>
+                               </div>
+                               <hr>
+                                <div class="row no-gutters">
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_3.php"><i class="fa fa-arrow-circle-right mr-2"></i>北海道篇</a>
+                                 </div>
+                                 <div class="col-6">
+                                  <a href="http://cardu.srl.tw/travel/jp/about_6.php"><i class="fa fa-arrow-circle-right mr-2"></i>沖繩篇</a>
                                  </div>
                                </div>
                              </div>
@@ -967,8 +981,13 @@
 
                     
                     <?php 
-                     //-- 共用footer --
-                     require '../../share_area/footer.php';
+                     //-- 共用Footer --
+                     if (wp_is_mobile()) {
+                        require '../../share_area/phone/footer.php';
+                     }
+                     else{
+                       require '../../share_area/footer.php';
+                      }
                     ?>
                     
 
@@ -976,7 +995,7 @@
             </div>
             <!--版面右側end-->
              <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col hv-center">
                             <img src="http://placehold.it/468x60" alt="">
                         </div>
