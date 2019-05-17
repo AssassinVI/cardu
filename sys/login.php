@@ -98,8 +98,8 @@ if ($_POST) {
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
   <style type="text/css">
-    body{ font-family: Microsoft JhengHei; display: flex; justify-content: center; align-items: center;}
-    .middle-box{ padding-top: 0; }
+    body{ font-family: Microsoft JhengHei; }
+    .middle-box{ padding-top: 0; margin-top: 50px;}
     .logo-name{ font-size: 60px; letter-spacing: -5px; text-shadow: 2px 4px 10px #acacac;color:#fff;}
     #check_div{text-align: left; padding: 5px 15px; border: 1px solid #d5d5d5;}
     #check_div label{ padding: 5px; padding-right: 190px; }

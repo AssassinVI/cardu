@@ -43,7 +43,10 @@ if ($_POST) {
       $cc_so_order=pdo_select("SELECT cc_so_order FROM credit_cardrank_type ORDER BY cc_so_order DESC LIMIT 0,1", 'no');
       $cc_so_order=(int)$cc_so_order['cc_so_order']+1;
 
+      $old_id=pdo_select("SELECT old_id FROM credit_cardrank_type ORDER BY old_id DESC LIMIT 0,1", 'no');
+
 	$param=  [   'Tb_index'=>$Tb_index,
+	               'old_id'=>(int)$old_id['old_id']+1,
 			  'cc_so_cname'=>$_POST['cc_so_cname'],
 	        'cc_so_photo_1'=>$cc_so_photo_1,
       'cc_so_photo_1_hover'=>$cc_so_photo_1_hover,

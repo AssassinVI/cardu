@@ -29,11 +29,11 @@
 
                                   	//-- 信用卡 --
                                   	if ($row_org_one['mt_id']=='site2018110611172385') {
-                                  		echo '<label><input type="radio" name="news_org" orgName="[信用卡]'.$row_org_one['org_name'].'" value="'.$row_org_one['Tb_index'].'"> [信用卡]'.$row_org_one['org_name'].'</label> <br>';
+                                  		echo '<label><input type="checkbox" name="news_org" orgName="[信用卡]'.$row_org_one['org_name'].'" value="'.$row_org_one['Tb_index'].'"> [信用卡]'.$row_org_one['org_name'].'</label> <br>';
                                   	}
                                   	//-- 金融卡 --
                                   	else{
-                                  		echo '<label><input type="radio" name="news_org" orgName="[金融卡]'.$row_org_one['org_name'].'" value="'.$row_org_one['Tb_index'].'"> [金融卡]'.$row_org_one['org_name'].'</label> <br>';
+                                  		echo '<label><input type="checkbox" name="news_org" orgName="[金融卡]'.$row_org_one['org_name'].'" value="'.$row_org_one['Tb_index'].'"> [金融卡]'.$row_org_one['org_name'].'</label> <br>';
                                   	}
                                   	
                                   }

@@ -25,10 +25,8 @@ if ($_GET) {
    
    $pdo=pdo_conn();
    $sql=$pdo->prepare("SELECT Tb_index, note_type, aTitle, StartDate, EndDate, nt_viewcount, OnLineOrNot FROM appNotice ORDER BY StartDate DESC");
-   $sql->execute( ["mt_id"=>$_GET['MT_id'], "webLang"=>$weblang] );
+   $sql->execute( );
 
-   $note_type=$row['note_type']=='0' ? '卡優公告':'卡優活動';
-   $OnLineOrNot=$row['OnLineOrNot']=='0' ? '已下架':'上架中';
 }
 
 ?>
@@ -69,7 +67,11 @@ if ($_GET) {
 						</thead>
 						<tbody>
 
-						<?php $i=1; while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {?>
+						<?php 
+						      $i=1; while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
+                              $note_type=$row['note_type']=='0' ? '卡優公告':'卡優活動';
+                              $OnLineOrNot=$row['OnLineOrNot']=='0' ? '已下架':'上架中';
+					    ?>
 							<tr>
 								<td><?php echo $i?></td>
 								<td><?php echo $note_type; ?></td>

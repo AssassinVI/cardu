@@ -17,13 +17,13 @@ if ($_GET) {
 
     $where=['Tb_index'=>$_GET['Tb_index']];
 
-   	$del_row=pdo_select('SELECT card_image, card_image_hover FROM credit_cardrank_type WHERE Tb_index=:Tb_index', $where);
-   	if (isset($del_row['card_image'])) { unlink('../../img/'.$del_row['card_image']); }
-    if (isset($del_row['card_image_hover'])) {
+   	$del_row=pdo_select('SELECT cc_so_photo_1, cc_so_photo_1_hover FROM credit_cardrank_type WHERE Tb_index=:Tb_index', $where);
+   	if (isset($del_row['cc_so_photo_1'])) { unlink('../../img/'.$del_row['cc_so_photo_1']); }
+    if (isset($del_row['cc_so_photo_1_hover'])) {
 
-      $card_image_hover=explode(',', $del_row['card_image_hover']);
-      for ($i=0; $i <count($card_image_hover)-1 ; $i++) { 
-      	 unlink('../../img/'.$card_image_hover[$i]); 
+      $cc_so_photo_1_hover=explode(',', $del_row['cc_so_photo_1_hover']);
+      for ($i=0; $i <count($cc_so_photo_1_hover)-1 ; $i++) { 
+      	 unlink('../../img/'.$cc_so_photo_1_hover[$i]); 
       }
    }
 

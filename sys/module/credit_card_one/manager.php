@@ -204,14 +204,14 @@ if ($_GET) {
    $cc_pref_id=explode(',', $row_card['cc_pref_id']);
 
    //-- 信用卡群 --
-   $row_cc_group=$NewPdo->select("SELECT cc_group_id ,cc_cardname, cc_group_state, cc_status_name FROM credit_card WHERE (cc_group_state=0 OR cc_group_state=3) AND cc_bi_pk=:cc_bi_pk GROUP BY cc_group_id 
+   $row_cc_group=$NewPdo->select("SELECT cc_group_id ,cc_cardname, cc_group_state, cc_status_name FROM credit_card WHERE (cc_group_state=0 OR cc_group_state=3) AND cc_bi_pk=:cc_bi_pk1 GROUP BY cc_group_id 
                                   UNION 
-                                  SELECT cc_group_id ,cc_cardname, cc_group_state, cc_status_name FROM credit_card WHERE (cc_group_state=1 OR cc_group_state=2) AND cc_bi_pk=:cc_bi_pk GROUP BY cc_group_id", 
-                                 ['cc_bi_pk'=>$row_card['cc_bi_pk']]);
+                                  SELECT cc_group_id ,cc_cardname, cc_group_state, cc_status_name FROM credit_card WHERE (cc_group_state=1 OR cc_group_state=2) AND cc_bi_pk=:cc_bi_pk2 GROUP BY cc_group_id", 
+                                 ['cc_bi_pk1'=>$row_card['cc_bi_pk'], 'cc_bi_pk2'=>$row_card['cc_bi_pk']]);
 
 
    //-- 卡等 --
-   $row_cc_level=$NewPdo->select("SELECT Tb_index, cc_cardorg, cc_cardlevel FROM credit_card WHERE cc_group_id=:cc_group_id ", ['cc_group_id'=>$row_card['cc_group_id']]);
+   $row_cc_level=$NewPdo->select("SELECT Tb_index, cc_cardorg, cc_cardlevel, cc_stop_publish, cc_stop_card FROM credit_card WHERE cc_group_id=:cc_group_id ", ['cc_group_id'=>$row_card['cc_group_id']]);
 
 
    //-- 金融卡權益項目 --
@@ -273,15 +273,25 @@ if ($_GET) {
 								<?php 
                                   foreach ($row_cc_level as $row_cc_level_one) {
 
-                                   $cc_status_name= empty($row_card['cc_status_name']) ? '':'('.$row_card['cc_status_name'].')';
+                                  //-- 停發/停卡 --
+                                  if ($row_cc_level_one['cc_stop_publish']==1) {
+                                    $stop_cc='(停發)';
+                                  }
+                                  elseif ($row_cc_level_one['cc_stop_card']==1) {
+                                    $stop_cc='(停卡)';
+                                  }
+                                  else{
+                                    $stop_cc='';
+                                  }
+                                  
                                    $level_id=$row_cc_level_one['cc_cardlevel'];
                                    $org_id=$row_cc_level_one['cc_cardorg'];
 
                                    if ($row_card['Tb_index']==$row_cc_level_one['Tb_index']){
-                                     echo '<option selected value="'.$row_cc_level_one['Tb_index'].'">'.$org_name[$org_id].$level_name[$level_id].$cc_status_name.'</option>';
+                                     echo '<option selected value="'.$row_cc_level_one['Tb_index'].'">'.$org_name[$org_id].$level_name[$level_id].$stop_cc.'</option>';
                                    }
                                    else{
-                                   	 echo '<option value="'.$row_cc_level_one['Tb_index'].'">'.$org_name[$org_id].$level_name[$level_id].$cc_status_name.'</option>';
+                                   	 echo '<option value="'.$row_cc_level_one['Tb_index'].'">'.$org_name[$org_id].$level_name[$level_id].$stop_cc.'</option>';
                                    }
                                   }
 								 ?>

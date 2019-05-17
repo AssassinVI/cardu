@@ -630,48 +630,4 @@ function pdo_navbar($Tb_index)
    
    $pdo=NULL;
 }
-
-
-
-//===============================================================================================================
-//=========================================== 前台功能 ====================================================================
-//===============================================================================================================
-
-//-- 單卡網址 --
-function card_url($cc_pk, $cc_group_id)
-{
-  return '../cardNews/creditcard.php?cc_pk='.$cc_pk.'&cc_group_id='.$cc_group_id;
-}
-
-//-- 卡排行 比較文字判斷 --
-function ccs_typename($ccs_typename_mem, $ccs_typename, $ccs_cc_pk2='')
-{ 
-  $ccs_typename_a_txt='';
-  if (!empty($ccs_cc_pk2)) {
-    $ccs_typename_a=preg_split('/\n/',$ccs_typename);
-    $ccs_cc_pk2=explode(',', $ccs_cc_pk2);
-    for ($i=0; $i <count($ccs_typename_a) ; $i++) {
-    $cc_url2=mb_strpos($ccs_cc_pk2[$i], 'ccard')===false ? '../cardNews/type.php?gid='.$ccs_cc_pk2[$i] : '../cardNews/creditcard.php?cc_pk='.$ccs_cc_pk2[$i].'&cc_group_id=';
-      $ccs_typename_a_txt.='<a href="'.$cc_url2.'">'.$ccs_typename_a[$i].'</a>';
-    }
-  }
-    if (empty($ccs_typename_mem)) {
-       if (mb_strlen($ccs_typename,'utf-8')>40) {
-          $txt=empty($ccs_cc_pk2) ? mb_substr($ccs_typename, 0, 40, 'utf-8').'..' : '<div>'.$ccs_typename_a_txt.'</div>';
-          return '<p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$ccs_typename.'">'.$txt.'</p>';
-       }
-       else{
-          $txt=empty($ccs_cc_pk2) ? $ccs_typename : '<div>'.$ccs_typename_a_txt.'</div>';
-          return '<p class=" hv-center mb-0">'.$txt.'</p>';
-       } 
-      }
-      else{
-          $txt=empty($ccs_cc_pk2) ? $ccs_typename : '<div>'.$ccs_typename_a_txt.'</div>';
-          return '<p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$ccs_typename_mem.'">'.$ccs_typename.'</p>';
-     }
-  }
- 
-//===============================================================================================================
-//=========================================== 前台功能 END ====================================================================
-//===============================================================================================================
 ?>

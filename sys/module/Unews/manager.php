@@ -539,7 +539,7 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="ns_ftitle"><span class="text-danger">*</span>主標題</label>
 							<div class="col-md-10">
-								<input type="text" class="form-control" id="ns_ftitle" name="ns_ftitle" maxlength="20" value="<?php echo $row['ns_ftitle'];?>">
+								<input type="text" class="form-control" id="ns_ftitle" name="ns_ftitle"  value="<?php echo $row['ns_ftitle'];?>">
                 <span class="text-danger">(限20個字)</span>
 							</div>
 						</div>
@@ -547,7 +547,7 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="ns_stitle">副標題</label>
 							<div class="col-md-10">
-								<input type="text" class="form-control" id="ns_stitle" name="ns_stitle" maxlength="20" value="<?php echo $row['ns_stitle'];?>">
+								<input type="text" class="form-control" id="ns_stitle" name="ns_stitle"  value="<?php echo $row['ns_stitle'];?>">
                 <span class="text-danger">(限20個字)</span>
 							</div>
 						</div>

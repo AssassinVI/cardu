@@ -157,7 +157,6 @@ if ($_GET) {
 
      //-- 拖曳更新排序 --
        $( ".table-responsive .table tbody" ).sortable({
-
              revert: 300,
              update: function( event, ui ) {
               $("#sort_btn_div").css('display', 'block');

@@ -5,19 +5,6 @@
 <?php include("../../core/page/header02.php");//載入頁面heaer02?>
 <?php 
 
-if ($_GET) {
-
-   if (!empty($_GET['Tb_index'])) {//刪除
-
-    $where=array('Tb_index'=>$_GET['Tb_index']);
-
-   	$del_row=pdo_select('SELECT st_logo FROM store WHERE Tb_index=:Tb_index', $where);
-   	if (isset($del_row['st_logo'])) { unlink('../../img/'.$del_row['st_logo']); }
-
-   	 pdo_delete('store', $where);
-   }
-
-}
 
 
 if ($_POST) {
@@ -128,8 +115,7 @@ if ($_POST) {
 								編輯
 								</a>
 
-								<a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" class="btn btn-rounded btn-warning btn-sm"
-								   onclick="if (!confirm('確定要刪除 [<?php echo $row['st_name']?>] ?')) {return false;}" <?php echo $del_disabled;?>>
+								<a href="javascript:;" store_id="<?php echo $row['Tb_index'];?>" store_name="<?php echo $row['st_name'];?>" class="del_store_btn btn btn-rounded btn-warning btn-sm" <?php echo $del_disabled;?>>
 								<i class="fa fa-trash" aria-hidden="true"></i>
 								刪除
 								</a>
@@ -172,7 +158,25 @@ if ($_POST) {
          location.replace('admin.php?MT_id=<?php echo $_GET['MT_id'];?>');
 		});
 
-
+       //-- 刪除 --
+       $('.del_store_btn').click(function(event) {
+       	 var _this=$(this);
+       	 if (confirm('確定要刪除 ['+$(this).attr('store_name')+'] ?')) {
+           if (confirm('再次確定要刪除 ['+$(this).attr('store_name')+'] ?')) {
+             $.ajax({
+             	url: 'admin_list_ajax.php',
+             	type: 'POST',
+             	data: {
+             		type: 'del_store',
+             		store_id: $(this).attr('store_id')
+             	},
+             	success:function (data) {
+             	  _this.parent().parent().remove();
+             	}
+             });
+           }
+       	 }
+       });
 		
 	});
 </script>
