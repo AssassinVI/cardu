@@ -5,6 +5,7 @@
 //目前load 出來的資料有點少，再檢查一下sql唷
 require '../share_area/conn.php';
 require '../share_area/get_news.php';
+require 'config.php';
 
 $todayis=date("Y-m-d"); //取得要查詢的日期，預設為今日
 
@@ -99,6 +100,8 @@ $nt_name =$row['nt_name'];
                           order by ns_vfdate desc
                           LIMIT 0, 6
                           ";
+
+
                           require("../share_area/page_carousel_mobile.php"); //載入手機版刊頭輪播
                        }
                        else{
@@ -113,8 +116,9 @@ $nt_name =$row['nt_name'];
                           and StartDate<='$todayis' and EndDate>='$todayis'
                           and ns_nt_pk='$Tb_index'
                           order by ns_vfdate desc
-                          LIMIT 0, 12
+                          LIMIT 0, 6
                           ";
+                          
                          require '../share_area/page_carousel.php';
                        }
 
@@ -138,7 +142,8 @@ $nt_name =$row['nt_name'];
                     //----------------------------------------------
                     $sql_temp="
                     SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index,StartDate FROM  appNews
-                    where mt_id = 'site2018111910430599' and ns_vfdate<>'0000-00-00 00:00:00' 
+                    where mt_id = 'site2018111910430599' 
+                    and ns_verify=3 and OnLineOrNot=1 
                     and StartDate<='$todayis' and EndDate>='$todayis'
                     and ns_nt_pk='$Tb_index'
                     order by ns_vfdate desc
@@ -222,7 +227,7 @@ $nt_name =$row['nt_name'];
 
                         <?php 
                         // 把分頁功能載入
-                        require("../share_area/news_list_f.php");
+                        paging($totalpage, $PageNo);
                         ?>
 
                     

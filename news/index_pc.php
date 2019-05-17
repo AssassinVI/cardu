@@ -65,13 +65,16 @@
                        //設定好sql後，交由 page_carousel.php執行
                        //============================================
                        $sql_carousel="
-                        SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
-                        where mt_id = '$mt_id' and ns_vfdate<>'0000-00-00 00:00:00' 
-                        and  StartDate<='$todayis' and EndDate>='$todayis'
-                        order by ns_vfdate desc
-                        LIMIT 0, 12
+                        SELECT n.Tb_index, n.ns_nt_pk, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.mt_id, nt.area_id
+                        FROM  appNews as n
+                        INNER JOIN news_type as nt ON nt.Tb_index=n.ns_nt_pk
+                        where n.mt_id = '$mt_id' and n.ns_vfdate<>'0000-00-00 00:00:00' AND n.ns_verify=3 
+                        and  n.StartDate<='$todayis' and n.EndDate>='$todayis'
+                        order by n.ns_vfdate desc
+                        LIMIT 0, 6
                         ";
-                       require '../share_area/page_carousel.php';
+                        slide_4s_3b($sql_carousel);
+                       //require '../share_area/page_carousel.php';
                       ?>
 
 
@@ -112,6 +115,7 @@
                     //===================================
                     //取出特別議題頁籤
                     //===================================
+                      $pdo=pdo_conn();
                       $sql_special=$pdo->prepare("
                         SELECT nt_name,Tb_index,pk FROM news_type
                         where mt_id='site2018111910445721' and nt_sp=1 
