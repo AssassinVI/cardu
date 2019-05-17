@@ -1,0 +1,11 @@
+
+/* -------- 平板畫面 --------- */
+@media (max-width: 768px){
+ body{ background-color: #fff; }
+ .container{ padding:0; }
+}
+
+/* -------- 手機畫面 --------- */
+@media (max-width: 420px){
+
+}

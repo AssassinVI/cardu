@@ -2,6 +2,8 @@
 require '../sys/core/inc/config.php';
 require '../sys/core/inc/function.php';
 require '../sys/core/inc/pdo_fun_calss.php';
+//-- 前台特殊用 --
+require '../share_area/func.php';
 
 if ($_POST) {
   
@@ -42,7 +44,7 @@ if ($_POST) {
   	    $row[$i]['cc_shortname']=$ccs_cc_shortname;
         
         //-- 卡連結 --
-  	    $cc_url=!empty($row[$i]['ccs_cc_pk']) ? '../cardNews/creditcard.php?cc_pk='.$row[$i]['ccs_cc_pk'].'&cc_group_id='.$row[$i]['ccs_cc_group_id'] : '../cardNews/type.php?gid='.$row[$i]['ccs_cc_group_id'];
+  	    $cc_url=!empty($row[$i]['ccs_cc_pk']) ? '../card/creditcard.php?cc_pk='.$row[$i]['ccs_cc_pk'].'&cc_group_id='.$row[$i]['ccs_cc_group_id'] : '../card/type.php?gid='.$row[$i]['ccs_cc_group_id'];
   	    $row[$i]['cc_url']=$cc_url;
 
       }
@@ -69,7 +71,7 @@ if ($_POST) {
 
 
     
-    //---------------------------------------------------------------- 卡排行資訊 (現金回饋-有門檻) -----------------------------------------------------------------------
+    //---------------------------------------------------------------- 卡排行資訊  -----------------------------------------------------------------------
     case 'card_rank':
       $row_rank=$pdo->select("SELECT cc.Tb_index, cc.cc_group_id, cc.cc_photo, cc.cc_doc_url, cc.cc_doc_path, cc.cc_interest_desc, 
                                      ccr.ccs_cc_cardname2, ccr.ccs_cc_cardshrname, ccr.ccs_cc_cardurl, ccr.ccs_cc_pk2, 
@@ -83,7 +85,7 @@ if ($_POST) {
                               ORDER BY ccr.ccs_order ASC LIMIT 0,10", ['ccs_cc_so_pk'=>$_POST['rank_type_id']]);
       echo json_encode($row_rank);
     break;
-    //---------------------------------------------------------------- 卡排行資訊 (現金回饋-有門檻) END -----------------------------------------------------------------------
+    //---------------------------------------------------------------- 卡排行資訊  END -----------------------------------------------------------------------
 
 
 
@@ -138,8 +140,8 @@ if ($_POST) {
       }
 
 
-      $row_rank=$pdo->select("SELECT cc.Tb_index, cc.cc_group_id, cc.cc_photo, cc.cc_doc_url, cc.cc_doc_path, cc.cc_interest_desc, 
-                                     ccr.ccs_cc_cardname2, ccr.ccs_cc_cardshrname, ccr.ccs_cc_cardurl, ccr.ccs_cc_pk2, 
+      $row_rank=$pdo->select("SELECT cc.Tb_index as cc_Tb_index, cc.cc_group_id , cc.cc_photo, cc.cc_doc_url, cc.cc_doc_path, cc.cc_interest_desc, 
+                                     ccr.Tb_index as ccr_Tb_index, ccr.ccs_cc_group_id as ccr_group_id,
                                      ccr.ccs_cc_cardname, ccr.ccs_typename_01, ccr.ccs_typename_02, ccr.ccs_typename_03, 
                                      ccr.ccs_typename_01_memo, ccr.ccs_typename_02_memo, ccr.ccs_typename_03_memo,
                                      ccrt.cc_so_type_01_cname, ccrt.cc_so_type_02_cname, ccrt.cc_so_type_03_cname
@@ -151,31 +153,66 @@ if ($_POST) {
 
                               $x=$sr_rank_num+1;
                               foreach ($row_rank as $row_rank_one) {
-                                $card_name=empty($row_rank_one['ccs_cc_cardname2']) ? mb_substr($row_rank_one['ccs_cc_cardname'], 5,mb_strlen($row_rank_one['ccs_cc_cardname']),'utf-8') : $row_rank_one['ccs_cc_cardname2'] ;
+                                $card_name=empty($row_rank_one['ccs_cc_cardname2']) ? mb_substr(trim($row_rank_one['ccs_cc_cardname']), 5,mb_strlen($row_rank_one['ccs_cc_cardname']),'utf-8') : $row_rank_one['ccs_cc_cardname2'] ;
+
+                                //-- 判斷是否卡群組 --
+                                if (empty($row_rank_one['cc_Tb_index'])) {
+                                  $row_card_group=$pdo->select("SELECT cc.cc_photo ,cc.cc_group_id, cc.cc_interest_desc
+                                                                FROM credit_card as cc
+                                                                INNER JOIN card_level as level ON level.Tb_index=cc.cc_cardlevel
+                                                                WHERE cc_group_id=:cc_group_id 
+                                                                ORDER BY level.OrderBy ASC
+                                                                LIMIT 0,1", ['cc_group_id'=>$row_rank_one['ccr_group_id']], 'one');
+                                }
+                                
+                                //-- card_id --
+                                $card_id=empty($row_rank_one['cc_Tb_index']) ? $row_card_group['Tb_index'] : $row_rank_one['cc_Tb_index'];
+
                                 //-- 單卡網址 (sys/core/inc/function.php) --
-                                $card_url=empty($row_rank_one['ccs_cc_cardurl']) ? card_url($row_rank_one['Tb_index'], $row_rank_one['cc_group_id']) : $row_rank_one['ccs_cc_cardurl'];
+                                if (!empty($row_rank_one['ccs_cc_cardurl'])) {
+                                  $card_url=$row_rank_one['ccs_cc_cardurl'];
+                                }
+                                elseif(empty($row_rank_one['cc_Tb_index'])){
+                                  $card_url=card_url('', $row_card_group['cc_group_id']);
+                                }
+                                else{
+                                  $card_url=card_url($row_rank_one['cc_Tb_index'], $row_rank_one['cc_group_id']);
+                                }
+
                                 //-- 卡片圖 --
-                                $cc_photo=empty($row_rank_one['cc_photo']) ? 'CardSample.png':$row_rank_one['cc_photo'];
+                                if (empty($row_rank_one['cc_Tb_index'])) {
+                                  $cc_photo=empty($row_card_group['cc_photo']) ? 'CardSample.png':$row_card_group['cc_photo'];
+                                }
+                                else{
+                                  $cc_photo=empty($row_rank_one['cc_photo']) ? 'CardSample.png':$row_rank_one['cc_photo'];
+                                }
+
                                 //-- 卡特色 --
+                                $cc_interest_desc=empty($row_rank_one['cc_Tb_index']) ? $row_card_group['cc_interest_desc'] : $row_rank_one['cc_interest_desc'];
                                 $card_adv_txt1='';
                                 $card_adv_txt2='';
-                                $card_adv=preg_split('/\n/',$row_rank_one['cc_interest_desc']);
+                                $card_adv=preg_split('/\n/',$cc_interest_desc);
                                 $y=1;
-                                foreach ($card_adv as $card_adv_one) {
+                                if (!empty($cc_interest_desc)) {
+                                  foreach ($card_adv as $card_adv_one) {
                                   if ($y%2==1) {
                                    $card_adv_txt1.='<li><b>●</b>'.mb_substr($card_adv_one, 0,15).'</li>';
                                   }
                                   else{
                                     $card_adv_txt2.='<li><b>●</b>'.mb_substr($card_adv_one, 0,15).'</li>';
                                   }
-                                  $y++;
+                                    $y++;
+                                  }
+                                  $card_adv_txt1='<ul class="collapse_txt mb-0">'.$card_adv_txt1.'</ul>';
+                                  $card_adv_txt2='<ul class="collapse_txt mb-0">'.$card_adv_txt2.'</ul>';
                                 }
+
                                 //-- 立即辦卡 --
                                 if (!empty($row_rank_one['cc_doc_url'])) {
-                                  $cc_doc='<a target="_blank" href="'.$row_rank_one['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+                                  $cc_doc='<a href="javascript:cardRank_log(\''.$row_rank_one['cc_doc_url'].'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'assign\', \'_blank\');" class="btn warning-layered btnOver">立即辦卡</a>';
                                 }
                                 elseif(!empty($row_rank_one['cc_doc_path'])){
-                                  $cc_doc='<a target="_blank" href="'.$row_rank_one['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+                                  $cc_doc='<a href="javascript:cardRank_log(\''.$row_rank_one['cc_doc_path'].'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'assign\', \'_blank\');" class="btn warning-layered btnOver">立即辦卡</a>';
                                 }
                                 else{
                                   $cc_doc='';
@@ -194,7 +231,7 @@ if ($_POST) {
                                     <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12">
-                                         <a href="'.$card_url.'">
+                                         <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\');">
                                           <h5 class=" money_main mb-0">'.$card_name.'</h5>
                                          </a>
                                         </div>
@@ -202,20 +239,20 @@ if ($_POST) {
                                   
                                     <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
-                                         <a href="'.$card_url.'">
+                                         <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\');">
                                           <img class="rank_img" src="../sys/img/'.$cc_photo.'" title="'.$card_name.'">
                                          </a>
                                       </div>
                                     </div>
-                                     <div class="col-md hv-center phone_block">
+                                     <div class="col-md col-4 hv-center phone_block">
                                       <strong>'.$row_rank_one['cc_so_type_01_cname'].'</strong>
                                       '.ccs_typename($row_rank_one['ccs_typename_01_memo'], $row_rank_one['ccs_typename_01']).'
                                      </div>
-                                    <div class="col-md hv-center border-left border-right phone_block">
+                                    <div class="col-md col-4 hv-center border-left border-right phone_block">
                                       <strong>'.$row_rank_one['cc_so_type_02_cname'].'</strong>
                                       '.ccs_typename($row_rank_one['ccs_typename_02_memo'], $row_rank_one['ccs_typename_02']).'
                                     </div>
-                                    <div class="col-md hv-center phone_block">
+                                    <div class="col-md col-4 hv-center phone_block">
                                       <strong>'.$row_rank_one['cc_so_type_03_cname'].'</strong>
                                       '.ccs_typename($row_rank_one['ccs_typename_03_memo'], $row_rank_one['ccs_typename_03'], $row_rank_one['ccs_cc_pk2']).'
                                     </div>
@@ -224,7 +261,7 @@ if ($_POST) {
                                        <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="profit_btn  hv-center my-2">
                                        '.$cc_doc.'
-                                       <button type="button" card_id="'.$row_rank_one['Tb_index'].'" cc_group_id="'.$row_rank_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
+                                       <button type="button" card_id="'.$card_id.'" cc_group_id="'.$row_rank_one['ccr_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                        </div>
                                        
                                       </div>
@@ -247,12 +284,8 @@ if ($_POST) {
                                         <h4><img src="https://www.cardu.com.tw/images/cardrank/tick.png">信用卡特色</h4>
                                       </div>
                                       <div class="col-md-8">
-                                        <ul class="collapse_txt mb-0">
-                                         '.$card_adv_txt1.'                                     
-                                       </ul>
-                                       <ul class="collapse_txt mb-0">
-                                         '.$card_adv_txt2.'                                     
-                                       </ul>
+                                        '.$card_adv_txt1.' 
+                                       '.$card_adv_txt2.' 
                                       </div>
                                     </div>
                                   </div>
@@ -267,6 +300,109 @@ if ($_POST) {
                               $x++; }
     break;
     //---------------------------------------------------------------- 卡排行資訊 END -----------------------------------------------------------------------
+
+
+    
+
+
+   //----------------------------------------------------------------------------- 顯示更多卡片(新手快搜) ---------------------------------------------------------------------------
+   case 'rank_more_new_hand':
+
+      $sql_txt='';
+      $sql_arr=[];
+      //-- 快搜優惠 --
+      if (!empty($_POST['pref_id'])) {
+        $pref_id=explode(',', $_POST['pref_id']);
+        $i=0;
+        foreach ($pref_id as $pref_id_one) {
+        $sql_txt.=" cc.cc_pref_id LIKE :pref_id".$i." AND ";
+        $sql_arr['pref_id'.$i]='%'.$pref_id_one.'%';
+        $i++;
+       }
+      }
+      //-- 快搜功能 --
+      if (!empty($_POST['fun_id'])){
+        $fun_id=explode(',', $_POST['fun_id']);
+        $i=0;
+        foreach ($fun_id as $fun_id_one) {
+        $sql_txt.=" cc.cc_fun_id LIKE :fun_id".$i." AND ";
+        $sql_arr['fun_id'.$i]='%'.$fun_id_one.'%';
+        $i++;
+       }
+      }
+      
+      $sql_txt=substr($sql_txt, 0,-4);
+
+
+      $row_card=$pdo->select("SELECT cc.Tb_index, cc.cc_group_id, cc.cc_photo, cc.cc_cardname, cc.cc_interest_desc, cc.cc_doc_url, cc.cc_doc_path, 
+                                     ccd.bi_shortname, ccd.org_nickname, ccd.attr_name 
+                              FROM credit_card as cc
+                              INNER JOIN cc_detail as ccd ON cc.Tb_index=ccd.Tb_index
+                              WHERE cc.cc_stop_publish=0 AND cc.cc_stop_card=0 AND ".$sql_txt.
+                              " LIMIT ".$_POST['sr_num'].",".$_POST['sr_num_plus'], $sql_arr);
+      $x=1;
+      foreach ($row_card as $row_card_one) {
+        
+        $card_name=$row_card_one['bi_shortname'].'_'.$row_card_one['cc_cardname'].'_'.$row_card_one['org_nickname'].$row_card_one['attr_name'];
+        //$card_name=mb_substr($card_name,0, 12);
+
+        $cc_int_desc_txt='';
+        $cc_interest_desc=preg_split('/\n/',$row_card_one['cc_interest_desc']);
+        foreach ($cc_interest_desc as $cc_int_desc_one) {
+          $cc_int_desc_txt.='<li><b>●</b>'.$cc_int_desc_one.'</li>';
+        }
+
+        //-- 立即辦卡 --
+        if (!empty($row_card_one['cc_doc_url'])) {
+          $cc_doc='<a target="_blank"  href="'.$row_card_one['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+        }
+        elseif(!empty($row_card_one['cc_doc_path'])){
+          $cc_doc='<a target="_blank" href="'.$row_card_one['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+        }
+        else{
+          $cc_doc='';
+        }
+
+        //-- 卡片圖 --
+        $cc_photo=empty($row_card_one['cc_photo']) ? 'CardSample.png':$row_card_one['cc_photo'];
+
+        echo '
+    <div class="row no-gutters py-3 rankbg_list search_hot rank_hot ">
+      <div class="col-md-4 wx-100-ph text-center">
+        <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$row_card_one['Tb_index'].'&cc_group_id='.$row_card_one['cc_group_id'].'">
+          <img src="../sys/img/'.$cc_photo.'" alt="'.$card_name.'">
+        </a>
+      </div>
+      <div class="col-md-8 wx-100-ph card_list_txt rank_color">
+       <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$row_card_one['Tb_index'].'&cc_group_id='.$row_card_one['cc_group_id'].'">
+       <h4>'.$card_name.'</h4>
+       </a>
+       <div class="row no-gutters">
+        <div class="col-md-6 wx-100-ph card_list_txt rank_color">
+          <ul>
+            '.$cc_int_desc_txt.'
+          </ul>
+        </div>
+        <div class="col-md-2 wx-100-ph">
+          <div class="rank_btn">
+            '.$cc_doc.'
+            <button type="button" card_id="'.$row_card_one['Tb_index'].'" cc_group_id="'.$row_card_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
+          </div>
+          <span>謹慎理財 信用至上</span>
+        </div>
+       </div>
+     </div>
+    </div>';
+    
+
+    //-- 廣告 --
+    if ($x%3==0) {
+      echo ' <div class="text-center banner"><img src="http://placehold.it/750x150" alt="banner"></div>';
+    }
+
+     $x++; }
+   break;
+   //----------------------------------------------------------------------------- 顯示更多卡片(新手快搜) ---------------------------------------------------------------------------
 
 
 
@@ -308,7 +444,7 @@ if ($_POST) {
        $ci_pk01_one= '
        <td class="ci_pk01">
          <div class="rank_care money_main">
-          <a href="../cardNews/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
+          <a href="../card/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
            <img class="rank_img" src="../sys/img/'.$cc_photo.'" title="'.$eq_rank_one['sm_content'].'">
            <h5 class=" money_main text-center mb-0">'.$card_name.'</h5>
           </a>
@@ -354,7 +490,7 @@ if ($_POST) {
        $ci_pk02_one= '
        <td class="ci_pk01">
          <div class="rank_care money_main">
-          <a href="../cardNews/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
+          <a href="../card/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
            <img class="rank_img" src="../sys/img/'.$cc_photo.'" title="'.$eq_rank_one['sm_content'].'">
            <h5 class=" money_main text-center mb-0">'.$card_name.'</h5>
           </a>
@@ -399,7 +535,7 @@ if ($_POST) {
        $ci_pk03_one= '
        <td class="ci_pk01">
          <div class="rank_care money_main">
-          <a href="../cardNews/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
+          <a href="../card/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
            <img class="rank_img" src="../sys/img/'.$cc_photo.'" title="'.$eq_rank_one['sm_content'].'">
            <h5 class=" money_main text-center mb-0">'.$card_name.'</h5>
           </a>
@@ -470,7 +606,45 @@ if ($_POST) {
     echo json_encode($row);
     break;
     //----------------------------------------------------------------------------- 顯示卡片(卡片比一比) END ---------------------------------------------------------------------------
+
+
+
+    //----------------------------------------------------------------------------- 紀錄卡排行點閱數&辦卡數 ---------------------------------------------------------------------------
+    case 'cardRank_log':
+    
+    $log_type=$_POST['log_type']=='view' ? "ccs_cc_viewcount=ccs_cc_viewcount+1" : "ccs_cc_assigncount=ccs_cc_assigncount+1";
+    //-- 總累積數 --
+    $pdo->select("UPDATE credit_cardrank SET ".$log_type." WHERE Tb_index=:Tb_index", ['Tb_index'=>$_POST['rank_id']]);
+    
+    //-- 每日累積數 --
+    $row_day_log=$pdo->select("SELECT COUNT(*) as total FROM credit_cardrank_count WHERE ccr_date=:ccr_date AND ccr_id=:ccr_id", 
+                              ['ccr_date'=>date('Y-m-d'), 'ccr_id'=>$_POST['rank_id']], 'one');
+    if ((int)$row_day_log['total']>0) {
+      $day_log_type=$_POST['log_type']=='view' ? "viewcount=viewcount+1" : "assigncount=assigncount+1";
+      $pdo->select("UPDATE credit_cardrank_count SET ".$day_log_type." WHERE ccr_date=:ccr_date AND ccr_id=:ccr_id", ['ccr_date'=>date('Y-m-d'), 'ccr_id'=>$_POST['rank_id']]);
+    }
+    else{
+
+      $param=[
+       'Tb_index'=>'ccrc'.date('YmdHis').rand(0,99),
+       'ccr_id'=>$_POST['rank_id'],
+       'ccr_date'=>date('Y-m-d'),
+       'create_time'=>date('Y-m-d H:i:s')
+      ];
+      if ($_POST['log_type']=='view') {
+        $param['viewcount']=1;
+      }
+      else{
+        $param['assigncount']=1;
+      }
+      $pdo->insert('credit_cardrank_count', $param);
+    }
+
+
+    break;
+    //----------------------------------------------------------------------------- 紀錄卡排行點閱數&辦卡數 END ---------------------------------------------------------------------------
   	
+
   	default:
   	  echo "error";
   	break;

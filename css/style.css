@@ -662,6 +662,10 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 
+.iNewsR .swiper-container{
+    height: 100%;
+}
+
 .iNewsR .swiper-button-next, .iNewsR .swiper-button-prev{
        width: 35px;
        height: 100%;
@@ -1049,11 +1053,11 @@ a:hover{ text-decoration: none; color:#000000; }
 
 /*--------------------- 人氣卡排行 --------------------*/
 .ccard .cards-3 a{ width: 100%; text-align: center; }
-.ccard .cards-3 a img{ width: 200px; margin-top: 1.2rem;}
+.ccard .cards-3 a img{ height: 126px; margin-top: 1.2rem;}
 .ccard .cards-3 a p{ font-weight: 600; font-size: 17px;}
 .ccard .card_txt p{ font-weight: 500; font-size: 13px; color: #a8a8a8; }
 .ccard .card_btn{ margin-top: 0.5rem; }
-.ccard .card_btn button{  padding: 3px 10px; font-size: 14px; margin: 0 5px; }
+.ccard .card_btn button, .ccard .card_btn a{  padding: 3px 10px; font-size: 14px; margin: 0 5px; width: auto; }
 .ccard .card_btn .btn-orange{ background-color: #fc9b1b; color: #fff; } 
 .ccard .card_btn .btn-gray{ background-color: #797979; color: #fff; } 
 
@@ -1539,6 +1543,10 @@ a:hover{ text-decoration: none; color:#000000; }
     background-color: #d9ab3e;
 }
 
+#new_card .card-header + .collapse.show {
+  height: 260px;
+}
+
 #new_card .card-header h5 button{
     color: #fff;
     padding: 5.1px 12px;
@@ -1636,11 +1644,11 @@ a:hover{ text-decoration: none; color:#000000; }
    padding: 30px 10px;
 }
 
-.tab_list_div .content_tab .row{
+.tab_list_div .content_tab .news_list_div{
   display: none;
 }
 
-.tab_list_div .content_tab .row.show{
+.tab_list_div .content_tab .news_list_div.show{
   display: flex;
 }
 
@@ -1661,9 +1669,11 @@ a:hover{ text-decoration: none; color:#000000; }
     margin-top: 5px;
     text-align: center;
     position: absolute;
-    bottom: 5px;
-    width: 100%;
+    bottom: 0px;
+    width: 343px;
     color: #fff;
+    background-color: rgba(0,0,0,0.4);
+    line-height: 2;
 }
 
  .cards-3 a{
@@ -5129,11 +5139,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 }
 
 .ccard .swiper-button-next, .ccard .swiper-button-prev{
-  top: 45%;
+  top: 10%;
 }
 
 .ccard .swiper-container{
-    margin: 0 1rem;
+    margin: 0 1.5rem;
 }
 
 .ccard .swiper-slide div a{
@@ -5499,5 +5509,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 }
 .check_in .col-sm-9 {border-bottom: 1px solid #fff;}
 
+
+/*------------------------------------------- 廣告 -------------------------------------------------*/
+.ad_fixed_ph{ position: fixed; bottom: 0; left: 0; width: 100%; }
+.ad_fixed_ph .sub_slide .swiper-button-next, 
+.ad_fixed_ph .sub_slide .swiper-container-rtl .swiper-button-prev, 
+.ad_fixed_ph .sub_ph_slide .swiper-button-next, 
+.ad_fixed_ph .sub_ph_slide .swiper-container-rtl .swiper-button-prev{
+  top: 27%;
+}
+
+.ad_fixed_ph .sub_slide .swiper-button-prev, 
+.ad_fixed_ph .sub_slide .swiper-container-rtl .swiper-button-next, 
+.ad_fixed_ph .sub_ph_slide .swiper-button-prev, 
+.ad_fixed_ph .sub_ph_slide .swiper-container-rtl .swiper-button-next{
+  top: 27%;
+}
 }
 /*----- 平板畫面 END -----*/

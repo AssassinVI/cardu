@@ -1,0 +1,958 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*-- 獎牌數字用 --*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+.news_body{
+background: rgb(232,251,252); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(232,251,252,1) 0%, rgba(246,246,246,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(232,251,252,1) 0%,rgba(246,246,246,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(232,251,252,1) 0%,rgba(246,246,246,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8fbfc', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+}
+
+body, html, h1,h2,h3,h4,h5,p,span,a,div{ font-family: Microsoft JhengHei; }
+
+a:hover{ text-decoration: none; }
+
+/*------------- 基本共用 ------------------*/
+.p-8px{ padding: 8px; }
+.w-100{ width: 100%; }
+
+.hv-center{ 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.hv-around{ 
+  display: flex;  
+  justify-content: space-around; 
+  align-items: center;
+}
+
+.img_div{ 
+  background-position: center; 
+  background-size: cover; 
+  background-repeat: no-repeat;
+}
+
+.w-h-100{
+    width: 100%;
+    height: 100%;
+}
+
+.shadow_text{text-shadow: 1px 1px 1px #333;}
+.shadow_div{box-shadow:0px 0px 18px rgba(20%,20%,40%,0.2);}
+
+.tab-3 .big_slide_tab{
+  height: 250px;
+}
+
+.tab-3 .small_slide_tab {
+  padding: 8px 4px;
+}
+
+.tab-3 .small_slide_tab .col-6 {
+  height: 125px;
+  padding: 0 4px;
+}
+
+.tab-3 .small_slide_tab .tab_one{
+  height: 100%;
+  position: relative;
+}
+
+.tab-3 .small_slide_tab a{
+  position: relative;
+  display: block;
+  height: 100%;
+  color: #fff;
+}
+
+.tab-3 .small_slide_tab a p{
+    margin: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 5px 0;
+    text-align: center;
+}
+
+
+.tab-3 .big_tab{
+  /*height: 200px;*/
+  padding: 8px 0;
+}
+
+.tab-3 .big_tab a{
+  display: block;
+  position: relative;
+  height: 100%;
+  height: 200px;
+}
+
+.tab-3 .big_tab a p{
+    margin: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 18px;
+    padding: 5px 10px;
+}
+
+.tab-3 .small_tab {
+   margin: 0 -4px;
+}
+
+.tab-3 .small_tab .col-6 {
+  padding: 0 4px;
+
+}
+
+.tab-3 .small_tab .tab_one p{
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+  color: #b58b28;
+  padding: 4px 0;
+}
+
+.tab-3 .small_tab a{
+  position: relative;
+  display: block;
+  height: 125px;
+}
+
+.tab-3 .small_tab a p{
+    margin: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.cardshap{ 
+    border-radius: 20px 0 20px 0;
+    background-color: #fff;
+    overflow: hidden;
+    margin:8px;
+}
+
+.tab_link{ 
+  float: right; 
+  display: inline-block;
+   width: 35px; 
+   height: 25px; 
+   background-image: url(../../img/component/icon/more_icon.svg); 
+   background-size: 65%;
+   background-repeat: no-repeat;
+   background-position: center; 
+ }
+
+.star_li{
+  list-style-image: url(../img/component/star_li.png);
+}
+
+/*孔洞*/
+.top_hole::before{
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: #e1e1e1;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.55);
+}
+
+.hole::before{
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    background: #e1e1e1;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.55);
+}
+
+
+.icon{ 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  display: inline-block; 
+  width: 20px; 
+  height: 20px; 
+  background-size: 90%;
+  margin-right: 3px;
+  vertical-align: sub;
+}
+
+/*------------------ TAB one (如熱門支付) ---------------------*/
+.tab_one .title_tab{ 
+ position: relative; 
+ padding: 0.6rem 0.5rem 0.6rem 2rem;
+ align-items: center;
+ color: #fff;
+}
+
+.tab_one .title_tab span{
+  position: absolute;
+  right: 10px;
+  font-size: 12px;
+}
+
+
+.tab_one .title_tab h4{ 
+    display: inline-block;
+    margin:0; 
+    font-size: 18px;
+    font-weight: 600;  
+}
+
+.tab_one .content_tab{
+   padding-bottom:15px;
+}
+
+.tab_one .content_tab .active_date{
+    margin: 0;
+    color: #fd9b1d;
+    font-weight: 600;
+}
+
+
+
+/*-------------------------- 關鍵字搜尋 bar --------------------------------*/
+#search_bar{
+  background-color: #e2e2e2;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: -1;
+}
+
+#search_bar .form-row{
+  padding: 5px 10px;
+}
+
+#search_bar .search_btn{
+  padding: 6px;
+  width: 100%;
+  background-color: #2f4593;
+  color: #fff;
+}
+
+#search_bar .close_btn{
+  background-color: #e2e2e2;
+  padding: 6px 0;
+}
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 單頁型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*----------------------------------------- 藍色色 ------------------------------------------------*/
+.blue_tab .top_hole{
+
+  background: -moz-linear-gradient(left, rgba(39,60,139,1) 37%, rgba(57,86,158,1) 50%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(39,60,139,1) 37%,rgba(57,86,158,1) 50%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(39,60,139,1) 37%,rgba(57,86,158,1) 50%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#273c8b', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
+}
+
+
+/*----------------------------------------- 咖啡色 ------------------------------------------------*/
+.brown_tab .title_tab{ 
+   color: #fff; 
+    background: rgb(204,157,46); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(204,157,46,1) 0%, rgba(229,184,78,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(204,157,46,1) 0%,rgba(229,184,78,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(204,157,46,1) 0%,rgba(229,184,78,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc9d2e', endColorstr='#e5b84e',GradientType=0 ); /* IE6-9 */
+}
+
+.brown_tab .top_hole{
+background: -moz-linear-gradient(left, rgba(206,160,67,1) 37%, rgba(189,165,101,1) 50%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(206,160,67,1) 37%,rgba(189,165,101,1) 50%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(206,160,67,1) 37%,rgba(189,165,101,1) 50%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cea043', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
+}
+
+/*----------------------------------------- 深咖啡色 ------------------------------------------------*/
+
+.dark_brown_tab .page-3.swiper-container .page_txt p{ color: #8b4b2e; }
+.dark_brown_tab .title_tab{ 
+   color: #fff; 
+   background: rgb(137,74,46); /* Old browsers */
+   background: -moz-linear-gradient(top, rgba(137,74,46,1) 0%, rgba(200,113,76,1) 100%); /* FF3.6-15 */
+   background: -webkit-linear-gradient(top, rgba(137,74,46,1) 0%,rgba(200,113,76,1) 100%); /* Chrome10-25,Safari5.1-6 */
+   background: linear-gradient(to bottom, rgba(137,74,46,1) 0%,rgba(200,113,76,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#894a2e', endColorstr='#c8714c',GradientType=0 ); /* IE6-9 */
+}
+
+/*----------------------------------------- 橘色 ------------------------------------------------*/
+.orange_tab .tab_menu{ background-color: #fef4f0; }
+.orange_tab .tab_menu .swiper-slide a:hover{ color: #eb8c0f;}
+.orange_tab .tab_menu .swiper-slide a.active{ color: #eb8c0f;}
+.orange_tab .tab_menu .swiper-slide a:before{ background-color: #eb8c0f; }
+
+.orange_tab .title_tab{  
+    color: #fff;
+    background: rgb(209,123,10); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(209,123,10,1) 0%, rgba(229,134,9,1) 31%, rgba(255,157,30,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(209,123,10,1) 0%,rgba(229,134,9,1) 31%,rgba(255,157,30,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(209,123,10,1) 0%,rgba(229,134,9,1) 31%,rgba(255,157,30,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d17b0a', endColorstr='#ff9d1e',GradientType=0 ); /* IE6-9 */
+}
+
+.orange_tab .top_hole{
+background: -moz-linear-gradient(left, rgba(242,146,51,1) 37%, rgba(218,154,88,1) 50%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(242,146,51,1) 37%,rgba(218,154,88,1) 50%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(242,146,51,1) 37%,rgba(218,154,88,1) 50%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f29233', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
+}
+
+
+/*----------------------------------------- 藍綠色 ------------------------------------------------*/
+.blueGreen_tab .page-3.swiper-container .page_txt p{ color: #177c9b; }
+.blueGreen_tab .title_tab{  
+    color: #fff;
+    background: rgb(24,124,155); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(24,124,155,1) 0%, rgba(56,172,198,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(24,124,155,1) 0%,rgba(56,172,198,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(24,124,155,1) 0%,rgba(56,172,198,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#187c9b', endColorstr='#38acc6',GradientType=0 ); /* IE6-9 */
+}
+
+.blueGreen_tab .top_hole{
+background: -moz-linear-gradient(left, rgba(48,147,174,1) 37%, rgba(64,155,186,1) 50%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(48,147,174,1) 37%,rgba(64,155,186,1) 50%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(48,147,174,1) 37%,rgba(64,155,186,1) 50%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3093ae', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
+}
+
+
+/*----------------------------------------- 桃紅色 ------------------------------------------------*/
+.pink_tab .tab-3 .small_tab .tab_one p{ color: #c54868; }
+
+.pink_tab .title_tab{ 
+color: #fff;
+
+background: rgb(197,72,104); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(197,72,104,1) 1%, rgba(197,72,104,1) 25%, rgba(232,89,126,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(197,72,104,1) 1%,rgba(197,72,104,1) 25%,rgba(232,89,126,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(197,72,104,1) 1%,rgba(197,72,104,1) 25%,rgba(232,89,126,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c54868', endColorstr='#e8597e',GradientType=0 ); /* IE6-9 */
+}
+
+.pink_tab .top_hole{
+
+background: -moz-linear-gradient(left, rgba(211,82,113,1) 37%, rgba(193,103,138,1) 50%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(211,82,113,1) 37%,rgba(193,103,138,1) 50%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(211,82,113,1) 37%,rgba(193,103,138,1) 50%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d35271', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
+}
+
+
+/*----------------------------------------- 綠色 ------------------------------------------------*/
+.green_tab .tab-3 .small_tab .tab_one p{ color: #36943d; }
+.green_tab .title_tab{ 
+    color: #fff;
+
+   background: rgb(5,112,11); /* Old browsers */
+   background: -moz-linear-gradient(top, rgba(5,112,11,1) 1%, rgba(88,176,93,1) 100%); /* FF3.6-15 */
+   background: -webkit-linear-gradient(top, rgba(5,112,11,1) 1%,rgba(88,176,93,1) 100%); /* Chrome10-25,Safari5.1-6 */
+   background: linear-gradient(to bottom, rgba(5,112,11,1) 1%,rgba(88,176,93,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05700b', endColorstr='#58b05d',GradientType=0 ); /* IE6-9 */
+}
+
+.green_tab .top_hole{
+background: -moz-linear-gradient(left, rgba(40,130,53,1) 37%, rgba(58,141,90,1) 50%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(40,130,53,1) 37%,rgba(58,141,90,1) 50%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(40,130,53,1) 37%,rgba(58,141,90,1) 50%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#288235', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
+}
+
+/*------------- 基本共用 END ------------------*/
+
+/*----------- 手機畫面 ---------------*/
+@media (min-width: 300px){
+
+  /*------------------------------------------- 浮動廣告 -------------------------------------------------*/
+  .ad_fixed_ph{ position: fixed; bottom: 0; left: 0; width: 100%; z-index: 10; }
+
+  .top-space{ margin-top: 6.5rem; }
+  .container-fluid{ padding:0; margin-bottom: 80px;}
+  .hamburger{ padding: 5px; }
+  .hamburger-box{ width: 25px;  }
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after{ width: 25px; height: 3px; }
+  .hamburger-inner::before{ top: -7.4px; }
+  .hamburger--collapse .hamburger-inner::after{  top: -14px; }
+
+  header{ top: 0; position: fixed; z-index: 100; background-color: #fff;}
+  
+  /*--- menu tool ---*/
+  .tool_div div{ width: 85%; margin-left: auto; justify-content: space-between;}
+  .tool_div a{display: block; width: 25px; height: 25px;  }
+  .tool_div a:nth-child(1){ background-size: 90%; }
+  .tool_div a:nth-child(2){ background-size: 70%; }
+  .tool_div a:nth-child(3){ background-size: 95%; }
+  .tool_div a:nth-child(4){ background-size: 95%; }
+
+  /*--- menu bar ---*/
+  #menu_bar{ 
+   padding: 5px 0px;
+   background: rgb(66,85,157); /* Old browsers */
+   background: -moz-linear-gradient(top, rgba(66,85,157,1) 0%, rgba(25,49,136,1) 50%, rgba(63,83,156,1) 100%); /* FF3.6-15 */
+   background: -webkit-linear-gradient(top, rgba(66,85,157,1) 0%,rgba(25,49,136,1) 50%,rgba(63,83,156,1) 100%); /* Chrome10-25,Safari5.1-6 */
+   background: linear-gradient(to bottom, rgba(66,85,157,1) 0%,rgba(25,49,136,1) 50%,rgba(63,83,156,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42559d', endColorstr='#3f539c',GradientType=0 ); /* IE6-9 */
+  }
+
+  #menu_bar .swiper-slide{ width: initial; }
+  #menu_bar .swiper-slide a{ display: inline-block; padding: 0 0.5rem; font-size: 19px; color: #fff; font-weight: 600; text-align: center; }
+
+  /*--- menu 下拉選單 ---*/
+  #menu_list{ 
+    position: fixed; 
+    top: 0;
+    left:-100%;
+    z-index: 100;
+  }
+
+  #menu_list .close_div{
+    padding: 5px 18px;
+    font-size: 20px;
+    background: #ccc;
+    background: rgb(66,85,157); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(66,85,157,1) 0%, rgba(24,48,135,1) 51%, rgba(66,85,157,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(66,85,157,1) 0%,rgba(24,48,135,1) 51%,rgba(66,85,157,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(66,85,157,1) 0%,rgba(24,48,135,1) 51%,rgba(66,85,157,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42559d', endColorstr='#42559d',GradientType=0 ); /* IE6-9 */
+  }
+
+  #menu_list .card-header{
+    padding: 0;
+  }
+
+  #menu_list .card{
+    background: #eee;
+    border-radius: 0;
+  }
+
+  #menu_list .card-body{
+    padding: 8px 18px;
+  }
+
+  #menu_list .card-body a{
+    color: #3e529b;
+    font-weight: 600;
+    display: block;
+    padding: 8px 1px;
+  }
+
+  #menu_list .card-body h4{
+    font-size: 18px;
+    border-bottom: 2px solid #ccc;
+    padding: 5px 0;
+    padding-top: 10px;
+    font-weight: 600;
+  }
+
+  #menu_list .accordion{
+    max-height: 90vh;
+    overflow: auto;
+  }
+
+  #menu_list .btn{ 
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 5px 18px;
+    color: #3e529b;
+    background-color: #d2d2d2;
+    border-radius: 0;
+ }
+
+ #menu_list .btn i{
+  font-size: 25px;
+  float: right;
+ }
+
+  #menu_list .close_div a{
+    color: #fff;
+    font-weight: 600;
+  }
+
+  #menu_list .close_div a:nth-child(2){
+    float: right;
+  }
+
+    /*--- menu 下拉選單 END ---*/
+
+
+  .title{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    line-height: 28px;
+    background-repeat: repeat-y;
+    color: #fff;
+    font-size: 18px;
+    z-index: 99;
+    padding: 0 0 0 25px;
+  }
+
+
+  /*--- 新聞專題 ---*/
+  .news_slide{ position: relative; height: 100%;}
+  .news_slide .swiper-container{
+      height: 100%;
+  }
+
+  .news_slide .swiper-slide{
+     background-size: cover;
+     background-position: center;
+  }
+
+  .news_slide .swiper-slide a{
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+  }
+
+  .news_slide .swiper-button-prev, .news_slide .swiper-container-rtl .swiper-button-next,
+  .no_auto_slide .swiper-button-prev, .no_auto_slide .swiper-container-rtl .swiper-button-next,
+  .ad_fixed_ph .swiper-button-prev, .ad_fixed_ph .swiper-container-rtl .swiper-button-next
+  {
+         background-color: rgba(255, 255, 255, 0.5);
+         color: #6a6a6a;
+         width: 35px;
+         height: 35px;
+         left: 0%;
+         top: 55%;
+         outline: none;
+         border-radius: 50px;
+  }
+
+  .news_slide .swiper-button-next, .news_slide .swiper-container-rtl .swiper-button-prev,
+  .no_auto_slide .swiper-button-next, .no_auto_slide .swiper-container-rtl .swiper-button-prev,
+  .ad_fixed_ph .swiper-button-next, .ad_fixed_ph .swiper-container-rtl .swiper-button-prev
+  {
+       background-color: rgba(255, 255, 255, 0.5);
+       color: #6a6a6a;
+       width: 35px;
+       height: 35px;
+       right:0%;
+       top: 55%;
+       outline: none;
+       border-radius: 50px;
+  }
+
+  .news_slide .swiper-button-next.swiper-button-disabled, .news_slide .swiper-button-prev.swiper-button-disabled{
+     opacity: 0.4;
+  }
+
+  .news_slide .swiper-container-horizontal>.swiper-pagination-bullets{
+    bottom: 19%;
+    text-align: left;
+    padding: 0 1rem;
+  }
+
+  .news_slide .swiper-pagination-bullet{
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    opacity: .4;
+  }
+
+  .news_slide .swiper-pagination-bullet-active{
+    background: #f39e1b;
+    opacity: 0.9;
+  }
+
+  .news_slide .swiper-slide .word{
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: rgba(0,0,0,0.40);
+  }
+
+
+  /*-- 其他專題-輪播 --*/
+  .other_slide .swiper-container{
+    height: 100%;
+  }
+
+  .other_slide .swiper-slide .word{
+    position: absolute;
+    bottom: 0;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .other_slide .swiper-button-prev, .other_slide .swiper-container-rtl .swiper-button-next{
+         background-color: rgba(255, 255, 255, 0.5);
+         color: #6a6a6a;
+         width: 35px;
+         height: 35px;
+         left: 0%;
+         top: 55%;
+         outline: none;
+         border-radius: 50px;
+  }
+
+  .other_slide .swiper-button-next, .other_slide .swiper-container-rtl .swiper-button-prev{
+       background-color: rgba(255, 255, 255, 0.5);
+       color: #6a6a6a;
+       width: 35px;
+       height: 35px;
+       right:0%;
+       top: 55%;
+       outline: none;
+       border-radius: 50px;
+  }
+
+  /*-- 其他專題-輪播 END --*/
+
+
+/*--------------------- 卡排行 -----------------------*/
+
+/*== 選單 ==*/
+
+.card_rank .swiper-container{
+    height: 90px;
+    margin:0 1rem;
+}
+
+.card_rank .swiper_div{
+   background-color: #fcf4ff;
+}
+
+
+.card_rank .swiper-slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: #8c37cc;
+    border-bottom: 0px solid #8c37cc;
+    transition: 0.2s;
+}
+
+.card_rank .swiper-slide.active, .card_type .swiper-slide.active{
+  border-bottom: 8px solid rgb(140, 55, 204);
+}
+
+.card_rank .swiper-slide.active a, .card_type .swiper-slide.active a{
+   color: rgb(124, 49, 181);
+}
+
+
+.card_rank .swiper-slide div a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    color: #757275;
+}
+
+
+.card_rank .swiper-slide .active{
+}
+
+.card_rank .swiper-slide .active div a{
+}
+
+.card_rank .col-2{
+   max-width: 19%;
+    flex: 0 0 19%;
+}
+
+.card_rank .col-10{
+   max-width: 81%;
+    flex: 0 0 81%;
+}
+
+.card_fun{
+    padding: 0.5rem;
+    padding-left: 2rem;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    background: rgb(140,55,204); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(140,55,204,1) 0%, rgba(196,147,237,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(140,55,204,1) 0%,rgba(196,147,237,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(140,55,204,1) 0%,rgba(196,147,237,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c37cc', endColorstr='#c493ed',GradientType=0 ); /* IE6-9 */
+}
+
+.card_fun img{ width: 21px; }
+
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
+    opacity: 0;
+}
+
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #cacaca;
+    right: -2px;
+}
+
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #cacaca;
+    left: -2px;
+}
+
+/*== 信用卡 ==*/
+
+.ccard{
+    position: relative;
+}
+
+.ccard .swiper-button-next, .ccard .swiper-button-prev{
+  top: 45%;
+}
+
+.ccard .swiper-container{
+    margin: 0rem;
+    height: 165px;
+}
+
+.ccard .swiper-slide div a{
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.ccard .top_Medal{
+    font-family: 'Roboto', sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 2.2rem;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 35px;
+    height: 45px;
+    text-align: center;
+    background-image: url(/img/component/topNew_img.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #601986;
+}
+
+.ccard .swiper-slide div a img{
+    height: 105px;
+    margin-top: 1rem;
+}
+
+/*--------------------- 卡排行 END -----------------------*/
+
+
+/*--------------- 百葉窗 Tab (新卡訊) ---------------------*/
+#new_card .card{
+    border:none;
+}
+#new_card .card-header{
+    padding: 0.35rem 1rem;
+    border-bottom: 1px solid #fff;
+    background-color: #d9ab3e;
+}
+
+#new_card .card-header h5 button{
+    color: #fff;
+    padding: 4px 12px;
+}
+
+#new_card .card_one a{
+  display: block;
+  text-align: center;
+  width: 100%;
+  color: #ad862a;
+  font-weight: 600;
+  line-height: 2;
+}
+
+#new_card .card-body{
+  padding: 19px;
+}
+
+#new_card .card_one a img{
+    width: 187px;
+    height: 116px;
+}
+
+#new_card .card_info{
+   margin: 0;
+}
+
+#new_card .card_info li{
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+#new_card .card_more{
+     position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      font-size: 12px;
+      padding: 0 5px;
+      background-color: #d8ab3f;
+      color: #fff;
+      border-radius: 3px;
+}
+/*------------- 百葉窗 Tab (新卡訊) END ------------------*/
+
+/*--------------- 人氣排行 -------------------*/
+
+.ccard.popularity .swiper-container{
+    height: auto;
+}
+
+.favorite_card .swiper-slide{
+  width: initial;
+}
+.favorite_card .swiper-slide a{
+  display: inline-block; 
+  padding: 0 5px;
+}
+
+.favorite_card .tab_menu .swiper-slide a{
+   display: inline-block;
+   position: relative;
+   font-weight: 600;
+   color: #555;
+   padding: 7px 8px;
+   transition: 0.2s;
+}
+
+
+.favorite_card .tab_menu .swiper-slide a:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 0px;
+    transition: 0.2s;
+}
+
+.favorite_card .tab_menu .swiper-slide a:hover:before{
+    height: 5px;
+}
+
+.favorite_card .tab_menu .swiper-slide a.active:before{
+    height: 5px;
+}
+
+.favorite_card .swiper-card a p{    
+    margin: 0;
+    padding-top: 10px;
+    font-size: 16px;
+    color: #e5850b;
+    line-height: 1.5;
+    font-weight: 600; 
+  }
+
+.favorite_card .swiper-card .card_txt p{
+   text-align: center;
+   font-size: 15px;
+}
+
+.ccard .card_btn .btn-orange{ background-color: #fc9b1b; color: #fff;  width: 85%;} 
+.ccard .card_btn .btn-gray{ background-color: #797979; color: #fff; } 
+
+/*------------------------------- 人氣排行 END -------------------------------------*/
+
+
+/*------------------------------- 優行動Pay -------------------------------------*/
+.page-3.swiper-container{
+ width: 100%;
+}
+
+.page-3.swiper-container .row{
+  padding-top: 10px;
+}
+
+.page-3.swiper-container .page_txt{
+  padding-left: 10px;
+}
+
+.page-3.swiper-container .page_txt p{
+  margin:0;
+}
+
+.page-3.swiper-container .img_div{
+  height: 85px;
+}
+
+.page-3.swiper-pagination{
+  position: relative;
+  width: 100%;
+  padding: 10px 0 0 0;
+}
+
+.page-3 .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    background: #000;
+    opacity: .1;
+    margin:0 6px;
+}
+
+.page-3 .swiper-pagination-bullet-active{
+    opacity: 1;
+    background: #fc9b1b;
+}
+
+/*------------------------------- 優行動Pay END -------------------------------------*/
+
+
+}
+/*----- 手機畫面 END -----*/
+
+/*----------- 平板畫面 ---------------*/
+@media (min-width: 600px){
+  .tool_div div{ width: 55%; }
+
+}
+

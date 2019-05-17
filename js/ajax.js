@@ -16,7 +16,6 @@ function subject_news(news_type_id, is_sp) {
         ns_nt_pk: news_type_id
   	};
   }
-
   $.ajax({
   	url: '../ajax/news_ajax.php',
   	type: 'POST',
@@ -108,7 +107,7 @@ function show_cc(card_num,cc_DOM) {
 
 
 
-//------------------------- 立即辦卡 BTN ---------------------------
+//===================== 立即辦卡 BTN ============================
 function apply_card(cc_id,ccrank_type,url) {
   $.ajax({
     url: '../ajax/global_ajax.php',
@@ -122,6 +121,54 @@ function apply_card(cc_id,ccrank_type,url) {
       window.open(url, '_blank');
     }
   });
-  
 }
-//------------------------- 立即辦卡 BTN END ---------------------------
+//===================== 立即辦卡 BTN END =========================
+
+
+
+/*==================== 卡排行點閱數 OR 辦卡數 +1 ===========================*/
+function cardRank_log(url, rank_id, log_type, target='') {
+  $.ajax({
+    url: '../ajax/rank_ajax.php',
+    type: 'POST',
+    data: {
+      type: 'cardRank_log',
+      rank_id: rank_id,
+      log_type: log_type
+    },
+    success:function (data) {
+      if (target=='_blank') {
+        window.open(url, '_blank');
+      }
+      else{
+        location.href=url;
+      }
+    }
+  });
+}
+/*==================== 卡排行點閱數 OR 辦卡數 +1 END ===========================*/
+
+
+
+
+/*==================== 新聞PC點閱數&手機點閱數& +1 ===========================*/
+// function cardRank_log(url, rank_id, log_type, target='') {
+//   $.ajax({
+//     url: '../ajax/rank_ajax.php',
+//     type: 'POST',
+//     data: {
+//       type: 'cardRank_log',
+//       rank_id: rank_id,
+//       log_type: log_type
+//     },
+//     success:function (data) {
+//       if (target=='_blank') {
+//         window.open(url, '_blank');
+//       }
+//       else{
+//         location.href=url;
+//       }
+//     }
+//   });
+// }
+/*==================== 卡排行點閱數 OR 辦卡數 +1 END ===========================*/

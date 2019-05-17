@@ -5,7 +5,7 @@
                       $total=$pdo->prepare($sql_temp); 
                       $total->execute();
                       $row_count = $total->fetchAll();
-                      $no = count($row_count)-12; //減 12是為了扣掉上頭 12筆輪播資料
+                      $no = count($row_count)-6; //減 12是為了扣掉上頭 12筆輪播資料
 
                       
 
@@ -20,7 +20,7 @@
                       $PageNo=1; 
                       } 
 
-                      $start = ($PageNo-1)*$num+12; //每一頁開始的資料序號-------------------//加 12是為了從第 12筆輪播資料
+                      $start = ($PageNo-1)*$num+6; //每一頁開始的資料序號-------------------//加 12是為了從第 12筆輪播資料
 
                       $sql_temp.=" LIMIT $start, $num";
 

@@ -9,9 +9,9 @@
                     $sql->execute();
 
 
-
                     //分批取出part1---------
                     $i=1; while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
+                      //echo count($row);
                       //echo "222".$row['ns_ftitle']."<br>";
                         if($i==1){
                           $activeornot="active";
@@ -21,7 +21,7 @@
 
                       $id=$row['Tb_index'];
                       $ns_ftitle=$row['ns_ftitle'];
-                      $ns_stitle=mb_substr(strip_tags($ns_ftitle),0, 15,"utf-8");
+                      $ns_stitle=mb_substr(strip_tags($ns_ftitle),0, 14,"utf-8")."...";
                       $ns_photo_1="../sys/img/".$row['ns_photo_1'];
                       $ns_msghtml=mb_substr(myTrim(strip_tags($row['ns_msghtml'])),0, 18,"utf-8");
 
@@ -42,7 +42,7 @@
 
                       $id=$row['Tb_index'];
                       $ns_ftitle=$row['ns_ftitle'];
-                      $ns_stitle=mb_substr(strip_tags($ns_ftitle),0, 15,"utf-8");
+                      $ns_stitle=mb_substr(strip_tags($ns_ftitle),0, 14,"utf-8")."...";
                       $ns_photo_1="../sys/img/".$row['ns_photo_1'];
                       $ns_msghtml=mb_substr(myTrim(strip_tags($row['ns_msghtml'])),0, 18,"utf-8");
 
@@ -57,13 +57,13 @@
                     $i++; } //end part2
 
 
-                    //分批取出part2---------
+                    //分批取出part3---------
                     $i=1; while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
                       $activeornot=""; //預設後面都沒有囉
 
                       $id=$row['Tb_index'];
                       $ns_ftitle=$row['ns_ftitle'];
-                      $ns_stitle=mb_substr(strip_tags($ns_ftitle),0, 15,"utf-8");
+                      $ns_stitle=mb_substr(strip_tags($ns_ftitle),0, 14,"utf-8")."...";
                       $ns_photo_1="../sys/img/".$row['ns_photo_1'];
                       $ns_msghtml=mb_substr(myTrim(strip_tags($row['ns_msghtml'])),0, 18,"utf-8");
 
@@ -75,15 +75,20 @@
                                 <p>$ns_msghtml...</p>
                               </a>\n";
                       if ( $i==4 ) break;
-                    $i++; } //end part2
+                    $i++; } //end part3
+
+
+                    //$row_count = $sql->fetchAll();
                     ?>
+
+
                     <div class="col-md-12 col">
                       <!-- 四小三大輪播 -->
                       <div id="new_iNews" class="cardshap new_slide">
                           <div class="swiper-container">
                               <div class="swiper-wrapper">
-                                  <div class="swiper-slide" > 
 
+                                  <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
                                         <?php echo $photo1?>
@@ -92,8 +97,8 @@
                                          <?php echo $msg1?>
                                       </div>
                                     </div>
-                                    
                                   </div>
+
                                   <div class="swiper-slide"> 
                                     <div class="slide_div">
                                       <div class="slide_img">
@@ -104,6 +109,7 @@
                                       </div>
                                     </div>
                                   </div>
+                                <!--尚未加入廣告之前，先不出現
                                   <div class="swiper-slide" > 
                                     <div class="slide_div">
                                       <div class="slide_img">
@@ -114,6 +120,9 @@
                                       </div>
                                     </div>
                                   </div>
+                                -->
+
+
                               </div>
                               <!-- 如果需要分页器 -->
                               <div class="swiper-pagination"></div>

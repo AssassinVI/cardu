@@ -92,9 +92,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', end
 .imp_int .card-header .angle_down{ font-size: 40px; color: #7e7e7e; }
 .imp_int .collapse_txt{ font-size: 18px; color: #000; }
 .imp_int ul.collapse_txt{ display: inline-block; padding-left: 30px; vertical-align: top; }
-.imp_int ul.collapse_txt li{ font-size: 13px; }
+.imp_int ul.collapse_txt li{ font-size: 15px; }
 
+/*-- 權益變更 --*/
+.cardu_li.interests li{ padding: 5px 0; border-bottom: 1px solid #ccc; }
 
+/*-- tab切換 hover --*/
+.mouseHover_tab .nav-tabs .nav-link:not(.active):hover{ text-decoration: underline; }
+.mouseHover_other_tab>ul>li>.nav-link:not(.active):hover{ text-decoration: underline; }
 
 /*-- 漸層按鈕 --*/
 .warning-layered{
@@ -530,5 +535,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9c2f9', end
   /*-- 輪播按鈕顯示 --*/
   .sub_ph_slide .swiper-button-prev, .sub_ph_slide .swiper-container-rtl .swiper-button-next{ left: 0%;}
   .sub_ph_slide .swiper-button-next, .sub_ph_slide .swiper-container-rtl .swiper-button-prev{ right: 0%;}
+
+
+  .imp_int ul.collapse_txt{ list-style: none; }
 }
 

@@ -145,27 +145,31 @@ $(document).ready(function() {
             var now_url=location.href;
             $('#menu ul li').removeClass('active');
 
-            if (now_url.indexOf("news")>0) {
+            if (now_url.indexOf("news/")>0) {
               $('#menu>ul>li:nth-child(1)').addClass('active');
               $('#menu>ul>li:nth-child(1)>a').css('color', '#223a8f');
             }
-            if (now_url.indexOf("cardNews")>0) {
+            else if (now_url.indexOf("rank/")>0) {
+              $('#menu>ul>li:nth-child(2)').addClass('active');
+              $('#menu>ul>li:nth-child(2)>a').css('color', '#223a8f');
+            }
+            else if (now_url.indexOf("card/")>0 || now_url.indexOf("message")>0) {
               $('#menu>ul>li:nth-child(3)').addClass('active');
               $('#menu>ul>li:nth-child(3)>a').css('color', '#223a8f');
             }
-            if (now_url.indexOf("pay")>0) {
+            else if (now_url.indexOf("pay/")>0) {
               $('#menu>ul>li:nth-child(4)').addClass('active');
               $('#menu>ul>li:nth-child(4)>a').css('color', '#223a8f');
             }
-            if (now_url.indexOf("ticket")>0) {
+            else if (now_url.indexOf("ticket/")>0) {
               $('#menu>ul>li:nth-child(5)').addClass('active');
               $('#menu>ul>li:nth-child(5)>a').css('color', '#223a8f');
             }
-            if (now_url.indexOf("point")>0) {
+            else if (now_url.indexOf("point/")>0) {
               $('#menu>ul>li:nth-child(6)').addClass('active');
               $('#menu>ul>li:nth-child(6)>a').css('color', '#223a8f');
             }
-            if (now_url.indexOf("travel")>0) {
+            else if (now_url.indexOf("travel/")>0) {
               $('#menu>ul>li:nth-child(7)').addClass('active');
               $('#menu>ul>li:nth-child(7)>a').css('color', '#223a8f');
             }
@@ -326,36 +330,54 @@ $(document).ready(function() {
 
             
             /*-- 新聞專題 --*/
-             var news_Swiper = new Swiper ('.news_slide .swiper-container', {
-                speed:750,
-                loop:true,
-                autoplay: {
-                    disableOnInteraction:false,
-                    delay: 5000
-                },
-                // 如果需要前进后退按钮
-                navigation: {
-                  nextEl: '.news_slide .swiper-button-next',
-                  prevEl: '.news_slide .swiper-button-prev',
-                },
-                // 如果需要分页器
-                    pagination: {
-                      el: '.news_slide .swiper-pagination',
-                      clickable :true
-                 },
-                 on:{
-                       init: function(){
-                         swiperAnimateCache(this); //隐藏动画元素 
-                         swiperAnimate(this); //初始化完成开始动画
-                       }, 
-                       slideChangeTransitionEnd: function(){ 
-                         swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
-                         //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
-                       } 
-                    }
-              });  
+            $.each($('.news_slide .swiper-container'), function(index, val) {
+               
+               $(this).addClass('index'+(index+1));
+               window['news_slide'+(index+1)] = new Swiper ($(this), {
+                  speed:750,
+                  loop:true,
+                  observer:true,
+                  observeParents:true,
+                  autoplay: {
+                      disableOnInteraction:false,
+                      delay: 5000
+                  },
 
-             slide_st_auto($('.news_slide'), news_Swiper);
+                  // 如果需要前进后退按钮
+                  navigation: {
+                    nextEl: '.news_slide .index'+(index+1)+' .swiper-button-next',
+                    prevEl: '.news_slide .index'+(index+1)+' .swiper-button-prev',
+                  },
+                  // 如果需要分页器
+                    pagination: {
+                      el: '.news_slide .index'+(index+1)+' .swiper-pagination',
+                      clickable :true
+                 }
+                });  
+
+               slide_st_auto($(this), window['news_slide'+(index+1)]);
+            });
+
+             // var news_Swiper = new Swiper ('.news_slide .swiper-container', {
+             //    speed:750,
+             //    loop:true,
+             //    autoplay: {
+             //        disableOnInteraction:false,
+             //        delay: 5000
+             //    },
+             //    // 如果需要前进后退按钮
+             //    navigation: {
+             //      nextEl: '.news_slide .swiper-button-next',
+             //      prevEl: '.news_slide .swiper-button-prev',
+             //    },
+             //    // 如果需要分页器
+             //        pagination: {
+             //          el: '.news_slide .swiper-pagination',
+             //          clickable :true
+             //     }
+             //  });  
+
+             // slide_st_auto($('.news_slide'), news_Swiper);
 
              // $('.news_slide').mouseenter(function(event) {
              //  $(".news_slide .swiper-button-prev").css('left', '0%');
@@ -554,25 +576,6 @@ $(document).ready(function() {
                       ccard_Swiper.autoplay.start();
                     }
                   });
-                  
-                  
-                  // for ( var i = 4; i <= 6; i++) {
-                  //  var txt='<div class="swiper-slide">'+
-                  //                       '<div class="w-h-100 hv-center">'+
-                  //                         '<a href="#" title="台新銀行比漾聯名卡"><span class="top_Medal">'+i+'</span><img src="/img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
-                  //                       '</div>'+
-                  //                   '</div>';
-                  //   ccard_Swiper.appendSlide(txt);
-                  // }
-
-                  // for ( var i = 1; i <= 3; i++) {
-                  //  var txt='<div class="swiper-slide">'+
-                  //                       '<div class="w-h-100 hv-center">'+
-                  //                         '<a href="#" title="台新銀行比漾聯名卡"><span class="top_Medal">'+i+'</span><img src="/img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
-                  //                       '</div>'+
-                  //                   '</div>';
-                  //   ccard_Swiper.appendSlide(txt);
-                  // }
                 }
 
                 index=$(this).attr('index');
@@ -601,89 +604,124 @@ $(document).ready(function() {
 
 
             /*-- 卡總覽 --*/
-            var card_all_Swiper = new Swiper ('.card_all .swiper-container', {
-                slidesPerView : 6,
-                slidesPerGroup : 6,
-                speed:750,
-                // 如果需要前进后退按钮
-                navigation: {
-                  nextEl: '.card_all .swiper-button-next',
-                  prevEl: '.card_all .swiper-button-prev',
-                }
-              });   
+            if ($('.card_all .swiper-container').length>0) {
+              
+              var slide_num=$(window).width()>420 ? 6:3;
+              var card_all_Swiper = new Swiper ('.card_all .swiper-container', {
+                  slidesPerView : slide_num,
+                  slidesPerGroup : slide_num,
+                  speed:750,
+                  // 如果需要前进后退按钮
+                  navigation: {
+                    nextEl: '.card_all .swiper-button-next',
+                    prevEl: '.card_all .swiper-button-prev',
+                  }
+                });   
 
-            // var ccard_Swiper = new Swiper ('.ccard .swiper-container', {
-            //     slidesPerView : 3,
-            //     slidesPerGroup : 3,
-            //     loop:true,
-            //     speed:750,
-            //     autoplay: {
-            //         delay: 5000
-            //     },
-            //     // 如果需要前进后退按钮
-            //     navigation: {
-            //       nextEl: '.ccard .swiper-button-next',
-            //       prevEl: '.ccard .swiper-button-prev',
-            //     }
-            //   });   
-            
-            var index=1;
-            $('.card_all .swiper-slide').mouseenter(function(event) {
+              // var ccard_Swiper = new Swiper ('.ccard .swiper-container', {
+              //     slidesPerView : 3,
+              //     slidesPerGroup : 3,
+              //     loop:true,
+              //     speed:750,
+              //     autoplay: {
+              //         delay: 5000
+              //     },
+              //     // 如果需要前进后退按钮
+              //     navigation: {
+              //       nextEl: '.ccard .swiper-button-next',
+              //       prevEl: '.ccard .swiper-button-prev',
+              //     }
+              //   });   
+              
+              var index=$('[name="rand_num"]').val()==undefined ? 1: $('[name="rand_num"]').val();
 
+              //-- 目前輪播位置 --
+              card_all_Swiper.slideTo((index-1), 700, false);
+              ccard_Swiper.removeAllSlides();
+              $.ajax({
+                      url: '../ajax/cardNews_ajax.php',
+                      type: 'POST',
+                      dataType: 'json',
+                      data: {
+                        type:'slide_6_card',
+                        cc_fun_id: $('.card_all .swiper-container .swiper-slide:nth-child('+index+')').attr('fun_id')
+                      },
+                      success:function (data) {
 
-                
-                //-- 舊icon還原 --
-                // var old_img_arr=$('.card_rank .swiper-slide:nth-child('+index+')').find('img').attr('src').split('/');
-                // var old_img=old_img_arr[old_img_arr.length-1].split('.');
-                // var img_name_arr=old_img[0].split('_');
-                // old_img_arr[old_img_arr.length-1]=img_name_arr[0]+'.'+old_img[1];
-                // $('.card_rank .swiper-slide:nth-child('+index+')').find('img').attr('src', old_img_arr.join('/'));
-                // $('.card_rank .swiper-slide').removeClass('active');
-                
-                // //-- 新icon 換圖 --
-                // var img_arr=$(this).find('img').attr('src').split('/');
-                // var img=img_arr[img_arr.length-1].split('.');
-                // var new_img=img[0]+'_down';
-                // img_arr[img_arr.length-1]=new_img+'.'+img[1];
-                // $(this).find('img').attr('src', img_arr.join('/'));
-                // $(this).addClass('active');
+                        var x=1;
+                        $.each(data, function(index, val) {
 
-               
-                var old_img_arr=$('.card_all .swiper-slide:nth-child('+index+')').find('img').attr('src').split('/');
-                old_img_arr[3]='icon';
-                $('.card_all .swiper-slide:nth-child('+index+')').find('img').attr('src', old_img_arr.join('/'));
-                $('.card_all .swiper-slide').removeClass('active');
+                          var txt='<div class="swiper-slide">'+
+                                             '<div class="w-h-100 hv-center">'+
+                                               '<a href="'+this['cc_url']+'" title="'+this['cc_cardname']+'">'+
+                                               '<img src="../sys/img/'+this['cc_photo']+'" alt="'+this['cc_cardname']+'"><br>'+this['cc_cardname']+
+                                               '</a>'+
+                                             '</div>'+
+                                         '</div>';
+                        ccard_Swiper.appendSlide(txt);
+                        x++;
+                        });
+                        ccard_Swiper.autoplay.start();
+                      }
+              });
 
-                var img_arr=$(this).find('img').attr('src').split('/');
-                img_arr[3]='icon_down';
-                $(this).find('img').attr('src', img_arr.join('/'));
-                $(this).addClass('active');
+              $('.card_all .swiper-slide').mouseenter(function(event) {
 
-                //-- 切換信用卡 --
-                if ($(this).attr('index')!=index) {
-                  ccard_Swiper.removeAllSlides();
                   
-                  for ( var i = 4; i <= 6; i++) {
-                   var txt='<div class="swiper-slide">'+
-                                        '<div class="w-h-100 hv-center">'+
-                                          '<a href="#" title="台新銀行比漾聯名卡"><img src="/img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
-                                        '</div>'+
-                                    '</div>';
-                    ccard_Swiper.appendSlide(txt);
+                  //-- 舊icon還原 --
+                  var old_img_arr=$('.card_all .swiper-slide:nth-child('+index+')').find('img').attr('src').split('/');
+                  var old_img=old_img_arr[old_img_arr.length-1].split('.');
+                  var img_name_arr=old_img[0].split('_');
+                  old_img_arr[old_img_arr.length-1]=img_name_arr[0]+'.'+old_img[1];
+                  $('.card_all .swiper-slide:nth-child('+index+')').find('img').attr('src', old_img_arr.join('/'));
+                  $('.card_all .swiper-slide').removeClass('active');
+                  
+                  //-- 新icon 換圖 --
+                  var img_arr=$(this).find('img').attr('src').split('/');
+                  var img=img_arr[img_arr.length-1].split('.');
+                  var new_img=img[0]+'_down';
+                  img_arr[img_arr.length-1]=new_img+'.'+img[1];
+                  $(this).find('img').attr('src', img_arr.join('/'));
+                  $(this).addClass('active');
+
+
+                  //-- 切換信用卡 --
+                  if ($(this).attr('index')!=index) {
+                    ccard_Swiper.removeAllSlides();
+
+                    $.ajax({
+                      url: '../ajax/cardNews_ajax.php',
+                      type: 'POST',
+                      dataType: 'json',
+                      data: {
+                        type:'slide_6_card',
+                        cc_fun_id: $(this).attr('fun_id')
+                      },
+                      success:function (data) {
+
+                        var x=1;
+                        $.each(data, function(index, val) {
+
+                          var txt='<div class="swiper-slide">'+
+                                             '<div class="w-h-100 hv-center">'+
+                                               '<a href="'+this['cc_url']+'" title="'+this['cc_cardname']+'">'+
+                                               '<img src="../sys/img/'+this['cc_photo']+'" alt="'+this['cc_cardname']+'"><br>'+this['cc_cardname']+
+                                               '</a>'+
+                                             '</div>'+
+                                         '</div>';
+                          ccard_Swiper.appendSlide(txt);
+                        x++;
+                        });
+                        ccard_Swiper.autoplay.start();
+                      }
+                    });
+
                   }
 
-                  for ( var i = 1; i <= 3; i++) {
-                   var txt='<div class="swiper-slide">'+
-                                        '<div class="w-h-100 hv-center">'+
-                                          '<a href="#" title="台新銀行比漾聯名卡"><img src="/img/component/card1.png" alt="台新銀行比漾聯名卡"><br>台新銀行比漾聯名卡</a>'+
-                                        '</div>'+
-                                    '</div>';
-                    ccard_Swiper.appendSlide(txt);
-                  }
-                }
+                  index=$(this).attr('index');
+              });
 
-                index=$(this).attr('index');
-            });
+            }
             /*--- 卡總覽 END ---*/
 
 
@@ -857,19 +895,57 @@ $(document).ready(function() {
 
 
             /*-- tab 切換功能 (首頁卡情報...) --*/
+            var index_mouse_time;
             $('.tab_list_div .tab_menu .menu a').mouseenter(function(event) {
-              var tab_num= $(this).attr('tab-link');
-              var tab_parent= $(this).parents('.tab_list_div');
+              var _this=$(this);
+              index_mouse_time=setTimeout(function () {
 
-              if (tab_num!=tab_parent.find('.content_tab .show').attr('tab')) {
-                 TweenMax.fromTo(tab_parent.find('.content_tab [tab="'+tab_num+'"]'), 0.3, { opacity: '0'},{ opacity: '1'});
-                 tab_parent.find('.tab_menu .menu a').removeClass('ms_enter');
-                 $(this).addClass('ms_enter');                
-              }
+                var tab_num= _this.attr('tab-link');
+                var tab_parent= _this.parents('.tab_list_div');
+                
+                //-- 判斷有無撈資料 --
+                if (tab_parent.find('.news_list_div[tab="'+_this.attr('tab-link')+'"]').length<1) {
+                  
+                  var data={
+                            type: 'news_tap_ch',
+                            tab_link: _this.attr('tab-link')
+                           };
 
-              tab_parent.find('.content_tab .row').removeClass('show');
-              tab_parent.find('.content_tab [tab="'+tab_num+'"]').addClass('show');
-              
+                  if (_this.attr('nt_id')!=null) {
+                    data['nt_id']=_this.attr('nt_id');
+                  }
+                  else{
+                     data['un_id']=_this.attr('un_id');
+                  }
+
+
+                  $.ajax({
+                    url: '../ajax/index_ajax.php',
+                    type: 'POST',
+                    data: data,
+                    success:function (data) {
+                      tab_parent.find('.content_tab').append(data);
+                      add_sub_slide(tab_parent.find('.news_list_div[tab="'+_this.attr('tab-link')+'"] .sub_slide'));
+                    }
+                  });
+                }
+
+                
+
+                if (tab_num!=tab_parent.find('.content_tab .show').attr('tab')) {
+                   TweenMax.fromTo(tab_parent.find('.content_tab [tab="'+tab_num+'"]'), 0.3, { opacity: '0'},{ opacity: '1'});
+                   tab_parent.find('.tab_menu .menu a').removeClass('ms_enter');
+                   _this.addClass('ms_enter');                
+                }
+
+                tab_parent.find('.content_tab .news_list_div').removeClass('show');
+                tab_parent.find('.content_tab [tab="'+tab_num+'"]').addClass('show');
+
+              },200);
+            });
+
+            $('.tab_list_div .tab_menu .menu a').mouseleave(function(event) {
+              clearTimeout(index_mouse_time);
             });
 
 
@@ -881,50 +957,64 @@ $(document).ready(function() {
 
 
             /*-- 滑鼠經過切換Tab (右邊有LOGO的Tab) --*/
+            var mouse_time;
             $('.mouseHover_tab .nav-link').mouseenter(function(event) {
-               $(this).parents('.mouseHover_tab').find('.nav-link').removeClass('active show');
-               $(this).parents('.mouseHover_tab').find('.tab-pane').removeClass('active show');
-               $(this).parents('.mouseHover_tab').find('.nav-link').attr('aria-selected', 'false');
-               $(this).attr('aria-selected', 'true');
-               $(this).addClass('active show');
-               $($(this).attr('tab-target')).addClass('active show');
+               var _this=$(this);
+               mouse_time=setTimeout(function () {
+                 _this.parents('.mouseHover_tab').find('.nav-link').removeClass('active show');
+                 _this.parents('.mouseHover_tab').find('.tab-pane').removeClass('active show');
+                 _this.parents('.mouseHover_tab').find('.nav-link').attr('aria-selected', 'false');
+                 _this.attr('aria-selected', 'true');
+                 _this.addClass('active show');
+                 $(_this.attr('tab-target')).addClass('active show');
 
-               if($(this).attr('aria-selected')=='true'){
+                 if(_this.attr('aria-selected')=='true'){
 
-                 $.each($(this).parent().parent().find('.nav-link'), function(index, val) {
+                   $.each(_this.parent().parent().find('.nav-link'), function(index, val) {
 
-                     if($(this).attr('aria-selected')=='true'){
-                       var this_bgm=$(this).find('.icon').css('background-image').split('/');
-                       this_bgm[5]='icon';
-                       $(this).find('.icon').css('background-image', this_bgm.join('/'));
+                       if($(this).attr('aria-selected')=='true'){
+                         var this_bgm=$(this).find('.icon').css('background-image').split('/');
+                         this_bgm[5]='icon';
+                         $(this).find('.icon').css('background-image', this_bgm.join('/'));
 
-                     }
-                     else{
-                       var this_bgm=$(this).find('.icon').css('background-image').split('/');
-                       this_bgm[5]='icon_down';
-                       $(this).find('.icon').css('background-image', this_bgm.join('/'));
-                     }
-                 });
-               }
+                       }
+                       else{
+                         var this_bgm=$(this).find('.icon').css('background-image').split('/');
+                         this_bgm[5]='icon_down';
+                         $(this).find('.icon').css('background-image', this_bgm.join('/'));
+                       }
+                   });
+                 }
+               },200);
+               
+            });
+            $('.mouseHover_tab .nav-link').mouseleave(function(event) {
+              clearTimeout(mouse_time);
             });
 
             /*-- 滑鼠經過切換Tab (右邊無LOGO的Tab) --*/
+            var mouse_other_time;
             $('.mouseHover_other_tab>ul>li>.nav-link').mouseenter(function(event) {
-               $(this).parents('.mouseHover_other_tab').find('.nav-link').removeClass('active show');
-               $(this).parents('.mouseHover_other_tab').find('.tab-pane').removeClass('active show');
-               $(this).parents('.mouseHover_other_tab').find('.nav-link').attr('aria-selected', 'false');
-               $(this).attr('aria-selected', 'true');
-               $(this).addClass('active show');
-               $($(this).attr('tab-target')).addClass('active show');
+              var _this=$(this);
+              mouse_other_time=setTimeout(function () {
+                _this.parents('.mouseHover_other_tab').find('.nav-link').removeClass('active show');
+                _this.parents('.mouseHover_other_tab').find('.tab-pane').removeClass('active show');
+                _this.parents('.mouseHover_other_tab').find('.nav-link').attr('aria-selected', 'false');
+                _this.attr('aria-selected', 'true');
+                _this.addClass('active show');
+                $(_this.attr('tab-target')).addClass('active show');
 
-               //-- 例外 --
-               $('.exception .nav-link').addClass('active show');
-               $('.exception .tab-pane').addClass('active show');
+                //-- 例外 --
+                $('.exception .nav-link').addClass('active show');
+                $('.exception .tab-pane').addClass('active show');
 
-
-               /*--- 右邊DIV跟隨功能(給予) ---*/
-               get_right_div();
-
+                /*--- 右邊DIV跟隨功能(給予) ---*/
+                get_right_div();
+              },200);
+               
+            });
+            $('.mouseHover_other_tab>ul>li>.nav-link').mouseleave(function(event) {
+              clearTimeout(mouse_other_time);
             });
 
             /*-- 滑鼠經過切換Tab (右邊無LOGO的Tab) --*/
@@ -1376,6 +1466,33 @@ if ($('.index-content-right').attr('style')!=undefined) {
 
 /*==================== 右邊DIV跟隨功能(給予) END ===========================*/
 
+
+
+
+
+/*============================== 給予sub_slide ====================================*/
+function add_sub_slide(DOM) {
+  var DOM_num=$('.sub_slide.swiper-container').length;
+
+  window['sub_slide'+(DOM_num+1)] = new Swiper (DOM, {
+     speed:200,
+     loop:true,
+     observer:true,
+     observeParents:true,
+     autoplay: {
+         disableOnInteraction:false,
+         delay: 5000
+     },
+
+     // 如果需要前进后退按钮
+     navigation: {
+       nextEl: '.sub_slide .swiper-button-next',
+       prevEl: '.sub_slide .swiper-button-prev',
+     }
+   });  
+
+  slide_st_auto(DOM, window['sub_slide'+(DOM_num+1)]);
+}
 
 
 

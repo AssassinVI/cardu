@@ -18,71 +18,81 @@
                     <div class="col" >
                         <div id="menu">
                          <ul >
+
+                           <!--============================================ 新聞 ======================================-->
                             <li>
-                              <a href="/news">新聞</a>
+                              <a href="/news/news.php">新聞</a>
                                <div class="cardshap dropDown_menu">
                                  <div class="row news_list_menu">
-                                   <div class="col-md-3"><a href="/news/second.php">焦點</a></div>
-                                   <div class="col-md-3"><a href="/news/second.php">卡訊</a></div>
-                                   <div class="col-md-3"><a href="/news/second.php">行動Pay</a></div>
-                                   <div class="col-md-3"><a href="/news/second.php">財經</a></div>
-                                   <div class="col-md-3"><a href="/news/second.php">科技</a></div>
-                                   <div class="col-md-3"><a href="/news/second.php">消費</a></div>
-                                   <div class="col-md-3"><a href="/news/second.php">達人</a></div>
-                                   <div class="col-md-3"><a href="/news/second.php">萬象</a></div>
+                                   <?php 
+                                     $row_newsType=$pdo->select("SELECT nt_name, pk 
+                                                                 FROM news_type 
+                                                                 WHERE mt_id='site2018111910445721' AND nt_sp=0 AND OnLineOrNot=1 
+                                                                 ORDER BY OrderBy ASC");
+                                     foreach ($row_newsType as $newsType) {
+                                       
+                                       echo '<div class="col-md-3"><a href="/news/list.php?nt_pk='.$newsType['pk'].'">'.$newsType['nt_name'].'</a></div>';
+                                     }
+                                   ?>
                                  </div>
+
                                  <div class="row news_img_menu">
-                                   <div class="col-md-3">
-                                    <a href="/news/detail.php">
-                                       <div class="img_div w-h-100" style="background-image: url(/img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋 信用卡...</p>
-                                     </a>
-                                   </div>
-                                   <div class="col-md-3">
-                                    <a href="/news/detail.php">
-                                       <div class="img_div w-h-100" style="background-image: url(/img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋 信用卡...</p>
-                                   </a>
-                                   </div>
-                                   <div class="col-md-3">
-                                    <a href="/news/detail.php">
-                                       <div class="img_div w-h-100" style="background-image: url(/img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋 信用卡...</p>
-                                   </a>
-                                   </div>
-                                   <div class="col-md-3">
-                                    <a href="/news/detail.php">
-                                       <div class="img_div w-h-100" style="background-image: url(/img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋 信用卡...</p>
-                                   </a>
-                                   </div>
+                                  <?php 
+                                     $row_news=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, nt_name, pk
+                                                             FROM  NewsAndType
+                                                             where mt_id = 'site2018111910430599' AND ns_vfdate<>'0000-00-00 00:00:00' AND ns_verify=3 
+                                                             AND  StartDate<=:StartDate AND EndDate>=:EndDate
+                                                             order by ns_vfdate desc
+                                                             LIMIT 0, 4",
+                                                             ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                                     foreach ($row_news as $news_one) {
+
+                                       $url=news_url($news_one['mt_id'], $news_one['Tb_index'], $news_one['ns_nt_pk'], $news_one['area_id']);
+                                       $ns_ftitle=mb_substr(trim($news_one['ns_ftitle']), 0,10,'utf-8').'...';
+
+                                       echo '
+                                       <div class="col-md-3">
+                                         <a href="'.$url.'" title="'.$news_one['ns_ftitle'].'">
+                                           <div class="img_div w-h-100" style="background-image: url(/sys/img/'.$news_one['ns_photo_1'].');">
+                                           </div>
+                                           <p>'.$ns_ftitle.'</p>
+                                         </a>
+                                       </div>';
+                                     }
+                                   ?>
+                                  
                                  </div>
                                </div>
                             </li>
+                            <!--============================================ 新聞 ======================================-->
+
+                            <!--============================================ 卡排行 ======================================-->
                             <li>
-                              <a href="/rank/">卡排行</a>
+                              <a href="/rank/rank.php">卡排行</a>
                               <div class="cardshap dropDown_menu">
                                  <div class="row list_menu">
                                    <div class="col-md-3">
                                     <h4>卡優排行</h4>
-                                    <ul class="ul-2-part">
-                                      <li><a href="/rank/second.php?1">現金回饋</a></li>
-                                      <li><a href="/rank/second.php?3">航空里程</a></li>
-                                      <li><a href="/rank/second.php?6">機場接送</a></li>
-                                      <li><a href="/rank/second.php?14">首刷禮</a></li>
-                                      <li><a href="/rank/second.php?15">保險</a></li>
-                                    </ul>
-                                    <ul class="ul-2-part">
-                                      <li><a href="/rank/second.php?10">加油</a></li>
-                                      <li><a href="/rank/second.php?9">電影</a></li>
-                                      <li><a href="/rank/second.php?8">分期卡</a></li>
-                                      <li><a href="/rank/second.php?11">悠遊卡</a></li>
-                                      <li><a href="/rank/second.php?16">網購</a></li>
-                                    </ul>
+                                     
+                                     <?php 
+                                      $row_rankType=$pdo->select("SELECT old_id, cc_so_cname FROM credit_cardrank_type WHERE cc_so_status=1 ORDER BY cc_so_order ASC");
+                                      $row_rankType_num=count($row_rankType);
+                                      for ($i=0; $i <2 ; $i++) { 
+                                        
+                                        $TypeOne_txt='';
+                                        $count_j=ceil($row_rankType_num/2);
+                                        for ($j=0; $j <$count_j ; $j++) { 
+                                          $index=($i*$count_j)+$j;
+                                          if (!empty($row_rankType[$index]['old_id'])) {
+                                            $TypeOne_txt.='<li><a href="/rank/cardrank.php?'.$row_rankType[$index]['old_id'].'">'.$row_rankType[$index]['cc_so_cname'].'</a></li>';
+                                          }
+                                        }
+
+                                        $rank_txt='<ul class="ul-2-part">'.$TypeOne_txt.'</ul>';
+                                        echo $rank_txt;
+                                      }
+                                     ?>
+
                                   </div>
                                    <div class="col-md-3">
                                     <h4>人氣排行</h4>
@@ -111,57 +121,44 @@
                                  </div>
                                </div>
                             </li>
+                            <!--============================================ 卡排行 END ======================================-->
+                            
+
+                            <!--============================================ 卡情報 ======================================-->
                             <li>
-                              <a href="/cardNews/">卡情報</a>
+                              <a href="/card/card.php">卡情報</a>
                               <div class="cardshap dropDown_menu">
                                  <div class="row list_menu">
                                    <div class="col-md-3">
                                     <h4>卡資訊</h4>
                                     <ul>
-                                      <li><a href="/cardNews/new_card_second.php">新卡訊</a></li>
-                                      <li><a href="/cardNews/all.php">卡總覽</a></li>
-                                      <li><a href="/cardNews/bank.php">銀行總覽</a></li>
-                                      <li><a href="/cardNews/second.php">權益變更</a></li>
+                                      <li><a href="/card/new_card_list.php">新卡訊</a></li>
+                                      <li><a href="/card/card_browse.php">卡總覽</a></li>
+                                      <li><a href="/card/bank_list.php">銀行總覽</a></li>
+                                      <li><a href="/card/interests_list.php">權益變更</a></li>
                                     </ul>
                                   </div>
-                                   <div class="col-md-3">
-                                    <h4>卡好康</h4>
-                                    <ul class="ul-2-part">
-                                      <li><a href="/cardNews/second.php">卡訊</a></li>
-                                      <li><a href="/cardNews/second.php">首刷禮</a></li>
-                                      <li><a href="/cardNews/second.php">購物</a></li>
-                                      <li><a href="/cardNews/second.php">美食</a></li>
-                                    </ul>
-                                    <ul class="ul-2-part">
-                                      <li><a href="/cardNews/second.php">旅遊</a></li>
-                                      <li><a href="/cardNews/second.php">交通</a></li>
-                                      <li><a href="/cardNews/second.php">電影</a></li>
-                                      <li><a href="/cardNews/second.php">休閒</a></li>
-                                    </ul>
-                                  </div>
-                                   <div class="col-md-3">
-                                    <h4>刷卡整裡</h4>
-                                    <ul class="ul-2-part">
-                                      <li><a href="/cardNews/second.php">懶人包</a></li>
-                                      <li><a href="/cardNews/second.php">開卡文</a></li>
-                                      <li><a href="/cardNews/second.php">愛分享</a></li>
-                                      <li><a href="/cardNews/second.php">新手篇</a></li>
-                                    </ul>
-                                    <ul class="ul-2-part">
-                                      <li><a href="/cardNews/second.php">卡百科</a></li>
-                                    </ul>
-                                  </div>
+
+                                  <?php 
+                                   //-- 套用 share_area/fun.php   MENU fun --
+                                   menu_newsType('at2019021114154632','col-md-3','message');
+                                   ?>
+                                   
+
                                    <div class="col-md-3">
                                     <h4>線上辦卡</h4>
                                     <ul>
-                                      <li><a href="/cardNews/online.php">線上辦卡</a></li>
+                                      <li><a href="/card/card_assign.php">線上辦卡</a></li>
                                     </ul>
                                   </div>
                                  </div>
                                </div>
                             </li>
+                            <!--============================================ 卡情報 END ======================================-->
+
+                            <!--============================================ 優行動Pay ======================================-->
                             <li>
-                              <a href="/pay/">優行動Pay</a>
+                              <a href="/mpay/mpay.php">優行動Pay</a>
                               <div class="cardshap dropDown_menu">
                                  <div class="row list_menu">
                                    <div class="col-md-4">
@@ -170,124 +167,107 @@
                                       <li><a href="/pay/all.php">Pay總覽</a></li>
                                     </ul>
                                   </div>
-                                   <div class="col-md-4">
-                                    <h4>Pay優惠</h4>
-                                    <ul class="ul-2-part">
-                                      <li><a href="/pay/second.php">首刷禮</a></li>
-                                      <li><a href="/pay/second.php">購物</a></li>
-                                      <li><a href="/pay/second.php">美食</a></li>
-                                      <li><a href="/pay/second.php">旅遊</a></li>
-                                    </ul>
-                                    <ul class="ul-2-part">
-                                      <li><a href="/pay/second.php">電影</a></li>
-                                      <li><a href="/pay/second.php">休閒</a></li>
-                                      <li><a href="/pay/second.php">交通</a></li>
-                                      <li><a href="/pay/second.php">藝文</a></li>
-                                    </ul>
-                                  </div>
-                                   <div class="col-md-4">
-                                    <h4>Pay攻略</h4>
-                                    <ul>
-                                      <li><a href="/pay/second.php">懶人包</a></li>
-                                      <li><a href="/pay/second.php">樂分享</a></li>
-                                      <li><a href="/pay/second.php">新手篇</a></li>
-                                    </ul>
-                                  </div>
+
+                                  <?php 
+                                   //-- 套用 share_area/fun.php   MENU fun --
+                                   menu_newsType('at2019011117341414','col-md-4','mpay');
+                                   ?>
+                                   
                                  </div>
                                </div>
                             </li>
+                            <!--============================================ 優行動Pay END ======================================-->
+
+                            <!--============================================ 優票證 ======================================-->
                             <li>
-                              <a href="/ticket/">優票證</a>
+                              <a href="/eticket/eticket.php">優票證</a>
                               <div class="cardshap dropDown_menu">
                                  <div class="row list_menu">
                                    <div class="col-md-4">
                                     <h4>票證資訊</h4>
                                     <ul>
-                                      <li><a href="/ticket/all.php">票證總覽</a></li>
+                                      <li><a href="/eticket/all.php">票證總覽</a></li>
                                     </ul>
                                   </div>
-                                   <div class="col-md-4">
-                                    <h4>票證優惠</h4>
-                                    <ul class="ul-2-part">
-                                      <li><a href="/ticket/second.php">交通</a></li>
-                                      <li><a href="/ticket/second.php">購物</a></li>
-                                      <li><a href="/ticket/second.php">美食</a></li>
-                                      <li><a href="/ticket/second.php">旅遊</a></li>
-                                    </ul>
-                                    <ul class="ul-2-part">
-                                      <li><a href="/ticket/second.php">藝文</a></li>
-                                      <li><a href="/ticket/second.php">電影</a></li>
-                                      <li><a href="/ticket/second.php">休閒</a></li>
-                                    </ul>
-                                  </div>
-                                   <div class="col-md-4">
-                                    <h4>票證攻略</h4>
-                                    <ul>
-                                      <li><a href="/ticket/second.php">懶人包</a></li>
-                                      <li><a href="/ticket/second.php">樂分享</a></li>
-                                      <li><a href="/ticket/second.php">新手篇</a></li>
-                                    </ul>
-                                  </div>
+                                   
+                                   <?php 
+                                    //-- 套用 share_area/fun.php   MENU fun --
+                                    menu_newsType('at2019011117435970','col-md-4','eticket');
+                                    ?>
                                  </div>
                                </div>
                             </li>
+                            <!--============================================ 優票證 END ======================================-->
+
+                            <!--============================================ 優集點 ======================================-->
                             <li>
-                              <a href="/point/">優集點</a>
+                              <a href="/epoint/epoint.php">優集點</a>
                               <div class="cardshap dropDown_menu">
                                  <div class="row list_menu">
                                    <div class="col-md-4">
                                     <h4>集點資訊</h4>
                                     <ul>
-                                      <li><a href="/point/all.php">集點總覽</a></li>
+                                      <li><a href="/epoint/all.php">集點總覽</a></li>
                                     </ul>
                                   </div>
-                                   <div class="col-md-4">
-                                    <h4>點數優惠</h4>
-                                    <ul class="ul-2-part">
-                                      <li><a href="/point/second.php">購物</a></li>
-                                      <li><a href="/point/second.php">美食</a></li>
-                                      <li><a href="/point/second.php">旅遊</a></li>
-                                      <li><a href="/point/second.php">交通</a></li>
-                                    </ul>
-                                    <ul class="ul-2-part">
-                                      <li><a href="/point/second.php">電影</a></li>
-                                      <li><a href="/point/second.php">休閒</a></li>
-                                      <li><a href="/point/second.php">藝文</a></li>
-                                    </ul>
-                                  </div>
-                                   <div class="col-md-4">
-                                    <h4>集點攻略</h4>
-                                    <ul>
-                                      <li><a href="/point/second.php">懶人包</a></li>
-                                      <li><a href="/point/second.php">樂分享</a></li>
-                                      <li><a href="/point/second.php">新手篇</a></li>
-                                    </ul>
-                                  </div>
+                                   
+                                   <?php 
+                                    //-- 套用 share_area/fun.php   MENU fun --
+                                    menu_newsType('at2019011117443626','col-md-4','epoint');
+                                    ?>
                                  </div>
                                </div>
                             </li>
+                            <!--============================================ 優集點 END ======================================-->
+
+                            <!--============================================ 優旅行 ======================================-->
                             <li>
-                              <a href="/travel/">優旅行</a>
+                              <a href="/travel/index.php">優旅行</a>
                               <div class="cardshap dropDown_menu">
                                  <div class="row list_menu">
+
                                    <div class="col">
-                                    <a href="/travel/second.php"><h4>旅行分享</h4></a>
+                                    <a href="/travel/share.php"><h4>旅行分享</h4></a>
                                    </div>
                                   <div class="col">
-                                    <a href="/travel/second.php"><h4>行程推薦</h4></a>
+                                    <a href="/travel/recommend.php"><h4>行程推薦</h4></a>
                                   </div>
                                    <div class="col">
-                                    <a href="/travel/Swipe_second.php"><h4>刷卡祕笈</h4></a>
+                                    <a href="/travel/tip.php"><h4>刷卡祕笈</h4></a>
                                   </div>
                                   <div class="col">
-                                    <a href="/travel/banefit.php"><h4>優惠情報</h4></a>
+                                    <a href="/travel/preferential.php"><h4>優惠情報</h4></a>
                                   </div>
                                   <div class="col">
-                                    <a href="/travel/jp/japan.php"><h4>日本嬉遊去</h4></a>
+                                    <a href="/travel/jp/index.php"><h4>日本嬉遊去</h4></a>
                                   </div>
                                  </div>
                                  <div class="row news_img_menu">
-                                   <div class="col-md-3">
+
+                                  <?php 
+                                     $row_news=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, nt_name, pk
+                                                             FROM  NewsAndType
+                                                             where area_id = 'at2019011117461656' AND ns_vfdate<>'0000-00-00 00:00:00' AND ns_verify=3 
+                                                             AND  StartDate<=:StartDate AND EndDate>=:EndDate
+                                                             order by ns_vfdate desc
+                                                             LIMIT 0, 4",
+                                                             ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                                     foreach ($row_news as $news_one) {
+
+                                       $url=news_url($news_one['mt_id'], $news_one['Tb_index'], $news_one['ns_nt_pk'], $news_one['area_id']);
+                                       $ns_ftitle=mb_substr(trim($news_one['ns_ftitle']), 0,10,'utf-8').'...';
+
+                                       echo '
+                                       <div class="col-md-3">
+                                         <a href="'.$url.'" title="'.$news_one['ns_ftitle'].'">
+                                           <div class="img_div w-h-100" style="background-image: url(/sys/img/'.$news_one['ns_photo_1'].');">
+                                           </div>
+                                           <p>'.$ns_ftitle.'</p>
+                                         </a>
+                                       </div>';
+                                     }
+                                   ?>
+                                   <!-- <div class="col-md-3">
                                     <a href="/travel/detail.php">
                                        <div class="img_div w-h-100" style="background-image: url(/img/component/photo1.jpg);">
                                        </div>
@@ -314,10 +294,14 @@
                                        </div>
                                        <p>遊日血拚大回饋 信用卡...</p>
                                    </a>
-                                   </div>
+                                   </div> -->
+
                                  </div>
                                </div>
                             </li>
+                            <!--============================================ 優旅行 END ======================================-->
+
+
                             <li><a href="#">討論區</a></li>
                             <li>
                               <a href="#">會員中心</a>

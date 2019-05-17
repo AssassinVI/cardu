@@ -157,184 +157,28 @@ $('.mouseHover_rank').mouseenter(function(event) {
         var cc_so_type_02_cname=data['cc_so_type_02_order']=='1' ? '<a class="rank_order sp" href="javascript:;" rank_type_id="'+data['Tb_index']+'" order="ccs_order2">'+data['cc_so_type_02_cname']+'</a>' : data['cc_so_type_02_cname'];
         var cc_so_type_03_cname=data['cc_so_type_03_order']=='1' ? '<a class="rank_order sp" href="javascript:;" rank_type_id="'+data['Tb_index']+'" order="ccs_order3">'+data['cc_so_type_03_cname']+'</a>' : data['cc_so_type_03_cname'];
         var txt='<div class="col-md-1 text-center"></div>'+
-                 '<div class="col-md-4 text-center">卡片名稱</div>'+
-                 '<div class="col-md text-center">'+cc_so_type_01_cname+'</div>'+
-                 '<div class="col-md text-center">'+cc_so_type_02_cname+'</div>'+
-                 '<div class="col-md text-center">'+cc_so_type_03_cname+'</div>';
+                 '<div class="phone_hidden text-center">卡片名稱</div>'+
+                 '<div class="col-md col-4 text-center">'+cc_so_type_01_cname+'</div>'+
+                 '<div class="col-md col-4 text-center">'+cc_so_type_02_cname+'</div>'+
+                 '<div class="col-md col-4 text-center">'+cc_so_type_03_cname+'</div>';
 
         $(_this.attr('tab-target')).find('.rank_card_title').html(txt);
       }
     });
-    
+
     //-- 卡排行資訊 --
     $.ajax({
       url: '../ajax/rank_ajax.php',
       type: 'POST',
-      dataType: 'json',
       data: {
-        type: 'card_rank',
+        type: 'card_rank_txt', 
         rank_type_id: $(this).attr('rank_type')
       },
       success:function (data) {
-        
-        $(_this.attr('tab-target')).find('.imp_int').html('');
-
-        //-- 廣告 --
-        var txt_ad='<div class="row no-gutters rank_ad">'+
-                                 '<div class="col-md-5 wx-100-ph hv-center">'+
-                                  '<div class="row">'+
-                                    '<div class="col-md-2 col-2 ">'+
-                                     '<img src="../img/component/hot.png">'+
-                                    '</div>'+
-                                    '<div class="col-md-10 col-10 hv-center pt-md-0 pt-4">'+
-                                      '<a class="popular_list_img" href="#">'+
-                                       '<img src="../img/component/card1.png" alt="" title="新聞">'+
-                                      '</a>'+
-                                    '</div>'+
-                                  '</div>'+
-                                 '</div>'+
-                               '<div class="col-md-7 wx-100-ph ad_rank rank_color">'+
-                                 '<div class="row no-gutters h-center">'+
-                                  '<div class="col-md-8 wx-100-ph card_list_txt rank_color">'+
-                                    '<h4>匯豐銀行 MasterCard 鈦金卡</h4>'+
-                                    '<ul>'+
-                                      '<li><b>●</b>國內現金回饋1.22%</li>'+
-                                      '<li><b>●</b>國外現金回饋2.22%</li>'+
-                                      '<li><button type="button" class="btn warning-layered btnOver">立即辦卡</button>　謹慎理財 信用至上</li>'+
-                                    '</ul>'+
-                                  '</div>'+
-                                  '<div class="col-md-4 wx-100-ph hv-center py-3 pl-4">'+
-                                    '<img src="../img/component/ad_sm2.png">'+
-                                  '</div>'+
-                                 '</div>'+
-                               '</div>'+
-                              '</div>';
-        
-        //-- 廣告0 --
-        $(_this.attr('tab-target')).find('.imp_int').append(txt_ad);
-
-        $.each(data, function(index, val) {
-           
-           //-- 單卡網址 --
-           var card_url=this['ccs_cc_cardurl']=='' ? '../cardNews/creditcard.php?cc_pk='+this['Tb_index']+'&cc_group_id='+this['cc_group_id'] : this['ccs_cc_cardurl'];
-           //-- 單卡名 --
-           var  card_name=this['ccs_cc_cardname2']=='' ? this['ccs_cc_cardname'].slice(5, this['ccs_cc_cardname'].length) : this['ccs_cc_cardname2'] ;
-           //-- 卡片圖 --
-           var cc_photo=this['cc_photo']==null ? 'CardSample.png':this['cc_photo'];
-           //-- 卡特色 --
-           var card_adv_txt1='', card_adv_txt2='', y=1;
-           if (this['cc_interest_desc']!='') {
-             var card_adv= this['cc_interest_desc'].split(/\n/);
-             for (var i = 0; i < card_adv.length; i++) {
-               if (y%2==1) {
-                card_adv_txt1+='<li><b>●</b>'+card_adv[i].slice(0,15)+'</li>';
-               }
-               else{
-                 card_adv_txt2+='<li><b>●</b>'+card_adv[i].slice(0,15)+'</li>';
-               }
-               y++;
-             }
-           }
-           //-- 立即辦卡 --
-           if (this['cc_doc_url']!='') {
-             var cc_doc='<a target="_blank" href="'+this['cc_doc_url']+'" class="btn warning-layered btnOver">立即辦卡</a>';
-           }
-           else if(this['cc_doc_path']!=''){
-             var cc_doc='<a target="_blank" href="'+this['cc_doc_path']+'" class="btn warning-layered btnOver">立即辦卡</a>';
-           }
-           else{
-             var cc_doc='';
-           }
-
-           var txt='<div class="card rank_hot rank_second">'+
-                                   '<div class="card-header money_header hv-center" id="imp_int1">'+
-                                     '<div class="row">'+
-                                       '<div class="col-md-1 ">'+
-                                         '<div class="hv-center wx-100-ph modal_prize">'+
-                                           '<span class="top_prize">'+(index+1)+'</span>'+
-                                        '</div>'+
-                                       '</div>'+
-                                       '<div class="col-md-11 wx-100-ph">'+
-                                         '<div class="row">'+
-                                           '<div class="col-md-12">'+
-                                            '<a href="'+card_url+'">'+
-                                             '<h5 class=" money_main mb-0">'+card_name+'</h5>'+
-                                            '</a>'+
-                                           '</div>'+
-                                       '<div class="row w-h-100">'+
-                                       '<div class="col-md-4 hv-center wx-100-ph">'+
-                                          '<div class="rank_care ">'+
-                                           '<a href="'+card_url+'">'+
-                                             '<img class="rank_img" src="../sys/img/'+cc_photo+'" title="'+card_name+'">'+
-                                            '</a>'+
-                                        ' </div>'+
-                                       '</div>'+
-                                        '<div class="col-md hv-center phone_block">'+
-                                         '<strong>'+this['cc_so_type_01_cname']+'</strong>'+
-                                         ccs_typename(this['ccs_typename_01_memo'], this['ccs_typename_01'])+
-                                        '</div>'+
-                                       '<div class="col-md hv-center border-left border-right phone_block">'+
-                                        '<strong>'+this['cc_so_type_02_cname']+'</strong>'+
-                                         ccs_typename(this['ccs_typename_02_memo'], this['ccs_typename_02'])+
-                                       '</div>'+
-                                       '<div class="col-md hv-center phone_block">'+
-                                         '<strong>'+this['cc_so_type_03_cname']+'</strong>'+
-                                         ccs_typename(this['ccs_typename_03_memo'], this['ccs_typename_03'], this['ccs_cc_pk2'])+
-                                       '</div>'+
-
-                                       '<div class="col-md-12 row">'+
-                                          '<div class="col-md-4 hv-center wx-100-ph">'+
-                                          '<div class="profit_btn  hv-center my-2">'+
-                                           cc_doc+
-                                          '<button type="button" card_id="'+this['Tb_index']+'" cc_group_id="'+this['cc_group_id']+'" card_name="'+card_name+'" card_img="'+cc_photo+'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>'+
-                                          '</div>'+
-                                          
-                                         '</div>'+
-                                         '<div class="col-md-8 hv-center">'+
-                                           '<p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>'+
-                                           '<button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt2'+(index+1)+'" aria-expanded="true" aria-controls="imp_int_txt2'+(index+1)+'" title="更多資訊">'+
-                                           '<i class="fa fa-angle-down"></i>'+
-                                         '</button>'+
-                                         '</div>'+
-                                        '</div>'+
-                                       '</div>'+
-                                       '</div>'+
-                                       '</div>'+
-                                   '</div>'+
-                                   '</div>'+
-                                   '<div id="imp_int_txt2'+(index+1)+'" class="collapse" aria-labelledby="imp_int1" data-parent="#accordionExample2">'+
-                                     '<div class="card-body">'+
-                                       '<div class="row no-gutters">'+
-                                         '<div class="col-md-4 hv-center">'+
-                                           '<h4><img src="https://www.cardu.com.tw/images/cardrank/tick.png">信用卡特色</h4>'+
-                                         '</div>'+
-                                         '<div class="col-md-8">'+
-                                           '<ul class="collapse_txt mb-0">'+
-                                            card_adv_txt1+                                 
-                                           '</ul>'+
-                                          '<ul class="collapse_txt mb-0">'+
-                                            card_adv_txt2+                                     
-                                          '</ul>'+
-                                         '</div>'+
-                                       '</div>'+
-                                     '</div>'+
-                                   '</div>'+
-                                 '</div>';
-          $(_this.attr('tab-target')).find('.imp_int').append(txt);
-
-          if ((index+1)==3 || (index+1)==6) {
-            $(_this.attr('tab-target')).find('.imp_int').append(txt_ad);
-          }
-
-        });
-        //-- each END --
-
-        $(_this.attr('tab-target')).append('<a class="rank_more card_rank sp warning-layered btnOver" show_num="10" rank_type_id="'+_this.attr('rank_type')+'" href="javascript:;">顯示更多卡片</a>');
+        $(_this.attr('tab-target')).find('.imp_int').append(data);
       }
-      //-- success END --
     });
-    //-- ajax END --
-    
+        
     $(this).attr('ajax','yes');
   }
 });
@@ -346,7 +190,7 @@ $('.mouseHover_rank').mouseenter(function(event) {
 
 
 
-//-- 顯示更多卡片(卡排行) --
+//--------------------------------- 顯示更多卡片(卡排行) ------------------------------------
 
 //-- 通用 --
 var sr_rank_num=10, order='ccs_order';
@@ -390,10 +234,10 @@ $('.card_rank_div').on('click', '.rank_more.card_rank', function(event) {
     }
   });
 });
-//-- 顯示更多卡片(卡排行) END --
+//--------------------------------- 顯示更多卡片(卡排行) END ---------------------------
 
 
-//-- 切換排序(卡排行) --
+//--------------------------------- 切換排序(卡排行) ----------------------------------
 $('.card_rank_div').on('click', '.rank_order', function(event) {
   
   $(this).parents('.tab-pane').find('.rank_order').removeClass('active');
@@ -438,11 +282,10 @@ $('.card_rank_div').on('click', '.rank_order', function(event) {
     }
   });
 });
-//-- 切換排序(卡排行) END --
+//---------------------------------- 切換排序(卡排行) END ----------------------------------
 
 
 /*=================================================== 卡排行 END ======================================================================*/
-
 
 
 
@@ -509,6 +352,51 @@ $('.reset_div #reset_new_btn').click(function(event) {
     alert('您尚未選擇搜尋條件');
   }
 });
+
+
+//-- 顯示更多卡片(新手快搜) --
+var new_sr_num=9;
+$('.rank_more.new_hand').click(function(event) {
+  var _this=$(this);
+  var show_num=$(this).attr('show_num');
+  var x=0;
+
+  var get=location.search;
+      get=get.substr(1);
+      get=get.split('&');
+  var pref_id_arr=get[0].split('=');
+      pref_id_arr=pref_id_arr[1];
+  var fun_id_arr=get[1].split('=');
+      fun_id_arr=fun_id_arr[1];
+  
+  var data={
+    type: 'rank_more_new_hand', 
+    sr_num: new_sr_num,
+    sr_num_plus : show_num,
+    pref_id : pref_id_arr,
+    fun_id : fun_id_arr
+  }
+
+  //console.log(data);
+
+  $.ajax({
+    url: '../ajax/rank_ajax.php',
+    type: 'POST',
+    data: data,
+    success:function (data_txt) {
+
+      //-- 判斷還有無資料 --
+      if (data_txt=='') {
+        $('.rank_more.new_hand').css('display', 'none');
+      }
+      else{
+        $('.tab-content .new_hand_card').append(data_txt);
+        new_sr_num=new_sr_num+parseInt(show_num);
+      }
+    }
+  });
+});
+
 /*------------------------ 卡排行(新手快搜) END -----------------------------*/
 
 
@@ -812,21 +700,25 @@ $('body').on('click', '.add_contrast_card', function(event) {
 //---------------------------------- 刪除卡 -------------------------------
 $('.contrast_card_div').on('click', '.card .del_card', function(event) {
   
-  //-- 關閉卡片比一比 --
+  //-- 剩一張卡 --
   if ($('.card_compare .card').length==1) {
     $('.card_compare').css('display','none');
+    $(this).parent().remove();
+    sessionStorage.clear();
   }
+  else{
+    var contrast_card_arr=sessionStorage.getItem("contrast_card").split(',');
+    var contrast_card_img_arr=sessionStorage.getItem("contrast_card_img").split(',');
 
-  var contrast_card_arr=sessionStorage.getItem("contrast_card").split(',');
-  var contrast_card_img_arr=sessionStorage.getItem("contrast_card_img").split(',');
-  //-找出index-
-  var del_index=contrast_card_arr.indexOf($(this).attr('card_id'));
+    //-找出index-
+    var del_index=contrast_card_arr.indexOf($(this).attr('card_id'));
 
-  contrast_card_arr.splice(del_index, 1);
-  contrast_card_img_arr.splice(del_index, 1);
-  sessionStorage.setItem("contrast_card" ,contrast_card_arr.join(','));
-  sessionStorage.setItem("contrast_card_img" ,contrast_card_img_arr.join(','));
-  $(this).parent().remove();
+    contrast_card_arr.splice(del_index, 1);
+    contrast_card_img_arr.splice(del_index, 1);
+    sessionStorage.setItem("contrast_card" ,contrast_card_arr.join(','));
+    sessionStorage.setItem("contrast_card_img" ,contrast_card_img_arr.join(','));
+    $(this).parent().remove();
+  }
 });
 
 

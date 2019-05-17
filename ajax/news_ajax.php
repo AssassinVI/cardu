@@ -2,6 +2,8 @@
 require '../sys/core/inc/config.php';
 require '../sys/core/inc/function.php';
 require '../sys/core/inc/pdo_fun_calss.php';
+//-- 前台特殊用 --
+require '../share_area/func.php';
 
 if ($_POST) {
  
