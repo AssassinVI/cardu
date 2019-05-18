@@ -197,28 +197,29 @@ $(document).ready(function() {
             //----------------- 信用卡、權益項目 ICON MouseOver/MouseOut ------------------------
             //-MouseOver-
             $('.ccard_icon_js').mouseenter(function(event) {
-              var src_url=$(this).find('img').attr('src').split('/');
-              var src=src_url[src_url.length-1].split('.');
-                  src[0]=src[0]+'_down';
+              if ($(this).attr('class').indexOf('active')==-1) {
 
-                  src_url[src_url.length-1]=src.join('.');
+                var src_url=$(this).find('img').attr('src').split('/');
+                var src=src_url[src_url.length-1].split('.');
+                    src[0]=src[0]+'_down';
+                    src_url[src_url.length-1]=src.join('.');
 
-
-              $(this).find('img').attr('src', src_url.join('/'));
+                $(this).find('img').attr('src', src_url.join('/'));
+              }
             });
 
             //-MouseOut-
             $('.ccard_icon_js').mouseleave(function(event) {
-               var src_url=$(this).find('img').attr('src').split('/');
-               var src=src_url[src_url.length-1].split('.');
-               var src_old=src[0].split('_');
-                   src[0]=src_old[0];
+              if ($(this).attr('class').indexOf('active')==-1){
+                var src_url=$(this).find('img').attr('src').split('/');
+                var src=src_url[src_url.length-1].split('.');
+                var src_old=src[0].split('_');
+                    src[0]=src_old[0];
+                    src_url[src_url.length-1]=src.join('.');
 
-                   src_url[src_url.length-1]=src.join('.');
 
-
-               $(this).find('img').attr('src', src_url.join('/'));
-
+                $(this).find('img').attr('src', src_url.join('/'));
+              }
             });
 
 
@@ -867,6 +868,58 @@ $(document).ready(function() {
 
 
 
+          
+
+           /*---------------------------------- 卡總覽(顯示更多卡片) --------------------------------------------*/           
+           
+           $('.rank_more.card_more').click(function(event) {
+             var _this=$(this);
+             var show_num=$(this).attr('show_num');
+             var card_browse_num=$(this).attr('now_num');
+             var data={
+               sr_num: card_browse_num,
+               sr_num_plus : show_num,
+               bank_id:_this.attr('bank_id')
+             };
+             
+             //-- 判斷信用卡 OR 金融卡 --
+             if (_this.attr('c_type')=='cc') {
+               data['type']='rank_more_card_browse';
+             }
+             else{
+               data['type']='rank_more_dcard_browse';
+             }
+             
+             //-- 判斷功能卡 OR 權益優惠 --
+             if (_this.attr('func_id')!=null) {
+               data['func_id']=_this.attr('func_id');
+             }
+             else{
+               data['pref_id']=_this.attr('pref_id');
+             }
+
+            
+            $.ajax({
+              url: '../ajax/cardNews_ajax.php',
+              type: 'POST',
+              data: data,
+              success:function (data_txt) {
+
+                //-- 判斷還有無資料 --
+                if (data_txt=='') {
+                  _this.css('display', 'none');
+                }
+                else{
+                  _this.prev().append(data_txt);
+                  _this.attr('now_num',parseInt(card_browse_num)+parseInt(show_num));
+                }
+              }
+            });
+           });
+
+           /*---------------------------------- 卡總覽(顯示更多卡片) END --------------------------------------------*/
+
+
 
 
 
@@ -896,7 +949,7 @@ $(document).ready(function() {
 
             /*-- tab 切換功能 (首頁卡情報...) --*/
             var index_mouse_time;
-            $('.tab_list_div .tab_menu .menu a').mouseenter(function(event) {
+            $('.tab_list_div .tab_menu .menu .newsType_a').mouseenter(function(event) {
               var _this=$(this);
               index_mouse_time=setTimeout(function () {
 
@@ -930,11 +983,9 @@ $(document).ready(function() {
                   });
                 }
 
-                
-
                 if (tab_num!=tab_parent.find('.content_tab .show').attr('tab')) {
                    TweenMax.fromTo(tab_parent.find('.content_tab [tab="'+tab_num+'"]'), 0.3, { opacity: '0'},{ opacity: '1'});
-                   tab_parent.find('.tab_menu .menu a').removeClass('ms_enter');
+                   tab_parent.find('.tab_menu .menu .newsType_a').removeClass('ms_enter');
                    _this.addClass('ms_enter');                
                 }
 
@@ -944,10 +995,69 @@ $(document).ready(function() {
               },200);
             });
 
-            $('.tab_list_div .tab_menu .menu a').mouseleave(function(event) {
+            $('.tab_list_div .tab_menu .menu .newsType_a').mouseleave(function(event) {
               clearTimeout(index_mouse_time);
             });
+            /*-- tab 切換功能 (首頁卡情報...) END --*/
 
+
+
+
+
+
+            /*-- tab 切換功能 (卡總覽-信用卡，卡總覽-金融卡) --*/
+            var card_b_time;
+            $('.tab_list_div .tab_menu .menu .card_browse').mouseenter(function(event) {
+              var _this=$(this);
+              card_b_time=setTimeout(function () {
+
+                var tab_num= _this.attr('tab-link');
+                var tab_parent= _this.parents('.tab_list_div');
+                
+                //-- 判斷有無撈資料 --
+                if (tab_parent.find('.card_browse_list[tab="'+_this.attr('tab-link')+'"]').length<1) {
+                  
+                  var data={
+                            type: 'news_tap_ch',
+                            tab_link: _this.attr('tab-link')
+                           };
+
+                  if (_this.attr('nt_id')!=null) {
+                    data['nt_id']=_this.attr('nt_id');
+                  }
+                  else{
+                     data['un_id']=_this.attr('un_id');
+                  }
+
+
+                  // $.ajax({
+                  //   url: '../ajax/index_ajax.php',
+                  //   type: 'POST',
+                  //   data: data,
+                  //   success:function (data) {
+                  //     tab_parent.find('.content_tab').append(data);
+                  //     add_sub_slide(tab_parent.find('.news_list_div[tab="'+_this.attr('tab-link')+'"] .sub_slide'));
+                  //   }
+                  // });
+                }
+
+
+                if (tab_num!=tab_parent.find('.content_tab .show').attr('tab')) {
+                   TweenMax.fromTo(tab_parent.find('.content_tab [tab="'+tab_num+'"]'), 0.3, { opacity: '0'},{ opacity: '1'});
+                   tab_parent.find('.tab_menu .menu .card_browse').removeClass('ms_enter');
+                   _this.addClass('ms_enter');                
+                }
+
+                tab_parent.find('.content_tab .news_list_div').removeClass('show');
+                tab_parent.find('.content_tab [tab="'+tab_num+'"]').addClass('show');
+
+              },200);
+            });
+
+            $('.tab_list_div .tab_menu .menu .card_browse').mouseleave(function(event) {
+              clearTimeout(card_b_time);
+            });
+            /*-- tab 切換功能 (卡總覽-信用卡，卡總覽-金融卡) END --*/
 
 
 
@@ -1018,17 +1128,24 @@ $(document).ready(function() {
             });
 
             /*-- 滑鼠經過切換Tab (右邊無LOGO的Tab) --*/
+            var mouse_other_time2;
             $('.mouseHover_other_tab2 .nav-link').mouseenter(function(event) {
-               $(this).parents('.mouseHover_other_tab2').find('.nav-link').removeClass('active show');
-               $(this).parents('.mouseHover_other_tab2').find('.tab-ones').removeClass('active show');
-               $(this).parents('.mouseHover_other_tab2').find('.nav-link').attr('aria-selected', 'false');
-               $(this).attr('aria-selected', 'true');
-               $(this).addClass('active show');
-               $($(this).attr('tab-target')).addClass('active show');
+               var _this=$(this);
+               mouse_other_time2=setTimeout(function () {
+                 _this.parents('.mouseHover_other_tab2').find('.nav-link').removeClass('active show');
+                 _this.parents('.mouseHover_other_tab2').find('.tab-ones').removeClass('active show');
+                 _this.parents('.mouseHover_other_tab2').find('.nav-link').attr('aria-selected', 'false');
+                 _this.attr('aria-selected', 'true');
+                 _this.addClass('active show');
+                 $(_this.attr('tab-target')).addClass('active show');
 
-               /*--- 右邊DIV跟隨功能(給予) ---*/
-               get_right_div();
+                 /*--- 右邊DIV跟隨功能(給予) ---*/
+                 get_right_div();
+               },200);
+            });
 
+            $('.mouseHover_other_tab2 .nav-link').mouseleave(function(event) {
+              clearTimeout(mouse_other_time2);
             });
 
 

@@ -327,10 +327,26 @@
                            </div>
                            <div class="content_tab">
                                <ul class="tab_list cardu_li">
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                                <?php 
+                                 $row_hot_news=$pdo->select("SELECT  n.Tb_index, n.mt_id, n.ns_nt_pk, n.area_id, n.ns_ftitle
+                                                             FROM NewsAndType as n
+                                                             INNER JOIN message_click_total as mct ON mct.ack_type_pk=n.Tb_index
+                                                             WHERE n.mt_id='site201901111555425' AND n.unit_id!='un2019021114153096' AND n.ns_vfdate<>'0000-00-00 00:00:00' AND n.ns_verify=3 
+                                                             AND  n.StartDate<=:StartDate AND n.EndDate>=:EndDate AND mct.ack_click_date >=:day_ago
+                                                             ORDER BY mct.ack_click_total DESC, n.ns_vfdate DESC
+                                                             LIMIT 0,5", 
+                                                             ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d'), 'day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
+
+                                 foreach ($row_hot_news as $hot_news) {
+
+                                   $ns_ftitle=mb_substr($hot_news['ns_ftitle'], 0,16, 'utf-8');
+                                   //-------------- 網址判斷 ------------------
+                                   $news_url=news_url($hot_news['mt_id'], $hot_news['Tb_index'], $hot_news['ns_nt_pk'], $hot_news['area_id']);
+
+                                   echo '<li><a href="'.$news_url.'" title="'.$hot_news['ns_ftitle'].'">'.$ns_ftitle.'</a></li>';
+                                 }
+                                ?>
+                               
                             </ul>
                            </div>
                        </div>

@@ -76,12 +76,9 @@
                       <?php 
                        //-- 判斷是否為手機 --
                        if (wp_is_mobile()){
-                      ?>
-                      
-                      <!-- 手機板輪播 -->
-                      <?php
+                     
                        //============================================
-                       //每頁的輪播
+                       //每頁的輪播 (手機)
                        //設定好sql後，交由 func.php執行
                        //============================================
                        $sql_carousel="SELECT n.Tb_index, n.ns_nt_pk, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.mt_id, nt.area_id
@@ -91,15 +88,12 @@
                                       ORDER BY n.ns_vfdate DESC LIMIT 0,10";
 
                        slide_ph($sql_carousel, ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
-                      ?>
-                      <!-- 手機板輪播 END -->
 
-                      <?php 
                        } 
                        else{
 
                          //============================================
-                         //每頁的輪播
+                         //每頁的輪播 (電腦)
                          //設定好sql後，交由 func.php執行
                          //============================================
                          $sql_carousel="
@@ -197,37 +191,37 @@
                                              WHERE n.mt_id='$mt_id' AND n.ns_nt_pk='nt201902121004593' AND n.ns_verify=3 AND n.StartDate<=:StartDate AND n.EndDate>=:EndDate
                                              ORDER BY n.ns_vfdate DESC LIMIT $now_page_num, $num", ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
                      $row_list_num=count($row_list);
-                     for ($i=0; $i <$row_list_num/3 ; $i++) { 
+                     $count_i=ceil($row_list_num/3);
+
+                     for ($i=0; $i <$count_i ; $i++) { 
                        
                        echo '<div class="col-md-12 col">
                               <div class="cardshap redius_bg">';
 
                        for ($j=$i*3; $j <($i+1)*3 ; $j++) { 
                         
-                        if ($j==$row_list_num) {
-                          continue;
+                        if ($j<$row_list_num) {
+                          $row_list_one=$row_list[$j];
+                          $ns_ftitle=mb_substr($row_list_one['ns_ftitle'], 0,15,'utf-8');
+                          $ns_msghtml=mb_substr(strip_tags($row_list_one['ns_msghtml']), 0,55,'utf-8');
+                          $url=news_url($row_list_one['mt_id'], $row_list_one['Tb_index'], $row_list_one['ns_nt_pk'], $row_list_one['area_id']);
+                          $fb_url=urlencode($url);
+                          echo '
+                          <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                           <div class="col-md-4 col-6 py-2 pl-2">
+                             <a class="img_div news_list_img" href="'.$url.'" style="background-image: url('.$img_url.$row_list_one['ns_photo_1'].');"></a>
+                           </div>
+                           <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
+                            <a href="'.$url.'" title="'.$row_list_one['ns_ftitle'].'">
+                             <h3>'.$ns_ftitle.'<small>('.date('Y/m/d', strtotime($row_list_one['StartDate'])).')</small></h3>
+                             <p>'.$ns_msghtml.'...</p>
+                             </a>
+                             <div class="fb_search_btn">
+                               <iframe src="https://www.facebook.com/plugins/like.php?href='.$fb_url.'&width=119&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="119" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                             </div>
+                           </div>
+                          </div>';
                         }
-
-                         $row_list_one=$row_list[$j];
-                         $ns_ftitle=mb_substr($row_list_one['ns_ftitle'], 0,15,'utf-8');
-                         $ns_msghtml=mb_substr(strip_tags($row_list_one['ns_msghtml']), 0,55,'utf-8');
-                         $url=news_url($row_list_one['mt_id'], $row_list_one['Tb_index'], $row_list_one['ns_nt_pk'], $row_list_one['area_id']);
-                         $fb_url=urlencode($url);
-                         echo '
-                         <div class="row no-gutters py-md-3 mx-md-4 news_list">
-                          <div class="col-md-4 col-6 py-2 pl-2">
-                            <a class="img_div news_list_img" href="'.$url.'" style="background-image: url('.$img_url.$row_list_one['ns_photo_1'].');"></a>
-                          </div>
-                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                           <a href="'.$url.'" title="'.$row_list_one['ns_ftitle'].'">
-                            <h3>'.$ns_ftitle.'<small>('.date('Y/m/d', strtotime($row_list_one['StartDate'])).')</small></h3>
-                            <p>'.$ns_msghtml.'...</p>
-                            </a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href='.$fb_url.'&width=119&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="119" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                         </div>';
                        }
 
                        echo '</div>

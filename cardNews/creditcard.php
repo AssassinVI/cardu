@@ -12,7 +12,7 @@
  //echo $_COOKIE['cc_id'];
 
  //setcookie('cc_id', '', time()-3600000,'/');
-
+ //setcookie('cc_id', '', time()-3600000);
 ?>
 <!DOCTYPE html>
 

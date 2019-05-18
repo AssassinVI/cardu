@@ -1,29 +1,61 @@
 /*------------------------ 卡比較辨識 (新手快搜, 卡片比一比, 權益比一比) -----------------------------*/
-if (location.hash=='#newHand' || location.hash=='#cardCompare' || location.hash=='#interest') {
-  url_hash();
+if (location.pathname.indexOf('compare01.php')!=-1) {
+  url_hash('#newHand');
+}
+else if(location.pathname.indexOf('compare02.php')!=-1){
+  url_hash('#cardCompare');
+}
+else if(location.pathname.indexOf('compare03.php')!=-1){
+  url_hash('#interest');
+}
+//-- 切換新手快搜, 卡片比一比, 權益比一比 --
+var compare_time;
+$('.compare_tap').mouseenter(function(event) {
+  var _this=$(this);
+  compare_time=setTimeout(function () {
+    $('.crumbs .crumbs_now').html(_this.attr('tap_name'));
+    $('title').html('卡優新聞網 - 卡排行 > '+_this.attr('tap_name'));
+  },200);
+});
 
-  $(window).bind('hashchange', function() { 
-     url_hash();
-  }); 
+$('.compare_tap').mouseleave(function(event) {
+  clearTimeout(compare_time)
+});
+
+
+/*------------------------ 人氣排行 (新卡人氣排行，辦卡人氣排行，點閱人氣排行) -----------------------------*/
+if (location.pathname.indexOf('newcard.php')!=-1) {
+  url_hash('#newCard');
+}
+else if(location.pathname.indexOf('apply.php')!=-1){
+  url_hash('#addCard');
+}
+else if(location.pathname.indexOf('click.php')!=-1){
+  url_hash('#viewCard');
 }
 
-/*------------------------ 人氣排行 (新手快搜, 卡片比一比, 權益比一比) -----------------------------*/
-if (location.hash=='#newCard' || location.hash=='#addCard' || location.hash=='#viewCard') {
-     url_hash();
+//-- 切換人氣排行 --
+var pop_card_time;
+$('.pop_card_tap').mouseenter(function(event) {
+  var _this=$(this);
+  pop_card_time=setTimeout(function () {
+    $('.crumbs .crumbs_now').html(_this.attr('tap_name'));
+    $('title').html('卡優新聞網 - 卡排行 > '+_this.attr('tap_name'));
+  },200);
+});
 
-  $(window).bind('hashchange', function() { 
-     url_hash();
-  }); 
-}
+$('.pop_card_tap').mouseleave(function(event) {
+  clearTimeout(pop_card_time)
+});
 
 
-function url_hash() {
-     $(location.hash+'_a').parents('.mouseHover_other_tab').find('.nav-link').removeClass('active show');
-     $(location.hash+'_a').parents('.mouseHover_other_tab').find('.tab-pane').removeClass('active show');
-     $(location.hash+'_a').parents('.mouseHover_other_tab').find('.nav-link').attr('aria-selected', 'false');
-     $(location.hash+'_a').attr('aria-selected', 'true');
-     $(location.hash+'_a').addClass('active show');
-     $($(location.hash+'_a').attr('tab-target')).addClass('active show');
+function url_hash(DOM_id) {
+     $(DOM_id+'_a').parents('.mouseHover_other_tab').find('.nav-link').removeClass('active show');
+     $(DOM_id+'_a').parents('.mouseHover_other_tab').find('.tab-pane').removeClass('active show');
+     $(DOM_id+'_a').parents('.mouseHover_other_tab').find('.nav-link').attr('aria-selected', 'false');
+     $(DOM_id+'_a').attr('aria-selected', 'true');
+     $(DOM_id+'_a').addClass('active show');
+     $($(DOM_id+'_a').attr('tab-target')).addClass('active show');
 }
 
 
@@ -375,7 +407,7 @@ $('.rank_more.new_hand').click(function(event) {
     sr_num_plus : show_num,
     pref_id : pref_id_arr,
     fun_id : fun_id_arr
-  }
+  };
 
   //console.log(data);
 
