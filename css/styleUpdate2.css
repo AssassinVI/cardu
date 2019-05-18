@@ -99,6 +99,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#257db4', end
 .primary_tab .search_from select{ 
     background-color: #fcf0d8;
     background-image: url(../img/component/select_back_brown.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: 100%;
     box-shadow: 2px 2px 10px 2px rgba(136,136,138,0.5);
 }
 
@@ -139,9 +142,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#257db4', end
     background-color: #eff6fe;
 }
 
-.primary_tab .tab-content small {
-    background-color: #37a8ec;
-}
+
 /*----------------------------------------- 淺藍色end ------------------------------------------------*/
 
 /*----------------------------------------- 卡排行版區 ------------------------------------------------*/

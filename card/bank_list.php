@@ -76,152 +76,35 @@
                       <?php 
                        //-- 判斷是否為手機 --
                        if (wp_is_mobile()){
-                      ?>
-                      
-                      <!-- 手機板輪播 -->
-                      <div class="myCarousel d-md-none d-sm-block">
-                          <div id="iNews" class="news_slide cardshap">
-                            <div class=" swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide img_div" pagination-index="1" style="background-image: url(../img/component/slide_photo1.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >新光三越週慶強強滾　首日6店業績逾14.9億</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide img_div" pagination-index="2" style="background-image: url(../img/component/slide_photo2.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >ATM「靠臉」就能領錢　台新內湖分行首上線</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide img_div" pagination-index="3" style="background-image: url(../img/component/slide_photo3.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide img_div" pagination-index="4" style="background-image: url(../img/component/U20181204080844.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide img_div" pagination-index="5" style="background-image: url(../img/component/U20181212084227.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
-                                      </a>
-                                    </div>
-                                </div>
+                       
+                       //============================================
+                       //每頁的輪播 (手機)
+                       //設定好sql後，交由 func.php執行
+                       //============================================
+                       $sql_carousel="SELECT n.Tb_index, n.ns_nt_pk, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.mt_id, nt.area_id
+                                      FROM appNews as n
+                                      INNER JOIN news_type as nt ON nt.Tb_index=n.ns_nt_pk
+                                      WHERE n.mt_id='$mt_id' AND n.ns_nt_pk='nt201902121004593' AND n.ns_verify=3 AND n.StartDate<=:StartDate AND n.EndDate>=:EndDate
+                                      ORDER BY n.ns_vfdate DESC LIMIT 0,10";
 
-                                <div class="swiper-pagination"></div>
+                       slide_ph($sql_carousel, ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
 
-                                <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
-                                <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
-                            </div>
-                          </div>
-                      </div>
-                      <!-- 手機板輪播 END -->
-
-                      <?php 
                        } 
                        else{
-                      ?>
 
-                       <!-- 四小三大輪播 -->
-                      <div id="new_iNews" class="cardshap new_slide phone_hidden">
-                          <div class="swiper-container">
-                              <div class="swiper-wrapper">
-                                  <div class="swiper-slide" > 
-
-                                    <div class="slide_div">
-                                      <div class="slide_img">
-                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
-                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
-                                      </div>
-                                      <div class="slide_list">
-                                        <a class="active" href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
-                                          <h4>ATM「靠臉」就能領錢　台新</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
-                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                      </div>
-                                    </div>
-                                    
-                                  </div>
-                                  <div class="swiper-slide" > 
-                                    <div class="slide_div">
-                                      <div class="slide_img">
-                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
-                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
-                                      </div>
-                                      <div class="slide_list">
-                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
-                                          <h4>ATM「靠臉」就能領錢　台新</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
-                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="swiper-slide" > 
-                                    <div class="slide_div">
-                                      <div class="slide_img">
-                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
-                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
-                                      </div>
-                                      <div class="slide_list">
-                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
-                                          <h4>ATM「靠臉」就能領錢　台新</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
-                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                              <!-- 如果需要分页器 -->
-                              <div class="swiper-pagination"></div>
-
-                          </div>
-                      </div>
-                      <!-- 四小三大輪播 END -->
-                      <?php
+                         //============================================
+                         //每頁的輪播 (電腦)
+                         //設定好sql後，交由 func.php執行
+                         //============================================
+                         $sql_carousel="
+                          SELECT n.Tb_index, n.ns_nt_pk, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.mt_id, nt.area_id
+                          FROM appNews as n
+                          INNER JOIN news_type as nt ON nt.Tb_index=n.ns_nt_pk
+                          WHERE n.mt_id='$mt_id' AND n.ns_nt_pk='nt201902121004593' AND n.ns_verify=3 AND n.StartDate<=:StartDate AND n.EndDate>=:EndDate
+                          ORDER BY n.ns_vfdate DESC LIMIT 0,6
+                          ";
+                         slide_4s_3b($sql_carousel, ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                        
                        }
                       ?>
                   
@@ -270,892 +153,197 @@
                     <div class="col-md-12 col">
                      <div class="primary_tab">
                        <div class="row no-gutter bank_search cardshap py-md-2">
-                            <div class="col-md-2 h-center col-4"><b>顯示順序:</b></div>
-                            <div class="col-md-4 h-center col-8">
+                            <div class="col-md h-center col-4"><b>顯示順序:</b></div>
+                            <div class="col-md-5 h-center col-8">
                             <form class="row search_from">
-                             <select>
-                             <option value="">--依銀行代碼--</option>
-                             <option value="依銀行筆畫">依銀行筆畫</option>
-                             <option value="信用卡visa">信用卡_visa</option>
-                             <option value="信用卡mastercard">信用卡_mastercard</option>
-                             <option value="信用卡JCB">信用卡_JCB</option>
-                             <option value="信用卡AMEX">信用卡_AMEX</option>
-                             
+                             <select class="bk_list_order" onchange="location.href = '?order='+this.options[this.selectedIndex].value;">
+                             <option value="bi_code">依銀行代碼</option>
+                             <option value="bi_shortname">依銀行筆畫</option>
+                             <?php 
+                               $row_org_list=$pdo->select("SELECT mt_id, org_nickname FROM card_org WHERE OnLineOrNot=1 ORDER BY mt_id ASC, OrderBy ASC");
+                               foreach ($row_org_list as $org) {
+
+                                 //-- 信用卡 --
+                                 if ($org['mt_id']=='site2018110611172385') {
+                                   echo '<option value="cc_'.$org['org_nickname'].'">所有信用卡_'.$org['org_nickname'].'卡片</option>';
+                                 }
+                                 //-- 金融卡 --
+                                 else{
+                                   echo '<option value="dc_'.$org['org_nickname'].'">所有金融卡_'.$org['org_nickname'].'卡片</option>';
+                                 }
+                               }
+                             ?>
+                             <!-- <option value="cc_visa">所有信用卡VISA卡片</option>
+                             <option value="cc_mastercard">所有信用卡mastercard卡片</option>
+                             <option value="cc_JCB">所有信用卡JCB卡片</option>
+                             <option value="cc_AMEX">所有信用卡AMEX卡片</option> -->
                              </select>
      
                             </form>
 
                             </div>
-                            <div class="col-md-2 h-center col-4"><b>銀行查詢:</b></div>
-                            <div class="col-md-4 h-center col-8">
+                            <div class="col-md h-center col-4"><b>銀行查詢:</b></div>
+                            <div class="col-md-3 h-center col-8">
                              <form class="row search_from">
-                              <select>
-                             <option value="">--請選擇銀行--</option>
-                             <option value="第一銀行">第一銀行</option>
-                             <option value="台新銀行">台新銀行</option>
-                             <option value="渣打銀行">渣打銀行</option>
-                             </select> 
+                              <input style=" background-color: #fcf0d8;  border: 1px solid #cc9d4d;" type="text" name="bank_keyword" placeholder="請輸入關鍵字">
                              </form>    
                             </div> 
                           </div> 
                       </div>
-
                     </div>
+                    
+                    <div class="row ticketbg">
+                      
+                    
+                    <?php 
 
-                    <div class="col-md-12 row col0">
-                      <div class="row ticketbg">
-                        <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                              <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_1.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                            </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                             <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
+                     //-- 依銀行代碼排序 --
+                     if (!$_GET || $_GET['order']=='bi_code') {
+                       $row_bank_list=$pdo->select("SELECT bk.Tb_index, bk.bi_shortname, bk.bi_code, bk.bi_logo, bk.bi_tel, bk.bi_tel_card, 
+                                                           bk.bi_tel2_card, bk.bi_tel3_card, bk.bi_bank_url, bk.bi_card_url,
+                                                           org.org_nickname, org.org_image
+                                                    FROM bank_info as bk 
+                                                    INNER JOIN credit_card as cc ON cc.cc_bi_pk=bk.Tb_index
+                                                    INNER JOIN card_org as org ON org.Tb_index=cc.cc_cardorg
+                                                    WHERE bk.OnLineOrNot=1 AND org.OnLineOrNot=1 
+                                                    GROUP BY bk.Tb_index, org.org_nickname
+                                                    ORDER BY bk.bi_code, org.OrderBy");
+                     }
 
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_2.png">
-                              <hr>
-                              <h5>臺灣銀行(銀行代碼004)</h5>
-                            </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
+                     //-- 依銀行筆畫排序 --
+                     elseif($_GET['order']=='bi_shortname'){
+                       $row_bank_list=$pdo->select("SELECT bk.Tb_index, bk.bi_shortname, bk.bi_code, bk.bi_logo, bk.bi_tel, bk.bi_tel_card, 
+                                                           bk.bi_tel2_card, bk.bi_tel3_card, bk.bi_bank_url, bk.bi_card_url,
+                                                           org.org_nickname, org.org_image
+                                                    FROM bank_info as bk 
+                                                    INNER JOIN credit_card as cc ON cc.cc_bi_pk=bk.Tb_index
+                                                    INNER JOIN card_org as org ON org.Tb_index=cc.cc_cardorg
+                                                    WHERE bk.OnLineOrNot=1 AND org.OnLineOrNot=1 
+                                                    GROUP BY bk.Tb_index, org.org_nickname
+                                                    ORDER BY bk.bi_shortname, org.OrderBy");
+                     }
+
+                     //-- 銀行關鍵字查詢 --
+                     elseif(isset($_GET['bank_keyword'])){
+
+                       $row_bank_list=$pdo->select("SELECT bk.Tb_index, bk.bi_shortname, bk.bi_code, bk.bi_logo, bk.bi_tel, bk.bi_tel_card, 
+                                                           bk.bi_tel2_card, bk.bi_tel3_card, bk.bi_bank_url, bk.bi_card_url,
+                                                           org.org_nickname, org.org_image
+                                                    FROM bank_info as bk 
+                                                    INNER JOIN credit_card as cc ON cc.cc_bi_pk=bk.Tb_index
+                                                    INNER JOIN card_org as org ON org.Tb_index=cc.cc_cardorg
+                                                    WHERE bk.OnLineOrNot=1 AND org.OnLineOrNot=1 AND 
+                                                    (bk.bi_shortname LIKE :bi_shortname OR bk.bi_code LIKE :bi_code)
+                                                    GROUP BY bk.Tb_index, org.org_nickname
+                                                    ORDER BY bk.bi_code, org.OrderBy", ['bi_shortname'=> '%'.$_GET['bank_keyword'].'%', 'bi_code'=> '%'.$_GET['bank_keyword'].'%']);
+                     }
+
+                     //-- 所有XX卡XX卡片 --
+                     else{
+                      $order=explode('_', $_GET['order']);
+                      if ($order[0]=='cc') {
+                        $inner_tb_query='INNER JOIN credit_card as cc ON cc.cc_bi_pk=bk.Tb_index
+                                         INNER JOIN card_org as org ON org.Tb_index=cc.cc_cardorg';
+                      }
+                      else{
+                       $inner_tb_query='INNER JOIN debit_card as dc ON dc.dc_bi_pk=bk.Tb_index
+                                        INNER JOIN card_org as org ON org.Tb_index=dc.dc_debitorg';
+                      }
+                      
+
+                      $row_bank_list=$pdo->select("SELECT bk.Tb_index, bk.bi_shortname, bk.bi_code, bk.bi_logo, bk.bi_tel, bk.bi_tel_card, 
+                                                          bk.bi_tel2_card, bk.bi_tel3_card, bk.bi_bank_url, bk.bi_card_url,
+                                                          org.org_nickname, org.org_image
+                                                   FROM bank_info as bk 
+                                                   $inner_tb_query 
+                                                   WHERE bk.OnLineOrNot=1 AND org.OnLineOrNot=1 
+                                                   GROUP BY bk.Tb_index, org.org_nickname
+                                                   ORDER BY bk.bi_code, org.OrderBy");
+
+                     }
+
+                     
+
+                     //-- 銀行群組 --
+                     $bank_arr=[];
+                     foreach ($row_bank_list as $bank_list) {
+                       $bank_arr[$bank_list['Tb_index']][]=$bank_list;
+                     }
+
+                     
+                     $count_i=ceil(count($bank_arr)/3);
+                     $x=1;
+                     $bank_txt='';
+                     foreach ($bank_arr as $bank_one) {
+
+                       $bi_tel_card=empty($bank_one[0]['bi_tel_card']) ? '': $bank_one[0]['bi_tel_card'];
+                       $bi_tel2_card=empty($bank_one[0]['bi_tel2_card']) ? '': $bank_one[0]['bi_tel2_card'].'、';
+                       $bi_tel3_card=empty($bank_one[0]['bi_tel3_card']) ? '': $bank_one[0]['bi_tel3_card'].'、';
+                       
+                       //-- 卡組織 --
+                       $org_txt='';
+                       $org_arr=[];
+                       foreach ($bank_one as $org_one) {
+                         $org_txt.='<img class="mx-1" src="../sys/img/'.$org_one['org_image'].'" title="'.$org_one['org_nickname'].'">';
+                         array_push($org_arr, $org_one['org_nickname']);
+                       }
+
+                       $bank_txt='
+                       <div class="col-md-4 col">
+                          <div class="cardshap bank_3">
+                            <a class="all_form" href="bank_detail.php?bi_pk='.$bank_one[0]['Tb_index'].'">
+                             <img src="../sys/img/'.$bank_one[0]['bi_logo'].'">
+                           <hr>
+                           <h5>'.$bank_one[0]['bi_shortname'].'(銀行代碼'.$bank_one[0]['bi_code'].')</h5>
+                          </a>
+                           <p class="text-center">
+                              <b>總行電話：</b>'.$bank_one[0]['bi_tel'].' <br>
+                              <b>信用卡服務專線：</b><br>'.$bi_tel_card.'
+                           </p>
+                           <div class="bank_icon">
+                           '.$org_txt.'
+                           </div>
+
+                            <div class="bank_btn  hv-center">
+                              <a class="gray-layered btnOver py-1 px-2 mr-2" href="'.$bank_one[0]['bi_bank_url'].'" >銀行網址</a>
+                              <a class="gray-layered btnOver py-1 px-2" href="'.$bank_one[0]['bi_card_url'].'" >信用卡網址</a>
                             </div>
                           </div>
-                           <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_3.png">
-                              <hr>
-                              <h5>臺灣銀行(銀行代碼004)</h5>
-                            </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 row col0">
-                      <div class="row ticketbg">
-                        <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_1.png">
-                              <hr>
-                              <h5>臺灣銀行(銀行代碼004)</h5>
-                            </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_2.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                            <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                            </div>
-                         <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_3.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                            <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                     <!--廣告-->
-                    <div class="col-md-12 col phone_hidden"><img src="http://placehold.it/750x100" alt="banner"></div>
-                    <!--banner end -->
+                      </div>';
+                      
 
-                    <!--手機板廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col banner d-md-none d-sm-block ">
-                            <img src="http://placehold.it/365x100" alt="">
-                        </div>
-                    </div>
-                    <!--廣告end-->
+                      if (!isset($order) || in_array($order[1], $org_arr)) {
+                        echo $bank_txt;
 
-                    <div class="col-md-12 row col0">
-                      <div class="row ticketbg">
-                        <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_1.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                            <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_2.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                            <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                          </div>
-                           <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_3.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 row col0">
-                      <div class="row ticketbg">
-                        <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_1.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_2.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                            </div>
-                         <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_3.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                     <!--廣告-->
-                    <div class="col-md-12 row phone_hidden">
-                        <div class="col-md-6 col ">
-                            <img class="w-100" src="http://placehold.it/365x100" alt="">
-                        </div>
-                        <div class="col-md-6 col">
-                            <img class="w-100" src="http://placehold.it/365x100">
-                        </div>
-                    </div>
-                    <!--廣告end-->
-                    <!--手機板廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col banner d-md-none d-sm-block ">
-                            <img src="http://placehold.it/365x100" alt="">
-                        </div>
-                    </div>
-                    <!--廣告end-->
-                    <div class="col-md-12 row col0">
-                      <div class="row ticketbg">
-                        <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_1.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_2.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                          </div>
-                           <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_3.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 row col0">
-                      <div class="row ticketbg">
-                        <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_1.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_2.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" class="btn-gray" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" class="btn-gray" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                            </div>
-                         <div class="col-md-4 col">
-                            <div class="cardshap bank_3">
-                               <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/cardNews/bank_3.png">
-                             <hr>
-                             <h5>臺灣銀行(銀行代碼004)</h5>
-                           </a>
-                             <p>總行電話：02-2349-3456<br>
-                                信用卡服務專線：0800-025-168<br>
-                                <span>02-2182-1901</span>
-                             </p>
-                             <div class="bank_icon">
-                            <img src="../img/component/cardNews/visa.png" title="visa">
-                             <img src="../img/component/cardNews/mastercard.png" title="mastercard">
-                             <img src="../img/component/cardNews/jcb.png" title="jcb">
-                             <img src="../img/component/bank 4.png" title="美國">
-                             </div>
-                              <div class="bank_btn  hv-center">
-                                <button class="gray-layered btnOver" type="button" title="新聞">銀行網址</button>
-                                <button class="gray-layered btnOver" type="button" title="新聞">信用卡網址</button>
-                              </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                     <!--廣告-->
-                    <div class="col-md-12 col phone_hidden"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
-
+                        //-- 廣告 --
+                        if ($x%6==0) {
+                          if (($x/6)%2==1) {
+                            echo '<div class="col-md-12 col phone_hidden"><img src="http://placehold.it/750x100" alt="banner"></div>';
+                          }
+                          else{
+                            echo '<div class="col-md-12 row phone_hidden">
+                                      <div class="col-md-6 col ">
+                                          <img class="w-100" src="http://placehold.it/365x100" alt="">
+                                      </div>
+                                      <div class="col-md-6 col">
+                                          <img class="w-100" src="http://placehold.it/365x100">
+                                      </div>
+                                  </div>';
+                          }
+                        }
+                        //-- 廣告 END --
+                        $x++;
+                      }
+                    }
+                    //-- 銀行群組 END --
+                    ?>
+                  </div>
                 </div>
             </div>
             <!--版面左側end-->
             
             <!--版面右側-->
-            <div class="index-content-right col0">
-                
-                <div class="row">
-                    <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one brown_tab">
-                           <div class="title_tab hole">
-                               <h4>熱門情報</h4>
-                               <span>謹慎理財 信用至上</span>
-                           </div>
-                           <div class="content_tab">
-                                <!-- 熱門情報輪播 -->
-                            <div class="swiper-container HotNews_slide">
-                                <div class="swiper-wrapper">
-
-                                    <div class="swiper-slide" > 
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                          <a class="img_a" href="#">
-                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                          </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                         <a class="img_a" href="#">
-                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                          <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div  class="col-5">
-                                         <a class="img_a" href="#">
-                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div class="swiper-slide" > 
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                          <a class="img_a" href="#">
-                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                          </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                         <a class="img_a" href="#">
-                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                          <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div  class="col-5">
-                                         <a class="img_a" href="#">
-                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div class="swiper-slide" > 
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                          <a class="img_a" href="#">
-                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                          </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                         <a class="img_a" href="#">
-                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                          <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div  class="col-5">
-                                         <a class="img_a" href="#">
-                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- 如果需要导航按钮 -->
-                                <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
-                                <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
-                                
-                            </div>
-                            <!-- 熱門情報輪播 END -->
-                           </div>
-                       </div>
-                    </div>
-
-                             <div class="col-md-12 col">
-                       
-                       <div class="cardshap brown_tab mouseHover_tab">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item">
-                            <a class="nav-link active pl-30" id="card-tab" tab-target="#card" href="javascript:;"  aria-selected="true">
-                                <i class="icon" style="background-image: url(../img/component/icon/cardNews/icon1.png);"></i>信用卡快搜
-                            </a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link pl-30" id="right-tab" tab-target="#right" href="javascript:;"  aria-selected="false">
-                                <i class="icon" style="background-image: url(../img/component/icon_down/cardNews/icon2.png); background-size: 80%;"></i>權益快搜
-                            </a>
-                          </li>
-                        </ul>
-                        <div class="tab-content ccard_back" id="myTabContent">
-                          <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">
-                            <form class="row search_from">
-
-                                <div class="col-9">
-                                  <select>
-                                      <option value="">--選擇銀行--</option>
-                                      <option value="第一銀行">第一銀行</option>
-                                      <option value="台新銀行">台新銀行</option>
-                                      <option value="渣打銀行">渣打銀行</option>
-                                  </select>
-
-                                  <select>
-                                      <option value="">--選擇信用卡--</option>
-                                      <option value="JBC白金卡">JBC白金卡</option>
-                                      <option value="富邦世界卡">富邦世界卡</option>
-                                      <option value="SOGO聯名卡">SOGO聯名卡</option>
-                                  </select>  
-                                </div>
-
-                                <div class="col-3">
-                                  <div class="hv-center w-h-100">
-                                      <button type="button">GO</button>
-                                  </div>
-                                </div>
-                               
-                            </form>
-                          </div>
-                          <div class="tab-pane fade" id="right" role="tabpanel" aria-labelledby="right-tab">
-                            <form class="row search_from">
-
-                                <div class="col-9">
-                                  <select>
-                                      <option value="">選擇比較的權益項目</option>
-                                      <option value="年費">年費</option>
-                                      <option value="循環利息">循環利息</option>
-                                      <option value="逾期違約金">逾期違約金</option>
-                                  </select>
-
-                                  <select>
-                                      <option value="">選擇比較的權益項目</option>
-                                      <option value="年費">年費</option>
-                                      <option value="循環利息">循環利息</option>
-                                      <option value="逾期違約金">逾期違約金</option>
-                                  </select>
-
-                                </div>
-
-                                <div class="col-3">
-                                 <div class="hv-center w-h-100">
-                                   <button type="button">GO</button>
-                                 </div>
-                                </div>
-                               
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    
-                    </div>
-
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                     <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one brown_tab">
-                           <div class="title_tab hole">
-                               <h4>辦卡推薦 </h4>
-                           </div>
-                           <div class="content_tab">
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                    
-                                  </a>
-                                  <span>謹慎理財 信用至上</span>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p><b>★</b>國內現金回饋1.22%<br><b> ★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
-                                 </div>
-                               </div>
-
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-
-                                  </a> 
-                                  <span>謹慎理財 信用至上</span>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                    <p><b>★</b>國內現金回饋1.22%<br><b> ★</b>國外現金回饋2.22%<br><b>★</b>高額旅遊平安險<br><b>★</b>華航機票優惠</p>
-                                 </div>
-                               </div>
-
-                           </div>
-                       </div>
-                    </div>
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-                    
-                     <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one brown_tab">
-                           <div class="title_tab hole">
-                               <h4>瀏覽過信用卡 </h4>
-                                <a class="more_link" href="#"></a>
-                           </div>
-                           <div class="content_tab">
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
-                                 </div>
-                               </div>
-
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
-                                 </div>
-                               </div>
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p><b>●</b>國內消費享1.22% <br> <b>●</b>國內消費享2.22%</p>
-                                 </div>
-                               </div>
-
-
-                           </div>
-                       </div>
-                    </div>
-                    
-                    
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-                     <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                    <div class="col-md-12 col">
-                       <div class="cardshap tab_one brown_tab">
-                           <div class="title_tab hole">
-                               <h4>熱門好康</h4>
-                           </div>
-                           <div class="content_tab">
-                               <ul class="tab_list cardu_li">
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                            </ul>
-                           </div>
-                       </div>
-                    </div>
-
-                    
-                    <?php 
-                     //-- 共用Footer --
-                     if (wp_is_mobile()) {
-                        require '../share_area/phone/footer.php';
-                     }
-                     else{
-                       require '../share_area/footer.php';
-                      }
-                    ?>
-                    
-                    
-
-                </div>
-            </div>
+             <?php require 'right_area_div.php'; ?>
             <!--版面右側end-->
         </div>
         <!--版面end-->
@@ -1171,6 +359,19 @@
      //-- 共用js --
      require '../share_area/share_js.php';
     ?>
+    
+    <script type="text/javascript">
+      $(document).ready(function() {
 
+        if (location.search.indexOf('bank_keyword')!=-1) {
+          var get=location.search.split('?bank_keyword=');
+          $('[name="bank_keyword"]').val(decodeURI(get[1]));
+        }
+        else if(location.search.indexOf('order')!=-1){
+          var get=location.search.split('?order=');
+          $('.bk_list_order [value="'+decodeURI(get[1])+'"]').prop('selected', true);
+        }
+      });
+    </script>
   </body>
 </html>

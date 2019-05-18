@@ -109,7 +109,7 @@ if ($_POST) {
              $c_org_txt.='
                <div class="py-2 row no-gutters">
                 <div class="col-md-2">
-                 <a href="bank_list.php?org='.$card_org[0]['cc_cardorg'].'"><img src="../sys/img/'.$card_org[0]['org_image'].'" title="'.$card_org[0]['org_nickname'].'"></a>
+                 <a href="bank_list.php?order=cc_'.$card_org[0]['org_nickname'].'"><img src="../sys/img/'.$card_org[0]['org_image'].'" title="'.$card_org[0]['org_nickname'].'"></a>
                 </div>
                 <div class="col-md-10">
                  '.$c_level_txt.'
@@ -195,7 +195,7 @@ if ($_POST) {
            
            if ($card_org[0]['cc_stop_publish']==0 && $card_org[0]['cc_stop_card']==0){
              $c_org_txt.='
-                 <a class="mr-2" href="bank_list.php?org='.$card_org[0]['dc_debitorg'].'"><img src="../sys/img/'.$card_org[0]['org_image'].'" title="'.$card_org[0]['org_nickname'].'"></a>
+                 <a class="mr-2" href="bank_list.php?order=dc_'.$card_org[0]['org_nickname'].'"><img src="../sys/img/'.$card_org[0]['org_image'].'" title="'.$card_org[0]['org_nickname'].'"></a>
                ';
            }
          }
