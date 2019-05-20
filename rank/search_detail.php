@@ -118,7 +118,7 @@
                         ?>
                         </span>
                       </p>
-                      <button id="change_search_btn" type="button" class="btn gray-layered btnOver"><a href="new_second.php">變更新手快搜條件</a></button>
+                      <button id="change_search_btn" type="button" class="btn gray-layered btnOver"><a href="compare01.php">變更新手快搜條件</a></button>
                       </div>
                     </div>
                       <div class="col-md-12 col">

@@ -84,10 +84,10 @@
                     <div class="cardshap primary_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item">
-                            <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="second.php" tab-target="#goodMember" aria-selected="true">忘記密碼</a>
+                            <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="javascript:;" tab-target="#goodMember" aria-selected="true">忘記密碼</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link py-2 pl-0 flex-x-center" id="goodPerson-tab" href="second.php" tab-target="#goodPerson" aria-selected="false">重發註冊信</a>
+                            <a class="nav-link py-2 pl-0 flex-x-center" id="goodPerson-tab" href="javascript:;" tab-target="#goodPerson" aria-selected="false">重發註冊信</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -107,7 +107,7 @@
                                <div class="row">
                                    <label class="col-sm-2 col-form-label">*Email</label>
                                    <div class="col-sm-10 form-inline login_w">
-                                     <input type="email" class="form-control" id="inputEmail3" placeholder="建議輸入常用的Gmail信箱">
+                                     <input type="email" class="form-control" id="inputEmail3" placeholder="請填寫您註冊所填寫的email信箱">
                                    </div>
                                  </div>
                                
@@ -118,12 +118,15 @@
                                      <div class="g-recaptcha" data-sitekey="6Le2HRIUAAAAAJuw4gBeXfGm_RBmQ1ONISumalC0"></div>
                                    </div>
                                  </div>
+
+                                <div class="col-md-12 col  member_btn hv-center">
+                                  <button class="gray-layered btnOver" type="submit">送出資料</button>
+                                </div>
+
                                 </div>
                                 
                                
-                                 <div class="col-md-12 col  member_btn hv-center">
-                                   <button class="gray-layered btnOver" type="submit">送出資料</button>
-                                </div>
+                                 
                             </form>
                           </div>
                           <div class="tab-pane fade" id="goodPerson" role="tabpanel" aria-labelledby="goodPerson-tab">
@@ -142,7 +145,7 @@
                                <div class="row">
                                    <label class="col-sm-2 col-form-label">*Email</label>
                                    <div class="col-sm-10 form-inline login_w">
-                                     <input type="email" class="form-control" id="inputEmail3" placeholder="建議輸入常用的Gmail信箱">
+                                     <input type="email" class="form-control" id="inputEmail3" placeholder="請填寫您註冊所填寫的email信箱">
                                    </div>
                                  </div>
                                
@@ -153,12 +156,15 @@
                                      <div class="g-recaptcha" data-sitekey="6Le2HRIUAAAAAJuw4gBeXfGm_RBmQ1ONISumalC0"></div>
                                    </div>
                                  </div>
+
+                                <div class="col-md-12 col  member_btn hv-center">
+                                  <button class="gray-layered btnOver" type="submit">送出資料</button>
+                                </div>
+
                                 </div>
                                 
                                
-                                 <div class="col-md-12 col  member_btn hv-center">
-                                   <button class="gray-layered btnOver" type="submit">送出資料</button>
-                                </div>
+                                 
                             </form>
                            
                           </div>

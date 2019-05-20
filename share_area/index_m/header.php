@@ -1,3 +1,5 @@
+
+<!-- 停止使用，請到/share_area/phone/header.php 做修改 -->
 <!-- header -->
     <header>
       <div class="row no-gutters py-1 px-3" style="background: #fff;">

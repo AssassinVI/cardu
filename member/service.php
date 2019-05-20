@@ -85,10 +85,10 @@
                     <div class="cardshap primary_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item">
-                            <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="second.php" tab-target="#goodMember" aria-selected="true">聯絡我們</a>
+                            <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="javascript:;" tab-target="#goodMember" aria-selected="true">聯絡我們</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link py-2 pl-0 flex-x-center" id="goodPerson-tab" href="second.php" tab-target="#goodPerson" aria-selected="false">常見問題</a>
+                            <a class="nav-link py-2 pl-0 flex-x-center" id="goodPerson-tab" href="javascript:;" tab-target="#goodPerson" aria-selected="false">常見問題</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -146,15 +146,18 @@
 
                                  <div class="row">
                                    <label class="col-sm-2 col-form-label">*驗證</label>
-                                   <div class="col-sm-6 form-inline">
+                                   <div class="col-sm-10 form-inline">
                                      <!-- google 驗證碼 -->
                                      <div class="g-recaptcha" data-sitekey="6Le2HRIUAAAAAJuw4gBeXfGm_RBmQ1ONISumalC0"></div>
                                    </div>
                                  </div>
-                               </div>
+
                                  <div class="col-md-12 col  member_btn hv-center">
                                     <button class="gray-layered btnOver" type="submit">送出資料</button>
                                  </div>
+
+                               </div>
+                                 
 
                               </form>
                             

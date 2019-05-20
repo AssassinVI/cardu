@@ -75,7 +75,7 @@
                     <div class="cardshap primary_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab">
-                            <a class="nav-link py-2 flex-x-center active show" id="goodMember-tab" href="javascript:;" tab-target="#goodMember" aria-selected="true">我的收藏</a>
+                            <a class="nav-link py-2 flex-x-center active show" id="goodMember-tab" href="second.php" tab-target="#goodMember" aria-selected="true">404</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -83,69 +83,172 @@
 
 
                             
-                              <div class="px-md-2 member_info">
-
-                                 <div class="col-md-12 col0">
-                                   <div class="user_more">
-                                   <h5>我的收藏</h5>
-                                    <button type="button" class="btn gray-layered btnOver"><a href="#">刪除</a></button>
-                                   </div>
-                                 </div>
-                                 <table class="table table-striped table-bordered text-center">
-                                   <thead>
-                                     <tr>
-                                       <th scope="col">來源</th>
-                                       <th scope="col">主題名稱</th>
-                                       <th scope="col">收藏時間</th>
-                                       <th scope="col"><input type="checkbox" name="" value="">全選</th>
-                                     </tr>
-                                   </thead>
-                                   <tbody>
-                                     <tr>
-                                       <th scope="row">XXX</th>
-                                       <td><a href="#">遊日血拼賺回饋　必備信用卡大比拼</a></td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><input type="checkbox" name="" value=""></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XXX</th>
-                                       <td><a href="#">遊日血拼賺回饋　必備信用卡大比拼</a></td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><input type="checkbox" name="" value=""></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XXX</th>
-                                       <td><a href="#">遊日血拼賺回饋　必備信用卡大比拼</a></td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><input type="checkbox" name="" value=""></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XXX</th>
-                                       <td><a href="#">遊日血拼賺回饋　必備信用卡大比拼</a></td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><input type="checkbox" name="" value=""></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XXX</th>
-                                       <td><a href="#">遊日血拼賺回饋　必備信用卡大比拼</a></td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><input type="checkbox" name="" value=""></td>
-                                     </tr>
-                                   </tbody>
-                                 </table>
-                                 
+                              <div class="px-md-2 member_info error">
 
                                 
+                                <div class="row no-gutters">
+                                  <div class="col-md-4 hv-center">
+                                    <img src="../img/component/u_logo.png">
+                                  </div>
+                                  <div class="col-md-8">
+                                    <div>
+                                    <h1>抱歉!您查看的網頁目前有問題</h1>
+                                    <h3>我們似乎找不到您要找的頁面...</h3>
+                                    <p>您可以<a href="#">按此</a>跳轉<br><br><br><br><br></p>
+
+
+
+
+
+                                    </div>
+                                  </div>
+                                </div>
                                  
                               </div>
+
                             
                            
                           </div>
+
                           
                         </div>
                       </div>
                     
                   </div>
+                  <!--信用卡推薦-->
+                    <div class="col-md-12 col phone_hidden">
+
+                        <div class="cardshap primary_tab ">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                          <li class="nav-item news_tab">
+                            <a class="nav-link active pl-30 py-2" id="special_1-tab" data-toggle="tab" href="#special_1" role="tab" aria-controls="special_1" aria-selected="true">信用卡推薦</a>
+                          </li>
+                        </ul>
+                        <div class="tab-content py-md-4 py-0" id="myTabContent">
+                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
+
+                            <div class="row no-gutters mx-2 py-3 card_list">
+                              <div class="col-md-4 text-center">
+                                <a class="card_list_img" href="#">
+                                  <img src="../img/component/card1.png" alt="" title="新聞">
+                                </a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
+                              </div>
+                              <div class="col-md-4 card_list_txt rank_color">
+                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                <ul>
+                                  <li><b>●</b>國內現金回饋1.22%</li>
+                                  <li><b>●</b>國外現金回饋2.22%</li>
+                                  <li><b>●</b>感應式刷卡快速結帳</li>
+                                  <li><b>●</b>高額旅遊平安險</li>
+                                  <li><b>●</b>華航機票優惠</li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4">
+                                <a class="img_div card_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                <p>謹慎理財 信用至上</p>
+                              </div>
+                            </div>
+
+                            <div class="row no-gutters mx-2 py-3 card_list">
+                              <div class="col-md-4 text-center">
+                                <a class="card_list_img" href="#">
+                                  <img src="../img/component/card2.png" alt="" title="新聞">
+                                </a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
+                              </div>
+                              <div class="col-md-4 card_list_txt rank_color">
+                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                <ul>
+                                  <li><b>●</b>國內現金回饋1.22%</li>
+                                  <li><b>●</b>國外現金回饋2.22%</li>
+                                  <li><b>●</b>感應式刷卡快速結帳</li>
+                                  <li><b>●</b>高額旅遊平安險</li>
+                                  <li><b>●</b>華航機票優惠</li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4">
+                                <a class="img_div card_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                <p>謹慎理財 信用至上</p>
+                              </div>
+                            </div>
+
+                            <div class="row no-gutters mx-2 py-3 card_list">
+                              <div class="col-md-4 text-center">
+                                <a class="card_list_img" href="#">
+                                  <img src="../img/component/card3.png" alt="" title="新聞">
+                                </a>
+                                <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
+                              </div>
+                              <div class="col-md-4 card_list_txt rank_color">
+                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                <ul>
+                                  <li><b>●</b>國內現金回饋1.22%</li>
+                                  <li><b>●</b>國外現金回饋2.22%</li>
+                                  <li><b>●</b>感應式刷卡快速結帳</li>
+                                  <li><b>●</b>高額旅遊平安險</li>
+                                  <li><b>●</b>華航機票優惠</li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4">
+                                <a class="img_div card_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                <p>謹慎理財 信用至上</p>
+                              </div>
+                            </div>
+
+
+
+
+                           
+                          </div>
+                         
+                        </div>
+                      </div>
+                    </div>
+                    <!--信用卡推薦end -->
+                    <!--手機板信用卡推薦-->
+                            <div class="col-md-12 col d-md-none d-sm-block">
+
+                                <div class="cardshap primary_tab exception">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                  <li class="nav-item news_tab">
+                                    <a class="nav-link active pl-30 py-2" id="special_1-tab" aria-selected="true">信用卡推薦</a>
+                                  </li>
+                                </ul>
+                                <div class="tab-content p-0" id="myTabContent">
+                                  <div class="tab-pane fade show active"  role="tabpanel" >
+
+                                    <div class="row no-gutters mx-2 py-3 card_list">
+                                      <div class="col-md-4 text-center">
+                                        <a class="card_list_img" href="#">
+                                          <img src="../img/component/card1.png" alt="" title="新聞">
+                                        </a>
+                                        <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
+                                      </div>
+                                      <div class="col-md-4 card_list_txt rank_color phone_card">
+                                        <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                        <ul>
+                                          <li><b>●</b>國內現金回饋1.22%</li>
+                                          <li><b>●</b>國外現金回饋2.22%</li>
+                                          <li><b>●</b>感應式刷卡快速結帳</li>
+                                          <li><b>●</b>高額旅遊平安險</li>
+                                          <li><b>●</b>華航機票優惠</li>
+                                        </ul>
+                                      </div>
+                                      <div class="col-md-4 phone_hidden">
+                                        <a class="img_div card_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                        <p>謹慎理財 信用至上</p>
+                                      </div>
+                                    </div>
+                                   
+                                  </div>
+                                 
+                                </div>
+                              </div>
+                            </div>
+                            <!--信用卡推薦end -->  
+                              
+                 
 
 
                     

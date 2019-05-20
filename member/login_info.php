@@ -71,6 +71,35 @@
 
                 
                 <div class="row">
+                  <div class="col-md-12 col">
+                    <div class="cardshap ">
+
+                      <div class="pt-3 detail_title">
+                       <div class="col-md-12 col">
+                         <div class="row user_info">
+                                <div class="col-md-4 hv-center">
+                                  <ul>
+                                    <li><img src="../img/component/user.png"><br>會員暱稱</li>
+                                    <li><img src="../img/component/grade.png"><br>會員等級</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-8">
+                                  <div class="row no-gutters">
+                                    <div class="col-md-5">
+                                        <p><img src="../img/component/li.png">U幣:XX</p>
+                                        <p><img src="../img/component/li.png">積分:XX</p>
+                                        <p><img src="../img/component/li.png">威望值:XX</p>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <p><img src="../img/component/li.png">註冊時間：20XX/XX/XX XX:XX</p>
+                                        <p><img src="../img/component/li.png">最近登錄：20XX/XX/XX XX:XX</p>
+                                        <p><img src="../img/component/li.png">登錄次數：XXX</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div> 
+                            </div> 
+                          </div>
 
                     
                           <!--特別議題-->
@@ -91,30 +120,9 @@
                         </ul>
                         <div class="tab-content" id="myTabContent">
                           <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
-                            <div class="row user_info">
-                              <div class="col-md-4 hv-center">
-                                <ul>
-                                  <li><img src="../img/component/user.png"><br>會員暱稱</li>
-                                  <li><img src="../img/component/grade.png"><br>會員等級</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-8">
-                                <div class="row no-gutters">
-                                  <div class="col-md-5">
-                                      <p><img src="../img/component/li.png">U幣:XX</p>
-                                      <p><img src="../img/component/li.png">積分:XX</p>
-                                      <p><img src="../img/component/li.png">威望值:XX</p>
-                                  </div>
-                                  <div class="col-md-7">
-                                      <p><img src="../img/component/li.png">註冊時間：20XX/XX/XX XX:XX</p>
-                                      <p><img src="../img/component/li.png">最近登錄：20XX/XX/XX XX:XX</p>
-                                      <p><img src="../img/component/li.png">登錄次數：XXX</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                            
                             <form class="px-md-2 login_info">
-                               <div class="login_line">
+                               <div class="login_line py-2">
                               
                                <div class="row">
                                    <label class="col-sm-2 col-form-label">帳號：</label>
@@ -168,27 +176,30 @@
                                      <input type="text" class="form-control" id="inputAddress" placeholder="XXXXXXXXXXXXXXXXXXXXXXXXXXXXX">
                                    </div>
                                  </div>
+
+                                 <div class="col-md-12 col  member_btn hv-center">
+                                    <button class="gray-layered btnOver" type="submit">確認送出</button>
+                                 </div>
+
                                 </div>
-                                <div class="col-md-12 col  member_btn hv-center">
-                                  <button class="gray-layered btnOver" type="submit">確認送出</button>
-                               </div>
+                                
                               
                             </form>
 
                           </div>
                           <div class="tab-pane fade" id="title_6" role="tabpanel" aria-labelledby="title_6-tab">
                            <form class="px-md-2 check_in">
-                               <div class="login_line">
+                               <div class="login_line py-2">
                               <div class="row">
                                     <label class="col-sm-3 col-form-label">婚姻狀態：</label>
                                      <div class="col-sm-9 form-inline">
                                        <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                        <label class="form-check-label" for="inlineRadio1">無</label>
+                                        <label class="form-check-label" for="inlineRadio1">已婚</label>
                                        </div>
                                        <div class="form-check form-check-inline">
                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                       <label class="form-check-label" for="inlineRadio2">有</label>
+                                       <label class="form-check-label" for="inlineRadio2">未婚</label>
                                        </div>
                                      </div>
                                    </div>
@@ -307,7 +318,7 @@
                             
                                <div class="row">
                                      <label class="col-sm-3 col-form-label">上傳個人圖檔：</label>
-                                     <div class="col-sm-9">
+                                     <div class="col-sm-9 py-2">
                                       <button type="button" class="btn gray-layered btnOver"><a href="#">上傳檔案</a></button>
                                       <span>未選...案</span>
                                       <img src="../img/component/user.png">
@@ -317,7 +328,7 @@
                       
                                 <div class="row">
                                     <label class="col-sm-3 col-form-label">附加個性簽名：</label>
-                                     <div class="col-sm-9">
+                                     <div class="col-sm-9 py-2">
                                        <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                                         <label class="form-check-label" for="inlineRadio1">是</label>
@@ -326,7 +337,7 @@
                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                                        <label class="form-check-label" for="inlineRadio2">否</label>
                                        </div>
-                                       <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                       <textarea class="form-control my-2" id="exampleFormControlTextarea1" rows="5"></textarea>
                                        <button type="button" class="btn gray-layered btnOver"><a href="#">選擇檔案</a></button>
                                        <span>未選...案</span>
                                      </div>
@@ -337,7 +348,7 @@
                           </div>
                           <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
                             <form class="check_in">
-　　　　　　　　　　　　　　　   <div class="login_line"> 
+　　　　　　　　　　　　　　　   <div class="login_line py-2"> 
                              <div class="row">
                                    <label class="col-sm-3 col-form-label">*請輸入舊密碼：</label>
                                    <div class="col-sm-9 form-inline">
@@ -367,7 +378,8 @@
                       </div>
                     </div>
                     <!--特別議題end -->
-                    
+                    </div>
+                  </div>
                   
 
 

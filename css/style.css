@@ -80,10 +80,6 @@ a:hover{ text-decoration: none; color:#000000; }
   width: 100%;
 }
 
-.max-w-100{
-  max-width: 100%;
-}
-
 .w-h-100{
     width: 100%;
     height: 100%;
@@ -3581,7 +3577,7 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 
-.bank_search .search_from{ width:250px; }
+.bank_search .search_from{ width:185px; }
 
 .ticketbg .move_2{
   width:365px;
@@ -3735,7 +3731,8 @@ a:hover{ text-decoration: none; color:#000000; }
   font-family: 微軟正黑體;
 }
 
-.bank_btn button {
+.bank_btn button, .bank_btn a {
+    display: inline-block;
     width:100px;
     height: 35px;
     background-color: #797979;
@@ -3747,6 +3744,8 @@ a:hover{ text-decoration: none; color:#000000; }
     margin: 0 5px;
     cursor:pointer;
     border: none;
+    vertical-align: middle;
+    line-height: 1.8;
   }
 
 .ticketbg .bank_3 .bank_icon img{
@@ -4085,6 +4084,7 @@ a:hover{ text-decoration: none; color:#000000; }
     display: block;
     margin: 5px;
 }
+.member_info h4{font-weight: bold; color:#3f57b5;}
 .member_info h5{font-weight: bold; color:#3f57b5;}
 .member_info .table td, .table th{padding:8px 0;}
 .fun{padding-left: 0;}
@@ -4103,6 +4103,8 @@ a:hover{ text-decoration: none; color:#000000; }
     color: #172f8b;
     margin: 15px 10px;
 }
+
+
 .user_info{border: 1px solid #ccc; padding: 25px 8px; margin: 15px 0;}
 .user_info ul{padding-left: 0; padding-right: 20px; border-right: 1px solid #ccc; margin-bottom: 0;}
 .user_info li{display: inline-block; margin:0 5px;}
@@ -4142,7 +4144,8 @@ a:hover{ text-decoration: none; color:#000000; }
 .check_in .col-sm-9{border-bottom: 1px solid #eee;}
 .check_in .login_line{border: 1px solid #eee;}
 .check_in button a{color:#fff;}
-
+.mycard_info{overflow: auto; width: 100%;}
+.mycard_info table{width: 720px;}
 #add_card{display: none;}
 #add_card .mem_logo img{width:150px;}
 #add_card .date_w input{width:15%;}
@@ -4343,8 +4346,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#243b92', end
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5572db', endColorstr='#3f54a3',GradientType=0 ); /* IE6-9 */
 }
 
-.blue_tab_btn button{
+.blue_tab_btn{
     color: #fff;
+    border: none;
+    box-shadow: 2px 2px 2px #3f54a3;
     background: rgb(85,114,219); /* Old browsers */
     background: -moz-linear-gradient(top, rgba(85,114,219,1) 0%, rgba(63,84,163,1) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, rgba(85,114,219,1) 0%,rgba(63,84,163,1) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -4354,6 +4359,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#243b92', end
 
 
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 切換型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*----------------------------------------- 紅色 ------------------------------------------------*/
+.red_tab_btn{
+    color: #fff;
+    border: none;
+    box-shadow: 2px 2px 2px #3f54a3;
+    background: #dd1c16; /* Old browsers */
+    background: -moz-linear-gradient(top, #dd1c16 0%, #b50f03 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #dd1c16 0%,#b50f03 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #dd1c16 0%,#b50f03 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dd1c16', endColorstr='#b50f03',GradientType=0 ); /* IE6-9 */
+
+}
 /*----------------------------------------- 桃紅色 ------------------------------------------------*/
 
 .pink_tab .nav-tabs .nav-item.show .nav-link, .pink_tab .nav-tabs .nav-link.active{ 

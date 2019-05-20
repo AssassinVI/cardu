@@ -76,7 +76,7 @@
                        <div class="cardshap primary_tab">
                            <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab">
-                            <a class="nav-link active pl-30 py-2" id="all_1-tab" href="all.php"  aria-controls="all_1" aria-selected="true">我的資訊</a>
+                            <a class="nav-link active pl-30 py-2" id="all_1-tab" href="javascript:;"  aria-controls="all_1" aria-selected="true">我的資訊</a>
                             <div class="info_btn">
                              <button class="gray-layered btnOver" type="submit">查詢訂閱</button>
                             </div>
@@ -88,11 +88,11 @@
                     
 
                       <div class="cardshap">
-                        <div class="row no-gutters py-3 mx-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                        <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
+                          <div class="col-md-4 col-6 pl-2">
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
                            <a href="#" title="新聞">
                             <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
@@ -102,11 +102,11 @@
                             </div>
                           </div>
                         </div>
-                        <div class="row no-gutters py-3 mx-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                        <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
+                          <div class="col-md-4 col-6 pl-2">
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
                            <a href="#" title="新聞">
                             <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
@@ -116,11 +116,11 @@
                             </div>
                           </div>
                         </div>
-                        <div class="row no-gutters py-3 mx-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                        <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
+                          <div class="col-md-4 col-6 pl-2">
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
                            <a href="#" title="新聞">
                             <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
@@ -144,7 +144,7 @@
                  
                     <!--我的資訊end -->
                        <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col">
                             <img class="w-100" src="http://placehold.it/365x100" alt="">
                         </div>
@@ -153,14 +153,22 @@
                         </div>
                     </div>
                     <!--廣告end-->
+                    <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
+
                           <div class="col-md-12 col">
 
                       <div class="cardshap ">
-                        <div class="row no-gutters py-3 mx-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                        <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
+                          <div class="col-md-4 col-6 pl-2">
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
                            <a href="#" title="新聞">
                             <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
@@ -171,11 +179,11 @@
                           </div>
                         </div>
 
-                        <div class="row no-gutters py-3 mx-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                        <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
+                          <div class="col-md-4 col-6 pl-2">
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
                            <a href="#" title="新聞">
                             <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
@@ -186,11 +194,11 @@
                           </div>
                         </div>
 
-                        <div class="row no-gutters py-3 mx-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                        <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
+                          <div class="col-md-4 col-6 pl-2">
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
                            <a href="#" title="新聞">
                             <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
@@ -207,17 +215,26 @@
                     
                     
                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
+                    <div class="col-md-12 col phone_hidden"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+                    <!--banner end -->
+
+                    <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block ">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
 
                     
                     <div class="col-md-12 col">
 
                       <div class="cardshap ">
-                        <div class="row no-gutters py-3 mx-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                        <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
+                          <div class="col-md-4 col-6 pl-2">
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
                            <a href="#" title="新聞">
                             <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
@@ -228,11 +245,11 @@
                           </div>
                         </div>
 
-                        <div class="row no-gutters py-3 mx-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                        <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
+                          <div class="col-md-4 col-6 pl-2">
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
                            <a href="#" title="新聞">
                             <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
@@ -243,11 +260,11 @@
                           </div>
                         </div>
 
-                        <div class="row no-gutters py-3 mx-4 py-2 news_list">
-                          <div class="col-md-4 col-5">
+                        <div class="row no-gutters py-md-3 mx-md-4 py-2 news_list">
+                          <div class="col-md-4 col-6 pl-2">
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);"></a>
                           </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
+                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
                            <a href="#" title="新聞">
                             <h3>遊日血拼大回饋 信用卡大調查<small class="phone_hidden">(2018/11/21)</small></h3>
                             <p>到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>

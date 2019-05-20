@@ -109,7 +109,7 @@
                                 $cc_fun_id_arr=explode(',', ${'row_card'.$i}['cc_fun_id']);
                                 foreach ($cc_fun_id_arr as $cc_fun_id) {
                                   $cc_func_d=$pdo->select("SELECT Tb_index, fun_name, card_image, card_image_hover FROM card_func WHERE Tb_index=:Tb_index", ['Tb_index'=>$cc_fun_id], 'one');
-                                  ${'cc_func'.$i}.='<a class="ccard_icon_js" href="../cardNews/all.php?func='.$cc_func_d['Tb_index'].'">
+                                  ${'cc_func'.$i}.='<a class="ccard_icon_js" href="../card/card_browse.php?func='.$cc_func_d['Tb_index'].'">
                                                 <img class="rankasable_img" src="../sys/img/'.$cc_func_d['card_image'].'" title="'.$cc_func_d['fun_name'].'">
                                               </a>';
                                 }
@@ -121,7 +121,7 @@
                                 $cc_pref_id_arr=explode(',', ${'row_card'.$i}['cc_pref_id']);
                                 foreach ($cc_pref_id_arr as $cc_pref_id) {
                                   $cc_pref_d=$pdo->select("SELECT Tb_index, pref_name, pref_image FROM card_pref WHERE Tb_index=:Tb_index", ['Tb_index'=>$cc_pref_id], 'one');
-                                  ${'cc_pref'.$i}.='<a href="../cardNews/all.php?pref='.$cc_pref_d['Tb_index'].'">
+                                  ${'cc_pref'.$i}.='<a href="../card/card_browse.php?pref='.$cc_pref_d['Tb_index'].'">
                                                 <img class="rankasable_img" src="../sys/img/'.$cc_pref_d['pref_image'].'" title="'.$cc_pref_d['pref_name'].'">
                                               </a>';
                                 }
@@ -149,13 +149,13 @@
                                     echo '
                                       <td>  
                                         <div class="rank_care">
-                                          <a href="../cardNews/creditcard.php?cc_pk='.${'row_card'.$i}['Tb_index'].'&cc_group_id='.${'row_card'.$i}['cc_group_id'].'">
+                                          <a href="../card/creditcard.php?cc_pk='.${'row_card'.$i}['Tb_index'].'&cc_group_id='.${'row_card'.$i}['cc_group_id'].'">
                                             <img class="rankas_img" src="../sys/img/'.$cc_photo.'">
                                           </a>
-                                          <a href="../cardNews/bank_detail.php?bi_pk='.${'row_card'.$i}['cc_bi_pk'].'">
+                                          <a href="../card/bank_detail.php?bi_pk='.${'row_card'.$i}['cc_bi_pk'].'">
                                             <h5 class=" money_main text-center mb-0">'.${'row_card'.$i}['bi_shortname'].'</h5>
                                           </a>
-                                          <a href="../cardNews/creditcard.php?cc_pk='.${'row_card'.$i}['Tb_index'].'&cc_group_id='.${'row_card'.$i}['cc_group_id'].'">
+                                          <a href="../card/creditcard.php?cc_pk='.${'row_card'.$i}['Tb_index'].'&cc_group_id='.${'row_card'.$i}['cc_group_id'].'">
                                              <h5 class=" money_main text-center mb-0"><span>'.${'card'.$i.'_name'}.'</span></h5>
                                           </a>
                                           '.${'cc_doc'.$i}.'

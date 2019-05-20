@@ -74,8 +74,8 @@
                     <div class="col-md-12 col pb-3 detail_content">
                     <div class="cardshap primary_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item">
-                            <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="second.php" tab-target="#goodMember" aria-selected="true">我的帳單</a>
+                          <li class="nav-item news_tab">
+                            <a class="nav-link py-2 flex-x-center active show" id="goodMember-tab" href="javascript:;" tab-target="#goodMember" aria-selected="true">我的帳單</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -84,20 +84,11 @@
                           
                               <div class="px-md-2 member_info">
                                  
-
-
-                                 <h5>我的帳單</h5>
-                                 <div class="col-md-12 col0">
-                                   <div class="user_more">
-                                   <b>未繳款帳單</b>
-                                   </div>
-                                 </div>
                                  
                                   <table class="table table-striped table-bordered text-center">
                                    <thead>
                                      <tr>
                                        <th scope="col">發卡單位</th>
-                                       <th scope="col">發卡組織</th>
                                        <th scope="col">信用卡名稱</th>
                                        <th scope="col">應繳金額</th>
                                        <th scope="col">繳款截止日</th>
@@ -108,7 +99,14 @@
                                    <tbody>
                                      <tr>
                                        <th scope="row">XX銀行</th>
+                                       <td>XXXX卡</td>
                                        <td>XXX</td>
+                                       <td>XXX</td>
+                                       <td><a data-fancybox href="#add_bill"><img src="../img/component/file.png"></a></td>
+                                       <td><a href="#">明細</a></td>
+                                     </tr>
+                                     <tr>
+                                       <th scope="row">XX銀行</th>
                                        <td>XXXX卡</td>
                                        <td>XXX</td>
                                        <td>20XX/XX/XX</td>
@@ -117,7 +115,6 @@
                                      </tr>
                                      <tr>
                                        <th scope="row">XX銀行</th>
-                                       <td>XXX</td>
                                        <td>XXXX卡</td>
                                        <td>XXX</td>
                                        <td>20XX/XX/XX</td>
@@ -126,7 +123,6 @@
                                      </tr>
                                      <tr>
                                        <th scope="row">XX銀行</th>
-                                       <td>XXX</td>
                                        <td>XXXX卡</td>
                                        <td>XXX</td>
                                        <td>20XX/XX/XX</td>
@@ -135,16 +131,6 @@
                                      </tr>
                                      <tr>
                                        <th scope="row">XX銀行</th>
-                                       <td>XXX</td>
-                                       <td>XXXX卡</td>
-                                       <td>XXX</td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><a data-fancybox href="#add_bill"><img src="../img/component/file.png"></a></td>
-                                       <td><a href="#">明細</a></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXX</td>
                                        <td>XXXX卡</td>
                                        <td>XXX</td>
                                        <td>20XX/XX/XX</td>
@@ -169,6 +155,74 @@
                                      </div>
                                    </div>
                                  
+                                 
+                                 <div class="col-md-12 col0">
+                                   <div class="user_more">
+                                   <b>未繳款帳單</b>
+                                   </div>
+                                 </div>
+                                 
+                                  <table class="table table-striped table-bordered text-center">
+                                   <thead>
+                                     <tr>
+                                       <th scope="col">發卡單位</th>
+                                       <th scope="col">信用卡名稱</th>
+                                       <th scope="col">帳單年月</th>
+                                       <th scope="col">應繳金額</th>
+                                       <th scope="col">繳款截止日</th>
+                                       <th scope="col">修改帳單</th>
+                                       
+                                     </tr>
+                                   </thead>
+                                   <tbody>
+                                     <tr>
+                                       <th scope="row">XX銀行</th>
+                                       <td>XXXX卡</td>
+                                       <td>20XX/XX</td>
+                                       <td>XXX</td>
+                                       <td>20XX/XX/XX</td>
+                                       <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
+                                     </tr>
+                                     <tr>
+                                       <th scope="row">XX銀行</th>
+                                       <td>XXXX卡</td>
+                                       <td>20XX/XX</td>
+                                       <td>XXX</td>
+                                       <td>20XX/XX/XX</td>
+                                       <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
+                                     </tr>
+                                     <tr>
+                                       <th scope="row">XX銀行</th>
+                                       <td>XXXX卡</td>
+                                       <td>20XX/XX</td>
+                                       <td>XXX</td>
+                                       <td>20XX/XX/XX</td>
+                                       <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
+                                     </tr>
+                                     <tr>
+                                       <th scope="row">XX銀行</th>
+                                       <td>XXXX卡</td>
+                                       <td>20XX/XX</td>
+                                       <td>XXX</td>
+                                       <td>20XX/XX/XX</td>
+                                       <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
+                                     </tr>
+                                     <tr>
+                                       <th scope="row">XX銀行</th>
+                                       <td>XXXX卡</td>
+                                       <td>20XX/XX</td>
+                                       <td>XXX</td>
+                                       <td>20XX/XX/XX</td>
+                                       <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
+                                     </tr>
+                                     <tr class="text-right">
+                                       <td colspan="7">未繳款金額：ＸＸＸ元</td>
+                                     </tr>
+                                   </tbody>
+                                 </table>
+
+                                
+                                 
                                  <div class="col-md-12 col0">
                                    <div class="user_more">
                                    <b>已繳款帳單</b>
@@ -178,40 +232,40 @@
                                    <thead>
                                      <tr>
                                        <th scope="col">發卡單位</th>
-                                       <th scope="col">發卡組織</th>
                                        <th scope="col">信用卡名稱</th>
-                                       <th scope="col">帳單年月</th>
                                        <th scope="col">應繳金額</th>
-                                       <th scope="col">繳款截止日</th>
+                                       <th scope="col">已繳金額</th>
+                                       <th scope="col">繳款日</th>
+                                       <th scope="col">繳款方式</th>
                                        <th scope="col">修改帳單</th>
                                      </tr>
                                    </thead>
                                    <tbody>
                                      <tr>
                                        <th scope="row">XX銀行</th>
-                                       <td>XXX</td>
                                        <td>XXXX卡</td>
-                                       <td>20XX/XX</td>
                                        <td>XXX</td>
-                                       <td>20XX/XX/XX</td>
+                                       <td>XXX</td>
+                                       <td>每月X日</td>
+                                       <td>XXX</td>
                                        <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
                                      </tr>
                                      <tr>
                                        <th scope="row">XX銀行</th>
-                                       <td>XXX</td>
                                        <td>XXXX卡</td>
-                                       <td>20XX/XX</td>
                                        <td>XXX</td>
-                                       <td>20XX/XX/XX</td>
+                                       <td>XXX</td>
+                                       <td>每月X日</td>
+                                       <td>XXX</td>
                                        <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
                                      </tr>
                                      <tr>
                                        <th scope="row">XX銀行</th>
-                                       <td>XXX</td>
                                        <td>XXXX卡</td>
-                                       <td>20XX/XX</td>
                                        <td>XXX</td>
-                                       <td>20XX/XX/XX</td>
+                                       <td>XXX</td>
+                                       <td>每月X日</td>
+                                       <td>XXX</td>
                                        <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
                                      </tr>
                                      <tr class="text-right">

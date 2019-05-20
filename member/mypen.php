@@ -75,10 +75,10 @@
                     <div class="cardshap primary_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item">
-                            <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="second.php" tab-target="#goodMember" aria-selected="true">我的發文</a>
+                            <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="javascript:;" tab-target="#goodMember" aria-selected="true">我的發文</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link py-2 pl-0 flex-x-center" id="goodPerson-tab" href="second.php" tab-target="#goodPerson" aria-selected="false">我的回文</a>
+                            <a class="nav-link py-2 pl-0 flex-x-center" id="goodPerson-tab" href="javascript:;" tab-target="#goodPerson" aria-selected="false">我的回文</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -148,7 +148,7 @@
                             <div class="px-md-2 member_info">
 
                                  <div class="col-md-12 col0">
-                                   <div class="member_more">
+                                   <div class="user_more">
                                    <h5>我的文章</h5>
                                    </div>
                                  </div>

@@ -72,7 +72,7 @@
                 <div class="row">
 
                     <div class="col-md-12 col">
-                      <div class="row about_bg">
+                      <div class="row about_bg py-md-0 py-2">
                        <div class="col-md-3">
                          <img src="../img/component/people.png">
                        </div>
@@ -90,16 +90,16 @@
                       </div>
                     </div>
                     
-
+                    
                     <div class="col-md-12 col pb-3 detail_content">
                     <div class="">
                     <div class="cardshap primary_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item">
-                            <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="second.php" tab-target="#goodMember" aria-selected="true">卡優公告</a>
+                            <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="javascript:;" tab-target="#goodMember" aria-selected="true">卡優公告</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link py-2 pl-0 flex-x-center" id="goodPerson-tab" href="second.php" tab-target="#goodPerson" aria-selected="false">卡優活動</a>
+                            <a class="nav-link py-2 pl-0 flex-x-center" id="goodPerson-tab" href="javascript:;" tab-target="#goodPerson" aria-selected="false">卡優活動</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -174,6 +174,7 @@
                           </div>
                           <div class="tab-pane fade" id="goodPerson" role="tabpanel" aria-labelledby="goodPerson-tab">
 
+                            
                             <ul class="fun">
                               <li>
                                 <img src="../img/component/li.png">

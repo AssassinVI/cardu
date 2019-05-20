@@ -95,7 +95,7 @@
                                                               INNER JOIN bank_info as bk ON bk.Tb_index=cc.cc_bi_pk
                                                               INNER JOIN card_org as org ON org.Tb_index=cc.cc_cardorg
                                                               INNER JOIN card_level as level ON level.Tb_index=cc.cc_cardlevel 
-                                                              WHERE cc.cc_group_id =:cc_group_id 
+                                                              WHERE cc.cc_group_id =:cc_group_id AND cc.cc_stop_publish=0 AND cc.cc_stop_card=0
                                                               ORDER BY org.OrderBy ASC ,level.OrderBy ASC", ['cc_group_id'=>$_GET['gid']]);
                                 foreach ($row_card as $row_card_one) {
 

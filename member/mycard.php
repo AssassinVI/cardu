@@ -74,45 +74,16 @@
                     <div class="col-md-12 col pb-3 detail_content">
                     <div class="cardshap primary_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item">
-                            <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="second.php" tab-target="#goodMember" aria-selected="true">卡優公告</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link py-2 pl-0 flex-x-center" id="goodPerson-tab" href="second.php" tab-target="#goodPerson" aria-selected="false">卡優活動</a>
+                          <li class="nav-item news_tab">
+                            <a class="nav-link py-2 flex-x-center active show" id="goodMember-tab" href="javascript:;" tab-target="#goodMember" aria-selected="true">我的信用卡</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                           <div class="tab-pane fade active show" id="goodMember" role="tabpanel" aria-labelledby="goodMember-tab">
 
-                            <div class="row user_info">
-                              <div class="col-md-4 hv-center">
-                                <ul>
-                                  <li><img src="../img/component/user.png"><br>會員暱稱</li>
-                                  <li><img src="../img/component/grade.png"><br>會員等級</li>
-                                </ul>
-                              </div>
-                              <div class="col-md-8">
-                                <div class="row no-gutters">
-                                  <div class="col-md-5">
-                                      <p><img src="../img/component/li.png">U幣:XX</p>
-                                      <p><img src="../img/component/li.png">積分:XX</p>
-                                      <p><img src="../img/component/li.png">威望值:XX</p>
-                                  </div>
-                                  <div class="col-md-7">
-                                      <p><img src="../img/component/li.png">註冊時間：20XX/XX/XX XX:XX</p>
-                                      <p><img src="../img/component/li.png">最近登錄：20XX/XX/XX XX:XX</p>
-                                      <p><img src="../img/component/li.png">登錄次數：XXX</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-                            
-                            <br>
-                              <div class="px-md-2 member_info">
+                              <div class="member_info">
                                  
                                  <div class="user_more">
-                                  <h5>我的信用卡</h5>
                                   <button type="button" class="btn gray-layered btnOver"><a data-fancybox href="#add_card">新增信用卡</a></button>
                                  </div>
 
@@ -225,14 +196,12 @@
 
                                  <!-- fancybox END -->
                                  
-                              
+                                 <div class="mycard_info">
                                  <table class="table table-striped table-bordered text-center">
                                    <thead>
                                      <tr>
                                        <th scope="col">發卡單位</th>
-                                       <th scope="col">發卡組織</th>
                                        <th scope="col">信用卡名稱</th>
-                                       <th scope="col">卡等</th>
                                        <th scope="col">結帳日</th>
                                        <th scope="col">繳款日</th>
                                        <th scope="col">修改設定</th>
@@ -242,9 +211,7 @@
                                    <tbody>
                                      <tr>
                                        <th scope="row">XX銀行</th>
-                                       <td>XXX</td>
                                        <td>XXXX卡</td>
-                                       <td>XX卡</td>
                                        <td>每月X日</td>
                                        <td>每月X日</td>
                                        <td><a data-fancybox href="#repair_card"><img src="../img/component/repair.png"></a></td>
@@ -252,9 +219,7 @@
                                      </tr>
                                      <tr>
                                        <th scope="row">XX銀行</th>
-                                       <td>XXX</td>
                                        <td>XXXX卡</td>
-                                       <td>XX卡</td>
                                        <td>每月X日</td>
                                        <td>每月X日</td>
                                        <td><a data-fancybox href="#repair_card"><img src="../img/component/repair.png"></a></td>
@@ -262,9 +227,7 @@
                                      </tr>
                                      <tr>
                                        <th scope="row">XX銀行</th>
-                                       <td>XXX</td>
                                        <td>XXXX卡</td>
-                                       <td>XX卡</td>
                                        <td>每月X日</td>
                                        <td>每月X日</td>
                                        <td><a data-fancybox href="#repair_card"><img src="../img/component/repair.png"></a></td>
@@ -272,9 +235,7 @@
                                      </tr>
                                      <tr>
                                        <th scope="row">XX銀行</th>
-                                       <td>XXX</td>
                                        <td>XXXX卡</td>
-                                       <td>XX卡</td>
                                        <td>每月X日</td>
                                        <td>每月X日</td>
                                        <td><a data-fancybox href="#repair_card"><img src="../img/component/repair.png"></a></td>
@@ -282,9 +243,7 @@
                                      </tr>
                                      <tr>
                                        <th scope="row">XX銀行</th>
-                                       <td>XXX</td>
                                        <td>XXXX卡</td>
-                                       <td>XX卡</td>
                                        <td>每月X日</td>
                                        <td>每月X日</td>
                                        <td><a data-fancybox href="#repair_card"><img src="../img/component/repair.png"></a></td>
@@ -292,9 +251,7 @@
                                      </tr>
                                      <tr>
                                        <th scope="row">XX銀行</th>
-                                       <td>XXX</td>
                                        <td>XXXX卡(請修正)</td>
-                                       <td>XX卡</td>
                                        <td>每月X日</td>
                                        <td>每月X日</td>
                                        <td><a data-fancybox href="#repair_card"><img src="../img/component/repair.png"></a></td>
@@ -302,6 +259,48 @@
                                      </tr>
                                    </tbody>
                                  </table>
+                                 </div>
+                                 <div class="row py-2">
+                                     <label class="col-sm-3 col-form-label">已剪卡的信用卡</label>
+                                     <div class="col-sm-9 form-inline">
+                                       <select select class="form-control" id="exampleFormControlSelect1">
+                                        <option value="11">上海銀行</option>
+                                        <option value="70">元大銀行</option>
+                                        <option value="79">中國信託</option>
+                                        <option value="77">日盛銀行</option>
+                                        <option value="72">玉山銀行</option>
+                                        <option value="22">台中銀行</option>
+                                        <option value="12">台北富邦</option>
+                                        <option value="75">台新銀行</option>
+                                        <option value="71">永豐銀行</option>
+                                        <option value="5">土地銀行</option>
+                                        <option value="86">台灣永旺</option>
+                                        <option value="83">美國運通</option>
+                                        <option value="92">台灣樂天</option>
+                                        <option value="6">合作金庫</option>
+                                        <option value="78">安泰銀行</option>
+                                        <option value="15">兆豐商銀</option>
+                                        <option value="23">京城銀行</option>
+                                        <option value="16">花旗銀行</option>
+                                        <option value="14">高雄銀行</option>
+                                        <option value="7">第一銀行</option>
+                                        <option value="13">國泰世華</option>
+                                        <option value="21">渣打銀行</option>
+                                        <option value="8">華南銀行</option>
+                                        <option value="32">陽信銀行</option>
+                                        <option value="28">華泰銀行</option>
+                                        <option value="73">凱基銀行</option>
+                                        <option value="74">星展銀行</option>
+                                        <option value="25">滙豐銀行</option>
+                                        <option value="9">彰化銀行</option>
+                                        <option value="69">遠東商銀</option>
+                                        <option value="19">臺灣企銀</option>
+                                        <option value="29">新光銀行</option>
+                                        <option value="4">臺灣銀行</option>
+                                        <option value="67">聯邦銀行</option>
+                                   </select>
+                                     </div>
+                                   </div>
 
 
                                  <!-- fancybox -->
@@ -557,214 +556,242 @@
                                  </div>
 
                                  <!-- fancybox END -->
-                                   
-                              <div class="user_more">
-                               <h5>我的信用卡－新聞</h5>
-                               <button type="button" class="btn gray-layered btnOver"><a href="#">更多</a></button>
-                              </div>
-                              <div class="row no-gutters w-100">
-                              <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                 <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                     
-                                 </div>
-                                 <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                              <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                     
-                                  </div>
-                                  <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                               <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                      
-                                  </div>
-                                  <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                            </div>
+                             <!--我的信用卡－新聞-->
+                             <div class="col-md-12 col0">
 
-                            <div class="user_more">
-                              <h5>我的信用卡－卡情報</h5>
-                              <button type="button" class="btn gray-layered btnOver"><a href="#">更多</a></button>
-                            </div>
-                              <div class="row no-gutters w-100">
-                              <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                 <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">  
-                                 </div>
-                                 <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                              <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);"> 
-                                  </div>
-                                  <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                               <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">  
-                                  </div>
-                                  <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                            </div>
-                            
-                            <div class="user_more">
-                              <h5>我的信用卡－優行動Pay</h5>
-                              <button type="button" class="btn gray-layered btnOver"><a href="#">更多</a></button>
-                           </div>
-                              <div class="row no-gutters w-100">
-                              <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                 <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                     
-                                 </div>
-                                 <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                              <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                     
-                                  </div>
-                                  <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                               <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                      
-                                  </div>
-                                  <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                            </div>
-                            
-                            <div class="user_more">
-                              <h5>我的信用卡－優票證</h5>
-                              <button type="button" class="btn gray-layered btnOver"><a href="#">更多</a></button>
-                            </div>
-                              <div class="row no-gutters w-100">
-                              <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                 <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                     
-                                 </div>
-                                 <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                              <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                     
-                                  </div>
-                                  <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                               <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                      
-                                  </div>
-                                  <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                            </div>
-                            
-                            <div class="user_more">
-                              <h5>我的信用卡－優集點</h5>
-                              <button type="button" class="btn gray-layered btnOver"><a href="#">更多</a></button>
-                            </div>
-                              <div class="row no-gutters w-100">
-                              <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                 <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                     
-                                 </div>
-                                 <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                              <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                     
-                                  </div>
-                                  <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                               <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                      
-                                  </div>
-                                  <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                            </div>
+                                 <div class="cardshap exception">
+                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                   <li class="nav-item news_tab">
+                                     <a class="nav-link active  pl-30 py-2" id="box-tab"  href="javascript:;" tab-target="#box" aria-selected="true">
+                                     我的信用卡－新聞</a>
+                                   </li>
+                                 </ul>
+                             <div class="tab-content" id="myTabContent">
+                             <div class="tab-pane fade show active" id="box" role="tabpanel" aria-labelledby="box-tab">
 
+                                <div class="row no-gutters w-100">
+                              <div class="col-md-4 cards-3 text-center col-6">
+                                <a href="#">
+                                 <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                     
+                                 </div>
+                                 <span>遊日血拚大回饋，信用卡大調查</span>
+                                </a>
+                              </div>
+                              <div class="col-md-4 cards-3 text-center col-6">
+                                <a href="#">
+                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                     
+                                  </div>
+                                  <span>遊日血拚大回饋，信用卡大調查</span>
+                                </a>
+                              </div>
+                               <div class="col-md-4 cards-3 text-center col-6">
+                                <a href="#">
+                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                      
+                                  </div>
+                                  <span>遊日血拚大回饋，信用卡大調查</span>
+                                </a>
+                              </div>
+                            </div>
+                                    
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                             <!--我的信用卡－新聞end -->
+                              <!--我的信用卡－卡情報-->
+                              <div class="col-md-12 col0">
+
+                                  <div class="cardshap exception">
+                                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item news_tab">
+                                      <a class="nav-link active  pl-30 py-2" id="box-tab"  href="javascript:;" tab-target="#box" aria-selected="true">
+                                      我的信用卡－卡情報</a>
+                                    </li>
+                                  </ul>
+                              <div class="tab-content" id="myTabContent">
+                              <div class="tab-pane fade show active" id="box" role="tabpanel" aria-labelledby="box-tab">
+
+                                 <div class="row no-gutters w-100">
+                               <div class="col-md-4 cards-3 text-center col-6">
+                                 <a href="#">
+                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                      
+                                  </div>
+                                  <span>遊日血拚大回饋，信用卡大調查</span>
+                                 </a>
+                               </div>
+                               <div class="col-md-4 cards-3 text-center col-6">
+                                 <a href="#">
+                                   <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                      
+                                   </div>
+                                   <span>遊日血拚大回饋，信用卡大調查</span>
+                                 </a>
+                               </div>
+                                <div class="col-md-4 cards-3 text-center col-6">
+                                 <a href="#">
+                                   <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                       
+                                   </div>
+                                   <span>遊日血拚大回饋，信用卡大調查</span>
+                                 </a>
+                               </div>
+                             </div>
+                                     
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!--我的信用卡－卡情報end -->
+                               <!--我的信用卡－優行動Pay-->
+                               <div class="col-md-12 col0">
+
+                                   <div class="cardshap exception">
+                                   <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                     <li class="nav-item news_tab">
+                                       <a class="nav-link active  pl-30 py-2" id="box-tab"  href="javascript:;" tab-target="#box" aria-selected="true">
+                                       我的信用卡－優行動Pay</a>
+                                     </li>
+                                   </ul>
+                               <div class="tab-content" id="myTabContent">
+                               <div class="tab-pane fade show active" id="box" role="tabpanel" aria-labelledby="box-tab">
+
+                                  <div class="row no-gutters w-100">
+                                <div class="col-md-4 cards-3 text-center col-6">
+                                  <a href="#">
+                                   <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                       
+                                   </div>
+                                   <span>遊日血拚大回饋，信用卡大調查</span>
+                                  </a>
+                                </div>
+                                <div class="col-md-4 cards-3 text-center col-6">
+                                  <a href="#">
+                                    <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                       
+                                    </div>
+                                    <span>遊日血拚大回饋，信用卡大調查</span>
+                                  </a>
+                                </div>
+                                 <div class="col-md-4 cards-3 text-center col-6">
+                                  <a href="#">
+                                    <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                        
+                                    </div>
+                                    <span>遊日血拚大回饋，信用卡大調查</span>
+                                  </a>
+                                </div>
+                              </div>
+                                      
+                                     </div>
+                                   </div>
+                                 </div>
+                               </div>
+                               <!--我的信用卡－優行動Payend -->
+                                <!--我的信用卡－優票證-->
+                                <div class="col-md-12 col0">
+
+                                    <div class="cardshap exception">
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                      <li class="nav-item news_tab">
+                                        <a class="nav-link active  pl-30 py-2" id="box-tab"  href="javascript:;" tab-target="#box" aria-selected="true">
+                                        我的信用卡－優票證</a>
+                                      </li>
+                                    </ul>
+                                <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="box" role="tabpanel" aria-labelledby="box-tab">
+
+                                   <div class="row no-gutters w-100">
+                                 <div class="col-md-4 cards-3 text-center col-6">
+                                   <a href="#">
+                                    <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                        
+                                    </div>
+                                    <span>遊日血拚大回饋，信用卡大調查</span>
+                                   </a>
+                                 </div>
+                                 <div class="col-md-4 cards-3 text-center col-6">
+                                   <a href="#">
+                                     <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                        
+                                     </div>
+                                     <span>遊日血拚大回饋，信用卡大調查</span>
+                                   </a>
+                                 </div>
+                                  <div class="col-md-4 cards-3 text-center col-6">
+                                   <a href="#">
+                                     <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                         
+                                     </div>
+                                     <span>遊日血拚大回饋，信用卡大調查</span>
+                                   </a>
+                                 </div>
+                               </div>
+                                       
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!--我的信用卡－優票證end -->
+                                 <!--我的信用卡－優集點-->
+                                 <div class="col-md-12 col0">
+
+                                     <div class="cardshap exception">
+                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                       <li class="nav-item news_tab">
+                                         <a class="nav-link active  pl-30 py-2" id="box-tab"  href="javascript:;" tab-target="#box" aria-selected="true">
+                                         我的信用卡－優集點</a>
+                                       </li>
+                                     </ul>
+                                 <div class="tab-content" id="myTabContent">
+                                 <div class="tab-pane fade show active" id="box" role="tabpanel" aria-labelledby="box-tab">
+
+                                    <div class="row no-gutters w-100">
+                                  <div class="col-md-4 cards-3 text-center col-6">
+                                    <a href="#">
+                                     <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                         
+                                     </div>
+                                     <span>遊日血拚大回饋，信用卡大調查</span>
+                                    </a>
+                                  </div>
+                                  <div class="col-md-4 cards-3 text-center col-6">
+                                    <a href="#">
+                                      <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                         
+                                      </div>
+                                      <span>遊日血拚大回饋，信用卡大調查</span>
+                                    </a>
+                                  </div>
+                                   <div class="col-md-4 cards-3 text-center col-6">
+                                    <a href="#">
+                                      <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                          
+                                      </div>
+                                      <span>遊日血拚大回饋，信用卡大調查</span>
+                                    </a>
+                                  </div>
+                                </div>
+                                        
+                                       </div>
+                                     </div>
+                                   </div>
+                                 </div>
+                                 <!--我的信用卡－優集點end -->
 
                                
                               </div>
                             
                            
                           </div>
-                          <div class="tab-pane fade" id="goodPerson" role="tabpanel" aria-labelledby="goodPerson-tab">
-
-                            <div class="row no-gutters">
-                              <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                 <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                     
-                                 </div>
-                                 <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                              <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                     
-                                  </div>
-                                  <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                               <div class="col-md-4 cards-3 text-center">
-                                <a href="#">
-                                  <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                                      
-                                  </div>
-                                  <span>遊日血拚大回饋，信用卡大調查</span>
-                                </a>
-                              </div>
-                            </div>
-                           
-                          </div>
+                          
                         </div>
                       </div>
                     
                   </div>
-
-
-                    
-                   
-
-                    
-                  
-                    
-                    
-
-                   
-
-                    
-
-                   
 
 
 

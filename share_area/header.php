@@ -97,17 +97,17 @@
                                    <div class="col-md-3">
                                     <h4>人氣排行</h4>
                                     <ul>
-                                      <li><a href="/rank/popular_second.php#newCard">新卡人氣排行</a></li>
-                                      <li><a href="/rank/popular_second.php#addCard">辦卡人氣排行</a></li>
-                                      <li><a href="/rank/popular_second.php#viewCard">點閱人氣排行</a></li>
+                                      <li><a href="/rank/newcard.php">新卡人氣排行</a></li>
+                                      <li><a href="/rank/apply.php">辦卡人氣排行</a></li>
+                                      <li><a href="/rank/click.php">點閱人氣排行</a></li>
                                     </ul>
                                   </div>
                                    <div class="col-md-3">
                                     <h4>卡比較</h4>
                                     <ul>
-                                      <li><a href="/rank/new_second.php#newHand">新手快搜</a></li>
-                                      <li><a href="/rank/new_second.php#cardCompare">卡片比一比</a></li>
-                                      <li><a href="/rank/new_second.php#interest">權益比一比</a></li>
+                                      <li><a href="/rank/compare01.php">新手快搜</a></li>
+                                      <li><a href="/rank/compare02.php">卡片比一比</a></li>
+                                      <li><a href="/rank/compare03.php">權益比一比</a></li>
                                     </ul>
                                   </div>
                                    <div class="col-md-3">
@@ -267,35 +267,7 @@
                                        </div>';
                                      }
                                    ?>
-                                   <!-- <div class="col-md-3">
-                                    <a href="/travel/detail.php">
-                                       <div class="img_div w-h-100" style="background-image: url(/img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋 信用卡...</p>
-                                     </a>
-                                   </div>
-                                   <div class="col-md-3">
-                                    <a href="/travel/detail.php">
-                                       <div class="img_div w-h-100" style="background-image: url(/img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋 信用卡...</p>
-                                   </a>
-                                   </div>
-                                   <div class="col-md-3">
-                                    <a href="/travel/detail.php">
-                                       <div class="img_div w-h-100" style="background-image: url(/img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋 信用卡...</p>
-                                   </a>
-                                   </div>
-                                   <div class="col-md-3">
-                                    <a href="/travel/detail.php">
-                                       <div class="img_div w-h-100" style="background-image: url(/img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋 信用卡...</p>
-                                   </a>
-                                   </div> -->
-
+                                   
                                  </div>
                                </div>
                             </li>
@@ -304,7 +276,7 @@
 
                             <li><a href="#">討論區</a></li>
                             <li>
-                              <a href="#">會員中心</a>
+                              <a href="/member/member.php">會員中心</a>
                               <div class="cardshap dropDown_menu">
                                  <div class="row list_menu">
                                    <div class="col-md-6">

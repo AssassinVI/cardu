@@ -40,7 +40,7 @@
 
     <?php
        //-- 共用 Header -- 
-       require 'share_area/index_m/header.php';
+       require 'share_area/phone/header.php';
     ?>
 
     <div class="container-fluid top-space">

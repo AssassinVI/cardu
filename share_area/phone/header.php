@@ -2,7 +2,7 @@
     <header>
       <div class="row no-gutters py-1 px-3" style="background: #fff;">
        <div class="col-4">
-         <img class="w-100" src="/img/component/logo_ph.png" alt="">
+        <a href="/index.php"><img class="w-100" src="/img/component/logo_ph.png" alt=""></a>
        </div> 
        <div class="col-8 tool_div">
          <div class="hv-around w-h-100">
@@ -105,10 +105,10 @@
              <div class="card-body">
               <h4>卡資訊</h4>
               <div class="row no-gutters">
-                <div class="col-6"><a href="#">新卡訊</a></div>
-                <div class="col-6"><a href="#">卡總覽</a></div>
-                <div class="col-6"><a href="#">銀行總覽</a></div>
-                <div class="col-6"><a href="#">權益變更</a></div>
+                <div class="col-6"><a href="/card/new_card_list.php">新卡訊</a></div>
+                <div class="col-6"><a href="/card/card_browse.php">卡總覽</a></div>
+                <div class="col-6"><a href="/card/bank_list.php">銀行總覽</a></div>
+                <div class="col-6"><a href="/card/interests_list.php">權益變更</a></div>
               </div>
               <?php 
                 //-- 套用 share_area/fun.php   MENU fun ph --
@@ -278,15 +278,15 @@
 
      <div id="menu_bar" class="swiper-container">
          <div class="swiper-wrapper">
-             <div class="swiper-slide"><a href="#">新聞</a></div>
-             <div class="swiper-slide"><a href="#">卡排行</a></div>
-             <div class="swiper-slide"><a href="#">卡情報</a></div>
-             <div class="swiper-slide"><a href="#">優行動Pay</a></div>
-             <div class="swiper-slide"><a href="#">優票證</a></div>
-             <div class="swiper-slide"><a href="#">優集點</a></div>
-             <div class="swiper-slide"><a href="#">優旅行</a></div>
+             <div class="swiper-slide"><a href="/news/news.php">新聞</a></div>
+             <div class="swiper-slide"><a href="/rank/rank.php">卡排行</a></div>
+             <div class="swiper-slide"><a href="/card/card.php">卡情報</a></div>
+             <div class="swiper-slide"><a href="/mpay/mapy.php">優行動Pay</a></div>
+             <div class="swiper-slide"><a href="/eticket/eticket.php">優票證</a></div>
+             <div class="swiper-slide"><a href="/epoint/epoint.php">優集點</a></div>
+             <div class="swiper-slide"><a href="/travel/index.php">優旅行</a></div>
              <div class="swiper-slide"><a href="#">討論區</a></div>
-             <div class="swiper-slide"><a href="#">會員中心</a></div>
+             <div class="swiper-slide"><a href="/member/member.php">會員中心</a></div>
              
          </div>
      </div>

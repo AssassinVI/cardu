@@ -75,7 +75,7 @@
                     <div class="cardshap primary_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab">
-                            <a class="nav-link py-2 flex-x-center active show" id="goodMember-tab" href="javascript:;" tab-target="#goodMember" aria-selected="true">我的收藏</a>
+                            <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="second.php" tab-target="#goodMember" aria-selected="true">404</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -83,69 +83,159 @@
 
 
                             
-                              <div class="px-md-2 member_info">
+                              <div class="px-md-2 member_info error_2 text-center">
 
-                                 <div class="col-md-12 col0">
-                                   <div class="user_more">
-                                   <h5>我的收藏</h5>
-                                    <button type="button" class="btn gray-layered btnOver"><a href="#">刪除</a></button>
-                                   </div>
-                                 </div>
-                                 <table class="table table-striped table-bordered text-center">
-                                   <thead>
-                                     <tr>
-                                       <th scope="col">來源</th>
-                                       <th scope="col">主題名稱</th>
-                                       <th scope="col">收藏時間</th>
-                                       <th scope="col"><input type="checkbox" name="" value="">全選</th>
-                                     </tr>
-                                   </thead>
-                                   <tbody>
-                                     <tr>
-                                       <th scope="row">XXX</th>
-                                       <td><a href="#">遊日血拼賺回饋　必備信用卡大比拼</a></td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><input type="checkbox" name="" value=""></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XXX</th>
-                                       <td><a href="#">遊日血拼賺回饋　必備信用卡大比拼</a></td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><input type="checkbox" name="" value=""></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XXX</th>
-                                       <td><a href="#">遊日血拼賺回饋　必備信用卡大比拼</a></td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><input type="checkbox" name="" value=""></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XXX</th>
-                                       <td><a href="#">遊日血拼賺回饋　必備信用卡大比拼</a></td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><input type="checkbox" name="" value=""></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XXX</th>
-                                       <td><a href="#">遊日血拼賺回饋　必備信用卡大比拼</a></td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><input type="checkbox" name="" value=""></td>
-                                     </tr>
-                                   </tbody>
-                                 </table>
-                                 
+                                   
+                                     <h1>oops，404</h1>
+                                     <h3>我們似乎找不到您要找的頁面...</h3>
+                                    
+                                   
+                                    <p>您可以點擊<a href="http://cardu.srl.tw"><img class="logo_m" src="../img/component/logo.png"></a>返回首頁繼續訪問本站<br>
+                                    也可以參考以下最新文章推薦</p>
 
-                                
+                                    
+                                  
+                              
                                  
                               </div>
+
                             
                            
                           </div>
+
                           
                         </div>
                       </div>
                     
                   </div>
+                  <!--最新文章-->
+                  <div class="col-md-12 col">
+
+                      <div class="cardshap primary_tab">
+                      <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item news_tab">
+                          <a class="nav-link active pl-30 py-2" id="title_5-tab" data-toggle="tab" href="#title_5" role="tab" aria-controls="title_5" aria-selected="true">最新文章</a>
+                        </li>
+                       
+                      </ul>
+                      
+                        <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
+                          <div class="tab-content" id="myTabContent">
+                           <div class="row no-gutters">
+                              <div class="col-6 cards-two">
+                                 <a href="#">
+                                     <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                      <small>購物</small>
+                                     </div>
+                                     <p>遊日血拚大回饋，信用卡大調查</p>
+                                 </a>
+                              </div>
+                              <div class="col-6 cards-two">
+                                 <a href="#">
+                                     <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                      <small>旅遊</small>
+                                     </div>
+                                     <p>遊日血拚大回饋，信用卡大調查</p>
+                                 </a>
+                              </div>
+                          </div>
+
+                          <div class="row no-gutters pt-2">
+                              <div class="col-4 cards-3">
+                                 <a href="#">
+                                     <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                      <small>購物</small>
+                                     </div>
+                                     <p>遊日血拚大回饋，信用卡大調查</p>
+                                 </a>
+                              </div>
+                              <div class="col-4 cards-3">
+                                 <a href="#">
+                                     <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                      <small>購物</small>
+                                     </div>
+                                     <p>遊日血拚大回饋，信用卡大調查</p>
+                                 </a>
+                              </div>
+                              <div class="col-4 cards-3">
+                                 <a href="#">
+                                     <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                      <small>購物</small>
+                                     </div>
+                                     <p>遊日血拚大回饋，信用卡大調查</p>
+                                 </a>
+                              </div>
+                          </div>
+                         </div>
+                          <!--廣告-->
+                           <div class="col-md-12"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+                           <!--banner end -->
+                              <div class="tab-content" id="myTabContent">
+                               <div class="row no-gutters">
+                              <div class="col-6 cards-two">
+                                 <a href="#">
+                                     <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                      <small>購物</small>
+                                     </div>
+                                     <p>遊日血拚大回饋，信用卡大調查</p>
+                                 </a>
+                              </div>
+                              <div class="col-6 cards-two">
+                                 <a href="#">
+                                     <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                      <small>旅遊</small>
+                                     </div>
+                                     <p>遊日血拚大回饋，信用卡大調查</p>
+                                 </a>
+                              </div>
+                          </div>
+
+                          <div class="row no-gutters pt-2">
+                              <div class="col-4 cards-3">
+                                 <a href="#">
+                                     <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                      <small>購物</small>
+                                     </div>
+                                     <p>遊日血拚大回饋，信用卡大調查</p>
+                                 </a>
+                              </div>
+                              <div class="col-4 cards-3">
+                                 <a href="#">
+                                     <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                      <small>購物</small>
+                                     </div>
+                                     <p>遊日血拚大回饋，信用卡大調查</p>
+                                 </a>
+                              </div>
+                              <div class="col-4 cards-3">
+                                 <a href="#">
+                                     <div class="img_div" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
+                                      <small>購物</small>
+                                     </div>
+                                     <p>遊日血拚大回饋，信用卡大調查</p>
+                                 </a>
+                              </div>
+                          </div>
+                        </div>
+                          
+                  
+                          
+                        </div>
+                        
+                      
+                    </div>
+                  </div>
+                  <!--最新文章end -->
+                  <!--廣告-->
+                  <div class="col-md-12 row">
+                      <div class="col-md-6 col">
+                          <img src="http://placehold.it/365x100" alt="">
+                      </div>
+                      <div class="col-md-6 col">
+                          <img src="http://placehold.it/365x100">
+                      </div>
+                  </div>
+                  <!--廣告end-->
 
 
                     

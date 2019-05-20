@@ -78,8 +78,8 @@
                     <div class="col-md-12 col pb-3 detail_content">
                     <div class="cardshap primary_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item">
-                            <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="second.php" tab-target="#goodMember" aria-selected="true">我的行事曆</a>
+                          <li class="nav-item news_tab">
+                            <a class="nav-link py-2 flex-x-center active show" id="goodMember-tab" href="javascript:;" tab-target="#goodMember" aria-selected="true">我的行事曆</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">

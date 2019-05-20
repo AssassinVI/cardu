@@ -419,7 +419,7 @@
                          
                          //------- 顯示分類 ---------
                          if ($x==$rand_num) {
-                           $list_txt.= '<a class="ms_enter" href="message/list.php?mt_pk='.$cn_type['pk'].'" nt_id="'.$cn_type['Tb_index'].'" tab-link="'.$x.'">'.$cn_type['nt_name'].'</a>';
+                           $list_txt.= '<a class="newsType_a ms_enter" href="message/list.php?mt_pk='.$cn_type['pk'].'" nt_id="'.$cn_type['Tb_index'].'" tab-link="'.$x.'">'.$cn_type['nt_name'].'</a>';
 
                            //-- 內容 --
                            $row_cn=$pdo->select("SELECT Tb_index, mt_id, ns_nt_pk, ns_ftitle, ns_photo_1, area_id
@@ -472,7 +472,7 @@
 
                          //------- 隱藏分類 ---------
                          else{
-                           $list_txt.= '<a href="message/list.php?mt_pk='.$cn_type['pk'].'" nt_id="'.$cn_type['Tb_index'].'" tab-link="'.$x.'">'.$cn_type['nt_name'].'</a>';
+                           $list_txt.= '<a class="newsType_a" href="message/list.php?mt_pk='.$cn_type['pk'].'" nt_id="'.$cn_type['Tb_index'].'" tab-link="'.$x.'">'.$cn_type['nt_name'].'</a>';
                            //$content_txt.='<div class="news_list_div " tab="'.$x.'"></div>';
                          }
                        
@@ -526,7 +526,7 @@
                          
                          //------- 顯示分類 ---------
                          if ($x==$rand_num) {
-                           $list_txt.= '<a class="ms_enter" href="mpay/list.php?mt_pk='.$un_type['pk'].'" nt_id="'.$un_type['Tb_index'].'" tab-link="'.$x.'">'.$un_type['nt_name'].'</a>';
+                           $list_txt.= '<a class="newsType_a ms_enter" href="mpay/list.php?mt_pk='.$un_type['pk'].'" nt_id="'.$un_type['Tb_index'].'" tab-link="'.$x.'">'.$un_type['nt_name'].'</a>';
 
                            //-- 內容 --
                            $row_un=$pdo->select("SELECT Tb_index, mt_id, ns_nt_pk, ns_ftitle, ns_photo_1, area_id
@@ -579,7 +579,7 @@
 
                          //------- 隱藏分類 ---------
                          else{
-                           $list_txt.= '<a href="mpay/list.php?mt_pk='.$un_type['pk'].'" nt_id="'.$un_type['Tb_index'].'" tab-link="'.$x.'">'.$un_type['nt_name'].'</a>';
+                           $list_txt.= '<a class="newsType_a" href="mpay/list.php?mt_pk='.$un_type['pk'].'" nt_id="'.$un_type['Tb_index'].'" tab-link="'.$x.'">'.$un_type['nt_name'].'</a>';
                            //$content_txt.='<div class="news_list_div " tab="'.$x.'"></div>';
                          }
                        
@@ -770,7 +770,7 @@
                          
                          //------- 顯示分類 ---------
                          if ($x==$rand_num) {
-                           $list_txt.= '<a class="ms_enter" href="'.$list_url.'" un_id="'.$un_type['unit_id'].'" tab-link="'.$x.'">'.$un_type['un_name'].'</a>';
+                           $list_txt.= '<a class="newsType_a ms_enter" href="'.$list_url.'" un_id="'.$un_type['unit_id'].'" tab-link="'.$x.'">'.$un_type['un_name'].'</a>';
 
                            //-- 內容 --
                            $ns_nt_ot_pk='';
@@ -830,7 +830,7 @@
 
                          //------- 隱藏分類 ---------
                          else{
-                           $list_txt.= '<a href="'.$list_url.'" un_id="'.$un_type['unit_id'].'" tab-link="'.$x.'">'.$un_type['un_name'].'</a>';
+                           $list_txt.= '<a class="newsType_a" href="'.$list_url.'" un_id="'.$un_type['unit_id'].'" tab-link="'.$x.'">'.$un_type['un_name'].'</a>';
                            //$content_txt.='<div class="news_list_div " tab="'.$x.'"></div>';
                          }
                        
@@ -883,9 +883,9 @@
                              </div> 
                              <div class="col-9">
                                 <div class="w-h-100 menu hv-around">
-                                  <a class="ms_enter" href="#" tab-link="1">新卡人氣排行</a>
-                                  <a href="#" tab-link="2">辦卡人氣排行</a>
-                                  <a href="#" tab-link="3">點閱人氣排行</a>
+                                  <a class="newsType_a ms_enter" href="#" tab-link="1">新卡人氣排行</a>
+                                  <a class="newsType_a" href="#" tab-link="2">辦卡人氣排行</a>
+                                  <a class="newsType_a" href="#" tab-link="3">點閱人氣排行</a>
                                   
                                 </div>
                             </div>

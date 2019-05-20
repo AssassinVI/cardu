@@ -1,5 +1,5 @@
 <?php 
- require '../share_area/conn.php';
+ //require '../share_area/conn.php';
 ?>
 <!DOCTYPE html>
 
@@ -9,9 +9,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
+    <?php 
+     if (strpos($_SERVER['PHP_SELF'], 'compare01.php')!=false) {
+       $crumbs_txt='新手快搜';
+     }
+     elseif(strpos($_SERVER['PHP_SELF'], 'compare02.php')!=false){
+       $crumbs_txt='卡片比一比';
+     } 
+     elseif(strpos($_SERVER['PHP_SELF'], 'compare03.php')!=false){
+       $crumbs_txt='權益比一比';
+     }
+    ?>
 
-
-    <title>卡優新聞網-卡排行</title>
+    <title>卡優新聞網 - 卡排行 > <?php echo $crumbs_txt; ?></title>
 
     <meta name="keywords" content="信用卡,金融卡,悠遊卡,一卡通,icash,電子票證,現金回饋,紅利,信用卡比較,信用卡優惠,首刷禮,辦卡,新卡,卡訊,行動支付,小額消費,新聞,理財,消費,3C,旅遊,日本,住宿,美食,電影,交通,好康,加油,報稅"/>  
     <meta name="description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" /> 
@@ -57,7 +67,7 @@
         <!-- 麵包屑 -->
         <div class="row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="/rank/rank.php">卡排行</a> / <a href="javascript:;">新手快搜</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="/rank/rank.php">卡排行</a> / <a class="crumbs_now" href="javascript:;"><?php echo $crumbs_txt; ?></a></p>
           </div>
         </div>
         
@@ -75,13 +85,19 @@
                         <div class="cardshap darkpurple_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab news_tab_three">
-                            <a id="newHand_a" class="nav-link active pl-30 py-2" id="title_5-tab" href="javascript:;" tab-target="#title_5" aria-selected="true">新手快搜</a>
+                            <a id="newHand_a" class="nav-link active compare_tap pl-30 py-2" tap_name="新手快搜" id="title_5-tab" href="javascript:;" tab-target="#title_5" aria-selected="true">
+                             新手快搜
+                            </a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a id="cardCompare_a" class="nav-link py-2" id="title_6-tab" href="javascript:;" tab-target="#title_6" aria-selected="false">卡片比一比</a>
+                            <a id="cardCompare_a" class="nav-link compare_tap py-2" tap_name="卡片比一比" id="title_6-tab" href="javascript:;" tab-target="#title_6" aria-selected="false">
+                             卡片比一比
+                            </a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a id="interest_a" class="nav-link py-2" id="title_7-tab" href="javascript:;" tab-target="#title_7" aria-selected="false">權益比一比</a>
+                            <a id="interest_a" class="nav-link compare_tap py-2" tap_name="權益比一比" id="title_7-tab" href="javascript:;" tab-target="#title_7" aria-selected="false">
+                             權益比一比
+                            </a>
                           </li>
                           
                         </ul>
