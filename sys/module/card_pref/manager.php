@@ -12,10 +12,10 @@ if ($_POST) {
             unlink('../../img/'.$_POST['pref_image']);
     	}else{
         //----------------------- image_hover刪除 -------------------------------
-    		$param=['card_image_hover'=>''];
+    		$param=['pref_image_hover'=>''];
             $where=['Tb_index'=>$_POST['Tb_index']];
             pdo_update('card_pref', $param, $where);
-            unlink('../../img/'.$_POST['card_image_hover']);
+            unlink('../../img/'.$_POST['pref_image_hover']);
     	}
        exit();
   	}
@@ -32,25 +32,26 @@ if ($_POST) {
       else{ $pref_image='';}
 
      //===================== image_hover圖 ========================
-      if (!empty($_FILES['card_image_hover']['name'])){
+      if (!empty($_FILES['pref_image_hover']['name'])){
 
-      	 $type=explode('.', $_FILES['card_image_hover']['name']);
-      	 $card_image_hover=$Tb_index.'_hover'.'.'.$type[count($type)-1];
-         fire_upload('card_image_hover', $card_image_hover); 
+      	 $type=explode('.', $_FILES['pref_image_hover']['name']);
+      	 $pref_image_hover=$Tb_index.'_down'.'.'.$type[count($type)-1];
+         fire_upload('pref_image_hover', $pref_image_hover); 
       }
-      else{ $card_image_hover='';}
+      else{ $pref_image_hover='';}
 
       $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0:1;
       $OrderBy=pdo_select("SELECT OrderBy FROM card_pref ORDER BY OrderBy DESC LIMIT 0,1", 'no');
       $OrderBy=(int)$OrderBy['OrderBy']+1;
 
 	$param=  ['Tb_index'=>$Tb_index,
-			              'mt_id'=>$_POST['mt_id'],
-			             'pref_name'=>$_POST['pref_name'],
-			           'pref_image'=>$pref_image,
-			              'pref_txt'=>$_POST['pref_txt'],
-			              'OrderBy'=>$OrderBy,
-			        'OnLineOrNot'=>$OnLineOrNot
+			  'mt_id'=>$_POST['mt_id'],
+			  'pref_name'=>$pref_image,
+			  'pref_image_hover'=>$pref_image_hover,
+			  'pref_image'=>$pref_image,
+			  'pref_txt'=>$_POST['pref_txt'],
+			  'OrderBy'=>$OrderBy,
+			  'OnLineOrNot'=>$OnLineOrNot
 			         ];
 	pdo_insert('card_pref', $param);
 	location_up('admin.php?MT_id='.$_POST['mt_id'],'成功新增');
@@ -60,9 +61,8 @@ if ($_POST) {
 
    	 //===================== image圖 ========================
       if (!empty($_FILES['pref_image']['name'])) {
-
       	 $type=explode('.', $_FILES['pref_image']['name']);
-      	 $pref_image=$Tb_index.date('His').'.'.$type[count($type)-1];
+      	 $pref_image=$Tb_index.'.'.$type[count($type)-1];
          fire_upload('pref_image', $pref_image);
         $pref_image_param=['pref_image'=>$pref_image];
         $pref_image_where=['Tb_index'=>$Tb_index];
@@ -70,14 +70,14 @@ if ($_POST) {
 
       }
       //-------------------- image_hover圖 ------------------------------
-      if (!empty($_FILES['card_image_hover']['name'])) {
+      if (!empty($_FILES['pref_image_hover']['name'])) {
 
-      	 $type=explode('.', $_FILES['card_image_hover']['name']);
-      	 $card_image_hover=$Tb_index.date('His').'_hover'.'.'.$type[count($type)-1];
-         fire_upload('card_image_hover', $card_image_hover);
-        $card_image_hover_param=['card_image_hover'=>$card_image_hover];
-        $card_image_hover_where=['Tb_index'=>$Tb_index];
-        pdo_update('card_pref', $card_image_hover_param, $card_image_hover_where);
+      	 $type=explode('.', $_FILES['pref_image_hover']['name']);
+      	 $pref_image_hover=$Tb_index.'_down'.'.'.$type[count($type)-1];
+         fire_upload('pref_image_hover', $pref_image_hover);
+        $pref_image_hover_param=['pref_image_hover'=>$pref_image_hover];
+        $pref_image_hover_where=['Tb_index'=>$Tb_index];
+        pdo_update('card_pref', $pref_image_hover_param, $pref_image_hover_where);
 
       }
       	//--------------------------- END -----------------------------------
@@ -137,8 +137,34 @@ if ($_GET) {
 							    <p>目前圖檔</p>
 								 <button type="button" id="one_del_img"> X </button>
 								  <span class="img_check"><i class="fa fa-check"></i></span>
-								  <img id="one_img" src="../../img/<?php echo $row['pref_image'];?>" alt="請上傳代表圖檔">
+								  <img id="one_img" src="../../img/<?php echo $row['pref_image'].'?'.rand(0,9999);?>" alt="請上傳代表圖檔">
 								  <input type="hidden" name="old_pref_image" value="<?php echo $row['pref_image'];?>">
+								</div>
+							</div>
+						<?php }?>		
+						</div>
+
+
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="pref_image_hover"><span class="text-danger">*</span> 優惠圖示(滑鼠經過)</label>
+							<div class="col-md-10">
+								<input type="file" name="pref_image_hover" class="form-control" accept="image/*" id="pref_image_hover" onchange="file_viewer_load_new(this, '#img_box2')">
+							</div>
+						</div>
+
+						<div class="form-group">
+						   <label class="col-md-2 control-label" ></label>
+						   <div id="img_box2" class="col-md-4">
+								
+							</div>
+						<?php if(!empty($row['pref_image_hover'])){?>
+							<div  class="col-md-4">
+							   <div id="img_div" >
+							    <p>目前圖檔</p>
+								 <button type="button" class="one_del_file"> X </button>
+								  <span class="img_check"><i class="fa fa-check"></i></span>
+								  <img id="one_img" src="../../img/<?php echo $row['pref_image_hover'].'?'.rand(0,9999);?>" alt="請上傳代表圖檔">
+								  <input type="hidden" name="old_pref_image_hover" value="<?php echo $row['pref_image_hover'];?>">
 								</div>
 							</div>
 						<?php }?>		
@@ -205,6 +231,7 @@ if ($_GET) {
           	  var err_txt='';
           	err_txt = err_txt + check_input( '[name="pref_name"]', '優惠名稱，' );
           	err_txt = $('[name="pref_image"]').val()=='' && $('[name="old_pref_image"]').val()==undefined ? err_txt + '優惠圖示，' : err_txt;
+          	err_txt = $('[name="pref_image"]').val()=='' && $('[name="old_pref_image_hover"]').val()==undefined ? err_txt + '優惠圖示(滑鼠經過)，' : err_txt;
           	err_txt = err_txt + check_input( '[name="pref_txt"]', '優惠範圍說明' );
 
           	
@@ -229,12 +256,12 @@ if ($_GET) {
                $("#img_div").html('');
 			}
 		});
-      //------------------------------ 刪檔 ---------------------------------
+      //------------------------------ 刪圖 ---------------------------------
           $(".one_del_file").click(function(event) { 
-			if (confirm('是否要刪除檔案?')) {
+			if (confirm('是否要刪除(滑鼠經過)圖檔?')) {
 			 var data={
 			 	        Tb_index: $("#Tb_index").val(),
-                       card_image_hover: $(this).next().next().val(),
+                        pref_image_hover: $(this).next().next().val(),
                             type: 'delete'
 			          };	
                ajax_in('manager.php', data, '成功刪除', 'no');

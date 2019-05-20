@@ -135,7 +135,7 @@ if ($_POST) {
       }
 
       //-- 有選擇金融卡狀態 --
-      if (!empty($_POST['dc_group_state'])) {
+      if (isset($_POST['dc_group_state'])) {
       	$param['dc_group_state']=$_POST['dc_group_state'];
       }
 

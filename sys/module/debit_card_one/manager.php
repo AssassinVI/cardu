@@ -203,10 +203,10 @@ if ($_GET) {
    $dc_pref_id=explode(',', $row_card['dc_pref_id']);
 
    //-- 金融卡群 --
-   $row_dc_group=$NewPdo->select("SELECT dc_group_id ,dc_cardname, dc_group_state FROM debit_card WHERE (dc_group_state=0 OR dc_group_state=3) AND dc_bi_pk=:dc_bi_pk GROUP BY dc_group_id 
+   $row_dc_group=$NewPdo->select("SELECT dc_group_id ,dc_cardname, dc_group_state FROM debit_card WHERE (dc_group_state=0 OR dc_group_state=3) AND dc_bi_pk=:dc_bi_pk1 GROUP BY dc_group_id 
                                   UNION 
-                                  SELECT dc_group_id ,dc_cardname, dc_group_state FROM debit_card WHERE (dc_group_state=1 OR dc_group_state=2) AND dc_bi_pk=:dc_bi_pk GROUP BY dc_group_id", 
-                                 ['dc_bi_pk'=>$row_card['dc_bi_pk']]);
+                                  SELECT dc_group_id ,dc_cardname, dc_group_state FROM debit_card WHERE (dc_group_state=1 OR dc_group_state=2) AND dc_bi_pk=:dc_bi_pk2 GROUP BY dc_group_id", 
+                                 ['dc_bi_pk1'=>$row_card['dc_bi_pk'], 'dc_bi_pk2'=>$row_card['dc_bi_pk']]);
 
 
    //-- 卡等 --

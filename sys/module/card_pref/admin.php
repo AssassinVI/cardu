@@ -17,8 +17,8 @@ if ($_GET) {
 
     $where=['Tb_index'=>$_GET['Tb_index']];
 
-   	$del_row=pdo_select('SELECT card_image FROM card_pref WHERE Tb_index=:Tb_index', $where);
-   	if (isset($del_row['card_image'])) { unlink('../../img/'.$del_row['card_image']); }
+   	$del_row=pdo_select('SELECT pref_image FROM card_pref WHERE Tb_index=:Tb_index', $where);
+   	if (isset($del_row['pref_image'])) { unlink('../../img/'.$del_row['pref_image']); }
    	 pdo_delete('card_pref', $where);
    }
    
@@ -72,7 +72,7 @@ if ($_GET) {
 							<tr>
 								<td><?php echo $i?></td>
 								<td><?php echo $row['pref_name'] ?></td>
-								<td><img style="width: 30px;" src="../../img/<?php echo $row['pref_image'] ?>"></td>
+								<td><img style="width: 30px;" src="../../img/<?php echo $row['pref_image'].'?'.rand(0,9999); ?>"></td>
 								<td><?php echo $row['pref_txt'] ?></td>
                                 <td><?php echo $OnLineOrNot;?></td>
 								<td class="text-right">
