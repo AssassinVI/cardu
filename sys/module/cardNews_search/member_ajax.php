@@ -55,6 +55,7 @@ $columns = array(
                                         GROUP BY nbc.bank_id 
                                         LIMIT 0,1", $where, 'one');
             return $row_bank['bi_shortname'];
+            $pdo=NULL;
 
         }),
     array( 'db' => 'ns_viewcount',  'dt' => 4 ),
@@ -222,8 +223,10 @@ $where="mt_id='site201901111555425' AND
 
 $where=substr($where, 0,-4);
 
+
 echo json_encode(
     SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns, $where )
 );
-
+$pdo=NULL;
 ?>
+

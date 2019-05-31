@@ -145,6 +145,7 @@ if ($_GET) {
             "sSortDescending": ": 以降序排列此列"
         }
         	},
+         //-- GET 數過多導致資訊錯誤 --
         "ajax": "<?php echo $news_ajax_url;?>",
         "processing": true,
         "serverSide": true

@@ -121,11 +121,16 @@
 
 				  <div  class="type_div">
 				  	<label><input type="checkbox" class="show_check" value="卡情報"> 卡情報</label>
-				  	<div class="type">
+				  	<div class="type row">
 				  	  <?php 
-                        $cardNews_type=$NewPdo->select("SELECT * FROM news_type WHERE mt_id='site2019011115561564' ORDER BY OrderBy ASC");
+                        $cardNews_type=$NewPdo->select("SELECT * FROM news_type 
+                                                        WHERE mt_id='site2019011115561564' AND Tb_index!='nt201902121004593' AND Tb_index!='nt2019021210051224' 
+                                                        ORDER BY nt_sp ASC, OrderBy ASC");
                         foreach ($cardNews_type as $cardNews_type_one) {
-                        	echo '<label><input type="checkbox" name="ns_nt_ot_pk[]" typeName="'.$cardNews_type_one['nt_name'].'" value="'.$cardNews_type_one['Tb_index'].'"> '.$cardNews_type_one['nt_name'].'</label>｜';
+                        	echo '
+                        	<div class="col-xs-3">
+                        	<label><input type="checkbox" name="ns_nt_ot_pk[]" typeName="'.$cardNews_type_one['nt_name'].'" value="'.$cardNews_type_one['Tb_index'].'"> '.$cardNews_type_one['nt_name'].'</label>
+                        	</div>';
                         }
 				  	  ?>
 				  	</div>
@@ -137,11 +142,14 @@
                   ?>
             				  <div  class="type_div">
             				  	<label><input type="checkbox" class="show_check" value="優行動Pay"> 優行動Pay</label>
-            				  	<div class="type">
+            				  	<div class="type row">
             				  	  <?php 
-                                    $pay_type=$NewPdo->select("SELECT * FROM news_type WHERE area_id='at2019011117341414' ORDER BY OrderBy ASC");
+                                    $pay_type=$NewPdo->select("SELECT * FROM news_type WHERE area_id='at2019011117341414' ORDER BY nt_sp ASC, OrderBy ASC");
                                     foreach ($pay_type as $pay_type_one) {
-                                    	echo '<label><input type="checkbox" name="ns_nt_ot_pk[]" typeName="'.$pay_type_one['nt_name'].'" value="'.$pay_type_one['Tb_index'].'"> '.$pay_type_one['nt_name'].'</label>｜';
+                                    	echo '
+                                    	<div class="col-xs-3">
+                                    	<label><input type="checkbox" name="ns_nt_ot_pk[]" typeName="'.$pay_type_one['nt_name'].'" value="'.$pay_type_one['Tb_index'].'"> '.$pay_type_one['nt_name'].'</label>
+                                    	</div>';
                                     }
             				  	  ?>
             				  	</div>
@@ -157,11 +165,14 @@
 
 				  <div  class="type_div">
 				  	<label><input type="checkbox" class="show_check" value="優票證"> 優票證</label>
-				  	<div class="type">
+				  	<div class="type row">
 				  		<?php 
-                        $ticket_type=$NewPdo->select("SELECT * FROM news_type WHERE area_id='at2019011117435970' ORDER BY OrderBy ASC");
+                        $ticket_type=$NewPdo->select("SELECT * FROM news_type WHERE area_id='at2019011117435970' ORDER BY nt_sp ASC, OrderBy ASC");
                         foreach ($ticket_type as $ticket_type_one) {
-                        	echo '<label><input type="checkbox" name="ns_nt_ot_pk[]" typeName="'.$ticket_type_one['nt_name'].'" value="'.$ticket_type_one['Tb_index'].'"> '.$ticket_type_one['nt_name'].'</label>｜';
+                        	echo '
+                        	<div class="col-xs-3">
+                        	<label><input type="checkbox" name="ns_nt_ot_pk[]" typeName="'.$ticket_type_one['nt_name'].'" value="'.$ticket_type_one['Tb_index'].'"> '.$ticket_type_one['nt_name'].'</label>
+                        	</div>';
                         }
 				  	  ?>
 				  	</div>
@@ -177,11 +188,14 @@
 
 				  <div  class="type_div">
 				  	<label><input type="checkbox" class="show_check" value="優集點"> 優集點</label>
-				  	<div class="type">
+				  	<div class="type row">
 				  	  <?php 
-                        $point_type=$NewPdo->select("SELECT * FROM news_type WHERE area_id='at2019011117443626' ORDER BY OrderBy ASC");
+                        $point_type=$NewPdo->select("SELECT * FROM news_type WHERE area_id='at2019011117443626' ORDER BY nt_sp ASC, OrderBy ASC");
                         foreach ($point_type as $point_type_one) {
-                        	echo '<label><input type="checkbox" name="ns_nt_ot_pk[]" typeName="'.$point_type_one['nt_name'].'" value="'.$point_type_one['Tb_index'].'"> '.$point_type_one['nt_name'].'</label>｜';
+                        	echo '
+                        	<div class="col-xs-3">
+                        	<label><input type="checkbox" name="ns_nt_ot_pk[]" typeName="'.$point_type_one['nt_name'].'" value="'.$point_type_one['Tb_index'].'"> '.$point_type_one['nt_name'].'</label>
+                        	</div>';
                         }
 				  	  ?>
 				  	</div>

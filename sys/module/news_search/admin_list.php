@@ -13,7 +13,17 @@ if ($_POST) {
   // }
   
   //-- 搜尋URL --
-  $news_ajax_url='member_ajax.php?MT_id='.$_GET['MT_id'].'&ns_nt_pk='.$_POST['ns_nt_pk'].'&ns_nt_sp_pk='.$_POST['ns_nt_sp_pk'].'&StartDate='.$_POST['StartDate'].'&EndDate='.$_POST['EndDate'].'&ns_st_vfdate='.$_POST['ns_st_vfdate'].'&ns_en_vfdate='.$_POST['ns_en_vfdate'].'&ns_verify='.$_POST['ns_verify'].'&ns_bank='.$_POST['ns_bank'].'&ns_reporter='.$_POST['ns_reporter'].'&ns_keyWord='.$_POST['ns_keyWord'];
+  $news_ajax_url='member_ajax.php?MT_id='.$_GET['MT_id'].
+  '&ns_nt_pk='.$_POST['ns_nt_pk'].
+  '&ns_nt_sp_pk='.$_POST['ns_nt_sp_pk'].
+  '&StartDate='.$_POST['StartDate'].
+  '&EndDate='.$_POST['EndDate'].
+  '&ns_st_vfdate='.$_POST['ns_st_vfdate'].
+  '&ns_en_vfdate='.$_POST['ns_en_vfdate'].
+  '&ns_verify='.$_POST['ns_verify'].
+  '&ns_bank='.$_POST['ns_bank'].
+  '&ns_reporter='.$_POST['ns_reporter'].
+  '&ns_keyWord='.$_POST['ns_keyWord'];
 }
 
 if ($_GET) {

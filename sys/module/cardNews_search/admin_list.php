@@ -78,26 +78,6 @@ if ($_GET) {
 
 							</tr>
 						</thead>
-                        <tfoot>
-                                <tr>
-                                    <th>單元分類</th>
-                                    <th>主分類</th>
-                                    <th>主標題</th>
-                                    <th>情報銀行</th>
-                                    <th>點閱數(PC)</th>
-                                    <th>點閱數(手機)</th>
-                                    <th>FB按讚數</th>
-                                    <th>情報狀態</th>
-                                    <th>活動期間</th>
-                                    <th>上架期間</th>
-                                    <th>撰稿者</th>
-                                    <th>審核者</th>
-                                    <th>審核時間</th>
-                                    
-                                     
-                                    <th>管理</th>
-                                 </tr>
-                         </tfoot>
 					</table>
 
 				</div>
@@ -138,6 +118,7 @@ if ($_GET) {
             "sSortDescending": ": 以降序排列此列"
         }
         	},
+        //-- GET 數過多導致資訊錯誤 --
         "ajax": "<?php echo $news_ajax_url;?>",
         "processing": true,
         "serverSide": true

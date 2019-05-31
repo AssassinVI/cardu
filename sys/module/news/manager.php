@@ -602,7 +602,7 @@ if ($_GET) {
 								<input type="text" class="form-control" id="ns_reporter" name="ns_reporter" value="<?php echo $ns_reporter;?>">
 							</div>
 							<div class="col-md-5">
-								<label><input type="radio" name="ns_reporter_type" value="1" <?php echo $ns_reporter_type1;?> > 記者｜</label>
+								<label><input checked type="radio" name="ns_reporter_type" value="1" <?php echo $ns_reporter_type1;?> > 記者｜</label>
 								<label><input type="radio" name="ns_reporter_type" value="2" <?php echo $ns_reporter_type2;?> > 作者｜</label>
 							</div>
 						</div>
