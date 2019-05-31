@@ -1,6 +1,6 @@
 <?php 
 //熱門新聞
-$sql_hotnews=$pdo->prepare("
+$sql_hotnews=$pdo_OLD->prepare("
                         SELECT ns_ftitle,Tb_index FROM  appNews
                         where mt_id = 'site2018111910430599' and ns_vfdate<>'0000-00-00 00:00:00' 
                         and  StartDate<='$todayis' and EndDate>='$todayis'
