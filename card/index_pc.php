@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-
     <title>卡優新聞網-卡情報</title>
 
     <meta name="keywords" content="信用卡,金融卡,悠遊卡,一卡通,icash,電子票證,現金回饋,紅利,信用卡比較,信用卡優惠,首刷禮,辦卡,新卡,卡訊,行動支付,小額消費,新聞,理財,消費,3C,旅遊,日本,住宿,美食,電影,交通,好康,加油,報稅"/>  
@@ -17,9 +16,10 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
+    <?php 
+     //-- fb資料設定 --
+     require '../share_area/fb_config.php';
+    ?>
     <meta property="og:site_name" content="卡優新聞網" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
@@ -139,7 +139,7 @@
                                       $card_image=$x==$rand_num ? $card_type['card_image_hover'] : $card_type['card_image'];
                                        echo '
                                        <div class="swiper-slide '.$active.'" fun_id="'.$card_type['Tb_index'].'" index="'.$x.'" > 
-                                        <div class="text-center" ><a href="all.php?func='.$card_type['Tb_index'].'" title="'.$card_type['fun_name'].'"><img src="../sys/img/'.$card_image.'" alt="'.$card_type['fun_name'].'" ></a></div>
+                                        <div class="text-center" ><a href="card_browse.php?func='.$card_type['Tb_index'].'" title="'.$card_type['fun_name'].'"><img src="../sys/img/'.$card_image.'" alt="'.$card_type['fun_name'].'" ></a></div>
                                        </div>';
                                       $x++;
                                      }
@@ -163,7 +163,7 @@
                                
                               <div class="swiper-container">
                                   <div class="swiper-wrapper">
-                                    
+                                    <!-- main.js 卡總覽 -->
                                   </div>
                               </div>
 
@@ -305,15 +305,18 @@
                     <?php 
                       $row_news_type=$pdo->select("SELECT Tb_index, nt_name 
                                                    FROM news_type 
-                                                   WHERE mt_id='site2019011115561564' AND nt_sp=1 AND OnLineOrNot=1 AND nt_sp_begin_date<=:nt_sp_begin_date AND nt_sp_end_date>=:nt_sp_end_date", 
+                                                   WHERE mt_id='site2019011115561564' AND nt_sp=1 AND OnLineOrNot=1 AND nt_sp_begin_date<=:nt_sp_begin_date AND nt_sp_end_date>=:nt_sp_end_date
+                                                   LIMIT 0,4", 
                                                    ['nt_sp_begin_date'=>date('Y-m-d'), 'nt_sp_end_date'=>date('Y-m-d')]);
+                      //-- rand亂數 --
+                      $rand_num=rand(1,count($row_news_type));
                       //-- tab html --
                       $list_txt='';
                       //-- 內容html --
                       $content_txt='';
                       $x=1;
                       foreach ($row_news_type as $news_type) {
-                        $active=$x==1 ? 'active':'';
+                        $active=$x==$rand_num ? 'active':'';
 
                        //-- tab --
                        $list_txt.= '
@@ -323,10 +326,11 @@
 
 
                        //-- 內容 --
-                       $row_news_con=$pdo->select("SELECT Tb_index, ns_ftitle, ns_photo_1 ,ns_cdate
-                                                      FROM appNews 
-                                                      WHERE ns_nt_sp_pk=:ns_nt_sp_pk AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate
-                                                      ORDER BY ns_vfdate DESC LIMIT 0,6", ['ns_nt_sp_pk'=>$news_type['Tb_index'],'StartDate'=>date('Y-m-d'),'EndDate'=>date('Y-m-d')]);
+                       $row_news_con=$pdo->select("SELECT Tb_index, ns_ftitle, ns_photo_1 ,ns_cdate, area_id, mt_id, ns_nt_pk
+                                                      FROM NewsAndType 
+                                                      WHERE (ns_nt_sp_pk=:ns_nt_sp_pk OR ns_nt_ot_pk LIKE :ns_nt_ot_pk) AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate
+                                                      ORDER BY ns_vfdate DESC LIMIT 0,6", 
+                                                      ['ns_nt_sp_pk'=>$news_type['Tb_index'], 'ns_nt_ot_pk'=>'%'.$news_type['Tb_index'].'%', 'StartDate'=>date('Y-m-d'),'EndDate'=>date('Y-m-d')]);
                        $slide_txt='';
 
                        for ($i=0; $i <2 ; $i++) { 
@@ -335,10 +339,12 @@
 
                                 for ($j=0; $j <3 ; $j++) { 
                                   $index=($i*3)+$j;
+                                  //-------------- 網址判斷 ------------------
+                                  $news_url=news_url($row_news_con[$index]['mt_id'], $row_news_con[$index]['Tb_index'], $row_news_con[$index]['ns_nt_pk'], $row_news_con[$index]['area_id']);
                                   $ns_ftitle=mb_substr($row_news_con[$index]['ns_ftitle'], 0,14, 'utf-8');
                                   $news_txt.='
                                   <div class="col-4 cards-3">
-                                    <a href="/message/detail.php?'.$row_news_con[$index]['Tb_index'].'">
+                                    <a href="'.$news_url.'">
                                      <div class="img_div" title="'.$row_news_con[$index]['ns_ftitle'].'" style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
                                      </div>
                                       <p>'.$ns_ftitle.'</p>
@@ -367,23 +373,27 @@
 
                        $x++;
                      }
-                    ?>
 
-                    <div class="col-md-12 col">
-
+                     if (!empty(count($row_news_type))) {
+                       
+                       echo '
+                      <div class="col-md-12 col">
                       <div class="cardshap brown_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
 
-                          <?php echo $list_txt; ?>
+                          '.$list_txt.'
                          
                         </ul>
                         <div class="tab-content" id="myTabContent">
 
-                          <?php echo $content_txt; ?>
+                          '.$content_txt.'
 
                         </div>
                       </div>
-                    </div>
+                    </div>';
+                     }
+                    ?>
+                    
                     <!-- ========================================================== 特別議題end  ========================================================== -->
                     
                     <!--廣告-->
@@ -398,13 +408,16 @@
                                                    WHERE mt_id='site2019011115561564' AND unit_id='un2019011716580977' AND OnLineOrNot=1
                                                    ORDER BY OrderBy ASC
                                                    LIMIT 0,3");
+
+                      //-- rand亂數 --
+                      $rand_num=rand(1,count($row_news_type));
                       //-- tab html --
                       $list_txt='';
                       //-- 內容html --
                       $content_txt='';
                       $x=1;
                       foreach ($row_news_type as $news_type) {
-                        $active=$x==1 ? 'active':'';
+                        $active=$x==$rand_num ? 'active':'';
 
                        //-- tab --
                        $list_txt.= '
@@ -500,13 +513,16 @@
                                                    WHERE mt_id='site2019011115561564' AND unit_id='un2019011716575635' AND nt_sp=0 AND OnLineOrNot=1
                                                    ORDER BY OrderBy ASC
                                                    LIMIT 0,4");
+
+                      //-- rand亂數 --
+                      $rand_num=rand(1,count($row_news_type));
                       //-- tab html --
                       $list_txt='';
                       //-- 內容html --
                       $content_txt='';
                       $x=1;
                       foreach ($row_news_type as $news_type) {
-                        $active=$x==1 ? 'active':'';
+                        $active=$x==$rand_num ? 'active':'';
 
                        //-- tab --
                        $list_txt.= '
@@ -598,13 +614,16 @@
                                                    WHERE mt_id='site2019011115561564' AND unit_id='un2019011716575635' AND nt_sp=0 AND OnLineOrNot=1
                                                    ORDER BY OrderBy ASC
                                                    LIMIT 4,4");
+
+                      //-- rand亂數 --
+                      $rand_num=rand(1,count($row_news_type));
                       //-- tab html --
                       $list_txt='';
                       //-- 內容html --
                       $content_txt='';
                       $x=1;
                       foreach ($row_news_type as $news_type) {
-                        $active=$x==1 ? 'active':'';
+                        $active=$x==$rand_num ? 'active':'';
 
                        //-- tab --
                        $list_txt.= '

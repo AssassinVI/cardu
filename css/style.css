@@ -76,6 +76,10 @@ a:hover{ text-decoration: none; color:#000000; }
     justify-content: center;
 }
 
+.w-30{
+  width: 33% !important;
+}
+
 .w-100{
   width: 100%;
 }
@@ -94,6 +98,8 @@ a:hover{ text-decoration: none; color:#000000; }
 .mt-025{
     margin-top: 0.25rem;
 }
+
+.nowrap{ white-space: nowrap; }
 
 /*boostrap 自定義end*/
 
@@ -510,7 +516,7 @@ a:hover{ text-decoration: none; color:#000000; }
     max-width: 870px;
 }
 
-.index-content-left,.index-content-right{
+.index-content-left, .index-content-right, .index-content-right-noMove{
     width: 100%;  
     float: left;
 }
@@ -525,7 +531,7 @@ a:hover{ text-decoration: none; color:#000000; }
     max-width: 800px;
 
 }
-.index-content-right{
+.index-content-right, .index-content-right-noMove{
     width: 100%; 
     max-width: 320px;
 
@@ -1571,6 +1577,7 @@ a:hover{ text-decoration: none; color:#000000; }
 
 #new_card .card_info{
    margin: 0;
+   font-size: 14px;
 }
 
 #new_card .card_info li{
@@ -1587,9 +1594,21 @@ a:hover{ text-decoration: none; color:#000000; }
       background-color: #d8ab3f;
       color: #fff;
       border-radius: 3px;
+
 }
 
+.icon_top{ width: 30px; }
 
+/*--------------------------------- 卡情報 單卡 ----------------------------------*/
+.ccard_img{ height: 190px; }
+.oneCard_org img{ filter: grayscale(1); opacity: 0.6; }
+.oneCard_org.active img{ filter: grayscale(0); opacity: 1; }
+.oneCard_org.active{ padding-bottom: 40px; }
+.oneCard_org.active .oneCard_level{ display: block; padding:0; position: absolute; width: 400px; }
+.oneCard_org .oneCard_level{display: none;}
+.oneCard_org .oneCard_level li.active a{ color: #e59118; }
+.pref_icon li a img, .eq_icon{ width: 30px; }
+/*--------------------------------- 卡情報 單卡 END ----------------------------------*/
 
 /*----------------------- big Tab (如卡情報) ---------------------------*/
 
@@ -3807,7 +3826,7 @@ a:hover{ text-decoration: none; color:#000000; }
 .card_list div:nth-child(3) .card_list_img{ height: 150px; width:225px; margin:auto; }
 .card_list div:nth-child(3) p{  margin: 0; margin-top: 5px; text-align: center; font-size: 14px;}
 .bank_all_small_img img{ height:120px;}
-.bank_all_img img{ width:200px;}
+.bank_all_img img{ height: 127px;}
 
 
 .card_name{ 
@@ -4096,7 +4115,7 @@ a:hover{ text-decoration: none; color:#000000; }
   }
 .fun .publish_cate{color:#257DB4;margin-right: 10px;}
 .fun .ontime{float: right;    font-size: 14px; color: #888;}
-.sign_info i{position: relative; left: -34px; top: 6px; font-size:25px; color:#90949c; height: 25px;}
+.sign_info i {font-size:25px; color:#90949c; margin: 0 5px;}
 .sign_info h5{
     font-size: 22px;
     font-weight: 600;
@@ -4104,19 +4123,19 @@ a:hover{ text-decoration: none; color:#000000; }
     margin: 15px 10px;
 }
 
-
+.user_login button{width:150px; padding:8px 0; margin:10px;}
 .user_info{border: 1px solid #ccc; padding: 25px 8px; margin: 15px 0;}
 .user_info ul{padding-left: 0; padding-right: 20px; border-right: 1px solid #ccc; margin-bottom: 0;}
 .user_info li{display: inline-block; margin:0 5px;}
-.user_info p{margin:0; font-size: 16px; }
+.user_info p{margin:0; font-size: 16px; display: block;}
 .member_btn button{width: 160px; height:40px; border-radius: 5px; display: block; margin:5px;}
-.user_more{border-bottom: 1px dashed #ccc; padding:8px 0;margin-bottom: 15px;}
-.user_more h5{display: inline-block;}
-.user_more button{float:right;margin: 5px; top:-9px;}
+.user_more{padding:8px 0;}
+.user_more h5{display: block; border-bottom: 1px dashed #ccc; padding:10px 0;}
+.user_more .btn{display: block; position: absolute; top: 10px; right: 19px;left: auto;} 
 .user_more button a{color:#fff;}
 .member_more h5{display: inline-block;}
-.member_more button{float:right;margin: 5px;}  
-.member_more button a{color:#fff;} 
+.member_more a{float:right;margin: 5px; color:#fff;}  
+
 
 .login_info .login_line{border: 1px solid #eee;}
 .login_info .col-sm-10{border-bottom: 1px solid #eee;}
@@ -4145,7 +4164,7 @@ a:hover{ text-decoration: none; color:#000000; }
 .check_in .login_line{border: 1px solid #eee;}
 .check_in button a{color:#fff;}
 .mycard_info{overflow: auto; width: 100%;}
-.mycard_info table{width: 720px;}
+.mycard_info table{width: 700px;}
 #add_card{display: none;}
 #add_card .mem_logo img{width:150px;}
 #add_card .date_w input{width:15%;}
@@ -4738,6 +4757,10 @@ background: -webkit-linear-gradient(left, rgba(242,146,51,1) 37%,rgba(218,154,88
 background: linear-gradient(to right, rgba(242,146,51,1) 37%,rgba(218,154,88,1) 50%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f29233', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
 }
+
+
+
+
 
 
 
@@ -5419,10 +5442,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 
 .col{ flex-basis: auto; }
 .container{padding:0; margin-top: 100px;}
-.index-content-right{display: none;}
+.index-content-right, .index-content-right-noMove{display: none;}
 .news_list{border-bottom:none; margin:auto;}
 .news_list_txt p{display: none;}
-.news_list_txt h3{font-size: 17px;}
+.news_list_txt h3{font-size: 16px;}
 .news_list_txt span{font-size: 14px;}
 .news_list_txt small{display: block;}
 .news_list_img {width:42.7vw; height: 28.3vw;}
@@ -5432,9 +5455,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 
 
 /*---------------------------------------------- 新聞內頁 ----------------------------------------------*/
-.nav-tabs .nav-item.news_tab {width: 100%;}
-.cards-3 .img_div { width: 42.7vw; height: 28.3vw; }
+.nav-tabs .nav-item.news_tab {width: 100% !important;}
+.cards-3 .img_div { width: 95%; height: 28.3vw; }
 .crumbs_row {width:100%;}
+.detail_content img{ width: 100% !important; height: auto !important; }
 
 /*---------------------------------------------- pay區 ----------------------------------------------*/
 .ticketbg .move_3 {margin:auto;}
@@ -5467,8 +5491,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 .cards-3 span{display: block; padding:8px 0;}
 .bank_all_img img{display: block; margin:auto;}
 
+
 /*----------------------------------------- 卡情報單卡頁區----------------------------------------------*/
 .credit_boot{overflow: auto;}
+
 
 
 /*-----------------------------------------卡排行區----------------------------------------------*/

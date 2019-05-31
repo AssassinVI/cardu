@@ -189,7 +189,7 @@ $('.mouseHover_rank').mouseenter(function(event) {
         var cc_so_type_02_cname=data['cc_so_type_02_order']=='1' ? '<a class="rank_order sp" href="javascript:;" rank_type_id="'+data['Tb_index']+'" order="ccs_order2">'+data['cc_so_type_02_cname']+'</a>' : data['cc_so_type_02_cname'];
         var cc_so_type_03_cname=data['cc_so_type_03_order']=='1' ? '<a class="rank_order sp" href="javascript:;" rank_type_id="'+data['Tb_index']+'" order="ccs_order3">'+data['cc_so_type_03_cname']+'</a>' : data['cc_so_type_03_cname'];
         var txt='<div class="col-md-1 text-center"></div>'+
-                 '<div class="phone_hidden text-center">卡片名稱</div>'+
+                 '<div class="col-md-4 phone_hidden text-center">卡片名稱</div>'+
                  '<div class="col-md col-4 text-center">'+cc_so_type_01_cname+'</div>'+
                  '<div class="col-md col-4 text-center">'+cc_so_type_02_cname+'</div>'+
                  '<div class="col-md col-4 text-center">'+cc_so_type_03_cname+'</div>';
@@ -699,7 +699,7 @@ $('body').on('click', '.add_contrast_card', function(event) {
 
     var txt='<div class="card">'+
                  '<button class="del_card" card_id="'+$(this).attr('card_id')+'" type="button">Ｘ</button>'+
-                 '<a target="_blank" title="'+$(this).attr('card_name')+'" href="/cardNews/creditcard.php?cc_pk='+$(this).attr('card_id')+'&cc_group_id='+$(this).attr('cc_group_id')+'"><img class="w-100" src="/sys/img/'+$(this).attr('card_img')+'"></a>'+
+                 '<a target="_blank" title="'+$(this).attr('card_name')+'" href="/card/creditcard.php?cc_pk='+$(this).attr('card_id')+'&cc_group_id='+$(this).attr('cc_group_id')+'"><img class="card_img" src="/sys/img/'+$(this).attr('card_img')+'"></a>'+
                '</div>';
     
     //- 存入Session -
@@ -800,7 +800,7 @@ $(window).on('load', function(event) {
     for (var i = 0; i < card_arr.length; i++) {
       var txt='<div class="card">'+
                  '<button class="del_card" card_id="'+card_arr[i]+'" type="button">Ｘ</button>'+
-                 '<a target="_blank" title="'+card_name_arr[i]+'" href="/cardNews/creditcard.php?cc_pk='+card_arr[i]+'&cc_group_id='+card_group_id_arr[i]+'"><img class="w-100" src="/sys/img/'+card_img_arr[i]+'"></a>'+
+                 '<a target="_blank" title="'+card_name_arr[i]+'" href="/card/creditcard.php?cc_pk='+card_arr[i]+'&cc_group_id='+card_group_id_arr[i]+'"><img class="card_img" src="/sys/img/'+card_img_arr[i]+'"></a>'+
                '</div>';
       $('.contrast_card_div').append(txt);
     }
@@ -868,12 +868,54 @@ $(window).bind('scroll resize', function(){
   /*--卡片比一比凍結 END --*/
 
   /*-- 卡排行 --*/
-  if (top>398-87) {
-    TweenMax.to($('.rank_card_title'), 0, { y:(top-398+87 ), 'z-index':10, 'position':'relative'});
+
+  if ($(window).width()>768){
+
+    if (top>398-87) {
+      //TweenMax.to($('.rank_card_title'), 0, { y:(top-398+87 ), 'z-index':10, 'position':'relative'});
+      $('.rank_card_title').css({
+        'top': '86px',
+        'width': '750px',
+        'z-index': '100',
+        'position':'fixed'
+      });
+    }
+    else{
+      //TweenMax.to($('.rank_card_title'), 0, { y:0});
+      $('.rank_card_title').css({
+        'top': '0px',
+        'width': 'auto',
+        'z-index': '100',
+        'position':'relative'
+      });
+    }
+
   }
   else{
-    TweenMax.to($('.rank_card_title'), 0, { y:0});
+
+    //console.log(top);
+
+    if (top>286) {
+      //TweenMax.to($('.rank_card_title'), 0, { y:(top-398+87 ), 'z-index':10, 'position':'relative'});
+      $('.rank_card_title').css({
+        'top': '90px',
+        'width': '95%',
+        'z-index': '100',
+        'position':'fixed'
+      });
+    }
+    else{
+      //TweenMax.to($('.rank_card_title'), 0, { y:0});
+      $('.rank_card_title').css({
+        'top': '0px',
+        'width': 'auto',
+        'z-index': '100',
+        'position':'relative'
+      });
+    }
+
   }
+  
   /*--卡排行 END --*/
 
   
@@ -891,7 +933,7 @@ function ccs_typename(ccs_typename_mem, ccs_typename, ccs_cc_pk2='')
     var ccs_typename_a=ccs_typename.split(/\n/);
     ccs_cc_pk2=ccs_cc_pk2.split(',');
     for (var i = 0; i < ccs_typename_a.length; i++) {
-      var cc_url2=ccs_cc_pk2[i].indexOf('ccard')==-1 ? '../cardNews/type.php?gid='+ccs_cc_pk2[i] : '../cardNews/creditcard.php?cc_pk='+ccs_cc_pk2[i]+'&cc_group_id=';
+      var cc_url2=ccs_cc_pk2[i].indexOf('ccard')==-1 ? '../card/type.php?gid='+ccs_cc_pk2[i] : '../card/creditcard.php?cc_pk='+ccs_cc_pk2[i]+'&cc_group_id=';
       ccs_typename_a_txt+='<a href="'+cc_url2+'">'+ccs_typename_a[i]+'</a>';
     }
   }

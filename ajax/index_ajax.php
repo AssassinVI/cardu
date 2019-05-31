@@ -110,6 +110,7 @@ if ($_POST) {
          //-- 卡名 --
          // $card_name=$row_car_d['bi_shortname'].'_'.$row_car_d['cc_cardname'].'_'.$row_car_d['org_nickname'].$row_car_d['attr_name'];
          $card_name=$row_car_d['bi_shortname'].'_'.$row_car_d['cc_cardname'];
+         $card_name=mb_substr($card_name, 0,10,'utf-8');
          //-- 卡特色 --
          $card_adv_txt='';
          $card_adv=preg_split('/\n/',$row_car_d['cc_interest_desc']);
@@ -120,10 +121,10 @@ if ($_POST) {
          
          //-- 立即辦卡 --
          if (!empty($row_car_d['cc_doc_url'])) {
-           $cc_doc='<a target="_blank" href="'.$row_car_d['cc_doc_url'].'" class="btn btn-orange btnOver">立即辦卡</a>';
+           $cc_doc='<a target="_blank" href="'.$row_car_d['cc_doc_url'].'" class="btn btn-purple btnOver">立即辦卡</a>';
          }
          elseif(!empty($row_car_d['cc_doc_path'])){
-           $cc_doc='<a target="_blank" href="'.$row_car_d['cc_doc_path'].'" class="btn btn-orange btnOver">立即辦卡</a>';
+           $cc_doc='<a target="_blank" href="'.$row_car_d['cc_doc_path'].'" class="btn btn-purple btnOver">立即辦卡</a>';
          }
          else{
            $cc_doc='';
@@ -160,6 +161,7 @@ if ($_POST) {
                                  INNER JOIN cc_detail as cc ON ccr.ccs_cc_pk=cc.Tb_index
                                  INNER JOIN credit_cardrank_count as ccrc ON ccrc.ccr_id=ccr.Tb_index
                                  WHERE ccr.ccs_del_flag=0 AND ccrc.ccr_date >=:day_ago
+                                 GROUP BY cc.Tb_index
                                  ORDER BY ccrc.assigncount DESC 
                                  LIMIT 0,6", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
 
@@ -169,6 +171,7 @@ if ($_POST) {
          //-- 卡名 --
          // $card_name=$add_card_one['bi_shortname'].'_'.$add_card_one['cc_cardname'].'_'.$add_card_one['org_nickname'].$add_card_one['attr_name'];
             $card_name=$add_card_one['bi_shortname'].'_'.$add_card_one['cc_cardname'];
+            $card_name=mb_substr($card_name, 0,10,'utf-8');
          //-- 卡特色 --
          $card_adv_txt='';
          $card_adv=preg_split('/\n/',$add_card_one['cc_interest_desc']);
@@ -177,10 +180,10 @@ if ($_POST) {
          }
          //-- 立即辦卡 --
          if (!empty($add_card_one['cc_doc_url'])) {
-           $cc_doc='<a target="_blank" href="'.$add_card_one['cc_doc_url'].'" class="btn btn-orange btnOver">立即辦卡</a>';
+           $cc_doc='<a target="_blank" href="'.$add_card_one['cc_doc_url'].'" class="btn btn-purple btnOver">立即辦卡</a>';
          }
          elseif(!empty($add_card_one['cc_doc_path'])){
-           $cc_doc='<a target="_blank" href="'.$add_card_one['cc_doc_path'].'" class="btn btn-orange btnOver">立即辦卡</a>';
+           $cc_doc='<a target="_blank" href="'.$add_card_one['cc_doc_path'].'" class="btn btn-purple btnOver">立即辦卡</a>';
          }
          else{
            $cc_doc='';
@@ -216,6 +219,7 @@ if ($_POST) {
                                INNER JOIN cc_detail as cc ON ccr.ccs_cc_pk=cc.Tb_index
                                INNER JOIN credit_cardrank_count as ccrc ON ccrc.ccr_id=ccr.Tb_index
                                WHERE ccr.ccs_del_flag=0 AND ccrc.ccr_date >=:day_ago
+                               GROUP BY cc.Tb_index
                                ORDER BY ccrc.viewcount DESC 
                                LIMIT 0,3", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
      $x=1;
@@ -224,6 +228,7 @@ if ($_POST) {
        //-- 卡名 --
        //$card_name=$add_view_one['bi_shortname'].'_'.$add_view_one['cc_cardname'].'_'.$add_view_one['org_nickname'].$add_view_one['attr_name'];
        $card_name=$add_view_one['bi_shortname'].'_'.$add_view_one['cc_cardname'];
+       $card_name=mb_substr($card_name, 0,10,'utf-8');
        //-- 卡特色 --
        $card_adv_txt='';
        $card_adv=preg_split('/\n/',$add_view_one['cc_interest_desc']);
@@ -232,10 +237,10 @@ if ($_POST) {
        }
        //-- 立即辦卡 --
        if (!empty($add_view_one['cc_doc_url'])) {
-         $cc_doc='<a target="_blank" href="'.$add_view_one['cc_doc_url'].'" class="btn btn-orange btnOver">立即辦卡</a>';
+         $cc_doc='<a target="_blank" href="'.$add_view_one['cc_doc_url'].'" class="btn btn-purple btnOver">立即辦卡</a>';
        }
        elseif(!empty($add_view_one['cc_doc_path'])){
-         $cc_doc='<a target="_blank" href="'.$add_view_one['cc_doc_path'].'" class="btn btn-orange btnOver">立即辦卡</a>';
+         $cc_doc='<a target="_blank" href="'.$add_view_one['cc_doc_path'].'" class="btn btn-purple btnOver">立即辦卡</a>';
        }
        else{
          $cc_doc='';

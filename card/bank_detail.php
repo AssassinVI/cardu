@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
     <?php 
-     $row_bank=$pdo->select("SELECT bi_code, bi_fullname, bi_shortname, bi_tel, bi_tel_card, bi_tel2_card, bi_tel3_card, bi_addr, bi_logo, bi_bank_url, bi_card_url, bd_url, bd_path
+     $row_bank=$pdo->select("SELECT bi_code, bi_fullname, bi_shortname, bi_tel, bi_tel_card, bi_tel2_card, bi_tel3_card, bi_addr, bi_logo, bi_bank_url, bi_card_url, bd_url, bd_path, bd_src
                              FROM bank_info WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['bi_pk']], 'one');
 
      $bi_tel_card=$row_bank['bi_tel_card'].'、';

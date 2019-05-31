@@ -40,7 +40,7 @@ if ($_POST) {
   	    $row[$i]['cc_cardname']=wp_is_mobile() ? mb_substr($row_card_group['bi_shortname'].$row_card_group['cc_cardname'], 0, 11) : mb_substr($row_card_group['bi_shortname'].$row_card_group['cc_cardname'], 0, 14);
         
         //-- 卡連結 --
-  	    $row[$i]['cc_url']='../cardNews/type.php?gid='.$row_card_group['cc_group_id'];
+  	    $row[$i]['cc_url']='../card/type.php?gid='.$row_card_group['cc_group_id'];
 
       }
       echo json_encode($row);
@@ -225,6 +225,89 @@ if ($_POST) {
 
     break;
     //---------------------------------------------------------------- 卡總覽(顯示更多卡片)-金融卡 END -----------------------------------------------------------------------
+
+
+
+
+
+    //---------------------------------------------------------------- 線上辦卡 -----------------------------------------------------------------------
+    case 'online':
+      $bank_row=$pdo->select("SELECT * FROM bank_info WHERE Tb_index=:Tb_index", ['Tb_index'=>$_POST['Tb_index']], 'one');
+
+      //-- 立即辦卡-檔案 --
+      if ($bank_row['bd_src']=='1') {
+        $path='../other_file/'.$bank_row['bd_path'];
+      }
+      //-- 立即辦卡-連結 --
+      elseif($bank_row['bd_src']=='2'){
+        $path=$bank_row['bd_url'];
+      }
+
+      //-- 地址 --
+      $bank_adds=explode(',', $bank_row['bi_addr']);
+      $bank_adds=$bank_adds[0].$bank_adds[1];
+
+
+      $row_bk_card=$pdo->select("SELECT cc_group_id, cc_cardname, cc_photo, cc_doc_path, cc_doc_url
+                                 FROM credit_card 
+                                 WHERE cc_bi_pk=:cc_bi_pk AND (cc_doc_path!='' OR cc_doc_url!='') 
+                                 GROUP BY cc_group_id
+                                 ORDER BY cc_publish ASC", ['cc_bi_pk'=>$_POST['Tb_index']]);
+      $bk_card_txt='';
+      foreach ($row_bk_card as $bk_card) {
+
+       //-- 卡片圖 --
+       $cc_photo=empty($bk_card['cc_photo']) ? 'CardSample.png':$bk_card['cc_photo'];
+       $doc=empty($bk_card['cc_doc_url']) ? $bk_card['cc_doc_path'] : $bk_card['cc_doc_url'];
+
+        $bk_card_txt.= '
+        <div class="pb-3 col-md-4 text-center">
+          <a class="bank_all_img" href="type.php?bi_pk01='.$_POST['Tb_index'].'&gid='.$bk_card['cc_group_id'].'"><img src="../sys/img/'.$cc_photo.'" ></a>
+          <h6><a class="card_name" href="type.php?bi_pk01='.$_POST['Tb_index'].'&gid='.$bk_card['cc_group_id'].'">'.$bk_card['cc_cardname'].'</a></h6>
+          <a class="btn mt-2 online_btn warning-layered btnOver" href="'.$doc.'">立即辦卡</a>
+        </div>';
+      }
+
+
+      echo '<div id="'.$bank_row['Tb_index'].'" class="bank_div">
+              <div id="bank_detial" class="pt-3 detail_title">
+              <div class="col-md-12">
+                <div class="row onlinebg cardshap">
+                  
+                 <div class="col-5 col hv-center">
+                  <div class="text-center">
+                  <img src="../sys/img/'.$bank_row['bi_logo'].'" title="'.$bank_row['bi_shortname'].'">
+                  <h6>銀行代碼：'.$bank_row['bi_code'].'</h6>
+                  <a target="_blank" class="applycard_btn warning-layered btnOver" href="'.$path.'">立即辦卡</a>
+                  </div>
+                 </div>
+                 
+                 <div class="col-7 col">
+                 <h4>'.$bank_row['bi_fullname'].'(簡稱'.$bank_row['bi_shortname'].')</h4>
+                 <hr>
+                 <p>總行電話：'.$bank_row['bi_tel'].' <br>           
+                    信用卡服務專線：'.$bank_row['bi_tel_card'].'<br>
+                    總行地址：'.$bank_adds.'<br>
+                    銀行網址：<a href="'.$bank_row['bi_bank_url'].'">'.$bank_row['bi_bank_url'].'</a>
+                  </p>
+                 </div>
+                 
+               </div> 
+              </div> 
+             </div>
+
+             <div id="bank_card" class="row no-gutters mx-2 py-3">    
+                   <div class="col-md-12 row"> 
+                      '.$bk_card_txt.'
+                   </div>
+             </div>
+           </div>';
+
+      
+      // echo json_encode($bank_row);
+
+    break;
+    //---------------------------------------------------------------- 線上辦卡 END -----------------------------------------------------------------------
 
   	default:
   	  echo "error";

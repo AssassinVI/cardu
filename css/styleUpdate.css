@@ -312,7 +312,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8294d6', end
 
   /*---------------- 主題分類輪播 -----------------*/
 
-.sub_slide .swiper-button-prev i, .sub_slide .swiper-button-next i, .sub_ph_slide .swiper-button-prev i, .sub_ph_slide .swiper-button-next i{
+.sub_slide .swiper-button-prev i, .sub_slide .swiper-button-next i, 
+.sub_slide2 .swiper-button-prev i, .sub_slide2 .swiper-button-next i,
+.sub_ph_slide .swiper-button-prev i, .sub_ph_slide .swiper-button-next i
+{
    width: 35px;
    height: 35px;
    text-align: center;
@@ -322,14 +325,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8294d6', end
    border-radius: 50px;
 }
 
-.sub_slide .swiper-button-prev, .sub_slide .swiper-container-rtl .swiper-button-next, .sub_ph_slide .swiper-button-prev, .sub_ph_slide .swiper-container-rtl .swiper-button-next{
+.sub_slide .swiper-button-prev, .sub_slide .swiper-container-rtl .swiper-button-next, 
+.sub_slide2 .swiper-button-prev, .sub_slide2 .swiper-container-rtl .swiper-button-next,
+.sub_ph_slide .swiper-button-prev, .sub_ph_slide .swiper-container-rtl .swiper-button-next{
        height: 100%;
        width: 45px;
        left: -15%;
        top: 6%;
 }
 
-.sub_slide .swiper-button-next, .sub_slide .swiper-container-rtl .swiper-button-prev, .sub_ph_slide .swiper-button-next, .sub_ph_slide .swiper-container-rtl .swiper-button-prev{
+.sub_slide .swiper-button-next, .sub_slide .swiper-container-rtl .swiper-button-prev,
+.sub_slide2 .swiper-button-next, .sub_slide2 .swiper-container-rtl .swiper-button-prev,
+.sub_ph_slide .swiper-button-next, .sub_ph_slide .swiper-container-rtl .swiper-button-prev{
       height: 100%;
       width: 45px;
      right: -15%;
@@ -492,6 +499,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9c2f9', end
 .card_compare_div button{ background-color: #ffd400; color: #000; width: 100%; border: none; padding: 5px; margin-top: 3px; border-radius: 5px; }
 .card_compare .card{ width: 100px; border: 1px dashed #ccc; margin: 2px auto;}
 .card_compare .card button{ position: absolute; right: -20px; top: 15px; background-color: #903fce; border: none; border-radius: 50%; font-size: 12px; font-weight: 600; width: 18px; height: 18px; padding: 0; color: #fff; }
+.card_compare .card .card_img{ height: 62px; }
+.card_compare .card a{ display: flex; justify-content: center;}
 
 /*----------------------------- 卡片比一比(功能) END ----------------------------------*/
 
@@ -533,8 +542,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9c2f9', end
 
 
   /*-- 輪播按鈕顯示 --*/
-  .sub_ph_slide .swiper-button-prev, .sub_ph_slide .swiper-container-rtl .swiper-button-next{ left: 0%;}
-  .sub_ph_slide .swiper-button-next, .sub_ph_slide .swiper-container-rtl .swiper-button-prev{ right: 0%;}
+  .sub_ph_slide .swiper-button-prev, .sub_ph_slide .swiper-container-rtl .swiper-button-next,
+  .sub_slide2 .swiper-button-prev, .sub_slide2 .swiper-container-rtl .swiper-button-next
+  { left: 0%;}
+  .sub_ph_slide .swiper-button-next, .sub_ph_slide .swiper-container-rtl .swiper-button-prev,
+  .sub_slide2 .swiper-button-next, .sub_slide2 .swiper-container-rtl .swiper-button-prev
+  { right: 0%;}
 
 
   .imp_int ul.collapse_txt{ list-style: none; }

@@ -45,7 +45,7 @@ $(document).ready(function() {
                slidesPerView : 2,
                slidesPerGroup : 2,
                loop:true,
-               loopAdditionalSlides : 4,
+               // loopAdditionalSlides : 6,
                autoplay: {
                    delay: 5000
                },
@@ -71,6 +71,7 @@ $(document).ready(function() {
                   mySwiper2.removeAllSlides();
                   mySwiper2.appendSlide(data);
                   mySwiper2.update();
+                  mySwiper2.slideToLoop(0, 750, false);
                   mySwiper2.autoplay.start();
                 }
               });

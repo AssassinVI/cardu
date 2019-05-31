@@ -161,9 +161,11 @@
                                 }
                                 
                                 $x=0;
+                                $url_arr=[];
                                 foreach ($row_card_fun as $card_fun) {
 
                                   $url=empty($dcard_fun_id[$card_fun['fun_name']]) ? '?func='.$card_fun['Tb_index'] : '?func='.$card_fun['Tb_index'].'&dc_func='.$dcard_fun_id[$card_fun['fun_name']];
+                                  array_push($url_arr, $url);
 
                                   if ($_GET['func']==$card_fun['Tb_index']) {
                                    echo '<li>
@@ -181,6 +183,15 @@
                                   }
                                   $x++;
                                 }
+
+
+
+                                //-- 隨機選取功能卡 --
+                                if (empty($_SERVER['QUERY_STRING'])) {
+                                  location_up($url_arr[rand(0,count($row_card_fun)-1)],'');
+                                  exit();
+                                }
+
                                 //--====================================== 功能卡 END ==============================================--
                               ?>
                             </ul>
@@ -514,7 +525,7 @@
                                               <a class="card_browse cre_card ms_enter" id="int-CreditCard-tab" href="#int-CreditCard"  tab-link="3">信用卡</a>
                                             </li>
                                             <?php 
-                                             if ( (empty($_GET['dc_pref']) && empty($_GET['dc_pref'])) || !empty($_GET['dc_pref'])){
+                                             if ( (empty($_GET['pref']) && empty($_GET['dc_pref'])) || !empty($_GET['dc_pref'])){
                                             ?>
 
                                              <li class="nav-item">

@@ -29,7 +29,7 @@ $(document).ready(function() {
                alert("請選擇"+err_txt+"!!");
               }
               else{
-                location.href='../cardNews/type.php?bi_pk01='+$('.c_search_bk').val()+'&gid='+$('.c_search_cc').val();
+                location.href='../card/type.php?bi_pk01='+$('.c_search_bk').val()+'&gid='+$('.c_search_cc').val();
               }
               
             });
@@ -488,26 +488,7 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-            
-            
-            /*-- 卡排行 --*/
-
-            var slide_num=$(window).width()>420 ? 6:3;
-            var card_rank = new Swiper ('.card_rank .swiper-container', {
-                slidesPerView : slide_num,
-                slidesPerGroup : slide_num,
-                speed:750,
-                // 如果需要前进后退按钮
-                navigation: {
-                  nextEl: '.card_rank .swiper-button-next',
-                  prevEl: '.card_rank .swiper-button-prev',
-                }
-              });   
-            
+            /*-- 卡排行 卡總覽 用 輪播 --*/
             var cc_slidesPerView=$(window).width()>420 ? 3:2;
             var cc_slidesPerGroup=$(window).width()>420 ? 3:1;
             var ccard_Swiper = new Swiper ('.ccard .swiper-container', {
@@ -524,72 +505,136 @@ $(document).ready(function() {
                   nextEl: '.ccard .swiper-button-next',
                   prevEl: '.ccard .swiper-button-prev',
                 }
-              });   
+              }); 
+
+
             
-            var index=1;
-            $('.card_rank .swiper-slide').mouseenter(function(event) {
+            
+            /*-- 卡排行 --*/
+            if ($('.card_rank .swiper-container').length>0) {
+
+              var slide_num=$(window).width()>420 ? 6:3;
+              var card_rank = new Swiper ('.card_rank .swiper-container', {
+                  slidesPerView : slide_num,
+                  slidesPerGroup : slide_num,
+                  speed:750,
+                  // 如果需要前进后退按钮
+                  navigation: {
+                    nextEl: '.card_rank .swiper-button-next',
+                    prevEl: '.card_rank .swiper-button-prev',
+                  }
+                });   
+              
                 
-                ccard_Swiper.autoplay.stop();
+              var index=$('[name="rand_num"]').val()==undefined ? 1: $('[name="rand_num"]').val();
 
-                //-- 舊icon還原 --
-                var old_img_arr=$('.card_rank .swiper-slide:nth-child('+index+')').find('img').attr('src').split('/');
-                var old_img=old_img_arr[old_img_arr.length-1].split('.');
-                var img_name_arr=old_img[0].split('_');
-                old_img_arr[old_img_arr.length-1]=img_name_arr[0]+'_'+img_name_arr[1]+'.'+old_img[1];
-                $('.card_rank .swiper-slide:nth-child('+index+')').find('img').attr('src', old_img_arr.join('/'));
-                $('.card_rank .swiper-slide').removeClass('active');
-                
-                //-- 新icon 換圖 --
-                var img_arr=$(this).find('img').attr('src').split('/');
-                var img=img_arr[img_arr.length-1].split('.');
-                var new_img=img[0]+'_down';
-                img_arr[img_arr.length-1]=new_img+'.'+img[1];
-                $(this).find('img').attr('src', img_arr.join('/'));
-                $(this).addClass('active');
+              //-- 目前輪播位置 --
+              card_rank.slideTo((index-1), 700, false);
+              ccard_Swiper.removeAllSlides();
 
-                //-- 切換信用卡 --
+              $.ajax({
+                url: '../ajax/rank_ajax.php',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                  type:'slide_6_rank',
+                  ccs_cc_so_pk:  $('.card_rank .swiper-container .swiper-slide:nth-child('+index+')').attr('Tb_index')
+                },
+                success:function (data) {
+                  var x=1;
+                  $.each(data, function(index, val) {
 
-                if ($(this).attr('index')!=index) {
-                  ccard_Swiper.removeAllSlides();
-
-                  $.ajax({
-                    url: '../ajax/rank_ajax.php',
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                      type:'slide_6_rank',
-                      ccs_cc_so_pk: $(this).attr('Tb_index')
-                    },
-                    success:function (data) {
-                      var x=1;
-                      $.each(data, function(index, val) {
-
-                        var txt='<div class="swiper-slide">'+
-                                           '<div class="w-h-100 hv-center">'+
-                                             '<a href="'+this['cc_url']+'" title="'+this['ccs_cc_cardname']+'">'+
-                                             '<span class="top_Medal">'+x+'</span><img src="../sys/img/'+this['cc_photo']+'" alt="'+this['ccs_cc_cardname']+'"><br>'+this['cc_shortname']+
-                                             '</a>'+
-                                           '</div>'+
-                                       '</div>';
-                        ccard_Swiper.appendSlide(txt);
-                      x++;
-                      });
-                      ccard_Swiper.autoplay.start();
-                    }
+                    var txt='<div class="swiper-slide">'+
+                                       '<div class="w-h-100 hv-center">'+
+                                         '<a href="'+this['cc_url']+'" title="'+this['ccs_cc_cardname']+'">'+
+                                         '<span class="top_Medal">'+x+'</span><img src="../sys/img/'+this['cc_photo']+'" alt="'+this['ccs_cc_cardname']+'"><br>'+this['cc_shortname']+
+                                         '</a>'+
+                                       '</div>'+
+                                   '</div>';
+                    ccard_Swiper.appendSlide(txt);
+                  x++;
                   });
+                  ccard_Swiper.autoplay.start();
                 }
+              });
 
-                index=$(this).attr('index');
-            });
 
-            $('.ccard').mouseenter(function(event) {
-              ccard_Swiper.autoplay.stop();
-            });
+              var card_rank_time;
+              $('.card_rank .swiper-slide').mouseenter(function(event) {
+                
+                var _this=$(this);
+                //-- 延遲0.2S --
+                card_rank_time=setTimeout(function () {
+                  
+                  ccard_Swiper.autoplay.stop();
 
-            $('.ccard').mouseleave(function(event){
-              ccard_Swiper.autoplay.start();
-            });
+                  //-- 舊icon還原 --
+                  var old_img_arr=$('.card_rank .swiper-slide:nth-child('+index+')').find('img').attr('src').split('/');
+                  var old_img=old_img_arr[old_img_arr.length-1].split('.');
+                  var img_name_arr=old_img[0].split('_');
+                  old_img_arr[old_img_arr.length-1]=img_name_arr[0]+'_'+img_name_arr[1]+'.'+old_img[1];
+                  $('.card_rank .swiper-slide:nth-child('+index+')').find('img').attr('src', old_img_arr.join('/'));
+                  $('.card_rank .swiper-slide').removeClass('active');
+                  
+                  //-- 新icon 換圖 --
+                  var img_arr=_this.find('img').attr('src').split('/');
+                  var img=img_arr[img_arr.length-1].split('.');
+                  var new_img=img[0]+'_down';
+                  img_arr[img_arr.length-1]=new_img+'.'+img[1];
+                  _this.find('img').attr('src', img_arr.join('/'));
+                  _this.addClass('active');
 
+                  //-- 切換信用卡 --
+
+                  if (_this.attr('index')!=index) {
+                    ccard_Swiper.removeAllSlides();
+
+                    $.ajax({
+                      url: '../ajax/rank_ajax.php',
+                      type: 'POST',
+                      dataType: 'json',
+                      data: {
+                        type:'slide_6_rank',
+                        ccs_cc_so_pk: _this.attr('Tb_index')
+                      },
+                      success:function (data) {
+                        var x=1;
+                        $.each(data, function(index, val) {
+
+                          var txt='<div class="swiper-slide">'+
+                                             '<div class="w-h-100 hv-center">'+
+                                               '<a href="'+this['cc_url']+'" title="'+this['ccs_cc_cardname']+'">'+
+                                               '<span class="top_Medal">'+x+'</span><img src="../sys/img/'+this['cc_photo']+'" alt="'+this['ccs_cc_cardname']+'"><br>'+this['cc_shortname']+
+                                               '</a>'+
+                                             '</div>'+
+                                         '</div>';
+                          ccard_Swiper.appendSlide(txt);
+                        x++;
+                        });
+                        ccard_Swiper.autoplay.start();
+                      }
+                    });
+                  }
+                  index=_this.attr('index');
+                  
+                },200);
+                //-- 延遲0.2S END --
+              });
+
+
+              $('.card_rank .swiper-slide').mouseleave(function(event) {
+                clearTimeout(card_rank_time);
+              });
+
+
+              $('.ccard').mouseenter(function(event) {
+                ccard_Swiper.autoplay.stop();
+              });
+
+              $('.ccard').mouseleave(function(event){
+                ccard_Swiper.autoplay.start();
+              });
+            }
             /*--- 卡排行 END ---*/
 
 
@@ -665,61 +710,73 @@ $(document).ready(function() {
                         ccard_Swiper.autoplay.start();
                       }
               });
+              
 
+              var card_all_time;
               $('.card_all .swiper-slide').mouseenter(function(event) {
+                  var _this=$(this);
+                  //-- 延遲200 --
+                  card_all_time=setTimeout(function () {
+                    
+                    //-- 舊icon還原 --
+                    var old_img_arr=$('.card_all .swiper-slide:nth-child('+index+')').find('img').attr('src').split('/');
+                    var old_img=old_img_arr[old_img_arr.length-1].split('.');
+                    var img_name_arr=old_img[0].split('_');
+                    old_img_arr[old_img_arr.length-1]=img_name_arr[0]+'.'+old_img[1];
+                    $('.card_all .swiper-slide:nth-child('+index+')').find('img').attr('src', old_img_arr.join('/'));
+                    $('.card_all .swiper-slide').removeClass('active');
+                    
+                    //-- 新icon 換圖 --
+                    var img_arr=_this.find('img').attr('src').split('/');
+                    var img=img_arr[img_arr.length-1].split('.');
+                    var new_img=img[0]+'_down';
+                    img_arr[img_arr.length-1]=new_img+'.'+img[1];
+                    _this.find('img').attr('src', img_arr.join('/'));
+                    _this.addClass('active');
 
-                  
-                  //-- 舊icon還原 --
-                  var old_img_arr=$('.card_all .swiper-slide:nth-child('+index+')').find('img').attr('src').split('/');
-                  var old_img=old_img_arr[old_img_arr.length-1].split('.');
-                  var img_name_arr=old_img[0].split('_');
-                  old_img_arr[old_img_arr.length-1]=img_name_arr[0]+'.'+old_img[1];
-                  $('.card_all .swiper-slide:nth-child('+index+')').find('img').attr('src', old_img_arr.join('/'));
-                  $('.card_all .swiper-slide').removeClass('active');
-                  
-                  //-- 新icon 換圖 --
-                  var img_arr=$(this).find('img').attr('src').split('/');
-                  var img=img_arr[img_arr.length-1].split('.');
-                  var new_img=img[0]+'_down';
-                  img_arr[img_arr.length-1]=new_img+'.'+img[1];
-                  $(this).find('img').attr('src', img_arr.join('/'));
-                  $(this).addClass('active');
+
+                    //-- 切換信用卡 --
+                    if (_this.attr('index')!=index) {
+                      ccard_Swiper.removeAllSlides();
+
+                      $.ajax({
+                        url: '../ajax/cardNews_ajax.php',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                          type:'slide_6_card',
+                          cc_fun_id: _this.attr('fun_id')
+                        },
+                        success:function (data) {
+
+                          var x=1;
+                          $.each(data, function(index, val) {
+
+                            var txt='<div class="swiper-slide">'+
+                                               '<div class="w-h-100 hv-center">'+
+                                                 '<a href="'+this['cc_url']+'" title="'+this['cc_cardname']+'">'+
+                                                 '<img src="../sys/img/'+this['cc_photo']+'" alt="'+this['cc_cardname']+'"><br>'+this['cc_cardname']+
+                                                 '</a>'+
+                                               '</div>'+
+                                           '</div>';
+                            ccard_Swiper.appendSlide(txt);
+                          x++;
+                          });
+                          ccard_Swiper.autoplay.start();
+                        }
+                      });
+
+                    }
+
+                    index=_this.attr('index');
+
+                  },200);
+                  //-- 延遲200 END --
+              });
 
 
-                  //-- 切換信用卡 --
-                  if ($(this).attr('index')!=index) {
-                    ccard_Swiper.removeAllSlides();
-
-                    $.ajax({
-                      url: '../ajax/cardNews_ajax.php',
-                      type: 'POST',
-                      dataType: 'json',
-                      data: {
-                        type:'slide_6_card',
-                        cc_fun_id: $(this).attr('fun_id')
-                      },
-                      success:function (data) {
-
-                        var x=1;
-                        $.each(data, function(index, val) {
-
-                          var txt='<div class="swiper-slide">'+
-                                             '<div class="w-h-100 hv-center">'+
-                                               '<a href="'+this['cc_url']+'" title="'+this['cc_cardname']+'">'+
-                                               '<img src="../sys/img/'+this['cc_photo']+'" alt="'+this['cc_cardname']+'"><br>'+this['cc_cardname']+
-                                               '</a>'+
-                                             '</div>'+
-                                         '</div>';
-                          ccard_Swiper.appendSlide(txt);
-                        x++;
-                        });
-                        ccard_Swiper.autoplay.start();
-                      }
-                    });
-
-                  }
-
-                  index=$(this).attr('index');
+              $('.card_all .swiper-slide').mouseleave(function(event) {
+                clearTimeout(card_all_time);
               });
 
             }
@@ -861,6 +918,40 @@ $(document).ready(function() {
             });
             /*------------------------ 主題分類 六篇 輪播 END --------------------------*/
 
+
+
+
+
+
+
+            /*------------------------ 主題分類 六篇 輪播 (電腦+手機) --------------------------*/
+            var x=1;
+            
+            $.each($('.sub_slide2.swiper-container'), function(index, val) {
+               
+               var sub_slidesPerView=$(window).width()>420 ? 3:2;
+               var sub_slidesPerGroup=$(window).width()>420 ? 3:1;
+               window['sub_slide2_'+x] = new Swiper ($(this), {
+                   slidesPerView : sub_slidesPerView,
+                   slidesPerGroup : sub_slidesPerGroup,
+                   speed:750,
+                   loop:true,
+                   loopAdditionalSlides : 4,
+                   autoplay: {
+                       delay: 5000
+                   },
+                   // 如果需要前进后退按钮
+                   navigation: {
+                     nextEl: '.sub_slide2 .swiper-button-next',
+                     prevEl: '.sub_slide2 .swiper-button-prev',
+                   }
+                 });  
+
+                 slide_st_auto($(this), window['sub_slide2_'+x]);
+              x++;
+            });
+            
+             /*------------------------ 主題分類 六篇 輪播 (電腦+手機) --------------------------*/
 
 
 
@@ -1104,6 +1195,7 @@ $(document).ready(function() {
               clearTimeout(mouse_time);
             });
 
+
             /*-- 滑鼠經過切換Tab (右邊無LOGO的Tab) --*/
             var mouse_other_time;
             $('.mouseHover_other_tab>ul>li>.nav-link').mouseenter(function(event) {
@@ -1122,12 +1214,20 @@ $(document).ready(function() {
 
                 /*--- 右邊DIV跟隨功能(給予) ---*/
                 get_right_div();
+                
+                /*--- 更新slide ---*/
+                if (_this.attr('slide_id')!=null) {
+                  window[_this.attr('slide_id')].update();
+                }
+                
+
               },200);
                
             });
             $('.mouseHover_other_tab>ul>li>.nav-link').mouseleave(function(event) {
               clearTimeout(mouse_other_time);
             });
+
 
             /*-- 滑鼠經過切換Tab (右邊無LOGO的Tab) --*/
             var mouse_other_time2;
@@ -1154,6 +1254,19 @@ $(document).ready(function() {
 
 
 
+           
+
+           /*-- 卡情報-單卡-卡組織 --*/
+           $('.oneCard_org').mouseenter(function(event) {
+             $('.oneCard_org').removeClass('active');
+             $(this).addClass('active');
+           });
+
+           $('.oneCard_org').parent().mouseleave(function(event) {
+             $('.oneCard_org').removeClass('active');
+             $('[now_card="active"]').addClass('active');
+           });
+            
 
 
 
@@ -1192,14 +1305,21 @@ $(document).ready(function() {
                 alert('最少選擇一項權益');
               }
               else{
-                var rank_rights_arr=[];
+                var get_txt='';
                 $.each($('[name="imp_check"]:checked'), function(index, val) {
-                   rank_rights_arr.push($(this).val());
+                   get_txt+='ci_pk0'+(index+1)+'='+$(this).val()+'&';
                 });
-                sessionStorage.setItem("profit_rank_arr", rank_rights_arr.join(','));
-                location.href="/rank/profit_detail.php";
+                get_txt=get_txt.slice(0,-1);
+                
+                location.href="/rank/profit_detail.php?"+get_txt;
               }
-              
+            });
+
+            $('[name="imp_check"]').click(function(event) {
+              if ($('[name="imp_check"]:checked').length>3) {
+                alert('最多選擇三項權益');
+                event.preventDefault();
+              }
             });
 
             //- 清除 -
@@ -1214,15 +1334,24 @@ $(document).ready(function() {
                 alert('最少選擇一項權益');
               }
               else{
-                var rank_rights_arr=[];
+                var get_txt='';
                 $.each($('[name="all_profit"]:checked'), function(index, val) {
-                   rank_rights_arr.push($(this).val());
+                   get_txt+='ci_pk0'+(index+1)+'='+$(this).val()+'&';
                 });
-                sessionStorage.setItem("profit_rank_arr", rank_rights_arr.join(','));
-                location.href="/rank/profit_detail.php";
+
+                get_txt=get_txt.slice(0,-1);
+                
+                location.href="/rank/profit_detail.php?"+get_txt;
               }
-              
             });
+
+            $('[name="all_profit"]').click(function(event) {
+              if ($('[name="all_profit"]:checked').length>3) {
+                alert('最多選擇三項權益');
+                event.preventDefault();
+              }
+            });
+
 
             //- 全部權益-清除 -
             $('#all_profit_clean').click(function(event) {
@@ -1242,53 +1371,15 @@ $(document).ready(function() {
                 $('.online_list li a').removeClass('active');
                 $(this).addClass('active');
                 $.ajax({
-                  url: '../cardNews/online_ajax.php',
+                  url: '../ajax/cardNews_ajax.php',
                   type: 'POST',
-                  dataType: 'json',
                   data: {
                     type:'online',
                     Tb_index: $(this).attr('bank_id')
                   },
                   success:function (data) {
                     
-                    $('.bank_div').attr('id', data[0]['Tb_index']);
-                    
-                    //-- 立即辦卡-檔案 --
-                    if (data[0]['bd_src']=='1') {
-                      var path='../other_file/'+data[0]['bd_path'];
-                    }
-                    //-- 立即辦卡-連結 --
-                    else if(data[0]['bd_src']=='2'){
-                      var path=data[0]['bd_url'];
-                    }
-
-                    var bank_adds=data[0]['bi_addr'].split(',');
-                        bank_adds=bank_adds[0]+bank_adds[1];
-
-                    var txt='<div class="col-md-12">'+
-                            '<div class="row onlinebg cardshap">'+
-                              
-                             '<div class="col-5 col hv-center">'+
-                             '<div class="text-center">'+
-                              '<img src="../sys/img/'+data[0]['bi_logo']+'" title="'+data[0]['bi_shortname']+'">'+
-                              '<h6>銀行代碼：'+data[0]['bi_code']+'</h6>'+
-                              '<a target="_blank" class="applycard_btn warning-layered btnOver" href="'+path+'">立即辦卡</a>'+
-                              '</div>'+
-                             '</div>'+
-                             
-                             '<div class="col-7 col">'+
-                             '<h4>'+data[0]['bi_fullname']+'(簡稱'+data[0]['bi_shortname']+')</h4>'+
-                             '<hr>'+
-                             '<p>總行電話：'+data[0]['bi_tel']+' <br>'+           
-                                '信用卡服務專線：'+data[0]['bi_tel_card']+'<br>'+
-                                '總行地址：'+bank_adds+'<br>'+
-                                '銀行網址：<a href="'+data[0]['bi_bank_url']+'">'+data[0]['bi_bank_url']+'</a>'+
-                              '</p>'+
-                             '</div>'+
-                             
-                           '</div>'+
-                          '</div> ';
-                    $('#bank_detial').html(txt);
+                    $('.online_div').html(data);
                   }
                 });
               }
@@ -1656,8 +1747,18 @@ function img_txt(dom_id) {
 
 //======================= 單卡網址 ==========================
 function card_url(cc_pk, cc_group_id) {
-  return '../cardNews/creditcard.php?cc_pk='+cc_pk+'&cc_group_id='+cc_group_id;
+  return '../card/creditcard.php?cc_pk='+cc_pk+'&cc_group_id='+cc_group_id;
 }
+
+
+
+
+
+
+//======================= 產生min到max之間的亂數 ==========================
+function getRandom(min,max){
+    return Math.floor(Math.random()*(max-min+1))+min;
+};
 
 
 

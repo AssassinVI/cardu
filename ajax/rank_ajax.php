@@ -348,9 +348,14 @@ if ($_POST) {
 
         $cc_int_desc_txt='';
         $cc_interest_desc=preg_split('/\n/',$row_card_one['cc_interest_desc']);
+        $int_num=1;
         foreach ($cc_interest_desc as $cc_int_desc_one) {
-          $cc_int_desc_txt.='<li><b>●</b>'.$cc_int_desc_one.'</li>';
+          if ($int_num<=4) {
+            $cc_int_desc_txt.='<li title="'.$cc_int_desc_one.'"><b>●</b>'.mb_substr($cc_int_desc_one, 0,15,'utf-8').'</li>';
+          }
+          $int_num++;
         }
+        
 
         //-- 立即辦卡 --
         if (!empty($row_card_one['cc_doc_url'])) {

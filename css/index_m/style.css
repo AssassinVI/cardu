@@ -326,6 +326,34 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f29233', end
 }
 
 
+
+
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 單頁型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*----------------------------------------- 紫色 ------------------------------------------------*/
+
+.darkpurple_tab .title_tab{ 
+  color: #fff;
+background: #8d39cd; /* Old browsers */
+background: -moz-linear-gradient(top, #8d39cd 0%, #bc83e8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #8d39cd 0%,#bc83e8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #8d39cd 0%,#bc83e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8d39cd', endColorstr='#bc83e8',GradientType=0 ); /* IE6-9 */
+}
+
+.darkpurple_tab .tab_menu{ background-color: #fcf4ff; }
+.darkpurple_tab .tab_menu .menu a:hover{ color: #8d39cd;}
+.darkpurple_tab .tab_menu .menu a.ms_enter{ color: #8d39cd; }
+.darkpurple_tab .tab_menu .swiper-slide a.active{ color: #8d39cd;}
+.darkpurple_tab .tab_menu .swiper-slide a.active:before{ background-color: #8d39cd; }
+.darkpurple_tab .tab_menu .swiper-slide a:before{ background-color: #8d39cd; }
+
+
+
+
+
+
 /*----------------------------------------- 藍綠色 ------------------------------------------------*/
 .blueGreen_tab .page-3.swiper-container .page_txt p{ color: #177c9b; }
 .blueGreen_tab .title_tab{  
@@ -814,11 +842,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#288235', end
 
 #new_card .card-body{
   padding: 19px;
+  padding-bottom: 30px;
 }
 
 #new_card .card_one a img{
-    width: 187px;
-    height: 116px;
+    width: 100%;
+    /*height: 116px;*/
 }
 
 #new_card .card_info{
@@ -833,7 +862,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#288235', end
 #new_card .card_more{
      position: absolute;
       right: 1rem;
-      bottom: 1rem;
+      bottom: 0.5rem;
       font-size: 12px;
       padding: 0 5px;
       background-color: #d8ab3f;
@@ -888,7 +917,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#288235', end
     margin: 0;
     padding-top: 10px;
     font-size: 16px;
-    color: #e5850b;
+    color: #9545d1;
     line-height: 1.5;
     font-weight: 600; 
   }
@@ -898,6 +927,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#288235', end
    font-size: 15px;
 }
 
+.ccard .card_btn .btn-purple{ background-color: #9545d1; color: #fff;  width: 85%;} 
 .ccard .card_btn .btn-orange{ background-color: #fc9b1b; color: #fff;  width: 85%;} 
 .ccard .card_btn .btn-gray{ background-color: #797979; color: #fff; } 
 

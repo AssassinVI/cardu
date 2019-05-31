@@ -172,7 +172,7 @@
                       //-- 分頁判斷數 --
                       $num=12;
                       //--- 分頁起頭數 ---
-                      $now_page_num=empty($_GET['PageNo'])? 0:((int)$_GET['PageNo']-1)*$num;
+                      $now_page_num=empty($_GET['PageNo'])? 6:((int)$_GET['PageNo']-1)*$num+6;
                       //-- 目前分頁 --
                       $page=empty($_GET['PageNo']) ? 1:$_GET['PageNo'];
 
@@ -182,7 +182,7 @@
                                               FROM appNews
                                               WHERE mt_id='$mt_id' AND ns_nt_pk='nt201902121004593' AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate"
                                               , ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')], 'one');
-                      $total_page=ceil((int)$row_list_total['total']/$num);
+                      $total_page=ceil(((int)$row_list_total['total']-6)/$num);
 
 
                       $row_list=$pdo->select("SELECT n.Tb_index, n.ns_nt_pk, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.mt_id, n.StartDate, nt.area_id
