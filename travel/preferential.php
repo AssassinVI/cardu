@@ -358,7 +358,7 @@
                             </div>
                           </div>
                         </div>
-                          <div class="row no-gutters py-md-3 mx-md-2 news_list">
+                          <div class="row no-gutters py-md-3 mx-md-4 news_list">
                           <div class="col-md-4 col-6 py-2 pl-2">
                             <a class="img_div news_list_img" href="#" style="background-image: url(../img/component/photo2.jpg);" title="新聞"></a>
                           </div>

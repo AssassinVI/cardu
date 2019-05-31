@@ -629,8 +629,24 @@
                               </div>
                           </div>
                       </div>
-
-                         <div class="col-md-12 col">
+                      
+                       <div class="col-md-12 col">
+                       <div class="cardshap tab_one green_tab">
+                           <div class="title_tab hole">
+                               <h4>熱門刷卡秘笈</h4>
+                           </div>
+                           <div class="content_tab">
+                               <ul class="tab_list cardu_li">
+                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                            </ul>
+                           </div>
+                       </div>
+                    </div>
+                    
+                    <div class="col-md-12 col">
                       <div class="green_tab">
                        <form class="row search_from">
                         <input type="text" class="journey_search" value="請輸入優旅行要查詢的字串">  
@@ -639,45 +655,7 @@
                       </div>  
                      </div> 
 
-                        <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one green_tab">
-                           <div class="title_tab hole">
-                               <h4>旅行地區 </h4>
-                              
-                           </div>
-                           <div class="content_tab">
-                             <div class="journey_icon">
-                               <div class="row no-gutters">
-                                 <div class="col-6">
-                                  <a href="jp.php"> <i class="fa fa-arrow-circle-right mr-2"></i>日本</a>
-                                 </div>
-                                 <div class="col-6">
-                                  <a href="kr.php"><i class="fa fa-arrow-circle-right mr-2"></i>韓國</a>
-                                 </div>
-                               </div>
-                               <hr>
-                                <div class="row no-gutters">
-                                 <div class="col-6">
-                                  <a href="sa.php"><i class="fa fa-arrow-circle-right mr-2"></i>東南亞</a>
-                                 </div>
-                                 <div class="col-6">
-                                  <a href="cn.php"><i class="fa fa-arrow-circle-right mr-2"></i>中港澳</a>
-                                 </div>
-                               </div>
-                               <hr>
-                                <div class="row no-gutters">
-                                 <div class="col-6">
-                                  <a href="tw.php"><i class="fa fa-arrow-circle-right mr-2"></i>台灣</a>
-                                 </div>
-                                 <div class="col-6">
-                                  <a href="other.php"><i class="fa fa-arrow-circle-right mr-2"></i>其他地區</a>
-                                 </div>
-                               </div>
-                             </div>
-
-                           </div>
-                       </div>
-                    </div>
+                     
                        <!-- 廣告 -->
                           <div class="col-md-12 col">
                               <img src="http://placehold.it/300x250" alt="">

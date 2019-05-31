@@ -307,12 +307,12 @@
                       echo '
                       <div class="row no-gutters">
                       <div class="col-6">
-                       <a class="img_a hv-center" href="../cardNews/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
+                       <a class="img_a hv-center" href="../card/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
                          <img src="../sys/img/'.$cc_photo.'" style="height:100%;" title="'.$card_name.'">
                        </a>
                       </div>
                       <div class="col-6">
-                       <a href="../cardNews/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
+                       <a href="../card/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
                          <h4>'.$card_name.'</h4>
                        </a>
                        <p>

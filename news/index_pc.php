@@ -15,16 +15,17 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
-    <meta property="og:site_name" content="卡優新聞網" />
+    <?php 
+     //-- fb資料設定 --
+     require '../share_area/fb_config.php';
+    ?>
+    <meta property="og:site_name" content="卡優新聞網-焦點新聞" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="卡優新聞網" />
+    <meta property="og:title" content="卡優新聞網-焦點新聞" />
     <meta property="og:description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" />
-    <meta property="og:url" content="https://www.cardu.com.tw" />
-    <meta property="og:see_also" content="https://www.cardu.com.tw" />
+    <meta property="og:url" content="<?php echo $FB_URL;?>" />
+    <!-- <meta property="og:see_also" content="https://www.cardu.com.tw" /> -->
       
       
     <?php 
@@ -46,10 +47,9 @@
         <!-- 麵包屑 -->
         <div class="row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/">首頁</a> / <a href="/news/">新聞</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="javascript:;">新聞</a></p>
           </div>
         </div>
-
         
         <!--版面--->
         <div class="row">
@@ -62,13 +62,21 @@
                       <?php 
                        //============================================
                        //每頁的輪播
-                       //設定好sql後，交由 page_carousel.php執行
+                       //設定好sql後，交由 func.php執行
                        //============================================
+                       //-- 新聞單元 --
+                       $ns_nt_ot_pk_query="";
+                       $row_newsType=$pdo->select("SELECT Tb_index FROM news_type WHERE mt_id='site2018111910445721'");
+                       foreach ($row_newsType as $newsType) {
+                        $ns_nt_ot_pk_query.=" n.ns_nt_ot_pk LIKE '%".$newsType['Tb_index']."%' OR ";
+                       }
+                       $ns_nt_ot_pk_query=substr($ns_nt_ot_pk_query, 0,-3);
+
                        $sql_carousel="
                         SELECT n.Tb_index, n.ns_nt_pk, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.mt_id, nt.area_id
                         FROM  appNews as n
                         INNER JOIN news_type as nt ON nt.Tb_index=n.ns_nt_pk
-                        where n.mt_id = '$mt_id' and n.ns_vfdate<>'0000-00-00 00:00:00' AND n.ns_verify=3 
+                        where (n.mt_id = '$mt_id' OR $ns_nt_ot_pk_query) and n.ns_vfdate<>'0000-00-00 00:00:00' AND n.ns_verify=3 
                         and  n.StartDate<='$todayis' and n.EndDate>='$todayis'
                         order by n.ns_vfdate desc
                         LIMIT 0, 6
@@ -115,178 +123,60 @@
                     //===================================
                     //取出特別議題頁籤
                     //===================================
-                      $pdo=pdo_conn();
-                      $sql_special=$pdo->prepare("
-                        SELECT nt_name,Tb_index,pk FROM news_type
-                        where mt_id='site2018111910445721' and nt_sp=1 
-                        and nt_sp_begin_date <= '$todayis' and nt_sp_end_date >= '$todayis' 
-                        order by OrderBy  
-                        LIMIT 0, 4");
-                      $sql_special->execute();
-                      $row_specials = $sql_special->fetchAll();
+                       $pdo_OLD=pdo_conn();
+                      // $sql_special=$pdo->prepare("
+                      //   SELECT nt_name,Tb_index,pk FROM news_type
+                      //   where mt_id='site2018111910445721' and nt_sp=1 
+                      //   and nt_sp_begin_date <= '$todayis' and nt_sp_end_date >= '$todayis' 
+                      //   order by OrderBy  
+                      //   LIMIT 0, 4");
+                      // $sql_special->execute();
+                      // $row_specials = $sql_special->fetchAll();
 
                     ?>
                     
                    
 
-                    <!--特別議題-->
-                    <div class="col-md-12 col">
-
-                        <div class="cardshap blue_tab mouseHover_other_tab">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-
-                              <?php 
-                              //tab來個回圈＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-                              $i=1;
-                              foreach ($row_specials as $row_special) {
-                                if($i==1){
-                                    $activeornot="active";
-                                  }else{
-                                    $activeornot="";
-                                  }
-                              $Tb_index = $row_special['Tb_index'];
-                              $nt_name = $row_special['nt_name'];
-                              $nt_pk = $row_special['pk'];
-
-                              echo "<li class='nav-item news_tab'>
-                                      <a class='nav-link pl-30 py-2 $activeornot' id='special_$Tb_index-tab' href='javascript:;' tab-target='#special_$Tb_index' aria-selected='true' disabled>$nt_name</a>
-                                    </li>";
-                              $i++;}
-                              ?>
-
-                        </ul>
-
-                              
+                    <!-- ========================================================== 特別議題 ========================================================== -->
+                    <?php 
+                       //============================================
+                       //每頁的輪播
+                       //設定好sql後，交由 func.php執行
+                       //============================================
+                      $nt_query="SELECT nt_name,Tb_index,pk FROM news_type
+                                 where mt_id='site2018111910445721' and nt_sp=1 
+                                 and nt_sp_begin_date <=:nt_sp_begin_date and nt_sp_end_date >=:nt_sp_end_date
+                                 order by OrderBy  
+                                 LIMIT 0, 4";
+                      $nt_where_arr=['nt_sp_begin_date'=>date('Y-m-d'), 'nt_sp_end_date'=>date('Y-m-d')];
+                      index_sec_area($nt_query, $nt_where_arr, 'news', '', 'sp');
+                    ?>
+                    
+                    <!-- ========================================================== 特別議題end  ========================================================== -->
 
 
 
-
-                        <div class="tab-content" id="myTabContent">
-                          <?php 
-                           //跑回圈將每個tab內容都load出＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-                            $y=1;
-                            foreach ($row_specials as $row_special) {
-                                if($y==1){
-                                  $activeornot="active";
-                                }else{
-                                  $activeornot="";
-                                }
-
-                              $Tb_index = $row_special['Tb_index'];
-                            ?>
-
-                              <?php echo getNews($Tb_index,$todayis,"site2018111910430599",$activeornot,$y,1);?>
-
-                          <?php $y++;} //結束tab內容＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝?>
-                        
-
-
-                        </div>
-                      </div>
-                    </div>
-                    <!--特別議題end -->
                     
                     <!--廣告-->
                     <div class="col-md-12 col"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
-                    
 
+
+
+
+                    <!-- ========================================================== 1~3次版區 ========================================================== -->
                     <?php 
-                    //===================================
-                    //取出全分類頁籤+頁籤內資料
-                    //===================================
-                      $sql_type=$pdo->prepare("
-                        SELECT nt_name,Tb_index,pk FROM news_type
-                        where mt_id='site2018111910445721' and nt_sp<>1 and OnLineOrNot=1
-                        order by OrderBy  
-                        ");
-                      $sql_type->execute();
-
-
-
-                     //分批取出part1--------------------------------------
-                    $i=1; while ($row_types=$sql_type->fetch(PDO::FETCH_ASSOC)) {
-
-                
-                        if($i==1){
-                          $activeornot="active";
-                        }else{
-                          $activeornot="";
-                        }
-                      $Tb_index = $row_types['Tb_index'];
-                      $nt_name = $row_types['nt_name'];
-                      $nt_pk = $row_types['pk'];
-
-
-                      $tab1.= "<li class='nav-item news_tab news_tab_three'>
-                              <a class='nav-link pl-30 py-2 $activeornot' id='special_$Tb_index-tab' href='list.php?nt_pk=$nt_pk' tab-target='#special_$Tb_index' aria-selected='true'>$nt_name</a>
-                            </li>";
-                      $content1.=getNews($Tb_index,$todayis,"site2018111910430599",$activeornot,$i,0);
-
-                      if ( $i==3 ) break;
-                      $i++;}
-                      //end part1--------------------------------------
-
-
-
-                      //分批取出part2--------------------------------------
-                    $i=1; while ($row_types=$sql_type->fetch(PDO::FETCH_ASSOC)) {
-
-                
-                        if($i==1){
-                          $activeornot="active";
-                        }else{
-                          $activeornot="";
-                        }
-                      $Tb_index = $row_types['Tb_index'];
-                      $nt_name = $row_types['nt_name'];
-
-
-                      $tab2.= "<li class='nav-item news_tab news_tab_three'>
-                              <a class='nav-link pl-30 py-2 $activeornot' id='special_$Tb_index-tab' href='list.php?nt_pk=$nt_pk' tab-target='#special_$Tb_index' aria-selected='true'>$nt_name</a>
-                            </li>";
-                      $content2.=getNews($Tb_index,$todayis,"site2018111910430599",$activeornot,$i,0);
-
-                      if ( $i==3 ) break;
-                      $i++;}
-                      //end part2--------------------------------------
-
-                      //分批取出part3--------------------------------------
-                    $i=1; while ($row_types=$sql_type->fetch(PDO::FETCH_ASSOC)) {
-
-                
-                        if($i==1){
-                          $activeornot="active";
-                        }else{
-                          $activeornot="";
-                        }
-                      $Tb_index = $row_types['Tb_index'];
-                      $nt_name = $row_types['nt_name'];
-
-
-                      $tab3.= "<li class='nav-item news_tab news_tab_three'>
-                              <a class='nav-link pl-30 py-2 $activeornot' id='special_$Tb_index-tab' href='list.php?nt_pk=$nt_pk' tab-target='#special_$Tb_index' aria-selected='true'>$nt_name</a>
-                            </li>";
-                      $content3.=getNews($Tb_index,$todayis,"site2018111910430599",$activeornot,$i,0);
-
-                      if ( $i==3 ) break;
-                      $i++;}
-                      //end part3--------------------------------------
-
+                       //============================================
+                       //每頁的輪播
+                       //設定好sql後，交由 func.php執行
+                       //============================================
+                      $nt_query="SELECT nt_name,Tb_index,pk FROM news_type
+                                 where mt_id='site2018111910445721' and nt_sp<>1 and OnLineOrNot=1
+                                 order by OrderBy  
+                                 LIMIT 0, 3";
+                      index_sec_area($nt_query, 'no', 'news', 'news_tab_three');
                     ?>
-                    <!--專題、卡訊、行動PAY -->
-                    <div class="col-md-12 col">
-
-                        <div class="cardshap blue_tab mouseHover_other_tab">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <?php echo $tab1?>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                          <?php echo $content1?>
-                        </div>
-                      </div>
-                    </div>
-                    <!--專題、卡訊、行動PAY end -->
-
+                    <!-- ========================================================== 1~3次版區 END ========================================================== -->
+                    
                     
                     
                     <!--廣告-->
@@ -301,35 +191,49 @@
                     <!--廣告end-->
 
                     
-                    <!--特別議題-->
-                    <div class="col-md-12 col">
+                  
 
-                        <div class="cardshap blue_tab mouseHover_other_tab">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                         <?php echo $tab2?>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                        <?php echo $content2?>
-                        </div>
-                      </div>
-                    </div>
-                    <!--特別議題end -->
+                    <!-- ========================================================== 3~6次版區 ========================================================== -->
+                    <?php 
+                       //============================================
+                       //每頁的輪播
+                       //設定好sql後，交由 func.php執行
+                       //============================================
+                      $nt_query="SELECT nt_name,Tb_index,pk FROM news_type
+                                 where mt_id='site2018111910445721' and nt_sp<>1 and OnLineOrNot=1
+                                 order by OrderBy  
+                                 LIMIT 3, 3";
+                      index_sec_area($nt_query, 'no', 'news', 'news_tab_three');
+                    ?>
+                    <!-- ========================================================== 3~6次版區 END ========================================================== -->
+
+
+
+
+
                      <!--廣告-->
                     <div class="col-md-12 col"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
                     
-                    <!--特別議題-->
-                    <div class="col-md-12 col">
+                    
 
-                        <div class="cardshap blue_tab mouseHover_other_tab">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <?php echo $tab3?>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                          <?php echo $content3?>
-                        </div>
-                      </div>
-                    </div>
-                    <!--特別議題end -->
+
+                    <!-- ========================================================== 6~9次版區 ========================================================== -->
+                    <?php 
+                       //============================================
+                       //每頁的輪播
+                       //設定好sql後，交由 func.php執行
+                       //============================================
+                      $nt_query="SELECT nt_name,Tb_index,pk FROM news_type
+                                 where mt_id='site2018111910445721' and nt_sp<>1 and OnLineOrNot=1
+                                 order by OrderBy  
+                                 LIMIT 6, 3";
+                      index_sec_area($nt_query, 'no', 'news', 'news_tab_three');
+                    ?>
+                    <!-- ========================================================== 6~9次版區 END ========================================================== -->
+
+
+
+
                     <!--廣告-->
                     <div class="col-md-12 row">
                         <div class="col-md-6 col">
@@ -353,306 +257,9 @@
             <!--版面左側end-->
             
             <!--版面右側-->
-            <div class="index-content-right col0">
-                
-                <div class="row">
-                    <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one blue_tab">
-                           <div class="title_tab hole">
-                               <h4>熱門情報</h4>
-                               <span>謹慎理財 信用至上</span>
-                           </div>
-                           <div class="content_tab">
-                               <!-- 熱門情報輪播 -->
-                            <div class="swiper-container HotNews_slide">
-                                <div class="swiper-wrapper">
-
-                                    <div class="swiper-slide" > 
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                          <a class="img_a" href="#">
-                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                          </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                         <a class="img_a" href="#">
-                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                          <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div  class="col-5">
-                                         <a class="img_a" href="#">
-                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div class="swiper-slide" > 
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                          <a class="img_a" href="#">
-                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                          </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                         <a class="img_a" href="#">
-                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                          <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div  class="col-5">
-                                         <a class="img_a" href="#">
-                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div class="swiper-slide" > 
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                          <a class="img_a" href="#">
-                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                          </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                         <a class="img_a" href="#">
-                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                          <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div  class="col-5">
-                                         <a class="img_a" href="#">
-                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- 如果需要导航按钮 -->
-                                <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
-                                <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
-                                
-                            </div>
-                            <!-- 熱門情報輪播 END -->
-
-                           </div>
-                       </div>
-                    </div>
-
-                    <div class="col-md-12 col">
-                       
-                       <div class="cardshap blue_tab mouseHover_tab">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item">
-                            <a class="nav-link active pl-30" id="card-tab" tab-target="#card" href="javascript:;"  aria-selected="true">
-                                <i class="icon" style="background-image: url(../img/component/icon/news/icon1.png);"></i>信用卡快搜
-                            </a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link pl-30" id="right-tab" tab-target="#right" href="javascript:;"  aria-selected="false">
-                                <i class="icon" style="background-image: url(../img/component/icon_down/news/icon2.png); background-size: 80%;"></i>權益快搜
-                            </a>
-                          </li>
-                        </ul>
-                        <div class="tab-content ccard_back" id="myTabContent">
-                          <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">
-                            <form class="row search_from">
-
-                                <div class="col-9">
-                                  <select>
-                                      <option value="">--選擇銀行--</option>
-                                      <option value="第一銀行">第一銀行</option>
-                                      <option value="台新銀行">台新銀行</option>
-                                      <option value="渣打銀行">渣打銀行</option>
-                                  </select>
-
-                                  <select>
-                                      <option value="">--選擇信用卡--</option>
-                                      <option value="JBC白金卡">JBC白金卡</option>
-                                      <option value="富邦世界卡">富邦世界卡</option>
-                                      <option value="SOGO聯名卡">SOGO聯名卡</option>
-                                  </select>  
-                                </div>
-
-                                <div class="col-3">
-                                  <div class="hv-center w-h-100">
-                                      <button type="button">GO</button>
-                                  </div>
-                                </div>
-                               
-                            </form>
-                          </div>
-                          <div class="tab-pane fade" id="right" role="tabpanel" aria-labelledby="right-tab">
-                            <form class="row search_from">
-
-                                <div class="col-9">
-                                  <select>
-                                      <option value="">選擇比較的權益項目</option>
-                                      <option value="年費">年費</option>
-                                      <option value="循環利息">循環利息</option>
-                                      <option value="逾期違約金">逾期違約金</option>
-                                  </select>
-
-                                  <select>
-                                      <option value="">選擇比較的權益項目</option>
-                                      <option value="年費">年費</option>
-                                      <option value="循環利息">循環利息</option>
-                                      <option value="逾期違約金">逾期違約金</option>
-                                  </select> 
-                                </div>
-
-                                <div class="col-3">
-                                 <div class="hv-center w-h-100">
-                                   <button type="button">GO</button>
-                                 </div>
-                                </div>
-                               
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    
-                    </div>
-
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                    <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one blue_tab">
-                           <div class="title_tab hole">
-                               <h4>辦卡推薦 </h4>
-                           </div>
-                           <div class="content_tab">
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
-
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
-
-                           </div>
-                       </div>
-                    </div>
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                    <?php require("../share_area/news_hot.php"); //載入熱門新聞?>
-                    
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                    
-                    <?php 
-                     //-- 共用Footer --
-                     require '../share_area/footer.php';
-                    ?>
-                    
-
-                </div>
-            </div>
+            <?php 
+             require 'right_area_div.php';
+            ?>
             <!--版面右側end-->
         </div>
         <!--版面end-->

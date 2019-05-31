@@ -108,13 +108,15 @@
                                <div class="row">
                                    <label class="col-sm-2 col-form-label">*會員帳號</label>
                                    <div class="col-sm-10 form-inline">
-                                     <input type="text" class="form-control" placeholder="＊會員帳號">
+                                     <input type="text" class="form-control" placeholder="＊會員帳號" >
+                                     <i data-toggle="tooltip" data-placement="right" data-original-title="每年累計最高回饋之現金積點30,000點為上限" class="fa fa-question-circle-o"></i>
                                    </div>
                                  </div>
                                <div class="row">
                                    <label class="col-sm-2 col-form-label">*暱稱</label>
                                    <div class="col-sm-10 form-inline">
                                      <input type="text" class="form-control" placeholder="＊暱稱">
+                                     <i class="fa fa-question-circle-o"></i>
                                    </div>
                                  </div>
                                <div class="row">

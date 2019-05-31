@@ -144,7 +144,7 @@
                            <div class="row">
                                <div class="col-md-6 col">
                                  <div class="cardshap point-4">
-                                   <a href="http://cardu.srl.tw/point/about.php" title="點數平台">
+                                   <a href="http://cardu.srl.tw/point/all.php" title="點數平台">
                                     <div>
                                      <img src="../img/component/icon/point.png">
                                      </div>
@@ -156,7 +156,7 @@
                               
                               <div class="col-md-6 col">
                                 <div class="cardshap point-4">
-                                  <a href="http://cardu.srl.tw/point/shop.php" title="點數店家">
+                                  <a href="http://cardu.srl.tw/point/all2.php" title="點數店家">
                                  <div>
                                     <img src="../img/component/icon/point_2.png">
                                   </div>
@@ -326,11 +326,14 @@
                         order by a.ns_vfdate desc
                         LIMIT 0, 10
                         ";
+
+                        //echo $sql_newtemp;
                         $sql_new=$pdo->prepare($sql_newtemp);
                         $sql_new->execute();
 
                         //分批取出part1--------------------------------------
                       $i=1; while ($row_new=$sql_new->fetch(PDO::FETCH_ASSOC)) {
+
                         $id=$row_new['Tb_index'];
                         $ns_ftitle=$row_new['ns_ftitle'];
                         $ns_msghtml=$row_new['ns_msghtml'];
@@ -348,14 +351,14 @@
                                                <p>$ns_ftitle</p>
                                            </a>"
                                            ;
-                                    $new_temp3[$i]="<a href='detail.php?$id'>
+                                $new_temp3[$i]="<a href='detail.php?$id'>
                                                <div class='img_div' title='$ns_ftitle' style='background-image: url($ns_photo_1);'>
                                                  <small>$nt_name</small>
                                                </div>
                                                <p>$ns_ftitle_temp</p>
                                            </a>"
                                            ;
-                              }
+                            $i++; }
 
 
 
@@ -384,13 +387,13 @@
 
                             <div class="row no-gutters pt-2">
                                 <div class="col-4 cards-3">
-                                   <?php echo $new_temp2[3]?>
+                                   <?php echo $new_temp3[3]?>
                                 </div>
                                 <div class="col-4 cards-3">
-                                   <?php echo $new_temp2[4]?>
+                                   <?php echo $new_temp3[4]?>
                                 </div>
                                 <div class="col-4 cards-3">
-                                   <?php echo $new_temp2[5]?>
+                                   <?php echo $new_temp3[5]?>
                                 </div>
                             </div>
                            </div>
@@ -410,13 +413,13 @@
 
                             <div class="row no-gutters pt-2">
                                 <div class="col-4 cards-3">
-                                   <?php echo $new_temp2[8]?>
+                                   <?php echo $new_temp3[8]?>
                                 </div>
                                 <div class="col-4 cards-3">
-                                   <?php echo $new_temp2[9]?>
+                                   <?php echo $new_temp3[9]?>
                                 </div>
                                 <div class="col-4 cards-3">
-                                   <?php echo $new_temp2[10]?>
+                                   <?php echo $new_temp3[10]?>
                                 </div>
                             </div>
                           </div>

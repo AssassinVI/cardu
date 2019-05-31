@@ -17,16 +17,17 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
-    <meta property="og:site_name" content="卡優新聞網" />
+    <?php 
+     //-- fb資料設定 --
+     require '../share_area/fb_config.php';
+    ?>
+    <meta property="og:site_name" content="卡優新聞網-焦點新聞" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="卡優新聞網" />
+    <meta property="og:title" content="卡優新聞網-焦點新聞" />
     <meta property="og:description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" />
-    <meta property="og:url" content="https://www.cardu.com.tw" />
-    <meta property="og:see_also" content="https://www.cardu.com.tw" />
+    <meta property="og:url" content="<?php echo $FB_URL;?>" />
+    <!-- <meta property="og:see_also" content="https://www.cardu.com.tw" /> -->
       
       
     <?php 
@@ -48,7 +49,7 @@
         <!-- 麵包屑 -->
         <div class="row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/">首頁</a> / <a href="javascript:;">新聞</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="javascript:;">新聞</a></p>
           </div>
         </div>
         
@@ -61,33 +62,48 @@
                 
                 <div class="row">
 
-                                
-                    <?php 
-                   //============================================
-                   //手機版刊頭輪播
-                   //設定好sql後，交由 page_carousel.php執行
-                   //============================================
-                   $sql_carousel="
-                    SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
-                    where mt_id = 'site2018111910430599'
-                    and ns_verify=3 and OnLineOrNot=1  
-                    and  StartDate<='$todayis' and EndDate>='$todayis'
-                    order by ns_vfdate desc
-                    LIMIT 0, 6
-                    ";
+                  <div class="col-md-12 col">
+                    
+                  
+                    <?php
+                    //============================================
+                    //每頁的輪播 (手機)
+                    //設定好sql後，交由 func.php執行
+                    //============================================
+                    //-- 新聞單元 --
+                    $ns_nt_ot_pk_query="";
+                    $row_newsType=$pdo->select("SELECT Tb_index FROM news_type WHERE mt_id='site2018111910445721'");
+                    foreach ($row_newsType as $newsType) {
+                     $ns_nt_ot_pk_query.=" ns_nt_ot_pk LIKE '%".$newsType['Tb_index']."%' OR ";
+                    }
+                    $ns_nt_ot_pk_query=substr($ns_nt_ot_pk_query, 0,-3);
 
-                    require("../share_area/page_carousel_mobile.php"); //暫入手機版刊頭輪播上
-                    //手機版刊頭輪播end 
+                    $sql_carousel="
+                                   SELECT ns_ftitle, ns_photo_1, ns_msghtml, Tb_index, ns_nt_pk, mt_id, area_id FROM  NewsAndType
+                                   where (mt_id='$mt_id' OR $ns_nt_ot_pk_query ) and ns_verify=3 and StartDate<=:StartDate and EndDate>=:EndDate
+                                   order by ns_vfdate desc
+                                   LIMIT 0, 10
+                                  ";
+
+                    slide_ph($sql_carousel, ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+
                     ?> 
+                    </div>
                   
 
                     <!--廣告-->
-                    <div class="col-md-12 col banner"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner">
+                            <img src="http://placehold.it/365x100" alt="">
+                        </div>
+                    </div>
+                    <!--廣告end-->
 
                      <?php 
                      //：：：：：：：：：：：：：：：：：：：：：：：：：：：
                      //特別議題：：：：：：：：：：：：：：：：：：：：：：：
                      //：：：：：：：：：：：：：：：：：：：：：：：：：：：
+                     $pdo_OLD=pdo_conn();
                      $queryfield = 'mt_id'; //要查詢的欄位
                      $tab_mtid='site2018111910445721'; //代入欄位值，
                      $tab_color='blue_tab'; //介面顏色

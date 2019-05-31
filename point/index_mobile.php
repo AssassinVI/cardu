@@ -184,7 +184,7 @@
                      //：：：：：：：：：：：：：：：：：：：：：：：：：：：
                      $sqltemp = "
                                 SELECT nt_name,Tb_index,pk FROM news_type
-                                where unit_id='un2019011717535610' and nt_sp=0 
+                                where unit_id='un2019011717545061' and nt_sp=0 
                                 and OnLineOrNot=1
                                 order by OrderBy  
                                 LIMIT 0, 2"; 
@@ -203,11 +203,11 @@
                     <!--廣告end-->
                    <?php 
                      //：：：：：：：：：：：：：：：：：：：：：：：：：：：
-                     //Pay優惠：：：：：：：：：：：：：：：：：：：：：：：
+                     //點數優惠：：：：：：：：：：：：：：：：：：：：：：：
                      //：：：：：：：：：：：：：：：：：：：：：：：：：：：
                      $sqltemp = "
                                 SELECT nt_name,Tb_index,pk FROM news_type
-                                where unit_id='un2019011717534416' and nt_sp=0 
+                                where unit_id='un2019011717543043' and nt_sp=0 
                                 and OnLineOrNot=1
                                 order by OrderBy  
                                 LIMIT 0, 10"; 

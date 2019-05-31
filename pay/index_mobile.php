@@ -82,7 +82,7 @@
                    //============================================
                    $sql_carousel="
                     SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
-                    where mt_id = 'site2019011116095854'
+                    where ns_nt_pk in ($unit_all_id)  
                     and ns_verify=3 and OnLineOrNot=1 
                     and  StartDate<='$todayis' and EndDate>='$todayis'
                     order by ns_vfdate desc

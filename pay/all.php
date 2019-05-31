@@ -1,5 +1,7 @@
 <?php 
- require '../share_area/conn.php';
+require '../share_area/conn.php';
+require '../share_area/get_news.php';
+require 'config.php';
 ?>
 <!DOCTYPE html>
 
@@ -74,6 +76,18 @@
                   <div class="col-md-12 col">
                   
                     <?php 
+                       //先取出優行動pay的分類，再從優行動pay的分類中，把appNews load出來，優行動pay版區id為at2019011117341414
+                       $pdo=pdo_conn();
+                       $sql_area=$pdo->prepare("SELECT Tb_index FROM `news_type` WHERE `area_id` LIKE '$area_id'");
+                       $sql_area->execute();
+                       $row_areas = $sql_area->fetchAll();
+
+                       foreach ($row_areas as $row_area) {
+                           $unit_all_id.="'".$row_area['Tb_index']."',";
+                        }
+                       $unit_all_id = substr($unit_all_id, 0, -1); //去掉最後一碼，
+
+
                       if (wp_is_mobile()) {
 
                          //============================================
@@ -82,9 +96,9 @@
                          //============================================
                          $sql_carousel="
                           SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
-                          where ns_verify=3 and OnLineOrNot=1
+                          where mt_id = 'site2019011116095854'
+                          and ns_verify=3 and OnLineOrNot=1 
                           and  StartDate<='$todayis' and EndDate>='$todayis'
-                          and ns_nt_pk='$Tb_index'
                           order by ns_vfdate desc
                           LIMIT 0, 6
                           ";
@@ -97,9 +111,9 @@
                          //============================================
                          $sql_carousel="
                           SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
-                          where ns_verify=3 and OnLineOrNot=1 
-                          and StartDate<='$todayis' and EndDate>='$todayis'
-                          and ns_nt_pk='$Tb_index'
+                          where ns_nt_pk in ($unit_all_id) 
+                          and ns_verify=3 and OnLineOrNot=1 
+                          and  StartDate<='$todayis' and EndDate>='$todayis'
                           order by ns_vfdate desc
                           LIMIT 0, 12
                           ";
@@ -113,7 +127,7 @@
                   
 
                     <!--廣告-->
-                    <div class="col-md-12 row">
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col ad_news">
                           <div class="row no-gutters">
                             <div class="col-md-6 h-center">
@@ -147,7 +161,7 @@
 
                           <?php 
                           $pdo=pdo_conn();
-                          $sql_pay=$pdo->prepare("SELECT * FROM store where st_type='st2019013117011395' and OnLineOrNot=1 order by st_name LIMIT 0, 3");
+                          $sql_pay=$pdo->prepare("SELECT * FROM store where st_type='st2019013117011395' and OnLineOrNot=1 order by st_name ");
                           $sql_pay->execute();
 
                           $i=1; while ($row_pay=$sql_pay->fetch(PDO::FETCH_ASSOC)) {
@@ -194,7 +208,7 @@
 
                         
                      <!--廣告-->
-                    <div class="col-md-12 col"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
+                    <div class="col-md-12 col phone_hidden"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
 
                           <?php
                           if($i>7){
@@ -234,7 +248,7 @@
                           ?>
 
                      <!--廣告-->
-                    <div class="col-md-12 col"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
+                    <div class="col-md-12 col phone_hidden"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
                 </div>
             </div>
             <!--版面左側end-->

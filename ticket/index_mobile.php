@@ -71,7 +71,7 @@
                   <?php 
                   //先取出優行動pay的分類，再從優行動pay的分類中，把appNews load出來，優行動pay版區id為at2019011117341414
                        $pdo=pdo_conn();
-                       $sql_area=$pdo->prepare("SELECT Tb_index FROM `news_type` WHERE `area_id` LIKE 'at2019011117341414'");
+                       $sql_area=$pdo->prepare("SELECT Tb_index FROM `news_type` WHERE `area_id` LIKE '$area_id'");
                        $sql_area->execute();
                        $row_areas = $sql_area->fetchAll();
 
@@ -88,7 +88,7 @@
                    //============================================
                    $sql_carousel="
                     SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
-                    where mt_id = 'site2019011116095854'
+                    where ns_nt_pk in ($unit_all_id) 
                     and ns_verify=3 and OnLineOrNot=1 
                     and  StartDate<='$todayis' and EndDate>='$todayis'
                     order by ns_vfdate desc
@@ -129,7 +129,7 @@
 
                               <?php 
                               $pdo=pdo_conn();
-                              $sql_pay=$pdo->prepare("SELECT * FROM store where st_type='st2019013117011395' and OnLineOrNot=1 order by st_name LIMIT 0, 3");
+                              $sql_pay=$pdo->prepare("SELECT * FROM store where st_type='st201901311701269' and OnLineOrNot=1 order by st_name LIMIT 0, 4");
                               $sql_pay->execute();
 
                               $i=1; while ($row_pay=$sql_pay->fetch(PDO::FETCH_ASSOC)) {

@@ -34,7 +34,12 @@
       <img src="/img/component/logo.png" alt="">
     </div>
 
-    <p class="send_news">將以下這篇訊息寄給朋友 <br><a href="http://cardu.srl.tw/news/detail.php" target="_blank">JCB信用卡日本遊樂去　25家現金回饋總整理</a></p>
+    <?php 
+     $row_news=$pdo->select("SELECT ns_ftitle, Tb_index, mt_id, ns_nt_pk, area_id FROM NewsAndType WHERE Tb_index=:Tb_index", ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
+     $url=news_url($row_news['mt_id'], $row_news['Tb_index'], $row_news['ns_nt_pk'], $row_news['area_id']);
+    ?>
+
+    <p class="send_news">將以下這篇訊息寄給朋友 <br><a href="<?php echo $url; ?>" target="_blank"><?php echo $row_news['ns_ftitle']; ?></a></p>
 
     <div class="mail_form">
         
@@ -146,7 +151,6 @@
                 },
                 success:function (data) {
 
-                  console.log(data);
                   
                   if (data!='send') {
                     alert('請確定您不是機器人');
@@ -154,6 +158,7 @@
                   else{
                     alert('信件已寄出');
                     $('#send_form')[0].reset();
+                    parent.jQuery.fancybox.getInstance().close();
                   }
                 }
               });

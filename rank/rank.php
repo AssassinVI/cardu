@@ -84,9 +84,10 @@
                                                                  FROM credit_cardrank_type 
                                                                  WHERE cc_so_status=1 ORDER BY cc_so_order ASC");
                                       $x=1;
+                                      $rand_num=rand(1,count($row_cc_type));
                                       foreach ($row_cc_type as $rct_one) {
-                                      	$active=$x==1 ? 'active':'';
-                                      	$active_img=$x==1 ? $rct_one['cc_so_photo_1_hover']:$rct_one['cc_so_photo_1'];
+                                      	$active=$x==$rand_num ? 'active':'';
+                                      	$active_img=$x==$rand_num ? $rct_one['cc_so_photo_1_hover']:$rct_one['cc_so_photo_1'];
                                         $cardrank_url=wp_is_mobile() ? 'javascript:;' :'cardrank.php?'.$rct_one['old_id'].'" title="'.$rct_one['cc_so_cname'];
                                       	echo '
                                       	<div class="swiper-slide '.$active.'" index="'.$x.'" Tb_index="'.$rct_one['Tb_index'].'" > 
@@ -108,6 +109,8 @@
                                    <div class="swiper-button-next"> <i class="fa fa-angle-right"></i></div>
 
                               </div>
+                              <!-- 給予隨機卡功能 -->
+                              <input type="hidden" name="rand_num" value="<?php echo $rand_num;?>">
                              </div>
                            </div>
 
@@ -115,45 +118,7 @@
                               <div class="swiper-container">
                                   <div class="swiper-wrapper">
 
-                                  	<?php 
-                                      //-- 現金回饋 隨機(無條件/有條件) --
-                                      $rand_cc_so_pk=['r_type201904010959361', 'r_type201904010959362'];
-                                      $row_ccard_rank=$pdo->select("SELECT ccs_cc_cardname, ccs_cc_pk, ccs_cc_group_id
-                                                                    FROM credit_cardrank 
-                                                                    WHERE ccs_cc_so_pk=:ccs_cc_so_pk ORDER BY ccs_order ASC LIMIT 0,6", ['ccs_cc_so_pk'=>$rand_cc_so_pk[rand(0,1)]]);
-                                      $x=1;
-                                      foreach ($row_ccard_rank as $rcr_one) {
-                                        //-- 單卡 --
-                                        if (!empty($rcr_one['ccs_cc_pk'])) {
-                                           $row_ccard=$pdo->select("SELECT cc_photo FROM credit_card WHERE Tb_index=:Tb_index", ['Tb_index'=>$rcr_one['ccs_cc_pk']], 'one');
-                                        }
-                                        //-- 卡組 --
-                                        else{
-                                           $row_ccard=$pdo->select("SELECT cc_photo 
-                                                                    FROM credit_card as cc
-                                                                    INNER JOIN card_level as level ON level.Tb_index=cc.cc_cardlevel
-                                                                    WHERE cc_group_id=:cc_group_id 
-                                                                    ORDER BY level.OrderBy ASC
-                                                                    LIMIT 0,1", ['cc_group_id'=>$rcr_one['ccs_cc_group_id']], 'one');
-                                        }
-
-                                        //-- 卡片圖 --
-                                        $cc_photo=empty($row_ccard['cc_photo']) ? 'CardSample.png':$row_ccard['cc_photo'];
-
-                                        $ccs_cc_cardname=explode(']', $rcr_one['ccs_cc_cardname']);
-                                        $ccs_cc_shortname=mb_strlen($ccs_cc_cardname[1],'utf-8')>10 ? mb_substr($ccs_cc_cardname[1], 0,10,'utf-8'):$ccs_cc_cardname[1];
-
-                                        $cc_url=!empty($rcr_one['ccs_cc_pk']) ? '../card/creditcard.php?cc_pk='.$rcr_one['ccs_cc_pk'].'&cc_group_id='.$rcr_one['ccs_cc_group_id'] : '../card/type.php?gid='.$rcr_one['ccs_cc_group_id'];
-                                        echo '
-                                        <div class="swiper-slide">
-                                           <div class="w-h-100 hv-center">
-                                             <a href="'.$cc_url.'" title="'.$ccs_cc_cardname[1].'"><span class="top_Medal">'.$x.'</span><img src="../sys/img/'.$cc_photo.'" alt="'.$ccs_cc_cardname[1].'"><br>'.$ccs_cc_shortname.'</a>
-                                           </div>
-                                        </div>';
-                                      	$x++;
-                                      }
-                                  	?>
-                                    
+                                  	<!-- main.js 卡排行 -->
 
                                   </div>
                                                                     
@@ -322,7 +287,7 @@
                                                           INNER JOIN appNews as news ON bc.news_id=news.Tb_index
                                                           WHERE news.ns_nt_pk='nt201902121004593' AND news.ns_verify=3 AND news.ns_vfdate >=:month_ago
                                                           GROUP BY bc.card_group_id
-                                                          ORDER BY news.ns_viewcount DESC, news.ns_mobvecount DESC LIMIT 0,10", ['month_ago'=>date('Y-m-d H:i:s',strtotime('-3 month'))]);
+                                                          ORDER BY news.ns_viewcount DESC, news.ns_mobvecount DESC LIMIT 0,5", ['month_ago'=>date('Y-m-d H:i:s',strtotime('-3 month'))]);
 
                              $x=1;
                              foreach ($row_new_card as $rnc_one) {
@@ -355,7 +320,7 @@
                                //-- 卡片圖 --
                                $cc_photo=empty($row_car_d['cc_photo']) ? 'CardSample.png':$row_car_d['cc_photo'];
                                //-- 前三名(獎牌) --
-                               $top_prize=$i<3 ? '<span class="top_prize">'.$x.'</span>':'<h1 class=" hv-center mb-0">'.$x.'</h1>';
+                               $top_prize=$x<=3 ? '<span class="top_prize">'.$x.'</span>':'<h1 class=" hv-center mb-0">'.$x.'</h1>';
 
                                echo '
                                <div class="row no-gutters py-3 rankbg_list rank_hot">
@@ -383,7 +348,7 @@
                                 <div class="col-md-2 wx-100-ph">
                                   <div class="rank_btn">
                                     '.$cc_doc.'
-                                    <button type="button" card_id="'.$row_car_d['Tb_index'].'" cc_group_id="'.$row_car_d['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$row_car_d['cc_photo'].'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
+                                    <button type="button" card_id="'.$row_car_d['Tb_index'].'" cc_group_id="'.$row_car_d['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                                   </div>
                                   <span>謹慎理財 信用至上</span>
                                  </div>
@@ -443,8 +408,9 @@
                                                          INNER JOIN cc_detail as cc ON ccr.ccs_cc_pk=cc.Tb_index
                                                          INNER JOIN credit_cardrank_count as ccrc ON ccrc.ccr_id=ccr.Tb_index
                                                          WHERE ccr.ccs_del_flag=0 AND ccrc.ccr_date >=:day_ago
+                                                         GROUP BY cc.Tb_index
                                                          ORDER BY ccrc.assigncount DESC 
-                                                         LIMIT 0,10", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
+                                                         LIMIT 0,5", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
                              $x=1;
                              foreach ($row_app_card as $rac_one) {
                                //-- 卡名 --
@@ -469,7 +435,7 @@
                                //-- 卡片圖 --
                                $cc_photo=empty($rac_one['cc_photo']) ? 'CardSample.png':$rac_one['cc_photo'];
                                //-- 前三名(獎牌) --
-                               $top_prize=$i<3 ? '<span class="top_prize">'.$x.'</span>':'<h1 class=" hv-center mb-0">'.$x.'</h1>';
+                               $top_prize=$x<=3 ? '<span class="top_prize">'.$x.'</span>':'<h1 class=" hv-center mb-0">'.$x.'</h1>';
 
                                echo '
                                <div class="row no-gutters py-3 rankbg_list rank_hot">
@@ -548,8 +514,9 @@
                                                          INNER JOIN cc_detail as cc ON ccr.ccs_cc_pk=cc.Tb_index
                                                          INNER JOIN credit_cardrank_count as ccrc ON ccrc.ccr_id=ccr.Tb_index
                                                          WHERE ccr.ccs_del_flag=0 AND ccrc.ccr_date >=:day_ago
+                                                         GROUP BY cc.Tb_index
                                                          ORDER BY ccrc.viewcount DESC 
-                                                         LIMIT 0,10", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
+                                                         LIMIT 0,5", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
                              $x=1;
                              foreach ($row_read_card as $rrc_one) {
                                //-- 卡名 --
@@ -574,7 +541,7 @@
                                //-- 卡片圖 --
                                $cc_photo=empty($rrc_one['cc_photo']) ? 'CardSample.png':$rrc_one['cc_photo'];
                                //-- 前三名(獎牌) --
-                               $top_prize=$i<3 ? '<span class="top_prize">'.$x.'</span>':'<h1 class=" hv-center mb-0">'.$x.'</h1>';
+                               $top_prize=$x<=3 ? '<span class="top_prize">'.$x.'</span>':'<h1 class=" hv-center mb-0">'.$x.'</h1>';
 
                                echo '
                                <div class="row no-gutters py-3 rankbg_list rank_hot">

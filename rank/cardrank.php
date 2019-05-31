@@ -246,7 +246,7 @@
                                 //-- card_id --
                                 $card_id=empty($row_rank_one['cc_Tb_index']) ? $row_card_group['Tb_index'] : $row_rank_one['cc_Tb_index'];
 
-                                //-- 單卡網址 (sys/core/inc/function.php) --
+                                //-- 單卡網址 (share_area/func.php) --
                                 if (!empty($row_rank_one['ccs_cc_cardurl'])) {
                                   $card_url=$row_rank_one['ccs_cc_cardurl'];
                                 }
@@ -451,7 +451,7 @@
                         <!---------------------- 有門檻 ----------------------------------->
 
                           <div class="tab-pane fade" id="goodSet" role="tabpanel" aria-labelledby="goodSet-tab">
-                            <div class="row imp_int_title rank_card_title phone_hidden">
+                            <div class="row imp_int_title rank_card_title ">
                                <div class="col-md-1 text-center"></div>
                                <div class="col-md-4 text-center">卡片名稱</div>
                                <div class="col-md-2 text-center">國內回饋</div>

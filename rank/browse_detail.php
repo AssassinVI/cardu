@@ -107,11 +107,12 @@
                                  //-- 特色 --
                                  $card_adv_txt='';
                                  $card_adv=preg_split('/\n/',$row_cookie_cc['cc_interest_desc']);
-                                 $y=0;
+                                 $y=1;
                                  foreach ($card_adv as $card_adv_one) {
-                                   if ($y>5) {break; }
-                                   $card_adv_one_txt=mb_strlen($card_adv_one, 'utf-8')>14 ? mb_substr($card_adv_one, 0,14,'utf-8'):$card_adv_one;
-                                   $card_adv_txt.='<li><b>●</b>'.$card_adv_one_txt.'</li>';
+                                  if ($y<=4) {
+                                    $card_adv_txt.='<li title="'.$card_adv_one.'"><b>●</b>'.mb_substr($card_adv_one, 0,15,'utf-8').'</li>';
+                                  }
+                                   $y++;
                                  }
                                  //-- 立即辦卡 --
                                  if (!empty($row_cookie_cc['cc_doc_url'])) {
@@ -130,12 +131,12 @@
                                   echo '
                                   <div class="row no-gutters py-3 bankbg_list rank_hot">
                                      <div class="col-md-5 wx-100-ph text-center">
-                                       <a class="popular_list_img" href="../cardNews/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
+                                       <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
                                          <img src="../sys/img/'.$cc_photo.'" alt="'.$card_name.'" title="'.$card_name.'">
                                        </a>
                                      </div>
                                      <div class="col-md-7 wx-100-ph card_list_txt rank_color">
-                                       <a class="popular_list_img" href="../cardNews/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
+                                       <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
                                        <h4>'.$card_name.'</h4>
                                        </a>
                                        <div class="row no-gutters">
@@ -147,7 +148,7 @@
                                       <div class="col-md-2 wx-100-ph">
                                         <div class="rank_btn">
                                           '.$cc_doc.'
-                                          <button type="button" class="btn gray-layered btnOver">加入比較</button>
+                                          <button type="button" card_id="'.$row_cookie_cc['Tb_index'].'" cc_group_id="'.$row_cookie_cc['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card">加入比較</button>
                                         </div>
                                         <span>謹慎理財 信用至上</span>
                                          </div>

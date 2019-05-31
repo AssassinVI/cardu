@@ -17,7 +17,7 @@ if (!$temparray[1]) {
 }else{
      $sql_temp="
       SELECT ns_ftitle, ns_stitle, ns_reporter, ns_photo_1, ns_alt_1, ns_msghtml, Tb_index, StartDate, ns_date, ns_nt_pk FROM  appNews
-      where mt_id = 'site2018111910430599' and ns_vfdate<>'0000-00-00 00:00:00' 
+      where ns_vfdate<>'0000-00-00 00:00:00' 
       and StartDate<='$todayis' and EndDate>='$todayis'
       and Tb_index='$temparray[1]'
       order by ns_vfdate desc
@@ -48,7 +48,7 @@ if (!$temparray[1]) {
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
 
-    <title>卡優新聞網-焦點新聞</title>
+    <title>卡優新聞網-列印</title>
 
     <meta name="keywords" content="信用卡,金融卡,悠遊卡,一卡通,icash,電子票證,現金回饋,紅利,信用卡比較,信用卡優惠,首刷禮,辦卡,新卡,卡訊,行動支付,小額消費,新聞,理財,消費,3C,旅遊,日本,住宿,美食,電影,交通,好康,加油,報稅"/>  
     <meta name="description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" /> 
@@ -60,10 +60,10 @@ if (!$temparray[1]) {
     <meta property="fb:admins" content="100000121777752" />
     <meta property="fb:admins" content="100008160723180" />
     <meta property="fb:app_id" content="319016928941764" />
-    <meta property="og:site_name" content="卡優新聞網-新聞內頁" />
+    <meta property="og:site_name" content="卡優新聞網-列印" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="卡優新聞網-新聞內頁" />
+    <meta property="og:title" content="卡優新聞網-列印" />
     <meta property="og:image" content="http://cardu.srl.tw/img/component/photo1.jpg" />
     <meta property="og:description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" />
     <meta property="og:url" content="<?php echo $FB_URL;?>" />
@@ -81,7 +81,7 @@ if (!$temparray[1]) {
    </style>
 
   </head>
-  <body class="news_body">
+  <body class="">
 
     <div class="container detail_page">
 
@@ -184,6 +184,10 @@ if (!$temparray[1]) {
     ?>
 
     <script type="text/javascript">
+      $(document).ready(function() {
+        //-- alt 圖說 --
+        img_txt('.detail_content p img');
+      });
 
      //--- 載入完成後列印 ---
      $(window).on('load', function(event) {

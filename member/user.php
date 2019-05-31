@@ -105,56 +105,113 @@
                                 <div class="cardshap primary_tab mouseHover_other_tab">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">
-                                      <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="javascript:;" tab-target="#goodMember" aria-selected="true">卡優公告</a>
+                                      <a class="nav-link py-2 pl-0 flex-x-center active show" id="goodMember-tab" href="javascript:;" slide_id="sub_slide2_1" tab-target="#goodMember" aria-selected="true">卡優公告</a>
                                     </li>
                                     <li class="nav-item">
-                                      <a class="nav-link py-2 pl-0 flex-x-center" id="goodPerson-tab" href="javascript:;" tab-target="#goodPerson" aria-selected="false">卡優活動</a>
+                                      <a class="nav-link py-2 pl-0 flex-x-center" id="goodPerson-tab" href="javascript:;" slide_id="sub_slide2_2" tab-target="#goodPerson" aria-selected="false">卡優活動</a>
                                     </li>
                                   </ul>
-                                <div class="tab-content" id="myTabContent">
-                                  <div class="tab-pane fade active show" id="goodMember" role="tabpanel" aria-labelledby="goodMember-tab">
+                                <div class="tab-content p-0" id="myTabContent">
+                            <div class="tab-pane fade active show" id="goodMember" role="tabpanel" aria-labelledby="goodMember-tab">
+                              
+                             <div class="tab-content">
+                                 <div class="swiper-container sub_slide2">
+                                  <div class="swiper-wrapper">
 
-                              <div class="row no-gutters">
-                                <div class="col-md-4 cards-3 text-center">
-                                  <a href="#">
-                                   <div class="img_div w-100-ph" style="background-image: url(../img/component/photo2.jpg);">
-                                       
-                                   </div>
-                                   <span>遊日血拚大回饋，信用卡大調查</span>
-                                  </a>
-                                </div>
-                                <div class="col-md-4 cards-3 text-center">
-                                  <a href="#">
-                                    <div class="img_div w-100-ph" style="background-image: url(../img/component/photo2.jpg);">
-                                       
-                                    </div>
-                                    <span>遊日血拚大回饋，信用卡大調查</span>
-                                  </a>
-                                </div>
-                                 <div class="col-md-4 cards-3 text-center">
-                                  <a href="#">
-                                    <div class="img_div w-100-ph" style="background-image: url(../img/component/photo2.jpg);">
-                                        
-                                    </div>
-                                    <span>遊日血拚大回饋，信用卡大調查</span>
-                                  </a>
-                                </div>
-                              </div>
+                                      <div class="swiper-slide">
+                                       <div class="cards-3 text-center">
+                                         <a href="#">
+                                          <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                              
+                                          </div>
+                                          <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
+                                         </a>
+                                       </div>
+                                      </div>
+
+                                      <div class="swiper-slide">
+                                        <div class="cards-3 text-center">
+                                          <a href="#">
+                                           <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                               
+                                           </div>
+                                           <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
+                                          </a>
+                                        </div>
+                                      </div>
+
+                                      <div class="swiper-slide">
+                                        <div class="cards-3 text-center">
+                                          <a href="#">
+                                           <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                               
+                                           </div>
+                                           <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
+                                          </a>
+                                        </div>
+                                      </div>
+
+                                      <div class="swiper-slide">
+                                        <div class="cards-3 text-center">
+                                          <a href="#">
+                                           <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                               
+                                           </div>
+                                           <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
+                                          </a>
+                                        </div>
+                                      </div>
+
+                                      <div class="swiper-slide">
+                                        <div class="cards-3 text-center">
+                                          <a href="#">
+                                           <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                               
+                                           </div>
+                                           <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
+                                          </a>
+                                        </div>
+                                      </div>
+
+                                      <div class="swiper-slide">
+                                        <div class="cards-3 text-center">
+                                          <a href="#">
+                                           <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                               
+                                           </div>
+                                           <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
+                                          </a>
+                                        </div>
+                                      </div>
+
+                                  </div>
+                                  
+                                  <!-- 如果需要导航按钮 -->
+                                  <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                                  <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                                  
+                              </div> 
+                             </div>
+                            
                               <br>
                               <div class="member_info">
                                 <!--我的信用卡-->
                                 <div class="col-md-12 col0">
 
-                                    <div class="cardshap exception">
+                                    <div class="cardshap exception user_more">
+                                      <a href="#" class="btn btnOver mx-md-2 phone_hidden">More</a>
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                      <li class="nav-item news_tab">
+                                      <li class="nav-item news_tab w-30">
                                         <a class="nav-link active  pl-30 py-2" id="box-tab"  href="second.php" tab-target="#box" aria-selected="true">
                                         我的信用卡</a>
+                                        <a class="top_link d-md-none d-sm-block" href="#"></a>
                                       </li>
                                     </ul>
                                 <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="box" role="tabpanel" aria-labelledby="box-tab">
-
+                                  <div class="mycard_info">
+                                    
+                               
                                    <table class="table table-striped table-bordered text-center">
                                      <thead>
                                        <tr>
@@ -190,6 +247,13 @@
                                        </tr>
                                        <tr>
                                          <th scope="row">XX銀行</th>
+                                         <td>XXXX卡</td>
+                                         <td>每月X日</td>
+                                         <td>每月X日</td>
+                                         <td>XXXX</td>
+                                       </tr>
+                                       <tr>
+                                         <th scope="row">XX銀行</th>
                                          <td>XXXX卡(請修正)</td>
                                          <td>每月X日</td>
                                          <td>每月X日</td>
@@ -198,6 +262,7 @@
 
                                      </tbody>
                                    </table>
+                                 </div>
                                        
                                       </div>
                                     </div>
@@ -207,11 +272,13 @@
                                 <!--我的帳單-->
                                 <div class="col-md-12 col0">
 
-                                    <div class="cardshap exception">
+                                    <div class="cardshap exception user_more">
+                                      <a href="#" class="btn btnOver mx-md-2 phone_hidden">More</a>
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                      <li class="nav-item news_tab">
+                                      <li class="nav-item news_tab w-30">
                                         <a class="nav-link active  pl-30 py-2" id="box-tab"  href="second.php" tab-target="#box" aria-selected="true">
                                         我的帳單</a>
+                                        <a class="top_link d-md-none d-sm-block" href="#"></a>
                                       </li>
                                     </ul>
                                 <div class="tab-content" id="myTabContent">
@@ -222,7 +289,7 @@
                                      <b>未繳款帳單</b>
                                      </div>
                                    </div>
-                                   
+                                   <div class="mycard_info">
                                     <table class="table table-striped table-bordered text-center">
                                      <thead>
                                        <tr>
@@ -260,12 +327,14 @@
                                        </tr>
                                      </tbody>
                                    </table>
+                                 </div>
                                    
                                    <div class="col-md-12 col0">
                                      <div class="user_more">
                                      <b>已繳款帳單</b>
                                      </div>
                                    </div>
+                                  <div class="mycard_info">
                                     <table class="table table-striped table-bordered text-center">
                                      <thead>
                                        <tr>
@@ -307,6 +376,7 @@
                                        </tr>
                                      </tbody>
                                    </table>
+                                 </div>
                                        
                                       </div>
                                     </div>
@@ -316,16 +386,18 @@
                                 <!--我的資訊-->
                                 <div class="col-md-12 col0">
 
-                                    <div class="cardshap exception">
+                                    <div class="cardshap exception user_more">
+                                      <a href="#" class="btn btnOver mx-md-2 phone_hidden">More</a>
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                      <li class="nav-item news_tab">
+                                      <li class="nav-item news_tab w-30">
                                         <a class="nav-link active  pl-30 py-2" id="box-tab"  href="second.php" tab-target="#box" aria-selected="true">
                                         我的資訊</a>
+                                        <a class="top_link d-md-none d-sm-block" href="#"></a>
                                       </li>
                                     </ul>
                                 <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="box" role="tabpanel" aria-labelledby="box-tab">
-
+                                  <div class="mycard_info">
                                    <table class="table table-striped table-bordered text-center">
                                      <thead>
                                        <tr>
@@ -368,6 +440,7 @@
                                        </tr>
                                      </tbody>
                                    </table>
+                                 </div>
                                        
                                       </div>
                                     </div>
@@ -377,16 +450,18 @@
                                 <!--我的文章-->
                                 <div class="col-md-12 col0">
 
-                                    <div class="cardshap exception">
+                                    <div class="cardshap exception user_more">
+                                      <a href="#" class="btn btnOver mx-md-2 phone_hidden">More</a>
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                      <li class="nav-item news_tab">
+                                      <li class="nav-item news_tab w-30">
                                         <a class="nav-link active  pl-30 py-2" id="box-tab"  href="second.php" tab-target="#box" aria-selected="true">
                                         我的文章</a>
+                                        <a class="top_link d-md-none d-sm-block" href="#"></a>
                                       </li>
                                     </ul>
                                 <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="box" role="tabpanel" aria-labelledby="box-tab">
-
+                                 <div class="mycard_info">
                                    <table class="table table-striped table-bordered text-center">
                                      <thead>
                                        <tr>
@@ -429,6 +504,7 @@
                                        </tr>
                                      </tbody>
                                    </table>
+                                 </div>
                                        
                                       </div>
                                     </div>
@@ -438,16 +514,18 @@
                                 <!--我的收藏-->
                                 <div class="col-md-12 col0">
 
-                                    <div class="cardshap exception">
+                                    <div class="cardshap exception user_more">
+                                      <a href="#" class="btn btnOver mx-md-2 phone_hidden">More</a>
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                      <li class="nav-item news_tab">
+                                      <li class="nav-item news_tab w-30">
                                         <a class="nav-link active  pl-30 py-2" id="box-tab"  href="second.php" tab-target="#box" aria-selected="true">
                                         我的收藏</a>
+                                        <a class="top_link d-md-none d-sm-block" href="#"></a>
                                       </li>
                                     </ul>
                                 <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="box" role="tabpanel" aria-labelledby="box-tab">
-
+                                  <div class="mycard_info">
                                    <table class="table table-striped table-bordered text-center">
                                      <thead>
                                        <tr>
@@ -484,6 +562,7 @@
                                        </tr>
                                      </tbody>
                                    </table>
+                                 </div>
                                        
                                       </div>
                                     </div>
@@ -494,62 +573,84 @@
                                 </div>
                             </div>
                           <div class="tab-pane fade" id="goodPerson" role="tabpanel" aria-labelledby="goodPerson-tab">
-                            <ul class="fun">
-                              <li>
-                                <img src="../img/component/li.png">
-                                <span class="publish_cate">[好康活動]</span>
-                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
-                                <span class="ontime">2018/01/22~2018/02/04</span>
-                              </li>
-                              <li>
-                                <img src="../img/component/li.png">
-                                <span class="publish_cate">[好康活動]</span>
-                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
-                                <span class="ontime">2018/01/22~2018/02/04</span>
-                              </li>
-                              <li>
-                                <img src="../img/component/li.png">
-                                <span class="publish_cate">[好康活動]</span>
-                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
-                                <span class="ontime">2018/01/22~2018/02/04</span>
-                              </li>
-                              <li>
-                                <img src="../img/component/li.png">
-                                <span class="publish_cate">[好康活動]</span>
-                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
-                                <span class="ontime">2018/01/22~2018/02/04</span>
-                              </li>
-                              <li>
-                                <img src="../img/component/li.png">
-                                <span class="publish_cate">[好康活動]</span>
-                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
-                                <span class="ontime">2018/01/22~2018/02/04</span>
-                              </li>
-                              <li>
-                                <img src="../img/component/li.png">
-                                <span class="publish_cate">[好康活動]</span>
-                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
-                                <span class="ontime">2018/01/22~2018/02/04</span>
-                              </li>
-                              <li>
-                                <img src="../img/component/li.png">
-                                <span class="publish_cate">[好康活動]</span>
-                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
-                                <span class="ontime">2018/01/22~2018/02/04</span>
-                              </li>
-                              <li>
-                                <img src="../img/component/li.png">
-                                <span class="publish_cate">[好康活動]</span>
-                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
-                                <span class="ontime">2018/01/22~2018/02/04</span>
-                              </li>
-                              <li>
-                                <img src="../img/component/li.png">
-                                <span class="publish_cate">[好康活動]</span>
-                                <a href="#">抽獎活動》FB留言抽獎　送你鮮食家年菜自(已結束)</a>
-                                <span class="ontime">2018/01/22~2018/02/04</span>
-                              </li>
-                            </ul>
+                            <div class="tab-content">
+                                 <div class="swiper-container sub_slide2">
+                                  <div class="swiper-wrapper">
+
+                                      <div class="swiper-slide">
+                                       <div class="cards-3 text-center">
+                                         <a href="#">
+                                          <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                              
+                                          </div>
+                                          <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
+                                         </a>
+                                       </div>
+                                      </div>
+
+                                      <div class="swiper-slide">
+                                        <div class="cards-3 text-center">
+                                          <a href="#">
+                                           <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                               
+                                           </div>
+                                           <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
+                                          </a>
+                                        </div>
+                                      </div>
+
+                                      <div class="swiper-slide">
+                                        <div class="cards-3 text-center">
+                                          <a href="#">
+                                           <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                               
+                                           </div>
+                                           <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
+                                          </a>
+                                        </div>
+                                      </div>
+
+                                      <div class="swiper-slide">
+                                        <div class="cards-3 text-center">
+                                          <a href="#">
+                                           <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                               
+                                           </div>
+                                           <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
+                                          </a>
+                                        </div>
+                                      </div>
+
+                                      <div class="swiper-slide">
+                                        <div class="cards-3 text-center">
+                                          <a href="#">
+                                           <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                               
+                                           </div>
+                                           <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
+                                          </a>
+                                        </div>
+                                      </div>
+
+                                      <div class="swiper-slide">
+                                        <div class="cards-3 text-center">
+                                          <a href="#">
+                                           <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
+                                               
+                                           </div>
+                                           <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
+                                          </a>
+                                        </div>
+                                      </div>
+
+                                  </div>
+                                  
+                                  <!-- 如果需要导航按钮 -->
+                                  <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                                  <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                                  
+                              </div> 
+                             </div>
                           </div>
                                   
                             
@@ -726,15 +827,15 @@
                     </div>
 
                       <div class="col-md-12 col">
-                       <div class="cardshap primary_tab ">
+                       <div class="cardshap primary_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item">
-                            <a class="nav-link active  pl-30" id="hotNews-tab" data-toggle="tab" href="#hotNews" role="tab" aria-controls="hotNews" aria-selected="true">
+                            <a class="nav-link active  pl-30" id="hotNews-tab"  href="#hotNews" tab-target="#hotNews"  aria-selected="true">
                                 <i class="icon" style="background-image: url(img/component/icon/index/icon3.png); background-size: 80%;"></i> 卡優公告
                             </a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link pl-0 flex-x-center" id="hotGift-tab" data-toggle="tab" href="#hotGift" role="tab" aria-controls="hotGift" aria-selected="false">
+                            <a class="nav-link pl-0 flex-x-center" id="hotGift-tab"  href="#hotGift" tab-target="#hotGift"  aria-selected="false">
                                 <i class="icon" style="background-image: url(img/component/icon_down/index/icon4.png); background-size: 76%;"></i> 卡優活動
                             </a>
                           </li>

@@ -7,7 +7,7 @@
 //=============================================
 //取出特別議題頁籤
 //=============================================
-  $sql_special=$pdo->prepare($sqltemp);
+  $sql_special=$pdo_OLD->prepare($sqltemp);
   $sql_special->execute();
   $row_specials = $sql_special->fetchAll();
 
@@ -25,9 +25,9 @@
   $nt_pk = $row_special['pk'];
 
                      //跑回圈將每個tab中資料內容都load出＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-                      $sql_part=$pdo->prepare("
+                      $sql_part=$pdo_OLD->prepare("
                       SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
-                      where ns_nt_pk='$Tb_index'
+                      where (ns_nt_pk='$Tb_index' OR ns_nt_ot_pk LIKE '%$Tb_index%')
                       and ns_verify=3 and OnLineOrNot=1
                       and  StartDate<='$todayis' and EndDate>='$todayis'
                       order by ns_vfdate desc

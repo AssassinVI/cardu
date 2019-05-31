@@ -1,5 +1,7 @@
 <?php 
- require '../share_area/conn.php';
+require '../share_area/conn.php';
+require '../share_area/get_news.php';
+require 'config.php';
 ?>
 <!DOCTYPE html>
 
@@ -57,7 +59,7 @@
         <!-- 麵包屑 -->
         <div class="row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="point.php">優集點</a> / <a href="javascript:;">點數平台</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/">首頁</a> / <a href="/point/">優集點</a> / <a href="javascript:;">點數平台</a></p>
           </div>
         </div>
         
@@ -74,155 +76,50 @@
                   <div class="col-md-12 col">
                   
                       <?php 
-                       //-- 判斷是否為手機 --
-                       if (wp_is_mobile()){
-                      ?>
-                      
-                      <!-- 手機板輪播 -->
-                      <div class="myCarousel d-md-none d-sm-block">
-                          <div id="iNews" class="news_slide cardshap">
-                            <div class=" swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide img_div" pagination-index="1" style="background-image: url(../img/component/slide_photo1.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >新光三越週慶強強滾　首日6店業績逾14.9億</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide img_div" pagination-index="2" style="background-image: url(../img/component/slide_photo2.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >ATM「靠臉」就能領錢　台新內湖分行首上線</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide img_div" pagination-index="3" style="background-image: url(../img/component/slide_photo3.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide img_div" pagination-index="4" style="background-image: url(../img/component/U20181204080844.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
-                                      </a>
-                                    </div>
-                                    <div class="swiper-slide img_div" pagination-index="5" style="background-image: url(../img/component/U20181212084227.jpg);"> 
-                                      <a href="#" title="新聞">
-                                          <div  class="word shadow_text" >跨年4天連假玩翻台北　#Party101之夜看煙火</div>
-                                      </a>
-                                    </div>
-                                </div>
+                       //先取出優行動pay的分類，再從優行動pay的分類中，把appNews load出來，優行動pay版區id為at2019011117341414
+                       $pdo=pdo_conn();
+                       $sql_area=$pdo->prepare("SELECT Tb_index FROM `news_type` WHERE `area_id` LIKE '$area_id'");
+                       $sql_area->execute();
+                       $row_areas = $sql_area->fetchAll();
 
-                                <div class="swiper-pagination"></div>
+                       foreach ($row_areas as $row_area) {
+                           $unit_all_id.="'".$row_area['Tb_index']."',";
+                        }
+                       $unit_all_id = substr($unit_all_id, 0, -1); //去掉最後一碼，
 
-                                <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
-                                <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
-                            </div>
-                          </div>
-                      </div>
-                      <!-- 手機板輪播 END -->
 
-                      <?php 
-                       } 
-                       else{
-                      ?>
+                      if (wp_is_mobile()) {
 
-                       <!-- 四小三大輪播 -->
-                      <div id="new_iNews" class="cardshap new_slide phone_hidden">
-                          <div class="swiper-container">
-                              <div class="swiper-wrapper">
-                                  <div class="swiper-slide" > 
-
-                                    <div class="slide_div">
-                                      <div class="slide_img">
-                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
-                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
-                                      </div>
-                                      <div class="slide_list">
-                                        <a class="active" href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
-                                          <h4>ATM「靠臉」就能領錢　台新</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
-                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                      </div>
-                                    </div>
-                                    
-                                  </div>
-                                  <div class="swiper-slide" > 
-                                    <div class="slide_div">
-                                      <div class="slide_img">
-                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
-                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
-                                      </div>
-                                      <div class="slide_list">
-                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
-                                          <h4>ATM「靠臉」就能領錢　台新</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
-                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="swiper-slide" > 
-                                    <div class="slide_div">
-                                      <div class="slide_img">
-                                        <a href="#" index_img="1" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div active" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線" class="img_div" style="background-image: url(../img/component/photo2.jpg);"></a>
-                                        <a href="#" index_img="3" title="新光三越週慶強強滾　首日6店業績逾14.9億" class="img_div" style="background-image: url(../img/component/photo1.jpg);"></a>
-                                        <a href="#" index_img="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火" class="img_div" style="background-image: url(../img/component/photo3.jpg);"></a>
-                                      </div>
-                                      <div class="slide_list">
-                                        <a href="#" index="1" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="2" title="ATM「靠臉」就能領錢　台新內湖分行首上線">
-                                          <h4>ATM「靠臉」就能領錢　台新</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="3" title="新光三越週慶強強滾　首日6店業績逾14.9億">
-                                          <h4>新光三越週慶強強滾　首日6店業</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                        <a href="#" index="4" title="跨年4天連假玩翻台北　#Party101之夜看煙火">
-                                          <h4>跨年4天連假玩翻台北　#Party1</h4>
-                                          <p>卡優新聞網卡優新聞網卡優新聞網...</p>
-                                        </a>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                              <!-- 如果需要分页器 -->
-                              <div class="swiper-pagination"></div>
-
-                          </div>
-                      </div>
-                      <!-- 四小三大輪播 END -->
-                      <?php
+                         //============================================
+                         //每頁的輪播
+                         //設定好sql後，交由 page_carousel_mobile.php執行
+                         //============================================
+                         $sql_carousel="
+                          SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
+                          where mt_id = 'site2019011116095854'
+                          and ns_verify=3 and OnLineOrNot=1 
+                          and  StartDate<='$todayis' and EndDate>='$todayis'
+                          order by ns_vfdate desc
+                          LIMIT 0, 6
+                          ";
+                          require("../share_area/page_carousel_mobile.php"); //載入手機版刊頭輪播
                        }
+                       else{
+                         //============================================
+                         //每頁的輪播
+                         //設定好sql後，交由 page_carousel.php執行
+                         //============================================
+                         $sql_carousel="
+                          SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
+                          where ns_nt_pk in ($unit_all_id) 
+                          and ns_verify=3 and OnLineOrNot=1 
+                          and  StartDate<='$todayis' and EndDate>='$todayis'
+                          order by ns_vfdate desc
+                          LIMIT 0, 12
+                          ";
+                         require '../share_area/page_carousel.php';
+                       }
+
                       ?>
                       
                   
@@ -271,45 +168,41 @@
                     
                     <div class="col-md-12 row col0">
                       <div class="row ticketbg">
+                          <?php 
+                          $pdo=pdo_conn();
+                          $sql_pay=$pdo->prepare("SELECT * FROM store where st_type='st2019013117014249' and OnLineOrNot=1 order by st_name ");
+                          $sql_pay->execute();
+
+                          $i=1; while ($row_pay=$sql_pay->fetch(PDO::FETCH_ASSOC)) {
+                            $Tb_index=$row_pay['Tb_index'];
+                            $st_name=$row_pay['st_name'];
+                            $st_logo=$row_pay['st_logo'];
+                            $st_url=$row_pay['st_url'];
+                            ?>
+
                          <div class="col-md-6 col">
                             <div class="cardshap move_2">
-                              <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/uupon.png">
+                              <a class="all_form" href="about.php?<?php echo $Tb_index?>" title="<?php echo $st_name?>">
+                            <img src="<?php echo $img_url.$st_logo?>">
                             <hr>
-                             <h3>UUPON</h3>
+                             <h3><?php echo $st_name?></h3>
                            </a>
                             <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
+
+                                <button type="button" class="btn warning-layered btnOver" title="<?php echo $st_name?>" onclick="location.href='about.php?<?php echo $Tb_index?>'">詳細介紹</button>
+
+                                <button type="button" class="btn gray-layered btnOver" title="<?php echo $st_name?>" onclick="location.href='<?php echo $st_url?>'">前往官網</button>
+            
                               </div>
                             </div>
                         </div>
-                         <div class="col-md-6 col">
-                            <div class="cardshap move_2">
-                              <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/openpoint.png">
-                            <hr>
-                             <h3>OPENPOINT</h3>
-                           </a>
-                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                        </div>
-                         <div class="col-md-6 col">
-                            <div class="cardshap move_2">
-                              <a class="all_form" href="#" title="新聞">
-                            <img src="../img/component/happycash.png">
-                            <hr>
-                             <h3>HappyCash</h3>
-                           </a>
-                            <div class="card_btn  hv-center">
-                                <button type="button" class="btn warning-layered btnOver" title="新聞">詳細介紹</button>
-                                <button type="button" class="btn gray-layered btnOver" title="新聞">前往官網</button>
-                              </div>
-                            </div>
-                        </div>
+
+                        <?php $i++; }?>
+
+
+
+
+
                         </div>
                     </div>
                     

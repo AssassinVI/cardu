@@ -3,6 +3,7 @@
 //目前暫時用tb_index進入的內容頁
 require '../share_area/conn.php';
 require '../share_area/get_news.php';
+require 'config.php';
 
 $todayis=date("Y-m-d"); //取得要查詢的日期，預設為今日
 
@@ -83,7 +84,7 @@ if (!$temparray[1]) {
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/">首頁</a> / <a href="/ticket/">優票證</a> / <a href="all.php">票證總覽</a> / <a href="javascript:;">悠遊卡</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/">首頁</a> / <a href="/ticket/">優票證</a> / <a href="all.php">票證總覽</a> / <a href="javascript:;"><?php echo $row['st_name'];?></a></p>
           </div>
         </div>
         
@@ -152,9 +153,7 @@ if (!$temparray[1]) {
                         </ul>
                         <div class="tab-content py-md-4 py-2 px-md-2 px-0" id="myTabContent">
                           <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
-
-                           
-                                 <?php echo $row['st_intro'];?>
+                          <?php echo $row['st_intro']; //簡介內容/////////?>
 
                     <!--廣告-->
                     <div class="col-md-12 row phone_hidden">
@@ -327,9 +326,9 @@ if (!$temparray[1]) {
                         <?php 
                             $pdo=pdo_conn();
 
-                            //查詢分類ID
-                            //$sql_catalog="SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011717535610'";
-                            $sql_catalog=$pdo->prepare("SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011717535610'");
+                            //查詢分類ID 票證攻略ID un2019011717541797
+                            //$sql_catalog="SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011717541797'";
+                            $sql_catalog=$pdo->prepare("SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011717541797'");
                             $sql_catalog->execute();
                             $i=1; while ($row_catalog=$sql_catalog->fetch(PDO::FETCH_ASSOC)) {
                               $catalog_list.="'".$row_catalog['Tb_index']."',";
@@ -638,61 +637,18 @@ if (!$temparray[1]) {
                           </div>
                           <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
 
-                              <div class="bank_main hole">
-                              <h5>相關新聞</h5>
-                              </div>
-                            
-                            <div class="row no-gutters">
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2 ">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                              </div>
-                            
-                            <div class="bank_main hole">
-                              <h5>相關好康</h5>
-                              </div>
-                            
-                            <div class="row no-gutters">
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                              </div>
+                              <?php 
+                            //取出跟目前商店相關的新聞，只要代入 ns_store 商店ID 即可-----------------------------------
+                            //同時ns_store 也會代到 getRelatedBenefit.php中使用，不只是getRelatedNews.php
+                            $ns_store=$temparray[1];
+                            require('../share_area/getRelatedNews.php');
+
+
+                            //取出卡好康所有的分類, 再以分類查出新聞---------------------------------------------------
+                            //卡好康id為un2019011716575635
+                            $sql_type_temp="SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011716575635'";
+                            require('../share_area/getRelatedBenefit.php');
+                            ?>
                               
                               <!--廣告-->
                     <div class="col-md-12 row phone_hidden">

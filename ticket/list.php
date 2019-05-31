@@ -122,7 +122,7 @@ $nt_name =$row['nt_name'];
 
                       ?>
                   
-                  </div>
+                
 
                     <!--廣告-->
                     <div class="col-md-12 row phone_hidden">
@@ -176,7 +176,7 @@ $nt_name =$row['nt_name'];
                     //----------------------------------------------
                     $sql_temp="
                     SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index,StartDate FROM  appNews
-                    where mt_id = 'site2018111910430599' and ns_vfdate<>'0000-00-00 00:00:00' 
+                    where ns_verify=3 and OnLineOrNot=1 
                     and StartDate<='$todayis' and EndDate>='$todayis'
                     and ns_nt_pk='$Tb_index'
                     order by ns_vfdate desc

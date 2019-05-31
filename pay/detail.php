@@ -3,6 +3,7 @@
 //目前暫時用tb_index進入的內容頁
 require '../share_area/conn.php';
 require '../share_area/get_news.php';
+require 'config.php';
 
 $todayis=date("Y-m-d"); //取得要查詢的日期，預設為今日
 
@@ -16,7 +17,7 @@ if (!$temparray[1]) {
 
 }else{
      $sql_temp="
-      SELECT ns_ftitle,ns_stitle,ns_reporter,ns_photo_1,ns_alt_1,ns_msghtml,Tb_index,StartDate,ns_date,ns_nt_pk FROM  appNews
+      SELECT ns_ftitle,ns_stitle,ns_reporter,ns_photo_1,ns_alt_1,ns_photo_2,ns_alt_2,ns_msghtml,Tb_index,StartDate,ns_date,ns_nt_pk,ns_news,ns_store,note,sourceUrl FROM  appNews
       where StartDate<='$todayis' and EndDate>='$todayis'
       and Tb_index='$temparray[1]'
       and ns_verify=3 and OnLineOrNot=1 
@@ -43,7 +44,7 @@ if (!$temparray[1]) {
 
     //echo "SELECT * FROM news_type WHERE Tb_index='$pk'";
     $st_id =$row_store['Tb_index'];
-    $st_name =$row_store['nt_name'];
+    $st_name =$row_store['st_name'];
     $st_logo =$row_store['st_logo'];
     }
 ?>
@@ -146,7 +147,7 @@ if (!$temparray[1]) {
                             ?>
 
                             <div class="col-md-8 col-12">
-                              <?php if($st_logo){?><a><img src="../sys/img/<?php echo $st_logo?>"> </a><?php }?><p><?php echo $data_temp;?></p>
+                              <?php if($st_logo){?><a><img src="<?php echo $img_url.$st_logo?>"> </a><?php }?><p><?php echo $data_temp;?></p>
                             </div>
 
                             <div class="col-md-4 col-12">
@@ -171,17 +172,22 @@ if (!$temparray[1]) {
 
                         <div class="pb-3 mx-3 detail_content">
                           <div class="con_img">
-                            <img src="<?php echo "../sys/img/".$row['ns_photo_1'];?>" alt="<?php echo $row['ns_ftitle'];?>" title="<?php echo $row['ns_ftitle'];?>">
-                           
+                            <img src="<?php echo $img_url.$row['ns_photo_1'];?>" alt="<?php echo $row['ns_ftitle'];?>" title="<?php echo $row['ns_ftitle'];?>">
+                           <p>▲<?php echo $row['ns_alt_1'];?></p>
                           </div>
                             
-                            <?php echo $row['ns_msghtml'];?>
+                            <?php echo $row['ns_msghtml'];//內容區＝＝＝＝＝?>
 
-                            <p><b>◎延伸閱讀：</b><br>
-                            ▶▶<a href="#">橘子支嗶全家　享10%現金回饋</a><br>
-                            ▶▶<a href="#">街口APP綁定滙豐　最高享 8%回饋</a><br>
-                            ▶▶<a href="#">綁定行動支付消費　首刷送衛生紙一份</a><br>
-                            </p>
+                            <?php if($row['ns_photo_2']){ //下圖＝＝＝＝?>
+                            <div class="con_img">
+                              <img src="<?php echo $img_url.$row['ns_photo_2'];?>" alt="<?php echo $row['ns_alt_2'];?>" title="<?php echo $row['ns_alt_2'];?>">
+                              <p>▲<?php echo $row['ns_alt_2'];?></p>
+                            </div>
+                            <?php  }?>
+
+                            
+
+                            <?php require('../share_area/news_other1_type2.php'); // 延伸閱讀區塊：：：：：：：：：：：：：：：：：：：：：：：?>
                            
                           <div class="col-md-12 col hv-center">
                             <div class="row paybg py-md-2">
@@ -217,93 +223,12 @@ if (!$temparray[1]) {
                     <!--廣告end-->
 
 
-                   
-                    <!--XXＸ更多好康-->
-                    <div class="col-md-12 col">
+                     <?php require('../share_area/news_other2.php'); // XXＸ更多好康區塊：：：：：：：：：：：：：：：：：：：：：：：?>
+                     <?php require('../share_area/news_other3.php'); // 相關好康區塊：：：：：：：：：：：：：：：：：：：：：：：：：：?>
+                    
 
-                        <div class="cardshap blueGreen_tab ">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab">
-                            <a class="nav-link active pl-30 py-2" id="special_1-tab" data-toggle="tab" href="#special_1" role="tab" aria-controls="special_1" aria-selected="true">XXＸ更多好康</a>
-                          </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
-                            <div class="row no-gutters">
-                                <div class="col-md-4 cards-3 py-md-2 col-12">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 cards-3 py-md-2 col-12">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 cards-3 py-md-2 col-12">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                               
-                            </div>
-                           
-                          </div>
-                         
-                        </div>
-                      </div>
-                    </div>
-                    <!--XXＸ更多好康end -->
-                       <!--相關好康-->
-                    <div class="col-md-12 col">
-
-                        <div class="cardshap blueGreen_tab ">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab">
-                            <a class="nav-link active pl-30 py-2" id="special_1-tab" data-toggle="tab" href="#special_1" role="tab" aria-controls="special_1" aria-selected="true">相關好康</a>
-                          </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
-
-                            <div class="row no-gutters">
-                                <div class="col-md-4 cards-3 py-md-2 col-12">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 cards-3 py-md-2 col-12">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 cards-3 py-md-2 col-12">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <p>遊日血拚大回饋，信用卡大調查</p>
-                                   </a>
-                                </div>
-                               
-                            </div>
-                           
-                          </div>
-                         
-                        </div>
-                      </div>
-                    </div>
-                    <!--相關好康end -->
+                      
 
                     
                     <!--廣告-->

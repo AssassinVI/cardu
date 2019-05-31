@@ -6,6 +6,7 @@
 //暫時把mt_id的條件拿掉
 require '../share_area/conn.php';
 require '../share_area/get_news.php';
+require 'config.php';
 
 $todayis=date("Y-m-d"); //取得要查詢的日期，預設為今日
 
@@ -117,7 +118,7 @@ $nt_name =$row['nt_name'];
                           and StartDate<='$todayis' and EndDate>='$todayis'
                           and ns_nt_pk='$Tb_index'
                           order by ns_vfdate desc
-                          LIMIT 0, 12
+                          LIMIT 0, 6
                           ";
                          require '../share_area/page_carousel.php';
                        }
@@ -169,7 +170,7 @@ $nt_name =$row['nt_name'];
                     //----------------------------------------------
                     $sql_temp="
                     SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index,StartDate FROM  appNews
-                    where mt_id = 'site2018111910430599' and ns_vfdate<>'0000-00-00 00:00:00' 
+                    where ns_verify=3 and OnLineOrNot=1 
                     and StartDate<='$todayis' and EndDate>='$todayis'
                     and ns_nt_pk='$Tb_index'
                     order by ns_vfdate desc

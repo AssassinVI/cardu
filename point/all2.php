@@ -1,14 +1,19 @@
+<?php 
+require '../share_area/conn.php';
+require '../share_area/get_news.php';
+require 'config.php';
+?>
 <!DOCTYPE html>
 
 <html lang="zh-Hant-TW">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
 
 
-    <title>卡優新聞網-優票證</title>
+    <title>卡優新聞網-優集點</title>
 
     <meta name="keywords" content="信用卡,金融卡,悠遊卡,一卡通,icash,電子票證,現金回饋,紅利,信用卡比較,信用卡優惠,首刷禮,辦卡,新卡,卡訊,行動支付,小額消費,新聞,理財,消費,3C,旅遊,日本,住宿,美食,電影,交通,好康,加油,報稅"/>  
     <meta name="description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" /> 
@@ -37,19 +42,24 @@
 
 
   </head>
-  <body class="ticket_body">
+  <body class="point_body">
 
     <div class="container">
 
         <?php 
-         //-- 共用header --
-         require '../share_area/header.php';
+         //-- 共用Header --
+         if (wp_is_mobile()) {
+          require '../share_area/phone/header.php';
+         }
+         else{
+          require '../share_area/header.php';
+         }
         ?>
         
         <!-- 麵包屑 -->
-        <div class="row ">
+        <div class="row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/">首頁</a> / <a href="javascript:;">優票證</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/">首頁</a> / <a href="/point/">優集點</a> / <a href="javascript:;">集點店家</a></p>
           </div>
         </div>
         
@@ -63,7 +73,9 @@
                 
                 <div class="row">
 
-                  <?php 
+                  <div class="col-md-12 col">
+                  
+                      <?php 
                        //先取出優行動pay的分類，再從優行動pay的分類中，把appNews load出來，優行動pay版區id為at2019011117341414
                        $pdo=pdo_conn();
                        $sql_area=$pdo->prepare("SELECT Tb_index FROM `news_type` WHERE `area_id` LIKE '$area_id'");
@@ -76,26 +88,45 @@
                        $unit_all_id = substr($unit_all_id, 0, -1); //去掉最後一碼，
 
 
-                       //============================================
-                       //每頁的輪播
-                       //設定好sql後，交由 page_carousel.php執行
-                       //============================================
-                       $sql_carousel="
-                        SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
-                        where ns_nt_pk in ($unit_all_id) 
-                        and ns_verify=3 and OnLineOrNot=1 
-                        and  StartDate<='$todayis' and EndDate>='$todayis'
-                        order by ns_vfdate desc
-                        LIMIT 0, 12
-                        ";
-                       require '../share_area/page_carousel.php';
+                      if (wp_is_mobile()) {
+
+                         //============================================
+                         //每頁的輪播
+                         //設定好sql後，交由 page_carousel_mobile.php執行
+                         //============================================
+                         $sql_carousel="
+                          SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
+                          where mt_id = 'site2019011116095854'
+                          and ns_verify=3 and OnLineOrNot=1 
+                          and  StartDate<='$todayis' and EndDate>='$todayis'
+                          order by ns_vfdate desc
+                          LIMIT 0, 6
+                          ";
+                          require("../share_area/page_carousel_mobile.php"); //載入手機版刊頭輪播
+                       }
+                       else{
+                         //============================================
+                         //每頁的輪播
+                         //設定好sql後，交由 page_carousel.php執行
+                         //============================================
+                         $sql_carousel="
+                          SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
+                          where ns_nt_pk in ($unit_all_id) 
+                          and ns_verify=3 and OnLineOrNot=1 
+                          and  StartDate<='$todayis' and EndDate>='$todayis'
+                          order by ns_vfdate desc
+                          LIMIT 0, 12
+                          ";
+                         require '../share_area/page_carousel.php';
+                       }
+
                       ?>
-
+                      
                   
-                  
+                  </div>
 
-                   <!--廣告-->
-                    <div class="col-md-12 row">
+                     <!--廣告-->
+                    <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col ad_news">
                           <div class="row no-gutters">
                             <div class="col-md-6 h-center">
@@ -126,332 +157,60 @@
                         </div>
                     </div>
                     <!--廣告end-->
-                    
-                   <!--票證總覽-->
-                    <div class="col-md-12 col">
-
-                        <div class="cardshap pink_tab ">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab">
-                            <a class="nav-link active pl-30 py-2" id="all-tab" href="all.php" aria-controls="all" aria-selected="true">票證總覽</a>
-                            <a class="top_link" href="all.php"></a>
-                          </li>
-                          
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-
-                            <div class="row no-gutters ticket_card">
-
-                              <?php 
-                                $pdo=pdo_conn();
-                                $sql_pay=$pdo->prepare("SELECT * FROM store where st_type='st201901311701269' and OnLineOrNot=1 order by st_name LIMIT 0, 4");
-                                $sql_pay->execute();
-
-                                $i=1; while ($row_pay=$sql_pay->fetch(PDO::FETCH_ASSOC)) {
-                                  
-                                ?>
-
-
-                                <div class="col-3 cards-4 ">
-                                  <div class="cardshap ticket_img hv-center">
-                                    <a href="about.php?<?php echo $row_pay['Tb_index']?>" title="<?php echo $row_pay['st_name']?>">
-                                      <img src="../sys/img/<?php echo $row_pay['st_logo']?>">
-                                      <h4><?php echo $row_pay['st_name']?></h4>
-                                    </a>
-                                  </div>
-                                </div>
-
-                                <?php 
-                                $i++; }?>
-
-
-                            </div>
-                           
-                          </div>
-                          
-
+                    <!--手機板廣告-->
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 col banner d-md-none d-sm-block">
+                            <img src="http://placehold.it/365x100" alt="">
                         </div>
-                      </div>
                     </div>
-                    <!--票證總覽end -->
-                     <!--廣告-->
-                    <div class="col-md-12 col"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
-                    <!--特別議題-->
-                    <?php 
-                    //===================================
-                    //取出特別議題頁籤
-                    //===================================
-                      $sql_special=$pdo->prepare("
-                        SELECT nt_name,Tb_index,pk FROM news_type
-                        where area_id='$area_id' and nt_sp=1 
-                        and OnLineOrNot=1 
-                        and nt_sp_begin_date <= '$todayis' and nt_sp_end_date >= '$todayis' 
-                        order by OrderBy  
-                        LIMIT 0, 4");
-
-
-                      $sql_special->execute();
-                      $row_specials = $sql_special->fetchAll();
-
-                    ?>
-                    <div class="col-md-12 col">
-
-                      <div class="cardshap pink_tab mouseHover_other_tab">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <!--廣告end-->
+                    
+                    
+                    <div class="col-md-12 row col0">
+                      <div class="row ticketbg">
                           <?php 
-                          //tab來個回圈＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-                          $i=1;
-                          foreach ($row_specials as $row_special) {
-                            if($i==1){
-                                $activeornot="active";
-                              }else{
-                                $activeornot="";
-                              }
-                          $Tb_index = $row_special['Tb_index'];
-                          $nt_name = $row_special['nt_name'];
-                          $nt_pk = $row_special['pk'];
+                          $pdo=pdo_conn();
+                          $sql_pay=$pdo->prepare("SELECT * FROM store where st_type='st2019013117015133' and OnLineOrNot=1 order by st_name ");
+                          $sql_pay->execute();
 
-                          echo "<li class='nav-item news_tab'>
-                                  <a class='nav-link pl-30 py-2 $activeornot' id='special_$Tb_index-tab' href='javascript:;' tab-target='#special_$Tb_index' aria-selected='true' disabled>$nt_name</a>
-                                </li>";
-                          $i++;}
-                          ?>
-
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                          <?php 
-                           //跑回圈將每個tab內容都load出＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-                            $y=1;
-                            foreach ($row_specials as $row_special) {
-                                if($y==1){
-                                  $activeornot="active";
-                                }else{
-                                  $activeornot="";
-                                }
-
-                              $Tb_index = $row_special['Tb_index'];
+                          $i=1; while ($row_pay=$sql_pay->fetch(PDO::FETCH_ASSOC)) {
+                            $Tb_index=$row_pay['Tb_index'];
+                            $st_name=$row_pay['st_name'];
+                            $st_logo=$row_pay['st_logo'];
+                            $st_url=$row_pay['st_url'];
                             ?>
 
-                              <?php echo getNews($Tb_index,$todayis,$mt_id,$activeornot,$y,1);?>
+                         <div class="col-md-6 col">
+                            <div class="cardshap move_2">
+                              <a class="all_form" href="shop.php?<?php echo $Tb_index?>" title="<?php echo $st_name?>">
+                            <img src="<?php echo $img_url.$st_logo?>">
+                            <hr>
+                             <h3><?php echo $st_name?></h3>
+                           </a>
+                            <div class="card_btn  hv-center">
 
-                          <?php $y++;} //結束tab內容＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝?>
+                                <button type="button" class="btn warning-layered btnOver" title="<?php echo $st_name?>" onclick="location.href='shop.php?<?php echo $Tb_index?>'">詳細介紹</button>
 
-                        </div>
-                      </div>
-                    </div>
-                    <!--特別議題end -->
-                    
-                    <!--廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col">
-                            <img src="http://placehold.it/365x100" alt="">
-                        </div>
-                        <div class="col-md-6 col">
-                            <img src="http://placehold.it/365x100">
-                        </div>
-                    </div>
-                    <!--廣告end-->
-
-                    <?php 
-                    //======================================================================
-                    //取出全分類頁籤+頁籤內資料--
-                    //目前只列出懶人包 nt2019011818222043 / 樂分享 nt2019011818090996
-                    //======================================================================\
-
-                      $sql_type=$pdo->prepare("
-                        SELECT nt_name,Tb_index,pk FROM news_type
-                        where area_id='$area_id' and nt_sp<>1 
-                        and OnLineOrNot=1 
-                        and Tb_index='nt2019011818222043' or Tb_index='nt2019011818090996'
-                        order by OrderBy  
-                        ");
-
-                      $sql_type->execute();
-
-
-
-                     //分批取出part1--------------------------------------
-                    $i=1; while ($row_types=$sql_type->fetch(PDO::FETCH_ASSOC)) {
-
-                
-                        if($i==1){
-                          $activeornot="active show";
-                        }else{
-                          $activeornot="";
-                        }
-                      $Tb_index = $row_types['Tb_index'];
-                      $nt_name = $row_types['nt_name'];
-                      $nt_pk = $row_types['pk'];
-
-
-                      $tab1.= "<li class='nav-item '>
-                              <a class='nav-link py-2 pl-0 flex-x-center $activeornot' id='special_$Tb_index-tab' href='list.php?nt_pk=$nt_pk' tab-target='#special_$Tb_index' aria-selected='true'>$nt_name</a>
-                            </li>";
-                      $content1.=getNews($Tb_index,$todayis,$mt_id,$activeornot,$i,0);
-
-                      if ( $i==3 ) break;
-                      $i++;}
-                      //end part1--------------------------------------
-
-
-                    ?>
-                    <div class="col-md-12 col">
-                      <div class="cardshap pink_tab mouseHover_other_tab">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <?php echo $tab1?>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                          <?php echo $content1?>
-                        </div>
-                      </div>
-                    </div>
-                     
-                     <!--最新文章-->
-                     <?php 
-                       //============================================
-                       //最新文章
-                       //============================================
-                       $sql_newtemp="
-                        SELECT a.ns_ftitle,a.ns_photo_1,a.ns_msghtml,a.Tb_index,b.nt_name
-                        FROM  appNews a left join news_type b on a.ns_nt_pk = b.Tb_index
-                        where a.ns_nt_pk in ($unit_all_id)  
-                        and a.ns_verify=3 and a.OnLineOrNot=1 
-                        and  a.StartDate<='$todayis' and a.EndDate>='$todayis'
-                        order by a.ns_vfdate desc
-                        LIMIT 0, 10
-                        ";
-
-                        $sql_new=$pdo->prepare($sql_newtemp);
-                        $sql_new->execute();
-
-                        //分批取出part1--------------------------------------
-                      $i=1; while ($row_new=$sql_new->fetch(PDO::FETCH_ASSOC)) {
-                        $id=$row_new['Tb_index'];
-                        $ns_ftitle=$row_new['ns_ftitle'];
-                        $ns_msghtml=$row_new['ns_msghtml'];
-                        $ns_photo_1="../sys/img/".$row_new['ns_photo_1'];
-                        $nt_name = $row_new['nt_name'];
-
-                        $ns_ftitle_temp=mb_substr(strip_tags($ns_ftitle),0, 14,"utf-8")."...";
-
-
-
-                                $new_temp2[$i]="<a href='detail.php?$id'>
-                                               <div class='img_div' title='$ns_ftitle' style='background-image: url($ns_photo_1);'>
-                                                 <small>$nt_name</small>
-                                               </div>
-                                               <p>$ns_ftitle</p>
-                                           </a>"
-                                           ;
-                                $new_temp3[$i]="<a href='detail.php?$id'>
-                                               <div class='img_div' title='$ns_ftitle' style='background-image: url($ns_photo_1);'>
-                                                 <small>$nt_name</small>
-                                               </div>
-                                               <p>$ns_ftitle_temp</p>
-                                           </a>"
-                                           ;
-                        $i++;}
-
-
-
-                       
-                      ?>
-                    <div class="col-md-12 col">
-
-                        <div class="cardshap pink_tab ">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab">
-                            <a class="nav-link active pl-30 py-2" id="title_5-tab" data-toggle="tab" href="#title_5" role="tab" aria-controls="title_5" aria-selected="true">最新文章</a>
-                          </li>
-                         
-                        </ul>
-                        
-                          <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
-                            <div class="tab-content" id="myTabContent">
-                             <div class="row no-gutters">
-                                <div class="col-6 cards-two">
-                                   <?php echo $new_temp2[1]?>
-                                </div>
-                                <div class="col-6 cards-two">
-                                   <?php echo $new_temp2[2]?>
-                                </div>
-                    
-                            </div>
-
-                            <div class="row no-gutters pt-2">
-                                <div class="col-4 cards-3">
-                                   <?php echo $new_temp3[3]?>
-                                </div>
-                                <div class="col-4 cards-3">
-                                   <?php echo $new_temp3[4]?>
-                                </div>
-
-                                <div class="col-4 cards-3">
-                                   <?php echo $new_temp3[5]?>
+                                <button type="button" class="btn gray-layered btnOver" title="<?php echo $st_name?>" onclick="location.href='<?php echo $st_url?>'">前往官網</button>
+            
                               </div>
                             </div>
-
-
-                                 <!--廣告-->
-                                 <div class="col-md-12">
-                                   <div class="test hv-center w-100">
-                                     <img src="http://placehold.it/750x100" alt="banner">
-                                   </div>
-                                </div>
-                                 <!--banner end -->
-
-
-                            <div class="tab-content" id="myTabContent">
-                                  <div class="row no-gutters">
-                                    <div class="col-6 cards-two">
-                                       <?php echo $new_temp2[6]?>
-                                    </div>
-                                    <div class="col-6 cards-two">
-                                       <?php echo $new_temp2[7]?>
-                                    </div>
-                                  </div>
-
-                                  <div class="row no-gutters pt-2">
-                                      <div class="col-4 cards-3">
-                                         <?php echo $new_temp3[8]?>
-                                      </div>
-                                      <div class="col-4 cards-3">
-                                         <?php echo $new_temp3[9]?>
-                                      </div>
-
-                                      <div class="col-4 cards-3">
-                                         <?php echo $new_temp3[10]?>
-                                      </div>
-                                    </div>
-                            </div>
-
-                      
-                           
-                           
-                            
-                          </div>
-                          
-                       
-                      </div>
-                    </div>
-                    </div>
-                    <!--最新文章end -->
-                    <!--廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col">
-                            <img src="http://placehold.it/365x100" alt="">
                         </div>
-                        <div class="col-md-6 col">
-                            <img src="http://placehold.it/365x100">
+
+                        <?php $i++; }?>
+
+
+
+
+
                         </div>
                     </div>
-                    <!--廣告end-->
-                   
-
-
-                
-                </div><?php // 暫時增加，找不到正常的DIV?>
+                    
+                    
+                     <!--廣告-->
+                    <div class="col-md-12 col phone_hidden"><img src="http://placehold.it/750x100" alt="banner"></div>
+                    <!--banner end -->
+                </div>
             </div>
             <!--版面左側end-->
             
@@ -460,14 +219,13 @@
                 
                 <div class="row">
                     <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one pink_tab">
+                       <div class="cardshap hotCard tab_one Darkbrown_tab">
                            <div class="title_tab hole">
                                <h4>熱門情報</h4>
                                <span>謹慎理財 信用至上</span>
                            </div>
                            <div class="content_tab">
-                               
-                               <!-- 熱門情報輪播 -->
+                                <!-- 熱門情報輪播 -->
                             <div class="swiper-container HotNews_slide">
                                 <div class="swiper-wrapper">
 
@@ -610,26 +368,26 @@
                                 
                             </div>
                             <!-- 熱門情報輪播 END -->
+
                            </div>
                        </div>
                     </div>
 
                     <div class="col-md-12 col">
                        
-                       <div class="cardshap tab_one pink_tab">
+                       <div class="cardshap tab_one Darkbrown_tab">
                            <div class="title_tab hole">
-                               <h4>優票證</h4>
+                               <h4>優集點</h4>
                            </div>
-                        <div class="tab-content tcard_back" id="myTabContent">
+                        <div class="tab-content ucard_back" id="myTabContent">
                           <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">
                             <form class="row search_from">
 
                                 <div class="col-9">
                                   <select>
-                                      <option value="">--所有票證--</option>
-                                      <option value="悠遊卡">悠遊卡</option>
-                                      <option value="一卡通">一卡通</option>
-                                      <option value="iCash">iCash</option>
+                                      <option value="">--點數平台--</option>
+                                      <option value="UUPON">UUPON</option>
+                                      <option value="OPENPOINT">OPENPOINT</option>
                                       <option value="Happy Cash">Happy Cash</option>
                                   </select>
 
@@ -695,7 +453,7 @@
                     </div>
 
                     <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one pink_tab">
+                       <div class="cardshap hotCard tab_one Darkbrown_tab">
                            <div class="title_tab hole">
                                <h4>辦卡推薦 </h4>
                            </div>
@@ -740,9 +498,9 @@
                     
 
                     <div class="col-md-12 col">
-                       <div class="cardshap tab_one pink_tab">
+                       <div class="cardshap tab_one Darkbrown_tab">
                            <div class="title_tab hole">
-                               <h4>熱門支付</h4>
+                               <h4>熱門集點</h4>
                            </div>
                            <div class="content_tab">
                                <ul class="tab_list cardu_li">
@@ -766,17 +524,14 @@
 
 
                     
-
-                    
-
-                   
-
-
-
-                    
                     <?php 
-                     //-- 共用footer --
-                     require '../share_area/footer.php';
+                     //-- 共用Footer --
+                     if (wp_is_mobile()) {
+                        require '../share_area/phone/footer.php';
+                     }
+                     else{
+                       require '../share_area/footer.php';
+                      }
                     ?>
                     
 
@@ -794,9 +549,9 @@
 
 
     <?php 
-         //-- 共用js --
-         require '../share_area/share_js.php';
-        ?>
+     //-- 共用jS --
+     require '../share_area/share_js.php';
+    ?>
 
   </body>
 </html>

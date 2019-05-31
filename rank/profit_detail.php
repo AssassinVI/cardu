@@ -212,10 +212,11 @@
                              //-- 權益項目1 --
                              $row_eq=$pdo->select("SELECT eq_type FROM card_eq_item WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['ci_pk01']], 'one');
                              $eq_type=$row_eq['eq_type']=='big' ? 'DESC':'ASC';
-                             $row_eq_rank=$pdo->select("SELECT  cc.Tb_index, cc.cc_group_id, cc.cc_photo, cc.cc_cardname, cc.bi_shortname, cc.org_nickname, cc.attr_name, cc.cc_doc_url, cc.cc_doc_path, cc_eq.sm_content
+                             $row_eq_rank=$pdo->select("SELECT  cc.Tb_index, cc.cc_group_id, cc.cc_photo, cc.cc_cardname, cc.bi_shortname, 
+                                                                cc.org_nickname, cc.attr_name, cc.cc_doc_url, cc.cc_doc_path, cc_eq.sm_content
                                                         FROM credit_card_eq as cc_eq
                                                         INNER JOIN cc_detail as cc ON cc_eq.card_id=cc.Tb_index 
-                                                        WHERE cc_eq.eq_id=:eq_id
+                                                        WHERE cc_eq.eq_id=:eq_id AND cc.attr_name!='金卡' AND cc.attr_name!='普卡'
                                                         ORDER BY cc_eq.number_data ".$eq_type." LIMIT 0,6", ['eq_id'=>$_GET['ci_pk01']]);
                              
                              $ci_pk01_arr=[];
@@ -262,7 +263,7 @@
                              $row_eq_rank=$pdo->select("SELECT  cc.Tb_index, cc.cc_group_id, cc.cc_photo, cc.cc_cardname, cc.bi_shortname, cc.org_nickname, cc.attr_name, cc.cc_doc_url, cc.cc_doc_path, cc_eq.sm_content
                                                         FROM credit_card_eq as cc_eq
                                                         INNER JOIN cc_detail as cc ON cc_eq.card_id=cc.Tb_index 
-                                                        WHERE cc_eq.eq_id=:eq_id
+                                                        WHERE cc_eq.eq_id=:eq_id AND cc.attr_name!='金卡' AND cc.attr_name!='普卡'
                                                         ORDER BY cc_eq.number_data ".$eq_type." LIMIT 0,6", ['eq_id'=>$_GET['ci_pk02']]);
                              
                              $ci_pk02_arr=[];
@@ -310,7 +311,7 @@
                              $row_eq_rank=$pdo->select("SELECT  cc.Tb_index, cc.cc_group_id, cc.cc_photo, cc.cc_cardname, cc.bi_shortname, cc.org_nickname, cc.attr_name, cc.cc_doc_url, cc.cc_doc_path, cc_eq.sm_content
                                                         FROM credit_card_eq as cc_eq
                                                         INNER JOIN cc_detail as cc ON cc_eq.card_id=cc.Tb_index 
-                                                        WHERE cc_eq.eq_id=:eq_id
+                                                        WHERE cc_eq.eq_id=:eq_id AND cc.attr_name!='金卡' AND cc.attr_name!='普卡'
                                                         ORDER BY cc_eq.number_data ".$eq_type." LIMIT 0,6", ['eq_id'=>$_GET['ci_pk03']]);
                              $ci_pk03_arr=[];
                              foreach ($row_eq_rank as $eq_rank_one) {

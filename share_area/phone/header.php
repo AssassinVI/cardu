@@ -281,7 +281,7 @@
              <div class="swiper-slide"><a href="/news/news.php">新聞</a></div>
              <div class="swiper-slide"><a href="/rank/rank.php">卡排行</a></div>
              <div class="swiper-slide"><a href="/card/card.php">卡情報</a></div>
-             <div class="swiper-slide"><a href="/mpay/mapy.php">優行動Pay</a></div>
+             <div class="swiper-slide"><a href="/mpay/mpay.php">優行動Pay</a></div>
              <div class="swiper-slide"><a href="/eticket/eticket.php">優票證</a></div>
              <div class="swiper-slide"><a href="/epoint/epoint.php">優集點</a></div>
              <div class="swiper-slide"><a href="/travel/index.php">優旅行</a></div>

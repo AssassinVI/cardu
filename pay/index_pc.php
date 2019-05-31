@@ -87,7 +87,7 @@
                         and ns_verify=3 and OnLineOrNot=1 
                         and  StartDate<='$todayis' and EndDate>='$todayis'
                         order by ns_vfdate desc
-                        LIMIT 0, 12
+                        LIMIT 0, 6
                         ";
                        require '../share_area/page_carousel.php';
                       ?>
@@ -358,7 +358,7 @@
                                                <p>$ns_ftitle_temp</p>
                                            </a>"
                                            ;
-                            	}
+                           $i++;}
 
 
 

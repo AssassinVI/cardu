@@ -7,7 +7,7 @@
 //=============================================
 //取出特別議題頁籤
 //=============================================
-  $sql_special=$pdo->prepare("
+  $sql_special=$pdo_OLD->prepare("
     SELECT nt_name,Tb_index,pk FROM news_type
     where $queryfield='$tab_mtid' and nt_sp=1 
     and nt_sp_begin_date <= '$todayis' and nt_sp_end_date >= '$todayis' 
@@ -31,9 +31,9 @@
   $nt_pk = $row_special['pk'];
 
                      //跑回圈將每個tab中內容都load出＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-                      $sql_part=$pdo->prepare("
+                      $sql_part=$pdo_OLD->prepare("
                       SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
-                      where ns_nt_sp_pk='$Tb_index'
+                      where (ns_nt_sp_pk='$Tb_index' OR ns_nt_ot_pk LIKE '%$Tb_index%')
                       and ns_verify=3 and OnLineOrNot=1
                       and  StartDate<='$todayis' and EndDate>='$todayis'
                       order by ns_vfdate desc

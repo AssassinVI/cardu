@@ -1,5 +1,7 @@
 <?php 
- require '../share_area/conn.php';
+require '../share_area/conn.php';
+require '../share_area/get_news.php';
+require 'config.php';
 ?>
 <!DOCTYPE html>
 
@@ -72,17 +74,29 @@
                 <div class="row">
 
                   <?php 
-                      if (wp_is_mobile()) {
+                       //先取出優行動pay的分類，再從優行動pay的分類中，把appNews load出來，優行動pay版區id為at2019011117341414
+                       $pdo=pdo_conn();
+                       $sql_area=$pdo->prepare("SELECT Tb_index FROM `news_type` WHERE `area_id` LIKE '$area_id'");
+                       $sql_area->execute();
+                       $row_areas = $sql_area->fetchAll();
 
+                       foreach ($row_areas as $row_area) {
+                           $unit_all_id.="'".$row_area['Tb_index']."',";
+                        }
+                       $unit_all_id = substr($unit_all_id, 0, -1); //去掉最後一碼，
+
+
+                      if (wp_is_mobile()) {
+                       
                          //============================================
                          //每頁的輪播
                          //設定好sql後，交由 page_carousel_mobile.php執行
                          //============================================
                          $sql_carousel="
                           SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
-                          where ns_verify=3 and OnLineOrNot=1
+                          where ns_nt_pk in ($unit_all_id) 
+                          and ns_verify=3 and OnLineOrNot=1 
                           and  StartDate<='$todayis' and EndDate>='$todayis'
-                          and ns_nt_pk='$Tb_index'
                           order by ns_vfdate desc
                           LIMIT 0, 6
                           ";
@@ -95,9 +109,9 @@
                          //============================================
                          $sql_carousel="
                           SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
-                          where ns_verify=3 and OnLineOrNot=1 
-                          and StartDate<='$todayis' and EndDate>='$todayis'
-                          and ns_nt_pk='$Tb_index'
+                          where ns_nt_pk in ($unit_all_id) 
+                          and ns_verify=3 and OnLineOrNot=1 
+                          and  StartDate<='$todayis' and EndDate>='$todayis'
                           order by ns_vfdate desc
                           LIMIT 0, 12
                           ";
@@ -106,8 +120,7 @@
 
                       ?>
                   
-                  
-                  </div>
+
 
                     <!--廣告-->
                     <div class="col-md-12 row phone_hidden">
@@ -196,16 +209,23 @@
            
                     
                     <!--廣告-->
-                    <div class="col-md-12 col phone_hidden"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>
+                    <div class="col-md-12 col phone_hidden">
+                      <div class="test hv-center">
+                        <img src="http://placehold.it/750x100" alt="banner">
+                      </div>
+                    </div>
                     <!--banner end -->
+
+
                     <?php 
                           echo $Date['header'];
                           echo $Date[3];
                           echo $Date[4];
                           echo $Date['fooder'];
                     ?>
+                    </div>
 
-                </div>
+                
             </div>
             <!--版面左側end-->
             

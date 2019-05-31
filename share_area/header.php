@@ -342,8 +342,8 @@
                     <div class="col-md-1 col  text-left">
                         <!-- <div id="icon_head_fb" class="col0"><a href="#"><img src="img/component/icon_facebook.png" alt=""></a></div>
                         <div id="icon_head_rss" class="col0"><a href="#"><img src="img/component/icon_rss.png" alt=""></a></div> -->
-                        <div  class="col0 icon_head"><a href="#"><li class="fa fa-facebook"></li></a></div>
-                        <div  class="col0 icon_head"><a href="#"><li class="fa fa-rss"></li></a></div>
+                        <div  class="col0 icon_head"><a target="_blank" href="https://www.facebook.com/cardu.tw/"><li class="fa fa-facebook"></li></a></div>
+                        <div  class="col0 icon_head"><a target="_blank" href="https://www.cardu.com.tw/rss/cardurss.xml"><li class="fa fa-rss"></li></a></div>
                     </div>
                 </div>                
             </div>
@@ -377,7 +377,7 @@
                       <a class="other_login_btn fb_color" href="#">Facebook</a>
                     </div>
                     <div class="col-6">
-                      <a class="other_login_btn google_color" href="#">Google+</a>
+                      <a class="other_login_btn google_color" href="#">Google</a>
                     </div>
                   </div>
                 </div>

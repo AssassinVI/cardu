@@ -1,5 +1,32 @@
-<?php 
- require '../share_area/conn.php';
+<?php session_start();
+//尚未load出舊照片
+//目前暫時用tb_index進入的內容頁
+require '../share_area/conn.php';
+require '../share_area/get_news.php';
+require 'config.php';
+
+$todayis=date("Y-m-d"); //取得要查詢的日期，預設為今日
+
+//取出ID 
+$temparray=explode("?",$_SERVER[REQUEST_URI]);
+
+//echo $temparray[1];
+
+if (!$temparray[1]) {
+  location_up('back','好像有東西出錯了唷，請回上一頁');
+
+}else{
+     $sql_temp="
+      SELECT * FROM store 
+      where Tb_index='$temparray[1]'
+      and OnLineOrNot =1 
+      ";
+     
+    $row=pdo_select($sql_temp, $where);
+
+    }
+
+
 ?>
 <!DOCTYPE html>
 
@@ -56,7 +83,7 @@
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="index.php">優集點</a> / <a href="all.php">點數平台</a> / <a href="javascript:;">悠遊卡</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="index.php">優集點</a> / <a href="all.php">點數平台</a> / <a href="javascript:;"><?php echo $row['st_name'];?></a></p>
           </div>
         </div>
         
@@ -73,14 +100,16 @@
                             <div style="background-image: url(../img/component/brownabout_bg.jpg);" class="row ticketbg2">
                             
                               <div class="col-md-7 col">
-                              <h1>UUPON</h1>
+                              <h1><?php echo $row['st_name'];?></h1>
                               </div>
 
                               <div class="col-md-5 col">
-                              <img class="h-center" src="../img/component/uupon2.png" title="新聞">
+                              <img class="h-center" src="../sys/img/<?php echo $row['st_logo']?>" title="<?php echo $row['st_name'];?>">
                               <div class="card_btn hv-center py-2">
                                 <button type="button" class="btn warning-layered btnOver">我要訂閱</button>
-                                <button type="button" class="btn gray-layered btnOver">前往官網</button>
+                                <a class='all_form' href='<?php echo $row['st_url'];?>' title='<?php echo $row['st_name'];?>'>
+                                  <button type="button" class="btn gray-layered btnOver">前往官網</button>
+                                </a>
                               </div>
                             </div>
                              
@@ -121,15 +150,9 @@
                         </ul>
                         <div class="tab-content py-md-4 py-2 px-md-2 px-0" id="myTabContent">
                           <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
+                            <?php echo $row['st_intro']; //簡介內容/////////?>
 
-                            
-                                <p>悠遊卡是一種非接觸式電子票證系統智慧卡，由悠遊卡公司發行，首先於2002年6月通用於臺北捷運。目前發行張數7千多萬張，悠遊卡可用於搭乘大臺北地區交通運輸工具、停車場、醫院、動物園、圖書館等處使用。</p>
-                              
-                                <p><b>悠遊卡使用範圍</b><br>
-                                1.點選Wallet 功能，加入信用卡或金融卡服務。<br>
-                                2.點選右上+新增卡片，依步驟加入卡片，Apple Pay會自動辨識卡號及持卡人姓名。<br>
-                                3.發卡銀行與機構，會進一步認證所輸入的資料是否正確，並進行個資身分查驗。想查詢持有卡資訊，請返回「設定」>「Wallet 與 Apple Pay」>「卡片」。<br>
-                                4.銀行與發卡機構完成驗證後，iPhone 即可使用 Apple Pay 付款服務。</p>
+
                     <!--廣告-->
                     <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col ad_news">
@@ -302,61 +325,62 @@
 
                             
 
-                      
-                        <div class="row no-gutters pb-md-3 py-2 news_list">
-                          <div class="col-md-4 col-5 py-2">
-                            <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 col-7 pl-4 py-1 news_list_txt">
-                            <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查</h3>
-                            </a>
-                            <a class="date" href="#" title="新聞">
-                            <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
-                            <p class="sub_title">到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
-                          </a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
+                            <?php 
+                            $pdo=pdo_conn();
 
-                        <div class="row no-gutters py-md-3 news_list">
-                          <div class="col-md-4 col-6 py-2">
-                            <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查</h3>
-                            </a>
-                            <a class="date" href="#" title="新聞">
-                            <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
-                            <p class="sub_title">到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
-                          </a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
+                            //查詢分類ID 集點攻略ID un2019011717545061
+                            //$sql_catalog="SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011717545061'";
+                            $sql_catalog=$pdo->prepare("SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011717545061'");
+                            $sql_catalog->execute();
+                            $i=1; while ($row_catalog=$sql_catalog->fetch(PDO::FETCH_ASSOC)) {
+                              $catalog_list.="'".$row_catalog['Tb_index']."',";
+                            }
+                            $catalog_list = substr($catalog_list, 0, -1); // 查出pay攻略分類
 
-                        <div class="row no-gutters py-md-3 news_list">
-                          <div class="col-md-4 col-6 py-2">
-                            <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查</h3>
-                            </a>
-                            <a class="date" href="#" title="新聞">
-                            <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
-                            <p class="sub_title">到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
-                          </a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
 
+
+
+                            $sql_list=$pdo->prepare("
+                              SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
+                              where ns_nt_pk in ($catalog_list)
+                              and ns_verify=3 and OnLineOrNot=1 
+                              and  StartDate<='$todayis' and EndDate>='$todayis'
+                              order by ns_vfdate desc
+                              LIMIT 0, 12");
+                            $sql_list->execute();
+
+                            $i=1; while ($row_list=$sql_list->fetch(PDO::FETCH_ASSOC)) {
+                              $id=$row_list['Tb_index'];
+                              $ns_ftitle=$row_list['ns_ftitle'];
+                              $ns_stitle=mb_substr(strip_tags($ns_ftitle),0, 15,"utf-8");
+                              $ns_photo_1="../sys/img/".$row_list['ns_photo_1'];
+                              $ns_msghtml=mb_substr(myTrim(strip_tags($row_list['ns_msghtml'])),0, 18,"utf-8");
+
+                              $Date[$i]="<div class='row no-gutters pb-md-3 py-2 news_list'>
+                                            <div class='col-md-4 col-5 py-2'>
+                                              <a class='img_div news_list_img' href='detail.php?$id' title='$ns_ftitle' style='background-image: url($ns_photo_1);'></a>
+                                            </div>
+                                            <div class='col-md-8 col-7 pl-4 py-1 news_list_txt'>
+                                              <a href='detail.php?$id' title='$ns_ftitle'>
+                                              <h3>$ns_ftitle</h3>
+                                              </a>
+                                              <a class='date' href='detail.php?$id' title='$ns_ftitle'>
+                                              <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
+                                              <p class='sub_title'>$ns_msghtml...</p>
+                                            </a>
+                                              <div class='fb_search_btn'>
+                                                <iframe src='https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260' width='90' height='46' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true' allow='encrypted-media'></iframe>
+                                              </div>
+                                            </div>
+                                          </div>";
+                            $i++; }
+
+                            echo $Date[1];
+                            echo $Date[2];
+                            echo $Date[3];
+
+
+                            ?>
                       
                     
 
@@ -384,60 +408,11 @@
                    
 
                      
-                        <div class="row no-gutters py-md-3 news_list">
-                          <div class="col-md-4 col-6 py-2">
-                            <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查</h3>
-                            </a>
-                            <a class="date" href="#" title="新聞">
-                            <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
-                            <p class="sub_title">到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
-                          </a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row no-gutters py-md-3 news_list">
-                          <div class="col-md-4 col-6 py-2">
-                            <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查</h3>
-                            </a>
-                            <a class="date" href="#" title="新聞">
-                            <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
-                            <p class="sub_title">到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
-                          </a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row no-gutters py-md-3 news_list">
-                          <div class="col-md-4 col-6 py-2">
-                            <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查</h3>
-                            </a>
-                            <a class="date" href="#" title="新聞">
-                             <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
-                            <p class="sub_title">到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
-                          </a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
-
+                        <?php 
+                            echo $Date[4];
+                            echo $Date[5];
+                            echo $Date[6];
+                        ?>
                     
 
                     
@@ -458,59 +433,11 @@
                     
 
                       
-                        <div class="row no-gutters py-md-3 news_list">
-                          <div class="col-md-4 col-6 py-2">
-                            <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查</h3>
-                            </a>
-                            <a class="date" href="#" title="新聞">
-                             <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
-                            <p class="sub_title">到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
-                          </a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row no-gutters py-md-3 news_list">
-                          <div class="col-md-4 col-6 py-2">
-                            <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查</h3>
-                            </a>
-                            <a class="date" href="#" title="新聞">
-                             <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
-                            <p class="sub_title">到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
-                          </a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row no-gutters py-md-3 news_list">
-                          <div class="col-md-4 col-6 py-2">
-                            <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查</h3>
-                            </a>
-                            <a class="date" href="#" title="新聞">
-                             <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
-                            <p class="sub_title">到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
-                          </a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
+                        <?php 
+                            echo $Date[7];
+                            echo $Date[8];
+                            echo $Date[9];
+                        ?>
 
                       
                     
@@ -534,65 +461,11 @@
                         </div>
                     </div>
                     <!--廣告end-->
-
-
-                    
-
-                      
-                        <div class="row no-gutters py-md-3 news_list">
-                          <div class="col-md-4 col-6 py-2">
-                            <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查</h3>
-                            </a>
-                            <a class="date" href="#" title="新聞">
-                             <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
-                            <p class="sub_title">到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
-                          </a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row no-gutters py-md-3 news_list">
-                          <div class="col-md-4 col-6 py-2">
-                            <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查</h3>
-                            </a>
-                            <a class="date" href="#" title="新聞">
-                             <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
-                            <p class="sub_title">到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
-                          </a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row no-gutters py-md-3 news_list">
-                          <div class="col-md-4 col-6 py-2">
-                            <a class="img_div news_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
-                          </div>
-                          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <a href="#" title="新聞">
-                            <h3>遊日血拼大回饋 信用卡大調查</h3>
-                            </a>
-                            <a class="date" href="#" title="新聞">
-                             <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
-                            <p class="sub_title">到了年底出國旅遊潮，海外高現金回饋信用卡是「血拼」必備工具。由上海銀行簡單卡日韓回饋3%最強...</p>
-                          </a>
-                            <div class="fb_search_btn">
-                              <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                            </div>
-                          </div>
-                        </div>
-
+                        <?php 
+                            echo $Date[10];
+                            echo $Date[11];
+                            echo $Date[12];
+                        ?>
                               <!--廣告-->
                     <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col ad_news">
@@ -763,62 +636,20 @@
                           </div>
                           <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
 
-                            
-                              <div class="bank_main hole">
-                              <h5> 相關新聞</h5>
-                              </div>
-                            
-                            <div class="row no-gutters">
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                            </div>
-                          
-                            <div class="bank_main hole">
-                              <h5>相關好康</h5>
-                              </div>
-                           
-                            <div class="row no-gutters">
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                            </div>
+                            <?php 
+                            //取出跟目前商店相關的新聞，只要代入 ns_store 商店ID 即可-----------------------------------
+                            //同時ns_store 也會代到 getRelatedBenefit.php中使用，不只是getRelatedNews.php
+                            $ns_store=$temparray[1];
+                            require('../share_area/getRelatedNews.php');
+
+
+                            //取出卡好康所有的分類, 再以分類查出新聞---------------------------------------------------
+                            //卡好康id為un2019011716575635
+                            $sql_type_temp="SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011716575635'";
+                            require('../share_area/getRelatedBenefit.php');
+                            ?>
+
+
                                   <!--廣告-->
                     <div class="col-md-12 row phone_hidden">
                         <div class="col-md-6 col ad_news">

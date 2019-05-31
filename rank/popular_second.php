@@ -164,8 +164,12 @@
                                 //-- 卡特色 --
                                 $card_adv_txt='';
                                 $card_adv=preg_split('/\n/',$row_car_d['cc_interest_desc']);
+                                $adv_num=1;
                                 foreach ($card_adv as $card_adv_one) {
-                                  $card_adv_txt.='<li><b>●</b>'.$card_adv_one.'</li>';
+                                  if ($adv_num<=4) {
+                                    $card_adv_txt.='<li title="'.$card_adv_one.'"><b>●</b>'.mb_substr($card_adv_one,0,15,'utf-8').'</li>';
+                                  }
+                                  $adv_num++;
                                 }
                                 //-- 立即辦卡 --
                                 if (!empty($row_car_d['cc_doc_url'])) {
@@ -180,7 +184,7 @@
                                 //-- 卡片圖 --
                                 $cc_photo=empty($row_car_d['cc_photo']) ? 'CardSample.png':$row_car_d['cc_photo'];
                                 //-- 隱藏更多卡片 --
-                                $is_d_none=$x>9 ? 'd-none':'';
+                                $is_d_none=$x>10 ? 'd-none':'';
 
                                 $top_prize=$x<=3 ? '<span class="top_prize">'.$x.'</span>':'<h1 class=" hv-center mb-0">'.$x.'</h1>';
                                 echo '
@@ -190,7 +194,7 @@
                               </div>
 
                               <div class="col-md-4 wx-100-ph text-center">
-                                <a class="popular_list_img" href="../cardNews/creditcard.php?cc_pk='.$row_car_d['Tb_index'].'&cc_group_id='.$row_car_d['cc_group_id'].'">
+                                <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$row_car_d['Tb_index'].'&cc_group_id='.$row_car_d['cc_group_id'].'">
                                   <img src="../sys/img/'.$cc_photo.'" >
                                 </a>
                               </div>
@@ -251,8 +255,8 @@
                             ?>
 
                           <?php 
-                           if ($x>9){
-                            echo '<a class="rank_more warning-layered btnOver" show_num="6" href="javascript:;">顯示更多卡片</a>';
+                           if ($x>10){
+                            echo '<a class="rank_more warning-layered btnOver" show_num="10" href="javascript:;">顯示更多卡片</a>';
                            }
                           ?>
                           
@@ -306,6 +310,7 @@
                                                          INNER JOIN cc_detail as cc ON ccr.ccs_cc_pk=cc.Tb_index
                                                          INNER JOIN credit_cardrank_count as ccrc ON ccrc.ccr_id=ccr.Tb_index
                                                          WHERE ccr.ccs_del_flag=0 AND ccrc.ccr_date >=:day_ago
+                                                         GROUP BY cc.Tb_index
                                                          ORDER BY ccrc.assigncount DESC 
                                                          LIMIT 0,10", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
                                $x=1;
@@ -318,8 +323,12 @@
                                  //-- 卡特色 --
                                  $card_adv_txt='';
                                  $card_adv=preg_split('/\n/',$add_card_one['cc_interest_desc']);
+                                 $adv_num=1;
                                  foreach ($card_adv as $card_adv_one) {
-                                   $card_adv_txt.='<li><b>●</b>'.$card_adv_one.'</li>';
+                                  if ($adv_num<=4) {
+                                    $card_adv_txt.='<li title="'.$card_adv_one.'"><b>●</b>'.mb_substr($card_adv_one,0,15,'utf-8').'</li>';
+                                  }
+                                  $adv_num++;
                                  }
                                  //-- 立即辦卡 --
                                  if (!empty($add_card_one['cc_doc_url'])) {
@@ -334,7 +343,7 @@
                                  //-- 卡片圖 --
                                  $cc_photo=empty($add_card_one['cc_photo']) ? 'CardSample.png':$add_card_one['cc_photo'];
                                  //-- 隱藏更多卡片 --
-                                 $is_d_none=$x>9 ? 'd-none':'';
+                                 $is_d_none=$x>10 ? 'd-none':'';
                                  //-- 前三名(獎牌) --
                                  $top_prize=$x<=3 ? '<span class="top_prize">'.$x.'</span>':'<h1 class=" hv-center mb-0">'.$x.'</h1>';
                                  echo '
@@ -344,7 +353,7 @@
                                </div>
 
                                <div class="col-md-4 wx-100-ph text-center">
-                                 <a class="popular_list_img" href="../cardNews/creditcard.php?cc_pk='.$add_card_one['Tb_index'].'&cc_group_id='.$add_card_one['cc_group_id'].'">
+                                 <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$add_card_one['Tb_index'].'&cc_group_id='.$add_card_one['cc_group_id'].'">
                                    <img src="../sys/img/'.$cc_photo.'" >
                                  </a>
                                </div>
@@ -407,8 +416,8 @@
                           
                       
                            <?php 
-                            if ($x>9){
-                             echo '<a class="rank_more warning-layered btnOver" show_num="6" href="javascript:;">顯示更多卡片</a>';
+                            if ($x>10){
+                             echo '<a class="rank_more warning-layered btnOver" show_num="10" href="javascript:;">顯示更多卡片</a>';
                             }
                            ?>
 
@@ -460,6 +469,7 @@
                                                           INNER JOIN cc_detail as cc ON ccr.ccs_cc_pk=cc.Tb_index
                                                           INNER JOIN credit_cardrank_count as ccrc ON ccrc.ccr_id=ccr.Tb_index
                                                           WHERE ccr.ccs_del_flag=0 AND ccrc.ccr_date >=:day_ago
+                                                          GROUP BY cc.Tb_index
                                                           ORDER BY ccrc.viewcount DESC 
                                                           LIMIT 0,10", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
                                 $x=1;
@@ -472,8 +482,12 @@
                                   //-- 卡特色 --
                                   $card_adv_txt='';
                                   $card_adv=preg_split('/\n/',$add_view_one['cc_interest_desc']);
+                                  $adv_num=1;
                                   foreach ($card_adv as $card_adv_one) {
-                                    $card_adv_txt.='<li><b>●</b>'.$card_adv_one.'</li>';
+                                    if ($adv_num<=4) {
+                                      $card_adv_txt.='<li title="'.$card_adv_one.'"><b>●</b>'.mb_substr($card_adv_one,0,15,'utf-8').'</li>';
+                                    }
+                                    $adv_num++;
                                   }
                                   //-- 立即辦卡 --
                                   if (!empty($add_view_one['cc_doc_url'])) {
@@ -488,7 +502,7 @@
                                   //-- 卡片圖 --
                                   $cc_photo=empty($add_view_one['cc_photo']) ? 'CardSample.png':$add_view_one['cc_photo'];
                                   //-- 隱藏更多卡片 --
-                                  $is_d_none=$x>9 ? 'd-none':'';
+                                  $is_d_none=$x>10 ? 'd-none':'';
                                   //-- 前三名(獎牌) --
                                   $top_prize=$x<=3 ? '<span class="top_prize">'.$x.'</span>':'<h1 class=" hv-center mb-0">'.$x.'</h1>';
                                   echo '
@@ -498,7 +512,7 @@
                                 </div>
 
                                 <div class="col-md-4 wx-100-ph text-center">
-                                  <a class="popular_list_img" href="../cardNews/creditcard.php?cc_pk='.$add_view_one['Tb_index'].'&cc_group_id='.$add_view_one['cc_group_id'].'">
+                                  <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$add_view_one['Tb_index'].'&cc_group_id='.$add_view_one['cc_group_id'].'">
                                     <img src="../sys/img/'.$cc_photo.'" >
                                   </a>
                                 </div>
@@ -560,8 +574,8 @@
                              ?>
                             
                             <?php 
-                             if ($x>9){
-                              echo '<a class="rank_more warning-layered btnOver" show_num="6" href="javascript:;">顯示更多卡片</a>';
+                             if ($x>10){
+                              echo '<a class="rank_more warning-layered btnOver" show_num="10" href="javascript:;">顯示更多卡片</a>';
                              }
                             ?>
 

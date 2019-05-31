@@ -1,5 +1,32 @@
-<?php 
- require '../share_area/conn.php';
+<?php session_start();
+//尚未load出舊照片
+//目前暫時用tb_index進入的內容頁
+require '../share_area/conn.php';
+require '../share_area/get_news.php';
+require 'config.php';
+
+$todayis=date("Y-m-d"); //取得要查詢的日期，預設為今日
+
+//取出ID 
+$temparray=explode("?",$_SERVER[REQUEST_URI]);
+
+//echo $temparray[1];
+
+if (!$temparray[1]) {
+  location_up('back','好像有東西出錯了唷，請回上一頁');
+
+}else{
+     $sql_temp="
+      SELECT * FROM store 
+      where Tb_index='$temparray[1]'
+      and OnLineOrNot =1 
+      ";
+     
+    $row=pdo_select($sql_temp, $where);
+
+    }
+
+
 ?>
 <!DOCTYPE html>
 
@@ -58,7 +85,7 @@
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="index.php">優集點</a> / <a href="all.php">點數店家</a> / <a href="javascript:;">屈臣氏</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="index.php">優集點</a> / <a href="all2.php">集點店家</a> / <a href="javascript:;"><?php echo $row['st_name'];?></a></p>
           </div>
         </div>
         
@@ -75,14 +102,16 @@
                             <div style="background-image: url(../img/component/brownabout_bg.jpg);" class="row ticketbg2">
                             
                               <div class="col-7 col">
-                              <h1>Watsons屈臣氏</h1>
+                              <h1><?php echo $row['st_name'];?></h1>
                               </div>
 
                               <div class="col-5 col">
-                              <img class="h-center" src="../img/component/beauty.png" title="新聞">
+                              <img class="h-center" src="../sys/img/<?php echo $row['st_logo']?>" title="<?php echo $row['st_name'];?>">
                               <div class="card_btn hv-center py-2">
                                 <button type="button" class="btn warning-layered btnOver">我要訂閱</button>
-                                <button type="button" class="btn gray-layered btnOver">前往官網</button>
+                                <a class='all_form' href='<?php echo $row['st_url'];?>' title='<?php echo $row['st_name'];?>'>
+                                  <button type="button" class="btn gray-layered btnOver">前往官網</button>
+                                </a>
                               </div>
                             </div>
                              
@@ -126,8 +155,7 @@
                         <div class="tab-content py-md-4 py-2 px-md-2 px-0" id="myTabContent">
                           <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
 
-                            <p>
-                            屈臣氏為全球最大的保健及美容產品零售商，特色以顧客角度出發，常以促銷、贈送禮品、VIP會員卡、知名品牌代言人吸引顧客消費。營業項目以最新化妝品、保養品及美妝品、個人護理用品、全家人的保健用品、其他生活消耗品為主。為強化會員黏著度，於2008年發行「寵i會員卡」，並提供專屬會員消費集點及點數加倍送等相關活動。</p>
+                            <?php echo $row['st_intro']; //簡介內容/////////?>
                             <!--廣告-->
                             <div class="col-md-12 row phone_hidden">
                                 <div class="col-md-6 col ad_news">
@@ -570,61 +598,21 @@
                           <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
 
                             
-                              <div class="bank_main hole">
-                              <h5> 相關新聞</h5>
-                              </div>
-                            
-                            <div class="row no-gutters">
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                            </div>
-                          
-                            <div class="bank_main hole">
-                              <h5>相關好康</h5>
-                              </div>
-                           
-                            <div class="row no-gutters">
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center py-md-2">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                            </div>
+                            <?php 
+                            //取出跟目前商店相關的新聞，只要代入 ns_store 商店ID 即可-----------------------------------
+                            //同時ns_store 也會代到 getRelatedBenefit.php中使用，不只是getRelatedNews.php
+                            $ns_store=$temparray[1];
+                            require('../share_area/getRelatedNews.php');
+
+
+                            //取出卡好康所有的分類, 再以分類查出新聞---------------------------------------------------
+                            //卡好康id為un2019011716575635
+                            $sql_type_temp="SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011716575635'";
+                            require('../share_area/getRelatedBenefit.php');
+                            ?>
+
+
+
                             <!--廣告-->
                             <div class="col-md-12 row phone_hidden">
                                 <div class="col-md-6 col ad_news">
