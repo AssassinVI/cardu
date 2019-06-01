@@ -14,13 +14,15 @@
    $ns_nt_ot_pk_query=substr($ns_nt_ot_pk_query, 0,-3);
    
    $newsType_where="(unit_id = 'un2019011717563437' OR $ns_nt_ot_pk_query)";
+   $newsType_where_arr=['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')];
 
    $title_name='卡優新聞網-旅行分享';
    $crumbs_name='旅行分享';
  }
  else{
 
-   $newsType_where="(ns_nt_pk = '".$_GET['tr_pk']."' OR ns_nt_ot_pk LIKE '%".$_GET['tr_pk']."%')";
+   $newsType_where="(ns_nt_pk = :ns_nt_pk OR ns_nt_ot_pk LIKE :ns_nt_ot_pk)";
+   $newsType_where_arr=['ns_nt_pk'=>$_GET['tr_pk'], 'ns_nt_ot_pk'=>'%'.$_GET['tr_pk'].'%', 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')];
 
    $row_typeName=$pdo->select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['tr_pk']], 'one');
    $title_name='卡優新聞網-旅行分享 > '.$row_typeName['nt_name'];
@@ -119,7 +121,7 @@
                                     LIMIT 0, 10
                                    ";
 
-                     slide_ph($sql_carousel, ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                     slide_ph($sql_carousel, $newsType_where_arr);
 
                      } 
                      else{
@@ -135,7 +137,7 @@
                         order by ns_vfdate desc
                         LIMIT 0, 6
                         ";
-                       slide_4s_3b($sql_carousel, ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                       slide_4s_3b($sql_carousel, $newsType_where_arr);
                       
                      }
                     ?>
@@ -211,14 +213,14 @@
                          $row_list_total=$pdo->select("SELECT count(*) as total
                                                  FROM NewsAndType
                                                  WHERE $newsType_where AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate"
-                                                 , ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')], 'one');
+                                                 , $newsType_where_arr, 'one');
                          $total_page=ceil(((int)$row_list_total['total'])/$num);
 
 
                          $row_list=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, activity_s_date, activity_e_date
                                                 FROM NewsAndType
                                                 WHERE $newsType_where AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate
-                                                ORDER BY ns_vfdate DESC LIMIT $now_page_num, $num", ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                                                ORDER BY ns_vfdate DESC LIMIT $now_page_num, $num", $newsType_where_arr);
                         $row_list_num=count($row_list);
                         $count_i=ceil($row_list_num/3);
 

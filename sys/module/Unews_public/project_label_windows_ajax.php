@@ -11,12 +11,10 @@
        $Tb_index='pl'.date('YmdHis').rand(0,99);
  	   $param=[
  	   	'Tb_index'=>$Tb_index,
- 	   	'nt_id'=>$_POST['nt_id'],
- 	   	'lb_type'=>$_POST['lb_type'],
  	   	'lb_name'=>$_POST['add_proj_label']
  	   ];
  	   $pdo->insert('project_label', $param);
- 	   echo json_encode($param);
+ 	   echo '<label><input type="checkbox" name="project_label[]" value="'.$_POST['add_proj_label'].'">'.$_POST['add_proj_label'].'</label>｜';
  	}
  	else{
  	  echo "error";

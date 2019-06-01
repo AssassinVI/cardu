@@ -239,7 +239,7 @@
                                     <a href="/travel/preferential.php"><h4>優惠情報</h4></a>
                                   </div>
                                   <div class="col">
-                                    <a href="/travel/jp/index.php"><h4>日本嬉遊去</h4></a>
+                                    <a href="/travel/jp/index.php"><h4>日本嬉遊趣</h4></a>
                                   </div>
                                  </div>
                                  <div class="row news_img_menu">

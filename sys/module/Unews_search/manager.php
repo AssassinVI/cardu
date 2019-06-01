@@ -269,6 +269,7 @@ if ($_POST) {
    $ns_store=empty($_POST['ns_store']) ? '' : $_POST['ns_store'];
    $ns_news=empty($_POST['ns_news']) ? '' : implode(',', $_POST['ns_news']);
    $ns_label=empty($_POST['ns_label']) ? '': implode(',', $_POST['ns_label']);
+   $in_sp_label=empty($_POST['in_sp_label']) ? '': implode(',', $_POST['in_sp_label']);
    $ns_bank=empty($_POST['ns_bank']) ? '' : implode(',', $_POST['ns_bank']);
    $ns_org=empty($_POST['ns_org']) ? '' : implode(',', $_POST['ns_org']);
    $activity_s_date=empty($_POST['activity_s_date']) ? '' : $_POST['activity_s_date'];
@@ -298,6 +299,7 @@ if ($_POST) {
 		           'ns_alt_1'=>$_POST['ns_alt_1'],
 		           'ns_alt_2'=>$_POST['ns_alt_2'],
 		           'ns_label'=>$ns_label,
+            'in_sp_label'=>$in_sp_label,
 		            'ns_bank'=>$ns_bank,
 		             'ns_org'=>$ns_org,
                 'ns_date'=>$ns_date,
@@ -335,6 +337,7 @@ if ($_GET) {
     
     $ns_nt_ot_pk=empty($row['ns_nt_ot_pk']) ? '': explode(',', $row['ns_nt_ot_pk']);
     $ns_label=empty($row['ns_label']) ? '' : explode(',', $row['ns_label']);
+    $in_sp_label=empty($row['in_sp_label']) ? '' : explode(',', $row['in_sp_label']);
     $ns_bank=empty($row['ns_bank']) ? '' : explode(',', $row['ns_bank']);
     $ns_org=empty($row['ns_org']) ? '' : explode(',', $row['ns_org']);
     $ns_news=empty( $row['ns_news']) ? '' : explode(',', $row['ns_news']);
@@ -743,11 +746,18 @@ if ($_GET) {
 
             <div class="form-group">
               <label class="col-md-2 control-label" for="in_sp_label">專案特輯標籤</label>
-              <div class="col-md-8">
-                <input type="text" class="form-control" id="in_sp_label" name="in_sp_label" value="<?php echo $row['in_sp_label'];?>">
+              <div id="project_label" class="col-md-8">
+                <?php 
+                  if (!empty($row['in_sp_label'])) {
+                    for ($i=0; $i <count($in_sp_label) ; $i++) { 
+                       echo '<span class="label">'.$in_sp_label[$i].'<input type="hidden" name="in_sp_label[]" value="'.$in_sp_label[$i].'"></span>、';
+                     }
+                  }
+                ?>
               </div>
               <div class="col-md-2">
-                <a href="../Unews_public/news_label_windows.php" data-fancybox data-type="iframe" class="btn btn-info">選擇專案特輯標籤</a>
+                <a href="../Unews_public/project_label_windows.php" data-fancybox data-type="iframe" class="btn btn-info">選擇專案特輯標籤</a>
+                <input type="hidden" name="nt_sp_id" value="">
               </div>
             </div>
 
@@ -1011,6 +1021,17 @@ if ($_GET) {
 			//-- 記錄暫存 --
             sessionStorage.setItem("news_label", lab_arr);
 		}
+
+
+    //-- 專案特輯 --
+    if ($('[name="in_sp_label[]"]').length>0) {
+            var lab_arr=[];
+      $.each($('[name="in_sp_label[]"]'), function() {
+        lab_arr.push($(this).val());
+      });
+      //-- 記錄暫存 --
+            sessionStorage.setItem("project_label", lab_arr);
+    }
         
         //-- 銀行關聯 --
 		if ($('[name="ns_bank[]"]').length>0) {

@@ -73,19 +73,19 @@
                         <div class="col-md-12 row">
                         <div class="col-md-4 col">
                            <div class="cardshap japan_list">
-                          <a href="about.php" title="新聞">
+                          <a href="about.php?tr_pk=nt2019012216202539" >
                             <div class="img_div" style="background-image: url(../../img/component/travel/York.jpg);">
                              <big>東京</big>           
                             </div>
                           </a>
                               <div class="row no-gutters text-center pt-2">
                                  <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=11&idx=1" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216202539&type=58&pk=11&idx=1" >
                                     <span><img src="/img/component/icon/map-icon.png">淺草晴空塔趴趴GO</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=11&idx=2" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216202539&type=58&pk=11&idx=2" >
                                     <span><img src="/img/component/icon/map-icon.png">築地台場親子玩透透</span>
                                   </a>
                                  </div>
@@ -93,12 +93,12 @@
 
                                <div class="row no-gutters text-center pb-2">
                                  <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=11&idx=3" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216202539&type=58&pk=11&idx=3" >
                                    <span><img src="/img/component/icon/map-icon.png">原宿澀谷新宿好好逛</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=11&idx=4" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216202539&type=58&pk=11&idx=4" >
                                    <span><img src="/img/component/icon/map-icon.png">走進宮崎駿奇幻世界</span>
                                   </a>
                                  </div>
@@ -107,19 +107,19 @@
                          </div>
                         <div class="col-md-4 col">
                            <div class="cardshap japan_list">
-                          <a href="about_2.php" title="新聞">
+                          <a href="about.php?tr_pk=nt2019012216211277" >
                             <div class="img_div" style="background-image: url(../../img/component/travel/kansai.jpg);">
                              <big>關西</big>           
                             </div>
                           </a>
                               <div class="row no-gutters text-center pt-2">
                                  <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=12&idx=1" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216211277&type=58&pk=12&idx=1" >
                                     <span><img src="/img/component/icon/map-icon.png">走訪清水寺祇園之行</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=12&idx=2" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216211277&type=58&pk=12&idx=2" >
                                     <span><img src="/img/component/icon/map-icon.png">搭小火車京都嵐山行</span>
                                   </a>
                                  </div>
@@ -127,12 +127,12 @@
 
                                <div class="row no-gutters text-center pb-2">
                                  <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=12&idx=3" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216211277&type=58&pk=12&idx=3" >
                                    <span><img src="/img/component/icon/map-icon.png">大阪購物美食好好買</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=12&idx=4" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216211277&type=58&pk=12&idx=4" >
                                    <span><img src="/img/component/icon/map-icon.png">神戶異國美食趴趴走</span>
                                   </a>
                                  </div>
@@ -141,19 +141,19 @@
                          </div>
                         <div class="col-md-4 col">
                            <div class="cardshap japan_list">
-                          <a href="about_3.php" title="新聞">
+                          <a href="about.php?tr_pk=nt2019012216212384" >
                             <div class="img_div" style="background-image: url(../../img/component/travel/hokkaido.jpg);">
                              <big>北海道</big>           
                             </div>
                           </a>
                               <div class="row no-gutters text-center pt-2">
                                  <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=13&idx=1" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216212384&type=58&pk=13&idx=1" >
                                     <span><img src="/img/component/icon/map-icon.png">富良野美瑛慢活賞花</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=13&idx=2" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216212384&type=58&pk=13&idx=2" >
                                     <span><img src="/img/component/icon/map-icon.png">漫步小樽北國風情趣</span>
                                   </a>
                                  </div>
@@ -161,12 +161,12 @@
 
                                <div class="row no-gutters text-center pb-2">
                                  <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=13&idx=3" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216212384&type=58&pk=13&idx=3" >
                                    <span><img src="/img/component/icon/map-icon.png">搭火車走訪濕原秘境</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=13&idx=4" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216212384&type=58&pk=13&idx=4" >
                                    <span><img src="/img/component/icon/map-icon.png">戰嚴冬搭車欣賞流冰</span>
                                   </a>
                                  </div>
@@ -179,19 +179,19 @@
                         <div class="col-md-12 row">
                         <div class="col-md-4 col">
                            <div class="cardshap japan_list">
-                          <a href="about_4.php" title="新聞">
+                          <a href="about.php?tr_pk=nt2019012216213186" >
                             <div class="img_div" style="background-image: url(../../img/component/travel/tour.jpg);">
                              <big>東北</big>           
                             </div>
                           </a>
                               <div class="row no-gutters text-center pt-2">
                                  <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=14&idx=1" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216213186&type=58&pk=14&idx=1" >
                                     <span><img src="/img/component/icon/map-icon.png">十和田感受繽紛秋色</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=14&idx=2" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216213186&type=58&pk=14&idx=2" >
                                     <span><img src="/img/component/icon/map-icon.png">拜訪古城泡湯又暖心</span>
                                   </a>
                                  </div>
@@ -199,12 +199,12 @@
 
                                <div class="row no-gutters text-center pb-2">
                                  <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=14&idx=3" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216213186&type=58&pk=14&idx=3" >
                                    <span><img src="/img/component/icon/map-icon.png">品美食欣賞奧之細道</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=14&idx=4" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216213186&type=58&pk=14&idx=4" >
                                    <span><img src="/img/component/icon/map-icon.png">陸奧小京都角館即行</span>
                                   </a>
                                  </div>
@@ -213,19 +213,19 @@
                          </div>
                         <div class="col-md-4 col">
                            <div class="cardshap japan_list">
-                          <a href="about_5.php" title="新聞">
+                          <a href="about.php?tr_pk=nt2019012216214163" >
                             <div class="img_div" style="background-image: url(../../img/component/travel/kyushu.jpg);">
                              <big>九州</big>           
                             </div>
                           </a>
                               <div class="row no-gutters text-center pt-2">
                                  <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=15&idx=1" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216214163&type=58&pk=15&idx=1" >
                                     <span><img src="/img/component/icon/map-icon.png">熊本火之國自然巡禮</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=15&idx=2" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216214163&type=58&pk=15&idx=2" >
                                     <span><img src="/img/component/icon/map-icon.png">漫遊福岡好吃又好玩</span>
                                   </a>
                                  </div>
@@ -233,12 +233,12 @@
 
                                <div class="row no-gutters text-center pb-2">
                                  <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=15&idx=3" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216214163&type=58&pk=15&idx=3" >
                                    <span><img src="/img/component/icon/map-icon.png">由布院別府泡湯之旅</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=15&idx=4" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216214163&type=58&pk=15&idx=4" >
                                    <span><img src="/img/component/icon/map-icon.png">長崎白天夜晚超迷人</span>
                                   </a>
                                  </div>
@@ -247,19 +247,19 @@
                          </div>
                        <div class="col-md-4 col">
                            <div class="cardshap japan_list">
-                          <a href="about_6.php" title="新聞">
+                          <a href="about.php?tr_pk=nt2019012216220552" >
                             <div class="img_div" style="background-image: url(../../img/component/travel/okinnawa.jpg);">
                              <big>冲繩</big>           
                             </div>
                           </a>
                               <div class="row no-gutters text-center pt-2">
                                  <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=16&idx=1" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216220552&type=58&pk=16&idx=1" >
                                     <span><img src="/img/component/icon/map-icon.png">沖繩親子就醬玩透透</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=16&idx=2" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216220552&type=58&pk=16&idx=2" >
                                     <span><img src="/img/component/icon/map-icon.png">沖繩放空浮潛賞夕照</span>
                                   </a>
                                  </div>
@@ -267,12 +267,12 @@
 
                                <div class="row no-gutters text-center pb-2">
                                  <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=16&idx=3" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216220552&type=58&pk=16&idx=3" >
                                    <span><img src="/img/component/icon/map-icon.png">走訪沖繩世界遺產行</span>
                                   </a>
                                  </div>
                                   <div class="col-6">
-                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?type=58&pk=16&idx=4" title="新聞">
+                                  <a href="http://cardu.srl.tw/travel/jp/recommend_detail.php?tr_pk=nt2019012216220552&type=58&pk=16&idx=4" >
                                    <span><img src="/img/component/icon/map-icon.png">美國村國際通趴趴走</span>
                                   </a>
                                  </div>

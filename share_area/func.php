@@ -131,7 +131,7 @@ function slide_4s_3b($sql_carousel, $where_arr='no')
     'Tb_index'=>'ad123456',
     'ns_ftitle'=>'廣告',
     'ns_msghtml'=>'我是廣告',
-    'ns_photo_1'=>'../img/component/photo2.jpg'
+    'ns_photo_1'=>'/img/component/photo2.jpg'
     ];
   }
 
@@ -165,7 +165,7 @@ function slide_4s_3b($sql_carousel, $where_arr='no')
       //-- 判斷網址 --
       $a_url=news_url($slide_all_arr[$index]['mt_id'], $slide_all_arr[$index]['Tb_index'], $slide_all_arr[$index]['ns_nt_pk'], $slide_all_arr[$index]['area_id']);
       //-- 判斷廣告圖片 --
-      $ns_photo_1=$j%2==1 ? $slide_all_arr[$index]['ns_photo_1'] : '../sys/img/'.$slide_all_arr[$index]['ns_photo_1'];
+      $ns_photo_1=$j%2==1 ? $slide_all_arr[$index]['ns_photo_1'] : '/sys/img/'.$slide_all_arr[$index]['ns_photo_1'];
       
       $slide_img.='
       <a href="'.$a_url.'" index_img="'.($j+1).'" title="'.$slide_all_arr[$index]['ns_ftitle'].'" class="img_div '.$active.'" style="background-image: url('.$ns_photo_1.');">
@@ -571,7 +571,7 @@ function slide_ph($sql_carousel, $where_arr='no')
    
     $url=news_url($row_slide_one['mt_id'], $row_slide_one['Tb_index'], $row_slide_one['ns_nt_pk'], $row_slide_one['area_id']);
     $ns_ftitle=mb_substr($row_slide_one['ns_ftitle'], 0,15,'utf-8');
-    $slide_txt.='<div class="swiper-slide img_div" pagination-index="1" style="background-image: url(../sys/img/'.$row_slide_one['ns_photo_1'].');"> 
+    $slide_txt.='<div class="swiper-slide img_div" pagination-index="1" style="background-image: url(/sys/img/'.$row_slide_one['ns_photo_1'].');"> 
                  <a href="'.$url.'" title="'.$row_slide_one['ns_ftitle'].'">
                      <div class="word shadow_text" >'.$ns_ftitle.'</div>
                  </a>
@@ -579,7 +579,7 @@ function slide_ph($sql_carousel, $where_arr='no')
     
     //-- 廣告 --
     if ($x%2==0) {
-      $slide_txt.='<div class="swiper-slide img_div" pagination-index="1" style="background-image: url(../img/component/slide_photo1.jpg);"> 
+      $slide_txt.='<div class="swiper-slide img_div" pagination-index="1" style="background-image: url(/img/component/slide_photo1.jpg);"> 
                    <a href="#" title="廣告">
                        <div class="word shadow_text" >我是廣告</div>
                    </a>

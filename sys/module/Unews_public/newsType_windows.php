@@ -39,18 +39,34 @@
                                
 								<?php
                                   foreach ($row_type as $row_type_one) {
-                                  	echo '
-
-                                  	   <div class="row">
-                                  	   	<div class="col-xs-7">
+                                    //-- 優旅行 先改回原狀 --
+                                    if ($_GET['unit_id']) {
+                                      echo '
+                                       <div class="row">
+                                        <div class="col-xs-7">
                                          <label>
                                            <input type="radio" name="news_type" typeName="'.$row_type_one['nt_name'].'" value="'.$row_type_one['Tb_index'].'"> '.$row_type_one['nt_name'].'
                                          </label> 
-                                  	   	</div>
-                                  	   	<div class="col-xs-1">
+                                        </div>
+                                        <div class="col-xs-1">
                                            <a href="javascript:;" data-toggle="tooltip" data-placement="right" title="" data-original-title="'.$row_type_one['nt_define'].'"><i class="fa fa-question-circle"></i></a>
-                                  	   	</div>
-                                  	   </div> ';
+                                        </div>
+                                       </div> ';
+                                    }
+                                    //-- 其他 --
+                                    else{
+                                        echo '
+                                           <div class="row">
+                                            <div class="col-xs-7">
+                                              <label>
+                                                <input type="radio" name="news_type" typeName="'.$row_type_one['nt_name'].'" value="'.$row_type_one['Tb_index'].'"> '.$row_type_one['nt_name'].'
+                                              </label> 
+                                            </div>
+                                            <div class="col-xs-1">
+                                                <a href="javascript:;" data-toggle="tooltip" data-placement="right" title="" data-original-title="'.$row_type_one['nt_define'].'"><i class="fa fa-question-circle"></i></a>
+                                            </div>
+                                           </div> ';
+                                    }
                                   }
 								?>
 							</div>
@@ -296,9 +312,14 @@
               $("#ns_nt_ot_pk",parent.document).html('');
 
               //--------------- 主分類 -------------------
-              $("#ns_nt_pk",parent.document).append( '<span class="btn btn-success">'+$('[name="news_type"]:checked').attr('typeName')+' <input type="hidden" name="ns_nt_pk" value="'+$('[name="news_type"]:checked').val()+'"></span> ' );
+              var news_type_txt='';
+              $.each($('[name="news_type"]:checked'), function(index, val) {
+                 $("#ns_nt_pk",parent.document).append( '<span class="btn btn-success">'+$(this).attr('typeName')+' <input type="hidden" name="ns_nt_pk" value="'+$(this).val()+'"></span>' );
+                 news_type_txt+=$(this).val()+',';
+              });
+              
               //-- 記錄暫存 --
-              sessionStorage.setItem("news_type", $('[name="news_type"]:checked').val());
+              sessionStorage.setItem("news_type", news_type_txt.slice(0, -1));
 
 
               //--------------- 特別議題 ---------------

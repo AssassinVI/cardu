@@ -16,40 +16,35 @@
  switch ($row_newsType['unit_id']) {
    //-- 旅行分享 --
    case 'un2019011717563437':
-     $crumbs_url='share.php?tr_pk='.$row_newsType['Tb_index'];
-     $crumbs_name='旅行分享-'.$row_newsType['nt_name'];
+     $crumbs_html='<a href="share.php?tr_pk='.$row_newsType['Tb_index'].'">旅行分享-'.$row_newsType['nt_name'].'</a>';
      //--版面右側--
      $right_area='right_area_div_share.php';
    break;
 
    //-- 行程推薦 --
    case 'un2019011717564690':
-     $crumbs_url='recommend.php?tr_pk='.$row_newsType['Tb_index'];
-     $crumbs_name='行程推薦-'.$row_newsType['nt_name'];
+     $crumbs_html='<a href="recommend.php?tr_pk='.$row_newsType['Tb_index'].'">行程推薦-'.$row_newsType['nt_name'].'</a>';
      //--版面右側--
      $right_area='right_area_div_recommend.php';
    break;
 
    //-- 刷卡秘笈 --
    case 'un2019011717570690':
-     $crumbs_url='tip.php';
-     $crumbs_name='刷卡秘笈';
+     $crumbs_html='<a href="tip.php">刷卡秘笈</a>';
      //--版面右側--
      $right_area='right_area_div_tip.php';
    break;
 
    //-- 優惠情報 --
    case 'un2019011717571414':
-     $crumbs_url='preferential.php';
-     $crumbs_name='優惠情報';
+     $crumbs_html='<a href="preferential.php">優惠情報</a>';
      //--版面右側--
      $right_area='right_area_div_preferential.php';
    break;
 
    //-- 日本嬉遊去 --
    case 'un2019011717573494':
-     $crumbs_url='jp/about.php';
-     $crumbs_name='日本嬉遊去-'.$row_newsType['nt_name'];
+     $crumbs_html='<a href="jp/index.php">日本嬉遊趣</a> / <a href="jp/about.php?tr_pk='.$row_newsType['Tb_index'].'">'.$row_newsType['nt_name'].'</a>';
      //--版面右側--
      $right_area='right_area_div_jp.php';
    break;
@@ -114,7 +109,7 @@
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="index.php">優旅行</a> / <a href="<?php echo $crumbs_url; ?>"><?php echo $crumbs_name; ?></a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="index.php">優旅行</a> / <?php echo $crumbs_html; ?></p>
           </div>
         </div>
         
@@ -255,7 +250,7 @@
                         <div class="tab-content" id="myTabContent">
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
-                            <div class="fb-comments" data-width="100%" data-href="http://srl.tw/cardu/news_detail.html" data-numposts="5"></div>
+                            <div class="fb-comments" data-width="100%" data-href="<?php echo $FB_URL; ?>" data-numposts="5"></div>
                            
                           </div>
                         </div>

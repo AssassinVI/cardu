@@ -22,10 +22,10 @@
 							<div class="col-xs-3">
 								<a href="javascript:;" id="add_btn" class="btn btn-info">新增</a>
 							</div>
-							<div class="col-xs-12">
+							<!-- <div class="col-xs-12">
 								<label>標籤類型：</label>
 								<label><input type="radio" name="lb_type" value="area" checked>地區</label>｜<label><input type="radio" name="lb_type" value="other">其他</label>
-							</div>
+							</div> -->
 						</div>
 					</form>
 				</div><!-- /.panel-body -->
@@ -62,8 +62,15 @@
 				<div class="panel-body">
 					<form action="manager.php" method="POST" class="form-horizontal put_form">
 						<div class="form-group">
-							<div id="search_input" class="col-md-9 row">
-								
+							<div id="search_input" class="col-md-9">
+								<?php 
+                                 $row_label=$NewPdo->select("SELECT lb_name FROM project_label WHERE OnLineOrNot=1");
+                                 foreach ($row_label as $row_label_one) {
+                                 	echo '<label><input type="checkbox"  name="project_label[]" value="'.$row_label_one['lb_name'].'">'.$row_label_one['lb_name'].'</label>｜';
+                                 }
+                                 
+								?>
+							  
 							</div>
 						</div>
 					</form>
@@ -91,14 +98,17 @@
 				$.ajax({
 					url: 'project_label_windows_ajax.php',
 					type: 'POST',
-					dataType: 'json',
 					data: {
-						add_proj_label: $('#add_proj_label_txt').val(),
-						nt_id: $('[name="nt_sp_id"]',parent.document).val(),
-						lb_type: $('[name="lb_type"]').val()
+						add_proj_label: $('#add_proj_label_txt').val()
 					},
 					success:function (data) {
 						console.log(data);
+						if (data!='error') {
+							$('#search_input').append(data);
+						}
+						else{
+						   alert('這個標籤已重複');
+						}
 					}
 				});
 			}
@@ -133,18 +143,18 @@
 
           $("#submit_btn").click(function(event) {
           
-              $("#over_label",parent.document).html('');
+              $("#project_label",parent.document).html('');
               
               //-- 以勾選陣列 --
               var con_lab_arr=[];
-              $.each($('.confirm_label'), function() {
+              $.each($('[name="project_label[]"]:checked'), function() {
                    con_lab_arr.push($(this).val());
                    //-- 標籤 --
-                   $("#over_label",parent.document).append( '<span class="label">'+$(this).val()+'<input type="hidden" name="ns_label[]" value="'+$(this).val()+'"></span>、' );
+                   $("#project_label",parent.document).append( '<span class="label">'+$(this).val()+'<input type="hidden" name="in_sp_label[]" value="'+$(this).val()+'"></span>、' );
               });
 
               //-- 記錄暫存 --
-              sessionStorage.setItem("news_label", con_lab_arr);
+              sessionStorage.setItem("project_label", con_lab_arr);
 
               parent.jQuery.fancybox.close();	
             
@@ -158,14 +168,15 @@
     //-- 讀取記錄 --
 	$(window).on('load',  function(event) {
         
-		if (sessionStorage.getItem("news_label")!=undefined) {
-			var news_label_arr=sessionStorage.getItem("news_label");
-			    news_label_arr=news_label_arr.split(',');
+		if (sessionStorage.getItem("project_label")!=undefined) {
+			var project_arr=sessionStorage.getItem("project_label");
+			    project_arr=project_arr.split(',');
 
-			for (var i = 0; i < news_label_arr.length; i++) {
+			for (var i = 0; i < project_arr.length; i++) {
 				
 		        //-- 顯示以勾選 --
-				 $('#checked_label').append('<label><input type="checkbox" checked class="confirm_label" value="'+news_label_arr[i]+'">'+news_label_arr[i]+'｜</label>');
+		        $('[name="project_label[]"][value="'+project_arr[i]+'"]').prop('checked', true);
+				// $('#search_input').append('<label><input type="checkbox" checked name="project_label[]" value="'+project_arr[i]+'">'+project_arr[i]+'｜</label>');
 			}
 		}
 	});

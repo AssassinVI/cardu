@@ -74,7 +74,7 @@
                   <div class="col-md-12 col">
                   
                     <?php 
-                     //-- 刷卡秘笈單元 --
+                     //-- 優惠情報單元 --
                      $ns_nt_ot_pk_query="";
                      $row_newsType=$pdo->select("SELECT Tb_index FROM news_type WHERE unit_id='un2019011717571414'");
                      foreach ($row_newsType as $newsType) {
