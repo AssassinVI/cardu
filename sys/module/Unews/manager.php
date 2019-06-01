@@ -737,18 +737,20 @@ if ($_GET) {
               </div>
             </div>
 
+            
+            </div>
+            <!-- 優旅行-旅行分享-專用 -->
+
             <div class="form-group">
               <label class="col-md-2 control-label" for="in_sp_label">專案特輯標籤</label>
               <div class="col-md-8">
                 <input type="text" class="form-control" id="in_sp_label" name="in_sp_label" value="<?php echo $row['in_sp_label'];?>">
               </div>
               <div class="col-md-2">
-                <a href="../Unews_public/news_label_windows.php" data-fancybox data-type="iframe" class="btn btn-info">選擇專案特輯標籤</a>
+                <a href="../Unews_public/project_label_windows.php" data-fancybox data-type="iframe" class="btn btn-info">選擇專案特輯標籤</a>
+                <input type="hidden" name="nt_sp_id" value="">
               </div>
             </div>
-
-            </div>
-            <!-- 優旅行-旅行分享-專用 -->
 
             
 

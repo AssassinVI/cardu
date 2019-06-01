@@ -737,6 +737,10 @@ if ($_GET) {
               </div>
             </div>
 
+            </div>
+            <!-- 優旅行-旅行分享-專用 -->
+
+
             <div class="form-group">
               <label class="col-md-2 control-label" for="in_sp_label">專案特輯標籤</label>
               <div class="col-md-8">
@@ -746,9 +750,6 @@ if ($_GET) {
                 <a href="../Unews_public/news_label_windows.php" data-fancybox data-type="iframe" class="btn btn-info">選擇專案特輯標籤</a>
               </div>
             </div>
-
-            </div>
-            <!-- 優旅行-旅行分享-專用 -->
 
             
 
