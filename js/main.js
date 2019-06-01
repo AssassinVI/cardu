@@ -530,6 +530,7 @@ $(document).ready(function() {
 
               //-- 目前輪播位置 --
               card_rank.slideTo((index-1), 700, false);
+
               ccard_Swiper.removeAllSlides();
 
               $.ajax({
@@ -555,6 +556,7 @@ $(document).ready(function() {
                   x++;
                   });
                   ccard_Swiper.autoplay.start();
+                  ccard_Swiper.slideToLoop(0, 750, false);
                 }
               });
 
@@ -612,6 +614,7 @@ $(document).ready(function() {
                         x++;
                         });
                         ccard_Swiper.autoplay.start();
+                        ccard_Swiper.slideToLoop(0, 750, false);
                       }
                     });
                   }
@@ -1741,6 +1744,34 @@ function img_txt(dom_id) {
     });
 }
 
+
+
+
+
+//======================= 內文圖片 廣告 ==========================
+function html_ad() {
+
+    //-- 手機 --
+    if ($(window).width()<768) {
+      var ad_txt='<a class="d-block mt-3" href="#"><img class="w-100" src="http://placehold.it/900x300" alt=""></a>';
+    }
+    //-- 電腦 --
+    else{
+     var ad_txt='<a class="d-block mt-3" href="#"><img class="w-100" src="http://placehold.it/750x100" alt=""></a>';
+    }
+
+    $.each($('.detail_content>p'), function(index, val) {
+       
+       if ($('.detail_content>p').length>=2 && index==1) {
+        if ($(this).next().html().indexOf('img')!=-1) {
+          $(this).next().append(ad_txt);
+        }
+        else{
+          $(this).append(ad_txt);
+        }
+       }
+    });
+}
 
 
 

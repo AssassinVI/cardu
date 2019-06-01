@@ -5351,7 +5351,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 }
 
 .page-3.swiper-container .img_div{
-  height: 85px;
+  height: 110px;
 }
 
 .page-3.swiper-pagination{
@@ -5563,7 +5563,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 
 
 /*------------------------------------------- 廣告 -------------------------------------------------*/
-.ad_fixed_ph{ position: fixed; bottom: 0; left: 0; width: 100%; }
+.ad_fixed_ph{ position: fixed; bottom: 0; left: 0; width: 100%; z-index: 10;}
 .ad_fixed_ph .sub_slide .swiper-button-next, 
 .ad_fixed_ph .sub_slide .swiper-container-rtl .swiper-button-prev, 
 .ad_fixed_ph .sub_ph_slide .swiper-button-next, 

@@ -25,8 +25,8 @@
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:title" content="卡優新聞網" />
     <meta property="og:description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" />
-    <meta property="og:url" content="https://www.cardu.com.tw" />
-    <meta property="og:see_also" content="https://www.cardu.com.tw" />
+    <meta property="og:url" content="<?php echo $FB_URL;?>" />
+    <!-- <meta property="og:see_also" content="https://www.cardu.com.tw" /> -->
       
       
     <?php 
@@ -258,9 +258,10 @@
                                                FROM credit_cardrank_type 
                                                WHERE cc_so_status=1 ORDER BY cc_so_order ASC");
                     $x=1;
+                    $rand_num=rand(1,count($row_cc_type));
                     foreach ($row_cc_type as $rct_one) {
-                      $active=$x==1 ? 'active':'';
-                      $active_img=$x==1 ? $rct_one['cc_so_photo_1_hover']:$rct_one['cc_so_photo_1'];
+                      $active=$x==$rand_num ? 'active':'';
+                      $active_img=$x==$rand_num ? $rct_one['cc_so_photo_1_hover']:$rct_one['cc_so_photo_1'];
                       $cardrank_url=wp_is_mobile() ? 'javascript:;' :'second.php?'.$rct_one['old_id'].'" title="'.$rct_one['cc_so_cname'];
                       echo '
                       <div class="swiper-slide '.$active.'" index="'.$x.'" Tb_index="'.$rct_one['Tb_index'].'" > 
@@ -282,6 +283,8 @@
                  <div class="swiper-button-next"> <i class="fa fa-angle-right"></i></div>
 
             </div>
+            <!-- 給予隨機卡功能 -->
+            <input type="hidden" name="rand_num" value="<?php echo $rand_num;?>">
            </div>
          </div>
 
@@ -290,44 +293,7 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
 
-                  <?php 
-                     //-- 現金回饋 隨機(無條件/有條件) --
-                     $rand_cc_so_pk=['r_type201904010959361', 'r_type201904010959362'];
-                     $row_ccard_rank=$pdo->select("SELECT ccs_cc_cardname, ccs_cc_pk, ccs_cc_group_id
-                                                   FROM credit_cardrank 
-                                                   WHERE ccs_cc_so_pk=:ccs_cc_so_pk ORDER BY ccs_order ASC LIMIT 0,6", ['ccs_cc_so_pk'=>$rand_cc_so_pk[rand(0,1)]]);
-                     $x=1;
-                     foreach ($row_ccard_rank as $rcr_one) {
-                       //-- 單卡 --
-                       if (!empty($rcr_one['ccs_cc_pk'])) {
-                          $row_ccard=$pdo->select("SELECT cc_photo FROM credit_card WHERE Tb_index=:Tb_index", ['Tb_index'=>$rcr_one['ccs_cc_pk']], 'one');
-                       }
-                       //-- 卡組 --
-                       else{
-                          $row_ccard=$pdo->select("SELECT cc_photo 
-                                                   FROM credit_card as cc
-                                                   INNER JOIN card_level as level ON level.Tb_index=cc.cc_cardlevel
-                                                   WHERE cc_group_id=:cc_group_id 
-                                                   ORDER BY level.OrderBy ASC
-                                                   LIMIT 0,1", ['cc_group_id'=>$rcr_one['ccs_cc_group_id']], 'one');
-                       }
-
-                       //-- 卡片圖 --
-                       $cc_photo=empty($row_ccard['cc_photo']) ? 'CardSample.png':$row_ccard['cc_photo'];
-
-                       $ccs_cc_cardname=explode(']', $rcr_one['ccs_cc_cardname']);
-                       $ccs_cc_shortname=mb_strlen($ccs_cc_cardname[1],'utf-8')>10 ? mb_substr($ccs_cc_cardname[1], 0,10,'utf-8'):$ccs_cc_cardname[1];
-
-                       $cc_url=!empty($rcr_one['ccs_cc_pk']) ? '../cardNews/creditcard.php?cc_pk='.$rcr_one['ccs_cc_pk'].'&cc_group_id='.$rcr_one['ccs_cc_group_id'] : '../cardNews/type.php?gid='.$rcr_one['ccs_cc_group_id'];
-                       echo '
-                       <div class="swiper-slide">
-                          <div class="w-h-100 hv-center">
-                            <a href="'.$cc_url.'" title="'.$ccs_cc_cardname[1].'"><span class="top_Medal">'.$x.'</span><img src="../sys/img/'.$cc_photo.'" alt="'.$ccs_cc_cardname[1].'"><br>'.$ccs_cc_shortname.'</a>
-                          </div>
-                       </div>';
-                      $x++;
-                     }
-                  ?>
+                 <!-- /js/index_m/main.js 卡排行 -->
 
                 </div>
                                                   
@@ -422,12 +388,15 @@
       <!-- 卡情報 END -->
 
 
+
+
       <!-- 人氣排行 -->
       <div id="iCardRanking" class="cardshap tab_one darkpurple_tab favorite_card">
                           <div class="tab_menu row no-gutters">
                              <div class="col-12">
                                 <div class="title_tab hole">
                                   <i class="icon" style="background-image: url(img/component/icon/icon11.png); background-size: 95%;"></i><h4>人氣排行</h4>
+                                  <a class="tab_link" href="rank/newcard.php"></a>
                                 </div>
                              </div> 
                              <div class="col-12">
@@ -529,6 +498,10 @@
       <!-- 人氣排行 END -->
 
 
+      <!--廣告-->
+      <div class="p-8px"><img class="w-100" src="http://srl.tw/cardu_m/img/component/AD3.png" alt="banner"></div><!--banner end -->
+
+
       <!-- 優行動Pay -->
       <div class="cardshap tab_one blueGreen_tab">
           <div class="title_tab hole">
@@ -561,6 +534,11 @@
            </div>                    
       </div>
       <!-- 優票證 END -->
+
+
+
+      <!--廣告-->
+      <div class="p-8px"><img class="w-100" src="http://srl.tw/cardu_m/img/component/AD3.png" alt="banner"></div><!--banner end -->
 
 
 

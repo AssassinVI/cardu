@@ -540,21 +540,8 @@
           });
 
           $(window).on('load', function() {
-            
             //-- 內文插入廣告 --
-            if ($(window).width()<768) {
-              var ad_txt='<a href="#"><img class="w-100" src="http://placehold.it/365x100" alt=""></a>';
-            }
-            else{
-             var ad_txt='<a href="#"><img class="w-100" src="http://placehold.it/750x100" alt=""></a>';
-            }
-
-            $.each($('.detail_content p'), function(index, val) {
-               console.log(index);
-               if (index==2) {
-                $(this).append(ad_txt);
-               }
-            });
+            html_ad();
           });
         </script>
 

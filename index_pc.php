@@ -348,7 +348,7 @@
                            <div class="ccard">
                               <div class="swiper-container">
                                   <div class="swiper-wrapper">
-                                    <!-- main.js 卡排行 -->
+                                    <!-- /js/main.js 卡排行 -->
                                   </div>
                                                                     
                               </div>

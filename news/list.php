@@ -129,8 +129,20 @@ $nt_name =$row['nt_name'];
                       </div>
                     
 
+
                     <!--廣告-->
-                    <div class="co bannerl-md-12 col banner"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
+                    <?php 
+                      if (wp_is_mobile()){
+                    ?>
+                       <div class="co bannerl-md-12 col banner"><img src="http://placehold.it/900x300" alt="banner"></div><!--banner end -->
+                    <?php 
+                     }else{
+                    ?>
+
+                      <div class="co bannerl-md-12 col banner"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
+                    <?php
+                     }
+                    ?>
                     
 
 
@@ -176,6 +188,27 @@ $nt_name =$row['nt_name'];
                           $ns_msghtml=mb_substr(strip_tags($row_list_one['ns_msghtml']), 0,50,'utf-8');
                           $url=news_url($row_list_one['mt_id'], $row_list_one['Tb_index'], $row_list_one['ns_nt_pk'], $row_list_one['area_id']);
                           $fb_url=urlencode($url);
+                 
+                          //-- 圖文廣告(手機) --
+                          if (wp_is_mobile() && $j==0){
+                            echo '
+                            <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                             <div class="col-md-4 col-6 py-2 pl-2">
+                               <a class="img_div news_list_img" href="#" style="background-image: url(http://placehold.it/150x100);"></a>
+                             </div>
+                             <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
+                              <div class="mb-2">
+                                <a href="#" title="廣告">
+                                 <h3>我是圖文廣告</h3>
+                                </a>
+                              </div>
+                               <p>我是圖文廣告...</p>
+                             </div>
+                            </div>';
+                          }
+                          
+                          //-- 圖文廣告(手機) END --
+
                           echo '
                           <div class="row no-gutters py-md-3 mx-md-4 news_list">
                            <div class="col-md-4 col-6 py-2 pl-2">
@@ -189,7 +222,6 @@ $nt_name =$row['nt_name'];
                                <small>('.$row_list_one['StartDate'].')</small>
                               </a>
                             </div>
-                             '.$activity_date.'
                              <p>'.$ns_msghtml.'...</p>
                              
                              <div class="fb_search_btn">
@@ -206,11 +238,11 @@ $nt_name =$row['nt_name'];
 
                       //-- 廣告 --
                       if (wp_is_mobile()) {
-                        if ($i!=3) {
+                        if ($i!=3 && $i!=$count_i) {
                           echo '
                           <div class="col-md-12 row">
                           <div class="col-md-6 col banner d-md-none d-sm-block ">
-                              <img src="https://placehold.it/365x100" alt="">
+                              <img src="https://placehold.it/900x300" alt="">
                           </div>
                           </div>';
                         }
@@ -238,8 +270,76 @@ $nt_name =$row['nt_name'];
                      paging($total_page, $page);
                     ?>
 
-                    <div class="col-12 py-5">
-                    </div>
+
+
+                    <?php 
+                     if(wp_is_mobile()){
+                    ?>
+                     <!--信用卡推薦-->
+                      <div class="col-md-12 col mb-5 pb-5">
+
+                          <div class="cardshap blue_tab exception">
+                          <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item news_tab">
+                              <a class="nav-link active pl-30 py-2" id="special_1-tab" aria-selected="true">信用卡推薦</a>
+                            </li>
+                          </ul>
+                          <div class="tab-content p-0" id="myTabContent">
+                            <div class="tab-pane fade show active"  role="tabpanel" >
+
+                              <div class="row no-gutters mx-2 py-3 card_list">
+                                <div class="col-md-4 text-center">
+                                  <a class="card_list_img" href="#">
+                                    <img src="../img/component/card1.png" alt="" title="新聞">
+                                  </a>
+                                  <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
+                                </div>
+                                <div class="col-md-4 card_list_txt rank_color phone_card">
+                                  <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <ul>
+                                    <li><b>●</b>國內現金回饋1.22%</li>
+                                    <li><b>●</b>國外現金回饋2.22%</li>
+                                    <li><b>●</b>感應式刷卡快速結帳</li>
+                                    <li><b>●</b>高額旅遊平安險</li>
+                                    <li><b>●</b>華航機票優惠</li>
+                                  </ul>
+                                </div>
+                                <div class="col-md-4 phone_hidden">
+                                  <a class="img_div card_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                  <p>謹慎理財 信用至上</p>
+                                </div>
+                              </div>
+                             
+                            </div>
+                           
+                          </div>
+                        </div>
+                      </div>
+                      <!--信用卡推薦end --> 
+
+
+                      <!-- 懸浮廣告 -->
+                      <div class="ad_fixed_ph">
+                        <div class="swiper-container sub_ph_slide">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                  <a href="#"><img class="w-100" src="http://placehold.it/900x180" alt=""></a>
+                                </div>
+                                <div class="swiper-slide">
+                                   <a href="#"><img class="w-100" src="http://placehold.it/900x180" alt=""></a>
+                                </div>
+                            </div>
+                            
+                            <!-- 如果需要导航按钮 -->
+                            <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                            <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                        </div>
+                      </div>
+                      <!-- 懸浮廣告 END -->
+
+                    <?php
+                     }
+                    ?>
                     
 
                   </div>

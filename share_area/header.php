@@ -3,7 +3,7 @@
       <div class="header_div">
         <div class="row">
             <div class="col-md-12 text-right col0"  id="TopInfo">
-                <span>Hi,  您尚未登入唷！</span>       <a href="#">註冊會員</a>      <a href="javascript:;" data-fancybox data-src="#member_div">登錄會員</a>
+                <span>Hi,  您尚未登入唷！</span>       <a href="/member/sign_second.php">註冊會員</a>      <a href="javascript:;" data-fancybox data-src="#member_div">登錄會員</a>
             </div>
             
             <div id="index_head_left" class="col0 hv-center">
@@ -282,30 +282,30 @@
                                    <div class="col-md-6">
                                     <h4>會員專區</h4>
                                     <ul class="ul-2-part">
-                                      <li><a href="#">會員資料</a></li>
-                                      <li><a href="#">卡優公告</a></li>
-                                      <li><a href="#">卡優活動</a></li>
+                                      <li><a href="/member/index.php">會員資料</a></li>
+                                      <li><a href="/member/annouce_second.php">卡優公告</a></li>
+                                      <li><a href="/member/event_second.php">卡優活動</a></li>
                                       <li><a href="#">卡優貼紙</a></li>
 
                                       
                                     </ul>
                                     <ul class="ul-2-part">
                                       <li><a href="#">電子報</a></li>
-                                      <li><a href="#">客服中心</a></li>
+                                      <li><a href="/member/service.php">客服中心</a></li>
                                     </ul>
                                   </div>
                                    <div class="col-md-6">
                                     <h4>我的卡優</h4>
                                     <ul class="ul-2-part">
-                                      <li><a href="#">我的信用卡</a></li>
-                                      <li><a href="#">我的帳單</a></li>
-                                      <li><a href="#">我的資訊</a></li>
-                                      <li><a href="#">我的文章</a></li>
+                                      <li><a href="/member/mycard.php">我的信用卡</a></li>
+                                      <li><a href="/member/mybill.php">我的帳單</a></li>
+                                      <li><a href="/member/myinfo.php">我的資訊</a></li>
+                                      <li><a href="/member/mypen.php">我的文章</a></li>
                                       
                                     </ul>
                                     <ul class="ul-2-part">
-                                      <li><a href="#">我的收藏</a></li>
-                                      <li><a href="#">我的行事曆</a></li>
+                                      <li><a href="/member/mycollect.php">我的收藏</a></li>
+                                      <li><a href="/member/mydate.php">我的行事曆</a></li>
                                     </ul>
                                     
                                   </div>
@@ -364,11 +364,11 @@
                 </div>
                 <div class="form-group">
                   <label><input type="checkbox" value="1"> 記住我的帳號 </label>
-                  <a href="#">忘記密碼</a>
+                  <a href="/member/password.php">忘記密碼</a>
                 </div>
                 <div class="form-group">
                   <a class="login_btn" href="#">登入</a>
-                  <p>還不是會員嗎?<a href="#">立即註冊</a></p>
+                  <p>還不是會員嗎?<a href="/member/sign_second.php">立即註冊</a></p>
                 </div>
                 <div class="form-group">
                   <p class="text-center">或使用以下帳號登入</p>

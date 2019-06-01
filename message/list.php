@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
    <?php 
-     $newType=$pdo->select("SELECT nt_name FROM news_type WHERE pk=:pk",['pk'=>$_GET['mt_pk']],'one');
+     $mt_pk=strlen($_GET['mt_pk'])>2 ? 'Tb_index=:pk' : 'pk=:pk';
+     $newType=$pdo->select("SELECT nt_name FROM news_type WHERE $mt_pk",['pk'=>$_GET['mt_pk']],'one');
    ?>
 
     <title>卡優新聞網 - 卡情報 > <?php echo $newType['nt_name'];?></title>
@@ -60,7 +61,7 @@
         <!-- 麵包屑 -->
         <div class="row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="card.php">卡情報</a> / <a href="javascript:;"><?php echo $newType['nt_name'];?></a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="/card/card.php">卡情報</a> / <a href="javascript:;"><?php echo $newType['nt_name'];?></a></p>
           </div>
         </div>
         

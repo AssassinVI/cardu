@@ -700,8 +700,8 @@ function index_html_fun2($area_id){
       $row_txt.='
       <div class="row no-gutters">
        <div class="col-5">
-         <a href="'.$url.'">
-           <img class="w-h-100" src="sys/img/'.$row_un[$index]['ns_photo_1'].'" alt="">
+         <a class="img_div d-block" href="'.$url.'" style="background-image:url(sys/img/'.$row_un[$index]['ns_photo_1'].');">
+           
          </a>
        </div>
        <div class="col-7 page_txt hv-center">

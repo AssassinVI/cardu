@@ -58,6 +58,19 @@ $(document).ready(function() {
 
             
             $('.favorite_card .tab_menu .swiper-slide a').click(function(event) {
+              
+              //-- 新卡人氣 --
+              if ($(this).attr('tap')=='pop_card') {
+                $(this).parents('.favorite_card').find('.tab_link').attr('href', 'rank/newcard.php');
+              //-- 辦卡人氣 --
+              }else if($(this).attr('tap')=='add_card'){
+                $(this).parents('.favorite_card').find('.tab_link').attr('href', 'rank/apply.php');
+              }
+              //-- 點閱人氣 --
+              else{
+                $(this).parents('.favorite_card').find('.tab_link').attr('href', 'rank/click.php');
+              }
+
               $('.favorite_card .tab_menu .swiper-slide a').removeClass('active');
               $(this).addClass('active');
               $.ajax({
@@ -160,14 +173,15 @@ $(document).ready(function() {
                   nextEl: '.card_rank .swiper-button-next',
                   prevEl: '.card_rank .swiper-button-prev',
                 }
-              });   
+              }); 
+
+
 
             var ccard_Swiper = new Swiper (' .ccard_rank .swiper-container', {
                 slidesPerView : 2,
                 slidesPerGroup : 2,
                 speed:750,
                 loop:true,
-                loopAdditionalSlides : 4,
                 autoplay: {
                     delay: 5000
                 },
@@ -179,8 +193,42 @@ $(document).ready(function() {
               });   
 
 
+            var index=$('[name="rand_num"]').val()==undefined ? 1: $('[name="rand_num"]').val();
+
+            //-- 目前輪播位置 --
+            card_rank_Swiper.slideTo((index-1), 750, false);  
+
+            ccard_Swiper.removeAllSlides();
+
+            $.ajax({
+              url: '../../ajax/rank_ajax.php',
+              type: 'POST',
+              dataType: 'json',
+              data: {
+                type:'slide_6_rank',
+                ccs_cc_so_pk:  $('.card_rank .swiper-container .swiper-slide:nth-child('+index+')').attr('Tb_index')
+              },
+              success:function (data) {
+                var x=1;
+                $.each(data, function(index, val) {
+
+                  var txt='<div class="swiper-slide">'+
+                                     '<div class="w-h-100 hv-center">'+
+                                       '<a href="'+this['cc_url']+'" title="'+this['ccs_cc_cardname']+'">'+
+                                       '<span class="top_Medal">'+x+'</span><img src="/sys/img/'+this['cc_photo']+'" alt="'+this['ccs_cc_cardname']+'"><br>'+this['cc_shortname']+
+                                       '</a>'+
+                                     '</div>'+
+                                 '</div>';
+                  ccard_Swiper.appendSlide(txt);
+                x++;
+                });
+                ccard_Swiper.autoplay.start();
+                ccard_Swiper.slideToLoop(0, 750, false);
+              }
+            });
+
+
             /*--- 卡排行 ---*/
-            var index=1;
             $('.card_rank .swiper-slide').mouseenter(function(event) {
                 
                 ccard_Swiper.autoplay.stop();
@@ -229,6 +277,7 @@ $(document).ready(function() {
                       x++;
                       });
                       ccard_Swiper.autoplay.start();
+                      ccard_Swiper.slideToLoop(0, 750, false);
                     }
                   });
                 }

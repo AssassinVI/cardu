@@ -21,7 +21,7 @@
 
      <div id="menu_list" class="w-100">
       <div class="close_div">
-        <a href="#"><i class="fa fa-home"></i> 首頁</a>
+        <a href="/index.php"><i class="fa fa-home"></i> 首頁</a>
         <a class="close_btn" href="#" >Ｘ</a>
       </div>
        <div class="accordion" id="accordionExample">
@@ -181,12 +181,12 @@
          <div class="card">
            <div class="card-header" id="card7">
              <h5 class="mb-0">
-               <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
+               <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="true" aria-controls="collapse7">
                  優旅行 <i class="fa fa-angle-down"></i>
                </button>
              </h5>
            </div>
-           <div id="collapse6" class="collapse " aria-labelledby="card7" data-parent="#accordionExample">
+           <div id="collapse7" class="collapse " aria-labelledby="card7" data-parent="#accordionExample">
              <div class="card-body">
                <div class="row no-gutters">
                  <div class="col-6"><a href="/travel/share.php">旅行分享</a></div>
@@ -202,12 +202,12 @@
          <div class="card">
            <div class="card-header" id="card8">
              <h5 class="mb-0">
-               <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="true" aria-controls="collapse7">
+               <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="true" aria-controls="collapse8">
                  討論區 <i class="fa fa-angle-down"></i>
                </button>
              </h5>
            </div>
-           <div id="collapse7" class="collapse " aria-labelledby="card8" data-parent="#accordionExample">
+           <div id="collapse8" class="collapse " aria-labelledby="card8" data-parent="#accordionExample">
              <div class="card-body">
                <div class="row no-gutters">
                  <div class="col-6"><a href="#">專題</a></div>
@@ -222,30 +222,30 @@
          <div class="card">
            <div class="card-header" id="card9">
              <h5 class="mb-0">
-               <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="true" aria-controls="collapse8">
+               <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
                  會員中心 <i class="fa fa-angle-down"></i>
                </button>
              </h5>
            </div>
-           <div id="collapse8" class="collapse " aria-labelledby="card9" data-parent="#accordionExample">
+           <div id="collapse9" class="collapse " aria-labelledby="card9" data-parent="#accordionExample">
              <div class="card-body">
                <h4>會員專區</h4>
                <div class="row no-gutters">
-                 <div class="col-6"><a href="#">會員資料</a></div>
+                 <div class="col-6"><a href="/member/index.php">會員資料</a></div>
                  <div class="col-6"><a href="#">電子報</a></div>
-                 <div class="col-6"><a href="#">卡優公告</a></div>
-                 <div class="col-6"><a href="#">客服中心</a></div>
-                 <div class="col-6"><a href="#">卡優活動</a></div>
+                 <div class="col-6"><a href="/member/annouce_second.php">卡優公告</a></div>
+                 <div class="col-6"><a href="/member/service.php">客服中心</a></div>
+                 <div class="col-6"><a href="/member/event_second.php">卡優活動</a></div>
                  <div class="col-6"><a href="#">卡優貼紙</a></div>
                </div>
                <h4>我的卡優</h4>
                <div class="row no-gutters">
-                 <div class="col-6"><a href="#">我的信用卡</a></div>
-                 <div class="col-6"><a href="#">我的收藏</a></div>
-                 <div class="col-6"><a href="#">我的帳單</a></div>
-                 <div class="col-6"><a href="#">我的行事曆</a></div>
-                 <div class="col-6"><a href="#">我的資訊</a></div>
-                 <div class="col-6"><a href="#">我的文章</a></div>
+                 <div class="col-6"><a href="/member/mycard.php">我的信用卡</a></div>
+                 <div class="col-6"><a href="/member/mycollect.php">我的收藏</a></div>
+                 <div class="col-6"><a href="/member/mybill.php">我的帳單</a></div>
+                 <div class="col-6"><a href="/member/mydate.php">我的行事曆</a></div>
+                 <div class="col-6"><a href="/member/myinfo.php">我的資訊</a></div>
+                 <div class="col-6"><a href="/member/mypen.php">我的文章</a></div>
                </div>
              </div>
            </div>
@@ -254,12 +254,12 @@
          <div class="card">
            <div class="card-header" id="card10">
              <h5 class="mb-0">
-               <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
+               <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse10" aria-expanded="true" aria-controls="collapse10">
                  關於我們 <i class="fa fa-angle-down"></i>
                </button>
              </h5>
            </div>
-           <div id="collapse9" class="collapse " aria-labelledby="card10" data-parent="#accordionExample">
+           <div id="collapse10" class="collapse " aria-labelledby="card10" data-parent="#accordionExample">
              <div class="card-body">
                <div class="row no-gutters">
                  <div class="col-6"><a href="#">專題</a></div>

@@ -742,8 +742,9 @@
                       </div>
                     </div>
                     <!--首刷禮end -->
+
                     <!--信用卡推薦-->
-                    <div class="col-md-12 col">
+                    <div class="col-md-12 col mb-5 pb-5">
 
                         <div class="cardshap brown_tab exception">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -783,12 +784,26 @@
                       </div>
                     </div>
                     <!--信用卡推薦end -->    
-                   
-                    
-                    
 
-                   
-
+                    
+                    <!-- 懸浮廣告 -->
+                    <div class="ad_fixed_ph">
+                      <div class="swiper-container sub_ph_slide">
+                          <div class="swiper-wrapper">
+                              <div class="swiper-slide">
+                                <a href="#"><img class="w-100" src="http://placehold.it/900x180" alt=""></a>
+                              </div>
+                              <div class="swiper-slide">
+                                 <a href="#"><img class="w-100" src="http://placehold.it/900x180" alt=""></a>
+                              </div>
+                          </div>
+                          
+                          <!-- 如果需要导航按钮 -->
+                          <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                          <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                      </div>
+                    </div>
+                    <!-- 懸浮廣告 END -->
 
 
 

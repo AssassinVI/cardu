@@ -49,6 +49,17 @@
                     //內容區
                     //載入樣版，並將上述內容套入樣版（同樣內容，但不同樣式）
                     include('../share_area/'.$list_template);
+
+                    //-- 廣告 --
+                    if ($i%2==0 && $i!=$sql_special->rowCount()) {
+                      
+                      echo '
+                      <div class="col-md-12 row">
+                        <div class="col-md-6 col banner">
+                            <img src="http://placehold.it/900x300" alt="">
+                        </div>
+                      </div>';
+                    }
                     
                     
                     //清空暫存

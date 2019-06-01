@@ -39,23 +39,65 @@
 
 
             <?php // 回圈跑出資料
+            $x=1;
             foreach ($row_others as $row_other) {
               $ns_ftitle_other=$row_other['ns_ftitle'];
               $ns_stitle_other=mb_substr(strip_tags($ns_ftitle_other),0, 14,"utf-8")."...";
               $Tb_index_other=$row_other['Tb_index'];
               $ns_photo_1_other=$img_url.$row_other['ns_photo_1'];
               $url=news_url($row_other['mt_id'], $row_other['Tb_index'], $row_other['ns_nt_pk'], $row_other['area_id']);
-            ?>
-            
-              <div class="col-md-4 cards-3 py-md-2 col-6">
-                 <a href="<?php echo $url?>">
-                     <div class="img_div" title="<?php echo $ns_ftitle_other?>" style="background-image: url(<?php echo $ns_photo_1_other?>);">
-                     </div>
-                     <p><?php echo $ns_stitle_other?></p>
-                 </a>
-              </div>
 
-           <?php }// 回圈跑出資料 end ?>
+             //-- 手機樣式 --
+             if (wp_is_mobile() && $x>2) {
+
+               if ($x==3) {
+                 echo ' 
+                    <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                     <div class="col-md-4 col-6 py-2 ">
+                        <a class="img_div news_list_img" href="#" style="background-image: url(https://placehold.it/150x100);"></a>
+                     </div>
+                      <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
+                       <div class="mb-2">
+                        <a href="#" >
+                          <h3>我是廣告我是廣告我是廣告我是廣告</h3>
+                         </a>
+                       </div>
+                      </div>
+                     </div>';
+               }
+               
+               echo '
+                   <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                     <div class="col-md-4 col-6 py-2 ">
+                        <a class="img_div news_list_img" href="'.$url.'" style="background-image: url('.$ns_photo_1_other.');"></a>
+                     </div>
+                      <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
+                       <div class="mb-2">
+                        <a href="'.$url.'" title="'.$row_other['ns_ftitle'].'">
+                          <h3>'.$ns_ftitle_other.'</h3>
+                         </a>
+                       </div>
+                      </div>
+                     </div>';
+             }
+
+             //-- 電腦樣式 --
+             else{
+
+              echo '
+               <div class="col-md-4 cards-3 py-md-2 col-6">
+                  <a href="'.$url.'">
+                      <div class="img_div" title="'.$ns_ftitle_other.'" style="background-image: url('.$ns_photo_1_other.');">
+                      </div>
+                      <p>'.$ns_stitle_other.'</p>
+                  </a>
+               </div>';
+             }
+       
+             
+              
+            $x++;
+             }// 回圈跑出資料 end ?>
 
 
           </div>
