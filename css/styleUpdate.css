@@ -276,10 +276,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8294d6', end
   .new_slide .slide_div .slide_img a{display: none; width: 100%; height: 100%; }
   .new_slide .slide_div .slide_img a.active{ display: block; }
   .new_slide .slide_div .slide_list{ display: inline-block; width: 300px; background-color: #fff; }
-  .new_slide .slide_div .slide_list a{ padding: 14px 15px;}
+  .new_slide .slide_div .slide_list a{ padding: 12.5px 15px;}
   .new_slide .slide_div .slide_list a.active{ background-color: #e9e9e9; }
   .new_slide .slide_div .slide_list a h4{ font-size: 17px; font-weight: 600; color: #304594; }
-  .new_slide .slide_div .slide_list a p{ color: #333;  font-size: 13px;  margin: 0; }
+  .new_slide .slide_div .slide_list a p{ color: #333;  font-size: 15px;  margin: 0; }
 
   /*---------------- 熱門情報 -----------------*/
 
@@ -497,9 +497,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9c2f9', end
 .card_compare h4 button{ font-size: 15px; background-color: #9146cb; border: 1px solid #9146cb; color: #f5f0ff;  padding: 5px;  vertical-align: top; }
 .card_compare_div{ padding: 5px; border: 1px solid #9146cb; }
 .card_compare_div button{ background-color: #ffd400; color: #000; width: 100%; border: none; padding: 5px; margin-top: 3px; border-radius: 5px; }
-.card_compare .card{ width: 100px; border: 1px dashed #ccc; margin: 2px auto;}
-.card_compare .card button{ position: absolute; right: -20px; top: 15px; background-color: #903fce; border: none; border-radius: 50%; font-size: 12px; font-weight: 600; width: 18px; height: 18px; padding: 0; color: #fff; }
-.card_compare .card .card_img{ height: 62px; }
+.card_compare .card{ width: 140px; border: 1px dashed #ccc; margin: 2px auto;}
+.card_compare .card button{ position: absolute; right: -20px; top: 0px; background-color: #903fce; border: none; border-radius: 50%; font-size: 12px; font-weight: 600; width: 18px; height: 18px; padding: 0; color: #fff; }
+.card_compare .card .card_img{ height: 89px; }
 .card_compare .card a{ display: flex; justify-content: center;}
 
 /*----------------------------- 卡片比一比(功能) END ----------------------------------*/

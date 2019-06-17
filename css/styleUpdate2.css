@@ -127,6 +127,42 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', end
     box-shadow: 2px 2px 2px #484848;
 }
 
+.primary_tab_btn a{
+   background: #00b7ea; /* Old browsers */
+background: -moz-linear-gradient(top, #00b7ea 0%, #43c4e8 43%, #0ba1bf 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #00b7ea 0%,#43c4e8 43%,#0ba1bf 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #00b7ea 0%,#43c4e8 43%,#0ba1bf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#0ba1bf',GradientType=0 ); /* IE6-9 */
+    border: none;
+    color: #fff !important;
+    box-shadow: 2px 2px 2px #484848;
+}
+
+
+.primary_tab .user_more .btn{
+    color: #fff;
+background: #257db4; /* Old browsers */
+background: -moz-linear-gradient(top, #257db4 0%, #37a8ec 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #257db4 0%,#37a8ec 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #257db4 0%,#37a8ec 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#257db4', endColorstr='#37a8ec',GradientType=0 ); /* IE6-9 */
+border: none;
+    color: #fff !important;
+    box-shadow: 2px 2px 2px #257db4;
+}
+
+.primary_tab .member_more a{
+    color: #fff;
+background: #257db4; /* Old browsers */
+background: -moz-linear-gradient(top, #257db4 0%, #37a8ec 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #257db4 0%,#37a8ec 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #257db4 0%,#37a8ec 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#257db4', endColorstr='#37a8ec',GradientType=0 ); /* IE6-9 */
+border: none;
+    color: #fff !important;
+    box-shadow: 2px 2px 2px #257db4;
+}
+
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 單頁型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*----------------------------------------- 淺藍色 ------------------------------------------------*/
 .primary_tab .title_tab{ 
@@ -382,7 +418,8 @@ padding: 0px 30px;
 
 .rank_care .rank_img{
  width:auto;
- height:127px;
+ height:100px;
+ margin-right: 10px;
  display: block;
 }
 

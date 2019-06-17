@@ -84,6 +84,8 @@ a:hover{ text-decoration: none; color:#000000; }
   width: 100%;
 }
 
+.h-100{ height: !important; }
+
 .w-h-100{
     width: 100%;
     height: 100%;
@@ -186,6 +188,13 @@ a:hover{ text-decoration: none; color:#000000; }
     margin-right: 5px;
  }
 
+ #arrow_btn{
+   border-radius: 0%;
+   background-color: #172f87;
+ }
+
+ #arrow_btn i{ padding: 0; color: #fff; }
+
   .apply_btn{
    width: 110px;
    height: 40px;
@@ -205,6 +214,28 @@ a:hover{ text-decoration: none; color:#000000; }
 /*swiper*/
  .swiper-wrapper{ transition-timing-function: cubic-bezier(0.07, 0.29, 0.31, 1); }
 
+
+ .close_fancybox{ position: absolute; right: 0; top: 0; border-radius: 0; }
+
+ #G_login{
+   background: url('/img/component/icon/g-normal.png'); 
+   background-repeat: no-repeat;
+   background-position-y:center;
+   background-position-x:3px;
+ }
+
+ #mem_G_login{
+   background: url('/img/component/icon/g-normal.png'); 
+   background-repeat: no-repeat;
+   background-position-y:center;
+   background-position-x:3px;
+   width: 141px;
+   height: 34px;
+   padding: 0px;
+   border: 1px solid #ccc;
+ }
+
+
 /*---------------共用end------------------*/
 
 
@@ -217,7 +248,7 @@ a:hover{ text-decoration: none; color:#000000; }
 
 .header_div.fixed{
   position:fixed;
-  z-index:100;
+  z-index:101;
   top:0;
   left: 0;
   right: 0;
@@ -302,6 +333,7 @@ a:hover{ text-decoration: none; color:#000000; }
   position: fixed;
   right: 2%;
   bottom: 0%;
+  z-index: 100;
 }
 
 .top_div a{
@@ -482,7 +514,7 @@ a:hover{ text-decoration: none; color:#000000; }
 #member_div{ display: none; width: 350px;}
 #member_div .mem_logo img{ width: 130px; }
 #member_div h2{ font-size: 22px; text-align: center; font-weight: 600; color: #172f8b; margin: 15px 0; }
-#member_div .login_btn{ display: block; padding: 10px; text-align: center; background-color: #193296; color: #fff; }
+#member_div .login_btn{ display: block; padding: 10px; text-align: center; background-color: #193296; color: #fff; width: 100%; border: 0; margin-bottom: 10px; cursor: pointer; }
 #member_div .other_login_btn{ display: block; padding: 5px; text-align: center; background-color: #ccc; color: #fff; margin: 0 5px;}
 #member_div .fb_color{ background-color: #3E569A; }
 #member_div .google_color{ background-color: #DB4E44; }
@@ -1031,7 +1063,7 @@ a:hover{ text-decoration: none; color:#000000; }
 
 .ccard .swiper-slide div a{
   display: block;
-  width: 100%;
+  /*width: 100%;*/
   text-align: center;
   color: #000;
 }
@@ -1062,8 +1094,8 @@ a:hover{ text-decoration: none; color:#000000; }
 .ccard .cards-3 a img{ height: 126px; margin-top: 1.2rem;}
 .ccard .cards-3 a p{ font-weight: 600; font-size: 17px;}
 .ccard .card_txt p{ font-weight: 500; font-size: 13px; color: #a8a8a8; }
-.ccard .card_btn{ margin-top: 0.5rem; }
-.ccard .card_btn button, .ccard .card_btn a{  padding: 3px 10px; font-size: 14px; margin: 0 5px; width: auto; }
+.ccard .card_btn{ margin: 0.5rem; }
+.ccard .card_btn button, .ccard .card_btn a{  padding: 3px 10px; font-size: 14px; margin: 0 10px; width: auto; }
 .ccard .card_btn .btn-orange{ background-color: #fc9b1b; color: #fff; } 
 .ccard .card_btn .btn-gray{ background-color: #797979; color: #fff; } 
 
@@ -1093,12 +1125,12 @@ a:hover{ text-decoration: none; color:#000000; }
   }
  
 .tab-content small{
-  font-size: 16px;
+  /*font-size: 16px;
   color:#fff;
-  padding:3px 10px;
+  
   position: absolute;
-  bottom:32px;
- 
+  bottom:32px;*/
+ padding:3px 10px;
 }
 
 .credit_icon {
@@ -1517,7 +1549,7 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 .hotCard .content_tab .row .col-7{
-    padding: 5px 8px;
+    padding: 0px 8px;
 }
 
 .hotCard .content_tab p{
@@ -1568,6 +1600,7 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 #new_card .card-body{
+  position: relative;
   padding: 19px;
 }
 
@@ -1598,6 +1631,7 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 .icon_top{ width: 30px; }
+.store_icon_top{ height: 40px; margin-right: 5px; }
 
 /*--------------------------------- 卡情報 單卡 ----------------------------------*/
 .ccard_img{ height: 190px; }
@@ -1661,6 +1695,7 @@ a:hover{ text-decoration: none; color:#000000; }
 
 .big_tab .content_tab{
    padding: 30px 10px;
+   min-height:242px; 
 }
 
 .tab_list_div .content_tab .news_list_div{
@@ -1703,6 +1738,7 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 .cards-3 .img_div{
+   position: relative;
     width:225px;
     height: 150px;
     margin:auto;
@@ -1753,6 +1789,7 @@ a:hover{ text-decoration: none; color:#000000; }
 .ticket_card .cards-4 .ticket_img h4{
     font-weight: bold;
     color:#263d95;
+    font-size: 16px;
 }
 
 .ticket_card .cards-4 .ticket_img:hover{bottom: 10px;}
@@ -1768,8 +1805,16 @@ a:hover{ text-decoration: none; color:#000000; }
     padding:5px 0;
 }
 
+
+.cards-two .new_article, .cards-3 .new_article{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 0 !important; z-index: 1;}
+.cards-two .small_a, .cards-3 .small_a{ font-size: 20px; color: #fff; position: absolute; bottom: 0px; left: 0; padding: 0; z-index: 2;}
+.cards-two .small_a:hover, .cards-3 .small_a:hover{ color: #fff; }
+
+
 .cards-two .img_div{
+    position: relative;
     height: 245px;
+    margin: 0 10px;
 } 
 
 .cards-two p{
@@ -3303,22 +3348,29 @@ a:hover{ text-decoration: none; color:#000000; }
     box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.55); 
 }
 
+/*--------------------------------- CARD 2塊 tab (如開卡文) ----------------------------------*/
+.nav-tabs .nav-item.news_tab.news_tab_two {width:50% !important;}
+
 /*--------------------------------- CARD 3塊 tab (如開卡文) ----------------------------------*/
 .nav-tabs .nav-item.news_tab.news_tab_three{ width: 33.33%; background-color: #fff !important;}
 /*------------------------------- NEWS 次版 TAB -----------------------------------------*/
 .news_list{ border-bottom: 1px solid #ccd0d5; }
 .news_list:last-child{ border-bottom:none; }
 .news_list_img{ display: block; height: 150px; width:225px; }
-.news_list_txt h3{  font-size: 22px; font-weight: 600; color: #3148a3; display:inline-block; }
+.news_list_txt h3{  font-size: 22px; font-weight: 600;  color: #3148a3;  display: inline-block;}
+.news_list_txt h3 a{ color: #3148a3; }
 .news_list_txt span{display: inline-block;}
 .news_list_txt a{color:#000000;}
 .news_list_txt .date{display: block;}
-.news_list_txt small{ color: #9c9c9c; font-size: 16px; }
+.news_list_txt small{ color: #9c9c9c; font-size: 15px; }
 .news_list_txt small a {color: #9c9c9c; font-size: 16px;}
-.news_list_txt .fb_search_btn{ position: absolute; bottom: 0; right: 0; height: 20px;}
+.news_list_txt .cs_small{ display: initial; margin-bottom: 0; }
+.news_list_txt .cs_small a{ font-size: 22px; color: #8b8b8b; }
+.news_list_txt .fb_search_btn{ width: 100%; position: absolute; bottom: 10px; right: 0; height: 20px;}
+.news_list_txt .fb_search_btn iframe{ float: right; }
  .page{  text-align: center; padding: 1.5rem 0; color: #2c439d;}
  .page a{ padding: 0 10px; color: #2c439d; }
- .page select{ width: 100px;  padding: 5px 0px 5px 20px; border-radius: 4px; border: 1px solid #2c439d; }
+ .page select{ width: 80px;  padding: 5px 0px 5px 10px; border-radius: 4px; border: 1px solid #2c439d; background-color: #fff;}
 
 
 
@@ -3592,6 +3644,7 @@ a:hover{ text-decoration: none; color:#000000; }
 
 .bank_search{
   background:#dee2e6;
+  border: 1px solid #ccc;
   width:100%;
 }
 
@@ -3639,7 +3692,7 @@ a:hover{ text-decoration: none; color:#000000; }
   }
  
 .ticketbg .move_3{
-  width:236px;
+  /*width:236px;*/
   text-align: center;
   background-color: #fff;
   padding:20px 0;
@@ -3679,7 +3732,6 @@ a:hover{ text-decoration: none; color:#000000; }
   font-weight: bold;
   margin:15px 0;
   padding-top: 10px;
-  font-family: arial;
 }
 
 
@@ -3804,11 +3856,12 @@ a:hover{ text-decoration: none; color:#000000; }
 
 
 
-.detail_content .con_img{ border-bottom: 1px solid #ccc; margin: 1rem 0;}
-.detail_content .con_img img{ width: 100%; }
+.detail_content .con_img{ border-bottom: 1px solid #ccc; margin: 1rem 0; margin-right: 1rem; display: inline-block;}
+/*.detail_content .con_img img{ width: 100%; }*/
 .detail_content .con_img p{ font-size: 15px; margin: 5px 0; }
-.detail_content p{ font-size: 20px; letter-spacing: 0.5px; line-height: 1.8;  }
-.detail_content .sub_title{font-size:1rem; line-height: 1;}
+.detail_content p{ font-size: 20px; letter-spacing: 0.5px; line-height: 1.8;}
+.detail_content p img{max-width: 100%;}
+.detail_content .sub_title{font-size:1rem; line-height: 1.5;}
 .detail_content span{padding:5px 0; display: inline-block;}
 .detail_content .shop_card h5{color: #3f57b5; font-weight: bold;}
 .detail_content .shop_txt{font-size: 18px;}
@@ -3924,6 +3977,7 @@ a:hover{ text-decoration: none; color:#000000; }
 .bank_main{
   position: relative;
   padding:0 10px;
+  border-bottom: 1px dashed #dddfe2;
 } 
 
 .bank_main.hole:before{
@@ -3935,8 +3989,7 @@ a:hover{ text-decoration: none; color:#000000; }
  color:#666;
  margin:10px 0;
  font-weight: bold;
- display:block;
- border-bottom: 1px dashed #dddfe2; 
+ display:inline;
  padding-bottom: 5px;
  padding-left: 15px;
 }
@@ -4096,6 +4149,11 @@ a:hover{ text-decoration: none; color:#000000; }
 .about_bg h1{font-size: 30px;font-weight: bold; color:#888;}
 .about_bg h2{font-size: 25px;font-weight: bold; color:#bbb;text-align: center; padding-top: 20px;}
 .about_bg p{font-size: 20px;font-weight: bold; color:#3f57b5;}
+
+#terms{ width: 600px; height: 500px; }
+#terms div{ height: 450px; overflow: auto; }
+
+
 .about_bg button{
     width: 90px;
     height: 40px;
@@ -4103,6 +4161,17 @@ a:hover{ text-decoration: none; color:#000000; }
     display: block;
     margin: 5px;
 }
+
+.about_bg a{
+    text-align: center;
+    padding: 8px 0px;
+    width: 90px;
+    border-radius: 5px;
+    display: block;
+    margin: 5px;
+}
+
+
 .member_info h4{font-weight: bold; color:#3f57b5;}
 .member_info h5{font-weight: bold; color:#3f57b5;}
 .member_info .table td, .table th{padding:8px 0;}
@@ -4139,7 +4208,7 @@ a:hover{ text-decoration: none; color:#000000; }
 
 .login_info .login_line{border: 1px solid #eee;}
 .login_info .col-sm-10{border-bottom: 1px solid #eee;}
-.login_info .col-sm-10.login_w input{width:80%;}
+.login_info .login_w input{width:80%;}
 .login_info .col-sm-2 {
     background-color: #888;
     text-align: right;
@@ -4275,6 +4344,13 @@ a:hover{ text-decoration: none; color:#000000; }
   display: inline-block;
 }
 /*----------------------------------------- 會員專區end ----------------------------------------------*/
+/*----------------------------------------- footer ----------------------------------------------*/
+.about_info{font-weight: 600; color: #3f57b5;}
+.footer_care p{font-size: 16px; padding:15px;}
+.footer_bg{
+    box-shadow: 4px 4px 12px 2px rgba(71,71,72,0.5);
+    margin-bottom: 15px;
+  }
 
 
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 切換型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
@@ -4380,15 +4456,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#243b92', end
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 切換型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*----------------------------------------- 紅色 ------------------------------------------------*/
 .red_tab_btn{
-    color: #fff;
+    color: #333;
     border: none;
-    box-shadow: 2px 2px 2px #3f54a3;
-    background: #dd1c16; /* Old browsers */
-    background: -moz-linear-gradient(top, #dd1c16 0%, #b50f03 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #dd1c16 0%,#b50f03 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #dd1c16 0%,#b50f03 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dd1c16', endColorstr='#b50f03',GradientType=0 ); /* IE6-9 */
-
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
 }
 /*----------------------------------------- 桃紅色 ------------------------------------------------*/
 
@@ -4446,6 +4517,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c54868', end
     font-size: 2px;
     margin-right: 5px;
 }
+
+.pink_tab .more_ot_btn{ 
+  padding: 2px 10px; color: #fff; 
+  background: rgb(197,72,104); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(197,72,104,1) 1%, rgba(197,72,104,1) 25%, rgba(232,89,126,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(197,72,104,1) 1%,rgba(197,72,104,1) 25%,rgba(232,89,126,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(197,72,104,1) 1%,rgba(197,72,104,1) 25%,rgba(232,89,126,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c54868', endColorstr='#e8597e',GradientType=0 ); /* IE6-9 */
+}
  
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 切換型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*----------------------------------------- 咖啡色 ------------------------------------------------*/
@@ -4458,6 +4538,8 @@ color: #fff;
     background: linear-gradient(to bottom, rgba(204,157,46,1) 0%,rgba(229,184,78,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc9d2e', endColorstr='#e5b84e',GradientType=0 ); /* IE6-9 */
 }
+
+
  
  
 .brown_tab .nav-tabs{
@@ -4600,6 +4682,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
     font-size: 2px;
     margin-right: 5px;
 }
+
+
+.Darkbrown_tab .more_ot_btn{ 
+  padding: 2px 10px; color: #fff; 
+  background: #8f4e31; /* Old browsers */
+  background: -moz-linear-gradient(top, #8f4e31 0%, #c77049 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #8f4e31 0%,#c77049 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #8f4e31 0%,#c77049 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', endColorstr='#c77049',GradientType=0 ); /* IE6-9 */
+}
  
  
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 切換型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
@@ -4658,10 +4750,37 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#187c9b', endColorstr='#38acc6',GradientType=0 ); /* IE6-9 */
 }
 
+.blueGreen_tab .more_ot_btn{
+  padding: 2px 10px; color: #fff; 
+  background: rgb(24,124,155); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(24,124,155,1) 0%, rgba(56,172,198,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(24,124,155,1) 0%,rgba(56,172,198,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(24,124,155,1) 0%,rgba(56,172,198,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#187c9b', endColorstr='#38acc6',GradientType=0 ); /* IE6-9 */
+}
 
 
 
 
+
+
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 單頁型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*----------------------------------------- 藍色 ------------------------------------------------*/
+.blue_tab .tab_menu{ background-color: #e5f0e6; }
+.blue_tab .tab_menu .menu a:hover{ color: #1a7f9e;}
+.blue_tab .tab_menu .menu a.ms_enter{ color: #1a7f9e; }
+.blue_tab .tab_menu .menu a:before{ background-color: #1a7f9e; }
+
+.blue_tab .title_tab{  
+    color: #fff;
+    background: rgb(36,59,146); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(36,59,146,1) 0%, rgba(93,121,221,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(36,59,146,1) 0%,rgba(93,121,221,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(36,59,146,1) 0%,rgba(93,121,221,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#243b92', endColorstr='#5d79dd',GradientType=0 ); /* IE6-9 */
+}
 
 
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 單頁型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
@@ -4689,23 +4808,6 @@ background: -moz-linear-gradient(left, rgba(206,160,67,1) 37%, rgba(189,165,101,
 background: -webkit-linear-gradient(left, rgba(206,160,67,1) 37%,rgba(189,165,101,1) 50%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to right, rgba(206,160,67,1) 37%,rgba(189,165,101,1) 50%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cea043', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
-}
-
-
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 單頁型 TAB @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
-/*----------------------------------------- 藍色 ------------------------------------------------*/
-.blue_tab .tab_menu{ background-color: #e5f0e6; }
-.blue_tab .tab_menu .menu a:hover{ color: #1a7f9e;}
-.blue_tab .tab_menu .menu a.ms_enter{ color: #1a7f9e; }
-.blue_tab .tab_menu .menu a:before{ background-color: #1a7f9e; }
-
-.blue_tab .title_tab{  
-    color: #fff;
-    background: rgb(36,59,146); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(36,59,146,1) 0%, rgba(93,121,221,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(36,59,146,1) 0%,rgba(93,121,221,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(36,59,146,1) 0%,rgba(93,121,221,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#243b92', endColorstr='#5d79dd',GradientType=0 ); /* IE6-9 */
 }
 
 
@@ -4847,6 +4949,16 @@ background: linear-gradient(to bottom, #8f4e31 0%,#c77049 100%); /* W3C, IE10+, 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', endColorstr='#c77049',GradientType=0 ); /* IE6-9 */
 }
 
+
+.Darkbrown_tab .title.hole{
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#9d5737+36,7db9e8+100&1+50,0+100 */
+background: -moz-linear-gradient(left,  rgba(157,87,55,1) 36%, rgba(150,108,94,1) 50%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgba(157,87,55,1) 36%,rgba(150,108,94,1) 50%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgba(157,87,55,1) 36%,rgba(150,108,94,1) 50%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d5737', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
+}
+
+
 .Darkbrown_tab .search_from input{ 
     background-color: #fcede8;
 }
@@ -4874,8 +4986,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 
 @media (max-width: 768px){
 
+  /*信用卡快搜 fancybox*/
+  #ccard_search{ display: none;  }
+  #ccard_search .mem_logo img{ width: 130px; }
+  
+
   #iNews{ height: 230px; }
-  #iNews .word{ height: 40px; line-height: 40px; top: 190px; padding:0px; font-size: 15px; }
+  #iNews .word{ height: 40px; line-height: 40px; top: 190px; padding:0px; font-size: 20px; }
 
   .top-space{ margin-top: 6.5rem; }
   .container-fluid{ padding:0; }
@@ -4885,7 +5002,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
   .hamburger-inner::before{ top: -7.4px; }
   .hamburger--collapse .hamburger-inner::after{  top: -14px; }
 
-  header{ top: 0; left: 0; position: fixed; z-index: 100; background-color: #fff;}
+  header{ top: 0; left: 0; position: fixed; z-index: 200; background-color: #fff;}
   
   /*--- menu tool ---*/
   .tool_div div{ width: 85%; margin-left: auto; justify-content: space-between;}
@@ -4895,13 +5012,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
   .tool_div a:nth-child(3){ background-size: 95%; }
   .tool_div a:nth-child(4){ background-size: 95%; }
 
+
   /*--- menu bar ---*/
   #menu{
     width: auto;
     background-image: none;
   }
   #menu_bar{ 
-   padding: 5px 0px;
+   
    background: rgb(66,85,157); /* Old browsers */
    background: -moz-linear-gradient(top, rgba(66,85,157,1) 0%, rgba(25,49,136,1) 50%, rgba(63,83,156,1) 100%); /* FF3.6-15 */
    background: -webkit-linear-gradient(top, rgba(66,85,157,1) 0%,rgba(25,49,136,1) 50%,rgba(63,83,156,1) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -4909,8 +5027,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42559d', endColorstr='#3f539c',GradientType=0 ); /* IE6-9 */
   }
 
-  #menu_bar .swiper-slide{ width: initial; }
+  #menu_bar .swiper-slide{ width: initial; padding: 5px 0;}
+  #menu_bar .swiper-slide.active{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#afafaf+6,dbdbdb+49,b7b7b7+93 */
+    background: rgb(175,175,175); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(175,175,175,1) 6%, rgba(219,219,219,1) 49%, rgba(183,183,183,1) 93%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(175,175,175,1) 6%,rgba(219,219,219,1) 49%,rgba(183,183,183,1) 93%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(175,175,175,1) 6%,rgba(219,219,219,1) 49%,rgba(183,183,183,1) 93%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#afafaf', endColorstr='#b7b7b7',GradientType=0 ); /* IE6-9 */
+  }
   #menu_bar .swiper-slide a{ display: inline-block; padding: 0 0.5rem; font-size: 19px; color: #fff; font-weight: 600; text-align: center; }
+  #menu_bar .swiper-slide.active a{ color: #193188; }
 
   /*--- menu 下拉選單 ---*/
   #menu_list{ 
@@ -4969,11 +5096,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
     text-align: left;
     font-size: 18px;
     font-weight: 600;
-    padding: 5px 18px;
+    padding: 10px 18px;
     color: #3e529b;
     background-color: #d2d2d2;
     border-radius: 0;
+    border-bottom: 1px solid #bcbcbc;
  }
+
+#menu_list .card-header a{
+  position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 18px;
+    color: #3e529b;
+    line-height: 1.6;
+    background-color: #d2d2d2;
+    
+}
+
 
  #menu_list .btn i{
   font-size: 25px;
@@ -5051,8 +5193,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
   }
 
   .news_slide .swiper-pagination-bullet{
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background: #fff;
     opacity: .4;
   }
@@ -5348,6 +5490,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 
 .page-3.swiper-container .page_txt p{
   margin:0;
+  
 }
 
 .page-3.swiper-container .img_div{
@@ -5437,34 +5580,55 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 .w-100-ph{width:100% !important; height:210px !important;}
 .ph-center{text-align: center;}
 .wx-100-ph{max-width: 100% !important;}
+.nav-tabs .nav-item.news_tab.news_tab_three {width:33.3% !important;}
+
 /*---------------------------------------------- 新聞次版區 ----------------------------------------------*/
-.nav-tabs .nav-item.news_tab.news_tab_three {width:33% !important;;}
+
 
 .col{ flex-basis: auto; }
 .container{padding:0; margin-top: 100px;}
 .index-content-right, .index-content-right-noMove{display: none;}
-.news_list{border-bottom:none; margin:auto;}
-.news_list_txt p{display: none;}
-.news_list_txt h3{font-size: 16px;}
-.news_list_txt span{font-size: 14px;}
-.news_list_txt small{display: block;}
+.news_list{border-bottom:none; margin:auto; width: 100%;}
+/*.news_list_txt p{display: none;}*/
+.news_list_txt h3{font-size: 18px; }
+.news_list_txt span{font-size: 14px; color: #8d8d8d;}
+.news_list_txt small{}
+.news_list_txt .fb_search_btn iframe{display: none; height: 20px; width: 100px; }
 .news_list_img {width:42.7vw; height: 28.3vw;}
-.news_list_txt .fb_search_btn{display: none;}
-.page{display: none;}
+.news_list_txt .fb_search_btn{display: block; position: relative;}
+.news_list_txt .cs_small{ display: initial; margin-bottom: 0; }
+.news_list_txt .cs_small a{ font-size: 18px; color: #8b8b8b; }
+/*.page{display: none;}*/
 
 
 
 /*---------------------------------------------- 新聞內頁 ----------------------------------------------*/
 .nav-tabs .nav-item.news_tab {width: 100% !important;}
 .cards-3 .img_div { width: 95%; height: 28.3vw; }
+.cards-3-ph a span{ text-align: left !important; font-size: 18px; font-weight: 600; color: #3148a3;}
 .crumbs_row {width:100%;}
 .detail_content img{ width: 100% !important; height: auto !important; }
+.detail_content .con_img{ margin-right: 0; position: relative;}
+.detail_content .img_zoonOut{ background-color: rgba(0, 0, 0, 0.5); padding: 5px; color: #fff; position: absolute; right: 0; }
+.detail_content p{  position: relative; }
+
+.PrevNext_div{ position: fixed; top: 45vh; z-index: 100; font-size: 30px; line-height: 0; padding: 10px 5px; background-color: rgba(0, 0, 0, 0.5);}
+.PrevNext_div a{ color: #fff; }
+.PrevNext_div.prev_btn{ left: 0; }
+.PrevNext_div.next_btn{ right: 0; }
+#PrevNext_footer{ background-color: #fff; }
+#PrevNext_footer a{ color: #bbb; }
+#PrevNext_footer a p{ color: #146fb2; font-size: 13px; }
+.table_div{ overflow: auto; }
 
 /*---------------------------------------------- pay區 ----------------------------------------------*/
-.ticketbg .move_3 {margin:auto;}
+.ticketbg .move_3 {margin:auto; width: 100%; padding: 20px 10px; height: 230px;}
+.ticketbg .move_3 .all_form img{ max-width: 100%; }
+.ticketbg .move_3 h4{ font-size: 19px; }
 .pay-4{margin:0 auto;}
 .detail_content span{padding:0;}
 .detail_title .row.ticketbg2 h1{margin-bottom: 0; padding: 0; text-align: center; font-size: 40px;}
+
 
 
 /*---------------------------------------------- ticket區 ----------------------------------------------*/
@@ -5487,9 +5651,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 .imp_int .card-header .angle_down{line-height: 1;}
 .tab-content .credit_icon {display: block; text-align: center;}
 .nav {justify-content: center;}
-.cards-3 p {padding-top:8px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px;}
+.cards-3 p {padding-top:8px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;}
 .cards-3 span{display: block; padding:8px 0;}
 .bank_all_img img{display: block; margin:auto;}
+
+/*-- 新卡訊 --*/
+.ccard_sp_ul{ list-style: none; padding: 0; }
 
 
 /*----------------------------------------- 卡情報單卡頁區----------------------------------------------*/
@@ -5502,9 +5669,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4e31', end
 .card_list_txt h4{margin-top: 10px;}
 .rank_hot .card_list_txt ul li{text-align: left;display: block;margin-left: 50px;}
 .ccard .top_Medal{top: 4px;left: 59px;}
-.rank_hot .col-md-1 {height: 60px;}
+/*.rank_hot .col-md-1 {height: 60px;}*/
 .modal_prize h1 {margin-top: 0;}
-.modal_prize .top_prize{top:-5px; left: 145px;}
+.modal_prize .top_prize{top:0px; left: 5px; z-index: 1;}
 .popular_prize .top_prize {position: absolute; top:8px !important;}
 .card_list_txt{text-align: center;}
 .card_list_txt ul {
