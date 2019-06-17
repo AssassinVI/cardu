@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
    <?php 
-     $mt_pk=strlen($_GET['mt_pk'])>2 ? 'Tb_index=:pk' : 'pk=:pk';
-     $newType=$pdo->select("SELECT nt_name FROM news_type WHERE $mt_pk",['pk'=>$_GET['mt_pk']],'one');
+     $mt_pk=strlen($_GET['mt_pk'])>3 ? 'Tb_index=:pk' : 'pk=:pk';
+     $newType=$pdo->select("SELECT Tb_index, nt_name FROM news_type WHERE $mt_pk",['pk'=>$_GET['mt_pk']],'one');
    ?>
 
     <title>卡優新聞網 - 卡情報 > <?php echo $newType['nt_name'];?></title>
@@ -24,9 +24,10 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
+    <?php 
+     //-- fb資料設定 --
+     require '../share_area/fb_config.php';
+    ?>
     <meta property="og:site_name" content="卡優新聞網" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
@@ -77,20 +78,21 @@
                   
                       
                       <?php 
+                       $nt_pk_sql= !empty($_GET['sp']) ? "ns_nt_sp_pk=:ns_nt_pk" : "ns_nt_pk=:ns_nt_pk";
+                       
                        //-- 判斷是否為手機 --
                        if (wp_is_mobile()){
-                      
+                       
                        //============================================
                        //每頁的輪播 (手機)
                        //設定好sql後，交由 func.php執行
                        //============================================
-                       $sql_carousel="SELECT n.Tb_index, n.ns_nt_pk, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.mt_id, nt.area_id
-                                      FROM appNews as n
-                                      INNER JOIN news_type as nt ON nt.Tb_index=n.ns_nt_pk
-                                      WHERE n.mt_id='$mt_id' AND nt.pk=:pk AND n.ns_verify=3 AND n.StartDate<=:StartDate AND n.EndDate>=:EndDate
-                                      ORDER BY n.ns_vfdate DESC LIMIT 0,10";
+                       $sql_carousel="SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id
+                                      FROM NewsAndType
+                                      WHERE ($nt_pk_sql OR ns_nt_ot_pk LIKE :ns_nt_ot_pk) AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate
+                                      ORDER BY ns_vfdate DESC LIMIT 0,10";
 
-                       slide_ph($sql_carousel, ['pk'=>$_GET['mt_pk'], 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                       slide_ph($sql_carousel, ['ns_nt_pk'=>$newType['Tb_index'], 'ns_nt_ot_pk'=>'%'.$newType['Tb_index'].'%', 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
 
                        } 
                        else{
@@ -100,13 +102,11 @@
                          //設定好sql後，交由 func.php執行
                          //============================================
                          $sql_carousel="
-                          SELECT n.Tb_index, n.ns_nt_pk, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.mt_id, nt.area_id
-                          FROM appNews as n
-                          INNER JOIN news_type as nt ON nt.Tb_index=n.ns_nt_pk
-                          WHERE n.mt_id='$mt_id' AND nt.pk=:pk AND n.ns_verify=3 AND n.StartDate<=:StartDate AND n.EndDate>=:EndDate
-                          ORDER BY n.ns_vfdate DESC LIMIT 0,6
-                          ";
-                         slide_4s_3b($sql_carousel, ['pk'=>$_GET['mt_pk'], 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                          SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id
+                          FROM NewsAndType
+                          WHERE ($nt_pk_sql OR ns_nt_ot_pk LIKE :ns_nt_ot_pk) AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate
+                          ORDER BY ns_vfdate DESC LIMIT 0,6";
+                         slide_4s_3b($sql_carousel, ['ns_nt_pk'=>$newType['Tb_index'], 'ns_nt_ot_pk'=>'%'.$newType['Tb_index'].'%', 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
                         
                        }
                       ?>
@@ -167,124 +167,14 @@
 
 
                     <?php 
-                      //-- 分頁判斷數 --
-                      $num=12;
-                      //--- 分頁起頭數 ---
-                      $now_page_num=empty($_GET['PageNo'])? 0:((int)$_GET['PageNo']-1)*$num;
-                      //-- 目前分頁 --
-                      $page=empty($_GET['PageNo']) ? 1:$_GET['PageNo'];
-
-
-                      //-- 總頁數 --
-                      $row_list_total=$pdo->select("SELECT count(*) as total
-                                              FROM NewsAndType
-                                              WHERE mt_id='$mt_id' AND pk=:pk AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate"
-                                              , ['pk'=>$_GET['mt_pk'], 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')], 'one');
-                      $total_page=ceil(((int)$row_list_total['total'])/$num);
-
-
-                      $row_list=$pdo->select("SELECT n.Tb_index, n.ns_nt_pk, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.mt_id, nt.area_id, n.activity_s_date, n.activity_e_date
-                                             FROM appNews as n
-                                             INNER JOIN news_type as nt ON nt.Tb_index=n.ns_nt_pk
-                                             WHERE n.mt_id='$mt_id' AND nt.pk=:pk AND n.ns_verify=3 AND n.StartDate<=:StartDate AND n.EndDate>=:EndDate
-                                             ORDER BY n.ns_vfdate DESC LIMIT $now_page_num, $num", ['pk'=>$_GET['mt_pk'], 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
-                     $row_list_num=count($row_list);
-                     $count_i=ceil($row_list_num/3);
-
-                     for ($i=0; $i <$count_i ; $i++) { 
-                       
-                       echo '<div class="col-md-12 col">
-                              <div class="cardshap redius_bg">';
-
-                       for ($j=$i*3; $j <($i+1)*3 ; $j++) {
-                        
-                        if ($j<$row_list_num) {
-
-                          $row_list_one=$row_list[$j];
-                          
-                          //-- 關聯銀行 --
-                          $row_back=$pdo->select("SELECT abc.bank_id, bk.bi_shortname
-                                                  FROM appNews_bank_card as abc
-                                                  INNER JOIN bank_info as bk ON bk.Tb_index=abc.bank_id
-                                                  WHERE news_id=:news_id
-                                                  GROUP BY abc.bank_id", ['news_id'=>$row_list_one['Tb_index']]);
-     
-                          $back_num=count($row_back);
-                          $back_txt=$back_num==1 ? '<small><a href="/card/bank_detail.php?bi_pk='.$row_back[0]['bank_id'].'">('.$row_back[0]['bi_shortname'].')</a></small>' : '';
-
-                          //-- 活動時間 --
-                          if ($row_list_one['activity_e_date']!='0000-00-00') {
-                            $activity_s_date=$row_list_one['activity_s_date']!='0000-00-00' ? $row_list_one['activity_s_date']:'即日起';
-                            $activity_date='<span class="mb-1">活動日期：'.$activity_s_date.'~'.$row_list_one['activity_e_date'].'</span>';
-                          }
-                          else{
-                            $activity_date='';
-                          }
-                          
-
-
-                          $ns_ftitle=mb_substr($row_list_one['ns_ftitle'], 0,15,'utf-8');
-                          $ns_msghtml=mb_substr(strip_tags($row_list_one['ns_msghtml']), 0,55,'utf-8');
-                          $url=news_url($row_list_one['mt_id'], $row_list_one['Tb_index'], $row_list_one['ns_nt_pk'], $row_list_one['area_id']);
-                          $fb_url=urlencode($url);
-                          echo '
-                          <div class="row no-gutters py-md-3 mx-md-4 news_list">
-                           <div class="col-md-4 col-6 py-2 pl-2">
-                             <a class="img_div news_list_img" href="'.$url.'" style="background-image: url('.$img_url.$row_list_one['ns_photo_1'].');"></a>
-                           </div>
-                           <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <div>
-                              <a href="'.$url.'" title="'.$row_list_one['ns_ftitle'].'">
-                               <h3>'.$ns_ftitle.'</h3>
-                              </a>
-                              '.$back_txt.'
-                            </div>
-                             '.$activity_date.'
-                             <p>'.$ns_msghtml.'...</p>
-                             
-                             <div class="fb_search_btn">
-                               <iframe src="https://www.facebook.com/plugins/like.php?href='.$fb_url.'&width=119&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="119" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                             </div>
-                           </div>
-                          </div>';
-                        }
-                       }
-
-                       echo '</div>
-                           </div>';
-
-
-                      //-- 廣告 --
-                      if (wp_is_mobile()) {
-                        if ($i!=3) {
-                          echo '
-                          <div class="col-md-12 row">
-                          <div class="col-md-6 col banner d-md-none d-sm-block ">
-                              <img src="https://placehold.it/365x100" alt="">
-                          </div>
-                          </div>';
-                        }
-                      }
-                      else{
-                        if ($i%2==0) {
-                          echo '<div class="col-md-12 col banner phone_hidden"><div class="test"><img src="https://placehold.it/750x100" alt="banner"></div></div>';
-                        }
-                        else{
-                          echo '<div class="col-md-12 row phone_hidden">
-                                   <div class="col-md-6 col banner ">
-                                       <img src="https://placehold.it/365x100" alt="">
-                                   </div>
-                                   <div class="col-md-6 col banner">
-                                       <img src="https://placehold.it/365x100">
-                                   </div>
-                               </div>';
-                        }
-                      }
-                     }
+                      //============================================
+                      //每頁的LIST (電腦)
+                      //給予mt_pk後，交由 func.php執行
+                      //============================================
+                      $sp=empty($_GET['sp']) ? '' : 'sp';
+                      news_list($_GET['PageNo'], $newType['Tb_index'], $sp);
                     ?>
                    
-
-
 
 
 
@@ -331,20 +221,11 @@
                     <!--信用卡推薦end -->    
 
 
-                    <?php 
-                     //-- 分頁 --
-                     paging($total_page, $page);
-                    ?>
-
                     <div class="col-12 py-5">
                       
                     </div>
 
                    
-
-
-
-
                 </div>
             </div>
             <!--版面左側end-->
@@ -358,9 +239,7 @@
         </div>
         <!--版面end-->
         
-        
-        
-        
+
         
     </div><!-- container end-->
 

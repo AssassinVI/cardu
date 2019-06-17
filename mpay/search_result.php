@@ -1,5 +1,6 @@
 <?php 
  require '../share_area/conn.php';
+ require 'config.php';
 ?>
 <!DOCTYPE html>
 
@@ -40,7 +41,7 @@
 
 
   </head>
-  <body class="travel_body">
+  <body class="pay_body">
 
     <div class="container">
 
@@ -71,8 +72,20 @@
                 
                 <div class="row">
 
-                   
                     <div class="col-md-12 col">
+
+                      <?php 
+                       $search_store=$pdo->select("SELECT st_name FROM store WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['store_id']], 'one');
+                       $search_nt=$pdo->select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['nt_id']], 'one');
+                       $search_store_txt=empty($search_store['st_name']) ? '所有支付、' : $search_store['st_name'].'、';
+                       $search_nt_txt=empty($search_nt['nt_name']) ? '所有類別、' : $search_nt['nt_name'].'、';
+                       $search_keyWords=empty($_GET['pay_keywords']) ? '' : $_GET['pay_keywords'].'、';
+                       $search_txt=$search_store_txt.$search_nt_txt.$search_keyWords;
+                       $search_txt=mb_substr($search_txt, 0,-1,'utf-8');
+
+                       echo '<p>搜尋條件：'.$search_txt.'</p>';
+                      ?>
+                      
                       <div class="cardshap ">
 
                        <?php 
@@ -86,10 +99,12 @@
                         $where=[
                           'StartDate'=>date('Y-m-d'), 
                           'EndDate'=>date('Y-m-d'),
+                          'ns_store'=>'%'.$_GET['store_id'].'%',
+                          'ns_nt_pk'=>'%'.$_GET['nt_id'].'%'
                         ];
 
                         //-- 關鍵字 --
-                        $keyword_arr=mb_strpos($_GET['keyword'], ',')!=FALSE ? explode(',', $_GET['keyword']) : explode(' ', $_GET['keyword']);
+                        $keyword_arr=mb_strpos($_GET['pay_keywords'], ',')!=FALSE ? explode(',', $_GET['pay_keywords']) : explode(' ', $_GET['pay_keywords']);
                         $keyword_arr_num=count($keyword_arr);
                         $key_query='';
                         for ($i=0; $i <$keyword_arr_num ; $i++) { 
@@ -105,9 +120,9 @@
 
                         //-- 總頁數 --
                       
-                        //-- 優旅行單元 --
+                        //-- 優行動Pay單元 --
                         $ns_nt_ot_pk_query="";
-                        $row_newsType=$pdo->select("SELECT Tb_index FROM news_type WHERE area_id='at2019011117461656'");
+                        $row_newsType=$pdo->select("SELECT Tb_index FROM news_type WHERE area_id='$area_id'");
                         foreach ($row_newsType as $newsType) {
                          $ns_nt_ot_pk_query.=" ns_nt_ot_pk LIKE '%".$newsType['Tb_index']."%' OR ";
                         }
@@ -116,72 +131,66 @@
 
                         $row_list_total=$pdo->select("SELECT count(*) as total
                                                 FROM NewsAndType
-                                                WHERE (area_id='at2019011117461656' OR $ns_nt_ot_pk_query) AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate AND 
-                                                $key_query"
+                                                WHERE (area_id='$area_id' OR $ns_nt_ot_pk_query) AND ns_verify=3 AND OnLineOrNot=1 AND StartDate<=:StartDate AND EndDate>=:EndDate AND
+                                                ns_store LIKE :ns_store AND ns_nt_pk LIKE :ns_nt_pk AND $key_query"
                                                 , $where, 'one');
                         $total_page=ceil(((int)$row_list_total['total'])/$num);
 
 
-                        $row=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, unit_id, in_blog, activity_s_date, activity_e_date
+                        $row=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, unit_id, in_blog, activity_s_date, activity_e_date, ns_store
                                            FROM NewsAndType 
-                                           WHERE (area_id='at2019011117461656' OR $ns_nt_ot_pk_query) AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate AND 
-                                           $key_query
+                                           WHERE (area_id='$area_id' OR $ns_nt_ot_pk_query) AND ns_verify=3 AND OnLineOrNot=1 AND StartDate<=:StartDate AND EndDate>=:EndDate AND 
+                                           ns_store LIKE :ns_store AND ns_nt_pk LIKE :ns_nt_pk AND $key_query
                                            ORDER BY ns_vfdate DESC
                                            LIMIT $now_page_num, $num" , $where);
 
                         foreach ($row as $row_one) {
 
-                          $ns_ftitle=mb_substr($row_one['ns_ftitle'], 0,15,'utf-8');
                           $ns_msghtml=mb_substr(strip_tags($row_one['ns_msghtml']), 0,50,'utf-8').'...';
                           $url=news_url($row_one['mt_id'], $row_one['Tb_index'], $row_one['ns_nt_pk'], $row_one['area_id']);
                           $fb_url=urlencode($url);
+
+
                           
-                          switch ($row_one['unit_id']) {
-                            //-- 旅行分享 --
-                            case 'un2019011717563437':
-                              $in_blog=empty($row_one['in_blog']) ? '卡優新聞網':$row_one['in_blog'];
-                              $s_title='<span>情報提供：'.$in_blog.'(旅行分享)</span>';
-                            break;
-                            //-- 行程推薦 --
-                            case 'un2019011717564690':
-                              $in_blog=empty($row_one['in_blog']) ? '卡優新聞網':$row_one['in_blog'];
-                              $s_title='<span>情報提供：'.$in_blog.'(行程推薦)</span>';
-                            break;
-                            //-- 刷卡秘笈 --
-                            case 'un2019011717570690':
-                              $s_title='<span>(刷卡秘笈)</span>';
-                            break;
-                            //-- 情報優惠 --
-                            case 'un2019011717571414':
-                              $activity_s_date=$row_one['activity_s_date']=='0000-00-00' ? '即日起' : $row_one['activity_s_date'];
-                              $activity_date=$row_one['activity_e_date']=='0000-00-00' ? '' : '活動時間 :'.$activity_s_date.' ~ '.$row_one['activity_e_date'];
-                              $s_title='<span>'.$activity_date.' (優惠情報)</span>';
-                            break;
-                            //-- 日本嬉遊去 --
-                            case 'un2019011717573494':
-                              $s_title='<span>(日本嬉遊去)</span>';
-                            break;
-                            
-                            default:
-                              //-- 上刊到其他單元(刷卡秘笈) --
-                              if ($row_one['ns_nt_pk']=='nt2019012316152574') {
-                                $s_title='<span>(刷卡秘笈)</span>';
-                              }
-                              else{
-                                $s_title='';
-                              }
-                            break;
+                          //-- 關聯商店 --
+                          $ns_store_arr=explode(',', $row_one['ns_store']);
+                          $ns_store_txt='';
+                          foreach ($ns_store_arr as $ns_store) {
+                            $ns_store_txt.="'".$ns_store."',";
                           }
+                          $ns_store_txt=substr($ns_store_txt, 0,-1);
+                          $row_store=$pdo->select("SELECT Tb_index, st_nickname
+                                                  FROM store
+                                                  WHERE Tb_index IN ($ns_store_txt)", 'no');
+                          $store_num=count($row_store);
+                          $small_txt=$store_num==1 ? '<small class="cs_small"><a href="/mpay/about.php?'.$row_store[0]['Tb_index'].'">('.$row_store[0]['st_nickname'].')</a></small>' : '';
+
+                          $ns_ftitle=empty($small_txt) ? $row_one['ns_ftitle'] : mb_substr($row_one['ns_ftitle'], 0,15,'utf-8');
+
+                          //-- 活動時間 --
+                          if ($row_one['activity_e_date']!='0000-00-00') {
+                            $activity_s_date=$row_one['activity_s_date']!='0000-00-00' ? $row_one['activity_s_date']:'即日起';
+                            $activity_date='<span class="mb-1">活動日期：'.$activity_s_date.'~'.$row_one['activity_e_date'].'</span>';
+                          }
+                          else{
+                            $activity_date='';
+                          }
+
 
                           echo '
                           <div class="row no-gutters py-md-3 mx-md-4 news_list">
                           <div class="col-md-4 col-6 py-2 pl-2">
-                            <a class="img_div news_list_img" title="'.$row_one['ns_ftitle'].'" href="'.$url.'" style="background-image: url(../sys/img/'.$row_one['ns_photo_1'].');"></a>
+                            <a target="_blank" class="img_div news_list_img" title="'.$row_one['ns_ftitle'].'" href="'.$url.'" style="background-image: url(../sys/img/'.$row_one['ns_photo_1'].');"></a>
                           </div>
                           <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <a href="'.$url.'" title="'.$row_one['ns_ftitle'].'"><h3>'.$row_one['ns_ftitle'].'</h3></a>
-                            '.$s_title.'
-                            <p>'.$ns_msghtml.'</p>
+                           <div class="mb-2">
+                            <a target="_blank" href="'.$url.'" title="'.$row_one['ns_ftitle'].'">
+                             <h3>'.$ns_ftitle.'</h3>
+                            </a>
+                            '.$small_txt.'
+                           </div>
+                            '.$activity_date.'
+                            <p>'.$ns_msghtml.'...</p>
                             <div class="fb_search_btn">
                               <iframe src="https://www.facebook.com/plugins/like.php?href='.$fb_url.'&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                             </div>

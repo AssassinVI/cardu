@@ -38,7 +38,7 @@ if (!$temparray[1]) {
 
 
 
-    <title>卡優新聞網-優票證</title>
+    <title>卡優新聞網-優票證 > <?php echo $row['st_name']; ?></title>
 
     <meta name="keywords" content="信用卡,金融卡,悠遊卡,一卡通,icash,電子票證,現金回饋,紅利,信用卡比較,信用卡優惠,首刷禮,辦卡,新卡,卡訊,行動支付,小額消費,新聞,理財,消費,3C,旅遊,日本,住宿,美食,電影,交通,好康,加油,報稅"/>  
     <meta name="description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" /> 
@@ -47,16 +47,16 @@ if (!$temparray[1]) {
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
-    <meta property="og:site_name" content="卡優新聞網" />
+    <?php 
+     require '../share_area/fb_config.php';
+    ?>
+    <meta property="og:site_name" content="卡優新聞網-優票證 > <?php echo $row['st_name']; ?>" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="卡優新聞網" />
+    <meta property="og:title" content="卡優新聞網-優票證 > <?php echo $row['st_name']; ?>" />
     <meta property="og:description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" />
-    <meta property="og:url" content="https://www.cardu.com.tw" />
-    <meta property="og:see_also" content="https://www.cardu.com.tw" />
+    <meta property="og:url" content="<?php echo $FB_URL; ?>" />
+    <!-- <meta property="og:see_also" content="https://www.cardu.com.tw" /> -->
       
       
     <?php 
@@ -84,7 +84,7 @@ if (!$temparray[1]) {
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/">首頁</a> / <a href="/ticket/">優票證</a> / <a href="all.php">票證總覽</a> / <a href="javascript:;"><?php echo $row['st_name'];?></a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="/eticket/eticket.php">優票證</a> / <a href="all.php">票證總覽</a> / <a href="javascript:;"><?php echo $row['st_name'];?></a></p>
           </div>
         </div>
         
@@ -110,7 +110,7 @@ if (!$temparray[1]) {
                                <img class="pay_img" src="../sys/img/<?php echo $row['st_logo']?>" title="<?php echo $row['st_name'];?>">
                               <div class="card_btn hv-center py-2">
                                 <button type="button" class="btn warning-layered btnOver">我要訂閱</button>
-                                <a class='all_form' href='<?php echo $row['st_url'];?>' title='<?php echo $row['st_name'];?>'>
+                                <a class='all_form' target="_blank" href='<?php echo $row['st_url'];?>' title='<?php echo $row['st_name'];?>'>
                                 <button type="button" class="btn gray-layered btnOver">前往官網</button>
                                 </a>
                               </div>
@@ -324,11 +324,11 @@ if (!$temparray[1]) {
 
                             
                         <?php 
-                            $pdo=pdo_conn();
+                            $pdo_OLD=pdo_conn();
 
                             //查詢分類ID 票證攻略ID un2019011717541797
                             //$sql_catalog="SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011717541797'";
-                            $sql_catalog=$pdo->prepare("SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011717541797'");
+                            $sql_catalog=$pdo_OLD->prepare("SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011717541797'");
                             $sql_catalog->execute();
                             $i=1; while ($row_catalog=$sql_catalog->fetch(PDO::FETCH_ASSOC)) {
                               $catalog_list.="'".$row_catalog['Tb_index']."',";
@@ -337,9 +337,8 @@ if (!$temparray[1]) {
 
 
 
-
-                            $sql_list=$pdo->prepare("
-                              SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
+                            $sql_list=$pdo_OLD->prepare("
+                              SELECT ns_ftitle, ns_photo_1, ns_msghtml, Tb_index, activity_s_date, activity_e_date, mt_id, ns_nt_pk, area_id FROM  NewsAndType
                               where ns_nt_pk in ($catalog_list)
                               and ns_verify=3 and OnLineOrNot=1 
                               and  StartDate<='$todayis' and EndDate>='$todayis'
@@ -347,124 +346,97 @@ if (!$temparray[1]) {
                               LIMIT 0, 12");
                             $sql_list->execute();
 
-                            $i=1; while ($row_list=$sql_list->fetch(PDO::FETCH_ASSOC)) {
-                              $id=$row_list['Tb_index'];
-                              $ns_ftitle=$row_list['ns_ftitle'];
-                              $ns_stitle=mb_substr(strip_tags($ns_ftitle),0, 15,"utf-8");
-                              $ns_photo_1="../sys/img/".$row_list['ns_photo_1'];
-                              $ns_msghtml=mb_substr(myTrim(strip_tags($row_list['ns_msghtml'])),0, 18,"utf-8");
+                            $row_list=$sql_list->fetchAll(PDO::FETCH_ASSOC);
 
-                              $Date[$i]="<div class='row no-gutters pb-md-3 py-2 news_list'>
-                                            <div class='col-md-4 col-5 py-2'>
-                                              <a class='img_div news_list_img' href='detail.php?$id' title='$ns_ftitle' style='background-image: url($ns_photo_1);'></a>
+                            $x=1;
+                            foreach ($row_list as $row_list_one) {
+
+                              $id=$row_list_one['Tb_index'];
+                              $ns_ftitle=$row_list_one['ns_ftitle'];
+                              $ns_stitle=mb_substr(strip_tags($ns_ftitle),0, 15,"utf-8");
+                              $ns_photo_1="../sys/img/".$row_list_one['ns_photo_1'];
+                              $ns_msghtml=mb_substr(myTrim(strip_tags($row_list_one['ns_msghtml'])),0, 50,"utf-8");
+                              $url=news_url($row_list_one['mt_id'], $row_list_one['Tb_index'], $row_list_one['ns_nt_pk'], $row_list_one['area_id']);
+                              $fb_url=urlencode($url);
+
+                              //-- 活動時間 --
+                              if ($row_list_one['activity_e_date']!='0000-00-00') {
+                                $activity_s_date=$row_list_one['activity_s_date']!='0000-00-00' ? $row_list_one['activity_s_date']:'即日起';
+                                $activity_date='<span class="mb-1">活動日期：'.$activity_s_date.'~'.$row_list_one['activity_e_date'].'</span>';
+                              }
+                              else{
+                                $activity_date='';
+                              }
+                               
+                               echo "<div class='row no-gutters pb-md-3 py-2 news_list'>
+                                            <div class='col-md-4 col-6 py-2'>
+                                              <a target='_blank' class='img_div news_list_img' href='".$url."' title='".$ns_ftitle."' style='background-image: url(".$ns_photo_1.");'></a>
                                             </div>
-                                            <div class='col-md-8 col-7 pl-4 py-1 news_list_txt'>
-                                              <a href='detail.php?$id' title='$ns_ftitle'>
-                                              <h3>$ns_ftitle</h3>
-                                              </a>
-                                              <a class='date' href='detail.php?$id' title='$ns_ftitle'>
-                                              <span>活動日期:</span><span>20XX/XX/XX~20XX/XX/XX</span>
-                                              <p class='sub_title'>$ns_msghtml...</p>
+                                            <div class='col-md-8 col-6 py-1 news_list_txt'>
+                                              
+                                              <h3>
+                                                <a target='_blank' href='".$url."' title='".$ns_ftitle."'>".$ns_ftitle."</a> ".$cs_small_txt."
+                                              </h3>
+                                              
+                                              <a target='_blank' class='date' href='".$url."' title='$ns_ftitle'>
+                                              ".$activity_date."
+                                              <p class='sub_title phone_hidden'>".$ns_msghtml."...</p>
                                             </a>
-                                              <div class='fb_search_btn'>
-                                                <iframe src='https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsrl.tw%2Fcardu%2Fnews_second.html&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260' width='90' height='46' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true' allow='encrypted-media'></iframe>
+                                              <div class='fb_search_btn phone_hidden'>
+                                                <iframe src='https://www.facebook.com/plugins/like.php?href=".$fb_url."&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260' width='90' height='46' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true' allow='encrypted-media'></iframe>
                                               </div>
                                             </div>
                                           </div>";
-                            $i++; }
-
-                            echo $Date[1];
-                            echo $Date[2];
-                            echo $Date[3];
 
 
+                                  //-- 手機廣告 --
+                                  if (wp_is_mobile()) {
+                                    if ($x%3==0) {
+                                      echo '
+                                      <div class="col-md-12 row">
+                                      <div class="col-md-6 col banner d-md-none d-sm-block ">
+                                          <img src="https://placehold.it/900x300" alt="">
+                                      </div>
+                                      </div>';
+                                    }
+                                  }
+                                  //-- 電腦廣告 --
+                                  else{
+                                    if ($x%3==0 && $x%2==1 ) {
+                                      echo '<div class="col-md-12 col banner phone_hidden"><div class="test"><img class="w-100" src="https://placehold.it/750x100"></div></div>';
+                                    }
+                                    elseif($x%3==0 && $x%2==0){
+                                      echo '<div class="col-md-12 row">
+                                              <div class="col-md-6 col">
+                                               <img class="w-100" src="http://placehold.it/360x100" alt="">
+                                              </div>
+                                              <div class="col-md-6 col">
+                                                <img class="w-100" src="http://placehold.it/360x100">
+                                              </div>
+                                           </div>';
+                                    }
+                                  }
+
+
+                                  // if ($x%3==0) {
+                                  //   echo '
+                                  //   <div class="col-md-12 row">
+                                  //       <div class="col-md-6 col">
+                                  //           <img class="w-100" src="http://placehold.it/360x100" alt="">
+                                  //       </div>
+                                  //       <div class="col-md-6 col">
+                                  //           <img class="w-100" src="http://placehold.it/360x100">
+                                  //       </div>
+                                  //   </div>';
+                                  // }
+                                  // elseif($x%6==0){
+                                  //   echo '<div class="col-md-12 col banner phone_hidden"><div class="test hv-center"><img src="http://placehold.it/750x100" alt="banner"></div></div>';
+                                  // }
+                             $x++;
+                            }
+                            
                             ?>
 
-                      
-                    
-
-                    
-                    <!--廣告-->
-                    <div class="col-md-12 row phone_hidden">
-                        <div class="col-md-6 col">
-                            <img class="w-100" src="http://placehold.it/365x100" alt="">
-                        </div>
-                        <div class="col-md-6 col">
-                            <img class="w-100" src="http://placehold.it/365x100">
-                        </div>
-                    </div>
-                    <!--廣告end-->
-
-                    <!--手機板廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col banner d-md-none d-sm-block ">
-                            <img src="http://placehold.it/365x100" alt="">
-                        </div>
-                    </div>
-                    <!--廣告end-->
-
-
-                    
-
-                      
-                        <?php 
-                            echo $Date[4];
-                            echo $Date[5];
-                            echo $Date[6];
-                        ?>
-
-                     
-                    
-
-                    
-                    
-                    <!--廣告-->
-                    <div class="col-md-12 col phone_hidden"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div>
-                    <!--banner end -->
-
-                    <!--手機板廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col banner d-md-none d-sm-block ">
-                            <img src="http://placehold.it/365x100" alt="">
-                        </div>
-                    </div>
-                    <!--廣告end-->
-
-                        <?php 
-                            echo $Date[7];
-                            echo $Date[8];
-                            echo $Date[9];
-                        ?>
-
-                      
-                    
-
-
-                    <!--廣告-->
-                    <div class="col-md-12 row phone_hidden">
-                        <div class="col-md-6 col">
-                            <img class="w-100" src="http://placehold.it/365x100" alt="">
-                        </div>
-                        <div class="col-md-6 col">
-                            <img class="w-100" src="http://placehold.it/365x100">
-                        </div>
-                    </div>
-                    <!--廣告end-->
-
-                    <!--手機板廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col banner d-md-none d-sm-block ">
-                            <img src="http://placehold.it/365x100" alt="">
-                        </div>
-                    </div>
-                    <!--廣告end-->
-
-
-                        <?php 
-                            echo $Date[10];
-                            echo $Date[11];
-                            echo $Date[12];
-                        ?>
 
                         
                         <!--廣告-->
@@ -834,307 +806,9 @@ if (!$temparray[1]) {
             <!--版面左側end-->
             
             <!--版面右側-->
-            <div class="index-content-right col0">
-                
-                <div class="row">
-                    <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one pink_tab">
-                           <div class="title_tab hole">
-                               <h4>熱門情報</h4>
-                               <span>謹慎理財 信用至上</span>
-                           </div>
-                           <div class="content_tab">
-                               <!-- 熱門情報輪播 -->
-                            <div class="swiper-container HotNews_slide">
-                                <div class="swiper-wrapper">
-
-                                    <div class="swiper-slide" > 
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                          <a class="img_a" href="#">
-                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                          </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                         <a class="img_a" href="#">
-                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                          <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div  class="col-5">
-                                         <a class="img_a" href="#">
-                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div class="swiper-slide" > 
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                          <a class="img_a" href="#">
-                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                          </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                         <a class="img_a" href="#">
-                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                          <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div  class="col-5">
-                                         <a class="img_a" href="#">
-                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div class="swiper-slide" > 
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                          <a class="img_a" href="#">
-                                            <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                          </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div class="col-5">
-                                         <a class="img_a" href="#">
-                                          <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                          <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="row no-gutters">
-                                        <div  class="col-5">
-                                         <a class="img_a" href="#">
-                                           <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                         </a>
-                                        </div>
-                                        <div class="col-7">
-                                         <a href="#">
-                                           <h4>匯豐現金回饋玉璽卡</h4>
-                                         </a>
-                                          <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- 如果需要导航按钮 -->
-                                <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
-                                <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
-                                
-                            </div>
-                            <!-- 熱門情報輪播 END -->
-
-                           </div>
-                       </div>
-                    </div>
-
-                    
-
-                    <div class="col-md-12 col">
-                       
-                        <div class="cardshap tab_one pink_tab">
-                           <div class="title_tab hole">
-                               <h4>優票證</h4>
-                           </div>
-                        <div class="tab-content tcard_back" id="myTabContent">
-                          <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">
-                            <form class="row search_from">
-
-                                <div class="col-9">
-                                  <select>
-                                      <option value="">--所有票證--</option>
-                                      <option value="悠遊卡">悠遊卡</option>
-                                      <option value="一卡通">一卡通</option>
-                                      <option value="iCash">iCash</option>
-                                      <option value="Happy Cash">Happy Cash</option>
-                                  </select>
-
-                                  <select>
-                                      <option value="">--所有類別--</option>
-                                      <option value="購物">購物</option>
-                                      <option value="美食">美食</option>
-                                      <option value="旅遊">旅遊</option>
-                                      <option value="電影">電影</option>
-                                      <option value="休閒">休閒</option>
-                                      <option value="交通">交通</option>
-                                      <option value="藝文">藝文</option>
-                                  </select> 
-                                  <input type="text" value="enter text..."> 
-                                </div>
-
-                                <div class="col-3">
-                                  <div class="hv-center w-h-100">
-                                      <button type="button">GO</button>
-                                  </div>
-                                </div>
-                               
-                            </form>
-                          </div>
-                         
-                        </div>
-                      </div>
-                    
-                    </div>
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                    <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one pink_tab">
-                           <div class="title_tab hole">
-                               <h4>辦卡推薦 </h4>
-                           </div>
-                           <div class="content_tab">
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
-
-                               <div class="row no-gutters">
-                                 <div class="col-5">
-                                  <a class="img_a" href="#">
-                                    <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                  </a>
-                                 </div>
-                                 <div class="col-7">
-                                  <a href="#">
-                                    <h4>匯豐現金回饋玉璽卡</h4>
-                                  </a>
-                                   <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                 </div>
-                               </div>
-
-                           </div>
-                       </div>
-                    </div>
-
-                     <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-
-                    
-
-                    <div class="col-md-12 col">
-                       <div class="cardshap tab_one pink_tab">
-                           <div class="title_tab hole">
-                               <h4>熱門支付</h4>
-                           </div>
-                           <div class="content_tab">
-                               <ul class="tab_list cardu_li">
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                            </ul>
-                           </div>
-                       </div>
-                    </div>
-                    
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-                    
-
-                  
-
-                    
-                    <?php 
-                     //-- 共用Footer --
-                     if (wp_is_mobile()) {
-                        require '../share_area/phone/footer.php';
-                     }
-                     else{
-                       require '../share_area/footer.php';
-                      }
-                    ?>
-
-                    
-
-                </div>
-            </div>
+            <?php 
+             require 'right_area_div.php';
+            ?>
             <!--版面右側end-->
         </div>
         <!--版面end-->

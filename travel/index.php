@@ -374,7 +374,7 @@
                         <div class="cardshap hotCard tab_one green_tab">
                             <div class="title_tab hole">
                                 <h4>優惠情報 </h4>
-                                 <a class="more_link" href="banefit.php"></a>
+                                 <a class="more_link" href="preferential.php"></a>
                             </div>
                             <div class="content_tab">
                                 <div class="row no-gutters travel_text">

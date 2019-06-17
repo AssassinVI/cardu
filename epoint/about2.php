@@ -83,7 +83,7 @@ if (!$temparray[1]) {
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="epoint.php">優集點</a> / <a href="all.php">點數平台</a> / <a href="javascript:;"><?php echo $row['st_name'];?></a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="epoint.php">優集點</a> / <a href="all2.php">集點店家</a> / <a href="javascript:;"><?php echo $row['st_name'];?></a></p>
           </div>
         </div>
         
@@ -138,10 +138,10 @@ if (!$temparray[1]) {
                         <div class="cardshap Darkbrown_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link active pl-30 py-2" id="title_5-tab" href="javascript:;" tab-target="#title_5" aria-selected="true">平台介紹</a>
+                            <a class="nav-link active pl-30 py-2" id="title_5-tab" href="javascript:;" tab-target="#title_5" aria-selected="true">商店介紹</a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link py-2" id="title_6-tab" href="javascript:;" tab-target="#title_6" aria-selected="false">集點攻略</a>
+                            <a class="nav-link py-2" id="title_6-tab" href="javascript:;" tab-target="#title_6" aria-selected="false">卡片權益</a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
                             <a class="nav-link py-2" id="title_7-tab" href="javascript:;" tab-target="#title_7" aria-selected="false">相關資訊</a>
@@ -321,110 +321,70 @@ if (!$temparray[1]) {
                             
                     </div>
 
-                          <div class="tab-pane fade" id="title_6" role="tabpanel" aria-labelledby="title_6-tab">
+                    <div class="tab-pane fade" id="title_6" role="tabpanel" aria-labelledby="title_6-tab">
                             
+                       <?php 
+                        $row_st_card=$pdo->select("SELECT Tb_index, card_name, card_sp_txt, card_img FROM member_card WHERE store_id=:store_id", ['store_id'=>$_SERVER['QUERY_STRING']],'one');
+                       ?>
 
-                            <?php 
-                            $pdo_OLD=pdo_conn();
+                       <div class="row no-gutters shop_card py-2">
+                         <div class="col-md-4 hv-center">
+                           <a class="popular_list_img" href="#">
+                             <img src="../sys/img/<?php echo $row_st_card['card_img']; ?>">
+                           </a>
+                         </div>
+                         <div class="col-md-8">
+                           <h5 class="ph-center"><?php echo $row_st_card['card_name']; ?></h5>
+                           <p>
+                            <?php echo nl2br($row_st_card['card_sp_txt']); ?>
+                           </p>
+                         </div>
+                       </div>
+                      <div class="row imp_int_title">
+                         <div class="col-md-3 text-center">權益項目</div>
+                         <div class="col-md-9 text-center">內容說明(謹慎理財，信用至上)</div>
+                       </div>
+                       <div class="accordion imp_int" id="accordionExample">
 
-                            //查詢分類ID 集點攻略ID un2019011717545061
-                            //$sql_catalog="SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011717545061'";
-                            $sql_catalog=$pdo_OLD->prepare("SELECT * FROM `news_type` WHERE `unit_id` LIKE 'un2019011717545061'");
-                            $sql_catalog->execute();
-                            $i=1; while ($row_catalog=$sql_catalog->fetch(PDO::FETCH_ASSOC)) {
-                              $catalog_list.="'".$row_catalog['Tb_index']."',";
-                            }
-                            $catalog_list = substr($catalog_list, 0, -1); // 查出pay攻略分類
+                        <?php 
+                         $row_card_eq=$pdo->select("SELECT mcp.pref_txt, mcp.ez_pref_txt, cp.pref_name, cp.pref_image
+                                                    FROM member_card_pref as mcp
+                                                    INNER JOIN card_pref as cp ON cp.Tb_index=mcp.pref_id
+                                                    WHERE mcp.card_id=:card_id", ['card_id'=>$row_st_card['Tb_index']]);
+                         
+                         $x=1;
+                         foreach ($row_card_eq as $card_eq) {
+                           
+                           echo '
+                           <div class="card">
+                           <div class="card-header hv-center" id="imp_int'.$x.'">
+                             <div class="row w-h-100">
+                               <div class="col-md-4 h-center">
+                                 <p class="shop_txt hv-center mb-0"><img src="../sys/img/'.$card_eq['pref_image'].'" >　'.$card_eq['pref_name'].'</p>
+                               </div>
+                               <div class="col-md-7 h-center border-left border-right">
+                                 <p class="shop_txt mb-0">'.$card_eq['ez_pref_txt'].'</p>
+                               </div>
+                               <div class="col-md-1 hv-center">
+                                 <button class="btn btn-link angle_down" type="button" data-toggle="collapse" data-target="#imp_int_txt'.$x.'" aria-expanded="true" aria-controls="imp_int_txt'.$x.'">
+                                   <i class="fa fa-angle-down"></i>
+                                 </button>
+                               </div>
+                             </div>
+                           </div>
+                           <div id="imp_int_txt'.$x.'" class="collapse" aria-labelledby="imp_int1" data-parent="#accordionExample">
+                             <div class="card-body">
+                               <p class="collapse_txt mb-0">
+                                '.$card_eq['pref_txt'].'
+                               </p>
+                             </div>
+                           </div>
+                          </div>';
+                          $x++;
+                         }
+                        ?>
 
-
-
-
-                            $sql_list=$pdo_OLD->prepare("
-                              SELECT ns_ftitle, ns_photo_1, ns_msghtml, Tb_index, activity_s_date, activity_e_date, mt_id, ns_nt_pk, area_id  
-                              FROM  NewsAndType
-                              where ns_nt_pk in ($catalog_list)
-                              and ns_verify=3 and OnLineOrNot=1 
-                              and  StartDate<='$todayis' and EndDate>='$todayis'
-                              order by ns_vfdate desc
-                              LIMIT 0, 12");
-                            $sql_list->execute();
-
-
-                            $row_list=$sql_list->fetchAll(PDO::FETCH_ASSOC);
-                            
-                            $x=1;
-                            foreach ($row_list as $row_list_one) {
-
-                              $id=$row_list_one['Tb_index'];
-                              $ns_ftitle=$row_list_one['ns_ftitle'];
-                              $ns_stitle=mb_substr(strip_tags($ns_ftitle),0, 15,"utf-8");
-                              $ns_photo_1="../sys/img/".$row_list_one['ns_photo_1'];
-                              $ns_msghtml=mb_substr(myTrim(strip_tags($row_list_one['ns_msghtml'])),0, 50,"utf-8");
-                              $url=news_url($row_list_one['mt_id'], $row_list_one['Tb_index'], $row_list_one['ns_nt_pk'], $row_list_one['area_id']);
-                              $fb_url=urlencode($url);
-
-                              //-- 活動時間 --
-                              if ($row_list_one['activity_e_date']!='0000-00-00') {
-                                $activity_s_date=$row_list_one['activity_s_date']!='0000-00-00' ? $row_list_one['activity_s_date']:'即日起';
-                                $activity_date='<span class="mb-1">活動日期：'.$activity_s_date.'~'.$row_list_one['activity_e_date'].'</span>';
-                              }
-                              else{
-                                $activity_date='';
-                              }
-                               
-                               echo "<div class='row no-gutters pb-md-3 py-2 news_list'>
-                                            <div class='col-md-4 col-6 py-2'>
-                                              <a target='_blank' class='img_div news_list_img' href='".$url."' title='".$ns_ftitle."' style='background-image: url(".$ns_photo_1.");'></a>
-                                            </div>
-                                            <div class='col-md-8 col-6 py-1 news_list_txt'>
-                                              
-                                              <h3>
-                                                <a target='_blank' href='".$url."' title='".$ns_ftitle."'>".$ns_ftitle."</a> ".$cs_small_txt."
-                                              </h3>
-                                              
-                                              <a target='_blank' class='date' href='".$url."' title='$ns_ftitle'>
-                                              ".$activity_date."
-                                              <p class='sub_title phone_hidden'>".$ns_msghtml."...</p>
-                                            </a>
-                                              <div class='fb_search_btn phone_hidden'>
-                                                <iframe src='https://www.facebook.com/plugins/like.php?href=".$fb_url."&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260' width='90' height='46' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true' allow='encrypted-media'></iframe>
-                                              </div>
-                                            </div>
-                                          </div>";
-
-
-                                   //-- 手機廣告 --
-                                  if (wp_is_mobile()) {
-                                    if ($x%3==0) {
-                                      echo '
-                                      <div class="col-md-12 row">
-                                      <div class="col-md-6 col banner d-md-none d-sm-block ">
-                                          <img src="https://placehold.it/900x300" alt="">
-                                      </div>
-                                      </div>';
-                                    }
-                                  }
-                                  //-- 電腦廣告 --
-                                  else{
-                                    if ($x%3==0 && $x%2==1 ) {
-                                      echo '<div class="col-md-12 col banner phone_hidden"><div class="test"><img class="w-100" src="https://placehold.it/750x100"></div></div>';
-                                    }
-                                    elseif($x%3==0 && $x%2==0){
-                                      echo '<div class="col-md-12 row">
-                                              <div class="col-md-6 col">
-                                               <img class="w-100" src="http://placehold.it/360x100" alt="">
-                                              </div>
-                                              <div class="col-md-6 col">
-                                                <img class="w-100" src="http://placehold.it/360x100">
-                                              </div>
-                                           </div>';
-                                    }
-                                  }
-                             $x++;
-                            }
-
-
-                            ?>
+                       </div> 
                       
                     
 
@@ -593,10 +553,10 @@ if (!$temparray[1]) {
                       </div>
                     </div>
                     <!--信用卡推薦end -->  
-
-                      
                     
-                          </div>
+                    </div>
+
+
                           <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
 
                             <?php 

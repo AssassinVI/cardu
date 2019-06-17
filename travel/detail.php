@@ -139,23 +139,12 @@
                              </p>
                             </div>
                             <div class="col-md-4">
-                               <!-- 分享 -->
-                               <div class="search_div hv-center">
-                                <div class="fb-like mr-2" data-href="<?php echo $FB_URL; ?>" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
-                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://www.facebook.com/dialog/feed?app_id=319016928941764&display=popup&link=<?php echo $FB_URL;?>&redirect_uri=https://www.facebook.com/', 'FB分享', config='height=600,width=800');"><img src="../img/component/search/fb.png" alt="" title="分享"></a>
-                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://social-plugins.line.me/lineit/share?url=<?php echo $FB_URL;?>', 'LINE分享', config='height=600,width=800');"><img src="../img/component/search/line.png" alt="" title="Line"></a>
-                                <a class="search_btn" href="#fb_message"><img src="../img/component/search/message.png" alt="" title="訊息"></a>
-                                 <a id="arrow_btn" class="search_btn" href="javascript:;"><img src="../img/component/search/arrow.png" alt="" title="更多"></a>
-                               </div>
-                               <div class="more_search">
-                                 <a class="d-none d-md-block" target="_blank" href="../share_area/print.php?<?php echo $_SERVER['QUERY_STRING'];?>">
-                                   <img src="../img/component/search/print.png" alt="" title="列印">
-                                 </a>
-                                 <a href="javascript:;" data-fancybox data-src="#member_div"><img src="../img/component/search/work.png" alt="" title="收藏"></a>
-                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_mail.php"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
-                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
-                               </div>
-                               <!-- 分享 END -->
+                               <?php 
+                                 // ：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：
+                                 // 新聞內頁分享功能按鈕 In share_area/func.php：：：：：：：：：：：：：：：：：：：：：：：
+                                 // ：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：
+                                 news_share_btn($FB_URL, $_SERVER['QUERY_STRING']); 
+                               ?>
                             </div>
                           </div> 
 
@@ -164,18 +153,41 @@
 
                         <div class="pb-3 mx-3 detail_content">
 
-                          <div class="con_img">
-                            <img src="../sys/img/<?php echo $row['ns_photo_1'] ;?>" alt="">
-                            <?php 
-                             if (!empty($row['ns_alt_1'])) {
-                               echo '<p>'.$row['ns_alt_1'].'</p>';
-                             }
-                            ?>
-                          </div>
-
                           <?php 
-                           echo $row['ns_msghtml'];
-                          ?>
+                              //-- 首圖 --
+                              echo '<p>
+                                     <img src="'.$img_url.$row['ns_photo_1'].'" alt="'.$row['ns_alt_1'].'">
+                                    </p>';
+
+                              if(wp_is_mobile()){
+                                //-- 手機廣告 --
+                                echo '
+                                <a href="#" class="hv-center banner">
+                                 <img src="http://placehold.it/900x300" alt="">
+                               </a>';
+
+                              }
+
+                              //-- html 內文 --
+                              echo $row['ns_msghtml'];
+
+
+                            //-- 尾圖 --
+                            if(!empty($row['ns_photo_2'])) {
+
+                              echo '<p>
+                                     <img src="'.$img_url.$row['ns_photo_2'].'" alt="'.$row['ns_alt_2'].'">
+                                    </p>';
+                            }
+
+                            if(wp_is_mobile()){
+                              //-- 手機廣告 --
+                              echo '
+                              <a href="#" class="hv-center banner">
+                               <img src="http://placehold.it/900x300" alt="">
+                             </a>';
+                            }
+                           ?>
 
                         </div>
 
@@ -217,7 +229,7 @@
                    
 
                     <!--網友留言-->
-                    <div class="col-md-12 col">
+                    <div id="message_area" class="col-md-12 col">
 
                         <div class="cardshap green_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -239,7 +251,7 @@
 
 
                     <!--Facebook留言-->
-                    <div class="col-md-12 col">
+                    <div id="fb_message" class="col-md-12 col">
 
                         <div class="cardshap green_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">

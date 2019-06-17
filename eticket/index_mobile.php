@@ -17,9 +17,10 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
+    <?php 
+     //-- fb資料設定 --
+     require '../share_area/fb_config.php';
+    ?>
     <meta property="og:site_name" content="卡優新聞網" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
@@ -54,7 +55,7 @@
         <!-- 麵包屑 -->
         <div class="row ">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/">首頁</a> / <a href="javascript:;">優票證</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="javascript:;">優票證</a></p>
           </div>
         </div>
         
@@ -67,37 +68,32 @@
               
                 
                 <div class="row">
-
+                 <div class="col-md-12 col">
                   <?php 
-                  //先取出優行動pay的分類，再從優行動pay的分類中，把appNews load出來，優行動pay版區id為at2019011117341414
-                       $pdo=pdo_conn();
-                       $sql_area=$pdo->prepare("SELECT Tb_index FROM `news_type` WHERE `area_id` LIKE '$area_id'");
-                       $sql_area->execute();
-                       $row_areas = $sql_area->fetchAll();
-
-                       foreach ($row_areas as $row_area) {
-                           $unit_all_id.="'".$row_area['Tb_index']."',";
-                        }
-                       $unit_all_id = substr($unit_all_id, 0, -1); //去掉最後一碼，
-
-                       
                    //============================================
-                   //手機版刊頭輪播
-                   //ns_verify=3 and OnLineOrNot=1 確認文章上線
-                   //設定好sql後，交由 page_carousel.php執行
+                   //每頁的輪播 (手機)
+                   //設定好sql後，交由 func.php執行
                    //============================================
+                   //-- 優票證pay單元 --
+                   $ns_nt_ot_pk_query="";
+                   $row_newsType=$pdo->select("SELECT Tb_index FROM news_type WHERE area_id='$area_id'");
+                   foreach ($row_newsType as $newsType) {
+                    $ns_nt_ot_pk_query.=" ns_nt_ot_pk LIKE '%".$newsType['Tb_index']."%' OR ";
+                   }
+                   $ns_nt_ot_pk_query=substr($ns_nt_ot_pk_query, 0,-3);
+
+
                    $sql_carousel="
-                    SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
-                    where ns_nt_pk in ($unit_all_id) 
-                    and ns_verify=3 and OnLineOrNot=1 
-                    and  StartDate<='$todayis' and EndDate>='$todayis'
-                    order by ns_vfdate desc
-                    LIMIT 0, 6
-                    ";
+                                  SELECT ns_ftitle, ns_photo_1, ns_msghtml, Tb_index, ns_nt_pk, mt_id, area_id FROM  NewsAndType
+                                  where ns_verify=3 and OnLineOrNot=1 and StartDate<=:StartDate and EndDate>=:EndDate and (area_id=:area_id OR $ns_nt_ot_pk_query )
+                                  order by ns_vfdate desc
+                                  LIMIT 0, 10
+                                 ";
 
-                    require("../share_area/page_carousel_mobile.php"); //暫入手機版刊頭輪播上
-                    //手機版刊頭輪播end 
-                    ?>
+                   slide_ph($sql_carousel, ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d'), 'area_id'=>$area_id]);
+                  ?>
+                  </div>
+
 
                     <!--廣告-->
                     <div class="col-md-12 col banner"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
@@ -121,15 +117,12 @@
 
                                   <div class="swiper-wrapper">
 
-
-
-
                                       <div class="swiper-slide">
                                         <div class="row no-gutters ticket_card">
 
                               <?php 
-                              $pdo=pdo_conn();
-                              $sql_pay=$pdo->prepare("SELECT * FROM store where st_type='st201901311701269' and OnLineOrNot=1 order by st_name LIMIT 0, 4");
+                              $pdo_OLD=pdo_conn();
+                              $sql_pay=$pdo_OLD->prepare("SELECT * FROM store where st_type='st201901311701269' and OnLineOrNot=1 order by st_name LIMIT 0, 4");
                               $sql_pay->execute();
 
                               $i=1; while ($row_pay=$sql_pay->fetch(PDO::FETCH_ASSOC)) {
@@ -157,9 +150,6 @@
                                         </div>
                                       </div>
 
-
-
-
                                   </div>
                                   
                                   <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
@@ -180,60 +170,30 @@
                     <div class="col-md-12 col banner"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
                     <!--特別議題1-->
                     <?php 
+
                      //：：：：：：：：：：：：：：：：：：：：：：：：：：：
-                     //特別議題：：：：：：：：：：：：：：：：：：：：：：：
+                     //特別議題 ：：：：：：：：：：：：：：：：：：：：：：：
                      //：：：：：：：：：：：：：：：：：：：：：：：：：：：
-                     $queryfield = 'area_id'; //要查詢的欄位
-                     $tab_mtid=$area_id; //代入優先動payID，
-                     $tab_color='pink_tab'; //介面顏色
-                     require('../share_area/news_special.php');
+                     area_nt_sp_list_ph($area_id, 'eticket', 'pink_tab');
                      ?>
                     <!--特別議題2end -->
                     
-                    <!--廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col">
-                            <img src="http://placehold.it/365x100" alt="">
-                        </div>
-                    </div>
-                    <!--廣告end-->
+                   
                     <?php 
-                     //：：：：：：：：：：：：：：：：：：：：：：：：：：：
-                     //Pay攻略：：：：：：：：：：：：：：：：：：：：：：：
-                     //：：：：：：：：：：：：：：：：：：：：：：：：：：：
-                     $sqltemp = "
-                                SELECT nt_name,Tb_index,pk FROM news_type
-                                where unit_id='un2019011717541797' and nt_sp=0 
-                                and OnLineOrNot=1
-                                order by OrderBy  
-                                LIMIT 0, 2"; 
 
-                     $tab_color='pink_tab'; //介面顏色
-                     $list_template='news_area_type2.php';//選擇樣版
-                     require('../share_area/news_cagalog.php');
+                     //：：：：：：：：：：：：：：：：：：：：：：：：：：：
+                     //票證攻略 ：：：：：：：：：：：：：：：：：：：：：：：
+                     //：：：：：：：：：：：：：：：：：：：：：：：：：：：
+                     area_nt2_list_ph('un2019011717541797', 'eticket', 'pink_tab');
                      ?>
                     
-                    <!--廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col banner">
-                            <img src="http://placehold.it/365x100" alt="">
-                        </div>
-                    </div>
-                    <!--廣告end-->
+                   
                    <?php 
-                     //：：：：：：：：：：：：：：：：：：：：：：：：：：：
-                     //票證優惠：：：：：：：：：：：：：：：：：：：：：：：
-                     //：：：：：：：：：：：：：：：：：：：：：：：：：：：
-                     $sqltemp = "
-                                SELECT nt_name,Tb_index,pk FROM news_type
-                                where unit_id='un2019011717541054' and nt_sp=0 
-                                and OnLineOrNot=1
-                                order by OrderBy  
-                                LIMIT 0, 10"; 
 
-                     $tab_color='pink_tab'; //介面顏色
-                     $list_template='news_area_type3.php';//選擇樣版
-                     require('../share_area/news_cagalog.php');
+                     //：：：：：：：：：：：：：：：：：：：：：：：：：：：
+                     //票證優惠 ：：：：：：：：：：：：：：：：：：：：：：：
+                     //：：：：：：：：：：：：：：：：：：：：：：：：：：：
+                     area_nt_list_ph('un2019011717541054', 'eticket', 'pink_tab');
                      ?>
 
 
@@ -280,7 +240,24 @@
                     <!--信用卡推薦end -->  
                    
 
-                    
+                    <!-- 懸浮廣告 -->
+                    <div class="ad_fixed_ph">
+                      <div class="swiper-container sub_ph_slide">
+                          <div class="swiper-wrapper">
+                              <div class="swiper-slide">
+                                <a href="#"><img class="w-100" src="http://placehold.it/900x180" alt=""></a>
+                              </div>
+                              <div class="swiper-slide">
+                                 <a href="#"><img class="w-100" src="http://placehold.it/900x180" alt=""></a>
+                              </div>
+                          </div>
+                          
+                          <!-- 如果需要导航按钮 -->
+                          <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                          <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                      </div>
+                    </div>
+                    <!-- 懸浮廣告 END -->
 
                    
 
