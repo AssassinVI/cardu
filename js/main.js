@@ -2,10 +2,17 @@ $(document).ready(function() {
 
             //--- 工具提示框 ---
             $('[data-toggle="tooltip"]').tooltip();
+            //-- 百葉窗 --
             $('#new_card').collapse();
 
+            //-- 首頁新卡訊 --
+            $('#new_card .card .card-header').mouseenter(function(event) {
+              $('#new_card '+$(this).find('button').attr('data-target')).collapse('show');
+            });
 
-            
+
+           
+
 
 
 
@@ -78,7 +85,12 @@ $(document).ready(function() {
 
               //-- TOP出現 --
               if (top>50){
-                TweenMax.to($('.top_div'), 0.3, { bottom:'4%' , opacity:1, display:'block'});
+                if ($(window).width()>768) {
+                  TweenMax.to($('.top_div'), 0.3, { bottom:'4%' , opacity:1, display:'block'});
+                }
+                else{
+                  TweenMax.to($('.top_div'), 0.3, { bottom:'14%' , opacity:1, display:'block'});
+                }
               }
               else{
                 TweenMax.to($('.top_div'), 0.3, { bottom:'-1%' , opacity:0, display:'none'});
@@ -133,6 +145,15 @@ $(document).ready(function() {
             $('.top_div a').click(function(event) {
                $('html,body').animate({
                 scrollTop:0
+               },1000);
+            });
+
+
+
+            //---- 內頁訊息按鈕 ----
+            $('.search_btn.message_btn').click(function(event) {
+              $('html,body').animate({
+                scrollTop: $('#message_area').offset().top-87
                },1000);
             });
 
@@ -491,7 +512,7 @@ $(document).ready(function() {
             /*-- 卡排行 卡總覽 用 輪播 --*/
             var cc_slidesPerView=$(window).width()>420 ? 3:2;
             var cc_slidesPerGroup=$(window).width()>420 ? 3:1;
-            var ccard_Swiper = new Swiper ('.ccard .swiper-container', {
+            var ccard_Swiper = new Swiper ('.ccard.slider .swiper-container', {
                 slidesPerView : cc_slidesPerView,
                 slidesPerGroup : cc_slidesPerGroup,
                 speed:750,
@@ -502,8 +523,8 @@ $(document).ready(function() {
                 },
                 // 如果需要前进后退按钮
                 navigation: {
-                  nextEl: '.ccard .swiper-button-next',
-                  prevEl: '.ccard .swiper-button-prev',
+                  nextEl: '.ccard.slider .swiper-button-next',
+                  prevEl: '.ccard.slider .swiper-button-prev',
                 }
               }); 
 
@@ -1031,9 +1052,13 @@ $(document).ready(function() {
               var more_search_height=parseInt($('.more_search').css('height').slice(0, -2));
               if (more_search_height<=0) {
                 TweenMax.to($('.more_search'), 0.3, { "height": "152px"});
+                $('#arrow_btn i').removeClass('fa-angle-down');
+                $('#arrow_btn i').addClass('fa-angle-up');
               }
               else{
                 TweenMax.to($('.more_search'), 0.3, { "height": "0px"});
+                $('#arrow_btn i').removeClass('fa-angle-up');
+                $('#arrow_btn i').addClass('fa-angle-down');
               }
             });
 
@@ -1076,6 +1101,7 @@ $(document).ready(function() {
                       tab_parent.find('.content_tab').append(data);
                       add_sub_slide(tab_parent.find('.news_list_div[tab="'+_this.attr('tab-link')+'"] .sub_slide'));
                     }
+                    
                   });
                 }
 
@@ -1396,6 +1422,91 @@ $(document).ready(function() {
 
 
 
+            //--------------------------- 集點商店 分類切換 ---------------------------------
+            if ($('.Darkbrown_tab .sm_type').length>0) {
+              
+              //-- 撈主分類 --
+              $.ajax({
+                url: '../ajax/global_ajax.php',
+                type: 'POST',
+                data: {
+                  type: 'sm_type'
+                },
+                success:function (data) {
+                  $('.Darkbrown_tab .sm_type').append(data);
+                }
+              });
+
+              //-- 撈全部商店 --
+              $.ajax({
+                    url: '../ajax/global_ajax.php',
+                    type: 'POST',
+                    data: {
+                    type: 'store',
+                    sm_type_id: $(this).val()
+                  },
+                  success:function (data) {
+                     $('.store_div').html(data);
+                  }
+                  });
+              
+
+              //-- 主分類切換 --
+              $('.Darkbrown_tab .sm_type').change(function(event) {
+                
+                $.ajax({
+                    url: '../ajax/global_ajax.php',
+                    type: 'POST',
+                    data: {
+                    type: 'ss_type',
+                    sm_type_id: $(this).val()
+                  },
+                  success:function (data) {
+                    $('.Darkbrown_tab .ss_type').html('<option value="">-- 全部 --</option>');
+                    $('.Darkbrown_tab .ss_type').append(data);
+                  }
+                  });
+
+                $.ajax({
+                    url: '../ajax/global_ajax.php',
+                    type: 'POST',
+                    data: {
+                    type: 'store',
+                    sm_type_id: $(this).val()
+                  },
+                  success:function (data) {
+                     $('.store_div').html(data);
+                  }
+                  });
+              });
+              
+
+              //-- 次分類切換 --
+              $('.Darkbrown_tab .ss_type').change(function(event) {
+                
+                $.ajax({
+                    url: '../ajax/global_ajax.php',
+                    type: 'POST',
+                    data: {
+                    type: 'store',
+                    sm_type_id: $('.Darkbrown_tab .sm_type').val(),
+                    ss_type_id: $(this).val()
+                  },
+                  success:function (data) {
+                     $('.store_div').html(data);
+                  }
+                  });
+              });
+              
+            }
+
+
+
+
+
+
+
+
 
 
           /*--------------------------------------------- 內頁轉寄、回報錯誤 fancybox ---------------------------------------------*/
@@ -1557,10 +1668,27 @@ $(document).ready(function() {
             if ($(window).width()<=768) {
 
               //-- tag menu --
-              var mySwiper = new Swiper ('#menu_bar.swiper-container', {
+              var menu_Swiper = new Swiper ('#menu_bar.swiper-container', {
                  slidesPerView : 'auto',
                  freeMode : true,
               });  
+
+
+               /*--- 顯示目前版區(手機) ---*/
+                var area_name=location.pathname.split('/');
+                area_name=area_name[1];
+                if (area_name=='message') {
+                  $('#menu_bar [area_name="card"]').addClass('active');
+                }else{
+                  $('#menu_bar [area_name="'+area_name+'"]').addClass('active');
+                }
+                $.each($('#menu_bar .swiper-slide'), function(index, val) {
+                   if ($(this).attr('class').indexOf('active')!=-1) {
+                     menu_Swiper.slideTo(index, 700, false);
+                   }
+                });
+                /*--- 顯示目前版區(手機) END ---*/
+
 
                //-- Menu ---
               $('#menu').click(function(event) {
@@ -1622,15 +1750,16 @@ $(document).ready(function() {
         });
 
 
-/*--- 網站LOAD完後-動作 ---*/
+
+
+/*--------------------------------- 網站LOAD完後-動作 -----------------------------------------*/
 $(window).on('load', function(event) {
 
 /*--- 右邊DIV跟隨功能(給予) ---*/
 get_right_div();
 
-
 });
-
+/*--------------------------------- 網站LOAD完後-動作 END -----------------------------------------*/
 
 
 
@@ -1678,6 +1807,9 @@ if ($('.index-content-right').attr('style')!=undefined) {
 }
 
 /*==================== 右邊DIV跟隨功能(給予) END ===========================*/
+
+
+
 
 
 
@@ -1733,15 +1865,46 @@ function slide_st_auto(DOM, id) {
 
 
 
+
 //======================= 內文圖片 alt 轉圖說 ==========================
 function img_txt(dom_id) {
-
+   
     $.each($(dom_id), function(index, val) {
 
+      //-- 手機板加入fancybox --
+      if ($(window).width()<768) {
+        var img_html='<a href="'+$(this).attr('src')+'" data-fancybox><i class="img_zoonOut fa fa-search"></i> <img src="'+$(this).attr('src')+'" alt="'+$(this).attr('alt')+'"></a>';
+      }
+      else{
+        var img_html='<img src="'+$(this).attr('src')+'" alt="'+$(this).attr('alt')+'">';
+      }
+      
+      //-- alt 轉圖說 --
       if ($(this).attr('alt')!="" && $(this).attr('alt')!=undefined) {
-        $(this).parent().html('<div class="con_img"><img src="'+$(this).attr('src')+'"><p>▲'+$(this).attr('alt')+'</p></div>'); 
+        $(this).parent().html('<div class="con_img">'+img_html+'<p>▲'+$(this).attr('alt')+'</p></div>'); 
+      }
+      else{
+        $(this).parent().html(img_html); 
       }
     });
+}
+
+
+
+
+//======================= 內文圖片 設定圖寬+文繞圖 ==========================
+function img_750_w(dom_id) {
+  
+  $.each($(dom_id), function(index, val) {
+    
+    if ($(this).width()<750) {
+       $(this).parent().width($(this).width());
+    }
+
+    if ($(this).width()<450 && $(window).width()>768) {
+      $(this).parent().css('float', 'left');
+    }
+  });
 }
 
 
@@ -1762,7 +1925,7 @@ function html_ad() {
 
     $.each($('.detail_content>p'), function(index, val) {
        
-       if ($('.detail_content>p').length>=2 && index==1) {
+       if ($('.detail_content>p').length>=3 && index==2) {
         if ($(this).next().html().indexOf('img')!=-1) {
           $(this).next().append(ad_txt);
         }
@@ -1773,6 +1936,15 @@ function html_ad() {
     });
 }
 
+
+
+//======================= 內文 table ==========================
+function html_table(dom_id) {
+  if ($(dom_id).length>0) {
+    $(dom_id).css('width', '740px');
+    $(dom_id).wrap('<div class="table_div"></div>');
+  }
+}
 
 
 
@@ -1814,7 +1986,7 @@ function check_input(id,txt) {
            }
 
            else{
-             if ($(id).val()=='') {
+             if ($(id).val()=='' || $(id).val().search(/^(?:[^\~|\!|\#|\$|\%|\^|\&|\*|\(|\)|\=|\+|\{|\}|\[|\]|\"|\'|\<|\>]+)$/)==-1) {
                $(id).css('borderColor', 'red');
                return txt;
             }else{
@@ -1830,3 +2002,68 @@ function check_input(id,txt) {
           
   }
 /*--- checkout 功能 END ---*/
+
+
+//-- 判斷Email --
+function check_email(id) {
+    if($(id).val().search(/^\w+(?:(?:-\w+)|(?:\.\w+))*\@\w+(?:(?:\.|-)\w+)*\.[A-Za-z]+$/)>-1){
+        return false;
+     }
+     else{
+        
+        $(id).css('borderColor', 'red');
+        return true;
+     }
+}
+
+
+//-- 判斷會員帳號 --
+function check_userid(id) {
+    if($(id).val().search(/^[A-Za-z]{1}\w{5,11}$/)>-1){
+        return false;
+     }
+     else{
+        
+        $(id).css('borderColor', 'red');
+        return true;
+     }
+}
+
+
+//-- 判斷會員密碼 --
+function check_password(id) {
+    if($(id).val().search(/^\w{4,}$/)>-1){
+        return false;
+     }
+     else{
+        
+        $(id).css('borderColor', 'red');
+        return true;
+     }
+}
+
+
+//-- 判斷手機 --
+function check_phone(id) {
+    if($(id).val().search(/^[0,9]{2}[0-9]{8}$/)>-1){
+        return false;
+     }
+     else{
+        
+        $(id).css('borderColor', 'red');
+        return true;
+     }
+}
+
+
+//-- 判斷特殊符號 --
+  function check_word(id) {
+     if($(id).val().search(/^(?:[^\~|\!|\#|\$|\%|\^|\&|\*|\(|\)|\=|\+|\{|\}|\[|\]|\"|\'|\<|\>]+)$/)==-1){
+        $(id).css('borderColor', 'red');
+        return true;
+     }
+     else{
+        $(id).css('borderColor', 'rgba(0,0,0,0.1)');
+       return false;
+     }
+  }

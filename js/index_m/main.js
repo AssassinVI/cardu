@@ -2,6 +2,7 @@ $(document).ready(function() {
 
             $('#new_card').collapse();
 
+
             
              var x=1;
             $.each($('.sub_ph_slide.swiper-container'), function(index, val) {
@@ -31,7 +32,10 @@ $(document).ready(function() {
             var mySwiper = new Swiper ('#menu_bar.swiper-container', {
                slidesPerView : 'auto',
                freeMode : true,
-            });  
+            }); 
+
+
+
 
             //-- 人氣排行 tag --
             var mySwiper1 = new Swiper ('.favorite_card .swiper-tag', {
@@ -55,6 +59,41 @@ $(document).ready(function() {
                  prevEl: '.favorite_card .content_tab .swiper-button-prev',
                }
             }); 
+
+
+            //--------------- 隨機 ------------------
+            var rand_num=getRandom(1,3);
+            var rand_DOM=$('.favorite_card .tab_menu .swiper-slide:nth-child('+rand_num+') a');
+            var rand_tap= $('.favorite_card .tab_menu .swiper-slide:nth-child('+rand_num+') a').attr('tap');
+
+            $('.favorite_card .tab_menu .swiper-slide:nth-child('+rand_num+') a').addClass('active');
+            //-- 新卡人氣 --
+            if (rand_tap=='pop_card') {
+              rand_DOM.parents('.favorite_card').find('.tab_link').attr('href', 'rank/newcard.php');
+            //-- 辦卡人氣 --
+            }else if(rand_tap=='add_card'){
+              rand_DOM.parents('.favorite_card').find('.tab_link').attr('href', 'rank/apply.php');
+            }
+            //-- 點閱人氣 --
+            else{
+              rand_DOM.parents('.favorite_card').find('.tab_link').attr('href', 'rank/click.php');
+            }
+
+            $.ajax({
+                url: '../../ajax/index_ajax.php',
+                type: 'POST',
+                data: {
+                  type: 'favorite_card_ph',
+                  tap:rand_tap
+                },
+                success:function (data) {
+                  mySwiper2.removeAllSlides();
+                  mySwiper2.appendSlide(data);
+                  mySwiper2.update();
+                  mySwiper2.slideToLoop(0, 750, false);
+                  mySwiper2.autoplay.start();
+                }
+              });
 
             
             $('.favorite_card .tab_menu .swiper-slide a').click(function(event) {
@@ -94,27 +133,25 @@ $(document).ready(function() {
 
 
 
-            //-- 優行動Pay --
-            var mySwiper3 = new Swiper ('.phone_pay.swiper-container', {
-               // 如果需要分页器
-               loop:true,
-               autoplay: {
-                   delay: 5000
-               },
-               pagination: {
-                 el: '.phone_pay.swiper-pagination',
-                 clickable: true
-               }
-             }); 
+            //-- 優行動Pay & 優集點 無法顯示 頁籤 --
+             var x=1;
+            $.each($('.phone_pay.swiper-container'), function(index, val) {
+               $(this).addClass('slide'+x);
+               window['phone_pay'+x] = new Swiper ($(this), {
+                  // 如果需要分页器
+                  loop:true,
+                  autoplay: {
+                      delay: 5000
+                  },
+                  pagination: {
+                    el: '.slide'+x+' + .phone_pay.swiper-pagination',
+                    clickable: true
+                  }
+                });  
 
-             //-- 優集點 --
-            var mySwiper4 = new Swiper ('.point.swiper-container', {
-               // 如果需要分页器
-               pagination: {
-                 el: '.point.swiper-pagination',
-                 clickable: true
-               }
-             });  
+               x++;
+            });
+  
 
 
              //-- 新聞 --
@@ -126,10 +163,10 @@ $(document).ready(function() {
                     disableOnInteraction:false
                 },
                 // 如果需要分页器
-                 //    pagination: {
-                 //      el: '.news_slide .swiper-pagination',
-                 //      clickable :true
-                 // },
+                    pagination: {
+                      el: '.news_slide .swiper-pagination',
+                      clickable :true
+                 },
                  // 如果需要前进后退按钮
                  navigation: {
                    nextEl: '.news_slide .swiper-button-next',
@@ -336,3 +373,139 @@ $(document).ready(function() {
 
             
         });
+
+
+
+
+    //-- 卷軸監控回調 --
+    var scroll_x=0;
+    $(window).bind('scroll resize', function() {
+      var top=$(this).scrollTop();
+
+      //-- TOP出現 --
+      if (top>50){
+        TweenMax.to($('.top_div'), 0.3, { bottom:'14%' , opacity:1, display:'block'});
+      }
+      else{
+        TweenMax.to($('.top_div'), 0.3, { bottom:'-1%' , opacity:0, display:'none'});
+      }
+      
+    });
+    //-- 卷軸監控回調 END --
+
+
+    //-- TOP Btn --
+    $('.top_div a').click(function(event) {
+       $('html,body').animate({
+        scrollTop:0
+       },1000);
+    });
+
+
+
+    /*-- 滑鼠經過切換Tab (右邊有LOGO的Tab) --*/
+    var mouse_time;
+    $('.mouseHover_tab .nav-link').mouseenter(function(event) {
+       var _this=$(this);
+       mouse_time=setTimeout(function () {
+         _this.parents('.mouseHover_tab').find('.nav-link').removeClass('active show');
+         _this.parents('.mouseHover_tab').find('.tab-pane').removeClass('active show');
+         _this.parents('.mouseHover_tab').find('.nav-link').attr('aria-selected', 'false');
+         _this.attr('aria-selected', 'true');
+         _this.addClass('active show');
+         $(_this.attr('tab-target')).addClass('active show');
+
+         if(_this.attr('aria-selected')=='true'){
+
+           $.each(_this.parent().parent().find('.nav-link'), function(index, val) {
+
+               if($(this).attr('aria-selected')=='true'){
+                 var this_bgm=$(this).find('.icon').css('background-image').split('/');
+                 this_bgm[5]='icon';
+                 $(this).find('.icon').css('background-image', this_bgm.join('/'));
+
+               }
+               else{
+                 var this_bgm=$(this).find('.icon').css('background-image').split('/');
+                 this_bgm[5]='icon_down';
+                 $(this).find('.icon').css('background-image', this_bgm.join('/'));
+               }
+           });
+         }
+       },200);
+       
+    });
+    $('.mouseHover_tab .nav-link').mouseleave(function(event) {
+      clearTimeout(mouse_time);
+    });
+
+
+    /*---------------- 信用卡快搜 ----------------------*/
+    //-- 選擇銀行 --
+    $('.c_search_bk').change(function(event) {
+
+      //-- 選擇銀行，撈信用卡(ajax.js) --
+      change_bk_cc('.c_search_bk', '.c_search_cc');
+    });
+
+    //-- 搜尋 --
+    $('#c_search_btn').click(function(event) {
+
+      var err_txt='';
+      err_txt+=check_input('.c_search_bk','銀行、');
+      err_txt+=check_input('.c_search_cc','信用卡、');
+
+      if (err_txt!='') {
+       err_txt=err_txt.slice(0,-1);
+       alert("請選擇"+err_txt+"!!");
+      }
+      else{
+        location.href='../card/type.php?bi_pk01='+$('.c_search_bk').val()+'&gid='+$('.c_search_cc').val();
+      }
+      
+    });
+    /*---------------- 信用卡快搜 END ----------------------*/
+
+
+
+//======================= 產生min到max之間的亂數 ==========================
+function getRandom(min,max){
+    return Math.floor(Math.random()*(max-min+1))+min;
+};
+
+
+/*--- checkout 功能  ---*/
+// =============================== 檢查input ====================================
+function check_input(id,txt) {
+
+         if($(id).length>0){
+           
+           //-- 核取方塊、選取方塊 --
+           if ($(id).attr('type')=='radio' || $(id).attr('type')=='checkbox') {
+             
+             if($(id+':checked').val()==undefined){
+              $(id).css('borderColor', 'red');
+               return txt;
+            }else{
+               $(id).css('borderColor', 'rgba(0,0,0,0.1)');
+               return "";
+            }
+           }
+
+           else{
+             if ($(id).val()=='') {
+               $(id).css('borderColor', 'red');
+               return txt;
+            }else{
+               $(id).css('borderColor', 'rgba(0,0,0,0.1)');
+               return "";
+            }
+           }
+
+         }
+         else{
+          return txt;
+         }
+          
+  }
+/*--- checkout 功能 END ---*/

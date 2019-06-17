@@ -18,7 +18,7 @@ if ($_POST) {
       $rand_cc_so_pk=['r_type201904010959361', 'r_type201904010959362'];
       $ccs_cc_so_pk=$_POST['ccs_cc_so_pk']=='r_type201904010959361' ? $rand_cc_so_pk[rand(0,1)] : $_POST['ccs_cc_so_pk'];
 
-  	  $row=$pdo->select("SELECT ccs_cc_cardname, ccs_cc_pk, ccs_cc_group_id 
+  	  $row=$pdo->select("SELECT ccs_cc_cardname, ccs_cc_pk, ccs_cc_group_id ,Tb_index
   	                     FROM credit_cardrank 
   	                     WHERE ccs_cc_so_pk=:ccs_cc_so_pk 
   	                     ORDER BY ccs_order ASC LIMIT 0,6" ,['ccs_cc_so_pk'=>$ccs_cc_so_pk]);
@@ -43,9 +43,10 @@ if ($_POST) {
   	    $ccs_cc_shortname=mb_strlen($ccs_cc_cardname[1],'utf-8')>10 ? mb_substr($ccs_cc_cardname[1], 0,10,'utf-8'):$ccs_cc_cardname[1];
   	    $row[$i]['cc_shortname']=$ccs_cc_shortname;
         
+ 
         //-- 卡連結 --
   	    $cc_url=!empty($row[$i]['ccs_cc_pk']) ? '../card/creditcard.php?cc_pk='.$row[$i]['ccs_cc_pk'].'&cc_group_id='.$row[$i]['ccs_cc_group_id'] : '../card/type.php?gid='.$row[$i]['ccs_cc_group_id'];
-  	    $row[$i]['cc_url']=$cc_url;
+  	    $row[$i]['cc_url']='javascript:cardRank_log(\''.$cc_url.'\', \''.$row[$i]['Tb_index'].'\', \'view\');';
 
       }
       echo json_encode($row);
@@ -230,7 +231,7 @@ if ($_POST) {
                                     </div>
                                     <div class="col-md-11 wx-100-ph">
                                       <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 phone_hidden d-md-block">
                                          <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\');">
                                           <h5 class=" money_main mb-0">'.$card_name.'</h5>
                                          </a>
@@ -242,6 +243,11 @@ if ($_POST) {
                                          <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\');">
                                           <img class="rank_img" src="../sys/img/'.$cc_photo.'" title="'.$card_name.'">
                                          </a>
+                                      </div>
+                                      <div class="d-md-none">
+                                       <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\');">
+                                        <h5 class=" money_main mb-0">'.$card_name.'</h5>
+                                       </a>
                                       </div>
                                     </div>
                                      <div class="col-md col-4 hv-center phone_block">
