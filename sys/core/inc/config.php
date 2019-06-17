@@ -62,6 +62,6 @@ if (!empty($_GET['lang'])) {
 $weblang = empty($_SESSION['sys_weblang']) ? 'tw' : $_SESSION['sys_weblang'];
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 加密金鑰 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
-  $aes_key='srl'; //加密鑰匙;
+  $aes_key='cardu'; //加密鑰匙;
 
 ?>

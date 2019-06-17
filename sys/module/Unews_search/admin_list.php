@@ -84,27 +84,7 @@ if ($_GET) {
 
 							</tr>
 						</thead>
-                        <tfoot>
-                                <tr>
-                                    <th>版區分類</th>
-                                    <th>主分類</th>
-                                    <th>主標題</th>
-                                    <th>商店名稱</th>
-                                    <th>卡組織/銀行</th>
-                                    <th>點閱數(PC)</th>
-                                    <th>點閱數(手機)</th>
-                                    <th>FB按讚數</th>
-                                    <th>情報狀態</th>
-                                    <th>活動期間</th>
-                                    <th>上架期間</th>
-                                    <th>撰稿者</th>
-                                    <th>審核者</th>
-                                    <th>審核時間</th>
-                                    
-                                     
-                                    <th>管理</th>
-                                 </tr>
-                         </tfoot>
+
 					</table>
 
 				</div>
@@ -120,7 +100,7 @@ if ($_GET) {
 	$(document).ready(function() {
 
      var table = $('#table_id_example').DataTable({
-        "order": [[13,'desc']],
+        //"order": [[13,'desc']],
         	language:{
         "sProcessing": "處理中...",
         "sLengthMenu": "顯示 _MENU_ 項結果",
@@ -145,8 +125,11 @@ if ($_GET) {
             "sSortDescending": ": 以降序排列此列"
         }
         	},
-         //-- GET 數過多導致資訊錯誤 --
-        "ajax": "<?php echo $news_ajax_url;?>",
+         //-- GET 數過多導致資訊錯誤 (少兩列就正常) --
+        "ajax": {
+          url:"<?php echo $news_ajax_url;?>"
+         
+        },
         "processing": true,
         "serverSide": true
         // "columns": [

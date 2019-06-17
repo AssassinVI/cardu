@@ -215,7 +215,7 @@ function OneDayChart()
 
 /* ------------------------------- 網頁跳轉 ------------------------------------ */
 
-function location_up($location_path,$alert_txt)
+function location_up($location_path,$alert_txt='')
 {
    echo "<script>";
 
@@ -559,6 +559,24 @@ function wp_is_mobile() {
   }
  
   return $is_mobile;
+}
+
+
+
+
+
+
+//--------------------------------------- 獲取使用者IP ---------------------------------------------------
+function user_ip()
+{
+  if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+     $myip = $_SERVER['HTTP_CLIENT_IP'];
+  }else if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+     $myip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+  }else{
+     $myip= $_SERVER['REMOTE_ADDR'];
+  }
+  return $myip;
 }
 
 

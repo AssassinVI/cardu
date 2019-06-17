@@ -11,12 +11,12 @@
    $pdo=pdo_conn();
 
    //-- 主分類 --
-   $sql=$pdo->prepare("SELECT * FROM news_type WHERE mt_id='site2019011116103929' AND area_id=:area_id AND unit_id LIKE :unit_id AND nt_sp='0'");
+   $sql=$pdo->prepare("SELECT * FROM news_type WHERE mt_id='site2019011116103929' AND area_id=:area_id AND unit_id LIKE :unit_id AND nt_sp='0' AND OnLineOrNot=1");
    $sql->execute(['area_id'=>$_GET['area_id'], 'unit_id'=>'%'.$_GET['unit_id'].'%']);
    $row_type=$sql->fetchAll(PDO::FETCH_ASSOC);
    
    //-- 特別議題 --
-   $sql=$pdo->prepare("SELECT * FROM news_type WHERE mt_id='site2019011116103929' AND area_id=:area_id AND nt_sp='1' AND unit_id LIKE :unit_id AND nt_sp_begin_date<=:nt_sp_begin_date AND nt_sp_end_date>=:nt_sp_end_date");
+   $sql=$pdo->prepare("SELECT * FROM news_type WHERE mt_id='site2019011116103929' AND area_id=:area_id AND nt_sp='1' AND unit_id LIKE :unit_id AND nt_sp_begin_date<=:nt_sp_begin_date AND nt_sp_end_date>=:nt_sp_end_date AND OnLineOrNot=1");
    $sql->execute(['area_id'=>$_GET['area_id'], 'unit_id'=>'%'.$_GET['unit_id'].'%', 'nt_sp_begin_date'=>date('Y-m-d'), 'nt_sp_end_date'=>date('Y-m-d')]);
    $row_sp_type=$sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -160,7 +160,7 @@
             				  	<label><input type="checkbox" class="show_check" value="優行動Pay"> 優行動Pay</label>
             				  	<div class="type row">
             				  	  <?php 
-                                    $pay_type=$NewPdo->select("SELECT * FROM news_type WHERE area_id='at2019011117341414' ORDER BY nt_sp ASC, OrderBy ASC");
+                                    $pay_type=$NewPdo->select("SELECT * FROM news_type WHERE area_id='at2019011117341414' AND OnLineOrNot=1 ORDER BY nt_sp ASC, OrderBy ASC");
                                     foreach ($pay_type as $pay_type_one) {
                                     	echo '
                                     	<div class="col-xs-3">
@@ -183,7 +183,7 @@
 				  	<label><input type="checkbox" class="show_check" value="優票證"> 優票證</label>
 				  	<div class="type row">
 				  		<?php 
-                        $ticket_type=$NewPdo->select("SELECT * FROM news_type WHERE area_id='at2019011117435970' ORDER BY nt_sp ASC, OrderBy ASC");
+                        $ticket_type=$NewPdo->select("SELECT * FROM news_type WHERE area_id='at2019011117435970' AND OnLineOrNot=1 ORDER BY nt_sp ASC, OrderBy ASC");
                         foreach ($ticket_type as $ticket_type_one) {
                         	echo '
                         	<div class="col-xs-3">
@@ -206,7 +206,7 @@
 				  	<label><input type="checkbox" class="show_check" value="優集點"> 優集點</label>
 				  	<div class="type row">
 				  	  <?php 
-                        $point_type=$NewPdo->select("SELECT * FROM news_type WHERE area_id='at2019011117443626' ORDER BY nt_sp ASC, OrderBy ASC");
+                        $point_type=$NewPdo->select("SELECT * FROM news_type WHERE area_id='at2019011117443626' AND OnLineOrNot=1 ORDER BY nt_sp ASC, OrderBy ASC");
                         foreach ($point_type as $point_type_one) {
                         	echo '
                         	<div class="col-xs-3">
@@ -236,14 +236,14 @@
                         	$unit_arr[$unit_name_one['Tb_index']]=$unit_name_one['un_name'];
                         }
 
-                        $travel_unit=$NewPdo->select("SELECT * FROM appArea WHERE Tb_index='at2019011117461656'", 'no', 'one');
+                        $travel_unit=$NewPdo->select("SELECT * FROM appArea WHERE Tb_index='at2019011117461656' AND OnLineOrNot=1", 'no', 'one');
                         $travel_unit=explode(',', $travel_unit['at_unit']);
 
                         foreach ($travel_unit as $travel_unit_one) {
                         	echo '<label><input type="checkbox" class="show_type" typeName="'.$unit_arr[$travel_unit_one].'" value="'.$travel_unit_one.'"> '.$unit_arr[$travel_unit_one].'</label><br>';
                           
                           $tr_share_type_txt='';
-                          $tr_share_type=$NewPdo->select("SELECT * FROM news_type WHERE unit_id=:unit_id ORDER BY OrderBy ASC", ['unit_id'=>$travel_unit_one]);
+                          $tr_share_type=$NewPdo->select("SELECT * FROM news_type WHERE unit_id=:unit_id AND OnLineOrNot=1 ORDER BY OrderBy ASC", ['unit_id'=>$travel_unit_one]);
                           foreach ($tr_share_type as $tr_share_type_one) {
                           	$tr_share_type_txt.='
                           	  <label>

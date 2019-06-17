@@ -217,6 +217,8 @@ if ($_GET) {
 						<?php $i++; }?>
 						</tbody>
 					</table>
+
+					<input type="hidden" name="area_id" value="<?php echo $_GET['area_id'];?>">
 				</div>
 			</div>
 		</div>
@@ -253,6 +255,7 @@ if ($_GET) {
 					   	url: 'manager_sp_ajax.php',
 					   	type: 'POST',
 					   	data: {
+					   		area_id: $('[name="area_id"]').val(),
 			                Tb_index: $(this).attr('index')
 					   	}
 					 });

@@ -238,6 +238,7 @@ if ($_GET) {
 					   	url: 'manager_sp_ajax.php',
 					   	type: 'POST',
 					   	data: {
+					   		area_id: 'at2019021114154632',
 			                Tb_index: $(this).attr('index')
 					   	}
 					 });

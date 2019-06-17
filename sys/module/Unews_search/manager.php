@@ -616,8 +616,14 @@ if ($_GET) {
                 <?php 
                   if (!empty($row['ns_news'])) {
                     for ($i=0; $i <count($ns_news) ; $i++) {
-                      $ns_news_name=pdo_select("SELECT ns_ftitle FROM appNews WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_news[$i]]); 
-                       echo '<span class="btn btn-success btn-block">'.$ns_news_name['ns_ftitle'].' <input type="hidden" name="ns_news[]" ns_ftitle="'.$ns_news_name['ns_ftitle'].'" value="'.$ns_news[$i].'"><button class="del_ns_news btn btn-danger" type="button">Ｘ</button></span>';
+                      $ns_news_name=pdo_select("SELECT ns_ftitle 
+                                                FROM appNews 
+                                                WHERE Tb_index=:Tb_index AND ns_verify=3 AND OnLineOrNot=1 AND StartDate<=:StartDate AND EndDate>=:EndDate", 
+                                                ['Tb_index'=>$ns_news[$i], 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                      
+                       if (!empty($ns_news_name['ns_ftitle'])) {
+                          echo '<span class="btn btn-success btn-block">'.$ns_news_name['ns_ftitle'].' <input type="hidden" name="ns_news[]" ns_ftitle="'.$ns_news_name['ns_ftitle'].'" value="'.$ns_news[$i].'"><button class="del_ns_news btn btn-danger" type="button">Ｘ</button></span>';
+                        } 
                      }
                   }
                 ?>

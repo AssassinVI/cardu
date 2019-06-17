@@ -224,7 +224,6 @@ function check_input(id,txt) {
             }
            }
 
-
            else{
              if ($(id).val()=='') {
                $(id).css('borderColor', 'red');

@@ -15,6 +15,8 @@ if ($_POST) {
 
 	$param=  ['Tb_index'=>$Tb_index,
 			     'mt_id'=>$_POST['mt_id'],
+			     'area_id'=>'at2019021114154632',
+			     'unit_id'=>$_POST['unit_id'],
 			     'nt_name'=>$_POST['nt_name'],
                   'nt_sp'=>'1',
            'nt_sp_begin_date'=>$_POST['nt_sp_begin_date'],
@@ -34,6 +36,7 @@ if ($_POST) {
 
     $param=  [
            'nt_name'=>$_POST['nt_name'],
+           'unit_id'=>$_POST['unit_id'],
            'nt_sp_begin_date'=>$_POST['nt_sp_begin_date'],
            'nt_sp_end_date'=>$_POST['nt_sp_end_date'],
            'nt_define'=>$_POST['nt_define'],
@@ -62,6 +65,35 @@ if ($_GET) {
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
 					<form id="put_form" action="manager_sp.php" method="POST" enctype='multipart/form-data' class="form-horizontal">
+
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="unit_id"><span class="text-danger">*</span>主題單元</label>
+							<div class="col-md-10">
+								<?php 
+								  //-- 版區 --
+                                  $area=$NewPdo->select("SELECT * FROM appArea WHERE Tb_index=:Tb_index", ['Tb_index'=>'at2019021114154632'], 'one');
+
+                                  //-- 單元 --
+                                  $unit=$NewPdo->select("SELECT * FROM appUnit");
+                                  $unit_arr=[];
+                                  foreach ($unit as $unit_one) {
+                                  	$unit_arr[$unit_one['Tb_index']]=$unit_one['un_name'];
+                                  }
+
+                                  $at_unit=explode(',', $area['at_unit']);
+                                  foreach ($at_unit as $at_unit_one) {
+                                  	if ($row['unit_id']== $at_unit_one) {
+                                  		echo '<label><input type="radio" name="unit_id" value="'.$at_unit_one.'" checked> '.$unit_arr[$at_unit_one].'</label>｜';
+                                  	}
+                                  	else{
+                                  		echo '<label><input type="radio" name="unit_id" value="'.$at_unit_one.'"> '.$unit_arr[$at_unit_one].'</label>｜';
+                                  	}
+                                  	
+                                  }
+								?>
+								
+							</div>
+			            </div>
 
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="nt_name">分類名稱</label>
