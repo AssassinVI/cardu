@@ -8,6 +8,8 @@ require 'config.php';
 //-- 紀錄LOG --
 news_click_total($_SERVER['QUERY_STRING']);
 
+
+
 $todayis=date("Y-m-d"); //取得要查詢的日期，預設為今日
 
 //取出ID 
@@ -20,14 +22,14 @@ if (!$temparray[1]) {
 
 }else{
      $sql_temp="
-      SELECT ns_ftitle,ns_stitle,ns_reporter,ns_photo_1,ns_alt_1,ns_photo_2,ns_alt_2,ns_msghtml,Tb_index,StartDate,ns_date,ns_nt_pk,ns_news FROM  appNews
+      SELECT ns_ftitle,ns_stitle,ns_reporter,ns_photo_1,ns_alt_1,ns_photo_2,ns_alt_2,ns_msghtml,Tb_index,StartDate,ns_date,ns_nt_pk,ns_news, ns_vfdate FROM  appNews
       where ns_verify=3 and OnLineOrNot=1  
       and StartDate<='$todayis' and EndDate>='$todayis'
-      and Tb_index='$temparray[1]'
+      and Tb_index=:Tb_index
       order by ns_vfdate desc
       ";
      
-    $row=pdo_select($sql_temp, $where);
+    $row=pdo_select($sql_temp, ['Tb_index'=>$temparray[1]]);
 
     $ns_msghtml=mb_substr( strip_tags($row['ns_msghtml']), 0,50).'...';
 
@@ -43,6 +45,37 @@ if (!$temparray[1]) {
     $nt_name =$row_pk['nt_name'];
     }
 
+
+    //-- 上下篇新聞  --
+    $where=[
+      'StartDate'=>date('Y-m-d'), 
+      'EndDate'=>date('Y-m-d'), 
+      'ns_nt_pk'=>$row['ns_nt_pk'], 
+      'ns_nt_ot_pk'=>'%'.$row['ns_nt_pk'].'%', 
+      'ns_vfdate'=>$row['ns_vfdate']
+    ];
+    
+    //-- 上一篇 --
+    $prev_news=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, StartDate
+                                      FROM NewsAndType 
+                                      WHERE ns_verify=3 AND OnLineOrNot=1 
+                                      AND StartDate<=:StartDate AND EndDate>=:EndDate AND ns_nt_pk=:ns_nt_pk 
+                                      AND ns_vfdate>:ns_vfdate  ORDER BY ns_vfdate ASC LIMIT 0,1 ", $where, 'one');
+    
+    //-- 下一篇 --
+    $next_news=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, StartDate
+                                      FROM NewsAndType 
+                                      WHERE ns_verify=3 AND OnLineOrNot=1 
+                                      AND StartDate<=:StartDate AND EndDate>=:EndDate AND ns_nt_pk=:ns_nt_pk 
+                                      AND ns_vfdate<:ns_vfdate  ORDER BY ns_vfdate DESC LIMIT 0,1 ", $where, 'one');
+
+    $prev_btn_display=empty($prev_news['Tb_index']) ? 'd-none':'d-block';
+    $next_btn_display=empty($next_news['Tb_index']) ? 'd-none':'d-block';
+
+    $prev_url=news_url($prev_news['mt_id'], $prev_news['Tb_index'], $prev_news['ns_nt_pk'], $prev_news['area_id']);
+    $next_url=news_url($next_news['mt_id'], $next_news['Tb_index'], $next_news['ns_nt_pk'], $next_news['area_id']);
+
+  
 
 ?>
 <!DOCTYPE html>
@@ -97,7 +130,17 @@ if (!$temparray[1]) {
           require '../share_area/header.php';
          }
         ?>
+
         
+        <!-- 上下篇按鈕 -->
+        <div class="<?php echo $prev_btn_display; ?> d-md-none PrevNext_div prev_btn">
+          <a href="<?php echo $prev_url; ?>"><i class="fa fa-angle-left"></i></a>
+        </div>
+        <div class="<?php echo $next_btn_display; ?> d-md-none PrevNext_div next_btn">
+          <a href="<?php echo $next_url; ?>"><i class="fa fa-angle-right"></i></a>
+        </div>
+
+
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
           <div class="col-12">
@@ -126,20 +169,14 @@ if (!$temparray[1]) {
                                <p>記者 <?php echo $row['ns_reporter'];?> 報導 <?php echo $row['ns_date'];?></p>
                             </div>
                             <div class="col-md-4 col-12">
-                               <div class="search_div hv-center">
-                                <div class="fb-like mr-2" data-href="<?php echo $FB_URL;?>" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
-                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://www.facebook.com/dialog/feed?app_id=319016928941764&display=popup&link=<?php echo $FB_URL;?>&redirect_uri=https://www.facebook.com/', 'FB分享', config='height=600,width=800');"><img src="../img/component/search/fb.png" alt="" title="分享"></a>
-                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://social-plugins.line.me/lineit/share?url=<?php echo $FB_URL;?>', 'LINE分享', config='height=600,width=800');"><img src="../img/component/search/line.png" alt="" title="Line"></a>
-                                <a class="search_btn" href="#fb_message"><img src="../img/component/search/message.png" alt="" title="訊息"></a>
-                                 <a id="arrow_btn" class="search_btn d-none d-md-block" href="javascript:;"><img src="../img/component/search/arrow.png" alt="" title="更多"></a>
-                               </div>
-                               <div class="more_search">
-                                 
-                                 <a  target="_blank" href="print.php?<?php echo $temparray[1]?>"><img src="../img/component/search/print.png" alt="" title="列印"></a>
-                                 <a href="javascript:;" data-fancybox data-src="#member_div"><img src="../img/component/search/work.png" alt="" title="收藏"></a>
-                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_mail.php?<?php echo $_SERVER['QUERY_STRING'];?>"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
-                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
-                               </div>
+                              
+                               <?php 
+                                 // ：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：
+                                 // 新聞內頁分享功能按鈕 In share_area/func.php：：：：：：：：：：：：：：：：：：：：：：：
+                                 // ：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：：
+                                 news_share_btn($FB_URL, $_SERVER['QUERY_STRING']); 
+                               ?>
+
                             </div>
                           </div> 
 
@@ -152,18 +189,17 @@ if (!$temparray[1]) {
                           <?php 
                            
                            //-- 首圖 --
-                           echo '
-                           <div class="con_img">
-                            <img src="'.$img_url.$row['ns_photo_1'].'" alt="'.$row['ns_alt_1'].'" title="'.$row['ns_alt_1'].'">
-                            <p>▲'.$row['ns_alt_1'].'</p>
-                          </div>';
+                           echo '<p>
+                                  <img src="'.$img_url.$row['ns_photo_1'].'" alt="'.$row['ns_alt_1'].'">
+                                 </p>';
+                           
 
                           if(wp_is_mobile()){
                             //-- 手機廣告 --
                             echo '
-                            <div class="hv-center banner">
+                            <a href="#" class="hv-center banner">
                              <img src="http://placehold.it/900x300" alt="">
-                           </div>';
+                           </a>';
 
                           }
                           
@@ -173,28 +209,25 @@ if (!$temparray[1]) {
                           //-- 尾圖 --
                           if(!empty($row['ns_photo_2'])) {
 
-                            $ns_alt_2=!empty($row['ns_alt_2']) ? '<p>▲'.$row['ns_alt_2'].'</p>' : '';
-
-                            echo '<div class="con_img">
-                                   <img src="'.$img_url.$row['ns_photo_2'].'" alt="'.$row['ns_alt_2'].'" title="'.$row['ns_alt_2'].'">
-                                   '.$ns_alt_2.'
-                                  </div>';
+                            echo '<p>
+                                   <img src="'.$img_url.$row['ns_photo_2'].'" alt="'.$row['ns_alt_2'].'">
+                                  </p>';
                           }
 
 
                           if(wp_is_mobile()){
                             //-- 手機廣告 --
                             echo '
-                            <div class="hv-center banner">
+                            <a href="#" class="hv-center banner">
                              <img src="http://placehold.it/900x300" alt="">
-                           </div>';
+                           </a>';
 
                           }
                           
                           ?>
                         
                            
-
+            
                         </div>
                         <!-- 內文 END -->
                         
@@ -416,7 +449,7 @@ if (!$temparray[1]) {
 
 
                     <!--網友留言-->
-                    <div class="col-md-12 col">
+                    <div id="message_area" class="col-md-12 col">
 
                         <div class="cardshap blue_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -438,7 +471,7 @@ if (!$temparray[1]) {
 
 
                     <!--Facebook留言-->
-                    <div id="fb_message" class="col-md-12 col pb-5 mb-5 pb-md-0 mb-md-4">
+                    <div id="fb_message" class="col-md-12 col  pb-md-0 mb-md-4">
 
                         <div class="cardshap blue_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -456,6 +489,25 @@ if (!$temparray[1]) {
                       </div>
                     </div>
                     <!--Facebook留言end -->
+
+                    
+                    <!-- 上一則/下一則 -->
+                    <div id="PrevNext_footer" class="col-md-12 row d-md-none pt-3 pb-5 mb-5">
+                      <div class="col-6 d-block border-right">
+                        <a <?php echo $prev_btn_display; ?> href="<?php echo $prev_url;?>">
+                          <i class="fa fa-chevron-circle-left"></i>上一則 <br>
+                          <p><?php echo $prev_news['ns_ftitle']; ?></p>
+                        </a>
+                      </div>
+                      <div class="col-6 d-block text-right">
+                        <a <?php echo $next_btn_display; ?> href="<?php echo $next_url;?>">
+                          <i class="fa fa-chevron-circle-right"></i>下一則 <br>
+                          <p><?php echo $next_news['ns_ftitle']; ?></p>
+                        </a>
+                        </div>
+                      </div>
+                      <!-- 上一則/下一則 -->
+                    
 
                    
                 </div>
@@ -481,7 +533,7 @@ if (!$temparray[1]) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.2&appId=319016928941764&autoLogAppEvents=1';
+      js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.2&appId=616626501755047&autoLogAppEvents=1';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     
@@ -493,8 +545,14 @@ if (!$temparray[1]) {
 
     <script type="text/javascript">
       $(document).ready(function() {
-        //-- alt 圖說 --
+
+        //-- alt 圖說 & 手機加入fancybox --
         img_txt('.detail_content p img');
+                
+        //-- 圖寬限制 --
+        img_750_w('.detail_content img');
+        //-- table 優化 --
+        html_table('.detail_content>table');
       });
 
       $(window).on('load', function() {

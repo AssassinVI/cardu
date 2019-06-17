@@ -10,9 +10,10 @@ require 'config.php';
 $todayis=date("Y-m-d"); //取得要查詢的日期，預設為今日
 
 //取出類別資料
-$pk = $_GET['nt_pk'];
+$pk_sql=strlen($_GET['nt_pk'])>3 ? 'Tb_index=:pk' : 'pk=:pk';
 
-$row=pdo_select('SELECT * FROM news_type WHERE pk='.$pk, $where);
+
+$row=$pdo->select("SELECT * FROM news_type WHERE $pk_sql", ['pk'=>$_GET['nt_pk']], 'one');
 $Tb_index =$row['Tb_index'];
 $nt_name =$row['nt_name'];
 
@@ -86,6 +87,8 @@ $nt_name =$row['nt_name'];
                       <div class="col-md-12 col">
 
                       <?php 
+                       $nt_pk_sql= !empty($_GET['sp']) ? "ns_nt_sp_pk=:ns_nt_pk" : "ns_nt_pk=:ns_nt_pk";
+
                        //-- 判斷是否為手機 --
                        if (wp_is_mobile()){
                       
@@ -98,12 +101,12 @@ $nt_name =$row['nt_name'];
                                       where mt_id = 'site2018111910430599' 
                                       and ns_verify=3 and OnLineOrNot=1
                                       and  StartDate<=:StartDate and EndDate>=:EndDate
-                                      and ns_nt_pk='$Tb_index'
+                                      and ($nt_pk_sql OR ns_nt_ot_pk LIKE :ns_nt_ot_pk)
                                       order by ns_vfdate desc
                                       LIMIT 0, 10
                                      ";
 
-                       slide_ph($sql_carousel, ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                       slide_ph($sql_carousel, ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d'), 'ns_nt_pk'=>$Tb_index, 'ns_nt_ot_pk'=>'%'.$Tb_index.'%']);
 
                        } 
                        else{
@@ -117,11 +120,11 @@ $nt_name =$row['nt_name'];
                           where mt_id = 'site2018111910430599' 
                           and ns_verify=3 and OnLineOrNot=1 
                           and StartDate<=:StartDate and EndDate>=:EndDate
-                          and ns_nt_pk='$Tb_index'
+                          and ($nt_pk_sql OR ns_nt_ot_pk LIKE :ns_nt_ot_pk)
                           order by ns_vfdate desc
                           LIMIT 0, 6
                           ";
-                         slide_4s_3b($sql_carousel, ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                         slide_4s_3b($sql_carousel, ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d'), 'ns_nt_pk'=>$Tb_index, 'ns_nt_ot_pk'=>'%'.$Tb_index.'%']);
                         
                        }
                       ?>
@@ -147,127 +150,14 @@ $nt_name =$row['nt_name'];
 
 
 
-                    <?php 
-                      //-- 分頁判斷數 --
-                      $num=12;
-                      //--- 分頁起頭數 ---
-                      $now_page_num=empty($_GET['PageNo'])? 0:((int)$_GET['PageNo']-1)*$num;
-                      //-- 目前分頁 --
-                      $page=empty($_GET['PageNo']) ? 1:$_GET['PageNo'];
-
-
-                      //-- 總頁數 --
-                      $row_list_total=$pdo->select("SELECT count(*) as total
-                                              FROM NewsAndType
-                                              WHERE mt_id='$mt_id' AND pk=:pk AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate"
-                                              , ['pk'=>$_GET['nt_pk'], 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')], 'one');
-                      $total_page=ceil(((int)$row_list_total['total'])/$num);
-
-
-                      $row_list=$pdo->select("SELECT n.Tb_index, n.ns_nt_pk, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.mt_id, nt.area_id, n.StartDate
-                                             FROM appNews as n
-                                             INNER JOIN news_type as nt ON nt.Tb_index=n.ns_nt_pk
-                                             WHERE n.mt_id='$mt_id' AND nt.pk=:pk AND n.ns_verify=3 AND n.StartDate<=:StartDate AND n.EndDate>=:EndDate
-                                             ORDER BY n.ns_vfdate DESC LIMIT $now_page_num, $num", ['pk'=>$_GET['nt_pk'], 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
-                     $row_list_num=count($row_list);
-                     $count_i=ceil($row_list_num/3);
-
-                     for ($i=0; $i <$count_i ; $i++) { 
-                       
-                       echo '<div class="col-md-12 col">
-                              <div class="cardshap redius_bg">';
-
-                       for ($j=$i*3; $j <($i+1)*3 ; $j++) {
-                        
-                        if ($j<$row_list_num) {
-
-                          $row_list_one=$row_list[$j];
-                          
-
-                          $ns_ftitle=mb_substr($row_list_one['ns_ftitle'], 0,15,'utf-8');
-                          $ns_msghtml=mb_substr(strip_tags($row_list_one['ns_msghtml']), 0,50,'utf-8');
-                          $url=news_url($row_list_one['mt_id'], $row_list_one['Tb_index'], $row_list_one['ns_nt_pk'], $row_list_one['area_id']);
-                          $fb_url=urlencode($url);
-                 
-                          //-- 圖文廣告(手機) --
-                          if (wp_is_mobile() && $j==0){
-                            echo '
-                            <div class="row no-gutters py-md-3 mx-md-4 news_list">
-                             <div class="col-md-4 col-6 py-2 pl-2">
-                               <a class="img_div news_list_img" href="#" style="background-image: url(http://placehold.it/150x100);"></a>
-                             </div>
-                             <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                              <div class="mb-2">
-                                <a href="#" title="廣告">
-                                 <h3>我是圖文廣告</h3>
-                                </a>
-                              </div>
-                               <p>我是圖文廣告...</p>
-                             </div>
-                            </div>';
-                          }
-                          
-                          //-- 圖文廣告(手機) END --
-
-                          echo '
-                          <div class="row no-gutters py-md-3 mx-md-4 news_list">
-                           <div class="col-md-4 col-6 py-2 pl-2">
-                             <a class="img_div news_list_img" href="'.$url.'" style="background-image: url('.$img_url.$row_list_one['ns_photo_1'].');"></a>
-                           </div>
-                           <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
-                            <div class="mb-2">
-                              <a href="'.$url.'" title="'.$row_list_one['ns_ftitle'].'">
-                               <h3>'.$row_list_one['ns_ftitle'].'</h3>
-                               <br>
-                               <small>('.$row_list_one['StartDate'].')</small>
-                              </a>
-                            </div>
-                             <p>'.$ns_msghtml.'...</p>
-                             
-                             <div class="fb_search_btn">
-                               <iframe src="https://www.facebook.com/plugins/like.php?href='.$fb_url.'&width=119&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="119" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                             </div>
-                           </div>
-                          </div>';
-                        }
-                       }
-
-                       echo '</div>
-                           </div>';
-
-
-                      //-- 廣告 --
-                      if (wp_is_mobile()) {
-                        if ($i!=3 && $i!=$count_i) {
-                          echo '
-                          <div class="col-md-12 row">
-                          <div class="col-md-6 col banner d-md-none d-sm-block ">
-                              <img src="https://placehold.it/900x300" alt="">
-                          </div>
-                          </div>';
-                        }
-                      }
-                      else{
-                        if ($i%2==0) {
-                          echo '<div class="col-md-12 col banner phone_hidden"><div class="test"><img src="https://placehold.it/750x100" alt="banner"></div></div>';
-                        }
-                        else{
-                          echo '<div class="col-md-12 row phone_hidden">
-                                   <div class="col-md-6 col banner ">
-                                       <img src="https://placehold.it/365x100" alt="">
-                                   </div>
-                                   <div class="col-md-6 col banner">
-                                       <img src="https://placehold.it/365x100">
-                                   </div>
-                               </div>';
-                        }
-                      }
-                     }
-                    ?>
-
-                    <?php 
-                     //-- 分頁 --
-                     paging($total_page, $page);
+                   <?php 
+                      //============================================
+                      //每頁的LIST 
+                      //給予nt_pk後，交由 func.php執行
+                      //============================================
+                      $sp=empty($_GET['sp']) ? '' : 'sp';
+                      news_list($_GET['PageNo'], $Tb_index, $sp);
+                      
                     ?>
 
 

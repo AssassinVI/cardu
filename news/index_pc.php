@@ -123,7 +123,7 @@
                     //===================================
                     //取出特別議題頁籤
                     //===================================
-                       $pdo_OLD=pdo_conn();
+                       // $pdo_OLD=pdo_conn();
                       // $sql_special=$pdo->prepare("
                       //   SELECT nt_name,Tb_index,pk FROM news_type
                       //   where mt_id='site2018111910445721' and nt_sp=1 
@@ -149,7 +149,7 @@
                                  order by OrderBy  
                                  LIMIT 0, 4";
                       $nt_where_arr=['nt_sp_begin_date'=>date('Y-m-d'), 'nt_sp_end_date'=>date('Y-m-d')];
-                      index_sec_area($nt_query, $nt_where_arr, 'news', '', 'sp');
+                      index_sec_area($nt_query, $nt_where_arr, 'news', 'blue_tab', '', 'sp');
                     ?>
                     
                     <!-- ========================================================== 特別議題end  ========================================================== -->
@@ -173,7 +173,7 @@
                                  where mt_id='site2018111910445721' and nt_sp<>1 and OnLineOrNot=1
                                  order by OrderBy  
                                  LIMIT 0, 3";
-                      index_sec_area($nt_query, 'no', 'news', 'news_tab_three');
+                      index_sec_area($nt_query, 'no', 'news', 'blue_tab', 'news_tab_three');
                     ?>
                     <!-- ========================================================== 1~3次版區 END ========================================================== -->
                     
@@ -203,7 +203,7 @@
                                  where mt_id='site2018111910445721' and nt_sp<>1 and OnLineOrNot=1
                                  order by OrderBy  
                                  LIMIT 3, 3";
-                      index_sec_area($nt_query, 'no', 'news', 'news_tab_three');
+                      index_sec_area($nt_query, 'no', 'news', 'blue_tab', 'news_tab_three');
                     ?>
                     <!-- ========================================================== 3~6次版區 END ========================================================== -->
 
@@ -227,7 +227,7 @@
                                  where mt_id='site2018111910445721' and nt_sp<>1 and OnLineOrNot=1
                                  order by OrderBy  
                                  LIMIT 6, 3";
-                      index_sec_area($nt_query, 'no', 'news', 'news_tab_three');
+                      index_sec_area($nt_query, 'no', 'news', 'blue_tab', 'news_tab_three');
                     ?>
                     <!-- ========================================================== 6~9次版區 END ========================================================== -->
 
