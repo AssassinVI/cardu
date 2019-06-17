@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant-TW">
   <head>
     <!-- Required meta tags -->
@@ -128,12 +127,12 @@
                                    foreach ($row_cardNews as $row_cardNews_one) {
                                     
                                      $url=news_url($row_cardNews_one['mt_id'], $row_cardNews_one['Tb_index'], $row_cardNews_one['ns_nt_pk'], $row_cardNews_one['area_id']);
-                                     $titl_url=$row_cardNews_one['ns_nt_pk']=='nt201902121004593' ? 'card/new_card_list.php' : 'message/list.php?mt_pk='.$row_cardNews_one['pk'];
+                                     //$titl_url=$row_cardNews_one['ns_nt_pk']=='nt201902121004593' ? 'card/new_card_list.php' : 'message/list.php?mt_pk='.$row_cardNews_one['pk'];
                                      $ns_ftitle=mb_substr($row_cardNews_one['ns_ftitle'], 0,14,'utf-8');
                                      $slide_txt.='
                                                 <div class="swiper-slide img_div brown_tab" style="background-image: url(sys/img/'.$row_cardNews_one['ns_photo_1'].');"> 
                                                   <div class=" title hole">
-                                                    <a href="'.$titl_url.'">'.$row_cardNews_one['nt_name'].'</a>
+                                                    <a href="card/card.php">卡情報</a>
                                                   </div>
                                                   <a class="w-h-100 d-block" href="'.$url.'" title="'.$row_cardNews_one['ns_ftitle'].'">
                                                       <div  class=" word shadow_text" >'.$ns_ftitle.'</div>
@@ -174,41 +173,42 @@
 
                                   <?php 
                                    //--- 優情報 (優行動pay-pay攻略、優票證-票證攻略、優集點-集點攻略) Banner (NewsAndType view檢視表)---
-                                   $row_Unews=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, nt_name, pk
-                                                           FROM NewsAndType
-                                                           WHERE mt_id='site2019011116095854' 
-                                                                 AND (unit_id='un2019011717535610' OR unit_id='un2019011717541797' OR unit_id='un2019011717545061') 
-                                                                 AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate
-                                                           ORDER BY ns_vfdate DESC LIMIT 0,5", ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                                   $row_Unews=$pdo->select("SELECT n.Tb_index, n.ns_nt_pk, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.mt_id, n.area_id, n.nt_name, n.pk, a.at_name
+                                                           FROM NewsAndType as n
+                                                           INNER JOIN appArea as a ON a.Tb_index=n.area_id
+                                                           WHERE n.mt_id='site2019011116095854' 
+                                                                 AND (n.unit_id='un2019011717535610' OR n.unit_id='un2019011717541797' OR n.unit_id='un2019011717545061') 
+                                                                 AND n.ns_verify=3 AND n.StartDate<=:StartDate AND n.EndDate>=:EndDate AND n.OnLineOrNot=1
+                                                           ORDER BY n.ns_vfdate DESC LIMIT 0,5", ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
 
                                    $x=1;
                                    $slide_txt='';
                                    foreach ($row_Unews as $row_Unews_one) {
                                     
                                      $url=news_url($row_Unews_one['mt_id'], $row_Unews_one['Tb_index'], $row_Unews_one['ns_nt_pk'], $row_Unews_one['area_id']);
-                                     $titl_url=$row_Unews_one['ns_nt_pk']=='nt201902121004593' ? 'card/new_card_list.php' : 'message/list.php?mt_pk='.$row_Unews_one['pk'];
+                                     //$titl_url=$row_Unews_one['ns_nt_pk']=='nt201902121004593' ? 'card/new_card_list.php' : 'message/list.php?mt_pk='.$row_Unews_one['pk'];
 
                                      //-- 版區顏色 --
                                      switch ($row_Unews_one['area_id']) {
                                        //-- 優行動pay --
                                        case 'at2019011117341414':
                                         $area_color='blueGreen_tab';
-                                        $titl_url='mpay/list.php?mt_pk='.$row_Unews_one['pk'];
+                                        $titl_url='mpay/mpay.php';
                                        break;
                                        //-- 優票證 --
                                        case 'at2019011117435970':
                                          $area_color='pink_tab';
-                                         $titl_url='eticket/list.php?mt_pk='.$row_Unews_one['pk'];
+                                         $titl_url='eticket/eticket.php';
                                        break;
                                        //-- 優集點 --
                                        case 'at2019011117443626':
-                                         $area_color='brown_tab';
-                                         $titl_url='epoint/list.php?mt_pk='.$row_Unews_one['pk'];
+                                         $area_color='Darkbrown_tab';
+                                         $titl_url='epoint/epoint.php';
                                        break;
                                        //-- 優旅行 --
                                        case 'at2019011117461656':
                                          $area_color='green_tab';
-                                         $titl_url='travel/list.php?mt_pk='.$row_Unews_one['pk'];
+                                         $titl_url='travel/index.php';
                                        break;
                                      }
 
@@ -216,7 +216,7 @@
                                      $slide_txt.='
                                                 <div class="swiper-slide img_div '.$area_color.'" style="background-image: url(sys/img/'.$row_Unews_one['ns_photo_1'].');"> 
                                                   <div class=" title hole">
-                                                    <a href="'.$titl_url.'">'.$row_Unews_one['nt_name'].'</a>
+                                                    <a href="'.$titl_url.'">'.$row_Unews_one['at_name'].'</a>
                                                   </div>
                                                   <a class="w-h-100 d-block" href="'.$url.'" title="'.$row_Unews_one['ns_ftitle'].'">
                                                       <div  class=" word shadow_text" >'.$ns_ftitle.'</div>
@@ -274,7 +274,7 @@
                       </div>
                       <div class="word col-6">
                         <span class="title green_br shadow_text">優惠</span>
-                        <a href="#" class="green_txt">Q4加油刷卡優惠總整理</a>
+                        <a href="https://cardu.srl.tw/news/detail.php?news2019060610172150" class="green_txt">Q4加油刷卡優惠總整理</a>
                       </div>
                     </div>
                 </div>
@@ -302,7 +302,9 @@
                              <div class="col-2">
                                <div class="card_fun w-h-100 hv-center hole">
                                    <div class="text-center mt-05">
+                                    <a class="text-light" href="rank/rank.php">
                                        <img src="img/component/card_rank_logo.png" alt=""> <p class="mb-0 mt-025">卡排行</p>
+                                    </a>
                                    </div>
                                </div>  
                              </div>
@@ -345,7 +347,7 @@
                              </div>
                            </div>
 
-                           <div class="ccard">
+                           <div class="ccard slider">
                               <div class="swiper-container">
                                   <div class="swiper-wrapper">
                                     <!-- /js/main.js 卡排行 -->
@@ -415,8 +417,8 @@
                                
                                $news_txt.='
                                <div class="col-4 cards-3">
-                               <a href="'.$news_url.'">
-                                   <div class="img_div" title="'.$row_cn[$index]['ns_ftitle'].'" style="background-image: url(sys/img/'.$row_cn[$index]['ns_photo_1'].');">
+                               <a href="'.$news_url.'" title="'.$row_cn[$index]['ns_ftitle'].'">
+                                   <div class="img_div"  style="background-image: url(sys/img/'.$row_cn[$index]['ns_photo_1'].');">
                                    </div>
                                    <p>'.$ns_ftitle.'</p>
                                </a>
@@ -457,7 +459,10 @@
                           <div class="tab_menu row no-gutters">
                              <div class="col-3">
                                 <div class="title_tab hole">
-                                  <i class="icon" style="background-image: url(img/component/icon/icon5.png); background-size: 100%;"></i><h4>卡情報</h4>
+                                  <a class="text-light" href="card/card.php">
+                                    <i class="icon align-middle" style="background-image: url(img/component/icon/icon5.png); background-size: 100%;"></i>
+                                    <h4 class="d-inline-block align-middle">卡情報</h4>
+                                  </a>
                                 </div>
                              </div> 
                              <div class="col-9">
@@ -522,8 +527,8 @@
                                
                                $news_txt.='
                                <div class="col-4 cards-3">
-                               <a href="'.$news_url.'">
-                                   <div class="img_div" title="'.$row_un[$index]['ns_ftitle'].'" style="background-image: url(sys/img/'.$row_un[$index]['ns_photo_1'].');">
+                               <a href="'.$news_url.'" title="'.$row_un[$index]['ns_ftitle'].'">
+                                   <div class="img_div"  style="background-image: url(sys/img/'.$row_un[$index]['ns_photo_1'].');">
                                    </div>
                                    <p>'.$ns_ftitle.'</p>
                                </a>
@@ -563,7 +568,10 @@
                           <div class="tab_menu row no-gutters">
                              <div class="col-3">
                                 <div class="title_tab hole">
-                                   <i class="icon" style="background-image: url(img/component/icon/icon6.png);"></i><h4>優行動Pay</h4>
+                                  <a class="text-light" href="mpay/mpay.php">
+                                    <i class="icon align-middle" style="background-image: url(img/component/icon/icon6.png);"></i>
+                                    <h4 class="d-inline-block align-middle">優行動Pay</h4>
+                                  </a>
                                 </div>
                              </div> 
                              <div class="col-9">
@@ -630,37 +638,43 @@
                                                       FROM appNews as n 
                                                       INNER JOIN news_type as nt ON nt.Tb_index=n.ns_nt_pk
                                                       WHERE (n.ns_nt_pk=:ns_nt_pk OR n.ns_nt_ot_pk LIKE :ns_nt_ot_pk) AND n.ns_verify=3 AND n.StartDate<=:StartDate AND n.EndDate>=:EndDate
-                                                      ORDER BY n.ns_vfdate DESC LIMIT 0,4", 
+                                                      ORDER BY n.ns_vfdate DESC LIMIT 0,6", 
                                                       ['ns_nt_pk'=>$un_type['Tb_index'], 'ns_nt_ot_pk'=>'%'.$un_type['Tb_index'].'%','StartDate'=>date('Y-m-d'),'EndDate'=>date('Y-m-d')]);
+                       $row_un_count=count($row_un);
                        $slide_txt='';
 
-                       for ($i=0; $i <2 ; $i++) { 
+                       for ($i=0; $i <3 ; $i++) { 
                                 
                                 $news_txt='';
 
                                 for ($j=0; $j <2 ; $j++) { 
-                                  $index=($i*2)+$j;
-                                  $ns_ftitle=mb_substr($row_un[$index]['ns_ftitle'], 0,14, 'utf-8');
-
-                                  //-------------- 網址判斷 ------------------
-                                  $news_url=news_url($row_un[$index]['mt_id'], $row_un[$index]['Tb_index'], $row_un[$index]['ns_nt_pk'], $row_un[$index]['area_id']);
                                   
-                                  $news_txt.='
-                                  <div class="col-6 cards-2">
-                                    <a href="'.$news_url.'">
-                                     <div class="img_div" title="'.$row_un[$index]['ns_ftitle'].'" style="background-image: url(sys/img/'.$row_un[$index]['ns_photo_1'].');">
-                                         <p>'.$ns_ftitle.'</p>
-                                     </div>
-                                    </a>
+                                     $index=($i*2)+$j;
+                                     $ns_ftitle=mb_substr($row_un[$index]['ns_ftitle'], 0,14, 'utf-8');
+
+                                     //-------------- 網址判斷 ------------------
+                                     $news_url=news_url($row_un[$index]['mt_id'], $row_un[$index]['Tb_index'], $row_un[$index]['ns_nt_pk'], $row_un[$index]['area_id']);
+                                     
+                                     $news_txt.='
+                                     <div class="col-6 cards-2">
+                                       <a href="'.$news_url.'" title="'.$row_un[$index]['ns_ftitle'].'">
+                                        <div class="img_div"  style="background-image: url(sys/img/'.$row_un[$index]['ns_photo_1'].');">
+                                            <p>'.$ns_ftitle.'</p>
+                                        </div>
+                                       </a>
+                                     </div>';
+                                  
+                                }
+                                
+                                if ($i<ceil($row_un_count/2)) {
+                                    $slide_txt.='
+                                    <div class="swiper-slide">
+                                    <div class="row no-gutters">
+                                      '.$news_txt.'
+                                    </div>
                                   </div>';
                                 }
-
-                                $slide_txt.='
-                                <div class="swiper-slide">
-                                <div class="row no-gutters">
-                                  '.$news_txt.'
-                                </div>
-                              </div>';
+                                
                        }
 
                        $content_txt.='
@@ -775,8 +789,8 @@
                                
                                $news_txt.='
                                <div class="col-4 cards-3">
-                               <a href="'.$news_url.'">
-                                   <div class="img_div" title="'.$row_un[$index]['ns_ftitle'].'" style="background-image: url(sys/img/'.$row_un[$index]['ns_photo_1'].');">
+                               <a href="'.$news_url.'" title="'.$row_un[$index]['ns_ftitle'].'">
+                                   <div class="img_div"  style="background-image: url(sys/img/'.$row_un[$index]['ns_photo_1'].');">
                                    </div>
                                    <p>'.$ns_ftitle.'</p>
                                </a>
@@ -817,7 +831,10 @@
                           <div class="tab_menu row no-gutters">
                              <div class="col-3">
                                 <div class="title_tab hole">
-                                 <i class="icon" style="background-image: url(img/component/icon/icon10.png);"></i><h4>優旅行</h4>
+                                 <a class="text-light" href="travel/index.php">
+                                   <i class="icon align-middle" style="background-image: url(img/component/icon/icon10.png);"></i>
+                                   <h4 class="d-inline-block align-middle">優旅行</h4>
+                                 </a>
                                 </div>
                              </div> 
                              <div class="col-9">
@@ -880,63 +897,96 @@
                                                             WHERE news.ns_nt_pk='nt201902121004593' AND news.ns_verify=3 AND news.ns_vfdate >=:month_ago
                                                             GROUP BY bc.card_group_id
                                                             ORDER BY news.ns_viewcount DESC, news.ns_mobvecount DESC
-                                                            LIMIT 0,3", ['month_ago'=>date('Y-m-d H:i:s',strtotime('-3 month'))]);
-                                $x=1;
-                                foreach ($row_new_card as $new_card_one) {
+                                                            LIMIT 0,6", ['month_ago'=>date('Y-m-d H:i:s',strtotime('-3 month'))]);
+                                $silde_txt='';
+                                for ($i=0; $i <2 ; $i++) { 
                                   
-                                  $row_car_d=$pdo->select("SELECT cc.Tb_index, cc.cc_group_id, cc.cc_photo, cc.cc_cardname, ccd.bi_shortname, ccd.org_nickname, ccd.attr_name, cc.cc_interest_desc, cc.cc_doc_url, cc.cc_doc_path
-                                                           FROM credit_card as cc
-                                                           INNER JOIN cc_detail as ccd ON ccd.Tb_index=cc.Tb_index
-                                                           INNER JOIN card_level as level ON level.Tb_index=cc.cc_cardlevel
-                                                           WHERE cc.cc_group_id=:cc_group_id
-                                                           ORDER BY level.OrderBy ASC
-                                                           LIMIT 0,1", ['cc_group_id'=>$new_card_one['card_group_id']], 'one');
+                                  $ccard_list='';
+                                  for ($j=0; $j <3 ; $j++) { 
+                                   
+                                     $index=($i*3)+$j;
+                                     $row_car_d=$pdo->select("SELECT cc.Tb_index, cc.cc_group_id, cc.cc_photo, cc.cc_cardname, ccd.bi_shortname, ccd.org_nickname, ccd.attr_name, cc.cc_interest_desc, 
+                                                                     cc.cc_doc_url, cc.cc_doc_path
+                                                              FROM credit_card as cc
+                                                              INNER JOIN cc_detail as ccd ON ccd.Tb_index=cc.Tb_index
+                                                              INNER JOIN card_level as level ON level.Tb_index=cc.cc_cardlevel
+                                                              WHERE cc.cc_group_id=:cc_group_id
+                                                              ORDER BY level.OrderBy ASC
+                                                              LIMIT 0,1", ['cc_group_id'=>$row_new_card[$index]['card_group_id']], 'one');
 
-                                  
-                                  //-- 卡名 --
-                                  $card_name=$row_car_d['bi_shortname'].'_'.$row_car_d['cc_cardname'].'_'.$row_car_d['org_nickname'].$row_car_d['attr_name'];
-                                  //-- 卡特色 --
-                                  $card_adv_txt='';
-                                  $card_adv=preg_split('/\n/',$row_car_d['cc_interest_desc']);
-                                  for ($i=0; $i <4 ; $i++) { 
-                                    $card_adv_txt.=mb_substr($card_adv[$i],0,15,'utf-8').'<br>';
+                                     
+                                     //-- 卡名 --
+                                     $card_name=$row_car_d['bi_shortname'].'_'.$row_car_d['cc_cardname'].'_'.$row_car_d['org_nickname'].$row_car_d['attr_name'];
+                                     //-- 卡特色 --
+                                     $card_adv_txt='';
+                                     $card_adv=preg_split('/\n/',$row_car_d['cc_interest_desc']);
+                                     for ($k=0; $k <4 ; $k++) { 
+                                       $card_adv_txt.=mb_substr($card_adv[$k],0,15,'utf-8').'<br>';
+                                     }
+                                     
+                                     //-- 立即辦卡 --
+                                     if (!empty($row_car_d['cc_doc_url'])) {
+                                       $cc_doc='<a target="_blank" href="'.$row_car_d['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+                                     }
+                                     elseif(!empty($row_car_d['cc_doc_path'])){
+                                       $cc_doc='<a target="_blank" href="'.$row_car_d['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+                                     }
+                                     else{
+                                       $cc_doc='';
+                                     }
+                                     //-- 卡片圖 --
+                                     $cc_photo=empty($row_car_d['cc_photo']) ? 'CardSample.png':$row_car_d['cc_photo'];
+                                     
+                                     $ccard_list.= '
+                                     <div class="col-4 cards-3">
+                                       <div class=" hv-center">
+                                           <a href="card/creditcard.php?cc_pk='.$row_car_d['Tb_index'].'&cc_group_id='.$row_car_d['cc_group_id'].'" title="'.$card_name.'">
+                                            <span class="top_Medal">'.($index+1).'</span>
+                                            <img src="sys/img/'.$cc_photo.'" alt="'.$card_name.'">
+                                            <p>'.mb_substr($card_name, 0,14,'utf-8').'</p>
+                                           </a>
+                                       </div>
+                                       <div class="card_txt">
+                                           <p>
+                                               '.$card_adv_txt.'
+                                           </p>
+                                       </div>
+                                       <div class="card_btn  hv-center">
+                                           '.$cc_doc.'
+                                           <button type="button" card_id="'.$row_car_d['Tb_index'].'" cc_group_id="'.$row_car_d['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered add_contrast_card btnOver">加入比較</button>
+                                       </div>
+                                    </div>';  
                                   }
-                                  
-                                  //-- 立即辦卡 --
-                                  if (!empty($row_car_d['cc_doc_url'])) {
-                                    $cc_doc='<a target="_blank" href="'.$row_car_d['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-                                  }
-                                  elseif(!empty($row_car_d['cc_doc_path'])){
-                                    $cc_doc='<a target="_blank" href="'.$row_car_d['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-                                  }
-                                  else{
-                                    $cc_doc='';
-                                  }
-                                  //-- 卡片圖 --
-                                  $cc_photo=empty($row_car_d['cc_photo']) ? 'CardSample.png':$row_car_d['cc_photo'];
-                                  
-                                  echo '
-                                  <div class="col-4 cards-3">
-                                    <div class=" hv-center">
-                                        <a href="card/creditcard.php?cc_pk='.$row_car_d['Tb_index'].'&cc_group_id='.$row_car_d['cc_group_id'].'" title="'.$card_name.'">
-                                         <span class="top_Medal">'.$x.'</span>
-                                         <img src="sys/img/'.$cc_photo.'" alt="'.$card_name.'">
-                                         <p>'.mb_substr($card_name, 0,14,'utf-8').'</p>
-                                        </a>
-                                    </div>
-                                    <div class="card_txt">
-                                        <p>
-                                            '.$card_adv_txt.'
-                                        </p>
-                                    </div>
-                                    <div class="card_btn  hv-center">
-                                        '.$cc_doc.'
-                                        <button type="button" card_id="'.$row_car_d['Tb_index'].'" cc_group_id="'.$row_car_d['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered add_contrast_card btnOver">加入比較</button>
-                                    </div>
-                                 </div>';
+                                  //-- for j --
 
-                                 $x++; }
+
+                                      $silde_txt.='
+                                       <div class="swiper-slide">
+                                         <div class="row no-gutters">
+                                           '.$ccard_list.'
+                                         </div>
+                                        </div>';
+
+                                }
+                                //-- for i --
+
+                                
                               ?>
+                              <div class="col-md-12">
+                                <div class="swiper-container sub_slide h-100 mx-0">
+                                    <div class="swiper-wrapper">
+                                        
+                                        <?php echo $silde_txt; ?>
+                                        
+                                    </div>
+                                    
+                                    <!-- 如果需要导航按钮 -->
+                                    <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                                    <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                                    
+                                </div>
+                              </div>
+                              
                              </div>
                              <!--人氣排行 END -->
                              
@@ -953,53 +1003,85 @@
                                                             WHERE ccr.ccs_del_flag=0 AND ccrc.ccr_date >=:day_ago
                                                             GROUP BY cc.Tb_index
                                                             ORDER BY ccrc.assigncount DESC 
-                                                            LIMIT 0,3", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
+                                                            LIMIT 0,6", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
+                                  $silde_txt='';
+                                  for ($i=0; $i < 2; $i++) { 
+                                    
+                                    $ccard_list='';
+                                    for ($j=0; $j < 3; $j++) { 
+                                      
+                                      $index=($i*3)+$j;
+                                      $add_card_one=$row_add_card[$index];
+                                      //-- 卡名 --
+                                      $card_name=$add_card_one['bi_shortname'].'_'.$add_card_one['cc_cardname'].'_'.$add_card_one['org_nickname'].$add_card_one['attr_name'];
+                                      //-- 卡特色 --
+                                      $card_adv_txt='';
+                                      $card_adv=preg_split('/\n/',$add_card_one['cc_interest_desc']);
+                                      for ($k=0; $k <4 ; $k++) { 
+                                        $card_adv_txt.=mb_substr($card_adv[$k],0,15,'utf-8').'<br>';
+                                      }
+                                      //-- 立即辦卡 --
+                                      if (!empty($add_card_one['cc_doc_url'])) {
+                                        $cc_doc='<a target="_blank" href="'.$add_card_one['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+                                      }
+                                      elseif(!empty($add_card_one['cc_doc_path'])){
+                                        $cc_doc='<a target="_blank" href="'.$add_card_one['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+                                      }
+                                      else{
+                                        $cc_doc='';
+                                      }
+                                      //-- 卡片圖 --
+                                      $cc_photo=empty($add_card_one['cc_photo']) ? 'CardSample.png':$add_card_one['cc_photo'];
 
-                                  $x=1;
-                                  foreach ($row_add_card as $add_card_one){
+                                      $ccard_list.= '
+                                      <div class="col-4 cards-3">
+                                      <div class=" hv-center">
+                                          <a href="card/creditcard.php?cc_pk='.$add_card_one['Tb_index'].'&cc_group_id='.$add_card_one['cc_group_id'].'" title="'.$card_name.'">
+                                           <span class="top_Medal">'.($index+1).'</span>
+                                           <img src="sys/img/'.$cc_photo.'" alt="'.$card_name.'">
+                                           <p>'.mb_substr($card_name, 0,14,'utf-8').'</p>
+                                          </a>
+                                      </div>
+                                      <div class="card_txt">
+                                          <p>
+                                              '.$card_adv_txt.'
+                                          </p>
+                                      </div>
+                                      <div class="card_btn  hv-center">
+                                          '.$cc_doc.'
+                                          <button type="button" card_id="'.$add_card_one['Tb_index'].'" cc_group_id="'.$add_card_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$add_card_one['cc_photo'].'" class="btn gray-layered add_contrast_card btnOver">加入比較</button>
+                                      </div>
+                                      </div>';
 
-                                    //-- 卡名 --
-                                    $card_name=$add_card_one['bi_shortname'].'_'.$add_card_one['cc_cardname'].'_'.$add_card_one['org_nickname'].$add_card_one['attr_name'];
-                                    //-- 卡特色 --
-                                    $card_adv_txt='';
-                                    $card_adv=preg_split('/\n/',$add_card_one['cc_interest_desc']);
-                                    for ($i=0; $i <4 ; $i++) { 
-                                      $card_adv_txt.=mb_substr($card_adv[$i],0,15,'utf-8').'<br>';
                                     }
-                                    //-- 立即辦卡 --
-                                    if (!empty($add_card_one['cc_doc_url'])) {
-                                      $cc_doc='<a target="_blank" href="'.$add_card_one['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-                                    }
-                                    elseif(!empty($add_card_one['cc_doc_path'])){
-                                      $cc_doc='<a target="_blank" href="'.$add_card_one['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-                                    }
-                                    else{
-                                      $cc_doc='';
-                                    }
-                                    //-- 卡片圖 --
-                                    $cc_photo=empty($add_card_one['cc_photo']) ? 'CardSample.png':$add_card_one['cc_photo'];
+                                    //-- for j --
 
-                                    echo '
-                                    <div class="col-4 cards-3">
-                                    <div class=" hv-center">
-                                        <a href="card/creditcard.php?cc_pk='.$add_card_one['Tb_index'].'&cc_group_id='.$add_card_one['cc_group_id'].'" title="'.$card_name.'">
-                                         <span class="top_Medal">'.$x.'</span>
-                                         <img src="sys/img/'.$cc_photo.'" alt="'.$card_name.'">
-                                         <p>'.mb_substr($card_name, 0,14,'utf-8').'</p>
-                                        </a>
-                                    </div>
-                                    <div class="card_txt">
-                                        <p>
-                                            '.$card_adv_txt.'
-                                        </p>
-                                    </div>
-                                    <div class="card_btn  hv-center">
-                                        '.$cc_doc.'
-                                        <button type="button" card_id="'.$add_card_one['Tb_index'].'" cc_group_id="'.$add_card_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$add_card_one['cc_photo'].'" class="btn gray-layered add_contrast_card btnOver">加入比較</button>
-                                    </div>
-                                    </div>';
-                                  $x++; }
+                                    $silde_txt.='
+                                     <div class="swiper-slide">
+                                       <div class="row no-gutters">
+                                         '.$ccard_list.'
+                                       </div>
+                                      </div>';
+                                  }
+                                  //-- for i --
+
                                 ?>
+
+                                <div class="col-md-12">
+                                  <div class="swiper-container sub_slide h-100 mx-0">
+                                      <div class="swiper-wrapper">
+                                          
+                                          <?php echo $silde_txt; ?>
+                                          
+                                      </div>
+                                      
+                                      <!-- 如果需要导航按钮 -->
+                                      <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                                      <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                                      
+                                  </div>
+                                </div>
+
                              </div>
                              <!-- 辦卡人氣排行 END -->
                              
@@ -1015,53 +1097,86 @@
                                                          WHERE ccr.ccs_del_flag=0 AND ccrc.ccr_date >=:day_ago
                                                          GROUP BY cc.Tb_index
                                                          ORDER BY ccrc.viewcount DESC 
-                                                         LIMIT 0,3", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
-                               $x=1;
-                               foreach ($row_view_card as $add_view_one){
+                                                         LIMIT 0,6", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
+                               
+                               $silde_txt='';
+                               for ($i=0; $i < 2; $i++) { 
                                  
-                                 //-- 卡名 --
-                                 $card_name=$add_view_one['bi_shortname'].'_'.$add_view_one['cc_cardname'].'_'.$add_view_one['org_nickname'].$add_view_one['attr_name'];
-                                 //-- 卡特色 --
-                                 $card_adv_txt='';
-                                 $card_adv=preg_split('/\n/',$add_view_one['cc_interest_desc']);
-                                 for ($i=0; $i <4 ; $i++) { 
-                                   $card_adv_txt.=mb_substr($card_adv[$i],0,15,'utf-8').'<br>';
-                                 }
-                                 //-- 立即辦卡 --
-                                 if (!empty($add_view_one['cc_doc_url'])) {
-                                   $cc_doc='<a target="_blank" href="'.$add_view_one['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-                                 }
-                                 elseif(!empty($add_view_one['cc_doc_path'])){
-                                   $cc_doc='<a target="_blank" href="'.$add_view_one['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-                                 }
-                                 else{
-                                   $cc_doc='';
-                                 }
-                                 //-- 卡片圖 --
-                                 $cc_photo=empty($add_view_one['cc_photo']) ? 'CardSample.png':$add_view_one['cc_photo'];
+                                 $ccard_list='';
+                                 for ($j=0; $j < 3; $j++) { 
+                                   
+                                   $index=($i*3)+$j;
+                                   $add_view_one=$row_view_card[$index];
+                                   //-- 卡名 --
+                                   $card_name=$add_view_one['bi_shortname'].'_'.$add_view_one['cc_cardname'].'_'.$add_view_one['org_nickname'].$add_view_one['attr_name'];
+                                   //-- 卡特色 --
+                                   $card_adv_txt='';
+                                   $card_adv=preg_split('/\n/',$add_view_one['cc_interest_desc']);
+                                   for ($k=0; $k <4 ; $k++) { 
+                                     $card_adv_txt.=mb_substr($card_adv[$k],0,15,'utf-8').'<br>';
+                                   }
+                                   //-- 立即辦卡 --
+                                   if (!empty($add_view_one['cc_doc_url'])) {
+                                     $cc_doc='<a target="_blank" href="'.$add_view_one['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+                                   }
+                                   elseif(!empty($add_view_one['cc_doc_path'])){
+                                     $cc_doc='<a target="_blank" href="'.$add_view_one['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+                                   }
+                                   else{
+                                     $cc_doc='';
+                                   }
+                                   //-- 卡片圖 --
+                                   $cc_photo=empty($add_view_one['cc_photo']) ? 'CardSample.png':$add_view_one['cc_photo'];
 
-                                 echo '
-                                 <div class="col-4 cards-3">
-                                    <div class=" hv-center">
-                                        <a href="card/creditcard.php?cc_pk='.$add_view_one['Tb_index'].'&cc_group_id='.$add_view_one['cc_group_id'].'" title="'.$card_name.'">
-                                         <span class="top_Medal">'.$x.'</span>
-                                         <img src="sys/img/'.$cc_photo.'" alt="'.$card_name.'">
-                                         <p>'.mb_substr($card_name, 0,14,'utf-8').'</p>
-                                        </a>
-                                    </div>
-                                    <div class="card_txt">
-                                        <p>
-                                            '.$card_adv_txt.'
-                                        </p>
-                                    </div>
-                                    <div class="card_btn  hv-center">
-                                        '.$cc_doc.'
-                                        <button type="button" card_id="'.$add_view_one['Tb_index'].'" cc_group_id="'.$add_view_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$add_view_one['cc_photo'].'" class="btn gray-layered add_contrast_card btnOver">加入比較</button>
-                                    </div>
-                                 </div>';
+                                   $ccard_list.= '
+                                   <div class="col-4 cards-3">
+                                   <div class=" hv-center">
+                                       <a href="card/creditcard.php?cc_pk='.$add_view_one['Tb_index'].'&cc_group_id='.$add_view_one['cc_group_id'].'" title="'.$card_name.'">
+                                        <span class="top_Medal">'.($index+1).'</span>
+                                        <img src="sys/img/'.$cc_photo.'" alt="'.$card_name.'">
+                                        <p>'.mb_substr($card_name, 0,14,'utf-8').'</p>
+                                       </a>
+                                   </div>
+                                   <div class="card_txt">
+                                       <p>
+                                           '.$card_adv_txt.'
+                                       </p>
+                                   </div>
+                                   <div class="card_btn  hv-center">
+                                       '.$cc_doc.'
+                                       <button type="button" card_id="'.$add_view_one['Tb_index'].'" cc_group_id="'.$add_view_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$add_view_one['cc_photo'].'" class="btn gray-layered add_contrast_card btnOver">加入比較</button>
+                                   </div>
+                                   </div>';
 
-                                $x++;}
+                                 }
+                                 //-- for j --
+
+                                 $silde_txt.='
+                                  <div class="swiper-slide">
+                                    <div class="row no-gutters">
+                                      '.$ccard_list.'
+                                    </div>
+                                   </div>';
+                               }
+                               //-- for i --
+                               
                               ?>
+
+                              <div class="col-md-12">
+                                <div class="swiper-container sub_slide h-100 mx-0">
+                                    <div class="swiper-wrapper">
+                                        
+                                        <?php echo $silde_txt; ?>
+                                        
+                                    </div>
+                                    
+                                    <!-- 如果需要导航按钮 -->
+                                    <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                                    <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                                    
+                                </div>
+                              </div>
+
                              </div>
                              <!-- 點閱人氣排行 END -->
                           </div>
@@ -1254,11 +1369,13 @@
                                <div class="accordion" id="new_card">
                                  
                                  <?php 
-                                  $row_card_news=$pdo->select("SELECT Tb_index, ns_ftitle, ns_msghtml, ns_photo_1, area_id, mt_id, ns_nt_pk
-                                                              FROM NewsAndType 
-                                                              WHERE ns_nt_pk='nt201902121004593' AND ns_vfdate<>'0000-00-00 00:00:00' AND ns_verify=3 
-                                                              AND  StartDate<=:StartDate AND EndDate>=:EndDate
-                                                              ORDER BY ns_vfdate DESC 
+                                  $row_card_news=$pdo->select("SELECT n.Tb_index, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.area_id, n.mt_id, n.ns_nt_pk, n.ccard_sp, cc.cc_interest_desc
+                                                              FROM NewsAndType as n 
+                                                              INNER JOIN appNews_bank_card as abc ON abc.news_id=n.Tb_index
+                                                              INNER JOIN credit_card as cc ON cc.cc_group_id=abc.card_group_id AND cc.cc_cardorg=abc.org_id AND cc.cc_cardlevel=abc.level_id
+                                                              WHERE n.ns_nt_pk='nt201902121004593' AND n.ns_vfdate<>'0000-00-00 00:00:00' AND n.ns_verify=3 AND n.OnLineOrNot=1
+                                                              AND  n.StartDate<=:StartDate AND n.EndDate>=:EndDate
+                                                              ORDER BY n.ns_vfdate DESC 
                                                               LIMIT 0,3", ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
                                   $x=1;
                                   foreach ($row_card_news as $card_news) {
@@ -1270,8 +1387,17 @@
                                     $news_url=news_url($card_news['mt_id'], $card_news['Tb_index'], $card_news['ns_nt_pk'], $card_news['area_id']);
 
                                     $show=$x==1 ? 'show':'';
-
                                     
+                                    $ccard_sp_txt='';
+                                    $ccard_sp=empty($card_news['ccard_sp']) ? preg_split('/\n/',$card_news['cc_interest_desc']) : preg_split('/\n/',$card_news['ccard_sp']);
+                                    $y=1;
+                                    foreach ($ccard_sp as $ccard_sp_one) {
+                                      if ($y<=3) {
+                                        $ccard_sp_txt.='<li>'.$ccard_sp_one.'</li>';
+                                      }
+                                     $y++;
+                                    }
+
                                     echo '
                                   <div class="card">
                                    <div class="card-header" id="heading'.$x.'">
@@ -1284,6 +1410,7 @@
 
                                    <div id="collapse'.$x.'" class="collapse '.$show.'" aria-labelledby="heading'.$x.'" data-parent="#new_card">
                                      <div class="card-body">
+                                      <a style="top: 0; left: 0;" class="position-absolute w-h-100" href="'.$news_url.'" title="'.$card_news['ns_ftitle'].'"></a>
                                        <div class="card_one">
                                          <a href="'.$news_url.'" title="'.$card_news['ns_ftitle'].'">
                                           <img src="sys/img/'.$card_news['ns_photo_1'].'" alt=""> <br>
@@ -1291,9 +1418,9 @@
                                          </a>
                                        </div>
                                        <div class="card_info star_li">
-                                        
-                                           '.$ns_msghtml.'
-                                        
+                                        <ul>
+                                         '.$ccard_sp_txt.'
+                                        </ul>
                                        </div>
                                        <a class="card_more" href="'.$news_url.'">more</a>
                                      </div>
@@ -1314,7 +1441,7 @@
                        <div class="cardshap tab_one blueGreen_tab">
                            <div class="title_tab hole">
                                <i class="icon" style="background-image: url(img/component/icon/icon6.png);"></i> <h4>熱門支付</h4>
-                               <a class="more_link" href="mpay/mpay.php"></a>
+                               
                            </div>
                            <div class="content_tab" style="height: 250px;">
                                <ul class="tab_list cardu_li">
@@ -1352,6 +1479,7 @@
                        <div class="cardshap tab_one orange_tab">
                            <div class="title_tab hole">
                                <i class="icon" style="background-image: url(img/component/icon/icon7.png);"></i><h4>活動公告</h4>
+                               <a class="more_link" href="member/index.php"></a>
                            </div>
                            <div class="content_tab">
                                <ul class="tab_list">
