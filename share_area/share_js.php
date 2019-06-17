@@ -17,7 +17,7 @@
     <!-- 超強動畫庫 -->
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
     <!-- GOOGLE 登入 -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
     <!-- ajax JS -->
     <script type="text/javascript" src="/js/ajax.js"></script>
     <!-- 主要JS -->

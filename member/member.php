@@ -57,7 +57,7 @@
         <!-- 麵包屑 -->
         <div class="row ">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="javascript:;">會員中心</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="javascript:;">會員中心</a></p>
           </div>
         </div>
         
@@ -83,8 +83,10 @@
                        <div class="col-md-4">
                         <h2>Register Now</h2>
                         <div class="col-md-12 col hv-center primary_tab_btn">
-                         <button class="gray-layered btnOver" type="submit">我要註冊</button>
-                         <button class="gray-layered btnOver" type="submit">會員登入</button>
+                         <a href="sign_second.php" class="gray-layered btnOver" >
+                            我要註冊
+                         </a>
+                         <a href="sign_second.php" class="gray-layered btnOver" >會員登入</a>
                         </div>
                        </div>  
                       </div>

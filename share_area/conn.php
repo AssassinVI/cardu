@@ -15,6 +15,7 @@ if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == 'off'){
    $pdo=new PDO_fun;
 
 
+
    if ($_GET) {
      //-- 會員登出 --
      if (isset($_GET['logout'])) {
@@ -22,14 +23,25 @@ if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == 'off'){
        unset($_SESSION['ud_pk']);
        unset($_SESSION['ud_nickname']);
        unset($_SESSION['ud_photo']);
+       setcookie('ud_pk', '', time()-3600000,'/');
        location_up('/index.php', '已登出會員');
      }
    }
 
+   
 
-   if ($_POST) {
 
-   	 //-- 會員登入 --
+   // ----- 驗證cookie 登入 -----
+   if (isset($_COOKIE['ud_pk']) && !isset($_GET['logout'])) {
+     check_cookie_login($_COOKIE['ud_pk']);
+   }
+
+
+
+   //------- 會員登入 --------------
+   if (!empty($_POST['login'])) {
+
+
    	 if (!empty($_POST['ud_userid_lg']) ) {
        
    	   $row_login=$pdo->select("SELECT ud_pk, ud_nickname, ud_photo, ud_userid 

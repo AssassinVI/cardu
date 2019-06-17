@@ -394,15 +394,16 @@
                   <p class="text-center">或使用以下帳號登入</p>
                   <div class="row no-gutters">
                     <div class="col-6">
-                      <a class="other_login_btn fb_color" href="#">Facebook</a>
+                      <a id="mem_FB_login" class="other_login_btn fb_color" href="#">Facebook</a>
                     </div>
                     <div class="col-6">
                       <!-- <a class="other_login_btn google_color" href="#">Google</a> -->
                       <button id="mem_G_login" type="button" class="btn btnOver">Google</button>
-                      <a href="javascript:;" onclick="signOut();">out</a>
+                      <!-- <a href="javascript:;" onclick="signOut();">out</a> -->
                     </div>
                   </div>
                 </div>
+                <input type="hidden" name="login" value="Y">
               </form>
             </div>
             <!-- 會員登入 END -->
