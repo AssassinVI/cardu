@@ -52,8 +52,8 @@ if ($_POST) {
           
           $news_txt.='
           <div class="col-4 cards-3">
-          <a href="'.$news_url.'">
-              <div class="img_div" title="'.$row_cn[$index]['ns_ftitle'].'" style="background-image: url(sys/img/'.$row_cn[$index]['ns_photo_1'].');">
+          <a href="'.$news_url.'" title="'.$row_cn[$index]['ns_ftitle'].'">
+              <div class="img_div"  style="background-image: url(sys/img/'.$row_cn[$index]['ns_photo_1'].');">
               </div>
               <p>'.$ns_ftitle.'</p>
           </a>
@@ -221,7 +221,7 @@ if ($_POST) {
                                WHERE ccr.ccs_del_flag=0 AND ccrc.ccr_date >=:day_ago
                                GROUP BY cc.Tb_index
                                ORDER BY ccrc.viewcount DESC 
-                               LIMIT 0,3", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
+                               LIMIT 0,6", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
      $x=1;
      foreach ($row_view_card as $add_view_one){
        

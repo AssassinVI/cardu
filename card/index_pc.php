@@ -159,7 +159,7 @@
                            </div>
 
 
-                           <div class="ccard">
+                           <div class="ccard slider">
                                
                               <div class="swiper-container">
                                   <div class="swiper-wrapper">

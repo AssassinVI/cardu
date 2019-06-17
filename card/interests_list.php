@@ -21,9 +21,10 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
+    <?php 
+     //-- fb資料設定 --
+     require '../share_area/fb_config.php';
+    ?>
     <meta property="og:site_name" content="卡優新聞網" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />

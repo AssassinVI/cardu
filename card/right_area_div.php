@@ -48,8 +48,8 @@
                                       <?php 
                                        $x=1;
                                        foreach ($row_hot_news as $hot_news) {
-                                        $ns_ftitle=mb_substr($hot_news['ns_ftitle'], 0,15, 'utf-8');
-                                        $ns_msghtml=mb_substr(strip_tags(trim($hot_news['ns_msghtml'])), 0,20, 'utf-8');
+                                        $ns_ftitle=mb_substr(myTrim($hot_news['ns_ftitle']), 0,15, 'utf-8');
+                                        $ns_msghtml=mb_substr(strip_tags(myTrim($hot_news['ns_msghtml'])), 0,20, 'utf-8');
                                         //-- 判斷網址 --
                                         $news_url=$x==2 || $x==3 ? 'ad.php?'.$hot_news['Tb_index'] : '../message/detail.php?'.$hot_news['Tb_index'];
                                         //-- 判斷廣告圖片 --
@@ -76,8 +76,8 @@
                                       <?php 
                                        $x=1;
                                        foreach ($row_hot_news2 as $hot_news) {
-                                        $ns_ftitle=mb_substr($hot_news['ns_ftitle'], 0,15, 'utf-8');
-                                        $ns_msghtml=mb_substr(strip_tags(trim($hot_news['ns_msghtml'])), 0,20, 'utf-8');
+                                        $ns_ftitle=mb_substr(myTrim($hot_news['ns_ftitle']), 0,15, 'utf-8');
+                                        $ns_msghtml=mb_substr(strip_tags(myTrim($hot_news['ns_msghtml'])), 0,20, 'utf-8');
                                         //-- 判斷網址 --
                                         $news_url=$x==2 || $x==3 ? 'ad.php?'.$hot_news['Tb_index'] : '../message/detail.php?'.$hot_news['Tb_index'];
                                         //-- 判斷廣告圖片 --

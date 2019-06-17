@@ -102,7 +102,7 @@
                                 <div class="fb-like mr-2" data-href="<?php echo $FB_URL;?>" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
                                  <a class="search_btn" href="javascript:;" onclick="window.open('https://www.facebook.com/dialog/feed?app_id=319016928941764&display=popup&link=<?php echo $FB_URL;?>&redirect_uri=https://www.facebook.com/', 'FB分享', config='height=600,width=800');"><img src="../img/component/search/fb.png" alt="" title="分享"></a>
                                  <a class="search_btn" href="javascript:;" onclick="window.open('https://social-plugins.line.me/lineit/share?url=<?php echo $FB_URL;?>', 'LINE分享', config='height=600,width=800');"><img src="../img/component/search/line.png" alt="" title="Line"></a>
-                                <a class="search_btn" href="#fb_message"><img src="../img/component/search/message.png" alt="" title="訊息"></a>
+                                <a class="search_btn message_btn" href="javascript:;"><img src="../img/component/search/message.png" alt="" title="訊息"></a>
                                  <a id="arrow_btn" class="search_btn" href="javascript:;"><img src="../img/component/search/arrow.png" alt="" title="更多"></a>
                                </div>
                                <div class="more_search">
@@ -483,7 +483,7 @@
 
 
                     <!--網友留言-->
-                    <div class="col-md-12 col">
+                    <div id="message_area" class="col-md-12 col">
 
                         <div class="cardshap brown_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">

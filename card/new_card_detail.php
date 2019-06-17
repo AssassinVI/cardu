@@ -122,7 +122,7 @@
                                   <img src="../img/component/search/line.png" alt="" title="Line">
                                  </a>
                                  <!-- 訊息 -->
-                                 <a class="search_btn" href="#fb_message"><img src="../img/component/search/message.png" alt="" title="訊息"></a>
+                                 <a class="search_btn message_btn" href="javascript:;"><img src="../img/component/search/message.png" alt="" title="訊息"></a>
                                  <!-- 更多 -->
                                  <a id="arrow_btn" class="search_btn" href="javascript:;"><img src="../img/component/search/arrow.png" alt="" title="更多"></a>
                                </div>
@@ -429,7 +429,7 @@
                     
 
                     <!--網友留言-->
-                    <div class="col-md-12 col">
+                    <div id="message_area" class="col-md-12 col">
 
                         <div class="cardshap brown_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -537,6 +537,8 @@
           $(document).ready(function() {
             //-- alt 圖說 --
             img_txt('.detail_content p img');
+            //-- 圖寬限制 --
+            img_750_w('.detail_content img');
           });
 
           $(window).on('load', function() {
