@@ -7,6 +7,8 @@
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
     <!-- 主要JS -->
     <script type="text/javascript" src="js/main.js"></script>
+    <!-- 社群帳號登入用 -->
+    <script type="text/javascript" src="/js/community_login.js"></script>
 
     <script type="text/javascript">
       $(document).ready(function() {

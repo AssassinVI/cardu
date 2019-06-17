@@ -13,7 +13,7 @@
     where ns_verify=3 and OnLineOrNot=1  
     and StartDate<=:StartDate and EndDate>=:EndDate
     and Tb_index in ($ns_news)
-    order by ns_vfdate desc");
+    order by field(Tb_index,$ns_news)");
 
 
   $sql_other->execute(['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
@@ -58,9 +58,9 @@
                      </div>
                       <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
                        <div class="mb-2">
-                        <a href="#" >
-                          <h3>我是廣告我是廣告我是廣告我是廣告</h3>
-                         </a>
+                        <h3>
+                         <a href="#" >我是廣告我是廣告我是廣告我是廣告 </a>
+                        </h3>
                        </div>
                       </div>
                      </div>';
@@ -73,9 +73,9 @@
                      </div>
                       <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
                        <div class="mb-2">
-                        <a href="'.$url.'" title="'.$row_other['ns_ftitle'].'">
-                          <h3>'.$ns_ftitle_other.'</h3>
-                         </a>
+                         <h3>
+                          <a href="'.$url.'" title="'.$row_other['ns_ftitle'].'">'.$ns_ftitle_other.'</a>
+                         </h3>
                        </div>
                       </div>
                      </div>';
@@ -86,8 +86,8 @@
 
               echo '
                <div class="col-md-4 cards-3 py-md-2 col-6">
-                  <a href="'.$url.'">
-                      <div class="img_div" title="'.$ns_ftitle_other.'" style="background-image: url('.$ns_photo_1_other.');">
+                  <a href="'.$url.'" title="'.$ns_ftitle_other.'">
+                      <div class="img_div"  style="background-image: url('.$ns_photo_1_other.');">
                       </div>
                       <p>'.$ns_stitle_other.'</p>
                   </a>

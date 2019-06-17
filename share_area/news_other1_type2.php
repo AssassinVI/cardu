@@ -1,6 +1,6 @@
 <?php if($row['note']){ // 如果有注意事項區塊?>
 <br><p><b>◎注意事項：</b><br>
-  <?php echo $row['note'];?>
+  <?php echo nl2br($row['note']);?>
 </p>
 <?php }?>
 
@@ -12,13 +12,13 @@ foreach($ns_news_arr as $element){
  }
 $ns_news = substr($ns_news, 0, -1); //去掉最後分號
 
-$pdo=pdo_conn();
-$sql_other=$pdo->prepare("
+$pdo_OLD=pdo_conn();
+$sql_other=$pdo_OLD->prepare("
   SELECT ns_ftitle,ns_stitle,ns_reporter,ns_photo_1,ns_alt_1,ns_msghtml,Tb_index,StartDate,ns_date,ns_nt_pk FROM  appNews
   where ns_verify=3 and OnLineOrNot=1  
   and StartDate<='$todayis' and EndDate>='$todayis'
   and Tb_index in ($ns_news)
-  order by ns_vfdate desc");
+  order by field(Tb_index,$ns_news)");
 
 
 $sql_other->execute();

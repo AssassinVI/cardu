@@ -1,15 +1,7 @@
 <?php 
 
-//===================================
-//function去除所有的空白
-//===================================
 
-function myTrim($str)
-{
-$search = array(" ","　","\n","\r","\t");
-$replace = array("","","","","");
-return str_replace($search, $replace, $str);
-}
+
 
 
 //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
@@ -55,14 +47,14 @@ function getNews($Tb_index,$todayis,$mt_id,$activeornot,$y,$spacialornot,$mt_id_
     $i=1; while ($row_part=$sql_part->fetch(PDO::FETCH_ASSOC)) {
 
       $id=$row_part['Tb_index'];
-      $ns_ftitle=$row_part['ns_ftitle'];
+      $ns_ftitle=mb_substr($row_part['ns_ftitle'], 0,14).'...' ;
       $ns_msghtml=$row_part['ns_msghtml'];
       $ns_photo_1="../sys/img/".$row_part['ns_photo_1'];
 
       $part1.="
       <div class='col-4 cards-3'>
              <a href='detail.php?$id'>
-             <div class='img_div' title='$ns_ftitle' style='background-image: url($ns_photo_1);'>
+             <div class='img_div' title='".$row_part['ns_ftitle']."' style='background-image: url($ns_photo_1);'>
              </div>
              <p>$ns_ftitle</p>
          </a>
@@ -76,14 +68,14 @@ function getNews($Tb_index,$todayis,$mt_id,$activeornot,$y,$spacialornot,$mt_id_
     $i=1; while ($row_part=$sql_part->fetch(PDO::FETCH_ASSOC)) {
 
       $id=$row_part['Tb_index'];
-      $ns_ftitle=$row_part['ns_ftitle'];
+      $ns_ftitle=mb_substr($row_part['ns_ftitle'], 0,14).'...';
       $ns_msghtml=$row_part['ns_msghtml'];
       $ns_photo_1="../sys/img/".$row_part['ns_photo_1'];
 
       $part2.="
       <div class='col-4 cards-3'>
              <a href='detail.php?$id'>
-             <div class='img_div' title='$ns_ftitle' style='background-image: url($ns_photo_1);'>
+             <div class='img_div' title='".$row_part['ns_ftitle']."' style='background-image: url($ns_photo_1);'>
              </div>
              <p>$ns_ftitle</p>
          </a>

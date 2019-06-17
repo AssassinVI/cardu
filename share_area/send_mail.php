@@ -35,6 +35,7 @@
     </div>
 
     <?php 
+
      $row_news=$pdo->select("SELECT ns_ftitle, Tb_index, mt_id, ns_nt_pk, area_id FROM NewsAndType WHERE Tb_index=:Tb_index", ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
      $url=news_url($row_news['mt_id'], $row_news['Tb_index'], $row_news['ns_nt_pk'], $row_news['area_id']);
     ?>

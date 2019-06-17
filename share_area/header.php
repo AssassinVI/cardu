@@ -3,7 +3,15 @@
       <div class="header_div">
         <div class="row">
             <div class="col-md-12 text-right col0"  id="TopInfo">
-                <span>Hi,  您尚未登入唷！</span>       <a href="/member/sign_second.php">註冊會員</a>      <a href="javascript:;" data-fancybox data-src="#member_div">登錄會員</a>
+              <?php 
+                if (empty($_SESSION['ud_pk'])) {
+                  echo '<span>Hi,  您尚未登入唷！</span>       <a href="/member/sign_second.php">註冊會員</a>      <a href="javascript:;" data-fancybox data-src="#member_div">會員登入</a>';
+                }
+                else{
+                  echo '<span>Hi,  '.$_SESSION['ud_nickname'].'</span>｜<a href="/index.php?logout">登出</a>';
+                }
+              ?>
+                
             </div>
             
             <div id="index_head_left" class="col0 hv-center">
@@ -25,10 +33,17 @@
                                <div class="cardshap dropDown_menu">
                                  <div class="row news_list_menu">
                                    <?php 
-                                     $row_newsType=$pdo->select("SELECT nt_name, pk 
+                                     $row_newsType=$pdo->select("SELECT nt_name, pk, OrderBy
+                                                                 FROM news_type
+                                                                 WHERE mt_id='site2018111910445721' AND nt_sp=1 AND nt_sp_idx=1 AND OnLineOrNot=1 
+                                                                 AND nt_sp_begin_date<=:nt_sp_begin_date AND nt_sp_end_date>= :nt_sp_end_date
+
+                                                                 UNION
+                                                                 
+                                                                 SELECT nt_name, pk, OrderBy
                                                                  FROM news_type 
                                                                  WHERE mt_id='site2018111910445721' AND nt_sp=0 AND OnLineOrNot=1 
-                                                                 ORDER BY OrderBy ASC");
+                                                                 ORDER BY OrderBy ASC", ['nt_sp_begin_date'=>date('Y-m-d'), 'nt_sp_end_date'=>date('Y-m-d')]);
                                      foreach ($row_newsType as $newsType) {
                                        
                                        echo '<div class="col-md-3"><a href="/news/list.php?nt_pk='.$newsType['pk'].'">'.$newsType['nt_name'].'</a></div>';
@@ -164,7 +179,7 @@
                                    <div class="col-md-4">
                                     <h4>Pay資訊</h4>
                                     <ul>
-                                      <li><a href="/pay/all.php">Pay總覽</a></li>
+                                      <li><a href="/mpay/all.php">Pay總覽</a></li>
                                     </ul>
                                   </div>
 
@@ -207,7 +222,8 @@
                                    <div class="col-md-4">
                                     <h4>集點資訊</h4>
                                     <ul>
-                                      <li><a href="/epoint/all.php">集點總覽</a></li>
+                                      <li><a href="/epoint/all.php">點數平台</a></li>
+                                      <li><a href="/epoint/all2.php">集點店家</a></li>
                                     </ul>
                                   </div>
                                    
@@ -349,25 +365,29 @@
             </div>
             
             <!-- 會員登入 -->
+            <?php 
+              $ud_userid_lg=empty($_COOKIE['remember_id']) ? '' : $_COOKIE['remember_id'];
+              $ck_remember_id=empty($_COOKIE['remember_id']) ? '' : 'checked';
+            ?>
             <div id="member_div" >
               <div class="mem_logo">
                 <img src="/img/component/logo_ph.png"  alt="">
               </div>
               <h2>卡優會員登入</h2>
-              <form id="form_login" action="#" method="POST">
+              <form id="form_login" action="" method="POST">
                 <div class="form-group">
-                  <input type="email" class="form-control" id="mem_email"  placeholder="會員帳號">
+                  <input type="text" class="form-control" name="ud_userid_lg"  placeholder="會員帳號" value="<?php echo $ud_userid_lg;?>">
                   
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" id="mem_pwd"  placeholder="會員密碼">
+                  <input type="password" class="form-control" name="ud_password_lg"  placeholder="會員密碼">
                 </div>
                 <div class="form-group">
-                  <label><input type="checkbox" value="1"> 記住我的帳號 </label>
+                  <label><input type="checkbox" name="remember_id" value="1" <?php echo $ck_remember_id;?>> 記住我的帳號 </label>
                   <a href="/member/password.php">忘記密碼</a>
                 </div>
                 <div class="form-group">
-                  <a class="login_btn" href="#">登入</a>
+                  <button class="login_btn">登入</button>
                   <p>還不是會員嗎?<a href="/member/sign_second.php">立即註冊</a></p>
                 </div>
                 <div class="form-group">
@@ -377,7 +397,9 @@
                       <a class="other_login_btn fb_color" href="#">Facebook</a>
                     </div>
                     <div class="col-6">
-                      <a class="other_login_btn google_color" href="#">Google</a>
+                      <!-- <a class="other_login_btn google_color" href="#">Google</a> -->
+                      <button id="mem_G_login" type="button" class="btn btnOver">Google</button>
+                      <a href="javascript:;" onclick="signOut();">out</a>
                     </div>
                   </div>
                 </div>
@@ -406,7 +428,7 @@
         <div class="right-ad">
            <img src="http://placehold.it/180x300" alt="banner">
           <!-- 卡片比一比 -->
-          <div class="card_compare">
+          <div class="card_compare mt-3">
             <h4><button class="contrast_card_close" type="button">Ｘ</button></h4>
             
             <div class="card_compare_div">

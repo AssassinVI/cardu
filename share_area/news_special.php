@@ -7,6 +7,7 @@
 //=============================================
 //取出特別議題頁籤
 //=============================================
+
   $sql_special=$pdo_OLD->prepare("
     SELECT nt_name,Tb_index,pk FROM news_type
     where $queryfield='$tab_mtid' and nt_sp=1 
@@ -28,7 +29,7 @@
       }
   $Tb_index = $row_special['Tb_index'];
   $nt_name = $row_special['nt_name'];
-  $nt_pk = $row_special['pk'];
+  $nt_pk = empty($row_special['pk']) ? $row_special['Tb_index'] : $row_special['pk'];
 
                      //跑回圈將每個tab中內容都load出＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
                       $sql_part=$pdo_OLD->prepare("
@@ -46,7 +47,7 @@
                     $z=1; while ($row_part=$sql_part->fetch(PDO::FETCH_ASSOC)) {
                               //echo "中文：".$row_part['ns_ftitle'];
                               $id_arr[$z]=$row_part['Tb_index'];
-                              $ns_ftitle_arr[$z]=$row_part['ns_ftitle'];
+                              $ns_ftitle_arr[$z]=mb_substr($row_part['ns_ftitle'], 0,15,'utf-8') ;
                               $ns_msghtml_arr[$z]=$row_part['ns_msghtml'];
                               $ns_photo_1_arr[$z]="../sys/img/".$row_part['ns_photo_1'];
                     $z++; } //end tab中內容
@@ -59,8 +60,11 @@
                     }else{
                       include('../share_area/news_area_type1.php');
                     }
+
                     
                     //內容區end
 
 
-$i++;}//end tab標籤來個回圈?>
+$i++;}//end tab標籤來個回圈
+$is_sp=NULL;
+?>

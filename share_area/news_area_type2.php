@@ -1,10 +1,16 @@
+<?php 
+  $sp_url=!empty($is_sp) ? '&sp=1':'';
+  $tab_url='list.php?'.$nt_or_mt.'='.$nt_pk.$sp_url;
+  
+?>
+
 <div class="col-md-12 col">
 
     <div class="cardshap <?php echo $tab_color?> mouseHover_other_tab">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item news_tab">
-        <a class="nav-link active pl-30 py-2" id="special_1-tab" href="second.php" tab-target="#special_1" aria-selected="true"><?php echo $nt_name?></a>
-        <a class="top_link" href="list.php?nt_pk=<?php echo  $nt_pk?>"></a>
+        <a class="nav-link active pl-30 py-2" id="special_1-tab" href="<?php echo $tab_url;?>" tab-target="#special_1" aria-selected="true"><?php echo $nt_name?></a>
+        <a class="top_link" href="<?php echo $tab_url;?>"></a>
       </li>
     </ul>
     <div class="tab-content p-2" id="myTabContent">

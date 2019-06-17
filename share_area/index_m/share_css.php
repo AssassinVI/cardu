@@ -3,6 +3,8 @@
 <link rel="stylesheet" type="text/css" href="css/index_m/animate.css">
 <!-- swiper -->
 <link rel="stylesheet" type="text/css" href="vendor/swiper/swiper.min.css">
+<!-- Fancybox -->
+<link rel="stylesheet" type="text/css" href="/vendor/fancybox/jquery.fancybox.min.css">
 <link rel="stylesheet" type="text/css" href="css/index_m/hamburgers.css">
 <link href="vendor/normalize.css" rel="stylesheet">
 <link href="css/index_m/style.css" rel="stylesheet" >

@@ -12,11 +12,17 @@
 //----- MENU fun
 //----- 新聞點閱
 //----- 判斷手機AND平板
+//----- 新聞次版區list
+//----- 新聞內頁分享功能按鈕
+//----- 去除空白
 //@@@@@ (手機) @@@@@@@@@@
 //----- 版區、次版區banner 輪播 (手機板)
 //----- 首頁 卡情報、優票證、優旅行
 //----- 首頁 優行動pay、優集點
 //----- MENU fun ph
+//----- 版區各分類3篇文章
+//----- 版區各特別議題5篇文章
+//----- 版區各刷卡整理||XX攻略5篇文章
 
 
 
@@ -211,7 +217,7 @@ echo $txt;
 
 //----------------------------------- 各版區首頁-次版6篇文章 --------------------------------------------
 
-function index_sec_area($nt_query, $nt_where_arr='no', $list_dir, $tab_class='', $is_sp='no')
+function index_sec_area($nt_query, $nt_where_arr='no', $list_dir, $color_tab='blue_tab', $tab_class='', $is_sp='no')
 {
     $pdo=new PDO_fun;
 
@@ -232,9 +238,10 @@ function index_sec_area($nt_query, $nt_where_arr='no', $list_dir, $tab_class='',
     $pk_name=$list_dir=='news' ? 'nt_pk':'mt_pk';
 
      //-- tab --
+     $list_url=$is_sp=='no' ? '/'.$list_dir.'/list.php?'.$pk_name.'='.$pk : '/'.$list_dir.'/list.php?'.$pk_name.'='.$pk.'&sp=1';
      $list_txt.= '
       <li class="nav-item news_tab '.$tab_class.'">
-        <a class="nav-link '.$active.' pl-30 py-2" id="special'.$tab_id.'_'.$x.'-tab"  href="/'.$list_dir.'/list.php?'.$pk_name.'='.$pk.'" tab-target="#special'.$tab_id.'_'.$x.'" aria-selected="true">'.$news_type['nt_name'].'</a>
+        <a class="nav-link '.$active.' pl-30 py-2" id="special'.$tab_id.'_'.$x.'-tab"  href="'.$list_url.'" tab-target="#special'.$tab_id.'_'.$x.'" aria-selected="true">'.$news_type['nt_name'].'</a>
       </li>';
 
 
@@ -269,8 +276,8 @@ function index_sec_area($nt_query, $nt_where_arr='no', $list_dir, $tab_class='',
                 $ns_ftitle=mb_substr($row_news_con[$index]['ns_ftitle'], 0,14, 'utf-8');
                 $news_txt.='
                 <div class="col-4 cards-3">
-                  <a href="'.$news_url.'">
-                   <div class="img_div" title="'.$row_news_con[$index]['ns_ftitle'].'" style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
+                  <a href="'.$news_url.'" title="'.$row_news_con[$index]['ns_ftitle'].'">
+                   <div class="img_div"  style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
                    </div>
                     <p>'.$ns_ftitle.'</p>
                   </a>
@@ -303,7 +310,7 @@ function index_sec_area($nt_query, $nt_where_arr='no', $list_dir, $tab_class='',
      
      echo '
     <div class="col-md-12 col">
-    <div class="cardshap blue_tab mouseHover_other_tab">
+    <div class="cardshap '.$color_tab.' mouseHover_other_tab">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
 
         '.$list_txt.'
@@ -367,11 +374,19 @@ function paging($total_page, $page)
 function menu_newsType($area_id, $col, $url_dir)
 { 
   $pdo=new PDO_fun;
-  $row_newsType=$pdo->select("SELECT nt.Tb_index, nt.nt_name, nt.pk, nt.unit_id, un.un_name
+  $row_newsType=$pdo->select("SELECT nt.Tb_index, nt.nt_name, nt.pk, nt.unit_id, un.un_name, nt.OrderBy, nt.nt_sp
+                              FROM news_type as nt 
+                              INNER JOIN appUnit as un ON un.Tb_index=nt.unit_id
+                              WHERE nt.area_id='$area_id' AND nt.nt_sp=1 AND nt.nt_sp_idx=1 AND nt.OnLineOrNot=1 
+                              AND nt.nt_sp_begin_date<=:nt_sp_begin_date AND nt.nt_sp_end_date>= :nt_sp_end_date
+
+                              UNION
+
+                              SELECT nt.Tb_index, nt.nt_name, nt.pk, nt.unit_id, un.un_name, nt.OrderBy, nt.nt_sp
                               FROM news_type as nt 
                               INNER JOIN appUnit as un ON un.Tb_index=nt.unit_id
                               WHERE nt.area_id='$area_id' AND nt.nt_sp=0 AND nt.OnLineOrNot=1 
-                              ORDER BY nt.OrderBy ASC");
+                              ORDER BY OrderBy ASC ", ['nt_sp_begin_date'=>date('Y-m-d'), 'nt_sp_end_date'=>date('Y-m-d')]);
 
   $unit_arr=[];
   foreach ($row_newsType as $newsType) {
@@ -391,7 +406,14 @@ function menu_newsType($area_id, $col, $url_dir)
       for ($j=0; $j <$count_j ; $j++) { 
         $index=($i*$count_j)+$j;
         $mt_pk=$value[$index]['pk']==0 ? $value[$index]['Tb_index'] : $value[$index]['pk'];
-        $type_li.='<li><a href="/'.$url_dir.'/list.php?mt_pk='.$mt_pk.'">'.$value[$index]['nt_name'].'</a></li>';
+        //-- 特別議題
+        if ($value[$index]['nt_sp']==1) {
+          $type_li.='<li><a href="/'.$url_dir.'/list.php?mt_pk='.$mt_pk.'&sp=1">'.$value[$index]['nt_name'].'</a></li>';
+        }
+        else{
+          $type_li.='<li><a href="/'.$url_dir.'/list.php?mt_pk='.$mt_pk.'">'.$value[$index]['nt_name'].'</a></li>';
+        }
+        
       }
 
       $type_ul.='<ul class="ul-2-part">'.$type_li.'</ul>';
@@ -545,6 +567,265 @@ function is_mobile() {
 
 
 
+//---------------------------------------------------- 新聞次版區list ----------------------------------------------------
+function news_list( $PageNo, $ns_nt_pk, $sp='')
+{
+   $pdo=new PDO_fun;
+
+
+   //-- 目前所在次版區 --
+   $this_nt_query=strlen($ns_nt_pk)>2 ? 'Tb_index=:Tb_index':'pk=:Tb_index';
+   $row_now_nt=$pdo->select("SELECT mt_id, area_id FROM news_type WHERE $this_nt_query", ['Tb_index'=>$ns_nt_pk], 'one');
+
+
+   //-- 分頁判斷數 --
+   $num=12;
+   //--- 分頁起頭數 ---
+   $now_page_num=empty($PageNo)? 0:((int)$PageNo-1)*$num;
+   //-- 目前分頁 --
+   $page=empty($PageNo) ? 1:$PageNo;
+
+
+   //-- 判斷是否為特殊議題 --
+   $nt_pk_sql= !empty($sp) ? "ns_nt_sp_pk=:ns_nt_pk" : "ns_nt_pk=:ns_nt_pk";
+
+   //-- 總頁數 --
+   $row_list_total=$pdo->select("SELECT count(*) as total
+                                 FROM NewsAndType
+                                 WHERE ns_verify=3 and OnLineOrNot=1 and  StartDate<=:StartDate and EndDate>=:EndDate and ($nt_pk_sql OR ns_nt_ot_pk LIKE :ns_nt_ot_pk)"
+                                 , ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d'), 'ns_nt_pk'=>$ns_nt_pk, 'ns_nt_ot_pk'=>'%'.$ns_nt_pk.'%'], 'one');
+   $total_page=ceil(((int)$row_list_total['total'])/$num);
+
+
+   $row_list=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, StartDate, activity_s_date, activity_e_date, ns_store
+                           FROM NewsAndType
+                           WHERE ns_verify=3 and OnLineOrNot=1 and  StartDate<=:StartDate and EndDate>=:EndDate and ($nt_pk_sql OR ns_nt_ot_pk LIKE :ns_nt_ot_pk)
+                           ORDER BY ns_vfdate DESC LIMIT $now_page_num, $num", ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d'), 'ns_nt_pk'=>$ns_nt_pk, 'ns_nt_ot_pk'=>'%'.$ns_nt_pk.'%']);
+  $row_list_num=count($row_list);
+  $count_i=ceil($row_list_num/3);
+
+  for ($i=0; $i <$count_i ; $i++) { 
+    
+    echo '<div class="col-md-12 col">
+           <div class="cardshap redius_bg">';
+
+    for ($j=$i*3; $j <($i+1)*3 ; $j++) {
+     
+     if ($j<$row_list_num) {
+
+       $row_list_one=$row_list[$j];
+
+
+       switch ($row_now_nt['mt_id']) {
+         //-- 新聞 --
+         case 'site2018111910445721':
+           $news_small_txt='<small class="px-md-4 pb-md-0 px-0 pb-2">('.$row_list_one['StartDate'].')</small>';
+           $cs_small_txt='';
+           $ns_ftitle=mb_substr($row_list_one['ns_ftitle'], 0,20,'utf-8');
+         break;
+
+         //-- 卡情報 --
+         case 'site2019011115561564':
+           //-- 關聯銀行 --
+           $row_back=$pdo->select("SELECT abc.bank_id, bk.bi_shortname
+                                   FROM appNews_bank_card as abc
+                                   INNER JOIN bank_info as bk ON bk.Tb_index=abc.bank_id
+                                   WHERE news_id=:news_id
+                                   GROUP BY abc.bank_id", ['news_id'=>$row_list_one['Tb_index']]);
+           
+           $back_num=count($row_back);
+           $cs_small_txt=$back_num==1 ? '<small class="cs_small"><a href="/card/bank_detail.php?bi_pk='.$row_back[0]['bank_id'].'">('.$row_back[0]['bi_shortname'].')</a></small>' : '';
+           $news_small_txt='';
+           $ns_ftitle=$back_num==1 ? mb_substr($row_list_one['ns_ftitle'], 0,15,'utf-8') : $row_list_one['ns_ftitle'];
+         break;
+
+         //-- 優情報 --
+         case 'site2019011116103929':
+           //-- 關聯商店 --
+           $ns_store_arr=explode(',', $row_list_one['ns_store']);
+           $ns_store_txt='';
+           foreach ($ns_store_arr as $ns_store) {
+             $ns_store_txt.="'".$ns_store."',";
+           }
+           $ns_store_txt=substr($ns_store_txt, 0,-1);
+           $row_store=$pdo->select("SELECT Tb_index, st_nickname
+                                   FROM store
+                                   WHERE Tb_index IN ($ns_store_txt)", 'no');
+           $store_num=count($row_store);
+           $cs_small_txt=$store_num==1 ? '<small class="cs_small"><a href="/mpay/about.php?'.$row_store[0]['Tb_index'].'">('.$row_store[0]['st_nickname'].')</a></small>' : '';
+           $news_small_txt='';
+           $ns_ftitle=$store_num==1 ? mb_substr($row_list_one['ns_ftitle'], 0,15,'utf-8') : $row_list_one['ns_ftitle'];
+         break;
+         default:
+           $small_txt='';
+         break;
+       }
+       
+
+       //-- 活動時間 --
+       if ($row_list_one['activity_e_date']!='0000-00-00') {
+         $activity_s_date=$row_list_one['activity_s_date']!='0000-00-00' ? $row_list_one['activity_s_date']:'即日起';
+         $activity_date='<span class="mb-1">活動日期：'.$activity_s_date.'~'.$row_list_one['activity_e_date'].'</span>';
+       }
+       else{
+         $activity_date='';
+       }
+
+       
+
+       
+       $ns_msghtml=mb_substr(strip_tags($row_list_one['ns_msghtml']), 0,50,'utf-8');
+       $url=news_url($row_list_one['mt_id'], $row_list_one['Tb_index'], $row_list_one['ns_nt_pk'], $row_list_one['area_id']);
+       $fb_url=urlencode($url);
+  
+
+       //-- 圖文廣告(手機) --
+       if (wp_is_mobile() && $j==0){
+         echo '
+         <div class="row no-gutters py-md-3 mx-md-4 news_list">
+          <div class="col-md-4 col-6 py-2 pl-2">
+            <a class="img_div news_list_img" href="#" style="background-image: url(http://placehold.it/150x100);"></a>
+          </div>
+          <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
+           <div class="mb-2">
+             <a href="#" title="廣告">
+              <h3>我是圖文廣告</h3>
+             </a>
+           </div>
+            <p>我是圖文廣告...</p>
+          </div>
+         </div>';
+       }
+       //-- 圖文廣告(手機) END --
+       
+       //-- LIST --
+       echo '
+       <div class="row no-gutters py-md-3 mx-md-4 news_list">
+        <div class="col-md-4 col-6 py-2 pl-2">
+          <a target="_blank" class="img_div news_list_img" title="'.$row_list_one['ns_ftitle'].'" href="'.$url.'" style="background-image: url(/sys/img/'.$row_list_one['ns_photo_1'].');"></a>
+        </div>
+        <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
+         <div class="mb-2">
+           
+            <h3>
+              <a target="_blank" href="'.$url.'" title="'.$row_list_one['ns_ftitle'].'">'.$ns_ftitle.'</a> '.$cs_small_txt.'
+            </h3>
+           
+           
+         </div>
+          '.$activity_date.'
+          <p class="phone_hidden">'.$ns_msghtml.'...</p>
+          
+          <div class="fb_search_btn">
+            '.$news_small_txt.'
+            <iframe src="https://www.facebook.com/plugins/like.php?href='.$fb_url.'&width=119&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=616626501755047" width="119" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+          </div>
+        </div>
+       </div>';
+       //-- LIST END --
+     }
+    }
+
+    echo '</div>
+        </div>';
+
+
+   //-- 手機廣告 --
+   if (wp_is_mobile()) {
+     if ($i!=3 && $i!=$count_i) {
+       echo '
+       <div class="col-md-12 row">
+       <div class="col-md-6 col banner d-md-none d-sm-block ">
+           <img src="https://placehold.it/900x300" alt="">
+       </div>
+       </div>';
+     }
+   }
+   //-- 電腦廣告 --
+   else{
+     if ($i%2==0) {
+       echo '<div class="col-md-12 col banner phone_hidden"><div class="test"><img src="https://placehold.it/750x100" alt="banner"></div></div>';
+     }
+     else{
+       echo '<div class="col-md-12 row phone_hidden">
+                <div class="col-md-6 col banner ">
+                    <img src="https://placehold.it/365x100" alt="">
+                </div>
+                <div class="col-md-6 col banner">
+                    <img src="https://placehold.it/365x100">
+                </div>
+            </div>';
+     }
+   }
+  }
+
+  //-- 分頁 --
+  paging($total_page, $page);
+
+  $pdo=NULL;
+}
+//---------------------------------------------------- 新聞次版區list END ----------------------------------------------------
+
+
+
+
+
+
+
+//---------------------------------------------------- 新聞內頁分享功能按鈕 ----------------------------------------------------
+
+function news_share_btn($FB_URL, $QUERY_STRING)
+{
+  echo '  
+   <div class="search_div hv-center">
+    <div class="fb-like mr-2" data-href="'.$FB_URL.'" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+     <!-- FB分享 -->
+     <a class="search_btn" href="javascript:;" onclick="window.open(\'https://www.facebook.com/dialog/feed?app_id=319016928941764&display=popup&link='.$FB_URL.'&redirect_uri=https://www.facebook.com/\', \'FB分享\', config=\'height=600,width=800\');"><img src="../img/component/search/fb.png" alt="" title="分享">
+     </a>
+
+     <!-- LINE分享 -->
+     <a class="search_btn" href="javascript:;" onclick="window.open(\'https://social-plugins.line.me/lineit/share?url='.$FB_URL.'\', \'LINE分享\', config=\'height=600,width=800\');"><img src="../img/component/search/line.png" alt="" title="Line">
+     </a>
+
+     <!-- 訊息 -->
+     <a class="search_btn message_btn" href="javascript:;"><img src="../img/component/search/message.png" alt="" title="訊息"></a>
+
+     <!-- 更多 -->
+     <a id="arrow_btn" class="search_btn phone_hidden" href="javascript:;" title="更多"><i class="fa fa-angle-down"></i></a>
+
+   </div>
+   <div class="more_search ">
+     <!-- 列印 -->
+     <a target="_blank " href="../share_area/print.php?'.$QUERY_STRING.'"><img src="../img/component/search/print.png" alt="" title="列印"></a>
+     <!-- 收藏 -->
+     <a href="javascript:;" data-fancybox data-src="#member_div"><img src="../img/component/search/work.png" alt="" title="收藏"></a>
+     <!-- 信箱 -->
+     <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_mail.php?'.$QUERY_STRING.'"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
+     <!-- 回報 -->
+     <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
+   </div>
+  ';
+}
+
+//---------------------------------------------------- 新聞內頁分享功能按鈕 END ----------------------------------------------------
+
+
+
+
+//---------------------------------------------------- 去除空白 ----------------------------------------------------
+
+function myTrim($str)
+{
+$search = array(" ","　","\n","\r","\t");
+$replace = array("","","","","");
+return str_replace($search, $replace, $str);
+}
+
+//---------------------------------------------------- 去除空白 END ----------------------------------------------------
+
+
+
+
 //===============================================================================================================
 //=========================================== 前台功能(pc) END ====================================================================
 //===============================================================================================================
@@ -570,7 +851,7 @@ function slide_ph($sql_carousel, $where_arr='no')
   foreach ($row_slide as $row_slide_one) {
    
     $url=news_url($row_slide_one['mt_id'], $row_slide_one['Tb_index'], $row_slide_one['ns_nt_pk'], $row_slide_one['area_id']);
-    $ns_ftitle=mb_substr($row_slide_one['ns_ftitle'], 0,15,'utf-8');
+    $ns_ftitle=mb_strlen($row_slide_one['ns_ftitle'],'utf-8')>15 ? mb_substr($row_slide_one['ns_ftitle'], 0,15,'utf-8').'...' : $row_slide_one['ns_ftitle'];
     $slide_txt.='<div class="swiper-slide img_div" pagination-index="1" style="background-image: url(/sys/img/'.$row_slide_one['ns_photo_1'].');"> 
                  <a href="'.$url.'" title="'.$row_slide_one['ns_ftitle'].'">
                      <div class="word shadow_text" >'.$ns_ftitle.'</div>
@@ -596,7 +877,7 @@ function slide_ph($sql_carousel, $where_arr='no')
                                     '.$slide_txt.'
                                 </div>
 
-                                <!-- <div class="swiper-pagination"></div> -->
+                                 <div class="swiper-pagination"></div> 
 
                                 <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
                                 <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
@@ -704,7 +985,7 @@ function index_html_fun2($area_id){
            
          </a>
        </div>
-       <div class="col-7 page_txt hv-center">
+       <div class="col-7 page_txt ">
          <a href="'.$url.'">
            <p>'.$row_un[$index]['ns_ftitle'].'</p>
          </a>
@@ -736,11 +1017,19 @@ function index_html_fun2($area_id){
 function menu_newsType_ph($area_id, $url_dir)
 { 
   $pdo=new PDO_fun;
-  $row_newsType=$pdo->select("SELECT nt.Tb_index, nt.nt_name, nt.pk, nt.unit_id, un.un_name
+  $row_newsType=$pdo->select("SELECT nt.Tb_index, nt.nt_name, nt.pk, nt.unit_id, un.un_name, nt.OrderBy, nt.nt_sp
+                              FROM news_type as nt 
+                              INNER JOIN appUnit as un ON un.Tb_index=nt.unit_id
+                              WHERE nt.area_id='$area_id' AND nt.nt_sp=1 AND nt.nt_sp_idx=1 AND nt.OnLineOrNot=1 
+                              AND nt.nt_sp_begin_date<=:nt_sp_begin_date AND nt.nt_sp_end_date>= :nt_sp_end_date
+
+                              UNION
+
+                              SELECT nt.Tb_index, nt.nt_name, nt.pk, nt.unit_id, un.un_name, nt.OrderBy, nt.nt_sp
                               FROM news_type as nt 
                               INNER JOIN appUnit as un ON un.Tb_index=nt.unit_id
                               WHERE nt.area_id='$area_id' AND nt.nt_sp=0 AND nt.OnLineOrNot=1 
-                              ORDER BY nt.OrderBy ASC");
+                              ORDER BY OrderBy ASC",  ['nt_sp_begin_date'=>date('Y-m-d'), 'nt_sp_end_date'=>date('Y-m-d')]);
 
   $unit_arr=[];
   foreach ($row_newsType as $newsType) {
@@ -754,7 +1043,15 @@ function menu_newsType_ph($area_id, $url_dir)
     for ($i=0; $i <$count_type; $i++) { 
       
       $mt_pk=$value[$i]['pk']==0 ? $value[$i]['Tb_index'] : $value[$i]['pk'];
-      $type_li.='<div class="col-6"><a href="/'.$url_dir.'/list.php?mt_pk='.$mt_pk.'">'.$value[$i]['nt_name'].'</a></div>';
+
+      //-- 特別議題
+      if ($value[$i]['nt_sp']==1){
+        $type_li.='<div class="col-6"><a href="/'.$url_dir.'/list.php?mt_pk='.$mt_pk.'&sp=1">'.$value[$i]['nt_name'].'</a></div>';
+      }
+      else{
+        $type_li.='<div class="col-6"><a href="/'.$url_dir.'/list.php?mt_pk='.$mt_pk.'">'.$value[$i]['nt_name'].'</a></div>';
+      }
+      
     }
     
     $unit_txt='
@@ -766,6 +1063,483 @@ function menu_newsType_ph($area_id, $url_dir)
     echo $unit_txt;
     $pdo=NULL;
   }
+}
+
+
+
+
+//------------------------------------ 版區各分類3篇文章 ---------------------------------------
+function area_nt_list_ph($unit_id, $url_dir, $color_tab)
+{
+  $pdo=new PDO_fun;
+   //-- 新聞類別 --
+   $row_nt=$pdo->select("SELECT Tb_index, pk, nt_name
+                         FROM news_type 
+                         WHERE unit_id=:unit_id AND OnLineOrNot=1 AND nt_sp=0
+                         ORDER BY OrderBy", 
+                         ['unit_id'=>$unit_id]);
+   $x=1;
+   foreach ($row_nt as $row_nt_one) {
+
+     //-- 各類別新聞 --
+     $row_n_list=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, ns_store
+                             FROM NewsAndType
+                             WHERE ns_verify=3 AND OnLineOrNot=1 AND  StartDate<=:StartDate AND EndDate>=:EndDate AND (ns_nt_pk=:ns_nt_pk OR ns_nt_ot_pk LIKE :ns_nt_ot_pk)
+                             ORDER BY ns_vfdate DESC LIMIT 0,3", 
+                             ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d'), 'ns_nt_pk'=>$row_nt_one['Tb_index'], 'ns_nt_ot_pk'=>'%'.$row_nt_one['Tb_index'].'%']);
+     $n_txt='';
+     foreach ($row_n_list as $n_list) {
+
+
+      switch ($n_list['mt_id']) {
+            //-- 新聞 --
+            case 'site2018111910430599':
+              $news_small_txt='<p class="px-md-4 pb-md-0 px-0 pb-2">('.$n_list['StartDate'].')</p>';
+              $cs_small_txt='';
+            break;
+
+            //-- 卡情報 --
+            case 'site201901111555425':
+              //-- 關聯銀行 --
+              $row_back=$pdo->select("SELECT abc.bank_id, bk.bi_shortname
+                                      FROM appNews_bank_card as abc
+                                      INNER JOIN bank_info as bk ON bk.Tb_index=abc.bank_id
+                                      WHERE news_id=:news_id
+                                      GROUP BY abc.bank_id", ['news_id'=>$n_list['Tb_index']]);
+              
+              $back_num=count($row_back);
+              $cs_small_txt=$back_num==1 ? '<p class="cs_small"><a href="/card/bank_detail.php?bi_pk='.$row_back[0]['bank_id'].'">('.$row_back[0]['bi_shortname'].')</a></p>' : '';
+              $news_small_txt='';
+            break;
+
+            //-- 優情報 --
+            case 'site2019011116095854':
+              //-- 關聯商店 --
+              $ns_store_arr=explode(',', $n_list['ns_store']);
+              $ns_store_txt='';
+              foreach ($ns_store_arr as $ns_store) {
+                $ns_store_txt.="'".$ns_store."',";
+              }
+              $ns_store_txt=substr($ns_store_txt, 0,-1);
+              $row_store=$pdo->select("SELECT Tb_index, st_nickname
+                                      FROM store
+                                      WHERE Tb_index IN ($ns_store_txt)", 'no');
+              $store_num=count($row_store);
+              $cs_small_txt=$store_num==1 ? '<p class="cs_small"><a href="/mpay/about.php?'.$row_store[0]['Tb_index'].'">('.$row_store[0]['st_nickname'].')</a></p>' : '';
+              $news_small_txt='';
+            break;
+            default:
+              $small_txt='';
+            break;
+          }
+
+      //$ns_ftitle=mb_substr($n_list['ns_ftitle'], 0,15,'utf-8');
+      $url=news_url($n_list['mt_id'], $n_list['Tb_index'], $n_list['ns_nt_pk'], $n_list['area_id']);
+       
+       $n_txt.='
+       <div class="row no-gutters py-md-3 mx-md-4 news_list">
+        <div class="col-md-4 col-6 py-1">
+          <a class="img_div news_list_img" href="'.$url.'" style="background-image: url(../sys/img/'.$n_list['ns_photo_1'].');"></a>
+        </div>
+        <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
+          <h3>
+            <a href="'.$url.'">'.trim($n_list['ns_ftitle']).'</a> '.$cs_small_txt.'
+          </h3>
+        </div>
+      </div>';
+     } 
+     
+     //-- 次版區連結 --
+     $mt_pk=$row_nt_one['pk']==0 ? $row_nt_one['Tb_index'] : $row_nt_one['pk'];
+     $get_name=$url_dir=='news' ? 'nt_pk' : 'mt_pk';
+     $nt_url='/'.$url_dir.'/list.php?'.$get_name.'='.$mt_pk; 
+
+     echo '
+    <div class="col-md-12 col">
+     <div class="cardshap '.$color_tab.' ">
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item news_tab">
+          <a class="nav-link active pl-30 py-2" id="special_1-tab"  href="'.$nt_url.'">'.$row_nt_one['nt_name'].'</a>
+          <a class="top_link" href="'.$nt_url.'"></a>
+        </li>
+      </ul>
+
+      <div class="tab-content p-2" id="myTabContent">
+        <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
+        '.$n_txt.'
+        </div>                  
+      </div>
+    </div>
+  </div>';
+
+  //--廣告 --
+  if ($x%2==0) {
+    echo '
+    <div class="col-md-12 row">
+      <div class="col-md-6 col banner">
+        <a href="#">
+         <img class="w-100" src="http://placehold.it/900x300" alt="">
+        </a>
+      </div>
+    </div>';
+  }
+
+  $x++;
+  }
+  $pdo=NULL;
+}
+
+
+
+
+
+//------------------------------------ 版區各特別議題5篇文章  ---------------------------------------
+function area_nt_sp_list_ph($area_id, $url_dir, $color_tab)
+{
+  $pdo=new PDO_fun;
+    //-- 新聞類別 --
+   $row_nt=$pdo->select("SELECT Tb_index, pk, nt_name
+                         FROM news_type 
+                         WHERE area_id=:area_id AND OnLineOrNot=1 AND nt_sp=1 AND nt_sp_begin_date<=:nt_sp_begin_date AND nt_sp_end_date>=:nt_sp_end_date
+                         ORDER BY OrderBy", 
+                         ['area_id'=>$area_id, 'nt_sp_begin_date'=>date('Y-m-d'), 'nt_sp_end_date'=>date('Y-m-d')]);
+   $x=1;
+   foreach ($row_nt as $row_nt_one){
+
+
+      //-- 各類別新聞 --
+      $row_n_list=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, ns_store
+                              FROM NewsAndType
+                              WHERE ns_verify=3 AND OnLineOrNot=1 AND  StartDate<=:StartDate AND EndDate>=:EndDate AND (ns_nt_sp_pk=:ns_nt_pk OR ns_nt_ot_pk LIKE :ns_nt_ot_pk)
+                              ORDER BY ns_vfdate DESC LIMIT 0,5", 
+                              ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d'), 'ns_nt_pk'=>$row_nt_one['Tb_index'], 'ns_nt_ot_pk'=>'%'.$row_nt_one['Tb_index'].'%']);
+      $y=1;
+      $n_list_count=count($row_n_list);
+      $slide_txt='';
+      $two_txt='';
+      foreach ($row_n_list as $n_list){
+        
+        
+        $ns_ftitle1=mb_strlen($n_list['ns_ftitle'],'utf-8')>15 ? mb_substr($n_list['ns_ftitle'], 0,15,'utf-8').'...' : $n_list['ns_ftitle'];
+        $ns_ftitle2=mb_substr($n_list['ns_ftitle'], 0,10,'utf-8');
+        $url=news_url($n_list['mt_id'], $n_list['Tb_index'], $n_list['ns_nt_pk'], $n_list['area_id']);
+        
+        //-- 前X篇 --
+        if ($y<=(int)$n_list_count-2) {
+         $slide_txt .='<div class="swiper-slide" > 
+                           <a href="'.$url.'" class="img_div" style="background-image: url(../sys/img/'.$n_list['ns_photo_1'].');">
+                               <p>'.$ns_ftitle1.'</p>
+                           </a>
+                      </div>';
+        }
+
+        //-- 後兩篇 --
+        if ($y>(int)$n_list_count-2 && $x==1) {
+          $two_txt.='
+              <div class="col-md-4 cards-3 col-6">
+                 <a href="'.$url.'">
+                     <div class="img_div" style="background-image: url(../sys/img/'.$n_list['ns_photo_1'].');">
+                     </div>
+                     <p>'.$ns_ftitle2.'</p>
+                 </a>
+              </div>';
+            
+        }
+        elseif($y>(int)$n_list_count-2 && $x!=1){
+
+          switch ($n_list['mt_id']) {
+            //-- 新聞 --
+            case 'site2018111910430599':
+              $news_small_txt='<p class="px-md-4 pb-md-0 px-0 pb-2">('.$n_list['StartDate'].')</p>';
+              $cs_small_txt='';
+            break;
+
+            //-- 卡情報 --
+            case 'site201901111555425':
+              //-- 關聯銀行 --
+              $row_back=$pdo->select("SELECT abc.bank_id, bk.bi_shortname
+                                      FROM appNews_bank_card as abc
+                                      INNER JOIN bank_info as bk ON bk.Tb_index=abc.bank_id
+                                      WHERE news_id=:news_id
+                                      GROUP BY abc.bank_id", ['news_id'=>$n_list['Tb_index']]);
+              
+              $back_num=count($row_back);
+              $cs_small_txt=$back_num==1 ? '<p class="cs_small"><a href="/card/bank_detail.php?bi_pk='.$row_back[0]['bank_id'].'">('.$row_back[0]['bi_shortname'].')</a></p>' : '';
+              $news_small_txt='';
+            break;
+
+            //-- 優情報 --
+            case 'site2019011116095854':
+              //-- 關聯商店 --
+              $ns_store_arr=explode(',', $n_list['ns_store']);
+              $ns_store_txt='';
+              foreach ($ns_store_arr as $ns_store) {
+                $ns_store_txt.="'".$ns_store."',";
+              }
+              $ns_store_txt=substr($ns_store_txt, 0,-1);
+              $row_store=$pdo->select("SELECT Tb_index, st_nickname
+                                      FROM store
+                                      WHERE Tb_index IN ($ns_store_txt)", 'no');
+              $store_num=count($row_store);
+              $cs_small_txt=$store_num==1 ? '<p class="cs_small"><a href="/mpay/about.php?'.$row_store[0]['Tb_index'].'">('.$row_store[0]['st_nickname'].')</a></p>' : '';
+              $news_small_txt='';
+            break;
+            default:
+              $small_txt='';
+            break;
+          }
+
+          $two_txt.='
+             <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                <div class="col-md-4 col-5 py-2">
+                  <a class="img_div news_list_img" href="'.$url.'"  style="background-image: url(../sys/img/'.$n_list['ns_photo_1'].');"></a>
+                </div>
+                <div class="col-md-8 col-7 pl-4 py-2 news_list_txt">
+                  <h3>
+                    <a href="'.$url.'">'.$n_list['ns_ftitle'].'</a> '.$cs_small_txt.'
+                  </h3>
+                  
+                </div>
+            </div>';
+        }
+
+
+
+       $y++;
+      }
+
+      //-- 次版區連結 --
+      $mt_pk=$row_nt_one['pk']==0 ? $row_nt_one['Tb_index'] : $row_nt_one['pk'];
+      $get_name=$url_dir=='news' ? 'nt_pk' : 'mt_pk';
+      $nt_url='/'.$url_dir.'/list.php?'.$get_name.'='.$mt_pk.'&sp=1'; 
+
+      echo '
+  <div class="col-md-12 col">
+    <div class="cardshap '.$color_tab.' mouseHover_other_tab">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item news_tab">
+          <a class="nav-link active py-2" id="special_1-tab" href="'.$nt_url.'" >'.$row_nt_one['nt_name'].'</a>
+          <a class="top_link" href="'.$nt_url.'"></a>
+        </li>
+      </ul>
+
+      <div class="tab-content p-2" id="myTabContent">
+        <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
+          <div class="row no-gutters">
+
+             <div class="col-12 bigcard py-md-2 mb-2">
+                <!-- 手機用分類輪播 -->
+                <div class="sub_ph_slide swiper-container">
+                    <div class="swiper-wrapper">
+                        '.$slide_txt.'
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+                    
+                    <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                    <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                </div>
+                <!-- 手機用分類輪播 END -->
+             </div>
+
+              '.$two_txt.'
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>';
+
+
+  //--廣告 --
+  if ($x%2==0) {
+    echo '
+    <div class="col-md-12 row">
+      <div class="col-md-6 col banner">
+        <a href="#">
+         <img class="w-100" src="http://placehold.it/900x300" alt="">
+        </a>
+      </div>
+    </div>';
+  }
+
+  $x++;
+  }
+  $pdo=NULL;
+}
+
+
+
+//------------------------------------ 版區各刷卡整理||XX攻略5篇文章  ---------------------------------------
+function area_nt2_list_ph($unit_id, $url_dir, $color_tab)
+{
+  $pdo=new PDO_fun;
+    //-- 新聞類別 --
+   $row_nt=$pdo->select("SELECT Tb_index, pk, nt_name
+                         FROM news_type 
+                         WHERE unit_id=:unit_id AND OnLineOrNot=1 AND nt_sp=0 
+                         ORDER BY OrderBy", 
+                         ['unit_id'=>$unit_id]);
+   $x=1;
+   foreach ($row_nt as $row_nt_one){
+
+
+      //-- 各類別新聞 --
+      $row_n_list=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, ns_store
+                              FROM NewsAndType
+                              WHERE ns_verify=3 AND OnLineOrNot=1 AND  StartDate<=:StartDate AND EndDate>=:EndDate AND (ns_nt_pk=:ns_nt_pk OR ns_nt_ot_pk LIKE :ns_nt_ot_pk)
+                              ORDER BY ns_vfdate DESC LIMIT 0,5", 
+                              ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d'), 'ns_nt_pk'=>$row_nt_one['Tb_index'], 'ns_nt_ot_pk'=>'%'.$row_nt_one['Tb_index'].'%']);
+      $y=1;
+      $n_list_count=count($row_n_list);
+      $slide_txt='';
+      $two_txt='';
+      foreach ($row_n_list as $n_list){
+
+        $ns_ftitle=mb_strlen($n_list['ns_ftitle'],'utf-8')>15 ? mb_substr($n_list['ns_ftitle'], 0,15,'utf-8').'...' : $n_list['ns_ftitle'];
+        $url=news_url($n_list['mt_id'], $n_list['Tb_index'], $n_list['ns_nt_pk'], $n_list['area_id']);
+        
+        //-- 前X篇 --
+        if ($y<=(int)$n_list_count-2) {
+         $slide_txt .='<div class="swiper-slide" > 
+                           <a href="'.$url.'" class="img_div" style="background-image: url(../sys/img/'.$n_list['ns_photo_1'].');">
+                               <p>'.$ns_ftitle.'</p>
+                           </a>
+                      </div>';
+        }
+
+        //-- 後兩篇 --
+        if ($y>(int)$n_list_count-2 && $x==0) {
+          $two_txt.='
+              <div class="col-md-4 cards-3 col-6">
+                 <a href="'.$url.'">
+                     <div class="img_div" style="background-image: url(../sys/img/'.$n_list['ns_photo_1'].');">
+                     </div>
+                     <p>'.$ns_ftitle.'</p>
+                 </a>
+              </div>';
+            
+        }
+        elseif($y>(int)$n_list_count-2 && $x>0){
+
+         switch ($n_list['mt_id']) {
+           //-- 新聞 --
+           case 'site2018111910430599':
+             $news_small_txt='<small class="px-md-4 pb-md-0 px-0 pb-2">('.$n_list['StartDate'].')</small>';
+             $cs_small_txt='';
+           break;
+
+           //-- 卡情報 --
+           case 'site201901111555425':
+             //-- 關聯銀行 --
+             $row_back=$pdo->select("SELECT abc.bank_id, bk.bi_shortname
+                                     FROM appNews_bank_card as abc
+                                     INNER JOIN bank_info as bk ON bk.Tb_index=abc.bank_id
+                                     WHERE news_id=:news_id
+                                     GROUP BY abc.bank_id", ['news_id'=>$n_list['Tb_index']]);
+             
+             $back_num=count($row_back);
+             $cs_small_txt=$back_num==1 ? '<p class="cs_small"><a href="/card/bank_detail.php?bi_pk='.$row_back[0]['bank_id'].'">('.$row_back[0]['bi_shortname'].')</a></p>' : '';
+             $news_small_txt='';
+           break;
+
+           //-- 優情報 --
+           case 'site2019011116095854':
+             //-- 關聯商店 --
+             $ns_store_arr=explode(',', $n_list['ns_store']);
+             $ns_store_txt='';
+             foreach ($ns_store_arr as $ns_store) {
+               $ns_store_txt.="'".$ns_store."',";
+             }
+             $ns_store_txt=substr($ns_store_txt, 0,-1);
+             $row_store=$pdo->select("SELECT Tb_index, st_nickname
+                                     FROM store
+                                     WHERE Tb_index IN ($ns_store_txt)", 'no');
+             $store_num=count($row_store);
+             $cs_small_txt=$store_num==1 ? '<p class="cs_small"><a href="/mpay/about.php?'.$row_store[0]['Tb_index'].'">('.$row_store[0]['st_nickname'].')</a></p>' : '';
+             $news_small_txt='';
+           break;
+           default:
+             $small_txt='';
+           break;
+         }
+
+
+          $two_txt.='
+             <div class="row no-gutters py-md-3 mx-md-4 news_list">
+                <div class="col-md-4 col-5 py-2">
+                  <a class="img_div news_list_img" href="'.$url.'"  style="background-image: url(../sys/img/'.$n_list['ns_photo_1'].');"></a>
+                </div>
+                <div class="col-md-8 col-7 pl-4 py-2 news_list_txt">
+                  <h3>
+                    <a href="'.$url.'">'.$n_list['ns_ftitle'].'</a> '.$cs_small_txt.'
+                  </h3>
+                </div>
+            </div>';
+        }
+
+       $y++;
+      }
+
+      //-- 次版區連結 --
+      $mt_pk=$row_nt_one['pk']==0 ? $row_nt_one['Tb_index'] : $row_nt_one['pk'];
+      $get_name=$url_dir=='news' ? 'nt_pk' : 'mt_pk';
+      $nt_url='/'.$url_dir.'/list.php?'.$get_name.'='.$mt_pk; 
+
+      echo '
+  <div class="col-md-12 col">
+    <div class="cardshap '.$color_tab.' mouseHover_other_tab">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item news_tab">
+          <a class="nav-link active py-2" id="special_1-tab" href="'.$nt_url.'" >'.$row_nt_one['nt_name'].'</a>
+          <a class="top_link" href="'.$nt_url.'"></a>
+        </li>
+      </ul>
+
+      <div class="tab-content p-2" id="myTabContent">
+        <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
+          <div class="row no-gutters">
+
+             <div class="col-12 bigcard py-md-2 mb-2">
+                <!-- 手機用分類輪播 -->
+                <div class="sub_ph_slide swiper-container">
+                    <div class="swiper-wrapper">
+                        '.$slide_txt.'
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+                    
+                    <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                    <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                </div>
+                <!-- 手機用分類輪播 END -->
+             </div>
+
+              '.$two_txt.'
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>';
+
+
+  //--廣告 --
+  if ($x%2==0) {
+    echo '
+    <div class="col-md-12 row">
+      <div class="col-md-6 col banner">
+        <a href="#">
+         <img class="w-100" src="http://placehold.it/900x300" alt="">
+        </a>
+      </div>
+    </div>';
+  }
+
+  $x++;
+  }
+  $pdo=NULL;
 }
 
 

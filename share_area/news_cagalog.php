@@ -26,7 +26,7 @@
 
                      //跑回圈將每個tab中資料內容都load出＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
                       $sql_part=$pdo_OLD->prepare("
-                      SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index FROM  appNews
+                      SELECT ns_ftitle,ns_photo_1,ns_msghtml,Tb_index, StartDate FROM  appNews
                       where (ns_nt_pk='$Tb_index' OR ns_nt_ot_pk LIKE '%$Tb_index%')
                       and ns_verify=3 and OnLineOrNot=1
                       and  StartDate<='$todayis' and EndDate>='$todayis'
@@ -42,6 +42,7 @@
                               $id_arr[$z]=$row_part['Tb_index'];
                               $ns_ftitle_arr[$z]=$row_part['ns_ftitle'];
                               $ns_msghtml_arr[$z]=$row_part['ns_msghtml'];
+                              $StartDate_arr[$z]=$row_part['StartDate'];
                               $ns_photo_1_arr[$z]="../sys/img/".$row_part['ns_photo_1'];
                     $z++; } //end tab中內容
 
