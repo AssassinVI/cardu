@@ -5,6 +5,56 @@
    
    //-- GOOGLE recaptcha 驗證程式 --
   GOOGLE_recaptcha('6Le2HRIUAAAAAJJbt4e5F6g6yuW-FmSAYg--3R43', $_POST['g-recaptcha-response'], 'back');
+
+  
+  $row_mem=$pdo->select("SELECT COUNT(*) as total, ud_userid, ud_activekey, ud_pk, ud_email, ud_nickname
+                         FROM user_data 
+                         WHERE ud_userid=:ud_userid AND ud_email=:ud_email", 
+                         ['ud_userid'=>$_POST['ud_userid'], 'ud_email'=>$_POST['ud_email']], 'one');
+  
+  if ($row_mem['total']=='1') {
+    
+    $password_rand=randTXT(10);
+    
+    //-- 更新，新密碼 --
+    $pdo->update('user_data', ['ud_password_new'=>md5($password_rand)], ['ud_email'=>$row_mem['ud_email']]);
+
+    $body_data='
+     <table border="0" width="600">
+       <tbody><tr>
+         <td width="100%">
+           <img src="http://www.cardu.com.tw/images/mail_head.gif" class="CToWUd">
+         </td>
+       </tr>
+       <tr>
+         <td width="100%" bgcolor="#E0E0E0"><br>
+            親愛的《卡優新聞網》的會員 <br>
+            以下是您的密碼資料，請儘速登入系統變更您的密碼 <br>
+            帳號:'.$row_mem['ud_userid'].' <br>
+            密碼:'.$password_rand.' <br>
+            <br>
+            為確保資訊安全，請點選以下的連結，新密碼才會啟動 <br>
+            <a href="'.$URL.'/member/forget_confirm.php?p='.$row_mem['ud_pk'].'&k='.$row_mem['ud_activekey'].'">
+            '.$URL.'/member/forget_confirm.php?p='.$row_mem['ud_pk'].'&k='.$row_mem['ud_activekey'].' 
+            </a>
+            <br>
+            <br>
+            會員中心:<a href="'.$URL.'/member/member.php">'.$URL.'/member/member.php</a> <br>
+            <br>
+            (本確認信為系統自動寄發，請勿直接回覆本信函)<br>
+            若您有相關問題，請至 《卡優新聞網》<a href="'.$URL.'/footer/contact_report.php">聯絡我們</a>回應問題，《卡優新聞網》將盡快為您服務)
+         </td>
+       </tr>
+     </tbody></table>
+    ';
+    send_Mail('卡優新聞網', 'paper@cardu.com.tw', $row_mem['ud_nickname'].'的新密碼通知信', $body_data, [$row_mem['ud_nickname']], [$row_mem['ud_email']]);
+    location_up('password.php', '已發送新的密碼到您的信箱，請確認');
+  }
+  else{
+    location_up('back', '您輸入的帳號或信箱錯誤，請再重新輸入一次');
+  }
+
+  
  }
 ?>
 <!DOCTYPE html>
@@ -17,7 +67,7 @@
 
 
 
-    <title>卡優新聞網-會員中心</title>
+    <title>卡優新聞網-會員中心 > 忘記密碼</title>
 
     <meta name="keywords" content="信用卡,金融卡,悠遊卡,一卡通,icash,電子票證,現金回饋,紅利,信用卡比較,信用卡優惠,首刷禮,辦卡,新卡,卡訊,行動支付,小額消費,新聞,理財,消費,3C,旅遊,日本,住宿,美食,電影,交通,好康,加油,報稅"/>  
     <meta name="description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" /> 
@@ -26,16 +76,16 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
-    <meta property="og:site_name" content="卡優新聞網" />
+    <?php 
+     require '../share_area/fb_config.php';
+    ?>
+    <meta property="og:site_name" content="卡優新聞網-會員中心 > 忘記密碼" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="卡優新聞網" />
+    <meta property="og:title" content="卡優新聞網-會員中心 > 忘記密碼" />
     <meta property="og:description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" />
-    <meta property="og:url" content="https://www.cardu.com.tw" />
-    <meta property="og:see_also" content="https://www.cardu.com.tw" />
+    <meta property="og:url" content="<?php echo $FB_URL;?>" />
+    <!-- <meta property="og:see_also" content="https://www.cardu.com.tw" /> -->
       
       
     <?php 
@@ -62,7 +112,7 @@
         <!-- 麵包屑 -->
         <div class="row ">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="javascript:;">會員中心/ <a href="javascript:;">忘記密碼</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="member.php">會員中心/ <a href="javascript:;">忘記密碼</a></p>
           </div>
         </div>
         
@@ -77,8 +127,6 @@
                 <div class="row">
 
                     
-                    
-
                     <div class="pb-3 detail_content">
                     <div class="col-md-12 col">
                     <div class="cardshap primary_tab mouseHover_other_tab">
@@ -93,21 +141,21 @@
                         <div class="tab-content" id="myTabContent">
                           <div class="tab-pane fade active show" id="goodMember" role="tabpanel" aria-labelledby="goodMember-tab">
 
-                              <form class="px-md-2 login_info">
+                              <form id="member_form1" class="px-md-2 login_info" action="" method="POST">
                                 <p>若您忘記登入卡優新聞網的密碼，請輸入您的會員帳號，我們將會重新發送新的密碼，到您註冊登記的Email信箱。</p>
                                <div class="login_line">
                               
                                <div class="row">
                                    <label class="col-sm-2 col-form-label">*會員帳號</label>
                                    <div class="col-sm-10 form-inline">
-                                     <input type="text" class="form-control" placeholder="＊會員帳號">
+                                     <input type="text" class="form-control" id="ud_userid1" name="ud_userid" placeholder="＊會員帳號">
                                    </div>
                                  </div>
                                
                                <div class="row">
                                    <label class="col-sm-2 col-form-label">*Email</label>
                                    <div class="col-sm-10 form-inline login_w">
-                                     <input type="email" class="form-control" id="inputEmail3" placeholder="請填寫您註冊所填寫的email信箱">
+                                     <input type="email" class="form-control" id="ud_email1" name="ud_email" placeholder="請填寫您註冊所填寫的email信箱">
                                    </div>
                                  </div>
                                
@@ -120,32 +168,30 @@
                                  </div>
 
                                 <div class="col-md-12 col  member_btn hv-center">
-                                  <button class="gray-layered btnOver" type="submit">送出資料</button>
+                                  <button id="submit_btn" class="gray-layered btnOver" type="button">送出資料</button>
                                 </div>
 
                                 </div>
                                 
-                               
-                                 
                             </form>
                           </div>
                           <div class="tab-pane fade" id="goodPerson" role="tabpanel" aria-labelledby="goodPerson-tab">
 
-                            <form class="px-md-2 login_info">
+                            <form id="member_form2" class="px-md-2 login_info">
                                 <p>若您尚未收到卡優新聞網寄發的註冊確認信，請填寫下列資料，系統將重新寄送註冊確認信到您的電子信箱。</p>
                                <div class="login_line">
                               
                                <div class="row">
                                    <label class="col-sm-2 col-form-label">*會員帳號</label>
                                    <div class="col-sm-10 form-inline">
-                                     <input type="text" class="form-control" placeholder="＊會員帳號">
+                                     <input type="text" class="form-control" id="ud_userid2" name="ud_userid" placeholder="＊會員帳號">
                                    </div>
                                  </div>
                                
                                <div class="row">
                                    <label class="col-sm-2 col-form-label">*Email</label>
                                    <div class="col-sm-10 form-inline login_w">
-                                     <input type="email" class="form-control" id="inputEmail3" placeholder="請填寫您註冊所填寫的email信箱">
+                                     <input type="email" class="form-control" id="ud_email2" name="ud_email" placeholder="請填寫您註冊所填寫的email信箱">
                                    </div>
                                  </div>
                                
@@ -158,7 +204,7 @@
                                  </div>
 
                                 <div class="col-md-12 col  member_btn hv-center">
-                                  <button class="gray-layered btnOver" type="submit">送出資料</button>
+                                  <button id="submit_btn" class="gray-layered btnOver" type="button">送出資料</button>
                                 </div>
 
                                 </div>
@@ -174,261 +220,17 @@
                   </div>
 
 
-                    
-                   
-
-                    
-                  
-                    
-                    
-
-                   
-
-                    
-
-                   
-
-
-
 
                 </div>
             </div>
             <!--版面左側end-->
             
             <!--版面右側-->
-            <div class="index-content-right col0">
-                
-                <div class="row">
-                    <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one primary_tab">
-                           <div class="title_tab hole">
-                               <h4>熱門優惠</h4>
-                               <span>謹慎理財 信用至上</span>
-                           </div>
-                           <div class="content_tab">
-                                  <!-- 熱門情報輪播 -->
-                               <div class="swiper-container HotNews_slide">
-                                   <div class="swiper-wrapper">
-
-                                       <div class="swiper-slide" > 
-                                         <div class="row no-gutters">
-                                           <div class="col-5">
-                                             <a class="img_a" href="#">
-                                               <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                             </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                              <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-
-                                         <div class="row no-gutters">
-                                           <div class="col-5">
-                                            <a class="img_a" href="#">
-                                             <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                            </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                             <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-
-                                         <div class="row no-gutters">
-                                           <div  class="col-5">
-                                            <a class="img_a" href="#">
-                                              <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                            </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                              <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-                                       </div>
-
-                                       <div class="swiper-slide" > 
-                                         <div class="row no-gutters">
-                                           <div class="col-5">
-                                             <a class="img_a" href="#">
-                                               <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                             </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                              <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-
-                                         <div class="row no-gutters">
-                                           <div class="col-5">
-                                            <a class="img_a" href="#">
-                                             <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                            </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                             <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-
-                                         <div class="row no-gutters">
-                                           <div  class="col-5">
-                                            <a class="img_a" href="#">
-                                              <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                            </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                              <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-                                       </div>
-
-                                       <div class="swiper-slide" > 
-                                         <div class="row no-gutters">
-                                           <div class="col-5">
-                                             <a class="img_a" href="#">
-                                               <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                             </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                              <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-
-                                         <div class="row no-gutters">
-                                           <div class="col-5">
-                                            <a class="img_a" href="#">
-                                             <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                            </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                             <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-
-                                         <div class="row no-gutters">
-                                           <div  class="col-5">
-                                            <a class="img_a" href="#">
-                                              <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                            </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                              <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-                                       </div>
-                                   </div>
-                                   
-                                   <!-- 如果需要导航按钮 -->
-                                   <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
-                                   <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
-                               </div>
-                               <!-- 熱門情報輪播 END -->
-                           </div>
-                       </div>
-                    </div>
-
-                      <div class="col-md-12 col">
-                       <div class="cardshap primary_tab ">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item">
-                            <a class="nav-link active  pl-30" id="hotNews-tab" data-toggle="tab" href="#hotNews" role="tab" aria-controls="hotNews" aria-selected="true">
-                                <i class="icon" style="background-image: url(img/component/icon/index/icon3.png); background-size: 80%;"></i> 卡優公告
-                            </a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link pl-0 flex-x-center" id="hotGift-tab" data-toggle="tab" href="#hotGift" role="tab" aria-controls="hotGift" aria-selected="false">
-                                <i class="icon" style="background-image: url(img/component/icon_down/index/icon4.png); background-size: 76%;"></i> 卡優活動
-                            </a>
-                          </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="hotNews" role="tabpanel" aria-labelledby="hotNews-tab">
-
-                            <ul class="tab_list cardu_li">
-                                <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                                <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                                <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                                <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                                <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                            </ul>
-                           
-                          </div>
-                          <div class="tab-pane fade" id="hotGift" role="tabpanel" aria-labelledby="hotGift-tab">
-
-                            <ul class="tab_list cardu_li">
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                            </ul>
-                           
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    
-
-                   
-                    
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-                     <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-
-                    
-
-                    
-
-                   
-
-
-
-                    
-                    <?php 
-                     //-- 共用Footer --
-                     if (wp_is_mobile()) {
-                        require '../share_area/phone/footer.php';
-                     }
-                     else{
-                       require '../share_area/footer.php';
-                      }
-                    ?>
-                    
-
-                </div>
-            </div>
+            <?php 
+              if (!wp_is_mobile()) {
+                require 'right_area_div.php';
+              }
+            ?>
             <!--版面右側end-->
         </div>
         <!--版面end-->
@@ -447,6 +249,32 @@
 
     <!-- GOOGLE recaptcha 驗證程式 -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        
+        $('#submit_btn').click(function(event) {
+          
+          var err_txt='';
+          err_txt = err_txt + check_input( '#ud_userid1', '會員帳號\n' );
+          err_txt = err_txt + check_input( '#ud_email1', 'Email\n' );
+
+          if (err_txt!='') {
+             alert("以下欄位為空值或是帶有特殊符號\n"+err_txt);
+          }
+          else if(check_userid('#ud_userid1')){
+            alert('會員帳號：請輸入6至12字元英、數字，第1個字元需為英文字母');
+          }
+          else if(check_email('#ud_email1')){
+            alert('Email格式錯誤');
+          }
+          else{
+            $('#member_form1').submit();
+          }
+
+        });
+      });
+    </script>
 
   </body>
 </html>

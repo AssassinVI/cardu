@@ -4,12 +4,20 @@
         <div class="row">
             <div class="col-md-12 text-right col0"  id="TopInfo">
               <?php 
-                if (empty($_SESSION['ud_pk'])) {
-                  echo '<span>Hi,  您尚未登入唷！</span>       <a href="/member/sign_second.php">註冊會員</a>      <a href="javascript:;" data-fancybox data-src="#member_div">會員登入</a>';
-                }
-                else{
-                  echo '<span>Hi,  '.$_SESSION['ud_nickname'].'</span>｜<a href="/index.php?logout">登出</a>';
-                }
+               //-- 判斷是否在註冊頁 --
+               if (strpos($FB_URL, 'sign_second.php')==FALSE) {
+                 
+                 if (empty($_SESSION['ud_pk'])) {
+                   echo '<span>Hi,  您尚未登入唷！</span>       <a href="/member/sign_second.php">註冊會員</a>      <a href="javascript:;" data-fancybox data-src="#member_div">會員登入</a>';
+                 }
+                 else{
+                   echo '<span>Hi,  '.$_SESSION['ud_nickname'].'</span>｜<a href="/index.php?logout">登出</a>';
+                 }
+               }
+               else{
+                 echo'<span>　</span>';
+               }
+                
               ?>
                 
             </div>
@@ -33,20 +41,21 @@
                                <div class="cardshap dropDown_menu">
                                  <div class="row news_list_menu">
                                    <?php 
-                                     $row_newsType=$pdo->select("SELECT nt_name, pk, OrderBy
+                                     $row_newsType=$pdo->select("SELECT nt_name, pk, OrderBy, nt_sp
                                                                  FROM news_type
                                                                  WHERE mt_id='site2018111910445721' AND nt_sp=1 AND nt_sp_idx=1 AND OnLineOrNot=1 
                                                                  AND nt_sp_begin_date<=:nt_sp_begin_date AND nt_sp_end_date>= :nt_sp_end_date
 
                                                                  UNION
                                                                  
-                                                                 SELECT nt_name, pk, OrderBy
+                                                                 SELECT nt_name, pk, OrderBy, nt_sp
                                                                  FROM news_type 
                                                                  WHERE mt_id='site2018111910445721' AND nt_sp=0 AND OnLineOrNot=1 
                                                                  ORDER BY OrderBy ASC", ['nt_sp_begin_date'=>date('Y-m-d'), 'nt_sp_end_date'=>date('Y-m-d')]);
                                      foreach ($row_newsType as $newsType) {
-                                       
-                                       echo '<div class="col-md-3"><a href="/news/list.php?nt_pk='.$newsType['pk'].'">'.$newsType['nt_name'].'</a></div>';
+
+                                       $sp_txt=$newsType['nt_sp']=='1' ? '&sp=1' : '';
+                                       echo '<div class="col-md-3"><a href="/news/list.php?nt_pk='.$newsType['pk'].$sp_txt.'">'.$newsType['nt_name'].'</a></div>';
                                      }
                                    ?>
                                  </div>
@@ -86,7 +95,7 @@
                               <a href="/rank/rank.php">卡排行</a>
                               <div class="cardshap dropDown_menu">
                                  <div class="row list_menu">
-                                   <div class="col-md-3">
+                                   <div class="col-md">
                                     <h4>卡優排行</h4>
                                      
                                      <?php 
@@ -109,7 +118,7 @@
                                      ?>
 
                                   </div>
-                                   <div class="col-md-3">
+                                   <div class="col-md">
                                     <h4>人氣排行</h4>
                                     <ul>
                                       <li><a href="/rank/newcard.php">新卡人氣排行</a></li>
@@ -117,7 +126,7 @@
                                       <li><a href="/rank/click.php">點閱人氣排行</a></li>
                                     </ul>
                                   </div>
-                                   <div class="col-md-3">
+                                   <div class="col-md">
                                     <h4>卡比較</h4>
                                     <ul>
                                       <li><a href="/rank/compare01.php">新手快搜</a></li>
@@ -125,14 +134,14 @@
                                       <li><a href="/rank/compare03.php">權益比一比</a></li>
                                     </ul>
                                   </div>
-                                   <div class="col-md-3">
+                                   <!-- <div class="col-md">
                                     <h4>卡計算</h4>
                                     <ul>
                                       <li><a href="#">回饋/紅利/里程計算機</a></li>
                                       <li><a href="#">海外刷卡計算</a></li>
                                       <li><a href="#">卡速配小測驗</a></li>
                                     </ul>
-                                  </div>
+                                  </div> -->
                                  </div>
                                </div>
                             </li>
@@ -298,7 +307,7 @@
                                    <div class="col-md-6">
                                     <h4>會員專區</h4>
                                     <ul class="ul-2-part">
-                                      <li><a href="/member/index.php">會員資料</a></li>
+                                      <li><a href="/member/login_info.php">會員資料</a></li>
                                       <li><a href="/member/annouce_second.php">卡優公告</a></li>
                                       <li><a href="/member/event_second.php">卡優活動</a></li>
                                       <li><a href="#">卡優貼紙</a></li>

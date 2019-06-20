@@ -155,39 +155,54 @@
         </div>
 
           <div class="col-md-12 col">
-           <div class="cardshap primary_tab ">
+           <div class="cardshap primary_tab mouseHover_other_tab">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active  pl-30" id="hotNews-tab" data-toggle="tab" href="#hotNews" role="tab" aria-controls="hotNews" aria-selected="true">
+                <a class="nav-link active  pl-30" id="hotNews-tab"  href="#hotNews" tab-target="#hotNews-tab-con">
                     <i class="icon" style="background-image: url(img/component/icon/index/icon3.png); background-size: 80%;"></i> 卡優公告
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pl-0 flex-x-center" id="hotGift-tab" data-toggle="tab" href="#hotGift" role="tab" aria-controls="hotGift" aria-selected="false">
+                <a class="nav-link pl-0 flex-x-center" id="hotGift-tab" href="#hotGift" tab-target="#hotGift-tab-con">
                     <i class="icon" style="background-image: url(img/component/icon_down/index/icon4.png); background-size: 76%;"></i> 卡優活動
                 </a>
               </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="hotNews" role="tabpanel" aria-labelledby="hotNews-tab">
+              <div class="tab-pane fade show active" id="hotNews-tab-con" role="tabpanel" aria-labelledby="hotNews-tab-con">
 
                 <ul class="tab_list cardu_li">
-                    <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                    <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                    <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                    <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                    <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
+                  <?php 
+                    $row_note=$pdo->select("SELECT aTitle, Tb_index 
+                                            FROM appNotice 
+                                            WHERE note_type=0 AND OnLineOrNot=1 AND StartDate<=:StartDate AND EndDate>=:EndDate
+                                            ORDER BY OrderBy, StartDate DESC 
+                                            LIMIT 0,5", ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+
+                    foreach ($row_note as $note_one) {
+                      $aTitle=mb_substr($note_one['aTitle'], 0,14, 'utf-8');
+                      echo '<li><a title="'.$note_one['aTitle'].'" href="notify_detail.php?'.$note_one['Tb_index'].'">'.$aTitle.'</a></li>';
+                    }
+                  ?>
                 </ul>
                
               </div>
-              <div class="tab-pane fade" id="hotGift" role="tabpanel" aria-labelledby="hotGift-tab">
+              <div class="tab-pane fade" id="hotGift-tab-con" role="tabpanel" aria-labelledby="hotGift-tab-con">
 
                 <ul class="tab_list cardu_li">
-                    <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                    <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                    <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                    <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                    <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
+                  <?php 
+                    $row_note=$pdo->select("SELECT aTitle, Tb_index 
+                                            FROM appNotice 
+                                            WHERE note_type=1 AND OnLineOrNot=1 AND StartDate<=:StartDate AND EndDate>=:EndDate
+                                            ORDER BY OrderBy, StartDate DESC 
+                                            LIMIT 0,5", ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+
+                    foreach ($row_note as $note_one) {
+                      $aTitle=mb_substr($note_one['aTitle'], 0,14, 'utf-8');
+                      echo '<li><a title="'.$note_one['aTitle'].'" href="event_activity_detail.php?'.$note_one['Tb_index'].'">'.$aTitle.'</a></li>';
+                    }
+                  ?>
+
                 </ul>
                
               </div>
