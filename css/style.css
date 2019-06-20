@@ -236,6 +236,9 @@ a:hover{ text-decoration: none; color:#000000; }
  }
 
 
+
+
+
 /*---------------共用end------------------*/
 
 
@@ -874,6 +877,12 @@ a:hover{ text-decoration: none; color:#000000; }
 
 /*--------------------- 卡排行 -----------------------*/
 
+
+/*== 字級 ==*/
+.big_font_size{ font-size: 27px; }
+.s_big_font_size{ font-size: 21px; }
+
+
 /*== 選單 ==*/
 
 .card_rank .swiper-container, .card_type .swiper-container{
@@ -947,11 +956,11 @@ a:hover{ text-decoration: none; color:#000000; }
 }
 
 
-.rank_order{ color: #fff; }
+.rank_order{ color: #fff; text-decoration: underline;}
 .rank_order:hover{ text-decoration: underline; position: relative;    color: #371551;}
-.rank_order:hover:before{content: "▼"; position: absolute; right: -17px;     color: #371551;}
+.rank_order:hover:after{content: "▼"; position: relative; right: 0px;     color: #371551;}
 .rank_order.active{ text-decoration: underline; position: relative;}
-.rank_order.active:before{content: "▼"; position: absolute; right: -17px;}
+.rank_order.active:after{content: "▼"; position: relative; right: 0px;}
 
 
 /*--------------------- 卡總覽 -----------------------*/
@@ -3894,6 +3903,9 @@ a:hover{ text-decoration: none; color:#000000; }
   font-size: 15px;
   padding-bottom: 8px;
 }
+
+.rank_ad{ border-bottom: 1px solid #ccc; }
+
 .rank_ad .col-md-5{max-width: 285px;flex: auto;}
 .rank_ad .col-md-7{max-width: 400px;flex: auto;}
 .rank_hot .col-md-1{max-width: 50px; flex: auto;}
@@ -4041,6 +4053,7 @@ a:hover{ text-decoration: none; color:#000000; }
     margin: 4px 0;
     border: none;
     padding: 7px;
+    padding-right: 40px;
     font-size: 15px;
     background-size: cover;
     background-position: center;
@@ -4070,6 +4083,7 @@ a:hover{ text-decoration: none; color:#000000; }
 .rank_care h5{
  color:#8d39ce;
  text-align: center;
+ word-break: break-all;
 }
 
 
@@ -4989,6 +5003,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d5737', end
   /*信用卡快搜 fancybox*/
   #ccard_search{ display: none;  }
   #ccard_search .mem_logo img{ width: 130px; }
+
+  .search_from select{ padding-right:40px; }
   
 
   #iNews{ height: 230px; }
@@ -5237,6 +5253,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d5737', end
 
 /*--------------------- 卡排行 -----------------------*/
 
+/*== 字級 ==*/
+.big_font_size{ font-size: 27px; }
+.s_big_font_size{ font-size: 19px; }
+
 /*== 選單 ==*/
 
 .card_rank .swiper-container{
@@ -5295,7 +5315,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d5737', end
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c37cc', endColorstr='#c493ed',GradientType=0 ); /* IE6-9 */
 }
 
-.card_fun img{ width: 21px; }
+
+
+
+.card_fun div{  display: inline-block; }
+.card_fun div p{ display: inline-block; vertical-align: middle; margin: 0; }
+.card_fun div img{ width: 21px; }
 
 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
     opacity: 0;
@@ -5425,6 +5450,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d5737', end
 /*------------- 百葉窗 Tab (新卡訊) END ------------------*/
 
 /*--------------- 人氣排行 -------------------*/
+
 
 .favorite_card .swiper-slide{
   width: initial;
@@ -5562,7 +5588,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d5737', end
   }
 .nav-tabs .nav-item.news_tab .nav-link {
     justify-content: left;
-    padding-left: 30px;
+    padding-left: 23px;
 }
 
 .nav-tabs .nav-item .top_link {
@@ -5666,13 +5692,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d5737', end
 
 /*-----------------------------------------卡排行區----------------------------------------------*/
 .rank-4 {margin:auto;}
-.card_list_txt h4{margin-top: 10px;}
-.rank_hot .card_list_txt ul li{text-align: left;display: block;margin-left: 50px;}
+.card_list_txt h4{margin-top: 10px; text-align: left; word-break: break-all;}
+.card_list_txt .card_name_a{ display: block; position: absolute; top: -110px; right: 5px; width: 45%; }
+.rank_hot .card_list_txt ul li{text-align: left;display: block; }
+.rank_hot .col-md-7{  margin-left: 0px; }
+.rank_hot .col-md-4{ max-width: 50%;flex: auto;}
+.rank_hot .col-md-5{ max-width: 50%;flex: auto;}
+/*.rank_hot .col-md-7{ max-width: 58.333333%;flex: auto;}*/
 .ccard .top_Medal{top: 4px;left: 59px;}
 /*.rank_hot .col-md-1 {height: 60px;}*/
 .modal_prize h1 {margin-top: 0;}
 .modal_prize .top_prize{top:0px; left: 5px; z-index: 1;}
-.popular_prize .top_prize {position: absolute; top:8px !important;}
+.popular_prize .top_prize {position: absolute; top:-9px !important; left: 5px;}
 .card_list_txt{text-align: center;}
 .card_list_txt ul {
     list-style: none;
@@ -5681,16 +5712,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d5737', end
 }
 .phone_card ul{text-align: left; margin-left: 65px;}
 .rank_boot{overflow: auto;}
-.rank_boot table{width:750px;}
+.rank_boot table{width:100%;}
+.rank_care h5{ height: auto; font-size: 16px; }
+.rank_care .rankas_img{ height: 75px; }
+.rank_care .rank_btn a{ width: 110px; height: 35px; }
+.rankasable_img.cc_pref_img{ width: 30px; }
 .card b{display: inline-block; padding:0 10px;}
-.card_list_txt h4 {text-align: center;}
 .ranksearch_list li {width:135px !important;}
 .ranksearch_list ul li a {font-size: 15px;}
 .ranksearch_list .rank_shop{padding:0 !important;}
 .profit_shop ul li a{text-align: left !important;}
 .profit_shop img{margin-left:8px;}
 .phone_list li{width: 280px !important;}
-.rank_order.active:before{right: -30px;}
+.rank_order.active:after{right: 0px;}
 
 
 /*----------------------------------------- 優旅行區----------------------------------------------*/

@@ -433,7 +433,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8294d6', end
 /*----------------------------- 卡排行 更新 ----------------------------------*/
 
 .ranksearch_list ul li .active{ color: #ffffff; background-color: #6e29a3; }
-.ranksearch_list .warr_txt{ display: inline-block; font-size: 12px; padding: 0; }
+.ranksearch_list .warr_txt{ display: inline-block; font-size: 16px; padding: 0; }
 
 /*----------------------------- 卡排行 更新 END ----------------------------------*/
 
@@ -444,7 +444,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8294d6', end
 
 /*----------------------------- 工具提示框 ----------------------------------*/
 
-.tooltip-inner{padding: .7rem 1rem; color: #000; text-align: left; background-color: #fff; border-radius: 0.8rem; border: 1px solid #d0b3e9; box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15); }
+.tooltip-inner{padding: .7rem 1rem; color: #000; text-align: left; background-color: #fff; border-radius: 0.8rem; border: 1px solid #d0b3e9; box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15); max-width: 250px; }
 .tooltip .arrow::after{ position: absolute; content: ""; border-color: transparent; border-style: solid; }
 .bs-tooltip-auto[x-placement^=bottom] .arrow::after, .bs-tooltip-bottom .arrow::after { bottom: -1px; border-width: 0 0.5rem .5rem; border-bottom-color: #ffffff;}
 .bs-tooltip-auto[x-placement^=bottom] .arrow::before, .bs-tooltip-bottom .arrow::before{ bottom: 0; border-width: 0 .5rem .5rem; border-bottom-color: #d0b3e9; }
@@ -511,6 +511,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9c2f9', end
 
 /*----------------------------- 卡片比一比(內頁) ----------------------------------*/
 .rank_boot_title{ background-color: #fff; }
+.rankasable_img{ width: 50px; margin-bottom: 3px; }
 /*----------------------------- 卡片比一比(內頁) END ----------------------------------*/
 
 

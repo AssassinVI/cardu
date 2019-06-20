@@ -47,12 +47,7 @@
              
    <?php 
          //-- 共用Header --
-         if (wp_is_mobile()) {
-          require '../share_area/phone/header.php';
-         }
-         else{
-          require '../share_area/header.php';
-         }
+         require '../share_area/phone/header.php';
         ?>
         
 

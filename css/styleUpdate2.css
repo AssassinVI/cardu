@@ -25,7 +25,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8d39cd', end
 .darkpurple_tab .search_from select{ 
     background-color: #f2e3f8;
     background-image: url(../img/component/select_back_darkpurple.jpg);
+    background-size: contain;
+    background-position-x: right;
+    background-repeat: no-repeat;
 }
+
 
 .darkpurple_tab .card_list_txt b{
     color: #8d39cd;
@@ -218,6 +222,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#257db4', end
 .rank-4 p{
 	font-size:15px;
 	padding: 3px 0;
+    text-align: justify;
 }
 
 .rank-4 a{
@@ -251,10 +256,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#257db4', end
 
 
 /*----------------------------------------- 新手快搜 ---------------------------------------------------*/
+.no-search-txt{ letter-spacing: 1px;  line-height: 1.5; }
+
 .rank_search p{
 padding:0 15px;
 margin:5px 0;
-display: inline-block;
 }
 
 .rank_search span a{
@@ -267,14 +273,13 @@ font-weight: bold;
 background-color: #797979;
 color: #fff;
 display: inline-block;
-margin-right: 20px;
-float: right;
 }
 
 .rank_search button a{
 color: #fff;
 }
 .ranksearch_list img{
+    width: 35px;
     position: absolute;
     left: 13px;
     top: 6px;
@@ -305,7 +310,7 @@ color: #fff;
 	line-height: 50px;
 	border:1px #757275 solid;
 	margin: 5px 3px;
-	font-size:15px;
+	font-size:20px;
 }
 
 
@@ -318,11 +323,6 @@ color: #fff;
 }
 
 
-.ranksearch_list ul li a:hover{
-    color:#ffffff;
-    background-color:#8d39ce;
-
-}
 
 .rank_button{
     width:230px;
@@ -416,12 +416,7 @@ padding: 0px 30px;
     color:#757275;
 }
 
-.rank_care .rank_img{
- width:auto;
- height:100px;
- margin-right: 10px;
- display: block;
-}
+
 
 .rank_care.profit_width .search_from select {
 width:200px;
@@ -556,7 +551,11 @@ width:200px;
     background-image: url(../img/component/topNew_img.png);
     background-position: center;
     background-repeat: no-repeat;
+    z-index: 1;
 }
+
+
+.modal_prize span{ font-size: 25px; line-height: 1.6; color: #601986; font-weight: bold; font-family: arial;}
 /*----------------------------------------- 新卡人氣排行end ----------------------------------------------*/
 
 /*----------------------------------------- 會員中心 -------------------------------------------------*/
@@ -564,12 +563,38 @@ width:200px;
 /*----------------------------------------- 會員中心end ----------------------------------------------*/
 
 
+@media (min-width: 1024px){
+
+    .ranksearch_list ul li a:hover{color:#ffffff;background-color:#8d39ce;  }
+}
+
 
 
 @media (max-width: 420px){
     .ranksearch_list ul{ padding:0px; text-align: center; }
-    .ranksearch_list ul li a{ text-align: left; padding-left: 7px; }
-    .ranksearch_list img{ position: relative; top: 0; left: 0; margin:0; width: 26px;}
+    .ranksearch_list ul li a{  font-size: 16px; }
+    .ranksearch_list img{ position: relative; top: 0; left: 0; margin:0 5px; width: 22px;}
+
+
+    .rank_care .rank_img{
+     width:auto;
+     height:100px;
+     margin-right: 10px;
+     display: block;
+    }
+
+    .no-search-txt{ font-size: 20px; }
+
+
+    /*--- 人氣卡排行 ---*/
+    .popular_list_img img{ height: 105px; }
+    .popular_prize h1, .no_prize{ position: absolute; top: -9px; left: 5px; width: 40px; height: 40px; background-color: #ffffff; border: 1px solid #ccc; border-radius: 50%; z-index: 1; }
+    .no_prize{ top: 0px; }
+
+    /*--- 權益比一比 ---*/
+    .profit_detail{ width: 100%; margin:0; }
+    .profit_detail .rank_care .rank_img{ height: 90px; padding: 0 6px; padding-top: 5px; }
+    .rank_care.profit_width .search_from select{ width: 130px; background-size: auto; }
 }
 
 

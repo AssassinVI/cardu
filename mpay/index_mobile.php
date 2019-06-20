@@ -272,7 +272,9 @@
             
             <!--版面右側-->
              <?php 
-              require 'right_area_div.php';
+              if (!wp_is_mobile()) {
+                require 'right_area_div.php';
+              }
              ?>
             <!--版面右側end-->
         </div>

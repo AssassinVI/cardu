@@ -903,7 +903,9 @@
 
         <?php 
          //-- 共用js --
-         require '../share_area/share_js.php';
+         if (!wp_is_mobile()) {
+           require 'right_area_div.php';
+         }
         ?>
 
   </body>

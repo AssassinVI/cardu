@@ -7,8 +7,21 @@
  }
  else{
 
-  $cc_id=$_COOKIE['cc_id'].','.$_GET['cc_pk'];
+
+  $cc_id_arr=explode(',', $_COOKIE['cc_id']);
+
+  //--- 判斷是否重複 ----
+  if (in_array($_GET['cc_pk'], $cc_id_arr)) {
+    $index= array_search($_GET['cc_pk'], $cc_id_arr);
+    array_splice($cc_id_arr, $index,1);
+    $cc_id=implode(',', $cc_id_arr).','.$_GET['cc_pk'];
+  }
+  else{
+    $cc_id=$_COOKIE['cc_id'].','.$_GET['cc_pk'];
+  }
+
   $cc_id_arr=explode(',', $cc_id);
+
   if (count($cc_id_arr)>10) {
     array_splice($cc_id_arr, 0,1);
   }
@@ -691,7 +704,9 @@
             
             <!--版面右側-->
             <?php 
-              require 'right_area_div.php'; 
+              if (!wp_is_mobile()) {
+                require 'right_area_div.php';
+              }
             ?>
             <!--版面右側end-->
         </div>
