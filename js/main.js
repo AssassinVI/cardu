@@ -311,17 +311,20 @@ $(document).ready(function() {
                if($(this).attr('aria-selected')=='false'){
 
                  $.each($(this).parent().parent().find('.nav-link'), function(index, val) {
-
-                     if($(this).attr('aria-selected')=='false'){
-                       var this_bgm=$(this).find('.icon').css('background-image').split('/');
-                       this_bgm[5]='icon';
-                       $(this).find('.icon').css('background-image', this_bgm.join('/'));
-                     }
-                     else{
-                       var this_bgm=$(this).find('.icon').css('background-image').split('/');
-                       this_bgm[5]='icon_down';
-                       $(this).find('.icon').css('background-image', this_bgm.join('/'));
-                     }
+                    
+                    if ($(this).find('.icon').length>0) {
+                      if($(this).attr('aria-selected')=='false'){
+                        var this_bgm=$(this).find('.icon').css('background-image').split('/');
+                        this_bgm[5]='icon';
+                        $(this).find('.icon').css('background-image', this_bgm.join('/'));
+                      }
+                      else{
+                        var this_bgm=$(this).find('.icon').css('background-image').split('/');
+                        this_bgm[5]='icon_down';
+                        $(this).find('.icon').css('background-image', this_bgm.join('/'));
+                      }
+                    }
+                     
                  });
                }
             });
@@ -503,6 +506,36 @@ $(document).ready(function() {
               //   card_news_Swiper2.autoplay.start();
               // });
              /*-- 多專題-輪播 END --*/
+            
+
+
+
+
+            /*-- 卡排行版區 卡比較 --*/
+            if ($('.swiper-container.searchRank_type').length>0){
+              var srank_slidesPerView=$(window).width()>420 ? 3:1;
+              var srank_slidesPerGroup=$(window).width()>420 ? 3:1;
+              var srank_type_Swiper= new Swiper('.swiper-container.searchRank_type', {
+                  slidesPerView : srank_slidesPerView,
+                  slidesPerGroup : srank_slidesPerGroup,
+                  speed:750,
+                  autoplay: {
+                      delay: 5000
+                  },
+                  // 如果需要前进后退按钮
+                  navigation: {
+                    nextEl: '.searchRank_type .swiper-button-next',
+                    prevEl: '.searchRank_type .swiper-button-prev',
+                  }
+                 });
+               
+               //-- 隨機數 --
+               var rand_index=getRandom(0,2);
+
+               //-- 目前輪播位置 --
+               srank_type_Swiper.slideTo(rand_index, 700, false);
+            }
+            
 
 
 
@@ -510,23 +543,26 @@ $(document).ready(function() {
 
 
             /*-- 卡排行 卡總覽 用 輪播 --*/
-            var cc_slidesPerView=$(window).width()>420 ? 3:2;
-            var cc_slidesPerGroup=$(window).width()>420 ? 3:1;
-            var ccard_Swiper = new Swiper ('.ccard.slider .swiper-container', {
-                slidesPerView : cc_slidesPerView,
-                slidesPerGroup : cc_slidesPerGroup,
-                speed:750,
-                loop:true,
-                loopAdditionalSlides : 4,
-                autoplay: {
-                    delay: 5000
-                },
-                // 如果需要前进后退按钮
-                navigation: {
-                  nextEl: '.ccard.slider .swiper-button-next',
-                  prevEl: '.ccard.slider .swiper-button-prev',
-                }
-              }); 
+            if ($('.ccard.slider .swiper-container').length>0){
+              var cc_slidesPerView=$(window).width()>420 ? 3:2;
+              var cc_slidesPerGroup=$(window).width()>420 ? 3:2;
+              var ccard_Swiper = new Swiper ('.ccard.slider .swiper-container', {
+                  slidesPerView : cc_slidesPerView,
+                  slidesPerGroup : cc_slidesPerGroup,
+                  speed:750,
+                  loop:true,
+                  // loopAdditionalSlides : 4,
+                  autoplay: {
+                      delay: 3000
+                  },
+                  // 如果需要前进后退按钮
+                  navigation: {
+                    nextEl: '.ccard.slider .swiper-button-next',
+                    prevEl: '.ccard.slider .swiper-button-prev',
+                  }
+                }); 
+            }
+            
 
 
             
@@ -546,7 +582,7 @@ $(document).ready(function() {
                   }
                 });   
               
-                
+              //-- 隨機數 --
               var index=$('[name="rand_num"]').val()==undefined ? 1: $('[name="rand_num"]').val();
 
               //-- 目前輪播位置 --
@@ -566,10 +602,12 @@ $(document).ready(function() {
                   var x=1;
                   $.each(data, function(index, val) {
 
+                    var top_Medal=this['cc_so_show_order_icon']=='0' ? '' : '<span class="top_Medal">'+x+'</span>';
+
                     var txt='<div class="swiper-slide">'+
                                        '<div class="w-h-100 hv-center">'+
                                          '<a href="'+this['cc_url']+'" title="'+this['ccs_cc_cardname']+'">'+
-                                         '<span class="top_Medal">'+x+'</span><img src="../sys/img/'+this['cc_photo']+'" alt="'+this['ccs_cc_cardname']+'"><br>'+this['cc_shortname']+
+                                         top_Medal+'<img src="../sys/img/'+this['cc_photo']+'" alt="'+this['ccs_cc_cardname']+'"><br>'+this['cc_shortname']+
                                          '</a>'+
                                        '</div>'+
                                    '</div>';
@@ -608,7 +646,6 @@ $(document).ready(function() {
                   _this.addClass('active');
 
                   //-- 切換信用卡 --
-
                   if (_this.attr('index')!=index) {
                     ccard_Swiper.removeAllSlides();
 
@@ -624,10 +661,12 @@ $(document).ready(function() {
                         var x=1;
                         $.each(data, function(index, val) {
 
+                          var top_Medal=this['cc_so_show_order_icon']=='0' ? '' : '<span class="top_Medal">'+x+'</span>';
+
                           var txt='<div class="swiper-slide">'+
                                              '<div class="w-h-100 hv-center">'+
                                                '<a href="'+this['cc_url']+'" title="'+this['ccs_cc_cardname']+'">'+
-                                               '<span class="top_Medal">'+x+'</span><img src="../sys/img/'+this['cc_photo']+'" alt="'+this['ccs_cc_cardname']+'"><br>'+this['cc_shortname']+
+                                               top_Medal+'<img src="../sys/img/'+this['cc_photo']+'" alt="'+this['ccs_cc_cardname']+'"><br>'+this['cc_shortname']+
                                                '</a>'+
                                              '</div>'+
                                          '</div>';
@@ -640,6 +679,9 @@ $(document).ready(function() {
                     });
                   }
                   index=_this.attr('index');
+
+                  //-- 更改手機版More"顯示更多卡片" --
+                  $('#rankcc_more_bot1').attr('href', 'cardrank.php?'+_this.attr('pk'));
                   
                 },200);
                 //-- 延遲0.2S END --

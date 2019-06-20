@@ -60,6 +60,22 @@ function url_hash(DOM_id) {
 
 
 
+//-------- 判斷手機禁止連結 ----------
+$('.news_tab_three .index_pop_btn').click(function(event) {
+  if ($(window).width()<=768) {
+    event.preventDefault();
+  }
+});
+
+
+//----卡排行版區 人氣排行切換 (手機) ----
+$('.index_pop_btn').click(function(event) {
+   
+   $('#rankcc_more_bot2').attr('href', $(this).attr('href'));
+});
+
+
+
 
 
 /*=================================================== 卡排行 ======================================================================*/
@@ -453,12 +469,15 @@ $('.rights_search ul li a').click(function(event) {
     //-- 加入 --
   	else{
 
-      if (rank_rights_arr.length<3) {
+      var rights_arr_num= $(window).width()>768 ? 3 : 2;
+      var alert_txt= $(window).width()>768 ? '您已經選擇三項權益' : '您已經選擇二項權益';
+
+      if (rank_rights_arr.length< rights_arr_num) {
         rank_rights_arr.push($(this).attr('rank'));
         rank_rights_txt_arr.push($(this).html());
       }
       else{
-        alert('您已經選擇三項權益');
+        alert(alert_txt);
       }
   	}
   	
@@ -526,6 +545,7 @@ $('.change_eq_item').change(function(event) {
   }
   else{
     alert('比較條件不可一樣，請重新選擇！');
+    $(this).find('[selected]').prop('selected', true);
   }
   
 });
@@ -859,12 +879,23 @@ $(window).bind('scroll resize', function(){
   var top=$(this).scrollTop();
   
   /*-- 卡片比一比凍結 --*/
-  if (top>215) {
-    TweenMax.to($('.rank_boot_title'), 0, { y:(top-215)});
+  if ($(window).width()>768) {
+    if (top>215) {
+      TweenMax.to($('.rank_boot_title'), 0, { y:(top-215)});
+    }
+    else{
+      TweenMax.to($('.rank_boot_title'), 0, { y:0});
+    }
   }
   else{
-    TweenMax.to($('.rank_boot_title'), 0, { y:0});
+    if (top>95) {
+      TweenMax.to($('.rank_boot_title'), 0, { y:(top-95)});
+    }
+    else{
+      TweenMax.to($('.rank_boot_title'), 0, { y:0});
+    }
   }
+  
   /*--卡片比一比凍結 END --*/
 
   /*-- 卡排行 --*/

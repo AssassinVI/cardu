@@ -19,9 +19,10 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
+    <?php 
+     //-- fb資料設定 --
+     require '../share_area/fb_config.php';
+    ?>
     <meta property="og:site_name" content="卡優新聞網" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
@@ -86,18 +87,18 @@
                                       $x=1;
                                       $rand_num=rand(1,count($row_cc_type));
                                       foreach ($row_cc_type as $rct_one) {
-                                      	$active=$x==$rand_num ? 'active':'';
-                                      	$active_img=$x==$rand_num ? $rct_one['cc_so_photo_1_hover']:$rct_one['cc_so_photo_1'];
+                                        $active=$x==$rand_num ? 'active':'';
+                                        $active_img=$x==$rand_num ? $rct_one['cc_so_photo_1_hover']:$rct_one['cc_so_photo_1'];
                                         $cardrank_url=wp_is_mobile() ? 'javascript:;' :'cardrank.php?'.$rct_one['old_id'].'" title="'.$rct_one['cc_so_cname'];
-                                      	echo '
-                                      	<div class="swiper-slide '.$active.'" index="'.$x.'" Tb_index="'.$rct_one['Tb_index'].'" > 
+                                        echo '
+                                        <div class="swiper-slide '.$active.'" index="'.$x.'" Tb_index="'.$rct_one['Tb_index'].'" pk="'.$rct_one['old_id'].'" > 
                                          <div class="text-center"  >
-                                            <a href="'.$cardrank_url.'">
+                                            <a target="_blank" href="'.$cardrank_url.'">
                                               <img src="../sys/img/'.$active_img.'" alt="'.$rct_one['cc_so_cname'].'" > <br> '.$rct_one['cc_so_cname'].'
                                             </a>
                                           </div>
                                         </div>';
-                                      	$x++;
+                                        $x++;
                                       }
                                     ?>
                                    </div>
@@ -111,14 +112,15 @@
                               </div>
                               <!-- 給予隨機卡功能 -->
                               <input type="hidden" name="rand_num" value="<?php echo $rand_num;?>">
+
                              </div>
                            </div>
 
-                           <div class="ccard">
+                           <div class="ccard slider">
                               <div class="swiper-container">
                                   <div class="swiper-wrapper">
 
-                                  	<!-- main.js 卡排行 -->
+                                    <!-- main.js 卡排行 -->
 
                                   </div>
                                                                     
@@ -130,6 +132,7 @@
 
                            </div>
                             
+                            <a id="rankcc_more_bot1" class="rank_more card_rank warning-layered btnOver d-block d-md-none" href="cardrank.php?<?php echo $row_cc_type[$rand_num-1]['old_id'];?>">顯示更多卡片</a>
                         </div>
                     </div>
                     <!--卡排行end -->
@@ -156,43 +159,51 @@
                              <div class="tab-content" id="myTabContent">
                           <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
-                        <div class="row">
-                         <div class="col-md-4 col">
-                           <div class="rank-4">
-                             <a href="new_second.php#newHand">
-                              <div>
-                               <img src="../img/component/rank_1.png">
-                               </div>
-                             <h1>新手快搜</h1>
-                             <p>不知道該如何找信用卡嗎?讓新手快搜幫你找到最速配的信用卡!</p>
-                             </a>
-                          </div>
-                        </div>
-                        
-                        <div class="col-md-4 col">
-                          <div class="rank-4">
-                            <a href="new_second.php#cardCompare">
-                           <div>
-                              <img src="../img/component/rank_2.png">
+                            <div class="swiper-container searchRank_type">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                      <div class="rank-4 mx-md-2 my-3">
+                                        <a href="compare01.php">
+                                         <div>
+                                          <img src="../img/component/rank_1.png">
+                                          </div>
+                                        <h1>新手快搜</h1>
+                                        <p>茫茫卡海該如何找信用卡呢!輕鬆點選找到最速配的卡片</p>
+                                        </a>
+                                      </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                      <div class="rank-4 mx-md-2 my-3">
+                                        <a href="compare02.php">
+                                          <div>
+                                            <img src="../img/component/rank_2.png">
+                                          </div>
+                                          <h1>卡片比一比</h1>
+                                          <p>全台唯一信用卡最完整收錄挑尬意卡片動動手指比一比!</p>
+                                        </a>
+                                      </div>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                      <div class="rank-4 mx-md-2 my-3">
+                                        <a href="compare03.php">
+                                         <div>
+                                          <img src="../img/component/rank_3.png">
+                                         </div>
+                                         <h1>權益比一比</h1>
+                                         <p>重要、熱門信用卡權益整理好康優惠不漏接各卡大比拼!</p> 
+                                       </a>
+                                      </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 如果需要导航按钮 -->
+                                <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                                
                             </div>
-                            <h1>卡片比一比</h1>
-                            <p>各銀行信用卡完整蒐集，動動滑鼠比一比!</p>
-                            </a>
-                         </div>
-                       </div>
-                        
-                        <div class="col-md-4 col">
-                          <div class="rank-4">
-                            <a href="new_second.php#interest">
-                            <div>
-                               <img src="../img/component/rank_3.png">
-                               </div>
-                            <h1>權益比一比</h1>
-                            <p>信金回饋、紅利集點、哩程累積等信用卡權益大比拚!</p> 
-                            </a>
-                         </div>
-                       </div>
-                    </div>
+
                            
                           </div>
                       
@@ -230,13 +241,13 @@
                         <div class="cardshap darkpurple_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link active pl-30 py-2" id="title_5-tab" href="javascript:;" tab-target="#title_5" aria-selected="true">新卡人氣<span class="phone_hidden">排行</span></a>
+                            <a class="nav-link active pl-30 py-2 index_pop_btn" id="title_5-tab" target="_blank" href="newcard.php" tab-target="#title_5" aria-selected="true">新卡人氣<span class="phone_hidden">排行</span></a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link py-2" id="title_6-tab" href="javascript:;" tab-target="#title_6" aria-selected="false">辦卡人氣<span class="phone_hidden">排行</span></a>
+                            <a class="nav-link py-2 index_pop_btn" id="title_6-tab" target="_blank" href="apply.php" tab-target="#title_6" aria-selected="false">辦卡人氣<span class="phone_hidden">排行</span></a>
                           </li>
                           <li class="nav-item news_tab news_tab_three">
-                            <a class="nav-link py-2" id="title_7-tab" href="javascript:;" tab-target="#title_7" aria-selected="false">點閱人氣<span class="phone_hidden">排行</span></a>
+                            <a class="nav-link py-2 index_pop_btn" id="title_7-tab" target="_blank" href="click.php" tab-target="#title_7" aria-selected="false">點閱人氣<span class="phone_hidden">排行</span></a>
                           </li>
                           
                         </ul>
@@ -266,7 +277,7 @@
                                
                                <div class="row no-gutters h-center">
                                 <div class="col-md-8 wx-100-ph card_list_txt rank_color">
-                                  <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <h4 class="text-center text-md-left">匯豐銀行 MasterCard 鈦金卡</h4>
                                   <ul>
                                     <li><b>●</b>國內現金回饋1.22%</li>
                                     <li><b>●</b>國外現金回饋2.22%</li>
@@ -299,62 +310,14 @@
                                                         WHERE cc.cc_group_id=:cc_group_id
                                                         ORDER BY level.OrderBy ASC
                                                         LIMIT 0,1", ['cc_group_id'=>$rnc_one['card_group_id']], 'one');
-                               //-- 卡名 --
-                               $card_name=$row_car_d['bi_shortname'].'_'.$row_car_d['cc_cardname'].'_'.$row_car_d['org_nickname'].$row_car_d['attr_name'];
-                               //-- 卡特色 --
-                               $card_adv_txt='';
-                               $card_adv=preg_split('/\n/',$row_car_d['cc_interest_desc']);
-                               foreach ($card_adv as $card_adv_one) {
-                                 $card_adv_txt.='<li><b>●</b>'.mb_substr($card_adv_one, 0,15).'</li>';
-                               }
-                               //-- 立即辦卡 --
-                               if (!empty($row_car_d['cc_doc_url'])) {
-                                 $cc_doc='<a target="_blank" href="'.$row_car_d['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-                               }
-                               elseif(!empty($row_car_d['cc_doc_path'])){
-                                 $cc_doc='<a target="_blank" href="'.$row_car_d['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-                               }
-                               else{
-                                 $cc_doc='';
-                               }
-                               //-- 卡片圖 --
-                               $cc_photo=empty($row_car_d['cc_photo']) ? 'CardSample.png':$row_car_d['cc_photo'];
-                               //-- 前三名(獎牌) --
-                               $top_prize=$x<=3 ? '<span class="top_prize">'.$x.'</span>':'<h1 class=" hv-center mb-0">'.$x.'</h1>';
+                               
 
-                               echo '
-                               <div class="row no-gutters py-3 rankbg_list rank_hot">
-                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
-                                  '.$top_prize.'
-                               </div>
+                               
+                               //-----------------------------------
+                               //-- share_area/func.php 各人氣排行 --
+                               //-----------------------------------
+                               popular_card_txt($x, $row_car_d );
 
-                              <div class="col-md-4 wx-100-ph wx-100-ph text-center">
-                                <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$row_car_d['Tb_index'].'&cc_group_id='.$row_car_d['cc_group_id'].'">
-                                  <img src="../sys/img/'.$cc_photo.'" alt="" title="'.$card_name.'">
-                                </a>
-                              </div>
-                             <div class="col-md-7 wx-100-ph card_list_txt rank_color">
-                               <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$row_car_d['Tb_index'].'&cc_group_id='.$row_car_d['cc_group_id'].'">
-                               <h4>
-                                '.$card_name.'
-                               </h4>
-                               </a>
-                               <div class="row no-gutters">
-                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
-                                  <ul>
-                                    '.$card_adv_txt.'
-                                  </ul>
-                                </div>
-                                <div class="col-md-2 wx-100-ph">
-                                  <div class="rank_btn">
-                                    '.$cc_doc.'
-                                    <button type="button" card_id="'.$row_car_d['Tb_index'].'" cc_group_id="'.$row_car_d['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
-                                  </div>
-                                  <span>謹慎理財 信用至上</span>
-                                 </div>
-                                </div>
-                               </div>
-                              </div>';
                              $x++; }
                             ?>
 
@@ -386,7 +349,7 @@
                                
                                <div class="row no-gutters h-center">
                                 <div class="col-md-8 wx-100-ph card_list_txt rank_color">
-                                  <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <h4 class="text-center text-md-left">匯豐銀行 MasterCard 鈦金卡</h4>
                                   <ul>
                                     <li><b>●</b>國內現金回饋1.22%</li>
                                     <li><b>●</b>國外現金回饋2.22%</li>
@@ -413,61 +376,12 @@
                                                          LIMIT 0,5", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
                              $x=1;
                              foreach ($row_app_card as $rac_one) {
-                               //-- 卡名 --
-                               $card_name=$rac_one['bi_shortname'].'_'.$rac_one['cc_cardname'].'_'.$rac_one['org_nickname'].$rac_one['attr_name'];
-                               //-- 特色 --
-                               $card_adv_txt='';
-                               $card_adv=preg_split('/\n/',$rac_one['cc_interest_desc']);
-                               foreach ($card_adv as $card_adv_one) {
-                                 $card_adv_txt.='<li><b>●</b>'.mb_substr($card_adv_one, 0,15).'</li>';
-                               }
-                               //-- 立即辦卡 --
-                               if (!empty($rac_one['cc_doc_url'])) {
-                                 $cc_doc='<a target="_blank" href="'.$rac_one['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-                               }
-                               elseif(!empty($rac_one['cc_doc_path'])){
-                                 $cc_doc='<a target="_blank" href="'.$rac_one['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-                               }
-                               else{
-                                 $cc_doc='';
-                               }
+                               
+                               //-----------------------------------
+                               //-- share_area/func.php 各人氣排行 --
+                               //-----------------------------------
+                               popular_card_txt($x, $rac_one );
 
-                               //-- 卡片圖 --
-                               $cc_photo=empty($rac_one['cc_photo']) ? 'CardSample.png':$rac_one['cc_photo'];
-                               //-- 前三名(獎牌) --
-                               $top_prize=$x<=3 ? '<span class="top_prize">'.$x.'</span>':'<h1 class=" hv-center mb-0">'.$x.'</h1>';
-
-                               echo '
-                               <div class="row no-gutters py-3 rankbg_list rank_hot">
-                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
-                                   '.$top_prize.'
-                               </div>
-
-                              <div class="col-md-4 wx-100-ph wx-100-ph text-center">
-                                <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$rac_one['Tb_index'].'&cc_group_id='.$rac_one['cc_group_id'].'">
-                                  <img src="../sys/img/'.$cc_photo.'" alt="" title="'.$card_name.'">
-                                </a>
-                              </div>
-                             <div class="col-md-7 wx-100-ph card_list_txt rank_color">
-                               <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$rac_one['Tb_index'].'&cc_group_id='.$rac_one['cc_group_id'].'">
-                               <h4>'.$card_name.'</h4>
-                               </a>
-                               <div class="row no-gutters">
-                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
-                                  <ul>
-                                    '.$card_adv_txt.'
-                                  </ul>
-                                </div>
-                                <div class="col-md-2 wx-100-ph">
-                                  <div class="rank_btn">
-                                    '.$cc_doc.'
-                                    <button type="button" card_id="'.$rac_one['Tb_index'].'" cc_group_id="'.$rac_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
-                                  </div>
-                                  <span>謹慎理財 信用至上</span>
-                                 </div>
-                                </div>
-                               </div>
-                              </div>';
                              $x++; }
                             ?>
                           </div>
@@ -493,7 +407,7 @@
                              <div class="col-md-7 wx-100-ph ad_rank rank_color">
                                <div class="row no-gutters h-center">
                                 <div class="col-md-8 wx-100-ph card_list_txt rank_color">
-                                  <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <h4 class="text-center text-md-left">匯豐銀行 MasterCard 鈦金卡</h4>
                                   <ul>
                                     <li><b>●</b>國內現金回饋1.22%</li>
                                     <li><b>●</b>國外現金回饋2.22%</li>
@@ -519,61 +433,12 @@
                                                          LIMIT 0,5", ['day_ago'=>date('Y-m-d',strtotime('-7 day'))]);
                              $x=1;
                              foreach ($row_read_card as $rrc_one) {
-                               //-- 卡名 --
-                               $card_name=$rrc_one['bi_shortname'].'_'.$rrc_one['cc_cardname'].'_'.$rrc_one['org_nickname'].$rrc_one['attr_name'];
-                               //-- 特色 --
-                               $card_adv_txt='';
-                               $card_adv=preg_split('/\n/',$rrc_one['cc_interest_desc']);
-                               foreach ($card_adv as $card_adv_one) {
-                                 $card_adv_txt.='<li><b>●</b>'.mb_substr($card_adv_one, 0,15).'</li>';
-                               }
-                               //-- 立即辦卡 --
-                               if (!empty($rrc_one['cc_doc_url'])) {
-                                 $cc_doc='<a target="_blank"  href="'.$rrc_one['cc_doc_url'].'" class="apply_card_btn btn warning-layered btnOver">立即辦卡</a>';
-                               }
-                               elseif(!empty($rrc_one['cc_doc_path'])){
-                                 $cc_doc='<a target="_blank" href="'.$rrc_one['cc_doc_path'].'" class="apply_card_btn btn warning-layered btnOver">立即辦卡</a>';
-                               }
-                               else{
-                                 $cc_doc='';
-                               }
+                               
+                               //-----------------------------------
+                               //-- share_area/func.php 各人氣排行 --
+                               //-----------------------------------
+                               popular_card_txt($x, $rrc_one );
 
-                               //-- 卡片圖 --
-                               $cc_photo=empty($rrc_one['cc_photo']) ? 'CardSample.png':$rrc_one['cc_photo'];
-                               //-- 前三名(獎牌) --
-                               $top_prize=$x<=3 ? '<span class="top_prize">'.$x.'</span>':'<h1 class=" hv-center mb-0">'.$x.'</h1>';
-
-                               echo '
-                               <div class="row no-gutters py-3 rankbg_list rank_hot">
-                               <div class="col-md-1 wx-100-ph hv-center popular_prize">
-                                   '.$top_prize.'
-                               </div>
-
-                              <div class="col-md-4 wx-100-ph text-center">
-                                <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$rrc_one['Tb_index'].'&cc_group_id='.$rrc_one['cc_group_id'].'">
-                                  <img src="../sys/img/'.$cc_photo.'" alt="" title="'.$card_name.'">
-                                </a>
-                              </div>
-                             <div class="col-md-7 wx-100-ph card_list_txt rank_color">
-                              <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$rrc_one['Tb_index'].'&cc_group_id='.$rrc_one['cc_group_id'].'">
-                               <h4>'.$card_name.'</h4>
-                              </a>
-                               <div class="row no-gutters">
-                                <div class="col-md-5 wx-100-ph card_list_txt rank_color">
-                                  <ul>
-                                    '.$card_adv_txt.'
-                                  </ul>
-                                </div>
-                                <div class="col-md-2 wx-100-ph">
-                                  <div class="rank_btn">
-                                    '.$cc_doc.'
-                                    <button type="button" card_id="'.$rrc_one['Tb_index'].'" cc_group_id="'.$rrc_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
-                                  </div>
-                                  <span>謹慎理財 信用至上</span>
-                                 </div>
-                                </div>
-                               </div>
-                              </div>';
                              $x++; }
                             ?>
                     
@@ -582,9 +447,13 @@
                           </div>
                           <!-- 點閱人氣排行 END -->
                         </div>
+
+                        <a id="rankcc_more_bot2" class="rank_more card_rank warning-layered btnOver d-block d-md-none" href="newcard.php">顯示更多卡片</a>
                       </div>
+
                     </div>
 
+                   
 
                 </div>
             </div>
@@ -592,7 +461,9 @@
             
            <?php 
            //-- 版面右側 --
-            require 'right_area_div.php';
+           if (!wp_is_mobile()) {
+             require 'right_area_div.php';
+           }
            ?>
            
         </div>

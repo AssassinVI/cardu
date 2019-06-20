@@ -94,7 +94,7 @@
 
                <h4>卡比較</h4>
                <div class="row no-gutters">
-                 <div class="col-6"><a href="/rank/compare01.php">新卡快搜</a></div>
+                 <div class="col-6"><a href="/rank/compare01.php">新手快搜</a></div>
                  <div class="col-6"><a href="/rank/compare02.php">卡片比一比</a></div>
                  <div class="col-6"><a href="/rank/compare03.php">權益比一比</a></div>
                </div>
@@ -127,7 +127,7 @@
 
               <h4>線上辦卡</h4>
               <div class="row no-gutters">
-                <div class="col-6"><a href="/card/card_assign">線上辦卡</a></div>
+                <div class="col-6"><a href="/card/card_assign.php">線上辦卡</a></div>
               </div>
                
              </div>

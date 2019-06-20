@@ -19,9 +19,10 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
+    <?php 
+     //-- fb資料設定 --
+     require '../share_area/fb_config.php';
+    ?>
     <meta property="og:site_name" content="卡優新聞網" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
@@ -56,7 +57,7 @@
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="news.php">卡排行</a> / <a href="news_second.php">新手快搜
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="rank.php">卡排行</a> / <a href="compare01.php">新手快搜
             </a></p>
           </div>
         </div>
@@ -71,56 +72,63 @@
 
                     <!--信用卡推薦-->
                     <div class="col-md-12 col">
-                      <div class="rank_search bank_search cardshap py-md-2">
-                      <p>搜尋條件:
-                        <span id="search_rank_arr" class="text-primary">
-                        <?php 
-                         $search_all=[];
+                      <div class="rank_search bank_search cardshap py-md-2 row">
 
-                         //-- 優惠 --
-                         $pref_id=explode(',', $_GET['pref_id']);
-                         $pref_id_txt='';
-                         foreach ($pref_id as $pref_id_one) {
-                           $pref_id_txt.='\''.str_replace([' ','#','*'],['','',''],$pref_id_one).'\',';
-                         }
-                         $pref_id_txt=substr($pref_id_txt, 0,-1);
-                         $row_pref=$pdo->select("SELECT pref_name FROM card_pref WHERE Tb_index IN (".$pref_id_txt.")");
-                         foreach ($row_pref as $row_pref_one) {
-                           array_push($search_all, $row_pref_one['pref_name']);
-                         }
-                         
-                         
-                         //-- 功能 --
-                         $fun_id=explode(',', $_GET['fun_id']);
-                         // $fun_id_txt='';
-                         // foreach ($fun_id as $fun_id_one) {
-                         //   $fun_id_txt.='\''.str_replace([' ','#','*'],['','',''],$fun_id_one).'\',';
-                         // }
-                         // $fun_id_txt=substr($fun_id_txt, 0,-1);
-                         // $row_fun=$pdo->select("SELECT fun_name FROM card_func WHERE Tb_index IN (".$fun_id_txt.")");
-                         // foreach ($row_fun as $row_fun_one) {
-                         //   array_push($search_all, $row_fun_one['fun_name']);
-                         // }
-                         $fun_sp_name=[
-                           'fun201811061007565'=>'加油',
-                           'fun2018110610075611'=>'電影',
-                           'fun201811061007567'=>'餐飲',
-                           'fun201811061007568'=>'交通通勤',
-                           'fun201811061007561'=>'航空旅遊',
-                           'fun201811061007563'=>'百貨購物',
-                           'fun201811061007562'=>'量販超市'
-                         ];
-                         foreach ($fun_id as $fun_id_one) {
-                           array_push($search_all, $fun_sp_name[$fun_id_one]);
-                         }
+                        <div class="col-md-9">
+                          <p class="p-0 px-md-3">您所勾選的搜尋條件: </p>
+                          <?php 
+                           $search_pref=[];
+                           $search_fun=[];
 
-                         echo implode('，', $search_all);
-                        ?>
-                        </span>
-                      </p>
-                      <button id="change_search_btn" type="button" class="btn gray-layered btnOver"><a href="compare01.php">變更新手快搜條件</a></button>
+                           //-- 優惠 --
+                           $pref_id=explode(',', $_GET['pref_id']);
+                           $pref_id_txt='';
+                           foreach ($pref_id as $pref_id_one) {
+                             $pref_id_txt.='\''.str_replace([' ','#','*'],['','',''],$pref_id_one).'\',';
+                           }
+                           $pref_id_txt=substr($pref_id_txt, 0,-1);
+                           $row_pref=$pdo->select("SELECT pref_name FROM card_pref WHERE Tb_index IN (".$pref_id_txt.")");
+                           foreach ($row_pref as $row_pref_one) {
+                             array_push($search_pref, $row_pref_one['pref_name']);
+                           }
+
+                           echo '<div class="row no-gutters"> <div class="col-md-3 text-md-right">信用卡優惠：</div><div class="text-primary col-md-9">'. implode('，', $search_pref) .'</div></div>';
+                           
+                           
+                           //-- 功能 --
+                           $fun_id=explode(',', $_GET['fun_id']);
+                           // $fun_id_txt='';
+                           // foreach ($fun_id as $fun_id_one) {
+                           //   $fun_id_txt.='\''.str_replace([' ','#','*'],['','',''],$fun_id_one).'\',';
+                           // }
+                           // $fun_id_txt=substr($fun_id_txt, 0,-1);
+                           // $row_fun=$pdo->select("SELECT fun_name FROM card_func WHERE Tb_index IN (".$fun_id_txt.")");
+                           // foreach ($row_fun as $row_fun_one) {
+                           //   array_push($search_all, $row_fun_one['fun_name']);
+                           // }
+                           $fun_sp_name=[
+                             'fun201811061007565'=>'加油',
+                             'fun2018110610075611'=>'電影',
+                             'fun201811061007567'=>'餐飲',
+                             'fun201811061007568'=>'交通通勤',
+                             'fun201811061007561'=>'航空旅遊',
+                             'fun201811061007563'=>'百貨購物',
+                             'fun201811061007562'=>'量販超市'
+                           ];
+                           foreach ($fun_id as $fun_id_one) {
+                             array_push($search_fun, $fun_sp_name[$fun_id_one]);
+                           }
+
+                           echo '<div class="row no-gutters"> <div class="col-md-3 text-md-right">信用卡用途：</div><div class="text-primary col-md-9">'. implode('，', $search_fun) .'</div></div>';
+                          ?>
+                        </div>
+                        <div class="col-md-3 hv-center mb-md-0 mb-2">
+                         <button id="change_search_btn" type="button" class="btn gray-layered btnOver"><a href="compare01.php">變更新手快搜條件</a></button>
+                        </div>
                       </div>
+
                     </div>
+
                       <div class="col-md-12 col">
                         <div class="cardshap darkpurple_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -168,62 +176,14 @@
                                                       "LIMIT 0,9", $sql_arr);
                               $x=1;
                               foreach ($row_card as $row_card_one) {
+
+
+                                //-----------------------------------
+                                //-- share_area/func.php 信用卡List 樣板 --
+                                //-----------------------------------
+                                popular_card_txt($x, $row_card_one, 'N' );
                                 
-                                $card_name=$row_card_one['bi_shortname'].'_'.$row_card_one['cc_cardname'].'_'.$row_card_one['org_nickname'].$row_card_one['attr_name'];
-                                //$card_name=mb_substr($card_name,0, 12);
-
-                                $cc_int_desc_txt='';
-                                $cc_interest_desc=preg_split('/\n/',$row_card_one['cc_interest_desc']);
-                                $int_num=1;
-                                foreach ($cc_interest_desc as $cc_int_desc_one) {
-                                  if ($int_num<=4) {
-                                    $cc_int_desc_txt.='<li title="'.$cc_int_desc_one.'"><b>●</b>'.mb_substr($cc_int_desc_one, 0,15,'utf-8').'</li>';
-                                  }
-                                  $int_num++;
-                                }
-
-                                //-- 立即辦卡 --
-                                if (!empty($row_card_one['cc_doc_url'])) {
-                                  $cc_doc='<a target="_blank"  href="'.$row_card_one['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-                                }
-                                elseif(!empty($row_card_one['cc_doc_path'])){
-                                  $cc_doc='<a target="_blank" href="'.$row_card_one['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-                                }
-                                else{
-                                  $cc_doc='';
-                                }
-
-                                //-- 卡片圖 --
-                                $cc_photo=empty($row_card_one['cc_photo']) ? 'CardSample.png':$row_card_one['cc_photo'];
-
-
-                                echo '
-                            <div class="row no-gutters py-3 rankbg_list search_hot rank_hot">
-                              <div class="col-md-4 wx-100-ph text-center">
-                                <a class="popular_list_img" href="../cardNews/creditcard.php?cc_pk='.$row_card_one['Tb_index'].'&cc_group_id='.$row_card_one['cc_group_id'].'">
-                                  <img src="../sys/img/'.$cc_photo.'" alt="'.$card_name.'">
-                                </a>
-                              </div>
-                              <div class="col-md-8 wx-100-ph card_list_txt rank_color">
-                               <a class="popular_list_img" href="../cardNews/creditcard.php?cc_pk='.$row_card_one['Tb_index'].'&cc_group_id='.$row_card_one['cc_group_id'].'">
-                               <h4>'.$card_name.'</h4>
-                               </a>
-                               <div class="row no-gutters">
-                                <div class="col-md-6 wx-100-ph card_list_txt rank_color">
-                                  <ul>
-                                    '.$cc_int_desc_txt.'
-                                  </ul>
-                                </div>
-                                <div class="col-md-2 wx-100-ph">
-                                  <div class="rank_btn">
-                                    '.$cc_doc.'
-                                    <button type="button" card_id="'.$row_card_one['Tb_index'].'" cc_group_id="'.$row_card_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
-                                  </div>
-                                  <span>謹慎理財 信用至上</span>
-                                </div>
-                               </div>
-                             </div>
-                            </div>';
+                         
                             
 
                             //-- 廣告 --
@@ -232,6 +192,15 @@
                             }
 
                              $x++; }
+
+                             
+                             //---------- 找無卡片 -----------
+                             if (count($row_card)<1) {
+                               
+                               echo '<div class="p-3 m-3 border">
+                                         <h4 class="text-danger text-center no-search-txt">您所勾選的條件無法找到符合的信用卡，<br> 請更改或減少搜尋條件，以便為您重新搜尋信用卡</h4>
+                                     </div>';
+                             }
                             ?>
 
 

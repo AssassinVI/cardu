@@ -16,6 +16,7 @@
 //----- 新聞內頁分享功能按鈕
 //----- 去除空白
 //----- 驗證cookie 登入
+//----- 信用卡List 樣板
 //@@@@@ (手機) @@@@@@@@@@
 //----- 版區、次版區banner 輪播 (手機板)
 //----- 首頁 卡情報、優票證、優旅行
@@ -41,29 +42,96 @@ function card_url($cc_pk, $cc_group_id)
 //-- 卡排行 比較文字判斷 --
 function ccs_typename($ccs_typename_mem, $ccs_typename, $ccs_cc_pk2='')
 { 
+  $pdo=new PDO_fun;
   $ccs_typename_a_txt='';
+
+  //-- 判斷有無其他卡片 --
   if (!empty($ccs_cc_pk2)) {
+
     $ccs_typename_a=preg_split('/\n/',$ccs_typename);
     $ccs_cc_pk2=explode(',', $ccs_cc_pk2);
+
     for ($i=0; $i <count($ccs_typename_a) ; $i++) {
-    $cc_url2=mb_strpos($ccs_cc_pk2[$i], 'ccard')===false ? '../cardNews/type.php?gid='.$ccs_cc_pk2[$i] : '../cardNews/creditcard.php?cc_pk='.$ccs_cc_pk2[$i].'&cc_group_id=';
-      $ccs_typename_a_txt.='<a href="'.$cc_url2.'">'.$ccs_typename_a[$i].'</a>';
+
+      $cc_row=$pdo->select("SELECT cc_group_id  FROM cc_detail WHERE Tb_index=:Tb_index", ['Tb_index'=>$ccs_cc_pk2[$i]], 'one');
+      $cca_name=explode(']', $ccs_typename_a[$i]);
+      $cc_url2=mb_strpos($ccs_cc_pk2[$i], 'ccard')===false ? '../card/type.php?gid='.$ccs_cc_pk2[$i] : '../card/creditcard.php?cc_pk='.$ccs_cc_pk2[$i].'&cc_group_id='.$cc_row['cc_group_id'];
+      $ccs_typename_a_txt.='<a title="'.$ccs_typename_a[$i].'" class="d-md-block" target="_blank" href="'.$cc_url2.'">'.$cca_name[1].'</a>';
+
     }
   }
+
+  //-- 判斷字數 改字級 --
+  $ccs_typename_num=mb_strlen($ccs_typename, 'utf-8');
+  if ($ccs_typename_num<5) {
+    $p_css='big_font_size';
+  }
+  elseif($ccs_typename_num>=5 && $ccs_typename_num<=8){
+    $p_css='s_big_font_size';
+  }
+  else{
+    $p_css='';
+  }
+  
+  
+  //-- 判斷手機 --
+  if (wp_is_mobile()) {
+    
+    //-- 一般 --
+    if (empty($ccs_typename_mem)) {
+       if (mb_strlen($ccs_typename,'utf-8')>16) {
+          $txt=empty($ccs_cc_pk2) ? mb_substr($ccs_typename, 0, 16, 'utf-8').'..' : '<div>'.$ccs_typename_a_txt.'</div>';
+          return '<p class="'.$p_css.' hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$ccs_typename.'">'.$txt.'</p>';
+       }
+       else{
+
+          $txt=empty($ccs_cc_pk2) ? $ccs_typename : '<div>'.$ccs_typename_a_txt.'</div>';
+          return '<p class="'.$p_css.' hv-center mb-0">'.$txt.'</p>';
+       } 
+      }
+
+      //-- 條件欄 --
+      else{
+
+          $txt=empty($ccs_cc_pk2) ? $ccs_typename : '<div>'.$ccs_typename_a_txt.'</div>';
+          $tooltip_txt= mb_strlen($ccs_typename, 'utf-8')>16 ? $txt : $ccs_typename_mem;
+
+          return '<p class="'.$p_css.' hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$ccs_typename_mem.'">'.$txt.'</p>';
+     }
+  }
+
+  //-- 電腦  ---
+  else{
+    
+    //-- 一般 --
     if (empty($ccs_typename_mem)) {
        if (mb_strlen($ccs_typename,'utf-8')>40) {
           $txt=empty($ccs_cc_pk2) ? mb_substr($ccs_typename, 0, 40, 'utf-8').'..' : '<div>'.$ccs_typename_a_txt.'</div>';
-          return '<p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$ccs_typename.'">'.$txt.'</p>';
+          return '<p class="'.$p_css.' hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$ccs_typename.'">'.$txt.'</p>';
        }
        else{
+
           $txt=empty($ccs_cc_pk2) ? $ccs_typename : '<div>'.$ccs_typename_a_txt.'</div>';
-          return '<p class=" hv-center mb-0">'.$txt.'</p>';
+          return '<p class="'.$p_css.' hv-center mb-0">'.$txt.'</p>';
        } 
       }
+
+      //-- 條件欄 --
       else{
+
           $txt=empty($ccs_cc_pk2) ? $ccs_typename : '<div>'.$ccs_typename_a_txt.'</div>';
-          return '<p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$ccs_typename_mem.'">'.$ccs_typename.'</p>';
+          if (!empty($ccs_cc_pk2)) {
+            return '<p class="'.$p_css.' hv-center mb-0" ><div data-toggle="tooltip" data-placement="bottom" title="'.$ccs_typename_mem.'">'.$ccs_typename_a_txt.'</div></p>';
+          }
+          else{
+            return '<p class="'.$p_css.' hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$ccs_typename_mem.'">'.$ccs_typename.'</p>';
+          }
      }
+  }
+
+    
+
+     $pdo=NULL;
   }
 
 
@@ -845,6 +913,92 @@ function check_cookie_login($cookie){
 }
 
 //--------------------------------------------------- 驗證cookie 登入 END ----------------------------------------------------------
+
+
+
+
+//----------------------------------------------------- 信用卡List 樣板 ------------------------------------------------------
+
+function popular_card_txt($x, $row_car_d, $is_top_prize='Y' )
+{
+
+  //-- 卡名 --
+  $card_name=$row_car_d['bi_shortname'].'_'.$row_car_d['cc_cardname'].'_'.$row_car_d['org_nickname'].$row_car_d['attr_name'];
+  //-- 卡特色 --
+  $card_adv_txt='';
+  $card_adv=preg_split('/\n/',$row_car_d['cc_interest_desc']);
+  $y=1;
+  foreach ($card_adv as $card_adv_one) {
+   if ($y<=4) {
+     $card_adv_txt.='<li><b>●</b>'.mb_substr($card_adv_one, 0,15).'</li>';
+   }
+   $y++;
+  }
+  //-- 立即辦卡 --
+  if (!empty($row_car_d['cc_doc_url'])) {
+    $cc_doc='<a target="_blank" href="'.$row_car_d['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+  }
+  elseif(!empty($row_car_d['cc_doc_path'])){
+    $cc_doc='<a target="_blank" href="'.$row_car_d['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+  }
+  else{
+    $cc_doc='';
+  }
+
+  
+  //-- 卡片圖 --
+  $cc_photo=empty($row_car_d['cc_photo']) ? 'CardSample.png':$row_car_d['cc_photo'];
+  //-- 隱藏更多卡片 --
+  $is_d_none=$x>10 ? 'd-none':'';
+  //-- 前三名(獎牌) --
+  $top_prize=$x<=3 ? '<span class="top_prize">'.$x.'</span>':'<h1 class=" hv-center mb-0">'.$x.'</h1>';
+
+  if ($is_top_prize=='Y') {
+    $top_prize_txt='<div class="col-md-1 wx-100-ph hv-center popular_prize">
+                     '.$top_prize.'
+                    </div>';
+    $top_prize_col='col-md-4';
+  }
+  else{
+    $top_prize_txt='';
+    $top_prize_col='col-md-5';
+  }
+  
+
+    echo '
+    <div class="row no-gutters py-3 rankbg_list rank_hot '.$is_d_none.'">
+    '.$top_prize_txt.'
+
+   <div class="'.$top_prize_col.' pl-md-0 pl-2 text-center">
+     <a class="popular_list_img" target="_blank" href="../card/creditcard.php?cc_pk='.$row_car_d['Tb_index'].'&cc_group_id='.$row_car_d['cc_group_id'].'">
+       <img src="../sys/img/'.$cc_photo.'" alt="" title="'.$card_name.'">
+     </a>
+   </div>
+  <div class="col-md-7 col-7  card_list_txt rank_color">
+    <a class="popular_list_img card_name_a" target="_blank" href="../card/creditcard.php?cc_pk='.$row_car_d['Tb_index'].'&cc_group_id='.$row_car_d['cc_group_id'].'">
+    <h4>
+     '.$card_name.'
+    </h4>
+    </a>
+    <div class="row no-gutters p-md-0 pt-3 pl-2">
+     <div class="col-md-5 wx-100-ph card_list_txt rank_color">
+       <ul>
+         '.$card_adv_txt.'
+       </ul>
+     </div>
+     <div class="col-md-2 wx-100-ph pt-2 p-md-0">
+       <div class="rank_btn">
+         '.$cc_doc.'
+         <button type="button" card_id="'.$row_car_d['Tb_index'].'" cc_group_id="'.$row_car_d['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
+       </div>
+       <span>謹慎理財 信用至上</span>
+      </div>
+     </div>
+    </div>
+   </div>';
+}
+
+//----------------------------------------------------- 信用卡List 樣板 END ------------------------------------------------------
 
 
 //===============================================================================================================

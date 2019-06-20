@@ -18,10 +18,11 @@ if ($_POST) {
       $rand_cc_so_pk=['r_type201904010959361', 'r_type201904010959362'];
       $ccs_cc_so_pk=$_POST['ccs_cc_so_pk']=='r_type201904010959361' ? $rand_cc_so_pk[rand(0,1)] : $_POST['ccs_cc_so_pk'];
 
-  	  $row=$pdo->select("SELECT ccs_cc_cardname, ccs_cc_pk, ccs_cc_group_id ,Tb_index
-  	                     FROM credit_cardrank 
-  	                     WHERE ccs_cc_so_pk=:ccs_cc_so_pk 
-  	                     ORDER BY ccs_order ASC LIMIT 0,6" ,['ccs_cc_so_pk'=>$ccs_cc_so_pk]);
+  	  $row=$pdo->select("SELECT ccr.ccs_cc_cardname, ccr.ccs_cc_pk, ccr.ccs_cc_group_id ,ccr.Tb_index, ccrt.cc_so_show_order_icon
+  	                     FROM credit_cardrank as ccr
+                         INNER JOIN credit_cardrank_type as ccrt ON ccrt.Tb_index=ccr.ccs_cc_so_pk
+  	                     WHERE ccr.ccs_cc_so_pk=:ccs_cc_so_pk 
+  	                     ORDER BY ccr.ccs_order ASC LIMIT 0,6" ,['ccs_cc_so_pk'=>$ccs_cc_so_pk]);
       $row_num=count($row);
       for ($i=0; $i <$row_num ; $i++) { 
       	
@@ -46,7 +47,7 @@ if ($_POST) {
  
         //-- 卡連結 --
   	    $cc_url=!empty($row[$i]['ccs_cc_pk']) ? '../card/creditcard.php?cc_pk='.$row[$i]['ccs_cc_pk'].'&cc_group_id='.$row[$i]['ccs_cc_group_id'] : '../card/type.php?gid='.$row[$i]['ccs_cc_group_id'];
-  	    $row[$i]['cc_url']='javascript:cardRank_log(\''.$cc_url.'\', \''.$row[$i]['Tb_index'].'\', \'view\');';
+  	    $row[$i]['cc_url']='javascript:cardRank_log(\''.$cc_url.'\', \''.$row[$i]['Tb_index'].'\', \'view\', \'_blank\');';
 
       }
       echo json_encode($row);
@@ -121,7 +122,7 @@ if ($_POST) {
                                <div class="col-md-7 wx-100-ph ad_rank rank_color">
                                  <div class="row no-gutters h-center">
                                   <div class="col-md-8 wx-100-ph card_list_txt rank_color">
-                                    <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                    <h4 class="text-center text-md-left">匯豐銀行 MasterCard 鈦金卡</h4>
                                     <ul>
                                       <li><b>●</b>國內現金回饋1.22%</li>
                                       <li><b>●</b>國外現金回饋2.22%</li>
@@ -142,10 +143,10 @@ if ($_POST) {
 
 
       $row_rank=$pdo->select("SELECT cc.Tb_index as cc_Tb_index, cc.cc_group_id , cc.cc_photo, cc.cc_doc_url, cc.cc_doc_path, cc.cc_interest_desc, 
-                                     ccr.Tb_index as ccr_Tb_index, ccr.ccs_cc_group_id as ccr_group_id,
+                                     ccr.Tb_index as ccr_Tb_index, ccr.ccs_cc_group_id as ccr_group_id, ccr.ccs_cc_pk2, 
                                      ccr.ccs_cc_cardname, ccr.ccs_typename_01, ccr.ccs_typename_02, ccr.ccs_typename_03, 
                                      ccr.ccs_typename_01_memo, ccr.ccs_typename_02_memo, ccr.ccs_typename_03_memo,
-                                     ccrt.cc_so_type_01_cname, ccrt.cc_so_type_02_cname, ccrt.cc_so_type_03_cname
+                                     ccrt.cc_so_type_01_cname, ccrt.cc_so_type_02_cname, ccrt.cc_so_type_03_cname, ccrt.cc_so_show_order_icon
                               FROM credit_cardrank as ccr
                               LEFT JOIN cc_detail as cc ON cc.Tb_index=ccr.ccs_cc_pk
                               INNER JOIN credit_cardrank_type as ccrt ON ccrt.Tb_index=ccr.ccs_cc_so_pk
@@ -219,20 +220,22 @@ if ($_POST) {
                                   $cc_doc='';
                                 }
                                 
-                                //-- 卡排行 比較文字判斷 ccs_typename() (sys/core/inc/function.php)--
+                                //-- 卡排行 比較文字判斷 ccs_typename() (share_area/func.php)--
+                                $top_prize=$x>3 ? 'no_prize' : 'top_prize';
+                                $top_prize_txt= $row_rank_one['cc_so_show_order_icon']==0 ? '' : '<span class="'.$top_prize.'">'.$x.'</span>';
                                  echo '
                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1 ">
                                       <div class="hv-center wx-100-ph modal_prize">
-                                        <span class="top_prize">'.$x.'</span>
+                                        '.$top_prize_txt.'
                                      </div>
                                     </div>
                                     <div class="col-md-11 wx-100-ph">
                                       <div class="row">
                                         <div class="col-md-12 phone_hidden d-md-block">
-                                         <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\');">
+                                         <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\', \'_blank\');">
                                           <h5 class=" money_main mb-0">'.$card_name.'</h5>
                                          </a>
                                         </div>
@@ -240,12 +243,12 @@ if ($_POST) {
                                   
                                     <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
-                                         <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\');">
+                                         <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\', \'_blank\');">
                                           <img class="rank_img" src="../sys/img/'.$cc_photo.'" title="'.$card_name.'">
                                          </a>
                                       </div>
                                       <div class="d-md-none">
-                                       <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\');">
+                                       <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\', \'_blank\');">
                                         <h5 class=" money_main mb-0">'.$card_name.'</h5>
                                        </a>
                                       </div>
@@ -348,62 +351,13 @@ if ($_POST) {
                               " LIMIT ".$_POST['sr_num'].",".$_POST['sr_num_plus'], $sql_arr);
       $x=1;
       foreach ($row_card as $row_card_one) {
+
+
+        //-----------------------------------
+        //-- share_area/func.php 信用卡List樣板 --
+        //-----------------------------------
+        popular_card_txt($x, $row_card_one, 'N' );
         
-        $card_name=$row_card_one['bi_shortname'].'_'.$row_card_one['cc_cardname'].'_'.$row_card_one['org_nickname'].$row_card_one['attr_name'];
-        //$card_name=mb_substr($card_name,0, 12);
-
-        $cc_int_desc_txt='';
-        $cc_interest_desc=preg_split('/\n/',$row_card_one['cc_interest_desc']);
-        $int_num=1;
-        foreach ($cc_interest_desc as $cc_int_desc_one) {
-          if ($int_num<=4) {
-            $cc_int_desc_txt.='<li title="'.$cc_int_desc_one.'"><b>●</b>'.mb_substr($cc_int_desc_one, 0,15,'utf-8').'</li>';
-          }
-          $int_num++;
-        }
-        
-
-        //-- 立即辦卡 --
-        if (!empty($row_card_one['cc_doc_url'])) {
-          $cc_doc='<a target="_blank"  href="'.$row_card_one['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-        }
-        elseif(!empty($row_card_one['cc_doc_path'])){
-          $cc_doc='<a target="_blank" href="'.$row_card_one['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
-        }
-        else{
-          $cc_doc='';
-        }
-
-        //-- 卡片圖 --
-        $cc_photo=empty($row_card_one['cc_photo']) ? 'CardSample.png':$row_card_one['cc_photo'];
-
-        echo '
-    <div class="row no-gutters py-3 rankbg_list search_hot rank_hot ">
-      <div class="col-md-4 wx-100-ph text-center">
-        <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$row_card_one['Tb_index'].'&cc_group_id='.$row_card_one['cc_group_id'].'">
-          <img src="../sys/img/'.$cc_photo.'" alt="'.$card_name.'">
-        </a>
-      </div>
-      <div class="col-md-8 wx-100-ph card_list_txt rank_color">
-       <a class="popular_list_img" href="../card/creditcard.php?cc_pk='.$row_card_one['Tb_index'].'&cc_group_id='.$row_card_one['cc_group_id'].'">
-       <h4>'.$card_name.'</h4>
-       </a>
-       <div class="row no-gutters">
-        <div class="col-md-6 wx-100-ph card_list_txt rank_color">
-          <ul>
-            '.$cc_int_desc_txt.'
-          </ul>
-        </div>
-        <div class="col-md-2 wx-100-ph">
-          <div class="rank_btn">
-            '.$cc_doc.'
-            <button type="button" card_id="'.$row_card_one['Tb_index'].'" cc_group_id="'.$row_card_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
-          </div>
-          <span>謹慎理財 信用至上</span>
-        </div>
-       </div>
-     </div>
-    </div>';
     
 
     //-- 廣告 --
@@ -437,6 +391,7 @@ if ($_POST) {
       foreach ($row_eq_rank as $eq_rank_one) {
         //-- 卡名 --
         $card_name=$eq_rank_one['bi_shortname'].'_'.$eq_rank_one['cc_cardname'].'_'.$eq_rank_one['org_nickname'].$eq_rank_one['attr_name'];
+        $card_s_name= wp_is_mobile() ? mb_substr($card_name, 0, 16, 'utf-8') : mb_substr($card_name, 0, 25, 'utf-8');
 
         //-- 立即辦卡 --
         if (!empty($eq_rank_one['cc_doc_url'])) {
@@ -453,13 +408,13 @@ if ($_POST) {
         $cc_photo=empty($eq_rank_one['cc_photo']) ? 'CardSample.png':$eq_rank_one['cc_photo'];
 
        $ci_pk01_one= '
-       <td class="ci_pk01">
-         <div class="rank_care money_main">
-          <a href="../card/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
-           <img class="rank_img" src="../sys/img/'.$cc_photo.'" title="'.$eq_rank_one['sm_content'].'">
-           <h5 class=" money_main text-center mb-0">'.$card_name.'</h5>
+       <td class="ci_pk01" valign="top">
+         <div class="rank_care money_main text-center">
+          <a target="_blank" title="'.$card_name.'" href="../card/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
+           <img class="rank_img m-auto my-md-3" src="../sys/img/'.$cc_photo.'" title="'.$card_name.'">
+           <h5 class=" money_main text-center px-2 mb-0">'.$card_s_name.'</h5>
           </a>
-         <div class="profit_btn  hv-center">
+         <div class="profit_btn pb-md-2 hv-center">
            '.$cc_doc.'
            <button type="button" card_id="'.$eq_rank_one['Tb_index'].'" cc_group_id="'.$eq_rank_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
          </div>
@@ -484,6 +439,7 @@ if ($_POST) {
       foreach ($row_eq_rank as $eq_rank_one) {
         //-- 卡名 --
         $card_name=$eq_rank_one['bi_shortname'].'_'.$eq_rank_one['cc_cardname'].'_'.$eq_rank_one['org_nickname'].$eq_rank_one['attr_name'];
+        $card_s_name= wp_is_mobile() ? mb_substr($card_name, 0, 16, 'utf-8') : mb_substr($card_name, 0, 25, 'utf-8');
 
         //-- 立即辦卡 --
         if (!empty($eq_rank_one['cc_doc_url'])) {
@@ -499,13 +455,13 @@ if ($_POST) {
         $cc_photo=empty($eq_rank_one['cc_photo']) ? 'CardSample.png':$eq_rank_one['cc_photo'];
 
        $ci_pk02_one= '
-       <td class="ci_pk01">
-         <div class="rank_care money_main">
-          <a href="../card/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
-           <img class="rank_img" src="../sys/img/'.$cc_photo.'" title="'.$eq_rank_one['sm_content'].'">
-           <h5 class=" money_main text-center mb-0">'.$card_name.'</h5>
+       <td class="ci_pk01" valign="top">
+         <div class="rank_care money_main text-center">
+          <a target="_blank" title="'.$card_name.'" href="../card/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
+           <img class="rank_img m-auto my-md-3" src="../sys/img/'.$cc_photo.'" title="'.$card_name.'">
+           <h5 class=" money_main text-center px-2 mb-0">'.$card_s_name.'</h5>
           </a>
-         <div class="profit_btn  hv-center">
+         <div class="profit_btn pb-md-2 hv-center">
            '.$cc_doc.'
            <button type="button" card_id="'.$eq_rank_one['Tb_index'].'" cc_group_id="'.$eq_rank_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
          </div>
@@ -529,6 +485,7 @@ if ($_POST) {
       foreach ($row_eq_rank as $eq_rank_one) {
         //-- 卡名 --
         $card_name=$eq_rank_one['bi_shortname'].'_'.$eq_rank_one['cc_cardname'].'_'.$eq_rank_one['org_nickname'].$eq_rank_one['attr_name'];
+        $card_s_name= wp_is_mobile() ? mb_substr($card_name, 0, 16, 'utf-8') : mb_substr($card_name, 0, 25, 'utf-8');
 
         //-- 立即辦卡 --
         if (!empty($eq_rank_one['cc_doc_url'])) {
@@ -544,13 +501,13 @@ if ($_POST) {
         $cc_photo=empty($eq_rank_one['cc_photo']) ? 'CardSample.png':$eq_rank_one['cc_photo'];
 
        $ci_pk03_one= '
-       <td class="ci_pk01">
-         <div class="rank_care money_main">
-          <a href="../card/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
-           <img class="rank_img" src="../sys/img/'.$cc_photo.'" title="'.$eq_rank_one['sm_content'].'">
-           <h5 class=" money_main text-center mb-0">'.$card_name.'</h5>
+       <td class="ci_pk01" valign="top">
+         <div class="rank_care money_main text-center">
+          <a target="_blank" title="'.$card_name.'" href="../card/creditcard.php?cc_pk='.$eq_rank_one['Tb_index'].'&cc_group_id='.$eq_rank_one['cc_group_id'].'">
+           <img class="rank_img m-auto my-md-3" src="../sys/img/'.$cc_photo.'" title="'.$card_name.'">
+           <h5 class=" money_main text-center px-2 mb-0">'.$card_s_name.'</h5>
           </a>
-         <div class="profit_btn  hv-center">
+         <div class="profit_btn pb-md-2 hv-center">
            '.$cc_doc.'
            <button type="button" card_id="'.$eq_rank_one['Tb_index'].'" cc_group_id="'.$eq_rank_one['cc_group_id'].'" card_name="'.$card_name.'" card_img="'.$cc_photo.'" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
          </div>
@@ -582,10 +539,18 @@ if ($_POST) {
 
         //-- 廣告 --
         if (($i+1)%3==0) {
-          echo '
+          if (wp_is_mobile()) {
+            echo '
             <td colspan="4">
-             <div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div>
+             <div class="test hv-center"><img class="w-100" src="http://placehold.it/900x300" alt="banner"></div>
             </td>';
+          }
+          else{
+           echo '
+             <td colspan="4">
+              <div class="test hv-center"><img src="http://placehold.it/750x150" alt="banner"></div>
+             </td>';
+          }
         }
       }
       

@@ -164,7 +164,10 @@
                       <select class="int_search_item">
                           <option value="">選擇比較的權益項目</option>
                           <?php 
-                            $row_int=$pdo->select("SELECT Tb_index, eq_name FROM card_eq_item WHERE mt_id='site2019021216245137' AND eq_type IN ('small','big') ORDER BY OrderBy ASC");
+                            $row_int=$pdo->select("SELECT Tb_index, eq_name 
+                                                   FROM card_eq_item 
+                                                   WHERE mt_id='site2019021216245137' AND is_im_eq=1 AND Tb_index!='eq2019021217592167' AND Tb_index!='eq2019021218000948'
+                                                   ORDER BY OrderBy ASC");
                             foreach ($row_int as $row_int_one) {
                               echo '<option value="'.$row_int_one['Tb_index'].'">'.$row_int_one['eq_name'].'</option>';
                             }
@@ -307,12 +310,12 @@
                       echo '
                       <div class="row no-gutters">
                       <div class="col-6">
-                       <a class="img_a hv-center" href="../card/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
+                       <a class="img_a hv-center" target="_blank" href="../card/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
                          <img src="../sys/img/'.$cc_photo.'" style="height:100%;" title="'.$card_name.'">
                        </a>
                       </div>
                       <div class="col-6">
-                       <a href="../card/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
+                       <a target="_blank" href="../card/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
                          <h4>'.$card_name.'</h4>
                        </a>
                        <p>

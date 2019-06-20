@@ -19,9 +19,10 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
+    <?php 
+     //-- fb資料設定 --
+     require '../share_area/fb_config.php';
+    ?>
     <meta property="og:site_name" content="卡優新聞網" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
@@ -56,7 +57,7 @@
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="news.php">卡排行</a> / <a href="news_second.php">卡片比一比
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="rank.php">卡排行</a> / <a href="compare02.php">卡片比一比
             </a></p>
           </div>
         </div>
@@ -100,7 +101,7 @@
                                 ${'cc_doc'.$i}='<div class="rank_btn  hv-center"><a target="_blank"  href="'.$card_href.'" class="btn warning-layered btnOver">立即辦卡</a></div>';
                               }
                               else{
-                                ${'cc_doc'.$i}='<div class="rank_btn hv-center h-60px"></div>';
+                                ${'cc_doc'.$i}='<div class="rank_btn hv-center"></div>';
                               }
 
                               //-- 功能 --
@@ -122,7 +123,7 @@
                                 foreach ($cc_pref_id_arr as $cc_pref_id) {
                                   $cc_pref_d=$pdo->select("SELECT Tb_index, pref_name, pref_image FROM card_pref WHERE Tb_index=:Tb_index", ['Tb_index'=>$cc_pref_id], 'one');
                                   ${'cc_pref'.$i}.='<a href="../card/card_browse.php?pref='.$cc_pref_d['Tb_index'].'">
-                                                <img class="rankasable_img" src="../sys/img/'.$cc_pref_d['pref_image'].'" title="'.$cc_pref_d['pref_name'].'">
+                                                <img class="rankasable_img cc_pref_img" src="../sys/img/'.$cc_pref_d['pref_image'].'" title="'.$cc_pref_d['pref_name'].'">
                                               </a>';
                                 }
                               }
@@ -138,7 +139,10 @@
                           <form class="rank_boot">
                             <table>
                               <tr class="rank_boot_title">
-                                <td>信用卡名稱</td>
+                                <td style="width: 50px;">
+                                  <span class="d-md-inline d-block">信用卡</span>
+                                  <span class="d-md-inline d-block">名稱</span>
+                                </td>
                                 
                                 <?php 
                                  //-- 信用卡 --
@@ -146,17 +150,25 @@
                                   if (!empty($_GET['cc_pk0'.$i])) {
                                     //-- 卡片圖 --
                                     $cc_photo=empty(${'row_card'.$i}['cc_photo']) ? 'CardSample.png':${'row_card'.$i}['cc_photo'];
+
+
+                                    if (wp_is_mobile()) {
+                                      $cc_s_name=mb_substr(${'card'.$i.'_name'}, 0,8,'utf-8');
+                                    }else{
+                                      $cc_s_name=mb_substr(${'card'.$i.'_name'}, 0,11,'utf-8');
+                                    }
+                                    
                                     echo '
-                                      <td>  
+                                      <td valign="top">  
                                         <div class="rank_care">
-                                          <a href="../card/creditcard.php?cc_pk='.${'row_card'.$i}['Tb_index'].'&cc_group_id='.${'row_card'.$i}['cc_group_id'].'">
+                                          <a target="_blank" href="../card/creditcard.php?cc_pk='.${'row_card'.$i}['Tb_index'].'&cc_group_id='.${'row_card'.$i}['cc_group_id'].'" title="'.${'card'.$i.'_name'}.'">
                                             <img class="rankas_img" src="../sys/img/'.$cc_photo.'">
                                           </a>
-                                          <a href="../card/bank_detail.php?bi_pk='.${'row_card'.$i}['cc_bi_pk'].'">
+                                          <a target="_blank" href="../card/bank_detail.php?bi_pk='.${'row_card'.$i}['cc_bi_pk'].'">
                                             <h5 class=" money_main text-center mb-0">'.${'row_card'.$i}['bi_shortname'].'</h5>
                                           </a>
-                                          <a href="../card/creditcard.php?cc_pk='.${'row_card'.$i}['Tb_index'].'&cc_group_id='.${'row_card'.$i}['cc_group_id'].'">
-                                             <h5 class=" money_main text-center mb-0"><span>'.${'card'.$i.'_name'}.'</span></h5>
+                                          <a target="_blank" href="../card/creditcard.php?cc_pk='.${'row_card'.$i}['Tb_index'].'&cc_group_id='.${'row_card'.$i}['cc_group_id'].'" title="'.${'card'.$i.'_name'}.'">
+                                             <h5 class=" money_main text-center mb-0"><span>'.$cc_s_name.'</span></h5>
                                           </a>
                                           '.${'cc_doc'.$i}.'
                                          </div>
@@ -166,7 +178,10 @@
                                 ?>
                               </tr>
                               <tr>
-                                <td>卡的功能</td>
+                                <td>
+                                  <span class="d-md-inline d-block">卡的</span>
+                                  <span class="d-md-inline d-block">功能</span>
+                                </td>
 
                                 <?php 
                                   for ($i=1; $i <=3 ; $i++) { 
@@ -178,7 +193,10 @@
 
                               </tr>
                               <tr>
-                                <td>卡的權益</td>
+                                <td>
+                                 <span class="d-md-inline d-block">卡的</span>
+                                 <span class="d-md-inline d-block">權益</span>
+                                </td>
 
                                 <?php 
                                   for ($i=1; $i <=3 ; $i++) { 
@@ -265,9 +283,20 @@
                                    $eq_txt='';
                                  }
                                  else{
+
+                                  if (mb_strlen($eq_one['eq_name'], 'utf-8')>=4) {
+                                    $eq_name1=mb_strlen($eq_one['eq_name'], 'utf-8')<=5 ? mb_substr($eq_one['eq_name'], 0,2,'utf-8') : mb_substr($eq_one['eq_name'], 0,3,'utf-8');
+                                    $eq_name2=mb_strlen($eq_one['eq_name'], 'utf-8')<=5 ? mb_substr($eq_one['eq_name'], 2,2,'utf-8') : mb_substr($eq_one['eq_name'], 3, mb_strlen($eq_one['eq_name'], 'utf-8'),'utf-8');
+                                    $eq_name='<span class="d-md-inline d-block">'.$eq_name1.'</span>
+                                              <span class="d-md-inline d-block">'.$eq_name2.'</span>';
+                                  }
+                                  else{
+                                    $eq_name=$eq_one['eq_name'];
+                                  }
+
                                   $eq_txt='
                                   <tr '.$d_none.'>
-                                   <td>'.$eq_one['eq_name'].'</td>
+                                   <td>'.$eq_name.'</td>
                                    '.implode(' ', $cc_eq_txt_arr).'
                                   </tr>';
                                  }

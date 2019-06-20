@@ -97,8 +97,11 @@ function show_cc(card_num,cc_DOM) {
       }
       else{
         var card_name=data['bi_shortname']+data['cc_cardname']+data['org_nickname']+data['attr_name'];
-        cc_DOM.parent().next().html('<img src="../sys/img/'+data['cc_photo']+'"><h4>'+card_name+'</h4><input type="hidden" name="show_card_id" value="'+data['Tb_index']+'">');
-        cc_DOM.parent().next().attr('href', '../cardNews/creditcard.php?cc_pk='+data['Tb_index']+'&cc_group_id='+data['cc_group_id']);
+        var cc_photo=data['cc_photo']==null ? 'CardSample.png' : data['cc_photo'];
+        
+        cc_DOM.parent().next().html('<img src="../sys/img/'+cc_photo+'"><h4>'+card_name+'</h4><input type="hidden" name="show_card_id" value="'+data['Tb_index']+'">');
+        cc_DOM.parent().next().attr('href', '../card/creditcard.php?cc_pk='+data['Tb_index']+'&cc_group_id='+data['cc_group_id']);
+        cc_DOM.parent().next().attr('target','_blank');
       }
     }
   });
@@ -137,6 +140,7 @@ function cardRank_log(url, rank_id, log_type, target='') {
       log_type: log_type
     },
     success:function (data) {
+      console.log(target);
       if (target=='_blank') {
         window.open(url, '_blank');
       }

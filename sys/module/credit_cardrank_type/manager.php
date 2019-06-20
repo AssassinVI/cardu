@@ -115,6 +115,9 @@ if ($_GET) {
     $cc_so_status1=$row['cc_so_status']==1 || !isset($row['cc_so_status']) ? 'checked':'';
  	$cc_so_status0=$row['cc_so_status']==0 && isset($_GET['Tb_index']) ? 'checked':'';
  	$cc_so_status2=$row['cc_so_status']==2 ? 'checked':'';
+
+ 	$cc_so_show_order_icon1=$row['cc_so_show_order_icon']==1 ? 'checked':'';
+ 	$cc_so_show_order_icon0=$row['cc_so_show_order_icon']==0 ? 'checked':'';
 }
 ?>
 
@@ -243,8 +246,8 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="cc_so_show_order_icon"><span class="text-danger">*</span> 顯示排名</label>
 							<div class="col-md-10">
-								<label><input type="radio" checked name="cc_so_show_order_icon" value="1"> 是</label>｜
-								<label><input type="radio" name="cc_so_show_order_icon" value="0"> 否</label>
+								<label><input type="radio" <?php echo $cc_so_show_order_icon1; ?> name="cc_so_show_order_icon" value="1"> 是</label>｜
+								<label><input type="radio" <?php echo $cc_so_show_order_icon0; ?> name="cc_so_show_order_icon" value="0"> 否</label>
 							</div>
 						</div>
 

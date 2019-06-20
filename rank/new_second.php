@@ -30,9 +30,10 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
+    <?php 
+     //-- fb資料設定 --
+     require '../share_area/fb_config.php';
+    ?>
     <meta property="og:site_name" content="卡優新聞網" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
@@ -175,7 +176,7 @@
                          <div class="col-md-4 col card_list_txt text-center">
                            <div class="rank_care ">
 
-                             <form class="row search_from">
+                             <form class="row search_from ">
                              <select class="c_compare_bk">
                                  <option value="">--選擇銀行--</option>
                                  <?php 
@@ -187,13 +188,13 @@
                              </select>
                              </form>
 
-                             <form class="row search_from">
+                             <form class="row search_from ">
                              <select class="show_cc_group">
                                  <option value="">--選擇信用卡--</option>
                              </select> 
                              </form>
 
-                             <form class="row search_from">
+                             <form class="row search_from ">
                              <select class="show_cc">
                                  <option value="">--選擇卡等--</option>
                              </select> 
@@ -207,7 +208,7 @@
                         <div class="col-md-4 col card_list_txt text-center">
                             <div class="rank_care ">
 
-                              <form class="row search_from">
+                              <form class="row search_from ">
                               <select class="c_compare_bk2">
                                   <option value="">--選擇銀行--</option>
                                   <?php 
@@ -219,13 +220,13 @@
                               </select>
                               </form>
 
-                              <form class="row search_from">
+                              <form class="row search_from ">
                               <select class="show_cc_group2">
                                   <option value="">--選擇信用卡--</option>
                               </select> 
                               </form>
 
-                              <form class="row search_from">
+                              <form class="row search_from ">
                               <select class="show_cc2">
                                   <option value="">--選擇卡等--</option>
                               </select> 
@@ -236,9 +237,9 @@
                            </div>
                         </div>
                         
-                        <div class="col-md-4 col card_list_txt text-center">
+                        <div class="col-md-4 col card_list_txt text-center phone_hidden">
                           <div class="rank_care">
-                             <form class="row search_from">
+                             <form class="row search_from ">
                               <select class="c_compare_bk3">
                                   <option value="">--選擇銀行--</option>
                                   <?php 
@@ -250,13 +251,13 @@
                               </select>
                               </form>
 
-                              <form class="row search_from">
+                              <form class="row search_from ">
                               <select class="show_cc_group3">
                                   <option value="">--選擇信用卡--</option>
                               </select> 
                               </form>
 
-                              <form class="row search_from">
+                              <form class="row search_from ">
                               <select class="show_cc3">
                                   <option value="">--選擇卡等--</option>
                               </select> 
@@ -275,10 +276,13 @@
                    <!-- 卡片比一比 END-->
                     
                     <!-- 權益比一比-->
+                    <?php 
+                      $item_num= wp_is_mobile() ? 2 : 3;
+                    ?>
                     <div class="tab-pane fade" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
                             <div class="col-md-12 col">
                             <div class="ranksearch_list rights_search profit_shop">
-                             <p>請選擇要比較的權益項目，(最多3項)<span class="warr_txt text-danger">(請點擊下方選項，若要取消請再次點擊即可)</span></p>
+                             <p>請選擇要比較的權益項目(最多<?php echo $item_num;?>項)<span class="warr_txt text-danger">(請點擊下方選項，若要取消請再次點擊即可)</span></p>
                              <div class="text-right reset_div">
                                <a id="reset_profit_btn" href="javascript:;" class="btn gray-layered btnOver">重選</a>
                              </div>

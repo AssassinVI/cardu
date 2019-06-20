@@ -31,9 +31,10 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
+    <?php 
+     //-- fb資料設定 --
+     require '../share_area/fb_config.php';
+    ?>
     <meta property="og:site_name" content="卡優新聞網" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
@@ -199,7 +200,7 @@
                                <div class="col-md-7 wx-100-ph ad_rank rank_color">
                                  <div class="row no-gutters h-center">
                                   <div class="col-md-8 wx-100-ph card_list_txt rank_color">
-                                    <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                    <h4 class="text-center text-md-left">匯豐銀行 MasterCard 鈦金卡</h4>
                                     <ul>
                                       <li><b>●</b>國內現金回饋1.22%</li>
                                       <li><b>●</b>國外現金回饋2.22%</li>
@@ -220,9 +221,11 @@
                                                              ccr.Tb_index as ccr_Tb_index, ccr.ccs_cc_group_id as ccr_group_id,
                                                              ccr.ccs_cc_cardname2, ccr.ccs_cc_cardshrname, ccr.ccs_cc_cardurl, ccr.ccs_cc_pk2, 
                                                              ccr.ccs_cc_cardname, ccr.ccs_typename_01, ccr.ccs_typename_02, ccr.ccs_typename_03, 
-                                                             ccr.ccs_typename_01_memo, ccr.ccs_typename_02_memo, ccr.ccs_typename_03_memo
+                                                             ccr.ccs_typename_01_memo, ccr.ccs_typename_02_memo, ccr.ccs_typename_03_memo,
+                                                             ccrt.cc_so_show_order_icon
                                                       FROM credit_cardrank as ccr
                                                       LEFT JOIN cc_detail as cc ON cc.Tb_index=ccr.ccs_cc_pk
+                                                      INNER JOIN credit_cardrank_type as ccrt ON ccrt.Tb_index=ccr.ccs_cc_so_pk
                                                       WHERE ccr.ccs_cc_so_pk=:ccs_cc_so_pk 
                                                       ORDER BY ccr.ccs_order ASC LIMIT 0,10",['ccs_cc_so_pk'=>$row_rank_title['Tb_index']]);
 
@@ -296,20 +299,22 @@
                                   $cc_doc='';
                                 }
                                 
-                                //-- 卡排行 比較文字判斷 ccs_typename() (sys/core/inc/function.php)--
+                                //-- 卡排行 比較文字判斷 ccs_typename() (share_area/func.php)--
+                                $top_prize=$x>3 ? 'no_prize' : 'top_prize';
+                                $top_prize_txt= $row_rank_one['cc_so_show_order_icon']==0 ? '' : '<span class="'.$top_prize.'">'.$x.'</span>';
                                  echo '
                               <div class="card rank_hot rank_second">
                                 <div class="card-header money_header hv-center" id="imp_int1">
                                   <div class="row">
                                     <div class="col-md-1 ">
                                       <div class="hv-center wx-100-ph modal_prize">
-                                        <span class="top_prize">'.$x.'</span>
+                                        '.$top_prize_txt.'
                                      </div>
                                     </div>
                                     <div class="col-md-11 wx-100-ph">
                                       <div class="row">
-                                        <div class="col-md-12">
-                                         <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\');">
+                                        <div class="col-md-12 d-md-block phone_hidden">
+                                         <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\', \'_blank\');">
                                           <h5 class=" money_main mb-0">'.$card_name.'</h5>
                                          </a>
                                         </div>
@@ -317,9 +322,14 @@
                                   
                                     <div class="col-md-4 hv-center wx-100-ph">
                                        <div class="rank_care ">
-                                         <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\');">
+                                         <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\', \'_blank\');">
                                           <img class="rank_img" src="../sys/img/'.$cc_photo.'" title="'.$card_name.'">
                                          </a>
+                                      </div>
+                                      <div class="d-md-none">
+                                       <a href="javascript:cardRank_log(\''.$card_url.'\', \''.$row_rank_one['ccr_Tb_index'].'\', \'view\', \'_blank\');">
+                                        <h5 class=" money_main mb-0">'.$card_name.'</h5>
+                                       </a>
                                       </div>
                                     </div>
                                      <div class="col-md hv-center phone_block col-4 py-2">
@@ -343,8 +353,8 @@
                                        </div>
                                        
                                       </div>
-                                      <div class="col-md-8 hv-center">
-                                        <p class="collapse_txt mb-0"> 謹慎理財 信用至上(✱本排行僅供參考)</p>
+                                      <div class="col-md-8 hv-around">
+                                        <div class="collapse_txt "> <p class="d-md-inline-block d-block mb-0">謹慎理財 信用至上</p><p class="d-md-inline-block d-block mb-0">(✱本排行僅供參考)</p></div>
                                         <button class="btn btn-link angle_down money_button" type="button" data-toggle="collapse" data-target="#imp_int_txt'.$x.'" aria-expanded="true" aria-controls="imp_int_txt'.$x.'" title="更多資訊">
                                         <i class="fa fa-angle-down"></i>
                                       </button>
@@ -388,8 +398,8 @@
                                  </div>
                                <div class="col-md-7 wx-100-ph ad_rank rank_color">
                                  <div class="row no-gutters h-center">
-                                  <div class="col-md-8 wx-100-ph card_list_txt rank_color">
-                                    <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                  <div class="col-md-8 wx-100-ph card_list_txt rank_color ">
+                                    <h4 class="text-center text-md-left">匯豐銀行 MasterCard 鈦金卡</h4>
                                     <ul>
                                       <li><b>●</b>國內現金回饋1.22%</li>
                                       <li><b>●</b>國外現金回饋2.22%</li>
@@ -460,7 +470,7 @@
                             </div>
 
                             <div class="accordion imp_int" id="accordionExample2">
-
+                              
                             </div>
 
                              <a class="rank_more sp card_rank warning-layered btnOver" show_num="10" rank_type_id="r_type201904010959362" href="javascript:;">顯示更多卡片</a>
