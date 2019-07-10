@@ -507,7 +507,29 @@ $(document).ready(function() {
               // });
              /*-- 多專題-輪播 END --*/
             
+             
+            /*-- 卡排行 百葉窗 --*/
+            $('.imp_int').on('click', '.card-header .angle_down', function(event) {
+             
+             var target_dom=$(this).attr('data-target');
+             if ($(target_dom).attr('class').indexOf('collapsing')==-1){
 
+              //-- 展開 --
+              if ($(this).find('i').attr('class')=='fa fa-angle-down') {
+                $('.imp_int .card-header .angle_down i').removeClass('fa-angle-down');
+                $('.imp_int .card-header .angle_down i').removeClass('fa-angle-up');
+                $('.imp_int .card-header .angle_down i').addClass('fa-angle-down');
+                $(this).find('i').removeClass('fa-angle-down');
+                $(this).find('i').addClass('fa-angle-up');
+              }
+              //-- 收合 --
+              else{
+                $(this).find('i').removeClass('fa-angle-up');
+                $(this).find('i').addClass('fa-angle-down');
+              }
+             }
+              
+            });
 
 
 
@@ -561,6 +583,14 @@ $(document).ready(function() {
                     prevEl: '.ccard.slider .swiper-button-prev',
                   }
                 }); 
+
+              $('.ccard').mouseenter(function(event) {
+                ccard_Swiper.autoplay.stop();
+              });
+
+              $('.ccard').mouseleave(function(event){
+                ccard_Swiper.autoplay.start();
+              });
             }
             
 
@@ -692,14 +722,7 @@ $(document).ready(function() {
                 clearTimeout(card_rank_time);
               });
 
-
-              $('.ccard').mouseenter(function(event) {
-                ccard_Swiper.autoplay.stop();
-              });
-
-              $('.ccard').mouseleave(function(event){
-                ccard_Swiper.autoplay.start();
-              });
+              
             }
             /*--- 卡排行 END ---*/
 
@@ -765,7 +788,7 @@ $(document).ready(function() {
 
                           var txt='<div class="swiper-slide">'+
                                              '<div class="w-h-100 hv-center">'+
-                                               '<a href="'+this['cc_url']+'" title="'+this['cc_cardname']+'">'+
+                                               '<a href="'+this['cc_url']+'" title="'+this['cc_cardname_all']+'">'+
                                                '<img src="../sys/img/'+this['cc_photo']+'" alt="'+this['cc_cardname']+'"><br>'+this['cc_cardname']+
                                                '</a>'+
                                              '</div>'+
@@ -776,6 +799,11 @@ $(document).ready(function() {
                         ccard_Swiper.autoplay.start();
                       }
               });
+
+              //-- 顯示更多卡片按鈕 --
+              if ($('#cc_more_btn2').length>0) {
+                $('#cc_more_btn2').attr('href', 'card_browse.php?func='+$('.card_all .swiper-container .swiper-slide:nth-child('+index+')').attr('fun_id'));
+              }
               
 
               var card_all_time;
@@ -820,7 +848,7 @@ $(document).ready(function() {
 
                             var txt='<div class="swiper-slide">'+
                                                '<div class="w-h-100 hv-center">'+
-                                                 '<a href="'+this['cc_url']+'" title="'+this['cc_cardname']+'">'+
+                                                 '<a href="'+this['cc_url']+'" title="'+this['cc_cardname_all']+'">'+
                                                  '<img src="../sys/img/'+this['cc_photo']+'" alt="'+this['cc_cardname']+'"><br>'+this['cc_cardname']+
                                                  '</a>'+
                                                '</div>'+
@@ -831,6 +859,9 @@ $(document).ready(function() {
                           ccard_Swiper.autoplay.start();
                         }
                       });
+                      
+                      //-- 顯示更多卡片按鈕 --
+                      $('#cc_more_btn2').attr('href', 'card_browse.php?func='+_this.attr('fun_id'));
 
                     }
 
@@ -847,6 +878,78 @@ $(document).ready(function() {
 
             }
             /*--- 卡總覽 END ---*/
+ 
+
+
+            
+            
+            /*--- 卡總覽 內頁 ---*/
+            if ($('.card_all_fun .swiper-container').length>0){
+               var slide_num=$(window).width()>420 ? 8:4;
+               var card_all_fun_Swiper = new Swiper ('.card_all_fun .swiper-container', {
+                   slidesPerView : slide_num,
+                   slidesPerGroup : slide_num,
+                   observer:true,
+                   observeParents:true,
+                   speed:750,
+                   // 如果需要前进后退按钮
+                   navigation: {
+                     nextEl: '.card_all_fun .swiper-button-next',
+                     prevEl: '.card_all_fun .swiper-button-prev',
+                   }
+                 });  
+
+               //-- 目前輪播位置 --
+               $.each($('.card_all_fun .ccard_icon_js'), function(index, val) {
+                  if ($(this).attr('class').indexOf('active')!=-1) {
+                    card_all_fun_Swiper.slideTo((index), 700, false);
+                  }
+               });
+               
+            }
+            /*--- 卡總覽 內頁 END ---*/
+
+
+
+
+            /*--- 單卡 內頁 卡功能 ---*/
+            if ($('.cc_fun .swiper-container').length>0) {
+              var slide_num=$(window).width()>420 ? 6:5;
+              var cc_fun_Swiper = new Swiper ('.cc_fun .swiper-container', {
+                  slidesPerView : slide_num,
+                  slidesPerGroup : slide_num,
+                  observer:true,
+                  observeParents:true,
+                  speed:750,
+                  // 如果需要前进后退按钮
+                  navigation: {
+                    nextEl: '.cc_fun .swiper-button-next',
+                    prevEl: '.cc_fun .swiper-button-prev',
+                  }
+                });  
+            }
+            /*--- 單卡 內頁 卡功能 END ---*/
+
+
+            /*--- 單卡 內頁 卡排行 ---*/
+            if ($('.cc_rank .swiper-container').length>0) {
+              var slide_num=$(window).width()>420 ? 2:2;
+              var cc_rank_Swiper = new Swiper ('.cc_rank .swiper-container', {
+                  slidesPerView : slide_num,
+                  slidesPerGroup : slide_num,
+                  observer:true,
+                  observeParents:true,
+                  speed:750,
+                  // 如果需要前进后退按钮
+                  navigation: {
+                    nextEl: '.cc_rank .swiper-button-next',
+                    prevEl: '.cc_rank .swiper-button-prev',
+                  }
+                });  
+            }
+            /*--- 單卡 內頁 卡排行 END ---*/
+
+             
 
 
 
@@ -1002,7 +1105,6 @@ $(document).ready(function() {
                    slidesPerGroup : sub_slidesPerGroup,
                    speed:750,
                    loop:true,
-                   loopAdditionalSlides : 4,
                    autoplay: {
                        delay: 5000
                    },
@@ -1014,6 +1116,8 @@ $(document).ready(function() {
                  });  
 
                  slide_st_auto($(this), window['sub_slide2_'+x]);
+                 window['sub_slide2_'+x].slideToLoop(0,700,false);
+
               x++;
             });
             
@@ -1150,7 +1254,8 @@ $(document).ready(function() {
                 if (tab_num!=tab_parent.find('.content_tab .show').attr('tab')) {
                    TweenMax.fromTo(tab_parent.find('.content_tab [tab="'+tab_num+'"]'), 0.3, { opacity: '0'},{ opacity: '1'});
                    tab_parent.find('.tab_menu .menu .newsType_a').removeClass('ms_enter');
-                   _this.addClass('ms_enter');                
+                   _this.addClass('ms_enter');
+
                 }
 
                 tab_parent.find('.content_tab .news_list_div').removeClass('show');
@@ -1325,9 +1430,29 @@ $(document).ready(function() {
 
 
 
+            /*-- 卡情報-單卡-訊息按鈕 --*/
+            $('.cc_message_btn').click(function(event) {
+              
+              $('html,body').animate({
+                scrollTop: $('#special_4-tab').offset().top-87
+               },1000);
+
+              $('.mouseHover_other_tab').find('.nav-link').removeClass('active show');
+              $('.mouseHover_other_tab').find('.tab-pane').removeClass('active show');
+              $('.mouseHover_other_tab').find('.nav-link').attr('aria-selected', 'false');
+              $('#special_4-tab').attr('aria-selected', 'true');
+              $('#special_4-tab').addClass('active show');
+              $($('#special_4-tab').attr('tab-target')).addClass('active show');
+            });
+
+
            
 
            /*-- 卡情報-單卡-卡組織 --*/
+           if ($(window).width()<=768) {
+            $('.oneCard_org>a').attr('href', 'javascript:;');
+           }
+
            $('.oneCard_org').mouseenter(function(event) {
              $('.oneCard_org').removeClass('active');
              $(this).addClass('active');
@@ -1344,23 +1469,41 @@ $(document).ready(function() {
 
 
             /*-- 卡情報-單卡-百葉窗 --*/
-            $('.imp_int').on('click', '.card-header .angle_down', function(event) {
 
-              //-- 展開 --
-              if ($(this).find('i').attr('class')=='fa fa-angle-down') {
-                $('.imp_int .card-header .angle_down i').removeClass('fa-angle-down');
-                $('.imp_int .card-header .angle_down i').removeClass('fa-angle-up');
-                $('.imp_int .card-header .angle_down i').addClass('fa-angle-down');
-                $(this).find('i').removeClass('fa-angle-down');
-                $(this).find('i').addClass('fa-angle-up');
-              }
-              //-- 收合 --
-              else{
-                $(this).find('i').removeClass('fa-angle-up');
-                $(this).find('i').addClass('fa-angle-down');
+            $('.ccd_interest .angle_down').click(function(event) {
+              var target_dom=$(this).attr('data-target');
+              if ($(target_dom).attr('class').indexOf('collapsing')==-1) {
+
+                if ($(this).find('i').attr('class')=='fa fa-angle-down') {
+                  $(this).find('i').removeClass('fa-angle-down');
+                  $(this).find('i').addClass('fa-angle-up');
+                }
+                else{
+                  $(this).find('i').removeClass('fa-angle-up');
+                  $(this).find('i').addClass('fa-angle-down');
+                }
               }
               
+              
             });
+
+            // $('.imp_int').on('click', '.card-header .angle_down', function(event) {
+
+            //   //-- 展開 --
+            //   if ($(this).find('i').attr('class')=='fa fa-angle-down') {
+            //     $('.imp_int .card-header .angle_down i').removeClass('fa-angle-down');
+            //     $('.imp_int .card-header .angle_down i').removeClass('fa-angle-up');
+            //     $('.imp_int .card-header .angle_down i').addClass('fa-angle-down');
+            //     $(this).find('i').removeClass('fa-angle-down');
+            //     $(this).find('i').addClass('fa-angle-up');
+            //   }
+            //   //-- 收合 --
+            //   else{
+            //     $(this).find('i').removeClass('fa-angle-up');
+            //     $(this).find('i').addClass('fa-angle-down');
+            //   }
+              
+            // });
 
 
 
@@ -1580,16 +1723,364 @@ $(document).ready(function() {
 
 
 
+          /*--------------------------------------------- 會員 ---------------------------------------------*/
 
+          //-- 生日日期 --
+          if ($('.datepicker').length>0) {
+            $('.datepicker').datepicker({
+                dateFormat: "yy-mm-dd",
+                yearRange: "-100:+0",
+                maxDate:"0",
+                changeMonth: true,
+                changeYear: true,
+                dayNamesMin :["日","一","二","三","四","五","六"],
+                dayNames :["日","一","二","三","四","五","六"],
+                monthNamesShort  :["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]
+            });
+          }
+
+
+          //-- 繳款期間日期 --
+          if ($('.datepicker_range').length>0) {
+            
+            var from= $('.datepicker_range.from' ).datepicker({
+                      dateFormat: "yy-mm-dd",
+                      yearRange: "-10:+1",
+                      changeMonth: true,
+                      changeYear: true,
+                      dayNamesMin :["日","一","二","三","四","五","六"],
+                      dayNames :["日","一","二","三","四","五","六"],
+                      monthNamesShort  :["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]
+                    })
+                    .on( "change", function() {
+                      to.datepicker( "option", "minDate", $(this).val());
+                    });
+
+           var to= $('.datepicker_range.to').datepicker({
+                    dateFormat: "yy-mm-dd",
+                    yearRange: "-10:+1",
+                    changeMonth: true,
+                    changeYear: true,
+                    dayNamesMin :["日","一","二","三","四","五","六"],
+                    dayNames :["日","一","二","三","四","五","六"],
+                    monthNamesShort  :["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]
+                  })
+                  .on( "change", function() {
+                    from.datepicker( "option", "maxDate", $(this).val());
+                  });
+
+            if ($('.datepicker_range.form' ).val()!='') {
+              to.datepicker( "option", "minDate", $('.datepicker_range.from' ).val());
+              $('.datepicker_range.from' ).val();
+            }
+
+            if ($('.datepicker_range.to' ).val()!='') {
+              from.datepicker( "option", "maxDate", $('.datepicker_range.to' ).val());
+              $('.datepicker_range.to' ).val();
+            }
+          
+          }
+          
+
+          //-- 地址 --
+          if ($('#twzipcode').length>0){
+            $('#twzipcode').twzipcode({
+              'css': ['form-control mr-2', 'form-control mr-2', 'form-control']
+            });
+          }
+
+
+
+
+
+          /*==================== 會員留言 ===========================*/
+
+          if ($('.discuss_div').length>0) {
+            //-- 讀取會員留言 --
+            mem_discuss();
+          }
+
+          if ($('#leave_msg_btn').length>0) {
+           
+            $('#leave_msg_btn').click(function(event) {
+
+              if ($('#leave_msg_txt').val()=='' || $('#leave_msg_txt').val().search(/^(?:[^\#|\$|\%|\^|\&|\*|\(|\)|\=|\+|\{|\}|\"|\'|\<|\>]+)$/)==-1) {
+                alert("留言板欄位為空值或是帶有特殊符號");
+                $('#leave_msg_txt').css('borderColor', 'red');
+              }
+              else if ($('#leave_msg_txt').val().length<15) {
+                alert('請輸入15字以上留言');
+              }
+              else{
+                $.ajax({
+                  url: '../ajax/member_ajax.php',
+                  type: 'POST',
+                  data: {
+                    type: 'discuss',
+                    ds_type_pk: $('[name="ds_type_pk"]').val(),
+                    ds_content: $('#leave_msg_txt').val()
+                  },
+                  success:function (data) {
+                    alert('留言成功');
+                    $('#leave_msg_txt').val('');
+                    mem_discuss();
+                  },
+                  error: function (xhr) {
+                    alert("錯誤提示： " + xhr.status + " " + xhr.statusText+" 請盡速與我們聯絡，我們將盡快處理");
+                  }
+                });
+                
+              }
+            });
+          }
+          /*==================== 會員留言 END ===========================*/
+
+
+
+          
+          /*==================== 編輯會員留言 ===========================*/
+
+          $('.discuss_div').on('click', '.d_mem_edit .edit', function(event) {
+            var edit_p=$(this).parent().prev().find('p:nth-child(2)').html();
+                edit_p=edit_p.replace('<br>','\r');
+            $('.d_mem_edit').css('display', 'none');
+            $(this).parent().css('display', 'block');
+            $(this).parent().prev().find('p:nth-child(2)').remove();
+            $(this).parent().prev().find('p:nth-child(1)').after('<textarea rows="5">'+edit_p+'</textarea>');
+            $(this).parent().html('<a href="javascript:;" class="confirm_edit text-info" title="確定修改留言"><i class="fa fa-check"></i></a>｜'+
+                                  '<a href="javascript:;" class="close_edit text-danger" title="取消修改留言"><i class=" fa fa-close"></i></a>');
+            
+          });
+
+          /*==================== 編輯會員留言 END ===========================*/
+
+
+
+
+          /*==================== 取消編輯會員留言 ===========================*/
+
+          $('.discuss_div').on('click', '.d_mem_edit .close_edit', function(event) {
+            var edit_p=$(this).parent().prev().find('textarea').val();
+                edit_p=edit_p.replace('\n','<br>');
+            $(this).parent().prev().find('textarea').remove();
+            $(this).parent().prev().find('p:nth-child(1)').after('<p class="mb-0">'+edit_p+'</p>');
+            $(this).parent().html('<a href="javascript:;" class="edit" title="編輯留言"><i class="fa fa-edit"></i></a>');
+            $('.d_mem_edit').css('display', 'block');
+          });
+
+          /*==================== 取消編輯會員留言 END ===========================*/
+
+
+
+
+          /*==================== 修改編輯會員留言 ===========================*/
+
+          $('.discuss_div').on('click', '.d_mem_edit .confirm_edit ', function(event) {
+            var _this=$(this);
+            var ds_content_DOM=$(this).parent().prev().find('textarea');
+
+            if (ds_content_DOM.val()=='' || ds_content_DOM.val().search(/^(?:[^\#|\$|\%|\^|\&|\*|\(|\)|\=|\+|\{|\}|\"|\'|\<|\>]+)$/)==-1) {
+              alert("留言板欄位為空值或是帶有特殊符號");
+              ds_content_DOM.css('borderColor', 'red');
+            }
+            else if (ds_content_DOM.val().length<15) {
+              alert('請輸入15字以上留言');
+            }
+            else{
+              $.ajax({
+                url: '../ajax/member_ajax.php',
+                type: 'POST',
+                data: {
+                  type: 'edit_discuss',
+                  ds_pk: _this.parent().next().next().val(),
+                  ds_content: ds_content_DOM.val()
+                },
+                success:function (data) {
+                  alert('修改留言成功');
+                  $('.d_mem_edit').css('display', 'block');
+                  mem_discuss();
+                },
+                error: function (xhr) {
+                  alert("錯誤提示： " + xhr.status + " " + xhr.statusText+" 請盡速與我們聯絡，我們將盡快處理");
+                }
+              });
+            }
+            
+          });
+
+          /*==================== 修改編輯會員留言 END ===========================*/
+
+
+
+
+          /*==================== 回覆會員留言 ===========================*/
+
+          $('.discuss_div').on('click', '.d_mem_edit .reply', function(event) {            
+            var _this=$(this);
+            $.ajax({
+              url: '../ajax/member_ajax.php',
+              type: 'POST',
+              dataType: 'json',
+              data: {
+                type: 'reply_mem'
+                
+              },
+              success:function (data) {
+                 var reply_name=_this.parent().prev().find('.d_mem_name').html();
+                 var ud_photo=data['ud_photo']=='' ? '../img/component/user.png':'../sys/img/'+data['ud_photo'];
+                 var txt='<div class="mb-2 position-relative">'+
+                            '<div class="d_mem_img mr-1">'+
+                             '<img src="'+ud_photo+'">'+
+                            '</div>'+
+                            '<div class="d_mem_txt">'+
+                              '<p class="mb-0">'+data['ud_nickname']+' 回覆給 '+reply_name+'</p>'+
+                              '<textarea rows="5"></textarea>'+
+                           '</div>'+
+                           '<div class="d_mem_edit">'+
+                              '<a href="javascript:;" class="confirm_reply text-info" title="確定回覆"><i class="fa fa-check"></i></a>｜'+
+                              '<a href="javascript:;" class="close_reply text-danger" title="取消回覆"><i class=" fa fa-close"></i></a>'+
+                            '</div>'+
+                          '</div>';
+
+                _this.parent().next().find('.edit_reply').html(txt);
+              },
+              error: function (xhr) {
+                alert("錯誤提示： " + xhr.status + " " + xhr.statusText+" 請盡速與我們聯絡，我們將盡快處理");
+              }
+            });
+            
+            $('.d_mem_edit').css('display', 'none');
+          });
+
+          /*==================== 回覆會員留言 END ===========================*/
+
+
+
+
+
+
+          /*==================== 引言回覆會員留言 ===========================*/
+
+          $('.discuss_div').on('click', '.d_mem_edit .reply_q', function(event) {            
+            var _this=$(this);
+            $.ajax({
+              url: '../ajax/member_ajax.php',
+              type: 'POST',
+              dataType: 'json',
+              data: {
+                type: 'reply_mem'
+                
+              },
+              success:function (data) {
+                 var to_name=_this.parent().prev().find('.d_mem_name').html();
+                 var to_cotent=_this.parent().prev().find('p:nth-child(2)').html();
+                     to_cotent=to_cotent.replace('<br>','\r');
+                     to_cotent=to_cotent.length>15 ? to_cotent.slice(0, 15)+'...恕刪':to_cotent;
+                 var ud_photo=data['ud_photo']=='' ? '../img/component/user.png':'../sys/img/'+data['ud_photo'];
+                 var txt='<div class="mb-2 position-relative">'+
+                            '<div class="d_mem_img mr-1">'+
+                             '<img src="'+ud_photo+'">'+
+                            '</div>'+
+                            '<div class="d_mem_txt">'+
+                              '<p class="mb-0">'+data['ud_nickname']+' 回覆給 '+to_name+'</p>'+
+                              '<textarea rows="5">'+'---------------------------------------- \n ['+to_name+'寫道]'+to_cotent+' \n ----------------------------------------'+'</textarea>'+
+                           '</div>'+
+                           '<div class="d_mem_edit">'+
+                              '<a href="javascript:;" class="confirm_reply text-info" title="確定回覆"><i class="fa fa-check"></i></a>｜'+
+                              '<a href="javascript:;" class="close_reply text-danger" title="取消回覆"><i class=" fa fa-close"></i></a>'+
+                            '</div>'+
+                          '</div>';
+
+                _this.parent().next().find('.edit_reply').html(txt);
+              },
+              error: function (xhr) {
+                alert("錯誤提示： " + xhr.status + " " + xhr.statusText+" 請盡速與我們聯絡，我們將盡快處理");
+              }
+            });
+            
+            $('.d_mem_edit').css('display', 'none');
+          });
+
+          /*==================== 引言回覆會員留言 END ===========================*/
+
+
+
+         
+
+         /*==================== 確定編輯回覆留言 ===========================*/
+
+         $('.discuss_div').on('click', '.d_mem_edit .confirm_reply ', function(event) {
+           var _this=$(this);
+           var ds_content_DOM=$(this).parent().prev().find('textarea');
+
+           if (ds_content_DOM.val()=='' || ds_content_DOM.val().search(/^(?:[^\#|\$|\%|\^|\&|\*|\(|\)|\=|\+|\{|\}|\"|\'|\<|\>]+)$/)==-1) {
+             alert("回覆留言板欄位為空值或是帶有特殊符號");
+             ds_content_DOM.css('borderColor', 'red');
+           }
+           else if (ds_content_DOM.val().length<15) {
+             alert('請輸入15字以上留言');
+           }
+           else{
+             $.ajax({
+               url: '../ajax/member_ajax.php',
+               type: 'POST',
+               data: {
+                 type: 'reply_discuss',
+                 ds_parent: _this.parents('.reply_txt').next().val(),
+                 ds_type_pk:$('[name="ds_type_pk"]').val() ,
+                 ds_content: ds_content_DOM.val()
+               },
+               success:function (data) {
+                 alert('回覆留言成功');
+                 mem_discuss();
+               },
+               error: function (xhr) {
+                 alert("錯誤提示： " + xhr.status + " " + xhr.statusText+" 請盡速與我們聯絡，我們將盡快處理");
+               }
+             });
+           }
+           
+         });
+
+         /*==================== 確定編輯回覆留言 END ===========================*/
+
+
+
+
+
+          /*==================== 取消編輯回覆留言 ===========================*/
+
+          $('.discuss_div').on('click', '.d_mem_edit .close_reply', function(event) {
+            $(this).parent().parent().html('');
+            $('.d_mem_edit').css('display', 'block');
+          });
+
+          /*==================== 取消編輯回覆留言 END ===========================*/
+
+
+
+
+
+
+
+          
+          /*--------------------------------------------- 會員 END ---------------------------------------------*/
 
 
 
 
           /*---------------------------------------- 右邊DIV跟隨功能 -----------------------------------------*/
-            if($(window).width()>768){
+          //-- 畫面高 --
+          var window_height=$(window).height();
+          //-- 左DIV高 --
+          var left_div_height=$('.index-content-left .row').height();
+          //-- 右DIV高 --
+          var right_div_height=$('.index-content-right .row').height();
+
+            if($(window).width()>768 && left_div_height>window_height && left_div_height>right_div_height){
 
             //-- 右邊div頂部位置 --
-            var right_div_top=$('.index-content-right').offset().top;
+            //var right_div_top=$('.index-content-right').offset().top;
             //-- 前一個畫面位置 --
             var before_scrollTop=$(window).scrollTop();
             
@@ -1810,8 +2301,6 @@ get_right_div();
 
 
 
-
-
 /*==================== 右邊DIV跟隨功能(給予) ===========================*/
 function get_right_div() {
   //-- 畫面高 --
@@ -1908,7 +2397,7 @@ function slide_st_auto(DOM, id) {
 
 
 
-//======================= 內文圖片 alt 轉圖說 ==========================
+//======================= 內文圖片 alt 轉圖說 加入fancybox ==========================
 function img_txt(dom_id) {
    
     $.each($(dom_id), function(index, val) {
@@ -1938,14 +2427,29 @@ function img_txt(dom_id) {
 function img_750_w(dom_id) {
   
   $.each($(dom_id), function(index, val) {
-    
-    if ($(this).width()<750) {
+   
+   //-- 電腦畫面 --
+   if ($(window).width()>768) {
+     if ($(this).width()<750) {
+        $(this).parent().width($(this).width());
+     }
+     //-- 文繞圖 --
+     if ($(this).width()<450 && $(window).width()>768) {
+       $(this).parent().css('float', 'left');
+       $(this).parent().css('margin-right', '1rem');
+       $(this).parent().css('display', 'inline-block');
+     }
+   }
+   //-- 手機畫面 --
+   else{
+     if ($(this).width()<$(window).width()) {
        $(this).parent().width($(this).width());
-    }
-
-    if ($(this).width()<450 && $(window).width()>768) {
-      $(this).parent().css('float', 'left');
-    }
+     }
+     else{
+       $(this).addClass('w-100');
+     }
+   }
+    
   });
 }
 
@@ -1958,21 +2462,21 @@ function html_ad() {
 
     //-- 手機 --
     if ($(window).width()<768) {
-      var ad_txt='<a class="d-block mt-3" href="#"><img class="w-100" src="http://placehold.it/900x300" alt=""></a>';
+      var ad_txt='<a class="d-block my-3" href="#"><img class="w-100" src="http://placehold.it/900x300" alt=""></a>';
     }
     //-- 電腦 --
     else{
-     var ad_txt='<a class="d-block mt-3" href="#"><img class="w-100" src="http://placehold.it/750x100" alt=""></a>';
+     var ad_txt='<a class="d-block my-3" href="#"><img class="w-100" src="http://placehold.it/750x100" alt=""></a>';
     }
 
     $.each($('.detail_content>p'), function(index, val) {
        
        if ($('.detail_content>p').length>=3 && index==2) {
         if ($(this).next().html().indexOf('img')!=-1) {
-          $(this).next().append(ad_txt);
+          $(this).next().after(ad_txt);
         }
         else{
-          $(this).append(ad_txt);
+          $(this).after(ad_txt);
         }
        }
     });

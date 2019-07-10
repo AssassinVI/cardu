@@ -122,7 +122,9 @@
                              <div class="col-2">
                                <div class="card_fun w-h-100 hv-center hole">
                                    <div class="text-center mt-05">
+                                    <a class="text-light" href="card_browse.php">
                                        <img src="../img/component/card_rank_logo.png" alt=""> <p class="mb-0 mt-025">卡總覽</p>
+                                    </a>
                                    </div>
                                </div>  
                              </div>
@@ -214,8 +216,8 @@
                                         $ns_ftitle=mb_substr($row_news[$index]['ns_ftitle'], 0,14, 'utf-8');
                                         $news_txt.='
                                         <div class="col-4 cards-3">
-                                          <a href="new_card_detail.php?'.$row_news[$index]['Tb_index'].'">
-                                           <div class="img_div" title="'.$row_news[$index]['ns_ftitle'].'" style="background-image: url(../sys/img/'.$row_news[$index]['ns_photo_1'].');">
+                                          <a href="new_card_detail.php?'.$row_news[$index]['Tb_index'].'" title="'.$row_news[$index]['ns_ftitle'].'">
+                                           <div class="img_div"  style="background-image: url(../sys/img/'.$row_news[$index]['ns_photo_1'].');">
                                            </div>
                                             <p>'.$ns_ftitle.'</p>
                                           </a>
@@ -260,25 +262,30 @@
                             <div class="col-md-12 col0">
                               <div class="row">
                                 <?php 
-                                  
-                                  for ($i=0; $i <2 ; $i++) { 
-                                    
-                                    $interests_li='';
 
-                                    for ($j=1; $j <4 ; $j++) { 
-                                      $index=($i*3)+$j;
-                                      $ns_ftitle=mb_substr($row_news[$index]['ns_ftitle'], 0,14,'utf-8');
-                                      $interests_li.='<li><a href="interests_card_detail.php?'.$row_news[$index]['Tb_index'].'" title="'.$row_news[$index]['ns_ftitle'].'">'.$ns_ftitle.'</a></li>';
-                                    }
-
-                                    $txt='
-                                    <div class="col-6">
-                                      <ul class="cardu_li interests">
-                                      '.$interests_li.'
-                                      </ul>
-                                    </div>';
-                                    echo $txt;
+                                  for ($i=1; $i <7 ; $i++) { 
+                                   $ns_ftitle=mb_substr($row_news[$i]['ns_ftitle'], 0,18,'utf-8');
+                                   $txt='
+                                   <div class="col-6">
+                                     <ul class="cardu_li interests mb-2">
+                                     <li><a href="interests_card_detail.php?'.$row_news[$i]['Tb_index'].'" title="'.$row_news[$i]['ns_ftitle'].'">'.$ns_ftitle.'</a></li>
+                                     </ul>
+                                   </div>';
+                                   echo $txt;
                                   }
+                                  
+                                  // for ($i=0; $i <2 ; $i++) { 
+                                    
+                                  //   $interests_li='';
+
+                                  //   for ($j=1; $j <4 ; $j++) { 
+                                  //     $index=($i*3)+$j;
+                                  //     $ns_ftitle=mb_substr($row_news[$index]['ns_ftitle'], 0,14,'utf-8');
+                                  //     $interests_li.='<li><a href="interests_card_detail.php?'.$row_news[$index]['Tb_index'].'" title="'.$row_news[$index]['ns_ftitle'].'">'.$ns_ftitle.'</a></li>';
+                                  //   }
+
+                                    
+                                  // }
                                 ?>
                              </div>
                             </div>
@@ -321,7 +328,7 @@
                        //-- tab --
                        $list_txt.= '
                         <li class="nav-item news_tab">
-                          <a class="nav-link '.$active.' pl-30 py-2" id="special_'.$x.'-tab"  href="/message/second.php?mt_pk='.$news_type['Tb_index'].'" tab-target="#special_'.$x.'" aria-selected="true">'.$news_type['nt_name'].'</a>
+                          <a class="nav-link '.$active.' pl-30 py-2" id="special_'.$x.'-tab"  href="/message/list.php?mt_pk='.$news_type['Tb_index'].'&sp=1" tab-target="#special_'.$x.'" aria-selected="true">'.$news_type['nt_name'].'</a>
                         </li>';
 
 
@@ -344,8 +351,8 @@
                                   $ns_ftitle=mb_substr($row_news_con[$index]['ns_ftitle'], 0,14, 'utf-8');
                                   $news_txt.='
                                   <div class="col-4 cards-3">
-                                    <a href="'.$news_url.'">
-                                     <div class="img_div" title="'.$row_news_con[$index]['ns_ftitle'].'" style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
+                                    <a href="'.$news_url.'" title="'.$row_news_con[$index]['ns_ftitle'].'">
+                                     <div class="img_div"  style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
                                      </div>
                                       <p>'.$ns_ftitle.'</p>
                                     </a>
@@ -422,7 +429,7 @@
                        //-- tab --
                        $list_txt.= '
                         <li class="nav-item news_tab news_tab_three">
-                          <a class="nav-link '.$active.' pl-30 py-2" id="card_'.$x.'-tab"  href="/message/second.php?mt_pk='.$news_type['Tb_index'].'" tab-target="#card_'.$x.'" aria-selected="true">'.$news_type['nt_name'].'</a>
+                          <a class="nav-link '.$active.' pl-30 py-2" id="card_'.$x.'-tab"  href="/message/list.php?mt_pk='.$news_type['Tb_index'].'" tab-target="#card_'.$x.'" aria-selected="true">'.$news_type['nt_name'].'</a>
                         </li>';
 
 
@@ -448,8 +455,8 @@
                                   
                                   $news_txt.='
                                   <div class="col-4 cards-3">
-                                    <a href="'.$news_url.'">
-                                     <div class="img_div" title="'.$row_news_con[$index]['ns_ftitle'].'" style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
+                                    <a href="'.$news_url.'" title="'.$row_news_con[$index]['ns_ftitle'].'">
+                                     <div class="img_div"  style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
                                      </div>
                                       <p>'.$ns_ftitle.'</p>
                                     </a>
@@ -527,7 +534,7 @@
                        //-- tab --
                        $list_txt.= '
                         <li class="nav-item news_tab ">
-                          <a class="nav-link '.$active.' pl-30 py-2" id="message1_'.$x.'-tab"  href="/message/second.php?mt_pk='.$news_type['Tb_index'].'" tab-target="#message1_'.$x.'" aria-selected="true">'.$news_type['nt_name'].'</a>
+                          <a class="nav-link '.$active.' pl-30 py-2" id="message1_'.$x.'-tab"  href="/message/list.php?mt_pk='.$news_type['Tb_index'].'" tab-target="#message1_'.$x.'" aria-selected="true">'.$news_type['nt_name'].'</a>
                         </li>';
 
 
@@ -553,8 +560,8 @@
                                   
                                   $news_txt.='
                                   <div class="col-4 cards-3">
-                                    <a href="'.$news_url.'">
-                                     <div class="img_div" title="'.$row_news_con[$index]['ns_ftitle'].'" style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
+                                    <a href="'.$news_url.'" title="'.$row_news_con[$index]['ns_ftitle'].'">
+                                     <div class="img_div"  style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
                                      </div>
                                       <p>'.$ns_ftitle.'</p>
                                     </a>
@@ -628,7 +635,7 @@
                        //-- tab --
                        $list_txt.= '
                         <li class="nav-item news_tab ">
-                          <a class="nav-link '.$active.' pl-30 py-2" id="message2_'.$x.'-tab"  href="/message/second.php?mt_pk='.$news_type['Tb_index'].'" tab-target="#message2_'.$x.'" aria-selected="true">'.$news_type['nt_name'].'</a>
+                          <a class="nav-link '.$active.' pl-30 py-2" id="message2_'.$x.'-tab"  href="/message/list.php?mt_pk='.$news_type['Tb_index'].'" tab-target="#message2_'.$x.'" aria-selected="true">'.$news_type['nt_name'].'</a>
                         </li>';
 
 
@@ -654,8 +661,8 @@
                                   
                                   $news_txt.='
                                   <div class="col-4 cards-3">
-                                    <a href="'.$news_url.'">
-                                     <div class="img_div" title="'.$row_news_con[$index]['ns_ftitle'].'" style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
+                                    <a href="'.$news_url.'" title="'.$row_news_con[$index]['ns_ftitle'].'">
+                                     <div class="img_div"  style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
                                      </div>
                                       <p>'.$ns_ftitle.'</p>
                                     </a>

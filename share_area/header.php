@@ -315,7 +315,7 @@
                                       
                                     </ul>
                                     <ul class="ul-2-part">
-                                      <li><a href="#">電子報</a></li>
+                                      <li><a href="/member/epaper.php">電子報</a></li>
                                       <li><a href="/member/service.php">客服中心</a></li>
                                     </ul>
                                   </div>
@@ -403,7 +403,7 @@
                   <p class="text-center">或使用以下帳號登入</p>
                   <div class="row no-gutters">
                     <div class="col-6">
-                      <a id="mem_FB_login" class="other_login_btn fb_color" href="#">Facebook</a>
+                      <a id="mem_FB_login" class="other_login_btn fb_color" href="javascript:;">Facebook</a>
                     </div>
                     <div class="col-6">
                       <!-- <a class="other_login_btn google_color" href="#">Google</a> -->

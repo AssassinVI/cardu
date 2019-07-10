@@ -17,6 +17,8 @@
 //----- 去除空白
 //----- 驗證cookie 登入
 //----- 信用卡List 樣板
+//----- 會員判斷
+//----- 網站404判斷
 //@@@@@ (手機) @@@@@@@@@@
 //----- 版區、次版區banner 輪播 (手機板)
 //----- 首頁 卡情報、優票證、優旅行
@@ -27,6 +29,11 @@
 //----- 版區各刷卡整理||XX攻略5篇文章
 
 
+/* ----------------------- 圖片檔案上傳 --------------------------- */
+function fire_upload_pc($file_id, $file_name)
+{
+   move_uploaded_file($_FILES[$file_id]['tmp_name'], '../sys/img/'.$file_name);
+}
 
 //-- 單卡網址 --
 function card_url($cc_pk, $cc_group_id)
@@ -695,17 +702,31 @@ function news_list( $PageNo, $ns_nt_pk, $sp='')
 
          //-- 卡情報 --
          case 'site2019011115561564':
-           //-- 關聯銀行 --
-           $row_back=$pdo->select("SELECT abc.bank_id, bk.bi_shortname
-                                   FROM appNews_bank_card as abc
-                                   INNER JOIN bank_info as bk ON bk.Tb_index=abc.bank_id
-                                   WHERE news_id=:news_id
-                                   GROUP BY abc.bank_id", ['news_id'=>$row_list_one['Tb_index']]);
            
-           $back_num=count($row_back);
-           $cs_small_txt=$back_num==1 ? '<small class="cs_small"><a href="/card/bank_detail.php?bi_pk='.$row_back[0]['bank_id'].'">('.$row_back[0]['bi_shortname'].')</a></small>' : '';
-           $news_small_txt='';
-           $ns_ftitle=$back_num==1 ? mb_substr($row_list_one['ns_ftitle'], 0,15,'utf-8') : $row_list_one['ns_ftitle'];
+           //-- 新卡訊、權益條款除外 --
+           if ($ns_nt_pk!='nt201902121004593' && $ns_nt_pk!='nt2019021210051224') {
+             //-- 關聯銀行 --
+             $row_back=$pdo->select("SELECT abc.bank_id, bk.bi_shortname
+                                     FROM appNews_bank_card as abc
+                                     INNER JOIN bank_info as bk ON bk.Tb_index=abc.bank_id
+                                     WHERE news_id=:news_id
+                                     GROUP BY abc.bank_id", ['news_id'=>$row_list_one['Tb_index']]);
+             
+             $back_num=count($row_back);
+             $cs_small_txt=$back_num==1 ? '<small class="cs_small"><a href="/card/bank_detail.php?bi_pk='.$row_back[0]['bank_id'].'">('.$row_back[0]['bi_shortname'].')</a></small>' : '';
+             $news_small_txt='';
+             $ns_ftitle=$back_num==1 ? mb_substr($row_list_one['ns_ftitle'], 0,15,'utf-8') : $row_list_one['ns_ftitle'];
+           }
+
+           //-- 新卡訊、權益條款 --
+           else{
+             $news_small_txt='<small class="px-md-4 pb-md-0 px-0 pb-2">('.$row_list_one['StartDate'].')</small>';
+             $cs_small_txt='';
+             $ns_ftitle=mb_substr($row_list_one['ns_ftitle'], 0,20,'utf-8');
+           }
+           
+
+
          break;
 
          //-- 優情報 --
@@ -732,7 +753,7 @@ function news_list( $PageNo, $ns_nt_pk, $sp='')
        
 
        //-- 活動時間 --
-       if ($row_list_one['activity_e_date']!='0000-00-00') {
+       if ($row_list_one['activity_e_date']!='0000-00-00' && !wp_is_mobile()) {
          $activity_s_date=$row_list_one['activity_s_date']!='0000-00-00' ? $row_list_one['activity_s_date']:'即日起';
          $activity_date='<span class="mb-1">活動日期：'.$activity_s_date.'~'.$row_list_one['activity_e_date'].'</span>';
        }
@@ -768,18 +789,23 @@ function news_list( $PageNo, $ns_nt_pk, $sp='')
        //-- 圖文廣告(手機) END --
        
        //-- LIST --
+
+       //-- 權益條款修改 --
+       $img_dis=$ns_nt_pk=='nt2019021210051224' ? 'd-none' : '';
+       $news_list_txt_col=$ns_nt_pk=='nt2019021210051224' ? 'col-md-12 col-12 pl-md-4 px-2 pl-0 py-2' : 'col-md-8 col-6 pl-md-4 pl-0 py-2';
+       $list_css=$ns_nt_pk=='nt2019021210051224' ? 'interests':'';
+
        echo '
-       <div class="row no-gutters py-md-3 mx-md-4 news_list">
-        <div class="col-md-4 col-6 py-2 pl-2">
+       <div class="row no-gutters py-md-3 mx-md-4 news_list '.$list_css.'">
+        <div class="col-md-4 col-6 py-2 pl-2 '.$img_dis.'">
           <a target="_blank" class="img_div news_list_img" title="'.$row_list_one['ns_ftitle'].'" href="'.$url.'" style="background-image: url(/sys/img/'.$row_list_one['ns_photo_1'].');"></a>
         </div>
-        <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
+        <div class="'.$news_list_txt_col.' news_list_txt">
          <div class="mb-2">
            
             <h3>
               <a target="_blank" href="'.$url.'" title="'.$row_list_one['ns_ftitle'].'">'.$ns_ftitle.'</a> '.$cs_small_txt.'
             </h3>
-           
            
          </div>
           '.$activity_date.'
@@ -843,8 +869,11 @@ function news_list( $PageNo, $ns_nt_pk, $sp='')
 
 //---------------------------------------------------- 新聞內頁分享功能按鈕 ----------------------------------------------------
 
-function news_share_btn($FB_URL, $QUERY_STRING)
+function news_share_btn($FB_URL, $QUERY_STRING, $message_btn='Y')
 {
+  $print_url=strpos($QUERY_STRING, 'note')!==false ? '../member/print.php?'.$QUERY_STRING:'../share_area/print.php?'.$QUERY_STRING;
+  $message_html= $message_btn=='Y' ? '<a class="search_btn message_btn" href="javascript:;"><img src="../img/component/search/message.png" alt="" title="訊息"></a>' : '';
+  $save_html=empty( $_SESSION['ud_pk'] ) ? '<a href="javascript:;" data-fancybox data-src="#member_div"><img src="../img/component/search/work.png" alt="" title="收藏"></a>' : '<a href="javascript:;" onclick="my_favorite(\''.$QUERY_STRING.'\');"><img src="../img/component/search/work.png" alt="" title="收藏"></a>';
   echo '  
    <div class="search_div hv-center">
     <div class="fb-like mr-2" data-href="'.$FB_URL.'" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
@@ -857,7 +886,7 @@ function news_share_btn($FB_URL, $QUERY_STRING)
      </a>
 
      <!-- 訊息 -->
-     <a class="search_btn message_btn" href="javascript:;"><img src="../img/component/search/message.png" alt="" title="訊息"></a>
+     '.$message_html.'
 
      <!-- 更多 -->
      <a id="arrow_btn" class="search_btn phone_hidden" href="javascript:;" title="更多"><i class="fa fa-angle-down"></i></a>
@@ -865,9 +894,9 @@ function news_share_btn($FB_URL, $QUERY_STRING)
    </div>
    <div class="more_search ">
      <!-- 列印 -->
-     <a target="_blank " href="../share_area/print.php?'.$QUERY_STRING.'"><img src="../img/component/search/print.png" alt="" title="列印"></a>
+     <a target="_blank " href="'.$print_url.'"><img src="../img/component/search/print.png" alt="" title="列印"></a>
      <!-- 收藏 -->
-     <a href="javascript:;" data-fancybox data-src="#member_div"><img src="../img/component/search/work.png" alt="" title="收藏"></a>
+     '.$save_html.'
      <!-- 信箱 -->
      <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_mail.php?'.$QUERY_STRING.'"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
      <!-- 回報 -->
@@ -877,6 +906,48 @@ function news_share_btn($FB_URL, $QUERY_STRING)
 }
 
 //---------------------------------------------------- 新聞內頁分享功能按鈕 END ----------------------------------------------------
+
+
+
+
+
+//---------------------------------------------------- 單卡內頁分享功能按鈕 ----------------------------------------------------
+
+function cc_share_btn($FB_URL, $cc_pk, $message_btn='Y')
+{
+  $message_html= $message_btn=='Y' ? '<a class="search_btn cc_message_btn" href="javascript:;"><img src="../img/component/search/message.png" alt="" title="訊息"></a>' : '';
+  $save_html=empty( $_SESSION['ud_pk'] ) ? '<a href="javascript:;" data-fancybox data-src="#member_div"><img src="../img/component/search/work.png" alt="" title="收藏"></a>' : '<a href="javascript:;" onclick="my_favorite(\''.$cc_pk.'\');"><img src="../img/component/search/work.png" alt="" title="收藏"></a>';
+  echo '  
+   <div class="search_div hv-center">
+    <div class="fb-like mr-2" data-href="'.$FB_URL.'" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+     <!-- FB分享 -->
+     <a class="search_btn" href="javascript:;" onclick="window.open(\'https://www.facebook.com/dialog/feed?app_id=319016928941764&display=popup&link='.$FB_URL.'&redirect_uri=https://www.facebook.com/\', \'FB分享\', config=\'height=600,width=800\');"><img src="../img/component/search/fb.png" alt="" title="分享">
+     </a>
+
+     <!-- LINE分享 -->
+     <a class="search_btn" href="javascript:;" onclick="window.open(\'https://social-plugins.line.me/lineit/share?url='.$FB_URL.'\', \'LINE分享\', config=\'height=600,width=800\');"><img src="../img/component/search/line.png" alt="" title="Line">
+     </a>
+
+     <!-- 訊息 -->
+     '.$message_html.'
+
+     <!-- 更多 -->
+     <a id="arrow_btn" class="search_btn phone_hidden" href="javascript:;" title="更多"><i class="fa fa-angle-down"></i></a>
+
+   </div>
+   <div class="more_search ">
+     
+     <!-- 收藏 -->
+     '.$save_html.'
+     <!-- 信箱 -->
+     <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_mail.php?'.$cc_pk.'"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
+     <!-- 回報 -->
+     <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
+   </div>
+  ';
+}
+
+//---------------------------------------------------- 單卡內頁分享功能按鈕 END ----------------------------------------------------
 
 
 
@@ -999,6 +1070,30 @@ function popular_card_txt($x, $row_car_d, $is_top_prize='Y' )
 }
 
 //----------------------------------------------------- 信用卡List 樣板 END ------------------------------------------------------
+
+
+
+//------------------------------------------------- 會員判斷 ------------------------------------------------------------------
+
+ function check_member()
+ {
+   if (empty($_SESSION['ud_pk'])) {
+     location_up('/index.php', '您尚未登入會員，請先登入會員或註冊會員');
+   }
+ }
+
+//------------------------------------------------- 會員判斷 END ------------------------------------------------------------------
+
+
+
+//----------------------------------------------- 404 錯誤判斷 -----------------------------------------------------------
+ // function check_error_404()
+ // {
+   
+ // }
+//----------------------------------------------- 404 錯誤判斷 END -----------------------------------------------------------
+
+
 
 
 //===============================================================================================================

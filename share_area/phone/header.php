@@ -249,8 +249,9 @@
          <div class="card">
            <div class="card-header" id="card9">
              <h5 class="mb-0">
+              <a href="/member/member.php"> 會員中心</a>
                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
-                 會員中心 <i class="fa fa-angle-down"></i>
+                  <i class="fa fa-angle-down"></i>
                </button>
              </h5>
            </div>
@@ -258,8 +259,8 @@
              <div class="card-body">
                <h4>會員專區</h4>
                <div class="row no-gutters">
-                 <div class="col-6"><a href="/member/index.php">會員資料</a></div>
-                 <div class="col-6"><a href="#">電子報</a></div>
+                 <div class="col-6"><a href="/member/login_info.php">會員資料</a></div>
+                 <div class="col-6"><a href="/member/epaper.php">電子報</a></div>
                  <div class="col-6"><a href="/member/annouce_second.php">卡優公告</a></div>
                  <div class="col-6"><a href="/member/service.php">客服中心</a></div>
                  <div class="col-6"><a href="/member/event_second.php">卡優活動</a></div>
@@ -337,42 +338,116 @@
 
 
 
-     <!-- 會員登入 -->
+     
+     <?php 
+       $ud_userid_lg=empty($_COOKIE['remember_id']) ? '' : $_COOKIE['remember_id'];
+       $ck_remember_id=empty($_COOKIE['remember_id']) ? '' : 'checked';
+
+       if (empty($_SESSION['ud_pk']) ) {
+     ?>
+
+     <!-- 會員登入(未登入) -->
+
      <div id="member_div" >
        <div class="mem_logo">
          <img src="/img/component/logo_ph.png"  alt="">
        </div>
        <h2>卡優會員登入</h2>
-       <form id="form_login" action="#" method="POST">
+       <form id="form_login" action="" method="POST">
          <div class="form-group">
-           <input type="email" class="form-control" id="mem_email"  placeholder="會員帳號">
+           <input type="text" class="form-control" name="ud_userid_lg"  placeholder="會員帳號" value="<?php echo $ud_userid_lg;?>">
            
          </div>
          <div class="form-group">
-           <input type="password" class="form-control" id="mem_pwd"  placeholder="會員密碼">
+           <input type="password" class="form-control" name="ud_password_lg"  placeholder="會員密碼">
          </div>
          <div class="form-group">
-           <label><input type="checkbox" value="1"> 記住我的帳號 </label>
+           <label><input type="checkbox" name="remember_id" value="1" <?php echo $ck_remember_id;?>> 記住我的帳號 </label>
            <a href="/member/password.php">忘記密碼</a>
          </div>
          <div class="form-group">
-           <a class="login_btn" href="#">登入</a>
+           <button class="login_btn">登入</button>
            <p>還不是會員嗎?<a href="/member/sign_second.php">立即註冊</a></p>
          </div>
          <div class="form-group">
            <p class="text-center">或使用以下帳號登入</p>
            <div class="row no-gutters">
              <div class="col-6">
-               <a class="other_login_btn fb_color" href="#">Facebook</a>
+               <a id="mem_FB_login" class="other_login_btn fb_color" href="javascript:;">Facebook</a>
              </div>
              <div class="col-6">
-               <a class="other_login_btn google_color" href="#">Google</a>
+               <button id="mem_G_login" type="button" class="btn btnOver">Google</button>
              </div>
            </div>
          </div>
+         <input type="hidden" name="login" value="Y">
        </form>
      </div>
-     <!-- 會員登入 END -->
+
+
+     <!-- 會員登入(未登入) END -->
+
+     <?php 
+        } else{
+
+        if (!empty($_SESSION['ud_photo'])) {
+          $ud_photo= strpos($_SESSION['ud_photo'], 'http') ===FALSE ?  '../sys/img/'.$_SESSION['ud_photo'] : $_SESSION['ud_photo'];
+        }
+        else{
+          $ud_photo='../img/component/user.png';
+        }
+     ?>
+     
+     <!-- 會員登入(登入) -->
+
+     <div id="member_div" >
+       <div class="mem_logo mb-4">
+         <img src="/img/component/logo_ph.png"  alt="">
+       </div>
+       <div class="row">
+         <div class="col-4 text-center">
+           <img style="height: 65px;" src="<?php echo $ud_photo;?>" alt="">
+         </div>
+         <div class="col-8">
+           <h2>會員：<?php echo $_SESSION['ud_nickname'];?></h2>
+         </div>
+         <div class="col-12">
+           <hr>
+         </div>
+         <div class="col-6 text-center py-2">
+           <a class="btn btn-outline-primary btn-block" href="/member/login_info.php">會員資料</a>
+         </div>
+         <div class="col-6 text-center py-2">
+           <a class="btn btn-outline-primary btn-block" href="/member/mycard.php">我的信用卡</a>
+         </div>
+         <div class="col-6 text-center py-2">
+           <a class="btn btn-outline-primary btn-block" href="/member/mybill.php">我的帳單</a>
+         </div>
+         <div class="col-6 text-center py-2">
+           <a class="btn btn-outline-primary btn-block" href="/member/myinfo.php">我的資訊</a>
+         </div>
+         <div class="col-6 text-center py-2">
+           <a class="btn btn-outline-primary btn-block" href="/member/mypen.php">我的文章</a>
+         </div>
+         <div class="col-6 text-center py-2">
+           <a class="btn btn-outline-primary btn-block" href="/member/mycollect.php">我的收藏</a>
+         </div>
+         <div class="col-6 text-center py-2">
+           <a class="btn btn-outline-primary btn-block" href="/member/mydate.php">我的行事曆</a>
+         </div>
+         <div class="col-6 text-center py-2">
+           <a class="btn btn-outline-danger btn-block" href="/index.php?logout">登出</a>
+         </div>
+       </div>
+     </div>
+
+     <!-- 會員登入(登入) END -->
+
+     <?php
+        }
+     ?>
+     
+
 
 
      <!-- 信用卡快搜/權益快搜 -->

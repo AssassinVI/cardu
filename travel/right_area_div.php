@@ -114,7 +114,7 @@
 
         <div class="col-md-12 col">
          <div class="green_tab">
-          <form action="search_result.php" method="GET" class="row search_from">
+          <form action="../travel/search_result.php" method="GET" class="row search_from">
            <input type="search" required name="keyword"  class="journey_search" placeholder="請輸入優旅行要查詢的字串">  
            <button>搜尋</button>
           </form>

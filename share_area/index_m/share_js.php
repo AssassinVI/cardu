@@ -10,6 +10,8 @@
     <!-- 主要JS -->
     <script type="text/javascript" src="js/ajax.js"></script>
     <script type="text/javascript" src="js/index_m/main.js"></script>
+    <!-- GOOGLE 登入 -->
+    <script src="https://apis.google.com/js/api:client.js"></script>
     <!-- 社群帳號登入用 -->
     <script type="text/javascript" src="/js/community_login.js"></script>
 

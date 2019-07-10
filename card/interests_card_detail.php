@@ -7,6 +7,12 @@
  $row_detail=$pdo->select("SELECT * FROM appNews WHERE Tb_index=:Tb_index",['Tb_index'=>$_SERVER['QUERY_STRING']],'one');
  $ns_msghtml=mb_substr(strip_tags($row_detail['ns_msghtml']), 0, 400, 'utf-8');
 
+ //-- 404 判斷 --
+ if (empty($row_detail['Tb_index'])) {
+  location_up('../member/my404.php?card','');
+  exit();
+ }
+
  //-- 關聯信用卡 --
  $row_card=$pdo->select("SELECT bank_id, org_id
                          FROM appNews_bank_card 
@@ -98,19 +104,9 @@
                             
                             <div class="col-md-6">
                                <!-- 分享 -->
-                               <div class="search_div hv-center">
-                                <div class="fb-like mr-2" data-href="<?php echo $FB_URL;?>" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
-                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://www.facebook.com/dialog/feed?app_id=319016928941764&display=popup&link=<?php echo $FB_URL;?>&redirect_uri=https://www.facebook.com/', 'FB分享', config='height=600,width=800');"><img src="../img/component/search/fb.png" alt="" title="分享"></a>
-                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://social-plugins.line.me/lineit/share?url=<?php echo $FB_URL;?>', 'LINE分享', config='height=600,width=800');"><img src="../img/component/search/line.png" alt="" title="Line"></a>
-                                <a class="search_btn message_btn" href="javascript:;"><img src="../img/component/search/message.png" alt="" title="訊息"></a>
-                                 <a id="arrow_btn" class="search_btn" href="javascript:;"><img src="../img/component/search/arrow.png" alt="" title="更多"></a>
-                               </div>
-                               <div class="more_search">
-                                 <a target="_blank" href="print.php?<?php echo $temparray[1]?>"><img src="../img/component/search/print.png" alt="" title="列印"></a>
-                                 <a href="javascript:;" data-fancybox data-src="#member_div"><img src="../img/component/search/work.png" alt="" title="收藏"></a>
-                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_mail.php"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
-                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
-                               </div>
+                               <?php 
+                                 news_share_btn($FB_URL, $_SERVER['QUERY_STRING']);
+                               ?>
                                <!-- 分享 END -->
                             </div>
                           </div> 
@@ -196,71 +192,7 @@
                     </div>
                     <!--廣告end-->
 
-                     <!--XXＸ更多好康-->
-                    <div class="col-md-12 col">
-
-                      <?php 
-                        $where=['Tb_index'=>$_SERVER['QUERY_STRING'], 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')];
-
-                        if (!empty($row_card['bank_id'])) {
-                          $where_txt='ns_bank LIKE :ns_bank';
-                          $where['ns_bank']='%'.$row_card['bank_id'].'%';
-
-                          $title_name=$pdo->select("SELECT bi_shortname as t_anme FROM bank_info WHERE Tb_index=:Tb_index", ['Tb_index'=>$row_card['bank_id']], 'one');
-                        }
-                        else{
-                          $where_txt='ns_org LIKE :ns_org';
-                          $where['ns_org']='%'.$row_card['org_id'].'%';
-
-                          $title_name=$pdo->select("SELECT org_nickname as t_anme FROM card_org WHERE Tb_index=:Tb_index", ['Tb_index'=>$row_card['org_id']], 'one');
-                        }
-
-                        $related_bk_news=$pdo->select("SELECT Tb_index, ns_photo_1, ns_ftitle, mt_id, ns_nt_pk, area_id
-                                                           FROM NewsAndType
-                                                           WHERE $where_txt AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate AND Tb_index!=:Tb_index
-                                                           ORDER BY ns_vfdate DESC
-                                                           LIMIT 0,3", $where);
-                        
-                      ?>
-
-                        <div class="cardshap brown_tab ">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab">
-                            <a class="nav-link active pl-30 py-2" id="special_1-tab" data-toggle="tab" href="#special_1" role="tab" aria-controls="special_1" aria-selected="true">
-                              <?php echo $title_name['t_anme']; ?>更多好康</a>
-                          </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
-
-                            <div class="row no-gutters">
-
-                              <?php 
-                               foreach ($related_bk_news as $related_news_one) {
-
-                                 $url=news_url($related_news_one['mt_id'], $related_news_one['Tb_index'], $related_news_one['ns_nt_pk'], $related_news_one['area_id']);
-                                 $ns_ftitle=mb_substr($related_news_one['ns_ftitle'], 0,15,'utf-8');
-
-                                 echo '
-                                 <div class="col-md-4 col-12 cards-3 py-md-2">
-                                   <a href="'.$url.'">
-                                       <div class="img_div w-100-ph" title="'.$related_news_one['ns_ftitle'].'" style="background-image: url(../sys/img/'.$related_news_one['ns_photo_1'].');">
-                                       </div>
-                                       <p>'.$ns_ftitle.'</p>
-                                   </a>
-                                 </div>';
-                               }
-                              ?>
-                          
-                               
-                            </div>
-                           
-                          </div>
-                         
-                        </div>
-                      </div>
-                    </div>
-                    <!--XXＸ更多好康end -->
+                    
                     
                     <!--相關好康-->
                     <div class="col-md-12 col">
@@ -281,22 +213,21 @@
                                                            FROM NewsAndType
                                                            WHERE ns_nt_pk=:ns_nt_pk AND ns_verify=3 AND StartDate<=:StartDate AND EndDate>=:EndDate AND Tb_index!=:Tb_index
                                                            ORDER BY ns_vfdate DESC
-                                                           LIMIT 0,3", 
+                                                           LIMIT 0,6", 
                                                            ['Tb_index'=>$_SERVER['QUERY_STRING'], 'ns_nt_pk'=>$row_detail['ns_nt_pk'], 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
 
                                foreach ($related_news as $related_news_one) {
 
-                                 $url=news_url($related_news_one['mt_id'], $related_news_one['Tb_index'], $related_news_one['ns_nt_pk'], $related_news_one['area_id']);
-                                 $ns_ftitle=mb_substr($related_news_one['ns_ftitle'], 0,15,'utf-8');
+                                  $url=news_url($related_news_one['mt_id'], $related_news_one['Tb_index'], $related_news_one['ns_nt_pk'], $related_news_one['area_id']);
 
-                                 echo '
-                                 <div class="col-md-4 col-12 cards-3 py-md-2">
-                                   <a href="'.$url.'">
-                                       <div class="img_div w-100-ph" title="'.$related_news_one['ns_ftitle'].'" style="background-image: url(../sys/img/'.$related_news_one['ns_photo_1'].');">
-                                       </div>
-                                       <p>'.$ns_ftitle.'</p>
-                                   </a>
+                                 $ns_ftitle=mb_substr($related_news_one['ns_ftitle'], 0,18,'utf-8');
+                                 $txt='
+                                 <div class="col-md-6">
+                                   <ul class="cardu_li interests mb-2">
+                                   <li><a href="'.$url.'" title="'.$related_news_one['ns_ftitle'].'">'.$ns_ftitle.'</a></li>
+                                   </ul>
                                  </div>';
+                                 echo $txt;
                                }
                               ?>
 
@@ -492,11 +423,11 @@
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
-
-                            <p>您尚未登入，請先<a href="#">登入會員</a></p>
-                           
-                          </div>
+                          
+                          <?php 
+                            //-- 網友留言 HTML --
+                            require '../share_area/discuss_html.php';
+                          ?>
                          
                         </div>
                       </div>
@@ -589,6 +520,24 @@
      //-- 共用js --
      require '../share_area/share_js.php';
     ?>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        
+        //-- alt 圖說 & 手機加入fancybox --
+        img_txt('.detail_content p img');
+        //-- 圖寬限制 --
+        img_750_w('.detail_content img');
+        //-- table 優化 --
+        html_table('.detail_content>table');
+
+      });
+
+      $(window).on('load', function() {
+        //-- 內文插入廣告 --
+        html_ad();
+      });
+    </script>
 
   </body>
 </html>

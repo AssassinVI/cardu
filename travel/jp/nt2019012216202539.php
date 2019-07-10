@@ -21,10 +21,12 @@
       <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
         <div class="row no-gutters hv-center">
-            <img class="wx-100-ph" src="../../img/component/recomm_02_content_01_11.jpg" title="新聞">
+          <a href="info_detail.php?tr_pk=<?php echo $_GET['tr_pk'];?>&type=58&pk=11" title="東京，不管去幾次都不厭倦！">
+            <img class="wx-100-ph" src="../../img/component/recomm_02_content_01_11.jpg" >
+          </a>
         </div>
         <div class="travel_about pl-md-5 ml-md-1">
-          <a><h6>東京，不管去幾次都不厭倦！</h6></a>
+          <a href="info_detail.php?tr_pk=<?php echo $_GET['tr_pk'];?>&type=58&pk=11" title="東京，不管去幾次都不厭倦！"><h6>東京，不管去幾次都不厭倦！</h6></a>
           <p>初訪東京，淺草雷門大大紅色燈籠是必拍景點，迪士尼好玩到夜深都不想離去，六本木<br>
              絢爛夜景美不勝收，也對新宿擁擠的電車人潮留下難忘的印象！
           <span><a href="info_detail.php?tr_pk=<?php echo $_GET['tr_pk'];?>&type=58&pk=11">more</a></span></p>

@@ -16,7 +16,7 @@ if (!$temparray[1]) {
 
 }else{
      $sql_temp="
-      SELECT ns_ftitle, ns_stitle, ns_reporter, ns_photo_1, ns_alt_1, ns_msghtml, Tb_index, StartDate, ns_date, ns_nt_pk FROM  appNews
+      SELECT * FROM  appNews
       where ns_vfdate<>'0000-00-00 00:00:00' 
       and StartDate<='$todayis' and EndDate>='$todayis'
       and Tb_index='$temparray[1]'
@@ -57,9 +57,9 @@ if (!$temparray[1]) {
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <?php 
-     require 'fb_config.php';
-    ?>
+    <meta property="fb:admins" content="100000121777752" />
+    <meta property="fb:admins" content="100008160723180" />
+    <meta property="fb:app_id" content="319016928941764" />
     <meta property="og:site_name" content="卡優新聞網-列印" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
@@ -103,29 +103,38 @@ if (!$temparray[1]) {
                       <div class="cardshap ">
                         <div class="pt-3 mx-3 detail_title">
                           <h2><?php echo $row['ns_ftitle'];?></h2>
-                          <div class="row no-gutters my-3">
+                          
+                          <h4><?php echo $row['ns_stitle']; ?></h4>
 
-                            <div class="col-md-8 col-12">
-                              <h4><?php echo $row['ns_stitle'];?></h4>
-                               <p>記者 <?php echo $row['ns_reporter'];?> 報導 <?php echo $row['ns_date'];?></p>
-                            </div>
-                            
+                          <!-- 信用卡特色 -->
+                          <div class="row no-gutters my-3 newcard_g cardshap">
+                            <?php 
+                             if (empty($row['ccard_sp'])) {
+                               
+                               $card_adv=preg_split('/\n/',$row_card['cc_interest_desc']);
+                               foreach ($card_adv as $card_adv_one) {
+                                 echo '<div class="col-md-6 py-1"><span><img src="../img/component/li_brown.png"> </span>'.$card_adv_one.'</div>';
+                               }
+
+                             }
+                             else {
+                               $card_adv=preg_split('/\n/',$row['ccard_sp']);
+                               foreach ($card_adv as $card_adv_one) {
+                                 echo '<div class="col-md-6 py-1"><span><img src="../img/component/li_brown.png"> </span>'.$card_adv_one.'</div>';
+                               }
+                             }
+                             
+                            ?>
                           </div> 
-
+                          <!-- 信用卡特色 END -->
                          
                         </div>
 
                         <div class="pb-3 mx-3 detail_content">
-
-                          <?php 
-                           if (!empty($row['ns_photo_1'])) {
-
-                             echo '<p>
-                                    <img src="../sys/img/'.$row['ns_photo_1'].'" alt="'.$row['ns_alt_1'].'" >
-                                  </p>  ';
-                           }
-                          ?>
-                                      
+                          <div class="con_img">
+                            <img src="../sys/img/<?php echo $row['ns_photo_1'];?>" alt="<?php echo $row['ns_ftitle'];?>" title="<?php echo $row['ns_ftitle'];?>">
+                            <p>▲<?php echo $row['ns_alt_1'];?></p>
+                          </div>              
                             <?php echo $row['ns_msghtml'];?>
                         </div>
 

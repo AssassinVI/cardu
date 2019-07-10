@@ -126,9 +126,9 @@
                <div class="title_tab hole">
                    <h4>區域分類 </h4>
                </div>
-               <div class="content_tab">
+               <div class="content_tab py-0">
                  <div class="journey_icon">
-                   <div class="row no-gutters">
+                   <div class="row no-gutters py-0">
 
                     <?php 
                      $row_tr_type=$pdo->select("SELECT nt_name, Tb_index FROM news_type WHERE unit_id='un2019011717573494' AND OnLineOrNot=1 ORDER BY OrderBy ASC");

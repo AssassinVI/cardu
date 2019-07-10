@@ -14,6 +14,8 @@
     <!-- swiper -->
     <script type="text/javascript" src="/vendor/swiper/swiper.min.js"></script>
     <script type="text/javascript" src="/vendor/swiper/swiper.animate1.0.3.min.js"></script>
+    <!-- 金額格式化 -->
+    <script type="text/javascript" src="/vendor/accounting.min.js"></script>
     <!-- 超強動畫庫 -->
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
     <!-- GOOGLE 登入 -->

@@ -209,8 +209,10 @@
                          $bank_arr=explode(',', $row_list_one['ns_bank']);
                          
                          if (count($bank_arr)==1) {
-                           $row_bank=$pdo->select("SELECT bi_shortname FROM bank_info WHERE Tb_index=:Tb_index", ['Tb_index'=>$bank_arr[0]], 'one');
-                           $related_txt='<small>('.$row_bank['bi_shortname'].')</small>';
+                           $row_bank=$pdo->select("SELECT Tb_index, bi_shortname FROM bank_info WHERE Tb_index=:Tb_index", ['Tb_index'=>$bank_arr[0]], 'one');
+                           $related_txt='<a href="/card/bank_detail.php?bi_pk='.$row_bank['Tb_index'].'">
+                                           <small class="cs_small">('.$row_bank['bi_shortname'].')</small>
+                                         </a>';
                          }else{
                            $related_txt='';
                          }
@@ -221,8 +223,10 @@
                          $store_arr=explode(',', $row_list_one['ns_store']);
                          
                          if (count($store_arr)==1) {
-                           $row_store=$pdo->select("SELECT st_nickname FROM store WHERE Tb_index=:Tb_index", ['Tb_index'=>$store_arr[0]], 'one');
-                           $related_txt='<small>('.$row_store['st_nickname'].')</small>';
+                           $row_store=$pdo->select("SELECT st_nickname, Tb_index FROM store WHERE Tb_index=:Tb_index", ['Tb_index'=>$store_arr[0]], 'one');
+                           $related_txt='<a href="/epoint/about2.php?'.$row_store['Tb_index'].'">
+                                          <small class="cs_small"> ( '.$row_store['st_nickname'].' ) </small>
+                                         </a>';
                          }else{
                            $related_txt='';
                          }
@@ -242,24 +246,25 @@
                        }
                        
 
-                       $ns_ftitle=mb_substr($row_list_one['ns_ftitle'], 0,15,'utf-8');
+                       $ns_ftitle= wp_is_mobile() ? $row_list_one['ns_ftitle'] : mb_substr($row_list_one['ns_ftitle'], 0,15,'utf-8');
                        $ns_msghtml=mb_substr(strip_tags($row_list_one['ns_msghtml']), 0,55,'utf-8');
                        $url=news_url($row_list_one['mt_id'], $row_list_one['Tb_index'], $row_list_one['ns_nt_pk'], $row_list_one['area_id']);
                        $fb_url=urlencode($url);
                        echo '
                        <div class="row no-gutters py-md-3 mx-md-4 news_list">
                         <div class="col-md-4 col-6 py-2 pl-2">
-                          <a class="img_div news_list_img" href="'.$url.'" style="background-image: url('.$img_url.$row_list_one['ns_photo_1'].');"></a>
+                          <a class="img_div news_list_img" title="'.$row_list_one['ns_ftitle'].'" href="'.$url.'" style="background-image: url('.$img_url.$row_list_one['ns_photo_1'].');"></a>
                         </div>
-                        <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
+                        <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 pr-2 news_list_txt">
                          <div>
-                           <a href="'.$url.'" title="'.$row_list_one['ns_ftitle'].'">
-                            <h3>'.$ns_ftitle.'</h3>
-                           </a>
-                           '.$related_txt.'
+                           
+                            <h3>
+                             <a href="'.$url.'" title="'.$row_list_one['ns_ftitle'].'">'.$ns_ftitle.'</a>'.$related_txt.'
+                            </h3>
+                           
                          </div>
                           '.$activity_date.'
-                          <p>'.$ns_msghtml.'...</p>
+                          <p class="phone_hidden">'.$ns_msghtml.'...</p>
                           
                           <div class="fb_search_btn">
                             <iframe src="https://www.facebook.com/plugins/like.php?href='.$fb_url.'&width=119&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="119" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>

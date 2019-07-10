@@ -35,12 +35,21 @@
     </div>
 
     <?php 
-
-     $row_news=$pdo->select("SELECT ns_ftitle, Tb_index, mt_id, ns_nt_pk, area_id FROM NewsAndType WHERE Tb_index=:Tb_index", ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
-     $url=news_url($row_news['mt_id'], $row_news['Tb_index'], $row_news['ns_nt_pk'], $row_news['area_id']);
+     
+     if (strpos($_SERVER['QUERY_STRING'], 'news')!==FALSE) {
+       $row_news=$pdo->select("SELECT ns_ftitle, Tb_index, mt_id, ns_nt_pk, area_id FROM NewsAndType WHERE Tb_index=:Tb_index", ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
+       $title=$row_news['ns_ftitle'];
+       $url=news_url($row_news['mt_id'], $row_news['Tb_index'], $row_news['ns_nt_pk'], $row_news['area_id']);
+     }
+     else if(strpos($_SERVER['QUERY_STRING'], 'note')!==FALSE){
+        $row_note=$pdo->select("SELECT aTitle, Tb_index, note_type FROM appNotice WHERE Tb_index=:Tb_index", ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
+        $title=$row_note['aTitle'];
+        $url=$row_note['note_type']=='0' ? '../member/notify_detail.php?'.$row_note['Tb_index']:'../member/event_activity_detail.php?'.$row_note['Tb_index'];
+     }
+     
     ?>
 
-    <p class="send_news">將以下這篇訊息寄給朋友 <br><a href="<?php echo $url; ?>" target="_blank"><?php echo $row_news['ns_ftitle']; ?></a></p>
+    <p class="send_news">將以下這篇訊息寄給朋友 <br><a href="<?php echo $url; ?>" target="_blank"><?php echo $title; ?></a></p>
 
     <div class="mail_form">
         

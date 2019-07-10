@@ -30,6 +30,12 @@ if (!$temparray[1]) {
 
     $row=pdo_select($sql_temp, $where);
 
+    //-- 404 判斷 --
+    if (empty($row['Tb_index'])) {
+     location_up('../member/my404.php?epoint','');
+     exit();
+    }
+
     $ns_msghtml=mb_substr(strip_tags($row['ns_msghtml']), 0,50).'...';
 
 
@@ -409,7 +415,7 @@ if (!$temparray[1]) {
                      <!--信用卡推薦-->
                      <div class="col-md-12 col">
 
-                         <div class="cardshap blue_tab phone_hidden">
+                         <div class="cardshap Darkbrown_tab phone_hidden">
                          <ul class="nav nav-tabs" id="myTab" role="tablist">
                            <li class="nav-item news_tab">
                              <a class="nav-link active pl-30 py-2" id="special_1-tab" data-toggle="tab" href="#special_1" role="tab" aria-controls="special_1" aria-selected="true">信用卡推薦</a>
@@ -513,11 +519,11 @@ if (!$temparray[1]) {
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
-
-                            <p>您尚未登入，請先<a href="#">登入會員</a></p>
-                           
-                          </div>
+                          
+                          <?php 
+                            //-- 網友留言 HTML --
+                            require '../share_area/discuss_html.php';
+                          ?>
                          
                         </div>
                       </div>

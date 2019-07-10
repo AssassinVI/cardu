@@ -10,15 +10,15 @@
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
     <?php 
-     $row_bank=$pdo->select("SELECT bi_code, bi_fullname, bi_shortname, bi_tel, bi_tel_card, bi_tel2_card, bi_tel3_card, bi_addr, bi_logo, bi_bank_url, bi_card_url, bd_url, bd_path, bd_src
+     $row_bank_d=$pdo->select("SELECT bi_code, bi_fullname, bi_shortname, bi_tel, bi_tel_card, bi_tel2_card, bi_tel3_card, bi_addr, bi_logo, bi_bank_url, bi_card_url, bd_url, bd_path, bd_src
                              FROM bank_info WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['bi_pk']], 'one');
 
-     $bi_tel_card=$row_bank['bi_tel_card'].'、';
-     $bi_tel_card=empty($row_bank['bi_tel2_card']) ? $bi_tel_card : $bi_tel_card.$row_bank['bi_tel2_card'].'、';
-     $bi_tel_card=empty($row_bank['bi_tel3_card']) ? $bi_tel_card : $bi_tel_card.$row_bank['bi_tel3_card'].'、';
+     $bi_tel_card=$row_bank_d['bi_tel_card'].'、';
+     $bi_tel_card=empty($row_bank_d['bi_tel2_card']) ? $bi_tel_card : $bi_tel_card.$row_bank_d['bi_tel2_card'].'、';
+     $bi_tel_card=empty($row_bank_d['bi_tel3_card']) ? $bi_tel_card : $bi_tel_card.$row_bank_d['bi_tel3_card'].'、';
      $bi_tel_card=mb_substr($bi_tel_card, 0,-1,'utf-8');
      
-     $bi_addr=explode(',', $row_bank['bi_addr']);
+     $bi_addr=explode(',', $row_bank_d['bi_addr']);
      $bi_addr=$bi_addr[count($bi_addr)-2].$bi_addr[count($bi_addr)-1];
     ?>
 
@@ -68,7 +68,7 @@
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="card.php">卡情報</a> / <a href="bank_list.php">銀行總覽</a> / <a href="javascript:;"><?php echo $row_bank['bi_shortname']; ?></a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="card.php">卡情報</a> / <a href="bank_list.php">銀行總覽</a> / <a href="javascript:;"><?php echo $row_bank_d['bi_shortname']; ?></a></p>
           </div>
         </div>
         
@@ -90,19 +90,19 @@
                               
                              <div class="col-md-4 hv-center">
                               <div>
-                               <img src="../sys/img/<?php echo $row_bank['bi_logo']; ?>">
-                               <h6>銀行代碼:<?php echo $row_bank['bi_code']; ?></h6>
+                               <img src="../sys/img/<?php echo $row_bank_d['bi_logo']; ?>">
+                               <h6>銀行代碼:<?php echo $row_bank_d['bi_code']; ?></h6>
                               </div>
                              </div>
                              
                              <div class="col-md-8">
-                             <h4><?php echo $row_bank['bi_fullname'].'(簡稱'.$row_bank['bi_shortname'].')'; ?></h4>
+                             <h4 class="text-center text-md-left"><?php echo $row_bank_d['bi_fullname'].'(簡稱'.$row_bank_d['bi_shortname'].')'; ?></h4>
                              <hr>
                              <p>
-                              總行電話：<?php echo $row_bank['bi_tel']; ?> <br>           
+                              總行電話：<?php echo $row_bank_d['bi_tel']; ?> <br>           
                               信用卡服務專線： <?php echo $bi_tel_card; ?><br>
                               總行地址： <?php echo $bi_addr; ?> <br>
-                              銀行網址：<a href="<?php echo $row_bank['bi_bank_url']; ?>"><?php echo $row_bank['bi_bank_url']; ?></a>
+                              銀行網址：<a target="_blank" href="<?php echo $row_bank_d['bi_bank_url']; ?>"><?php echo $row_bank_d['bi_bank_url']; ?></a>
                               </p>
                              </div>
  
@@ -112,19 +112,19 @@
                                <div class="row">
                                 <div class="col-md-4">
                                   <?php 
-                                   if ($row_bank['bd_src']==1) {
-                                     echo '<a class="applycard_btn warning-layered btnOver" href="'.$row_bank['bd_path'].'" target="_blank">立即辦卡</a>';
+                                   if ($row_bank_d['bd_src']==1) {
+                                     echo '<a class="applycard_btn warning-layered btnOver" href="'.$row_bank_d['bd_path'].'" target="_blank">立即辦卡</a>';
                                    }
-                                   elseif($row_bank['bd_src']==2){
-                                     echo '<a class="applycard_btn warning-layered btnOver" href="'.$row_bank['bd_url'].'" target="_blank">立即辦卡</a>';
+                                   elseif($row_bank_d['bd_src']==2){
+                                     echo '<a class="applycard_btn warning-layered btnOver" href="'.$row_bank_d['bd_url'].'" target="_blank">立即辦卡</a>';
                                    } 
                                   ?>
                                   
                                 </div>
                                 <div class="col-md-8 col">
                                   <div class="bank_btn">
-                                   <a class="gray-layered btnOver" href="<?php echo $row_bank['bi_card_url']; ?>" target="_blank" >信用卡網址</a>
-                                   <a class="gray-layered btnOver" href="javascript:;" title="新聞">我要訂閱</a>
+                                   <a class="gray-layered btnOver" href="<?php echo $row_bank_d['bi_card_url']; ?>" target="_blank" >信用卡網址</a>
+                                   <a class="gray-layered btnOver" onclick="mySubscription('<?php echo $_GET['bi_pk'];?>');" href="javascript:;">我要訂閱</a>
                                 </div>
                                </div>
                               </div>
@@ -161,19 +161,19 @@
                           </li>
                           
                         </ul>
-                        <div class="tab-content p-0" id="myTabContent">
+                        <div class="tab-content px-0" id="myTabContent">
 
                           <!--信用卡-->
                           <div class="tab-pane fade show active" id="title_5" role="tabpanel" aria-labelledby="title_5-tab">
 
                           <?php 
-                            $row_bk_card=$pdo->select("SELECT cc.Tb_index, cc.cc_group_id, cc.cc_cardname, cc.cc_photo,
+                            $row_bk_card=$pdo->select("SELECT cc.Tb_index, cc.cc_group_id, cc.cc_cardname, cc.cc_photo, cc.cc_stop_publish, 
                                                               cc.cc_cardorg, org.org_nickname, org.org_image, 
                                                               cc.cc_cardlevel, level.attr_name
                                                        FROM credit_card as cc 
                                                        INNER JOIN card_org as org ON org.Tb_index=cc.cc_cardorg
                                                        INNER JOIN card_level as level ON level.Tb_index=cc.cc_cardlevel
-                                                       WHERE cc.cc_bi_pk=:cc_bi_pk AND cc.cc_stop_publish=0 AND cc.cc_stop_card=0
+                                                       WHERE cc.cc_bi_pk=:cc_bi_pk AND cc.cc_stop_card=0
                                                        ORDER BY cc.cc_group_id DESC, org.OrderBy ASC, level.OrderBy ASC",
                                                        ['cc_bi_pk'=>$_GET['bi_pk']]);
                             
@@ -193,18 +193,23 @@
                               }
                               $c_org_txt='';
                               foreach ($c_org_arr as $c_org) {
-
-
+                                
                                 //--- 卡等 ---
                                 $c_level_txt='';
                                 foreach ($c_org as $c_org_one) {
-                                  $c_level_txt.='<a href="creditcard.php?cc_pk='.$c_org_one['Tb_index'].'&cc_group_id='.$c_org_one['cc_group_id'].'">'.$c_org_one['attr_name'].'</a>、';
+                                  //-- 停發 --
+                                  $cc_stop_publish = $c_org_one['cc_stop_publish']==1 ? '(停發)':'';
+                                  $c_level_txt.='<a href="creditcard.php?cc_pk='.$c_org_one['Tb_index'].'&cc_group_id='.$c_org_one['cc_group_id'].'">'.$c_org_one['attr_name'].$cc_stop_publish.'</a>、';
                                 }
                                 
-                                $c_org_txt.='<li>
-                                              <img src="../sys/img/'.$c_org[0]['org_image'].'" title="'.$c_org[0]['org_nickname'].'">
-                                              '.mb_substr($c_level_txt, 0,-1,'utf-8').'
-                                            </li>';
+                                $c_org_txt.='<div class="row no-gutters py-1 text-left">
+                                              <div class="col-md-2 col-4">
+                                                <img src="../sys/img/'.$c_org[0]['org_image'].'" title="'.$c_org[0]['org_nickname'].'">
+                                              </div>
+                                              <div class="col-md-10 col-8">
+                                                '.mb_substr($c_level_txt, 0,-1,'utf-8').'
+                                              </div>
+                                            </div>';
                               }
 
 
@@ -212,18 +217,18 @@
                               $cc_photo=empty($card_group[0]['cc_photo']) ? 'CardSample.png':$card_group[0]['cc_photo'];
 
                               $card_txt='
-                              <div class="row no-gutters px-2 py-3 bankbg_list">
-                              <div class="col-md-4">
-                                <a class="bank_all_img" href="type.php?bi_pk01='.$_GET['bi_pk'].'&gid='.$card_group[0]['cc_group_id'].'">
-                                  <img src="../sys/img/'.$cc_photo.'" alt="" title="'.$card_group[0]['cc_cardname'].'">
+                              <div class="row no-gutters px-2 pt-3 bankbg_list" > 
+                              <div class="col-md-4 col-6" title="'.$card_group[0]['cc_cardname'].'">
+                                <a class="bank_all_img"  href="type.php?bi_pk01='.$_GET['bi_pk'].'&gid='.$card_group[0]['cc_group_id'].'">
+                                  <img src="../sys/img/'.$cc_photo.'" alt="" >
                                 </a>
-                                <a class="card_name my-2" href="type.php?bi_pk01='.$_GET['bi_pk'].'&gid='.$card_group[0]['cc_group_id'].'">'.$card_group[0]['cc_cardname'].'</a>
+                                <a class="card_name my-1" href="type.php?bi_pk01='.$_GET['bi_pk'].'&gid='.$card_group[0]['cc_group_id'].'">'.$card_group[0]['cc_cardname'].'</a>
                               </div>
-                              <div class="col-md-8 card_list_txt h-center">
-                                <div class="bank_list">
-                                <ul>
+                              <div class="col-md-8 col-6 card_list_txt h-center mb-md-4">
+                                <div class="bank_list w-100 all_color ">
+                                
                                  '.$c_org_txt.'
-                                </ul>
+                                
                                 </div>
                               </div>
                             </div>';
@@ -292,7 +297,7 @@
                                                        FROM debit_card as dc 
                                                        INNER JOIN card_org as org ON org.Tb_index=dc.dc_debitorg
                                                        INNER JOIN card_level as level ON level.Tb_index=dc.dc_debitlevel
-                                                       WHERE dc.dc_bi_pk=:dc_bi_pk AND dc.dc_stop_publish=0 AND dc.dc_stop_card=0
+                                                       WHERE dc.dc_bi_pk=:dc_bi_pk AND dc.dc_stop_card=0
                                                        ORDER BY dc.dc_group_id DESC, org.OrderBy ASC, level.OrderBy ASC",
                                                        ['dc_bi_pk'=>$_GET['bi_pk']]);
                             
@@ -332,14 +337,14 @@
                               $dc_photo=empty($card_group[0]['dc_photo']) ? 'CardSample.png':$card_group[0]['dc_photo'];
 
                               $card_txt='
-                              <div class="row no-gutters px-2 py-3 bankbg_list">
-                              <div class="col-md-4">
-                                <a class="bank_all_img" href="type.php?bi_pk01='.$_GET['bi_pk'].'&gid='.$card_group[0]['dc_group_id'].'">
-                                  <img src="../sys/img/'.$dc_photo.'" alt="" title="'.$card_group[0]['dc_cardname'].'">
+                              <div class="row no-gutters px-2 pt-3 bankbg_list" >
+                              <div class="col-md-4 col-6" title="'.$card_group[0]['dc_cardname'].'">
+                                <a class="bank_all_img"  href="type.php?bi_pk01='.$_GET['bi_pk'].'&gid='.$card_group[0]['dc_group_id'].'">
+                                  <img src="../sys/img/'.$dc_photo.'" alt="" >
                                 </a>
-                                <a class="card_name my-2" href="type.php?bi_pk01='.$_GET['bi_pk'].'&gid='.$card_group[0]['dc_group_id'].'">'.$card_group[0]['dc_cardname'].'</a>
+                                <a class="card_name my-1" href="type.php?bi_pk01='.$_GET['bi_pk'].'&gid='.$card_group[0]['dc_group_id'].'">'.$card_group[0]['dc_cardname'].'</a>
                               </div>
-                              <div class="col-md-8 card_list_txt h-center">
+                              <div class="col-md-8 col-6 card_list_txt h-center mb-md-4">
                                 <div class="bank_list">
                                 <ul>
                                  '.$c_org_txt.'
@@ -401,109 +406,106 @@
                           </div>
                           <!--金融卡 END -->
 
-                           <div class="tab-pane fade py-2" id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
+                           <div class="tab-pane fade " id="title_7" role="tabpanel" aria-labelledby="title_7-tab">
 
-                               <div class="bank_main hole">
+                             <?php 
+                               $card_news=$pdo->select("SELECT Tb_index, ns_photo_1, ns_ftitle, mt_id, ns_nt_pk, area_id
+                                                        FROM NewsAndType 
+                                                        WHERE mt_id='site2018111910430599' AND ns_verify=3 AND OnLineOrNot=1 AND StartDate<=:StartDate AND EndDate>=:EndDate AND ns_bank LIKE :ns_bank 
+                                                        ORDER BY ns_vfdate DESC LIMIT 0,3", ['ns_bank'=>'%'.$_GET['bi_pk'].'%', 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+
+                               if (count($card_news)>0) {
+                             ?>
+
+                              <div class="bank_main hole py-2">
                                <h5>相關新聞</h5>
+                                <a class="float-right more_ot_btn" href="bank_news.php?bi_pk=<?php echo $_GET['bi_pk'];?>">More</a>
                               </div>
                             
                             <div class="row no-gutters py-2">
-
                               <?php 
-                                $card_news=$pdo->select("SELECT Tb_index, ns_photo_1, ns_ftitle, mt_id, ns_nt_pk, area_id
-                                                         FROM NewsAndType 
-                                                         WHERE mt_id='site2018111910430599' AND ns_bank LIKE :ns_bank 
-                                                         ORDER BY ns_vfdate DESC LIMIT 0,3", ['ns_bank'=>'%'.$_GET['bi_pk'].'%']);
-
                                 foreach ($card_news as $card_news_one) {
 
                                   //-------------- 網址判斷 ------------------
                                   $news_url=news_url($card_news_one['mt_id'], $card_news_one['Tb_index'], $card_news_one['ns_nt_pk'], $card_news_one['area_id']);
-                                  $ns_ftitle=mb_substr($card_news_one['ns_ftitle'], 0,14, 'utf-8');
+                                  $ns_ftitle=wp_is_mobile() ? $card_news_one['ns_ftitle'] : mb_substr($card_news_one['ns_ftitle'], 0,14, 'utf-8');
 
                                   echo '
-                                  <div class="col-md-4 col-12 cards-3 text-center">
-                                   <a href="'.$news_url.'">
-                                       <div class="img_div w-100-ph" title="'.$card_news_one['ns_ftitle'].'" style="background-image: url(../sys/img/'.$card_news_one['ns_photo_1'].');">
-                                       </div>
-                                       <span class="text-center">'.$ns_ftitle.'</span>
-                                   </a>
+                                  <div class="col-md-4 col-12 cards-3 text-center py-md-2 py-2">
+
+                                   <div class="row no-gutters ">
+                                     <div class="col-md-12 col-6">
+                                       <a class="news_list_img" target="_blank" href="'.$news_url.'" title="'.$card_news_one['ns_ftitle'].'">
+                                           <div class="img_div" style="background-image: url(../sys/img/'.$card_news_one['ns_photo_1'].');">
+                                           </div>
+                                       </a>
+                                     </div>
+                                     <div class="col-md-12 col-6 cards-3-ph">
+                                       <a href="'.$news_url.'" target="_blank" title="'.$card_news_one['ns_ftitle'].'">
+                                        <span class="text-center p-0">'.$ns_ftitle.'</span>
+                                       </a>
+                                     </div>
+                                   </div>
+
                                   </div>';
                                 }
                               ?>
-                                <!-- <div class="col-md-4 col-12 cards-3 text-center">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div> -->
-                            </div>
+
+                             </div>
+                             <?php 
+                                } 
+                              ?>
                           
                             
-                            <div class="bank_main hole">
+                            <?php 
+                              $card_news=$pdo->select("SELECT n.Tb_index, n.ns_nt_pk, n.ns_ftitle, n.ns_photo_1, n.mt_id, n.area_id, n.unit_id, n.ns_bank
+                                                       FROM NewsAndType as n
+                                                       INNER JOIN appNews_bank_card as abc ON abc.news_id=n.Tb_index
+                                                       WHERE n.ns_verify=3 AND n.OnLineOrNot=1 AND n.StartDate<=:StartDate AND n.EndDate>=:EndDate AND n.area_id='at2019021114154632' AND
+                                                       abc.bank_id = :bank_id 
+                                                       GROUP BY n.Tb_index
+                                                       ORDER BY n.ns_vfdate DESC LIMIT 0,3", ['bank_id'=>$_GET['bi_pk'], 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+
+                              if (count($card_news)>0) {
+                            ?>
+                            <div class="bank_main hole py-2">
                               <h5>相關好康</h5>
+                              <a class="float-right more_ot_btn" href="bank_message.php?bi_pk=<?php echo $_GET['bi_pk'];?>">More</a>
                               </div>
                            
                             <div class="row no-gutters py-2">
                               <?php 
-                                $card_news=$pdo->select("SELECT Tb_index, ns_photo_1, ns_ftitle, mt_id, ns_nt_pk, area_id
-                                                         FROM NewsAndType 
-                                                         WHERE area_id='at2019021114154632' AND ns_bank LIKE :ns_bank 
-                                                         ORDER BY ns_vfdate DESC LIMIT 0,3", ['ns_bank'=>'%'.$_GET['bi_pk'].'%']);
-
                                 foreach ($card_news as $card_news_one) {
 
                                   //-------------- 網址判斷 ------------------
                                   $news_url=news_url($card_news_one['mt_id'], $card_news_one['Tb_index'], $card_news_one['ns_nt_pk'], $card_news_one['area_id']);
-                                  $ns_ftitle=mb_substr($card_news_one['ns_ftitle'], 0,14, 'utf-8');
+                                  $ns_ftitle=wp_is_mobile() ? $card_news_one['ns_ftitle'] : mb_substr($card_news_one['ns_ftitle'], 0,14, 'utf-8');
 
                                   echo '
-                                  <div class="col-md-4 col-12 cards-3 text-center">
-                                   <a href="'.$news_url.'">
-                                       <div class="img_div w-100-ph" title="'.$card_news_one['ns_ftitle'].'" style="background-image: url(../sys/img/'.$card_news_one['ns_photo_1'].');">
-                                       </div>
-                                       <span class="text-center">'.$ns_ftitle.'</span>
-                                   </a>
+                                  <div class="col-md-4 col-12 cards-3 text-center py-md-2 py-2">
+
+                                   <div class="row no-gutters ">
+                                     <div class="col-md-12 col-6">
+                                       <a class="news_list_img" target="_blank" href="'.$news_url.'" title="'.$card_news_one['ns_ftitle'].'">
+                                           <div class="img_div" style="background-image: url(../sys/img/'.$card_news_one['ns_photo_1'].');">
+                                           </div>
+                                       </a>
+                                     </div>
+                                     <div class="col-md-12 col-6 cards-3-ph">
+                                       <a href="'.$news_url.'" target="_blank" title="'.$card_news_one['ns_ftitle'].'">
+                                        <span class="text-center p-0">'.$ns_ftitle.'</span>
+                                       </a>
+                                     </div>
+                                   </div>
+
                                   </div>';
                                 }
                               ?>
-                                <!-- <div class="col-md-4 col-12 cards-3 text-center">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div>
-                                <div class="col-md-4 col-12 cards-3 text-center">
-                                   <a href="#">
-                                       <div class="img_div w-100-ph" title="新聞" style="background-image: url(../img/component/photo1.jpg);">
-                                       </div>
-                                       <span class="text-center">遊日血拚大回饋，信用卡大調查</span>
-                                   </a>
-                                </div> -->
+                                
                             </div>
+                           <?php
+                            } 
+                           ?>
                           
                            
                           </div>

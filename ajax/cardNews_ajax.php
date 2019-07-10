@@ -37,7 +37,9 @@ if ($_POST) {
   	    $row[$i]['cc_photo']=empty($row_card_group['cc_photo']) ? 'CardSample.png':$row_card_group['cc_photo'];
 
         //-- 完整卡名(卡組) --
-  	    $row[$i]['cc_cardname']=wp_is_mobile() ? mb_substr($row_card_group['bi_shortname'].$row_card_group['cc_cardname'], 0, 11) : mb_substr($row_card_group['bi_shortname'].$row_card_group['cc_cardname'], 0, 14);
+        $row[$i]['cc_cardname_all']=$row_card_group['bi_shortname'].$row_card_group['cc_cardname'];
+
+  	    $row[$i]['cc_cardname']=wp_is_mobile() ? mb_substr($row_card_group['bi_shortname'].$row_card_group['cc_cardname'], 0, 10) : mb_substr($row_card_group['bi_shortname'].$row_card_group['cc_cardname'], 0, 14);
         
         //-- 卡連結 --
   	    $row[$i]['cc_url']='../card/type.php?gid='.$row_card_group['cc_group_id'];
@@ -108,10 +110,10 @@ if ($_POST) {
            if (!empty($c_level_txt)) {
              $c_org_txt.='
                <div class="py-2 row no-gutters">
-                <div class="col-md-2">
+                <div class="col-md-2 col-4">
                  <a href="bank_list.php?order=cc_'.$card_org[0]['org_nickname'].'"><img src="../sys/img/'.$card_org[0]['org_image'].'" title="'.$card_org[0]['org_nickname'].'"></a>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10 col-8">
                  '.$c_level_txt.'
                 </div>
                </div>';
@@ -124,13 +126,13 @@ if ($_POST) {
 
         $c_group_txt='
         <div class="row cards_div bankbg_list">
-          <div class="col-md-5 hv-center">
-              <a class="bank_all_small_img card_name text-center" href="type.php?bi_pk01='.$bank[0]['cc_bi_pk'].'&gid='.$card_group[0]['cc_group_id'].'">
-               <img src="../sys/img/'.$cc_photo.'" title="'.$card_group[0]['cc_cardname'].'"><br>'.$card_group[0]['cc_cardname'].'
+          <div class="col-md-5 col-6 hv-center" title="'.$card_group[0]['cc_cardname'].'">
+              <a class="bank_all_small_img card_name text-center" href="type.php?bi_pk01='.$_POST['bank_id'].'&gid='.$card_group[0]['cc_group_id'].'">
+               <img src="../sys/img/'.$cc_photo.'" ><br>'.$card_group[0]['cc_cardname'].'
               </a>
           </div>
-          <div class="col-md-7 h-center col0 all_color">
-           <div class="w-100 text-center" >
+          <div class="col-md-7 col-6 h-center col0 all_color mb-md-4">
+           <div class="w-100 text-md-center" >
            '.$c_org_txt.'
            </div>
           </div> 
@@ -206,13 +208,13 @@ if ($_POST) {
 
         $c_group_txt='
         <div class="row cards_div bankbg_list">
-          <div class="col-md-5 hv-center">
-              <a class="bank_all_small_img card_name text-center" href="type.php?bi_pk01='.$bank[0]['dc_bi_pk'].'&gid='.$card_group[0]['dc_group_id'].'">
-               <img src="../sys/img/'.$dc_photo.'" title="'.$card_group[0]['dc_cardname'].'"><br>'.$card_group[0]['dc_cardname'].'
+          <div class="col-md-5 col-6 hv-center" title="'.$card_group[0]['dc_cardname'].'">
+              <a class="bank_all_small_img card_name text-center" href="type.php?bi_pk01='.$_POST['bank_id'].'&gid='.$card_group[0]['dc_group_id'].'">
+               <img src="../sys/img/'.$dc_photo.'" ><br>'.$card_group[0]['dc_cardname'].'
               </a>
           </div>
-          <div class="col-md-7 h-center col0 all_color">
-           <div class="w-100 text-center" >
+          <div class="col-md-7 col-6 h-center col0 all_color mb-md-4">
+           <div class="w-100" >
            '.$c_org_txt.'
            </div>
           </div> 
@@ -258,13 +260,13 @@ if ($_POST) {
 
        //-- 卡片圖 --
        $cc_photo=empty($bk_card['cc_photo']) ? 'CardSample.png':$bk_card['cc_photo'];
-       $doc=empty($bk_card['cc_doc_url']) ? $bk_card['cc_doc_path'] : $bk_card['cc_doc_url'];
+       $doc=empty($bk_card['cc_doc_url']) ? '/sys/other_file/'.$bk_card['cc_doc_path'] : $bk_card['cc_doc_url'];
 
         $bk_card_txt.= '
         <div class="pb-3 col-md-4 text-center">
           <a class="bank_all_img" href="type.php?bi_pk01='.$_POST['Tb_index'].'&gid='.$bk_card['cc_group_id'].'"><img src="../sys/img/'.$cc_photo.'" ></a>
           <h6><a class="card_name" href="type.php?bi_pk01='.$_POST['Tb_index'].'&gid='.$bk_card['cc_group_id'].'">'.$bk_card['cc_cardname'].'</a></h6>
-          <a class="btn mt-2 online_btn warning-layered btnOver" href="'.$doc.'">立即辦卡</a>
+          <a target="_blank" class="btn mt-2 online_btn warning-layered btnOver" href="'.$doc.'">立即辦卡</a>
         </div>';
       }
 
@@ -288,7 +290,7 @@ if ($_POST) {
                  <p>總行電話：'.$bank_row['bi_tel'].' <br>           
                     信用卡服務專線：'.$bank_row['bi_tel_card'].'<br>
                     總行地址：'.$bank_adds.'<br>
-                    銀行網址：<a href="'.$bank_row['bi_bank_url'].'">'.$bank_row['bi_bank_url'].'</a>
+                    銀行網址：<a target="_blank" href="'.$bank_row['bi_bank_url'].'">'.$bank_row['bi_bank_url'].'</a>
                   </p>
                  </div>
                  

@@ -20,16 +20,16 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
-    <meta property="og:site_name" content="卡優新聞網" />
+    <?php 
+     require '../share_area/fb_config.php';
+    ?>
+    <meta property="og:site_name" content="卡優新聞網 - 卡情報 > 銀行總覽" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="卡優新聞網" />
+    <meta property="og:title" content="卡優新聞網 - 卡情報 > 銀行總覽" />
     <meta property="og:description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" />
-    <meta property="og:url" content="https://www.cardu.com.tw" />
-    <meta property="og:see_also" content="https://www.cardu.com.tw" />
+    <meta property="og:url" content="<?php echo $FB_URL;?>" />
+    <!-- <meta property="og:see_also" content="https://www.cardu.com.tw" /> -->
       
       
     <?php 
@@ -192,7 +192,9 @@
                       </div>
                     </div>
                     
-                    <div class="row ticketbg">
+                    <div class="row ticketbg w-100">
+
+
                       
                     
                     <?php 
@@ -290,23 +292,26 @@
 
                        $bank_txt='
                        <div class="col-md-4 col">
-                          <div class="cardshap bank_3">
+                          <div class="cardshap bank_3 bank_list_ph">
                             <a class="all_form" href="bank_detail.php?bi_pk='.$bank_one[0]['Tb_index'].'">
                              <img src="../sys/img/'.$bank_one[0]['bi_logo'].'">
-                           <hr>
-                           <h5>'.$bank_one[0]['bi_shortname'].'(銀行代碼'.$bank_one[0]['bi_code'].')</h5>
-                          </a>
-                           <p class="text-center">
+                             <hr>
+                             
+                            </a>
+                           <div class="text-center">
+                             <a class="all_form" href="bank_detail.php?bi_pk='.$bank_one[0]['Tb_index'].'">
+                              <h5>'.$bank_one[0]['bi_shortname'].'(銀行代碼'.$bank_one[0]['bi_code'].')</h5>
+                             </a>
                               <b>總行電話：</b>'.$bank_one[0]['bi_tel'].' <br>
                               <b>信用卡服務專線：</b><br>'.$bi_tel_card.'
-                           </p>
+                           </div>
                            <div class="bank_icon">
                            '.$org_txt.'
                            </div>
 
                             <div class="bank_btn  hv-center">
-                              <a class="gray-layered btnOver py-1 px-2 mr-2" href="'.$bank_one[0]['bi_bank_url'].'" >銀行網址</a>
-                              <a class="gray-layered btnOver py-1 px-2" href="'.$bank_one[0]['bi_card_url'].'" >信用卡網址</a>
+                              <a target="_blank" class="gray-layered btnOver py-1 px-2 mr-2" href="'.$bank_one[0]['bi_bank_url'].'" >銀行網址</a>
+                              <a target="_blank" class="gray-layered btnOver py-1 px-2" href="'.$bank_one[0]['bi_card_url'].'" >信用卡網址</a>
                             </div>
                           </div>
                       </div>';

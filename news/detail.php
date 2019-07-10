@@ -22,16 +22,24 @@ if (!$temparray[1]) {
 
 }else{
      $sql_temp="
-      SELECT ns_ftitle,ns_stitle,ns_reporter,ns_photo_1,ns_alt_1,ns_photo_2,ns_alt_2,ns_msghtml,Tb_index,StartDate,ns_date,ns_nt_pk,ns_news, ns_vfdate FROM  appNews
+      SELECT ns_ftitle,ns_stitle,ns_reporter,ns_photo_1,ns_alt_1,ns_photo_2,ns_alt_2,ns_msghtml,Tb_index,StartDate,ns_date,ns_nt_pk,ns_news, ns_vfdate 
+      FROM  appNews
       where ns_verify=3 and OnLineOrNot=1  
       and StartDate<='$todayis' and EndDate>='$todayis'
       and Tb_index=:Tb_index
       order by ns_vfdate desc
       ";
      
-    $row=pdo_select($sql_temp, ['Tb_index'=>$temparray[1]]);
+    $row=$pdo->select($sql_temp, ['Tb_index'=>$temparray[1]],'one');
 
     $ns_msghtml=mb_substr( strip_tags($row['ns_msghtml']), 0,50).'...';
+
+
+    //-- 404 判斷 --
+    if (empty($row['Tb_index'])) {
+     location_up('../member/my404.php?news','');
+     exit();
+    }
 
 
     //取出類別資料
@@ -458,16 +466,18 @@ if (!$temparray[1]) {
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
 
-                            <p>您尚未登入，請先<a href="#">登入會員</a></p>
-                           
-                          </div>
+                        <?php 
+                          //-- 網友留言 HTML --
+                          require '../share_area/discuss_html.php';
+                        ?>
+
                          
                         </div>
                       </div>
                     </div>
                     <!--網友留言end -->
+                    
 
 
                     <!--Facebook留言-->

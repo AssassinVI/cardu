@@ -580,10 +580,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#288235', end
   #member_div{ display: none; width: 350px;}
   #member_div .mem_logo img{ width: 130px; }
   #member_div h2{ font-size: 22px; text-align: center; font-weight: 600; color: #172f8b; margin: 15px 0; }
-  #member_div .login_btn{ display: block; padding: 10px; text-align: center; background-color: #193296; color: #fff; }
+  #member_div .login_btn{ width: 100%; border: 0; display: block; padding: 10px; text-align: center; background-color: #193296; color: #fff; }
   #member_div .other_login_btn{ display: block; padding: 5px; text-align: center; background-color: #ccc; color: #fff; margin: 0 5px;}
   #member_div .fb_color{ background-color: #3E569A; }
   #member_div .google_color{ background-color: #DB4E44; }
+
+  #mem_G_login {
+      background: url(/img/component/icon/g-normal.png);
+      background-repeat: no-repeat;
+      background-position-y: center;
+      background-position-x: 3px;
+      width: 141px;
+      height: 34px;
+      padding: 0px;
+      border: 1px solid #ccc;
+  }
 
   /*信用卡快搜 fancybox*/
   #ccard_search{ display: none;  }

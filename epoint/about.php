@@ -106,7 +106,7 @@ if (!$temparray[1]) {
                               <div class="col-md-5 col">
                               <img class="h-center" src="../sys/img/<?php echo $row['st_logo']?>" title="<?php echo $row['st_name'];?>">
                               <div class="card_btn hv-center py-2">
-                                <button type="button" class="btn warning-layered btnOver">我要訂閱</button>
+                                <button type="button" onclick="mySubscription('','<?php echo $temparray[1];?>');" class="btn warning-layered btnOver">我要訂閱</button>
                                 <a class='all_form' target="_blank" href='<?php echo $row['st_url'];?>' title='<?php echo $row['st_name'];?>'>
                                   <button type="button" class="btn gray-layered btnOver">前往官網</button>
                                 </a>

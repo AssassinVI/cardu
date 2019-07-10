@@ -196,7 +196,7 @@
 
                                         for ($j=0; $j <3 ; $j++) { 
                                           $index=($i*3)+$j;
-                                          $ns_ftitle=mb_substr($row_news_con[$index]['ns_ftitle'], 0,14, 'utf-8');
+                                          $ns_ftitle= wp_is_mobile() ? $row_news_con[$index]['ns_ftitle'] : mb_substr($row_news_con[$index]['ns_ftitle'], 0,14, 'utf-8');
                                           $ns_msghtml=mb_substr(strip_tags( $row_news_con[$index]['ns_msghtml']), 0,30, 'utf-8');
 
                                           //-------------- 網址判斷 ------------------
@@ -204,11 +204,11 @@
                                           
                                           $news_txt.='
                                           <div class="col-md-4 cards-3 col-12">
-                                             <a href="'.$news_url.'">
-                                                 <div class="img_div w-100-ph" title="'.$row_news_con[$index]['ns_ftitle'].'" style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
+                                             <a href="'.$news_url.'" title="'.$row_news_con[$index]['ns_ftitle'].'">
+                                                 <div class="img_div w-100-ph"  style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
                                                  </div>
-                                                 <h6 class="mt-2">'.$ns_ftitle.'</h6>
-                                                 <p class="px-3">'.$ns_msghtml.'</p>
+                                                 <h6 class="px-3 px-md-0 mt-2 text-md-center text-left">'.$ns_ftitle.'</h6>
+                                                 <p class="px-3 text-md-center text-left">'.$ns_msghtml.'</p>
                                              </a>
                                           </div>';
                                         }
@@ -279,7 +279,7 @@
 
                                       for ($j=0; $j <3 ; $j++) { 
                                         $index=($i*3)+$j;
-                                        $ns_ftitle=mb_substr($row_news_con[$index]['ns_ftitle'], 0,14, 'utf-8');
+                                        $ns_ftitle= wp_is_mobile() ? $row_news_con[$index]['ns_ftitle'] : mb_substr($row_news_con[$index]['ns_ftitle'], 0,14, 'utf-8');
                                         $ns_msghtml=mb_substr(strip_tags( $row_news_con[$index]['ns_msghtml']), 0,30, 'utf-8');
 
                                         //-------------- 網址判斷 ------------------
@@ -287,11 +287,11 @@
                                         
                                         $news_txt.='
                                         <div class="col-md-4 cards-3 col-12">
-                                           <a href="'.$news_url.'">
-                                               <div class="img_div w-100-ph" title="'.$row_news_con[$index]['ns_ftitle'].'" style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
+                                           <a href="'.$news_url.'" title="'.$row_news_con[$index]['ns_ftitle'].'">
+                                               <div class="img_div w-100-ph"  style="background-image: url(../sys/img/'.$row_news_con[$index]['ns_photo_1'].');">
                                                </div>
-                                               <h6 class="mt-2">'.$ns_ftitle.'</h6>
-                                               <p class="px-3">'.$ns_msghtml.'</p>
+                                               <h6 class="mt-2 px-3 px-md-0 text-md-center text-left">'.$ns_ftitle.'</h6>
+                                               <p class="px-3 text-md-center text-left">'.$ns_msghtml.'</p>
                                            </a>
                                         </div>';
                                       }
@@ -358,8 +358,8 @@
                                    
                                    echo '
                                   <div class="travel_text">
-                                    <a class="img_b" href="'.$news_url.'">
-                                     <div class="img_div w-h-100" title="'.$news_con['ns_ftitle'].'" style="background-image: url(../sys/img/'.$news_con['ns_photo_1'].');"></div>
+                                    <a class="img_b" href="'.$news_url.'" title="'.$news_con['ns_ftitle'].'"> 
+                                     <div class="img_div w-h-100"  style="background-image: url(../sys/img/'.$news_con['ns_photo_1'].');"></div>
                                      <h6 class="mt-2">'.$ns_ftitle.'</h6>
                                    </a>
                                   </div>';
@@ -395,8 +395,8 @@
 
                                       echo '
                                       <div class="col-md-6 col-6">
-                                        <a class="img_c" href="'.$news_url.'">
-                                         <div class="img_div w-h-100" title="'.$news_con['ns_ftitle'].'" style="background-image: url(../sys/img/'.$news_con['ns_photo_1'].');"></div>
+                                        <a class="img_c" href="'.$news_url.'" title="'.$news_con['ns_ftitle'].'">
+                                         <div class="img_div w-h-100"  style="background-image: url(../sys/img/'.$news_con['ns_photo_1'].');"></div>
                                          <h6 class="mt-2">'.$ns_ftitle.'</h6>
                                        </a>
                                       </div>';

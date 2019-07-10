@@ -243,10 +243,10 @@
                         <div class="cardshap green_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab">
-                            <a class="nav-link active  pl-30 py-2" id="title_1-tab"  href="../share.php?tr_pk=<?php echo $_GET['tr_pk'];?>">
+                            <a class="nav-link active  pl-30 py-2" id="title_1-tab"  href="share.php?tr_pk=<?php echo $_GET['tr_pk'];?>">
                               <?php echo $row_nt['nt_name']; ?>旅行分享
                              </a>
-                             <a class="top_link" href="../share.php?tr_pk=<?php echo $_GET['tr_pk'];?>"></a>
+                             <a class="top_link" href="share.php?tr_pk=<?php echo $_GET['tr_pk'];?>"></a>
                           </li>
                           
                         </ul>

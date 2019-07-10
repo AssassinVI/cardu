@@ -55,7 +55,7 @@
     <!-- 麵包屑 -->
     <div class="row">
       <div class="col-12">
-        <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="javascript:;">卡情報</a></p>
+        <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="javascript:;">卡情報</a></p>
       </div>
     </div>
         
@@ -103,7 +103,7 @@
 
                              <div class="col-md-2">
                                <div class="card_fun w-h-100 hv-center hole">
-                                   <div class="text-center mt-05">
+                                   <div class="text-center">
                                        <img src="../img/component/card_rank_logo.png" alt=""> <p class="mb-0 mt-025">卡總覽</p>
                                    </div>
                                </div>  
@@ -156,86 +156,85 @@
                               <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
 
                            </div>
-                            
+                            <a id="cc_more_btn2" class="rank_more card_rank warning-layered btnOver d-block d-md-none" href="">顯示更多卡片</a>
                         </div>
                     </div>
                     <!--卡總覽end -->
                     
-                     <!--新卡訊-->
+                    <!--新卡訊-->
                     <div class="col-md-12 col">
-
-                        <div class="cardshap brown_tab">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item news_tab">
-                            <a class="nav-link active pl-30 py-2" id="special_1-tab"  href="new_card_list.php" >新卡訊</a>
-                            <a class="top_link" href="new_card_list.php"></a>
-                          </li>
-                        </ul>
-
-                       <div class="tab-content p-2" id="myTabContent">
-                         <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
+                    <div class="cardshap tab_one brown_tab">
+                           <div class="title_tab hole">
+                               <i class="icon" style="background-image: url(img/component/icon/icon5.png); background-size: 100%;"></i><h4>新卡訊</h4>
+                               <a class="tab_link" href="card/new_card_list.php"></a>
+                           </div>
                           
-                         <?php 
-                          $row_list=$pdo->select("SELECT n.Tb_index, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.area_id, n.mt_id, n.ns_nt_pk, n.ccard_sp, cc.cc_interest_desc
-                                                  FROM NewsAndType as n 
-                                                  INNER JOIN appNews_bank_card as abc ON abc.news_id=n.Tb_index
-                                                  INNER JOIN credit_card as cc ON cc.cc_group_id=abc.card_group_id AND cc.cc_cardorg=abc.org_id AND cc.cc_cardlevel=abc.level_id
-                                                  WHERE n.ns_nt_pk='nt201902121004593' AND n.ns_vfdate<>'0000-00-00 00:00:00' AND n.ns_verify=3 AND n.OnLineOrNot=1
-                                                  AND  n.StartDate<=:StartDate AND n.EndDate>=:EndDate
-                                                  ORDER BY n.ns_vfdate DESC 
-                                                  LIMIT 0,3", ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                               <div class="accordion" id="new_card">
+                                 <?php 
+                                  $row_card_news=$pdo->select("SELECT n.Tb_index, n.ns_ftitle, n.ns_msghtml, n.ns_photo_1, n.area_id, n.mt_id, n.ns_nt_pk, n.ccard_sp, cc.cc_interest_desc
+                                                              FROM NewsAndType as n 
+                                                              INNER JOIN appNews_bank_card as abc ON abc.news_id=n.Tb_index
+                                                              INNER JOIN credit_card as cc ON cc.cc_group_id=abc.card_group_id AND cc.cc_cardorg=abc.org_id AND cc.cc_cardlevel=abc.level_id
+                                                              WHERE n.ns_nt_pk='nt201902121004593' AND n.ns_vfdate<>'0000-00-00 00:00:00' AND n.ns_verify=3 AND n.OnLineOrNot=1
+                                                              AND  n.StartDate<=:StartDate AND n.EndDate>=:EndDate
+                                                              ORDER BY n.ns_vfdate DESC 
+                                                              LIMIT 0,3", ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+                                  $x=1;
+                                  foreach ($row_card_news as $card_news) {
 
-                          foreach ($row_list as $list_one) {
-                            
-                            $ns_ftitle=mb_substr($list_one['ns_ftitle'], 0,15,'utf-8');
-                            $url=news_url($list_one['mt_id'], $list_one['Tb_index'], $list_one['ns_nt_pk'], $list_one['area_id']);
-                            
-                            //-- 信用卡特色 --
-                            $ccard_sp_txt='';
-                            if (empty($list_one['ccard_sp'])) {
-                               
-                               $card_adv=preg_split('/\n/',$list_one['cc_interest_desc']);
-                               $x=1;
-                               foreach ($card_adv as $card_adv_one) {
-                                 if ($x==1) {
-                                   $ccard_sp_txt.= '<li>'.$card_adv_one.'</li>';
-                                 }
-                                $x++;
-                               }
-                             }
-                             else {
-                               $card_adv=preg_split('/\n/',$list_one['ccard_sp']);
-                               $x=1;
-                               foreach ($card_adv as $card_adv_one) {
-                                if ($x==1){
-                                 $ccard_sp_txt.= '<li>'.$card_adv_one.'</li>';
-                                }
-                                $x++;
-                               }
-                             }
+                                    $ns_ftitle=mb_substr($card_news['ns_ftitle'], 0,20, 'utf-8');
+                                    $ns_msghtml=mb_substr(strip_tags($card_news['ns_msghtml']), 0,55,'utf-8');
 
-                            echo '
-                            <div class="row no-gutters py-md-3 mx-md-4 news_list">
-                              <div class="col-md-4 col-6 py-1">
-                                <a class="img_div news_list_img" href="'.$url.'" style="background-image: url(../sys/img/'.$list_one['ns_photo_1'].');"></a>
-                              </div>
-                              <div class="col-md-8 col-6 pl-md-4 pl-0 py-1 news_list_txt">
-                               <a href="'.$url.'" ><h3>'.$ns_ftitle.'</h3></a>
-                               <ul class="ccard_sp_ul">
-                                '.$ccard_sp_txt.'
-                               </ul>
-                             </div>
-                            </div>';
-                          }
-                         ?>
-                        
-   
-                           
-                        </div>
-                         
-                        </div>
+                                    //-------------- 網址判斷 ------------------
+                                    $news_url=news_url($card_news['mt_id'], $card_news['Tb_index'], $card_news['ns_nt_pk'], $card_news['area_id']);
+
+                                    $show=$x==1 ? 'show':'';
+
+                                    $ccard_sp_txt='';
+                                    $ccard_sp=empty($card_news['ccard_sp']) ? preg_split('/\n/',$card_news['cc_interest_desc']) : preg_split('/\n/',$card_news['ccard_sp']);
+                                    $y=1;
+                                    foreach ($ccard_sp as $ccard_sp_one) {
+                                      if ($y<=3) {
+                                        $ccard_sp_txt.='<li>'.$ccard_sp_one.'</li>';
+                                    }
+                                    $y++;
+                                    }
+
+                                    echo '
+                                  <div class="card">
+                                   <div class="card-header" id="heading'.$x.'">
+                                     <h5 class="mb-0">
+                                       <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse'.$x.'" aria-expanded="true" aria-controls="collapse'.$x.'">
+                                         '.$ns_ftitle.'
+                                       </button>
+                                     </h5>
+                                   </div>
+
+                                   <div id="collapse'.$x.'" class="collapse '.$show.'" aria-labelledby="heading'.$x.'" data-parent="#new_card">
+                                     <div class="card-body">
+                                      <a style="top: 0; left: 0;" class="position-absolute w-h-100" href="'.$news_url.'" title="'.$card_news['ns_ftitle'].'"></a>
+                                       <div class="card_one">
+                                         <a href="'.$news_url.'" title="'.$card_news['ns_ftitle'].'">
+                                          <img src="/sys/img/'.$card_news['ns_photo_1'].'" alt=""> <br>
+                                          '.$ns_ftitle.'
+                                         </a>
+                                       </div>
+                                       <div class="card_info star_li">
+                                        
+                                         <ul>
+                                         '.$ccard_sp_txt.'
+                                        </ul>
+                                        
+                                       </div>
+                                       <a class="card_more" href="'.$news_url.'">more</a>
+                                     </div>
+                                   </div>
+                                 </div>';
+                                  $x++; }
+                                 ?>
+                               </div>
+                       </div>
                       </div>
-                    </div>
                     <!--新卡訊end -->
                     <!--廣告-->
                     <div class="col-md-12 row">
@@ -297,7 +296,7 @@
                                 <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
                               </div>
                               <div class="col-md-4 card_list_txt rank_color phone_card">
-                                <h4>匯豐銀行 MasterCard 鈦金卡</h4>
+                                <h4 class="text-center">匯豐銀行 MasterCard 鈦金卡</h4>
                                 <ul>
                                   <li><b>●</b>國內現金回饋1.22%</li>
                                   <li><b>●</b>國外現金回饋2.22%</li>

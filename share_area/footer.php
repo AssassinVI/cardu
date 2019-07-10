@@ -9,9 +9,9 @@
            <a href="/footer/map.php">服務總覽</a>｜
            <a href="/footer/service_memo.php">服務條款</a>｜
            <a href="/footer/secrets.php">隱私權聲明</a>｜
-           <a href="/footer/service_report.php">廣告刊登</a>｜
-           <a href="/footer/marketing_report.php">行銷合作</a>｜
-           <a href="/footer/contact_report.php">聯絡我們</a>｜
+           <a href="/member/service.php?ad">廣告刊登</a>｜
+           <a href="/member/service.php?mc">行銷合作</a>｜
+           <a href="/member/service.php?cu">聯絡我們</a>｜
            <a href="/footer/other_memo.php">其他聲明</a>｜
        </div> 
     </div>

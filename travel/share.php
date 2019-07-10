@@ -226,15 +226,15 @@
 
                         foreach ($row_list as $list_one) {
 
-                          $ns_ftitle=mb_substr($list_one['ns_ftitle'], 0,20,'utf-8');
+                          $ns_ftitle= wp_is_mobile() ? $list_one['ns_ftitle'] : mb_substr($list_one['ns_ftitle'], 0,20, 'utf-8');
                           $ns_msghtml=mb_substr(strip_tags($list_one['ns_msghtml']), 0,40,'utf-8').'...';
                           $url=news_url($list_one['mt_id'], $list_one['Tb_index'], $list_one['ns_nt_pk'], $list_one['area_id']);
                           
                          echo '
                          <div class="col-md-6">
                           <div class="travel_main mb-3">
-                           <a href="'.$url.'">
-                             <div class="img_div" title="'.$list_one['ns_ftitle'].'" style="background-image: url(../sys/img/'.$list_one['ns_photo_1'].');"></div>
+                           <a href="'.$url.'" title="'.$list_one['ns_ftitle'].'">
+                             <div class="img_div"  style="background-image: url(../sys/img/'.$list_one['ns_photo_1'].');"></div>
                              <div>
                                <h6>'.$ns_ftitle.'</h6>
                                <p>'.$ns_msghtml.'</p>

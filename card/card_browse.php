@@ -20,16 +20,16 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
-    <meta property="og:site_name" content="卡優新聞網" />
+    <?php 
+      require '../share_area/fb_config.php';
+    ?>
+    <meta property="og:site_name" content="卡優新聞網 - 卡情報 > 卡總覽" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="卡優新聞網" />
+    <meta property="og:title" content="卡優新聞網 - 卡情報 > 卡總覽" />
     <meta property="og:description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" />
-    <meta property="og:url" content="https://www.cardu.com.tw" />
-    <meta property="og:see_also" content="https://www.cardu.com.tw" />
+    <meta property="og:url" content="<?php echo $FB_URL;?>" />
+    <!-- <meta property="og:see_also" content="https://www.cardu.com.tw" /> -->
       
       
     <?php 
@@ -141,63 +141,70 @@
                         </ul>
                         <div class="tab-content" id="myTabContent">
                           <div class="tab-pane tab-ones fade <?php echo $fun_active; ?>" id="goodTicket" role="tabpanel" aria-labelledby="goodTicket-tab">
-
-                            <ul class="credit_icon">
-                              <?php 
-                                //--====================================== 功能卡 ==============================================--
-                                //-- 信用卡 --
-                                $row_card_fun=$pdo->select("SELECT Tb_index, fun_name, card_image, card_image_hover 
-                                                            FROM card_func 
-                                                            WHERE mt_id='site2018110517362644' AND OnLineOrNot=1 
-                                                            ORDER BY OrderBy ASC");
-                                //-- 金融卡  --
-                                $row_dcard_fun=$pdo->select("SELECT Tb_index, fun_name, card_image, card_image_hover 
-                                                            FROM card_func 
-                                                            WHERE mt_id='site2019021312385319' AND OnLineOrNot=1 
-                                                            ORDER BY OrderBy ASC");
-                                $dcard_fun_id=[];
-                                foreach ($row_dcard_fun as $dcard_fun) {
-                                  $dcard_fun_id[$dcard_fun['fun_name']]=$dcard_fun['Tb_index'];
-                                }
-                                
-                                $x=0;
-                                $url_arr=[];
-                                foreach ($row_card_fun as $card_fun) {
-
-                                  $url=empty($dcard_fun_id[$card_fun['fun_name']]) ? '?func='.$card_fun['Tb_index'] : '?func='.$card_fun['Tb_index'].'&dc_func='.$dcard_fun_id[$card_fun['fun_name']];
-                                  array_push($url_arr, $url);
-
-                                  if ($_GET['func']==$card_fun['Tb_index']) {
-                                   echo '<li>
-                                         <a class="ccard_icon_js active" href="'.$url.'">
-                                          <img src="../sys/img/'.$card_fun['card_image_hover'].'" title="'.$card_fun['fun_name'].'">
-                                         </a>
-                                        </li>';
-                                  }
-                                  else{
-                                    echo '<li>
-                                          <a class="ccard_icon_js" href="'.$url.'">
-                                           <img src="../sys/img/'.$card_fun['card_image'].'" title="'.$card_fun['fun_name'].'">
-                                          </a>
-                                        </li>';
-                                  }
-                                  $x++;
-                                }
-
-
-
-                                //-- 隨機選取功能卡 --
-                                if (empty($_SERVER['QUERY_STRING'])) {
-                                  location_up($url_arr[rand(0,count($row_card_fun)-1)],'');
-                                  exit();
-                                }
-
-                                //--====================================== 功能卡 END ==============================================--
-                              ?>
-                            </ul>
-
                             
-                            <div class="col-md-12 col">
+                           <div class="card_all_fun position-relative">
+                            <div class="swiper-container mx-4 mx-md-5">
+                                <div class="swiper-wrapper">
+                                  <?php 
+                                    //--====================================== 功能卡 ==============================================--
+                                    //-- 信用卡 --
+                                    $row_card_fun=$pdo->select("SELECT Tb_index, fun_name, card_image, card_image_hover 
+                                                                FROM card_func 
+                                                                WHERE mt_id='site2018110517362644' AND OnLineOrNot=1 
+                                                                ORDER BY OrderBy ASC");
+                                    //-- 金融卡  --
+                                    // $row_dcard_fun=$pdo->select("SELECT Tb_index, fun_name, card_image, card_image_hover 
+                                    //                             FROM card_func 
+                                    //                             WHERE mt_id='site2019021312385319' AND OnLineOrNot=1 
+                                    //                             ORDER BY OrderBy ASC");
+                                    // $dcard_fun_id=[];
+                                    // foreach ($row_dcard_fun as $dcard_fun) {
+                                    //   $dcard_fun_id[$dcard_fun['fun_name']]=$dcard_fun['Tb_index'];
+                                    // }
+                                    
+                                    $x=0;
+                                    $url_arr=[];
+                                    foreach ($row_card_fun as $card_fun) {
+
+                                      $url='?func='.$card_fun['Tb_index'];
+                                      array_push($url_arr, $url);
+
+                                      $active=$_GET['func']==$card_fun['Tb_index'] ? 'active':'';
+                                      $card_image=$_GET['func']==$card_fun['Tb_index'] ? $card_fun['card_image_hover']:$card_fun['card_image'];
+
+                                      echo '<div class="swiper-slide text-center">
+                                             <a class="ccard_icon_js '.$active.'" href="'.$url.'">
+                                              <img class="cc_fun_icon" src="../sys/img/'.$card_image.'" title="'.$card_fun['fun_name'].'">
+                                             </a>
+                                            </div>';
+
+                                      $x++;
+                                    }
+
+
+                                    //-- 隨機選取功能卡 --
+                                    if (empty($_SERVER['QUERY_STRING'])) {
+                                      location_up($url_arr[rand(0,count($row_card_fun)-1)],'');
+                                      exit();
+                                    }
+
+                                    //--====================================== 功能卡 END ==============================================--
+                                  ?>
+                                    
+                                </div>
+                                
+                            </div>
+
+                            <!-- 如果需要导航按钮 -->
+                            <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                            <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+
+                            <input type="hidden" name="rand_num" value="">
+                            
+                           </div>
+                            
+                            
+                            <div class="col-md-12 col px-0 px-md-1">
                                 <div id="iCardRanking" class="cardshap big_tab tab_list_div brown_tab creditbg">
                                   <div class="tab_menu row no-gutters">
 
@@ -220,7 +227,12 @@
 
                                             <?php 
                                              //--判斷有無金融卡 --
-                                             if ((empty($_GET['func']) && empty($_GET['dc_func'])) || !empty($_GET['dc_func'])) {
+                                             $row_is_dc=$pdo->select("SELECT Tb_index
+                                                                      FROM card_func 
+                                                                      WHERE mt_id='site2019021312385319' AND OnLineOrNot=1 AND fun_name=:fun_name", 
+                                                                      ['fun_name'=>$fun_name['fun_name']], 'one');
+
+                                             if ((empty($_GET['func']) && empty($row_is_dc['Tb_index'])) || !empty($row_is_dc['Tb_index'])) {
                                             ?>
 
                                             <li class="nav-item">
@@ -238,7 +250,7 @@
                                   </div>
                                 
 
-                            <div class="content_tab" id="myTabContent">
+                            <div class="content_tab px-md-1 px-0" id="myTabContent">
                               <div class="news_list_div show " tab="1" id="CreditCard" role="tabpanel" aria-labelledby="CreditCard-tab">
                                <div class="credit_table">
 
@@ -285,18 +297,26 @@
                                           $c_level_txt='';
                                           foreach ($card_org as $card_org_one) {
                                             if ($card_org_one['cc_stop_publish']==0 && $card_org_one['cc_stop_card']==0) {
-                                              $c_level_txt.='<a href="creditcard.php?cc_pk='.$card_org_one['Tb_index'].'&cc_group_id='.$card_org_one['cc_group_id'].'">'.$card_org_one['attr_name'].'</a>、';
+                                               $c_level_txt.='<a href="creditcard.php?cc_pk='.$card_org_one['Tb_index'].'&cc_group_id='.$card_org_one['cc_group_id'].'">
+                                                                  '.$card_org_one['attr_name'].'
+                                                              </a>、';
                                             }
+                                            else if ($card_org_one['cc_stop_publish']==1){
+                                               $c_level_txt.='<a href="creditcard.php?cc_pk='.$card_org_one['Tb_index'].'&cc_group_id='.$card_org_one['cc_group_id'].'">
+                                                                  '.$card_org_one['attr_name'].'(停發)
+                                                              </a>、';
+                                            }
+                                            
                                           }
                                           $c_level_txt=mb_substr($c_level_txt, 0,-1,'utf-8');
                                           
                                           if (!empty($c_level_txt)){
                                             $c_org_txt.='
-                                              <div class="py-2 row no-gutters">
-                                               <div class="col-md-2">
+                                              <div class="py-1 row no-gutters">
+                                               <div class="col-md-2 col-4">
                                                 <a href="bank_list.php?order=cc_'.$card_org[0]['org_nickname'].'"><img src="../sys/img/'.$card_org[0]['org_image'].'" title="'.$card_org[0]['org_nickname'].'"></a>
                                                </div>
-                                               <div class="col-md-10">
+                                               <div class="col-md-10 col-8">
                                                 '.$c_level_txt.'
                                                </div>
                                               </div>';
@@ -309,13 +329,13 @@
 
                                        $c_group_txt.='
                                        <div class="row cards_div bankbg_list">
-                                         <div class="col-md-5 hv-center">
+                                         <div class="col-md-5 col-6 hv-center" title="'.$card_group[0]['cc_cardname'].'">
                                              <a class="bank_all_small_img card_name text-center" href="type.php?bi_pk01='.$bank[0]['cc_bi_pk'].'&gid='.$card_group[0]['cc_group_id'].'">
-                                              <img src="../sys/img/'.$cc_photo.'" title="'.$card_group[0]['cc_cardname'].'"><br>'.$card_group[0]['cc_cardname'].'
+                                              <img src="../sys/img/'.$cc_photo.'" ><br>'.$card_group[0]['cc_cardname'].'
                                              </a>
                                          </div>
-                                         <div class="col-md-7 h-center col0 all_color">
-                                          <div class="w-100 text-center" >
+                                         <div class="col-md-7 col-6 h-center col0 all_color mb-md-4">
+                                          <div class="w-100 text-md-center" >
                                           '.$c_org_txt.'
                                           </div>
                                          </div> 
@@ -327,10 +347,10 @@
                                     
                                     $more_btn_txt=($x-1)>4 ? '<a class="rank_more card_more warning-layered btnOver" bank_id="'.$bank[0]['cc_bi_pk'].'" func_id="'.$_GET['func'].'" now_num="4" show_num="4" c_type="cc" href="javascript:;">顯示更多卡片</a>' : '';
                                     $list_txt='<div class="row">
-                                                 <div class="bank_div col-md-2 hv-center">
+                                                 <div class="bank_div col-md-2 hv-center py-2">
                                                      <a class="card_name text-center" href="/card/bank_detail.php?bi_pk='.$bank[0]['cc_bi_pk'].'"><img class="max-w-100" src="../sys/img/'.$bank[0]['bi_logo'].'" title="'.$bank[0]['bi_shortname'].'"><br>'.$bank[0]['bi_shortname'].'</a>
                                                  </div>
-                                                 <div class="card_div col-md-10">
+                                                 <div class="card_div col-md-10 p-md-0 px-0">
                                                   <div class="card_group_div">
                                                    '.$c_group_txt.'
                                                   </div>
@@ -352,7 +372,7 @@
                                   <?php 
 
                                     //--------------------------------------- 金融卡(功能) ------------------------------------------------
-                                    if ((empty($_GET['func']) && empty($_GET['dc_func'])) || !empty($_GET['dc_func'])) {
+                                    if ((empty($_GET['func']) && empty($row_is_dc['Tb_index'])) || !empty($row_is_dc['Tb_index'])) {
                                       $row_card_list=$pdo->select("SELECT  dc.dc_bi_pk, bk.bi_shortname, bk.bi_logo, 
                                                                          dc.Tb_index, dc.dc_group_id, dc.dc_photo, dc.dc_cardname, dc.dc_stop_publish, dc.dc_stop_card,
                                                                          dc.dc_debitorg, org.org_image, org.org_nickname, 
@@ -362,7 +382,7 @@
                                                                    INNER JOIN card_org as org ON org.Tb_index=dc.dc_debitorg
                                                                    INNER JOIN card_level as level ON level.Tb_index=dc.dc_debitlevel
                                                                    WHERE dc.dc_group_state=0 AND dc.dc_fun_id LIKE :dc_fun_id
-                                                                   ORDER BY bk.bi_code ASC, dc.dc_publish DESC, dc.dc_group_id DESC, level.OrderBy ASC", ['dc_fun_id'=>'%'.$_GET['dc_func'].'%']);
+                                                                   ORDER BY bk.bi_code ASC, dc.dc_publish DESC, dc.dc_group_id DESC, level.OrderBy ASC", ['dc_fun_id'=>'%'.$row_is_dc['Tb_index'].'%']);
 
                                       //-- 銀行陣列 --
                                       $bank_arr=[];
@@ -398,7 +418,7 @@
                                               // $c_level_txt=mb_substr($c_level_txt, 0,-1,'utf-8');
                                               if ($card_org[0]['dc_stop_publish']==0 && $card_org[0]['dc_stop_card']==0){
                                                 $c_org_txt.='
-                                                    <a class="mr-2" href="bank_list.php?order=dc_'.$card_org[0]['org_nickname'].'"><img src="../sys/img/'.$card_org[0]['org_image'].'" title="'.$card_org[0]['org_nickname'].'"></a>
+                                                    <a class="mr-2 mb-2" href="bank_list.php?order=dc_'.$card_org[0]['org_nickname'].'"><img src="../sys/img/'.$card_org[0]['org_image'].'" title="'.$card_org[0]['org_nickname'].'"></a>
                                                   ';
                                               }
                                             }
@@ -408,13 +428,13 @@
                                            $dc_photo=empty($card_group[0]['dc_photo']) ? 'CardSample.png':$card_group[0]['dc_photo'];
 
                                            $c_group_txt.='
-                                           <div class="row cards_div bankbg_list">
-                                             <div class="col-md-5 hv-center">
+                                           <div class="row cards_div bankbg_list" >
+                                             <div class="col-md-5 col-6 hv-center" title="'.$card_group[0]['dc_cardname'].'">
                                                  <a class="bank_all_small_img card_name text-center" href="type.php?bi_pk01='.$bank[0]['dc_bi_pk'].'&gid='.$card_group[0]['dc_group_id'].'">
-                                                  <img src="../sys/img/'.$dc_photo.'" title="'.$card_group[0]['dc_cardname'].'"><br>'.$card_group[0]['dc_cardname'].'
+                                                  <img src="../sys/img/'.$dc_photo.'" ><br>'.$card_group[0]['dc_cardname'].'
                                                  </a>
                                              </div>
-                                             <div class="col-md-7 h-center col0 all_color">
+                                             <div class="col-md-7 col-6 h-center col0 all_color mb-md-4">
                                               <div>
                                               '.$c_org_txt.'
                                               </div>
@@ -425,12 +445,12 @@
                                         }
                                         //-- 卡群組陣列 END --
                                         
-                                        $more_btn_txt=($x-1)>4 ? '<a class="rank_more card_more warning-layered btnOver" bank_id="'.$bank[0]['dc_bi_pk'].'" func_id="'.$_GET['dc_func'].'" now_num="4" show_num="4" c_type="dc" href="javascript:;">顯示更多卡片</a>' : '';
+                                        $more_btn_txt=($x-1)>4 ? '<a class="rank_more card_more warning-layered btnOver" bank_id="'.$bank[0]['dc_bi_pk'].'" func_id="'.$row_is_dc['Tb_index'].'" now_num="4" show_num="4" c_type="dc" href="javascript:;">顯示更多卡片</a>' : '';
                                         $list_txt='<div class="row">
-                                                     <div class="bank_div col-md-2 hv-center">
+                                                     <div class="bank_div col-md-2 hv-center py-2">
                                                          <a class="card_name text-center" href="/card/bank_detail.php?bi_pk='.$bank[0]['dc_bi_pk'].'"><img class="max-w-100" src="../sys/img/'.$bank[0]['bi_logo'].'" title="'.$bank[0]['bi_shortname'].'"><br>'.$bank[0]['bi_shortname'].'</a>
                                                      </div>
-                                                     <div class="card_div col-md-10">
+                                                     <div class="card_div col-md-10 p-md-0 px-0">
                                                       <div class="card_group_div">
                                                        '.$c_group_txt.'
                                                       </div>
@@ -504,7 +524,7 @@
                               ?>
                             </ul>
                             
-                             <div class="col-md-12 col">
+                             <div class="col-md-12 col px-0 px-md-1">
                                 <div id="iCardRanking" class="cardshap big_tab tab_list_div brown_tab creditbg">
                                   <div class="tab_menu row no-gutters">
 
@@ -545,7 +565,7 @@
                             
 
 
-                            <div class="content_tab" id="myTabContent">
+                            <div class="content_tab px-md-1 px-0" id="myTabContent">
                               <div class="news_list_div show " tab="3" id="int-CreditCard" role="tabpanel" aria-labelledby="int-CreditCard-tab">
                                <div class="credit_table">
 
@@ -599,11 +619,11 @@
                                         
                                          if (!empty($c_level_txt)) {
                                            $c_org_txt.='
-                                             <div class="py-2 row no-gutters">
-                                              <div class="col-md-2">
+                                             <div class="py-1 row no-gutters">
+                                              <div class="col-md-2 col-4">
                                                <a href="bank_list.php?order=cc_'.$card_org[0]['org_nickname'].'"><img src="../sys/img/'.$card_org[0]['org_image'].'" title="'.$card_org[0]['org_nickname'].'"></a>
                                               </div>
-                                              <div class="col-md-10">
+                                              <div class="col-md-10 col-8">
                                                '.$c_level_txt.'
                                               </div>
                                              </div>';
@@ -615,14 +635,14 @@
                                       $cc_photo=empty($card_group[0]['cc_photo']) ? 'CardSample.png':$card_group[0]['cc_photo'];
 
                                       $c_group_txt.='
-                                      <div class="row cards_div bankbg_list">
-                                        <div class="col-md-5 hv-center">
+                                      <div class="row cards_div bankbg_list" >
+                                        <div class="col-md-5 col-6 hv-center" title="'.$card_group[0]['cc_cardname'].'">
                                             <a class="bank_all_small_img card_name text-center" href="type.php?bi_pk01='.$bank[0]['cc_bi_pk'].'&gid='.$card_group[0]['cc_group_id'].'">
-                                             <img src="../sys/img/'.$cc_photo.'" title="'.$card_group[0]['cc_cardname'].'"><br>'.$card_group[0]['cc_cardname'].'
+                                             <img src="../sys/img/'.$cc_photo.'" ><br>'.$card_group[0]['cc_cardname'].'
                                             </a>
                                         </div>
-                                        <div class="col-md-7 h-center col0 all_color">
-                                         <div class="w-100 text-center" >
+                                        <div class="col-md-7 col-6 h-center col0 all_color mb-md-4">
+                                         <div class="w-100 text-md-center" >
                                          '.$c_org_txt.'
                                          </div>
                                         </div> 
@@ -635,10 +655,10 @@
                                    
                                    $more_btn_txt=($x-1)>4 ? '<a class="rank_more card_more warning-layered btnOver" bank_id="'.$bank[0]['cc_bi_pk'].'" pref_id="'.$_GET['pref'].'" now_num="4" show_num="4" c_type="cc" href="javascript:;">顯示更多卡片</a>' : '';
                                    $list_txt='<div class="row">
-                                                <div class="bank_div col-md-2 hv-center">
+                                                <div class="bank_div col-md-2 hv-center py-2">
                                                     <a class="card_name text-center" href="/card/bank_detail.php?bi_pk='.$bank[0]['cc_bi_pk'].'"><img class="max-w-100" src="../sys/img/'.$bank[0]['bi_logo'].'" title="'.$bank[0]['bi_shortname'].'"><br>'.$bank[0]['bi_shortname'].'</a>
                                                 </div>
-                                                <div class="card_div col-md-10">
+                                                <div class="card_div col-md-10 p-md-0 px-0">
                                                   <div class="card_group_div">
                                                    '.$c_group_txt.'
                                                   </div>
@@ -705,7 +725,7 @@
                                               // $c_level_txt=mb_substr($c_level_txt, 0,-1,'utf-8');
                                               if ($card_org[0]['dc_stop_publish']==0 && $card_org[0]['dc_stop_card']==0) {
                                                 $c_org_txt.='
-                                                    <a class="mr-2" href="bank_list.php?order=dc_'.$card_org[0]['org_nickname'].'"><img src="../sys/img/'.$card_org[0]['org_image'].'" title="'.$card_org[0]['org_nickname'].'"></a>
+                                                    <a class="mr-2 mb-2" href="bank_list.php?order=dc_'.$card_org[0]['org_nickname'].'"><img src="../sys/img/'.$card_org[0]['org_image'].'" title="'.$card_org[0]['org_nickname'].'"></a>
                                                     
                                                   ';
                                               }
@@ -718,13 +738,13 @@
                                            $dc_photo=empty($card_group[0]['dc_photo']) ? 'CardSample.png':$card_group[0]['dc_photo'];
 
                                            $c_group_txt.='
-                                           <div class="row cards_div bankbg_list">
-                                             <div class="col-md-5 hv-center">
+                                           <div class="row cards_div bankbg_list" >
+                                             <div class="col-md-5 col-6 hv-center" title="'.$card_group[0]['dc_cardname'].'">
                                                  <a class="bank_all_small_img card_name text-center" href="type.php?bi_pk01='.$bank[0]['dc_bi_pk'].'&gid='.$card_group[0]['dc_group_id'].'">
-                                                  <img src="../sys/img/'.$dc_photo.'" title="'.$card_group[0]['dc_cardname'].'"><br>'.$card_group[0]['dc_cardname'].'
+                                                  <img src="../sys/img/'.$dc_photo.'" ><br>'.$card_group[0]['dc_cardname'].'
                                                  </a>
                                              </div>
-                                             <div class="col-md-7 h-center col0 all_color">
+                                             <div class="col-md-7 col-6 h-center col0 all_color mb-md-4">
                                               <div>
                                               '.$c_org_txt.'
                                               </div>
@@ -738,10 +758,10 @@
                                         
                                         $more_btn_txt=($x-1)>4 ? '<a class="rank_more card_more warning-layered btnOver" bank_id="'.$bank[0]['dc_bi_pk'].'" pref_id="'.$_GET['dc_pref'].'" now_num="4" show_num="4" c_type="dc" href="javascript:;">顯示更多卡片</a>' : '';
                                         $list_txt='<div class="row">
-                                                     <div class="bank_div col-md-2 hv-center">
+                                                     <div class="bank_div col-md-2 hv-center py-2">
                                                          <a class="card_name text-center" href="/card/bank_detail.php?bi_pk='.$bank[0]['dc_bi_pk'].'"><img class="max-w-100" src="../sys/img/'.$bank[0]['bi_logo'].'" title="'.$bank[0]['bi_shortname'].'"><br>'.$bank[0]['bi_shortname'].'</a>
                                                      </div>
-                                                     <div class="card_div col-md-10">
+                                                     <div class="card_div col-md-10 p-md-0">
                                                        <div class="card_group_div">
                                                         '.$c_group_txt.'
                                                        </div>

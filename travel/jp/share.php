@@ -1,32 +1,32 @@
 <?php 
- require '../share_area/conn.php';
+ require '../../share_area/conn.php';
 
 
  //-- 判斷是否為次版區 --
  if (empty($_GET['tr_pk'])) {
    
-   //-- 行程推薦單元 --
+   //-- 旅行分享單元 --
    $ns_nt_ot_pk_query="";
-   $row_newsType=$pdo->select("SELECT Tb_index FROM news_type WHERE unit_id='un2019011717564690'");
+   $row_newsType=$pdo->select("SELECT Tb_index FROM news_type WHERE unit_id='un2019011717563437'");
    foreach ($row_newsType as $newsType) {
     $ns_nt_ot_pk_query.=" ns_nt_ot_pk LIKE '%".$newsType['Tb_index']."%' OR ";
    }
    $ns_nt_ot_pk_query=substr($ns_nt_ot_pk_query, 0,-3);
    
-   $newsType_where="(unit_id = 'un2019011717564690' OR $ns_nt_ot_pk_query)";
+   $newsType_where="(unit_id = 'un2019011717563437' OR $ns_nt_ot_pk_query)";
    $newsType_where_arr=['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')];
 
-   $title_name='卡優新聞網-行程推薦';
-   $crumbs_name='行程推薦';
+   $title_name='卡優新聞網-旅行分享';
+   $crumbs_name='旅行分享';
  }
  else{
 
    $newsType_where="(ns_nt_pk = :ns_nt_pk OR ns_nt_ot_pk LIKE :ns_nt_ot_pk)";
    $newsType_where_arr=['ns_nt_pk'=>$_GET['tr_pk'], 'ns_nt_ot_pk'=>'%'.$_GET['tr_pk'].'%', 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')];
 
-   $row_typeName=$pdo->select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['tr_pk']], 'one');
-   $title_name='卡優新聞網-行程推薦 > '.$row_typeName['nt_name'];
-   $crumbs_name='行程推薦-'.$row_typeName['nt_name'];
+   $row_typeName=$pdo->select("SELECT nt_name, Tb_index FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['tr_pk']], 'one');
+   $title_name='卡優新聞網-旅行分享 > '.$row_typeName['nt_name'];
+   $crumbs_name='旅行分享-'.$row_typeName['nt_name'];
  }
 
 ?>
@@ -45,12 +45,12 @@
     <meta name="keywords" content="信用卡,金融卡,悠遊卡,一卡通,icash,電子票證,現金回饋,紅利,信用卡比較,信用卡優惠,首刷禮,辦卡,新卡,卡訊,行動支付,小額消費,新聞,理財,消費,3C,旅遊,日本,住宿,美食,電影,交通,好康,加油,報稅"/>  
     <meta name="description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" /> 
 
-    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="shortcut icon" href="../../images/favicon.ico"/>
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
     <?php 
-     require '../share_area/fb_config.php';
+     require '../../share_area/fb_config.php';
     ?>
     <meta property="og:site_name" content="<?php echo $title_name; ?>" />
     <meta property="og:type" content="website" />
@@ -63,7 +63,7 @@
       
     <?php 
      //-- 共用CSS --
-     require '../share_area/share_css.php';
+     require '../../share_area/share_css.php';
     ?>
 
 
@@ -76,17 +76,17 @@
          <?php 
          //-- 共用Header --
          if (wp_is_mobile()) {
-          require '../share_area/phone/header.php';
+          require '../../share_area/phone/header.php';
          }
          else{
-          require '../share_area/header.php';
+          require '../../share_area/header.php';
          }
         ?>
         
         <!-- 麵包屑 -->
         <div class="row ">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="index.php">優旅行</a> / <a href="javascript:;"><?php echo $crumbs_name; ?></a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="/travel/index.php">優旅行</a> / <a href="index.php">日本嬉遊趣</a> / <a href="about.php?tr_pk=<?php echo $row_typeName['Tb_index'];?>"><?php echo $row_typeName['nt_name']; ?></a> / <a href="javascript:;"><?php echo $crumbs_name; ?></a></p>
           </div>
         </div>
         
@@ -167,11 +167,11 @@
                         <div class="col-md-6 col ad_news">
                           <div class="row no-gutters">
                             <div class="col-md-6 h-center">
-                             <img src="../img/component/ad_sm.png"> 
+                             <img src="../../img/component/ad_sm.png"> 
                             </div>
                            <div class="col-md-6">
                             <div class="best">
-                             <img src="../img/component/best.png">
+                             <img src="../../img/component/best.png">
                             </div>
                             <h6>匯豐現金回饋卡</h6>
                             <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
@@ -181,11 +181,11 @@
                         <div class="col-md-6 col ad_news">
                           <div class="row no-gutters">
                             <div class="col-md-6 h-center">
-                             <img src="../img/component/ad_sm.png"> 
+                             <img src="../../img/component/ad_sm.png"> 
                             </div>
                            <div class="col-md-6">
                             <div class="best">
-                             <img src="../img/component/best.png">
+                             <img src="../../img/component/best.png">
                             </div>
                             <h6>匯豐現金回饋卡</h6>
                             <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
@@ -234,7 +234,7 @@
                          <div class="col-md-6">
                           <div class="travel_main mb-3">
                            <a href="'.$url.'" title="'.$list_one['ns_ftitle'].'">
-                             <div class="img_div"  style="background-image: url(../sys/img/'.$list_one['ns_photo_1'].');"></div>
+                             <div class="img_div"  style="background-image: url(../../sys/img/'.$list_one['ns_photo_1'].');"></div>
                              <div>
                                <h6>'.$ns_ftitle.'</h6>
                                <p>'.$ns_msghtml.'</p>
@@ -266,7 +266,7 @@
             
             <!--版面右側-->
             <?php 
-             require 'right_area_div_recommend.php';
+             require '../right_area_div_jp.php';
             ?>
 
             <!--廣告-->
@@ -288,7 +288,7 @@
 
      <?php 
      //-- 共用js --
-     require '../share_area/share_js.php';
+     require '../../share_area/share_js.php';
     ?>
 
   </body>

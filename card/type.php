@@ -59,7 +59,7 @@
         <!-- 麵包屑 -->
         <div class="row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="card.php">卡情報</a> / <a href="javascript:;">卡總覽</a>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="card.php">卡情報</a> / <a href="javascript:;">卡群組</a>
             </p>
           </div>
         </div>
@@ -78,7 +78,12 @@
                       <div class="cardshap brown_tab ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab">
-                            <a class="nav-link active pl-30 py-2" id="title_5-tab" data-toggle="tab" href="#title_5" role="tab" aria-controls="title_5" aria-selected="true">信用卡</a>
+                            <?php 
+                             $card_type=substr($_GET['gid'], 0,2);
+
+                              $card_txt=$card_type=='cc' ? '信用卡':'金融卡';
+                            ?>
+                            <a class="nav-link active pl-30 py-2" id="title_5-tab" data-toggle="tab" href="#title_5" role="tab" aria-controls="title_5" aria-selected="true"><?php echo $card_txt; ?></a>
                           </li>
                         </ul>
                        
@@ -90,61 +95,139 @@
 
                             <?php 
                               if (!empty($_GET['gid'])) {
-                                $row_card=$pdo->select("SELECT cc.Tb_index, cc.cc_group_id, cc.cc_bi_pk, cc.cc_cardname, cc.cc_photo, cc.cc_interest_desc, cc.cc_fun_id, 
-                                                               bk.bi_shortname, org.org_nickname, level.attr_name, org.org_image
-                                                              FROM credit_card as cc
-                                                              INNER JOIN bank_info as bk ON bk.Tb_index=cc.cc_bi_pk
-                                                              INNER JOIN card_org as org ON org.Tb_index=cc.cc_cardorg
-                                                              INNER JOIN card_level as level ON level.Tb_index=cc.cc_cardlevel 
-                                                              WHERE cc.cc_group_id =:cc_group_id AND cc.cc_stop_publish=0 AND cc.cc_stop_card=0
-                                                              ORDER BY org.OrderBy ASC ,level.OrderBy ASC", ['cc_group_id'=>$_GET['gid']]);
-                                foreach ($row_card as $row_card_one) {
 
-                                  //-- 卡名 --
-                                  $card_name=$row_card_one['cc_cardname'].$row_card_one['org_nickname'].$row_card_one['attr_name'];
-                                  //-- 功能 --
-                                  $cc_fun_id_txt='';
-                                  $cc_fun_id_arr=explode(',', $row_card_one['cc_fun_id']);
-                                  foreach ($cc_fun_id_arr as $fun_id_one) {
-                                    $cc_fun_id_txt.='\''.$fun_id_one.'\',';
-                                  }
-                                  $cc_fun_id_txt=substr($cc_fun_id_txt, 0,-1);
-                                  $row_fun=$pdo->select("SELECT Tb_index, fun_name, card_image, card_image_hover  FROM card_func WHERE Tb_index IN (".$cc_fun_id_txt.") ORDER BY OrderBy ASC");
-                                  $row_fun_txt='';
-                                  foreach ($row_fun as $row_fun_one) {
-                                    $row_fun_txt.='<a class="ccard_icon_js" href="all.php?func='.$row_fun_one['Tb_index'].'"><img src="../sys/img/'.$row_fun_one['card_image'].'" title="'.$row_fun_one['fun_name'].'"></a>';
-                                  }
-
-                                  //-- 卡片圖 --
-                                  $cc_photo=empty($row_card_one['cc_photo']) ? 'CardSample.png':$row_card_one['cc_photo'];
+                                
+                                
+                                //-- 信用卡 --
+                                if ($card_type=='cc') {
                                   
-                                  echo '<div class="row no-gutters px-2 py-3 bankbg_list">
-                                          <div class="col-md-4 text-center">
-                                            <a class="bank_all_img" href="../card/creditcard.php?cc_pk='.$row_card_one['Tb_index'].'&cc_group_id='.$row_card_one['cc_group_id'].'">
-                                              <img src="../sys/img/'.$cc_photo.'" alt="'.$card_name.'" title="'.$card_name.'">
-                                            </a>
-                                          </div>
-                                           <div class="col-md-5 card_list_txt">
-                                             <div class="bank_list type_card">
-                                             <h5>
-                                              <a href="bank_detail.php?bi_pk='.$row_card_one['cc_bi_pk'].'">'.$row_card_one['bi_shortname'].'</a>-
-                                              <a class="card_name my-2" href="../card/creditcard.php?cc_pk='.$row_card_one['Tb_index'].'&cc_group_id='.$row_card_one['cc_group_id'].'" title="'.$card_name.'">
-                                              '.$card_name.'
+                                  $row_card=$pdo->select("SELECT cc.Tb_index, cc.cc_group_id, cc.cc_bi_pk, cc.cc_cardname, cc.cc_photo, cc.cc_interest_desc, cc.cc_fun_id, 
+                                                                 bk.bi_shortname, org.org_nickname, level.attr_name, org.org_image, cc.cc_stop_publish
+                                                                FROM credit_card as cc
+                                                                INNER JOIN bank_info as bk ON bk.Tb_index=cc.cc_bi_pk
+                                                                INNER JOIN card_org as org ON org.Tb_index=cc.cc_cardorg
+                                                                INNER JOIN card_level as level ON level.Tb_index=cc.cc_cardlevel 
+                                                                WHERE cc.cc_group_id =:cc_group_id AND cc.cc_stop_card=0
+                                                                ORDER BY org.OrderBy ASC ,level.OrderBy ASC", ['cc_group_id'=>$_GET['gid']]);
+
+                                  foreach ($row_card as $row_card_one) {
+
+                                    //-- 卡名 --
+                                    $card_name=$row_card_one['cc_cardname'].$row_card_one['org_nickname'].$row_card_one['attr_name'];
+                                    //-- 停發 --
+                                    $cc_stop_publish=$row_card_one['cc_stop_publish']==1 ? '(停發)':'';
+                                    //-- 功能 --
+                                    $cc_fun_id_txt='';
+                                    $cc_fun_id_arr=explode(',', $row_card_one['cc_fun_id']);
+                                    foreach ($cc_fun_id_arr as $fun_id_one) {
+                                      $cc_fun_id_txt.='\''.$fun_id_one.'\',';
+                                    }
+                                    $cc_fun_id_txt=substr($cc_fun_id_txt, 0,-1);
+                                    $row_fun=$pdo->select("SELECT Tb_index, fun_name, card_image, card_image_hover  FROM card_func WHERE Tb_index IN (".$cc_fun_id_txt.") ORDER BY OrderBy ASC");
+                                    $row_fun_txt='';
+                                    foreach ($row_fun as $row_fun_one) {
+                                      $row_fun_txt.='<a class="ccard_icon_js" href="card_browse.php?func='.$row_fun_one['Tb_index'].'"><img src="../sys/img/'.$row_fun_one['card_image'].'" title="'.$row_fun_one['fun_name'].'"></a>';
+                                    }
+
+                                    //-- 卡片圖 --
+                                    $cc_photo=empty($row_card_one['cc_photo']) ? 'CardSample.png':$row_card_one['cc_photo'];
+                                    
+                                    echo '<div class="row no-gutters px-2 py-3 bankbg_list">
+                                            <div class="col-md-4 text-center">
+                                              <a class="bank_all_img" href="../card/creditcard.php?cc_pk='.$row_card_one['Tb_index'].'&cc_group_id='.$row_card_one['cc_group_id'].'">
+                                                <img src="../sys/img/'.$cc_photo.'" alt="'.$card_name.'" title="'.$card_name.'">
                                               </a>
-                                             </h5>
-                                             <ul>
-                                               <li><img src="../sys/img/'.$row_card_one['org_image'].'" > '.$row_card_one['attr_name'].'</li>
-                                             </ul>
-                                             <div class="fb_search_btn">
-                                              <iframe src="https://www.facebook.com/plugins/like.php?href='.$URL.'/card/creditcard.php?cc_pk='.$row_card_one['Tb_index'].'&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                                             </div>
+                                             <div class="col-md-5 card_list_txt">
+                                               <div class="bank_list type_card">
+                                               <h5>
+                                                <a href="bank_detail.php?bi_pk='.$row_card_one['cc_bi_pk'].'">'.$row_card_one['bi_shortname'].'</a>-
+                                                <a class="card_name my-2" href="../card/creditcard.php?cc_pk='.$row_card_one['Tb_index'].'&cc_group_id='.$row_card_one['cc_group_id'].'" title="'.$card_name.'">
+                                                '.$card_name.'
+                                                </a>
+                                               </h5>
+                                               <ul>
+                                                 <li><img src="../sys/img/'.$row_card_one['org_image'].'" > '.$row_card_one['attr_name'].$cc_stop_publish.'</li>
+                                               </ul>
+                                               <div class="fb_search_btn">
+                                                <iframe src="https://www.facebook.com/plugins/like.php?href='.$URL.'/card/creditcard.php?cc_pk='.$row_card_one['Tb_index'].'&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                              </div>
+                                              </div>
                                             </div>
-                                          </div>
-                                          <div class="col-md-3 text-center phone_hidden">
-                                            '.$row_fun_txt.'
-                                          </div>
-                                        </div>';
+                                            <div class="col-md-3 text-center phone_hidden">
+                                              '.$row_fun_txt.'
+                                            </div>
+                                          </div>';
+                                  }
                                 }
+                                
+                                //-- 金融卡 --
+                                else if($card_type=='dc'){
+
+                                  $row_card=$pdo->select("SELECT dc.Tb_index, dc.dc_group_id, dc.dc_bi_pk, dc.dc_cardname, dc.dc_photo, dc.dc_interest_desc, dc.dc_fun_id, dc.dc_stop_publish,
+                                                                 bk.bi_shortname, org.org_nickname, level.attr_name, org.org_image
+                                                                FROM debit_card as dc
+                                                                INNER JOIN bank_info as bk ON bk.Tb_index=dc.dc_bi_pk
+                                                                INNER JOIN card_org as org ON org.Tb_index=dc.dc_debitorg
+                                                                INNER JOIN card_level as level ON level.Tb_index=dc.dc_debitlevel 
+                                                                WHERE dc.dc_group_id =:cc_group_id AND dc.dc_stop_card=0
+                                                                ORDER BY org.OrderBy ASC ,level.OrderBy ASC", ['cc_group_id'=>$_GET['gid']]);
+
+                                  foreach ($row_card as $row_card_one) {
+
+                                    //-- 卡名 --
+                                    $card_name=$row_card_one['dc_cardname'].$row_card_one['org_nickname'].$row_card_one['attr_name'];
+                                    //-- 停發 --
+                                    $dc_stop_publish=$row_card_one['dc_stop_publish']==1 ? '(停發)':'';
+                                    //-- 功能 --
+                                    $dc_fun_id_txt='';
+                                    $dc_fun_id_arr=explode(',', $row_card_one['dc_fun_id']);
+                                    foreach ($dc_fun_id_arr as $fun_id_one) {
+                                      $dc_fun_id_txt.='\''.$fun_id_one.'\',';
+                                    }
+                                    $dc_fun_id_txt=substr($dc_fun_id_txt, 0,-1);
+                                    $row_fun=$pdo->select("SELECT Tb_index, fun_name, card_image, card_image_hover  FROM card_func WHERE Tb_index IN (".$dc_fun_id_txt.") ORDER BY OrderBy ASC");
+                                    $row_fun_txt='';
+                                    foreach ($row_fun as $row_fun_one) {
+                                      $row_fun_txt.='<a class="ccard_icon_js" href="card_browse.php?func='.$row_fun_one['Tb_index'].'"><img src="../sys/img/'.$row_fun_one['card_image'].'" title="'.$row_fun_one['fun_name'].'"></a>';
+                                    }
+
+                                    //-- 卡片圖 --
+                                    $dc_photo=empty($row_card_one['dc_photo']) ? 'CardSample.png':$row_card_one['dc_photo'];
+
+                                    $fb_like_url= urlencode($URL.'/card/debitcard.php?dc_pk='.$row_card_one['Tb_index'].'&dc_group_id='.$row_card_one['dc_group_id']) ;
+                                    
+                                    echo '<div class="row no-gutters px-2 py-3 bankbg_list">
+                                            <div class="col-md-4 text-center">
+                                              <a class="bank_all_img" href="../card/debitcard.php?dc_pk='.$row_card_one['Tb_index'].'&dc_group_id='.$row_card_one['dc_group_id'].'">
+                                                <img src="../sys/img/'.$dc_photo.'" alt="'.$card_name.'" title="'.$card_name.'">
+                                              </a>
+                                            </div>
+                                             <div class="col-md-5 card_list_txt">
+                                               <div class="bank_list type_card">
+                                               <h5>
+                                                <a href="bank_detail.php?bi_pk='.$row_card_one['dc_bi_pk'].'">'.$row_card_one['bi_shortname'].'</a>-
+                                                <a class="card_name my-2" href="../card/debitcard.php?dc_pk='.$row_card_one['Tb_index'].'&dc_group_id='.$row_card_one['dc_group_id'].'" title="'.$card_name.'">
+                                                '.$card_name.'
+                                                </a>
+                                               </h5>
+                                               <ul>
+                                                 <li><img src="../sys/img/'.$row_card_one['org_image'].'" > '.$row_card_one['attr_name'].$dc_stop_publish.'</li>
+                                               </ul>
+                                               <div class="fb_search_btn">
+                                                <iframe src="https://www.facebook.com/plugins/like.php?href='.$fb_like_url.'&width=90&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="90" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                              </div>
+                                              </div>
+                                            </div>
+                                            <div class="col-md-3 text-center phone_hidden">
+                                              '.$row_fun_txt.'
+                                            </div>
+                                          </div>';
+                                  }
+                                }
+
+                                
+
                               }
                             ?>
                         

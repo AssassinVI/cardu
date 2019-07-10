@@ -7,23 +7,26 @@
 
  $row=$pdo->select("SELECT * FROM NewsAndType WHERE Tb_index=:Tb_index", ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
 
+ //-- 404 判斷 --
+ if (empty($row['Tb_index'])) {
+  location_up('../member/my404.php?travel','');
+  exit();
+ }
+
  $ns_msghtml=mb_substr(strip_tags($row['ns_msghtml']), 0,100);
 
  //-- 判斷單元 --
- $row_newsType=$pdo->select("SELECT nt_name, Tb_index, unit_id
-                             FROM news_type 
-                             WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_pk']], 'one');
- switch ($row_newsType['unit_id']) {
+ switch ($row['unit_id']) {
    //-- 旅行分享 --
    case 'un2019011717563437':
-     $crumbs_html='<a href="share.php?tr_pk='.$row_newsType['Tb_index'].'">旅行分享-'.$row_newsType['nt_name'].'</a>';
+     $crumbs_html='<a href="share.php?tr_pk='.$row['ns_nt_pk'].'">旅行分享-'.$row['nt_name'].'</a>';
      //--版面右側--
      $right_area='right_area_div_share.php';
    break;
 
    //-- 行程推薦 --
    case 'un2019011717564690':
-     $crumbs_html='<a href="recommend.php?tr_pk='.$row_newsType['Tb_index'].'">行程推薦-'.$row_newsType['nt_name'].'</a>';
+     $crumbs_html='<a href="recommend.php?tr_pk='.$row['ns_nt_pk'].'">行程推薦-'.$row['nt_name'].'</a>';
      //--版面右側--
      $right_area='right_area_div_recommend.php';
    break;
@@ -44,7 +47,7 @@
 
    //-- 日本嬉遊去 --
    case 'un2019011717573494':
-     $crumbs_html='<a href="jp/index.php">日本嬉遊趣</a> / <a href="jp/about.php?tr_pk='.$row_newsType['Tb_index'].'">'.$row_newsType['nt_name'].'</a>';
+     $crumbs_html='<a href="jp/index.php">日本嬉遊趣</a> / <a href="jp/about.php?tr_pk='.$row['ns_nt_pk'].'">'.$row['nt_name'].'</a>';
      //--版面右側--
      $right_area='right_area_div_jp.php';
    break;
@@ -53,6 +56,47 @@
      # code...
      break;
  }
+
+
+
+ //-- 上下篇新聞  --
+ 
+  //-- 上刊到其他單元 --
+  $ns_nt_ot_pk_query="";
+   $row_newsType=$pdo->select("SELECT Tb_index FROM news_type WHERE unit_id=:unit_id", ['unit_id'=>$row['unit_id']]);
+   foreach ($row_newsType as $newsType) {
+    $ns_nt_ot_pk_query.=" ns_nt_ot_pk LIKE '%".$newsType['Tb_index']."%' OR ";
+   }
+   $ns_nt_ot_pk_query=substr($ns_nt_ot_pk_query, 0,-3);
+
+
+ $where=[
+   'StartDate'=>date('Y-m-d'), 
+   'EndDate'=>date('Y-m-d'), 
+   'unit_id'=>$row['unit_id'], 
+   'ns_vfdate'=>$row['ns_vfdate']
+ ];
+ 
+ //-- 上一篇 --
+ $prev_news=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, StartDate
+                                   FROM NewsAndType 
+                                   WHERE ns_verify=3 AND OnLineOrNot=1 
+                                   AND StartDate<=:StartDate AND EndDate>=:EndDate AND unit_id=:unit_id 
+                                   AND ns_vfdate>:ns_vfdate  ORDER BY ns_vfdate ASC LIMIT 0,1 ", $where, 'one');
+ 
+ //-- 下一篇 --
+ $next_news=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, StartDate
+                                   FROM NewsAndType 
+                                   WHERE ns_verify=3 AND OnLineOrNot=1 
+                                   AND StartDate<=:StartDate AND EndDate>=:EndDate AND unit_id=:unit_id 
+                                   AND ns_vfdate<:ns_vfdate  ORDER BY ns_vfdate DESC LIMIT 0,1 ", $where, 'one');
+
+ $prev_btn_display=empty($prev_news['Tb_index']) ? 'd-none':'d-block';
+ $next_btn_display=empty($next_news['Tb_index']) ? 'd-none':'d-block';
+
+ $prev_url=news_url($prev_news['mt_id'], $prev_news['Tb_index'], $prev_news['ns_nt_pk'], $prev_news['area_id']);
+ $next_url=news_url($next_news['mt_id'], $next_news['Tb_index'], $next_news['ns_nt_pk'], $next_news['area_id']);
+
 ?>
 <!DOCTYPE html>
 
@@ -105,6 +149,17 @@
           require '../share_area/header.php';
          }
         ?>
+
+
+        <!-- 上下篇按鈕 -->
+        <div class="<?php echo $prev_btn_display; ?> d-md-none PrevNext_div prev_btn">
+          <a href="<?php echo $prev_url; ?>"><i class="fa fa-angle-left"></i></a>
+        </div>
+        <div class="<?php echo $next_btn_display; ?> d-md-none PrevNext_div next_btn">
+          <a href="<?php echo $next_url; ?>"><i class="fa fa-angle-right"></i></a>
+        </div>
+
+
         
         <!-- 麵包屑 -->
         <div class="row crumbs_row">
@@ -194,24 +249,95 @@
                       </div>
                     </div>
 
+                    
+
+                    <?php 
+                    if(wp_is_mobile()){
+                   ?>
+                    <!--信用卡推薦-->
+                     <div class="col-md-12 col ">
+
+                         <div class="cardshap <?php echo $tab_style; ?> exception">
+                         <ul class="nav nav-tabs" id="myTab" role="tablist">
+                           <li class="nav-item news_tab">
+                             <a class="nav-link active pl-30 py-2" id="special_1-tab" aria-selected="true">信用卡推薦</a>
+                           </li>
+                         </ul>
+                         <div class="tab-content p-0" id="myTabContent">
+                           <div class="tab-pane fade show active"  role="tabpanel" >
+
+                             <div class="row no-gutters mx-2 py-3 card_list">
+                               <div class="col-md-4 text-center">
+                                 <a class="card_list_img" href="#">
+                                   <img src="../img/component/card1.png" alt="" title="新聞">
+                                 </a>
+                                 <a class="btn warning-layered btnOver mt-2" href="#">立即辦卡</a>
+                               </div>
+                               <div class="col-md-4 card_list_txt rank_color phone_card">
+                                 <h4 class="text-center">匯豐銀行 MasterCard 鈦金卡</h4>
+                                 <ul>
+                                   <li><b>●</b>國內現金回饋1.22%</li>
+                                   <li><b>●</b>國外現金回饋2.22%</li>
+                                   <li><b>●</b>感應式刷卡快速結帳</li>
+                                   <li><b>●</b>高額旅遊平安險</li>
+                                   <li><b>●</b>華航機票優惠</li>
+                                 </ul>
+                               </div>
+                               <div class="col-md-4 phone_hidden">
+                                 <a class="img_div card_list_img" href="#" title="新聞" style="background-image: url(../img/component/photo2.jpg);"></a>
+                                 <p>謹慎理財 信用至上</p>
+                               </div>
+                             </div>
+                            
+                           </div>
+                          
+                         </div>
+                       </div>
+                     </div>
+                     <!--信用卡推薦end --> 
+
+
+                     <!-- 懸浮廣告 -->
+                     <div class="ad_fixed_ph">
+                       <div class="swiper-container sub_ph_slide">
+                           <div class="swiper-wrapper">
+                               <div class="swiper-slide">
+                                 <a href="#"><img class="w-100" src="http://placehold.it/900x180" alt=""></a>
+                               </div>
+                               <div class="swiper-slide">
+                                  <a href="#"><img class="w-100" src="http://placehold.it/900x180" alt=""></a>
+                               </div>
+                           </div>
+                           
+                           <!-- 如果需要导航按钮 -->
+                           <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                           <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                       </div>
+                     </div>
+                     <!-- 懸浮廣告 END -->
+
+                   <?php }else{ ?>
+                    
                     <!--廣告-->
                     <div class="col-md-12 row phone_hidden">
-                        <div class="col-md-6 col hv-center">
-                            <img src="http://placehold.it/365x100" alt="">
-                        </div>
-                        <div class="col-md-6 col hv-center">
-                            <img src="http://placehold.it/365x100">
-                        </div>
-                    </div>
+                                    <div class="col-md-6 col banner ">
+                                        <img src="https://placehold.it/365x100" alt="">
+                                    </div>
+                                    <div class="col-md-6 col banner">
+                                        <img src="https://placehold.it/365x100">
+                                    </div>
+                                </div>
                     <!--廣告end-->
 
-                    <!--手機板廣告-->
-                    <div class="col-md-12 row">
-                        <div class="col-md-6 col banner d-md-none d-sm-block ">
-                            <img src="http://placehold.it/365x100" alt="">
-                        </div>
-                    </div>
-                    <!--廣告end-->
+
+                    <!--信用卡推薦-->
+                    
+                    <!--信用卡推薦end -->
+
+                   <?php
+                    }
+                   ?>
+
 
 
                     <!--延伸閱讀-->
@@ -238,11 +364,11 @@
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="special_1" role="tabpanel" aria-labelledby="special_1-tab">
-
-                            <p>您尚未登入，請先<a href="#">登入會員</a></p>
-                           
-                          </div>
+                          
+                          <?php 
+                            //-- 網友留言 HTML --
+                            require '../share_area/discuss_html.php';
+                          ?>
                          
                         </div>
                       </div>
@@ -269,6 +395,24 @@
                       </div>
                     </div>
                     <!--Facebook留言end -->
+
+
+                    <!-- 上一則/下一則 -->
+                     <div id="PrevNext_footer" class="col-md-12 row d-md-none pt-3 pb-5 mb-5">
+                       <div class="col-6 d-block border-right">
+                         <a <?php echo $prev_btn_display; ?> href="<?php echo $prev_url;?>">
+                           <i class="fa fa-chevron-circle-left"></i>上一則 <br>
+                           <p><?php echo $prev_news['ns_ftitle']; ?></p>
+                         </a>
+                       </div>
+                       <div class="col-6 d-block text-right">
+                         <a <?php echo $next_btn_display; ?> href="<?php echo $next_url;?>">
+                           <i class="fa fa-chevron-circle-right"></i>下一則 <br>
+                           <p><?php echo $next_news['ns_ftitle']; ?></p>
+                         </a>
+                         </div>
+                       </div>
+                       <!-- 上一則/下一則 -->
 
 
                 </div>
@@ -318,6 +462,16 @@
       $(document).ready(function() {
         //-- alt 圖說 --
         img_txt('.detail_content p img');
+        
+        //-- 圖寬限制 --
+        img_750_w('.detail_content img');
+        //-- table 優化 --
+        html_table('.detail_content>table');
+      });
+
+      $(window).on('load', function() {
+        //-- 內文插入廣告 --
+        html_ad();
       });
     </script>
 

@@ -44,12 +44,18 @@ if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == 'off'){
 
    	 if (!empty($_POST['ud_userid_lg']) ) {
        
-   	   $row_login=$pdo->select("SELECT ud_pk, ud_nickname, ud_photo, ud_userid 
+   	   $row_login=$pdo->select("SELECT ud_pk, ud_nickname, ud_photo, ud_userid, ud_active
    	   	                        FROM user_data 
    	   	                        WHERE ud_userid=:ud_userid AND ud_password=:ud_password",
    	   	                        ['ud_userid'=>$_POST['ud_userid_lg'], 'ud_password'=>md5($_POST['ud_password_lg'])], 'one');
 
        if (!empty($row_login['ud_pk'])) {
+         
+         //-- 判斷有無啟用會員 --
+         if ($row_login['ud_active']=='0') {
+           location_up('/index.php', '您的會員未啟用，請先到註冊信箱點擊確認信裡的連結，以啟用會員');
+           exit();
+         }
 
          //-- 記住帳號 --
          if (!empty($_POST['remember_id'])) {
@@ -63,15 +69,18 @@ if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == 'off'){
          $_SESSION['ud_nickname']=$row_login['ud_nickname'];
          $_SESSION['ud_photo']=$row_login['ud_photo'];
 
+         $pdo->select("UPDATE user_data SET ud_logintime=:ud_logintime, ud_loginip=:ud_loginip, ud_logincnt=ud_logincnt+1 WHERE ud_pk=:ud_pk", 
+                       ['ud_logintime'=>date('Y-m-d H:i:s'), 'ud_loginip'=>user_ip(), 'ud_pk'=>$row_login['ud_pk']]);
+
          location_up($FB_URL, $_SESSION['ud_nickname'].'歡迎登入~');
        }
        else{
-        location_up('back', '帳號或密碼錯誤，請重新登入');
+        location_up($FB_URL, '帳號或密碼錯誤，請重新登入');
        }
 
    	 }
      else{
-       location_up('back', '請輸入您的帳號密碼');
+       location_up($FB_URL, '請輸入您的帳號密碼');
      }
 
    }

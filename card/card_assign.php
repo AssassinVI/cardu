@@ -11,7 +11,7 @@
 
 
 
-    <title>卡優新聞網-卡情報</title>
+    <title>卡優新聞網-卡情報 > 線上辦卡</title>
 
     <meta name="keywords" content="信用卡,金融卡,悠遊卡,一卡通,icash,電子票證,現金回饋,紅利,信用卡比較,信用卡優惠,首刷禮,辦卡,新卡,卡訊,行動支付,小額消費,新聞,理財,消費,3C,旅遊,日本,住宿,美食,電影,交通,好康,加油,報稅"/>  
     <meta name="description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" /> 
@@ -20,16 +20,16 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
-    <meta property="og:site_name" content="卡優新聞網" />
+    <?php 
+      require '../share_area/fb_config.php';
+    ?>
+    <meta property="og:site_name" content="卡優新聞網-卡情報 >線上辦卡" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="卡優新聞網" />
+    <meta property="og:title" content="卡優新聞網-卡情報 >線上辦卡" />
     <meta property="og:description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" />
-    <meta property="og:url" content="https://www.cardu.com.tw" />
-    <meta property="og:see_also" content="https://www.cardu.com.tw" />
+    <meta property="og:url" content="<?php echo  $FB_URL;?>" />
+    <!-- <meta property="og:see_also" content="https://www.cardu.com.tw" /> -->
       
       
     <?php 
@@ -57,7 +57,7 @@
         <!-- 麵包屑 -->
         <div class="row">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="card.php">卡情報</a> / <a href="javascript:;">卡訊</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="card.php">卡情報</a> / <a href="javascript:;">線上辦卡</a></p>
           </div>
         </div>
         
@@ -166,7 +166,7 @@
                             <?php 
                               $bank_row=$pdo->select("SELECT * FROM bank_info WHERE bd_src>0");
                               $bank_num=count($bank_row);
-                              $rand=rand(0,$bank_num);
+                              $rand=rand(0,(int)$bank_num-1);
                               for ($i=0; $i < $bank_num; $i++) { 
                                 if ($rand==$i) {
                                   echo '<li>
@@ -223,7 +223,7 @@
                              <p>總行電話：<?php echo $bank_row[$rand]['bi_tel'];?> <br>           
                                 信用卡服務專線：<?php echo $bank_row[$rand]['bi_tel_card'];?><br>
                                 總行地址：<?php echo $bank_adds;?><br>
-                                銀行網址：<a href="<?php echo $bank_row[$rand]['bi_bank_url'];?>"><?php echo $bank_row[$rand]['bi_bank_url'];?></a>
+                                銀行網址：<a target="_blank" href="<?php echo $bank_row[$rand]['bi_bank_url'];?>"><?php echo $bank_row[$rand]['bi_bank_url'];?></a>
                               </p>
                              </div>
                              
@@ -247,13 +247,13 @@
 
                             //-- 卡片圖 --
                             $cc_photo=empty($bk_card['cc_photo']) ? 'CardSample.png':$bk_card['cc_photo'];
-                            $doc=empty($bk_card['cc_doc_url']) ? $bk_card['cc_doc_path'] : $bk_card['cc_doc_url'];
+                            $doc=empty($bk_card['cc_doc_url']) ? '/sys/other_file/'.$bk_card['cc_doc_path'] : $bk_card['cc_doc_url'];
 
                              echo '
                              <div class="pb-3 col-md-4 text-center">
                                <a class="bank_all_img" href="type.php?bi_pk01='.$bank_row[$rand]['Tb_index'].'&gid='.$bk_card['cc_group_id'].'"><img src="../sys/img/'.$cc_photo.'" ></a>
                                <h6><a class="card_name" href="type.php?bi_pk01='.$bank_row[$rand]['Tb_index'].'&gid='.$bk_card['cc_group_id'].'">'.$bk_card['cc_cardname'].'</a></h6>
-                               <a class="btn mt-2 online_btn warning-layered btnOver" href="'.$doc.'">立即辦卡</a>
+                               <a class="btn mt-2 online_btn warning-layered btnOver" target="_blank" href="'.$doc.'">立即辦卡</a>
                              </div>';
                            }
                           ?>

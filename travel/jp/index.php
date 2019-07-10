@@ -385,7 +385,7 @@
                        echo '
                        <div class="row no-gutters py-md-3 mx-md-4 news_list">
                         <div class="col-md-4 col-6 py-2 pl-2">
-                          <a class="img_div news_list_img" href="'.$url.'" style="background-image: url('.$img_url.$row_list_one['ns_photo_1'].');"></a>
+                          <a class="img_div news_list_img" href="'.$url.'" title="'.$row_list_one['ns_ftitle'].'" style="background-image: url('.$img_url.$row_list_one['ns_photo_1'].');"></a>
                         </div>
                         <div class="col-md-8 col-6 pl-md-4 pl-0 py-2 news_list_txt">
                          <div>
@@ -395,7 +395,7 @@
                            '.$related_txt.'
                          </div>
                           '.$activity_date.'
-                          <p>'.$ns_msghtml.'...</p>
+                          <p class="phone_hidden">'.$ns_msghtml.'...</p>
                           
                           <div class="fb_search_btn">
                             <iframe src="https://www.facebook.com/plugins/like.php?href='.$fb_url.'&width=119&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId=563666290458260" width="119" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>

@@ -29,7 +29,7 @@ if($rowCount2>0 and $ns_store<>'no'){ // 判斷XXＸ更多好康是否有資料�
     <?php // 回圈跑出資料
     foreach ($row_card2s as $row_card2) {
       $ns_ftitle_other2=$row_card2['ns_ftitle'];
-      $ns_stitle_other2=mb_substr(strip_tags($ns_ftitle_other2),0, 14,"utf-8")."...";
+      $ns_stitle_other2= wp_is_mobile() ? $ns_ftitle_other2 : mb_substr(strip_tags($ns_ftitle_other2),0, 14,"utf-8")."...";
       $Tb_index_other2=$row_card2['Tb_index'];
       $ns_photo_1_other2=$img_url.$row_card2['ns_photo_1'];
       $url=news_url($row_card2['mt_id'], $row_card2['Tb_index'], $row_card2['ns_nt_pk'], $row_card2['area_id']);

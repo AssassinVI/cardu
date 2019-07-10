@@ -136,7 +136,7 @@
                             <form class="row search_from">
 
                                 <div class="col-9">
-                                  <select class="c_search_bk">
+                                  <select class="c_search_bk pr-5">
                                       <option value="">--選擇銀行--</option>
                                       <?php 
                                         $row_bank=$pdo->select("SELECT Tb_index, bi_shortname FROM bank_info ORDER BY bi_code ASC");
@@ -146,7 +146,7 @@
                                       ?>
                                   </select>
 
-                                  <select class="c_search_cc">
+                                  <select class="c_search_cc pr-5">
                                       <option value="">--選擇信用卡--</option>
                                   </select>  
                                 </div>
@@ -271,8 +271,8 @@
                                                                  INNER JOIN card_level as level ON level.Tb_index=cc.cc_cardlevel
                                                                  WHERE cc.Tb_index=:Tb_index", ['Tb_index'=>$cc_id_arr[$i]], 'one');
 
-                                    $card_name=$row_cookie_cc['bi_shortname'].$row_cookie_cc['cc_cardname'].$row_cookie_cc['org_nickname'].$row_cookie_cc['attr_name'];
-                                    $card_name=mb_strlen($card_name, 'utf-8')>9 ? mb_substr($card_name, 0,9,'utf-8'):$card_name;
+                                    $card_name_all=$row_cookie_cc['bi_shortname'].$row_cookie_cc['cc_cardname'].$row_cookie_cc['org_nickname'].$row_cookie_cc['attr_name'];
+                                    $card_name=mb_strlen($card_name_all, 'utf-8')>9 ? mb_substr($card_name_all, 0,9,'utf-8'):$card_name_all;
                                     //-- 特色 --
                                     $card_adv_txt='';
                                     $card_adv=preg_split('/\n/',$row_cookie_cc['cc_interest_desc']);
@@ -291,11 +291,11 @@
                                      <div class="row no-gutters">
                                      <div class="col-6">
                                       <a class="img_a hv-center" href="../cardNews/creditcard.php?cc_pk='.$row_cookie_cc['Tb_index'].'&cc_group_id='.$row_cookie_cc['cc_group_id'].'">
-                                        <img src="../sys/img/'.$cc_photo.'" style="height:100%;" title="'.$card_name.'">
+                                        <img src="../sys/img/'.$cc_photo.'" style="height:100%;" title="'.$card_name_all.'">
                                       </a>
                                      </div>
                                      <div class="col-6">
-                                      <a href="<?php echo $URL;?>/rank/browse_detail.php">
+                                      <a href="<?php echo $URL;?>/rank/browse_detail.php" title="'.$card_name_all.'">
                                         <h4>'.$card_name.'</h4>
                                       </a>
                                       <p>
@@ -336,6 +336,7 @@
                                                              INNER JOIN message_click_total as mct ON mct.ack_type_pk=n.Tb_index
                                                              WHERE n.mt_id='site201901111555425' AND n.unit_id!='un2019021114153096' AND n.ns_vfdate<>'0000-00-00 00:00:00' AND n.ns_verify=3 
                                                              AND  n.StartDate<=:StartDate AND n.EndDate>=:EndDate AND mct.ack_click_date >=:day_ago
+                                                             GROUP BY n.Tb_index
                                                              ORDER BY mct.ack_click_total DESC, n.ns_vfdate DESC
                                                              LIMIT 0,5", 
                                                              ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d'), 'day_ago'=>date('Y-m-d',strtotime('-7 day'))]);

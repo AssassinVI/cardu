@@ -89,7 +89,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fbe7', end
 .imp_int_title{ background-color: #ccc; padding: 7px; }
 .imp_int_title .col-md-4{ max-width: 200px; }
 .imp_int .card-header{ padding: 12px 6px; /*height: 130px;*/}
-.imp_int .card-header .angle_down{ font-size: 40px; color: #7e7e7e; }
+.angle_down{ font-size: 40px; color: #7e7e7e; }
 .imp_int .collapse_txt{ font-size: 18px; color: #000; }
 .imp_int ul.collapse_txt{ display: inline-block; padding-left: 30px; vertical-align: top; }
 .imp_int ul.collapse_txt li{ font-size: 15px; }

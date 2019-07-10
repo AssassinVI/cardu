@@ -35,7 +35,7 @@
 
  //-- 信用卡資訊 --
  $row_card_group=$pdo->select("SELECT cc.Tb_index, cc.cc_group_id, cc.cc_bi_pk, cc.cc_cardname, cc.cc_photo, cc.cc_doc_url, 
-                                      cc.cc_doc_path, cc.cc_interest_desc, cc.cc_fun_id, cc.cc_pref_id,
+                                      cc.cc_doc_path, cc.cc_interest_desc, cc.cc_fun_id, cc.cc_pref_id, cc.cc_stop_publish,
                                       bk.bi_logo, bk.bi_shortname, 
                                       cc.cc_cardorg, org.org_nickname, org.org_image,
                                       cc.cc_cardlevel, level.attr_name
@@ -43,7 +43,7 @@
                          INNER JOIN bank_info as bk ON bk.Tb_index=cc.cc_bi_pk
                          INNER JOIN card_org as org ON org.Tb_index=cc.cc_cardorg
                          INNER JOIN card_level as level ON level.Tb_index=cc.cc_cardlevel
-                         WHERE cc.cc_group_id=:cc_group_id
+                         WHERE cc.cc_group_id=:cc_group_id AND cc.cc_stop_card=0
                          ORDER BY org.OrderBy ASC, level.OrderBy ASC", ['cc_group_id'=>$_GET['cc_group_id']]);
  
  //-- 該單卡 --
@@ -56,16 +56,19 @@
 
  //-- 卡名 --
  $card_name=$card_one['bi_shortname'].$card_one['cc_cardname'].'_'.$card_one['org_nickname'].'_'.$card_one['attr_name'];
+ 
+ //-- 判斷停發 --
+ $stop_publish_txt=$card_one['cc_stop_publish']==1 ? '(停發)':'';
 
  //-- 信用卡圖 --
  $cc_photo=empty($card_one['cc_photo']) ? 'CardSample.png':$card_one['cc_photo'];
 
  //-- 立即辦卡 --
  if (!empty($card_one['cc_doc_url'])) {
-   $cc_doc='<a target="_blank" href="'.$card_one['cc_doc_url'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+   $cc_doc='<a target="_blank" href="'.$card_one['cc_doc_url'].'" class="btn btn-block warning-layered btnOver">立即辦卡</a>';
  }
  elseif(!empty($card_one['cc_doc_path'])){
-   $cc_doc='<a target="_blank" href="'.$card_one['cc_doc_path'].'" class="btn warning-layered btnOver">立即辦卡</a>';
+   $cc_doc='<a target="_blank" href="'.$card_one['cc_doc_path'].'" class="btn btn-block warning-layered btnOver">立即辦卡</a>';
  }
  else{
    $cc_doc='';
@@ -161,63 +164,66 @@
                         <div class="row no-gutters pt-3 mx-3 detail_title">
                           <div class="col-md-8">
                           <h2>
-                            <i><img style="width: 30px;" src="../sys/img/<?php echo $card_one['bi_logo'];?>"></i> <?php echo $card_name; ?>
+                            <i><img style="width: 30px;" src="../sys/img/<?php echo $card_one['bi_logo'];?>"></i> 
+                            <a class="d-inline" href="bank_detail.php?bi_pk=<?php echo $card_one['cc_bi_pk']; ?>"><?php echo $card_one['bi_shortname']; ?></a>
+                            <?php echo $card_one['cc_cardname'].'_'.$card_one['org_nickname'].'_'.$card_one['attr_name'].$stop_publish_txt; ?>
                           </h2>
                           </div>
 
                            <div class="col-md-4">
                                 <!-- 分享 -->
-                               <div class="search_div hv-center">
-                                <div class="fb-like mr-2" data-href="<?php echo $FB_URL;?>" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
-                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://www.facebook.com/dialog/feed?app_id=319016928941764&display=popup&link=<?php echo $FB_URL;?>&redirect_uri=https://www.facebook.com/', 'FB分享', config='height=600,width=800');"><img src="../img/component/search/fb.png" alt="" title="分享">
-                                 </a>
-                                 <a class="search_btn" href="javascript:;" onclick="window.open('https://social-plugins.line.me/lineit/share?url=<?php echo $FB_URL;?>', 'LINE分享', config='height=600,width=800');"><img src="../img/component/search/line.png" alt="" title="Line">
-                                 </a>
-                                 <!-- <a class="search_btn" href="#fb_message"><img src="../img/component/search/message.png" alt="" title="訊息"></a> -->
-                                 <a id="arrow_btn" class="search_btn" href="javascript:;"><img src="../img/component/search/arrow.png" alt="" title="更多"></a>
-                               </div>
-                               <div class="more_search">
-                                 <!-- <a target="_blank" href="print.php?<?php //echo $temparray[1]?>"><img src="../img/component/search/print.png" alt="" title="列印"></a> -->
-                                 <a href="javascript:;" data-fancybox data-src="#member_div"><img src="../img/component/search/work.png" alt="" title="收藏"></a>
-                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_mail.php"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
-                                 <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
-                               </div>
+                               <?php 
+                                cc_share_btn($FB_URL, $_GET['cc_pk']);
+                               ?>
                                <!-- 分享 END -->
                             </div>
-                            <div class=" col-md-12 row debit_card col">
+                            <div class=" col-md-12 row no-gutters debit_card col">
 
                             <!-- 信用卡 -->
-                            <div class="col-md-5 text-center col0">
+                            <div class="col-md-5 text-center ">
                              <img class="ccard_img" src="../sys/img/<?php echo $cc_photo;?>"><br>
-                             <div class="card_btn  hv-center">
+                             <div class="card_btn  hv-center mt-2 mt-md-0">
                                 <?php echo $cc_doc; ?>
-                                <button type="button" card_id="<?php echo $card_one['Tb_index'];?>" cc_group_id="<?php echo $card_one['cc_group_id'];?>" card_name="<?php echo $card_name;?>" card_img="<?php echo $cc_photo;?>" class="btn gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
+                                <button type="button" card_id="<?php echo $card_one['Tb_index'];?>" cc_group_id="<?php echo $card_one['cc_group_id'];?>" card_name="<?php echo $card_name;?>" card_img="<?php echo $cc_photo;?>" class="btn  gray-layered btnOver add_contrast_card phone_hidden">加入比較</button>
                               </div>
                             </div>
                             
                             <!-- 單卡詳細資訊 -->
-                            <div class="col-md-7 col0">
-                             <div class="row no-gutters ph-center">
+                            <div class="col-md-7 ">
+                             <div class=" ph-center pl-md-2 text-left">
                                
                                <!-- 信用卡圖 -->
-                               <ul>
+                               
                                 <?php 
                                   $row_cardRank=$pdo->select("SELECT ccr.ccs_order, ccr.ccs_cc_so_pk, ccrt.cc_so_cname, ccrt.old_id
                                                               FROM credit_cardrank as ccr 
                                                               INNER JOIN credit_cardrank_type as ccrt ON ccrt.Tb_index=ccr.ccs_cc_so_pk
                                                               WHERE ccr.ccs_cc_pk=:ccs_cc_pk AND ccr.ccs_order<=6", ['ccs_cc_pk'=>$card_one['Tb_index']]);
+                                  
+                                  echo '<div class="cc_rank mb-md-2 my-2 position-relative">
+                                        <div class="swiper-container mr-md-5">
+                                           <div class="swiper-wrapper">';
 
-                                  foreach ($row_cardRank as $cardRank) {
-                                    echo '
-                                    <li class="mr-md-2">
-                                      <a href="../rank/cardrank.php?'.$cardRank['old_id'].'"><img src="../img/component/ccprize.png">
-                                        <h5>'.$cardRank['cc_so_cname'].'</h5>
-                                        <b>'.$cardRank['ccs_order'].'</b>
-                                      </a>
-                                    </li>';
-                                  }
+                                   foreach ($row_cardRank as $cardRank) {
+                                     echo '<div class="swiper-slide cardRank">
+                                            <a href="../rank/cardrank.php?'.$cardRank['old_id'].'"><img src="../img/component/ccprize.png">
+                                              <h5>'.$cardRank['cc_so_cname'].'</h5>
+                                              <b>'.$cardRank['ccs_order'].'</b>
+                                            </a>
+                                          </div>';
+                                   }
+
+                                   echo '</div>
+                                       
+                                    </div>
+                                    <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                    <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                                    </div>';
+                                 
+
+
                                 ?>
-                               </ul>
+                               
                                <!-- 信用卡圖 END -->
                                
                                <?php
@@ -233,29 +239,31 @@
                                     $card_level_txt='';
                                     foreach ($card_org as $card_level) {
                                       $active=$card_level['Tb_index']==$card_one['Tb_index'] ? 'active' : '';
-                                      $card_level_txt.='<li class="'.$active.'"><a href="creditcard.php?cc_pk='.$card_level['Tb_index'].'&cc_group_id='.$card_level['cc_group_id'].'" title="'.$card_level['org_nickname'].'-'.$card_level['attr_name'].'">'.$card_level['attr_name'].'</a></li>';
+                                      //-- 停發 --
+                                      $cc_stop_publish=$card_level['cc_stop_publish']==1 ? '(停發)':'';
+                                      $card_level_txt.='<li class="'.$active.' mr-2"><a href="creditcard.php?cc_pk='.$card_level['Tb_index'].'&cc_group_id='.$card_level['cc_group_id'].'" title="'.$card_level['org_nickname'].'-'.$card_level['attr_name'].'">'.$card_level['attr_name'].$cc_stop_publish.'</a></li>';
                                     }
 
                                     $active=$card_org[0]['cc_cardorg']==$card_one['cc_cardorg'] ? 'active' : '';
                                     $card_org_txt.='
-                                     <li class="oneCard_org '.$active.'" now_card="'.$active.'">
+                                     <li class="oneCard_org mr-1 '.$active.'" now_card="'.$active.'">
                                       <a href="creditcard.php?cc_pk='.$card_org[0]['Tb_index'].'&cc_group_id='.$card_org[0]['cc_group_id'].'"><img src="../sys/img/'.$card_org[0]['org_image'].'" title="'.$card_org[0]['org_nickname'].'">
                                       </a>
-                                      <ul class="debit_limit oneCard_level">
+                                      <ul class="debit_limit oneCard_level mt-2">
                                       '.$card_level_txt.'
                                       </ul>
                                      </li>';
                                  }
 
                                  $card_orgLevel_txt='
-                                 <ul>
+                                 <ul class="text-left">
                                   '.$card_org_txt.'
                                  </ul>';
                                  echo $card_orgLevel_txt;
                                ?>
                                
                                <!-- 卡功能 -->
-                               <ul class="crecard_icon">
+                               
                                 <?php 
                                  $fun_id_txt='';
                                  $cc_fun_id=explode(',', $card_one['cc_fun_id']);
@@ -263,22 +271,51 @@
                                    $fun_id_txt.="'".$cc_fun_id_one."',";
                                  }
                                  $fun_id_txt=substr($fun_id_txt, 0,-1);
-
                                  $row_fun=$pdo->select("SELECT Tb_index, fun_name, card_image FROM card_func WHERE Tb_index IN ($fun_id_txt) ORDER BY OrderBy ASC");
-                                 foreach ($row_fun as $fun_one) {
-                                   
-                                   echo '<li>
-                                          <a class="ccard_icon_js" href="card_browse.php?func='.$fun_one['Tb_index'].'">
-                                            <img src="../sys/img/'.$fun_one['card_image'].'" title="'.$fun_one['fun_name'].'">
-                                          </a>
-                                        </li>';
+                                 
+                                 //-- 小於等於6個 --
+                                 if (count($cc_fun_id)<=6) {
+                                   echo '<ul class="crecard_icon">';
+                                   foreach ($row_fun as $fun_one) {
+                                     
+                                     echo '<li class="pr-1">
+                                            <a class="ccard_icon_js" href="card_browse.php?func='.$fun_one['Tb_index'].'">
+                                              <img class="wh-50px" src="../sys/img/'.$fun_one['card_image'].'" title="'.$fun_one['fun_name'].'">
+                                            </a>
+                                          </li>';
+                                   }
+                                   echo '</ul>';
                                  }
+                                 //-- 大於6個 --
+                                 else{
+
+                                 echo '<div class="cc_fun mb-md-2 position-relative">
+                                       <div class="swiper-container mr-md-5">
+                                          <div class="swiper-wrapper">';
+
+                                  foreach ($row_fun as $fun_one) {
+                                    echo '<div class="swiper-slide">
+                                           <a class="ccard_icon_js" href="card_browse.php?func='.$fun_one['Tb_index'].'">
+                                             <img class="wh-50px" src="../sys/img/'.$fun_one['card_image'].'" title="'.$fun_one['fun_name'].'">
+                                           </a>
+                                         </div>';
+                                  }
+
+                                  echo '</div>
+                                      
+                                   </div>
+                                   <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
+                                   <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
+                                   </div>';
+                                 }
+                                 
                                 ?>
-                               </ul>
+
+                               
                                <!-- 卡功能 END -->
                              
                              <!-- 權益優惠 -->
-                             <ul class="pref_icon">
+                             <ul class="pref_icon mt-2">
                               <?php 
                                $pref_id_txt='';
                                $cc_pref_id=explode(',', $card_one['cc_pref_id']);
@@ -290,7 +327,7 @@
                                $row_pref=$pdo->select("SELECT Tb_index, pref_name, pref_image FROM card_pref WHERE Tb_index IN ($pref_id_txt) ORDER BY OrderBy ASC");
                                foreach ($row_pref as $pref_one) {
                                  
-                                 echo '<li>
+                                 echo '<li class="pl-1">
                                         <a class="ccard_icon_js" href="card_browse.php?pref='.$pref_one['Tb_index'].'">
                                           <img src="../sys/img/'.$pref_one['pref_image'].'" title="'.$pref_one['pref_name'].'">
                                         </a>
@@ -368,7 +405,7 @@
                               <div class="col-md-3 text-center">權益項目</div>
                               <div class="col-md-9 text-center">內容說明(謹慎理財，信用至上)</div>
                             </div>
-                            <div class="accordion imp_int" id="accordionExample">
+                            <div class="accordion ccd_interest" id="cc_collapse_div">
                             
                             <?php 
                              
@@ -378,11 +415,11 @@
                               if ($im_eq['is_im_eq']==1) {
 
                                 //-- 判斷權益類型 (文字) --
-                                $check_dis=$im_eq['eq_type']=='txt' ? 'disabled':'';
+                                $check_dis=$im_eq['eq_type']=='txt' ? 'disabled style="opacity:0;"':'';
 
                                  echo '
                                  <div class="card txt_detail">
-                                  <div class="card-header hv-center" id="imp_int'.$x.'">
+                                  <div class="card-header hv-center px-2" id="imp_int'.$x.'">
                                     <div class="row w-h-100">
                                       <div class="col-md h-center px-0">
                                         <p class="hv-center mb-0">
@@ -392,7 +429,7 @@
                                          </label>
                                         </p>
                                       </div>
-                                      <div class="col-md-8 h-center border-left border-right">
+                                      <div class="col-md-8 ml-4 ml-md-0 h-center border-left border-right">
                                         <p class="mb-0">'.nl2br($im_eq['sm_content']).'</p>
                                       </div>
                                       <div class="col-md-1 hv-center">
@@ -403,7 +440,7 @@
                                     </div>
                                   </div>
 
-                                  <div id="imp_int_txt'.$x.'" class="collapse" aria-labelledby="imp_int'.$x.'" data-parent="#accordionExample">
+                                  <div id="imp_int_txt'.$x.'" class="collapse cc_collapse" aria-labelledby="imp_int'.$x.'" >
                                     <div class="card-body">
                                       <div class="row w-h-100">
                                        <!--<div class="col-md-3"></div>-->
@@ -425,7 +462,7 @@
 
                             </div>
                             <div class="card_btn  text-center pt-2">
-                                     <button id="profit_compare" type="button" class="btn warning-layered btnOver">權益比一比</button>
+                                     <button id="profit_compare" type="button" class="btn warning-layered btnOver mr-2">權益比一比</button>
                                      <button id="profit_clean" type="button" class="btn gray-layered btnOver">清除</button>
                              </div>
                            
@@ -447,7 +484,7 @@
                                 foreach ($row_im_eq as $im_eq) {
 
                                   //-- 判斷權益類型 (文字) --
-                                  $check_dis=$im_eq['eq_type']=='txt' ? 'disabled':'';
+                                  $check_dis=$im_eq['eq_type']=='txt' ? 'disabled style="opacity:0;"':'';
 
                                   echo '
                                   <tr>
@@ -464,7 +501,7 @@
                                 </tbody>
                               </table>
                                <div class="card_btn  text-center pt-2">
-                                        <button id="all_profit_compare" type="button" class="btn warning-layered btnOver">權益比一比</button>
+                                        <button id="all_profit_compare" type="button" class="btn warning-layered btnOver mr-2">權益比一比</button>
                                         <button id="all_profit_clean" type="button" class="btn gray-layered btnOver">清除</button>
                                 </div>
                             </form>
@@ -473,70 +510,110 @@
 
 
                           <div class="tab-pane fade" id="special_3" role="tabpanel" aria-labelledby="special_3-tab">
-                            <div class="bank_main hole">
+
+                            <?php 
+                              $row_c_news=$pdo->select("SELECT ns_ftitle, ns_photo_1, Tb_index, area_id, ns_nt_pk, mt_id
+                                                        FROM NewsAndType 
+                                                        WHERE mt_id='site2018111910430599' AND ns_bank LIKE :ns_bank 
+                                                        ORDER BY ns_vfdate DESC
+                                                        LIMIT 0,3", ['ns_bank'=>'%'.$card_one['cc_bi_pk'].'%']);
+
+                            if (count($row_c_news)>0) {
+                            ?>
+                            <div class="bank_main hole py-2">
                                <h5>相關新聞</h5>
+                               <a class="float-right more_ot_btn" href="bank_news.php?bi_pk=<?php echo $card_one['cc_bi_pk'];?>">More</a>
                               </div>
 
                             <div class="row no-gutters py-2">
 
                               <?php 
-                                $row_c_news=$pdo->select("SELECT ns_ftitle, ns_photo_1, Tb_index, area_id, ns_nt_pk, mt_id
-                                                          FROM NewsAndType 
-                                                          WHERE mt_id='site2018111910430599' AND ns_bank LIKE :ns_bank 
-                                                          ORDER BY ns_vfdate DESC
-                                                          LIMIT 0,3", ['ns_bank'=>'%'.$card_one['cc_bi_pk'].'%']);
-
                                 foreach ($row_c_news as $c_news) {
 
                                   $url=news_url($c_news['mt_id'], $c_news['Tb_index'], $c_news['ns_nt_pk'], $c_news['area_id']);
-                                  $ns_ftitle=mb_substr($c_news['ns_ftitle'], 0,15,'utf-8');
+                                  $ns_ftitle=wp_is_mobile() ? $c_news['ns_ftitle'] : mb_substr($c_news['ns_ftitle'], 0,14,'utf-8');
 
                                   echo '
-                                  <div class="col-md-4 cards-3 text-center">
-                                   <a href="'.$url.'" title="'.$c_news['ns_ftitle'].'">
-                                       <div class="img_div w-100-ph" style="background-image: url(../sys/img/'.$c_news['ns_photo_1'].');">
-                                       </div>
-                                       <p>'.$ns_ftitle.'</p>
-                                   </a>
+                                  <div class="col-md-4 col-12 cards-3 text-center py-md-2 py-2">
+
+                                   <div class="row no-gutters ">
+                                     <div class="col-md-12 col-6">
+                                       <a class="news_list_img" target="_blank" href="'.$url.'" title="'.$c_news['ns_ftitle'].'">
+                                           <div class="img_div" style="background-image: url(../sys/img/'.$c_news['ns_photo_1'].');">
+                                           </div>
+                                       </a>
+                                     </div>
+                                     <div class="col-md-12 col-6 cards-3-ph">
+                                       <a href="'.$url.'" target="_blank" title="'.$c_news['ns_ftitle'].'">
+                                        <span class="text-center p-0">'.$ns_ftitle.'</span>
+                                       </a>
+                                     </div>
+                                   </div>
+
                                   </div>';
                                 }
                               ?>
                             </div>
+                            <?php 
+                             }
+                            ?>
+
+                            <?php 
+                              $row_c_message=$pdo->select("SELECT n.ns_ftitle, n.ns_photo_1, n.Tb_index, n.area_id, n.ns_nt_pk, n.mt_id
+                                                        FROM NewsAndType as n 
+                                                        INNER JOIN appNews_bank_card as abc ON abc.news_id=n.Tb_index
+                                                        WHERE abc.bank_id=:bank_id AND abc.card_group_id =:card_group_id AND abc.org_id=:org_id AND abc.level_id=:level_id AND 
+                                                        n.ns_verify=3 AND n.OnLineOrNot=1 AND n.StartDate<=:StartDate AND n.EndDate>=:EndDate AND n.area_id='at2019021114154632'
+                                                        ORDER BY n.ns_vfdate DESC
+                                                        LIMIT 0,3", 
+                                                        ['bank_id'=>$card_one['cc_bi_pk'], 'card_group_id'=>$card_one['cc_group_id'], 'org_id'=>$card_one['cc_cardorg'], 'level_id'=>$card_one['cc_cardlevel'], 'StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
+
+                              if (count($row_c_message)>0) {
+                            ?>
                           
-                            <div class="bank_main hole">
+                            <div class="bank_main hole py-2">
                              <h5>相關好康</h5>
+                             <a class="float-right more_ot_btn" href="creditcard_message.php?cc_pk=<?php echo $card_one['Tb_index'];?>">More</a>
                               </div>
                           
                             <div class="row no-gutters py-2">
 
                               <?php 
-                                $row_c_message=$pdo->select("SELECT n.ns_ftitle, n.ns_photo_1, n.Tb_index, n.area_id, n.ns_nt_pk, n.mt_id
-                                                          FROM NewsAndType as n 
-                                                          INNER JOIN appNews_bank_card as abc ON abc.news_id=n.Tb_index
-                                                          WHERE abc.bank_id=:bank_id AND abc.card_group_id =:card_group_id AND abc.org_id=:org_id AND abc.level_id=:level_id
-                                                          ORDER BY n.ns_vfdate DESC
-                                                          LIMIT 0,3", 
-                                                          ['bank_id'=>$card_one['cc_bi_pk'], 'card_group_id'=>$card_one['cc_group_id'], 'org_id'=>$card_one['cc_cardorg'], 'level_id'=>$card_one['cc_cardlevel']]);
-
                                 foreach ($row_c_message as $c_message) {
 
                                   $url=news_url($c_message['mt_id'], $c_message['Tb_index'], $c_message['ns_nt_pk'], $c_message['area_id']);
-                                  $ns_ftitle=mb_substr($c_message['ns_ftitle'], 0,15,'utf-8');
+                                  $ns_ftitle= wp_is_mobile() ? $c_message['ns_ftitle'] : mb_substr($c_message['ns_ftitle'], 0,14,'utf-8');
 
                                   echo '
-                                  <div class="col-md-4 cards-3 text-center">
-                                   <a href="'.$url.'" title="'.$c_message['ns_ftitle'].'">
-                                       <div class="img_div w-100-ph" style="background-image: url(../sys/img/'.$c_message['ns_photo_1'].');">
-                                       </div>
-                                       <p>'.$ns_ftitle.'</p>
-                                   </a>
+
+                                  <div class="col-md-4 col-12 cards-3 text-center py-md-2 py-2">
+
+                                   <div class="row no-gutters ">
+                                     <div class="col-md-12 col-6">
+                                       <a class="news_list_img" target="_blank" href="'.$url.'" title="'.$c_message['ns_ftitle'].'">
+                                           <div class="img_div" style="background-image: url(../sys/img/'.$c_message['ns_photo_1'].');">
+                                           </div>
+                                       </a>
+                                     </div>
+                                     <div class="col-md-12 col-6 cards-3-ph">
+                                       <a href="'.$url.'" target="_blank" title="'.$c_message['ns_ftitle'].'">
+                                        <span class="text-center p-0">'.$ns_ftitle.'</span>
+                                       </a>
+                                     </div>
+                                   </div>
+
                                   </div>';
                                 }
                               ?>
                             </div>
+                          <?php 
+                            } 
+                          ?>
                           
                            
                           </div>
+
+
                           <div class="tab-pane fade" id="special_4" role="tabpanel" aria-labelledby="special_4-tab">
 
                            <!--網友留言-->
@@ -549,9 +626,11 @@
                         <div class="tab-content" id="myTabContent">
                           
 
-                            <p>您尚未登入，請先<a href="#">登入會員</a></p>
+                            <?php 
+                              //-- 網友留言 HTML --
+                              require '../share_area/discuss_html.php';
+                            ?>
                            
-                          
                          
                         </div>
                       </div>
