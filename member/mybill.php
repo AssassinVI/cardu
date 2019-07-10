@@ -1,5 +1,8 @@
 <?php 
  require '../share_area/conn.php';
+
+ //-- 判斷登入會員 --
+ check_member();
 ?>
 <!DOCTYPE html>
 
@@ -11,7 +14,7 @@
 
 
 
-    <title>卡優新聞網-會員中心</title>
+    <title>卡優新聞網-會員中心 > 我的帳單</title>
 
     <meta name="keywords" content="信用卡,金融卡,悠遊卡,一卡通,icash,電子票證,現金回饋,紅利,信用卡比較,信用卡優惠,首刷禮,辦卡,新卡,卡訊,行動支付,小額消費,新聞,理財,消費,3C,旅遊,日本,住宿,美食,電影,交通,好康,加油,報稅"/>  
     <meta name="description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" /> 
@@ -20,16 +23,16 @@
 
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <meta property="fb:admins" content="100000121777752" />
-    <meta property="fb:admins" content="100008160723180" />
-    <meta property="fb:app_id" content="616626501755047" />
-    <meta property="og:site_name" content="卡優新聞網" />
+    <?php
+     require '../share_area/fb_config.php';
+    ?>
+    <meta property="og:site_name" content="卡優新聞網-會員中心 > 我的帳單" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
-    <meta property="og:title" content="卡優新聞網" />
+    <meta property="og:title" content="卡優新聞網-會員中心 > 我的帳單" />
     <meta property="og:description" content="卡優新聞網-最專業、最完整的信用卡、金融卡、電子票證等支付卡之新聞、資訊、優惠的情報平台，並報導財經、投資、購物、生活、旅遊、娛樂、電影、藝文、3C等相關新聞，提供消費者理財消費訊息、優惠好康、生活情報及社群討論資訊。" />
-    <meta property="og:url" content="https://www.cardu.com.tw" />
-    <meta property="og:see_also" content="https://www.cardu.com.tw" />
+    <meta property="og:url" content="<?php echo $FB_URL;?>" />
+    <!-- <meta property="og:see_also" content="https://www.cardu.com.tw" /> -->
       
       
     <?php 
@@ -57,7 +60,7 @@
         <!-- 麵包屑 -->
         <div class="row ">
           <div class="col-12">
-            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="index.php">首頁</a> / <a href="javascript:;">會員中心</a>/ <a href="javascript:;">我的帳單</a></p>
+            <p class="crumbs"><i class="fa fa-angle-right"></i> <a href="/index.php">首頁</a> / <a href="member.php">會員中心</a>/ <a href="javascript:;">我的帳單</a></p>
           </div>
         </div>
         
@@ -75,7 +78,7 @@
                     <div class="cardshap primary_tab mouseHover_other_tab">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item news_tab">
-                            <a class="nav-link py-2 flex-x-center active show" id="goodMember-tab" href="javascript:;" tab-target="#goodMember" aria-selected="true">我的帳單</a>
+                            <a class="nav-link py-2 flex-x-center active show" id="goodMember-tab"  tab-target="#goodMember" aria-selected="true">我的帳單</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -84,11 +87,13 @@
                           
                               <div class="px-md-2 member_info">
                                  
+                                 <p class="text-right m-0">今天日期：<?php echo date('Y-m-d');?></p>
                                  
                                   <table class="table table-striped table-bordered text-center">
                                    <thead>
                                      <tr>
                                        <th scope="col">發卡單位</th>
+                                       <th scope="col">發卡組織</th>
                                        <th scope="col">信用卡名稱</th>
                                        <th scope="col">應繳金額</th>
                                        <th scope="col">繳款截止日</th>
@@ -97,65 +102,47 @@
                                      </tr>
                                    </thead>
                                    <tbody>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXXX卡</td>
-                                       <td>XXX</td>
-                                       <td>XXX</td>
-                                       <td><a data-fancybox href="#add_bill"><img src="../img/component/file.png"></a></td>
-                                       <td><a href="#">明細</a></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXXX卡</td>
-                                       <td>XXX</td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><a data-fancybox href="#add_bill"><img src="../img/component/file.png"></a></td>
-                                       <td><a href="#">明細</a></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXXX卡</td>
-                                       <td>XXX</td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><a data-fancybox href="#add_bill"><img src="../img/component/file.png"></a></td>
-                                       <td><a href="#">明細</a></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXXX卡</td>
-                                       <td>XXX</td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><a data-fancybox href="#add_bill"><img src="../img/component/file.png"></a></td>
-                                       <td><a href="#">明細</a></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXXX卡</td>
-                                       <td>XXX</td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><a data-fancybox href="#add_bill"><img src="../img/component/file.png"></a></td>
-                                       <td><a href="#">明細</a></td>
-                                     </tr>
-                                     <tr class="text-right">
-                                       <td colspan="7">未繳款金額：ＸＸＸ元</td>
-                                     </tr>
+
+                                     <?php 
+                                      $row_my_billing=$pdo->select("SELECT mb.mb_pk, mbd.mbd_amount, mbd.mbd_expdate,
+                                                                           ccd.cc_cardname, ccd.bi_shortname, ccd.org_nickname
+                                                                    FROM my_billing as mb
+                                                                    INNER JOIN cc_detail as ccd ON ccd.Tb_index=mb.mb_bill_cc_pk
+                                                                    LEFT JOIN my_billing_detail as mbd ON mbd.mbd_mb_pk=mb.mb_pk
+                                                                    WHERE mb.mb_ud_pk=:mb_ud_pk AND YEAR(mbd_expdate)=:mbd_expdate_Y AND MONTH(mbd_expdate)=:mbd_expdate_M
+                                                                    ORDER BY mbd.mbd_pk, mbd.mbd_pay_tag, mbd.mbd_expdate ASC, mb.mb_pk DESC",
+                                                                   ['mb_ud_pk'=>$_SESSION['ud_pk'], 'mbd_expdate_Y'=>date('Y'), 'mbd_expdate_M'=>date('m')]);
+                                      foreach ($row_my_billing as $my_billing) {
+                                        
+                                        echo '
+                                        <tr>
+                                          <td>'.$my_billing['bi_shortname'].'</td>
+                                          <td>'.$my_billing['org_nickname'].'</td>
+                                          <td><a data-fancybox data-type="iframe" data-src="mycard_iframe.php?'.$my_billing['mb_pk'].'" href="javascript:;">'.$my_billing['cc_cardname'].'</a></td>
+                                          <td>'.number_format($my_billing['mbd_amount']).'</td>
+                                          <td>'.$my_billing['mbd_expdate'].'</td>
+                                          <td><a data-fancybox data-type="iframe" data-src="add_mybill.php?mb_pk='.$my_billing['mb_pk'].'" href="javascript:;"><img src="../img/component/file.png"></a></td>
+                                          <td><a href="mybill_history.php?mb_pk='.$my_billing['mb_pk'].'">明細</a></td>
+                                        </tr>';
+                                      }
+                                     ?>
+                                    
                                    </tbody>
                                  </table>
 
+                                 <hr class="my-md-5">
+                                 
+
                                  <div class="form-row member_more">
-                                    <label class="col-sm-2 col-form-label form-group">*繳款期間</label>
+                                    <label class="col-sm-2 col-form-label form-group m-0">*繳款期間</label>
                                      <div class="col-sm-8">
                                        <div class="form-check form-check-inline">
-                                        <input type="text" class="form-control" placeholder="">~
-                                        <input type="text" class="form-control" placeholder="">
-                                        <button type="button" class="btn gray-layered btnOver"><a href="#">更多</a></button>
+                                        <input type="text" class="form-control datepicker_range from" value="<?php echo date('Y-m').'-01';?>">～
+                                        <input type="text" class="form-control datepicker_range to" value="<?php echo date("Y-m", strtotime('+1 month')).'-01';?>">
+                                        <button id="ch_expdate_btn" type="button" class="btn gray-layered btnOver ml-2">查詢</button>
                                        </div>
-                                       
                                      </div>
-                                   </div>
-                                 
-                                 
+                                   </div>                                 
                                  <div class="col-md-12 col0">
                                    <div class="user_more">
                                    <b>未繳款帳單</b>
@@ -166,6 +153,7 @@
                                    <thead>
                                      <tr>
                                        <th scope="col">發卡單位</th>
+                                       <th scope="col">發卡組織</th>
                                        <th scope="col">信用卡名稱</th>
                                        <th scope="col">帳單年月</th>
                                        <th scope="col">應繳金額</th>
@@ -174,49 +162,34 @@
                                        
                                      </tr>
                                    </thead>
-                                   <tbody>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXXX卡</td>
-                                       <td>20XX/XX</td>
-                                       <td>XXX</td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXXX卡</td>
-                                       <td>20XX/XX</td>
-                                       <td>XXX</td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXXX卡</td>
-                                       <td>20XX/XX</td>
-                                       <td>XXX</td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXXX卡</td>
-                                       <td>20XX/XX</td>
-                                       <td>XXX</td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXXX卡</td>
-                                       <td>20XX/XX</td>
-                                       <td>XXX</td>
-                                       <td>20XX/XX/XX</td>
-                                       <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
-                                     </tr>
+                                   <tbody class="from_tbody">
+                                    <?php 
+                                     $row_my_billing=$pdo->select("SELECT mb.mb_pk, mbd.mbd_amount, mbd.mbd_expdate, mbd.mbd_bill_yy, mbd.mbd_bill_mm,
+                                                                          ccd.cc_cardname, ccd.bi_shortname, ccd.org_nickname
+                                                                   FROM my_billing as mb
+                                                                   INNER JOIN cc_detail as ccd ON ccd.Tb_index=mb.mb_bill_cc_pk
+                                                                   INNER JOIN my_billing_detail as mbd ON mbd.mbd_mb_pk=mb.mb_pk
+                                                                   WHERE mb.mb_ud_pk=:mb_ud_pk AND mbd.mbd_expdate>=:mbd_expdate_from AND mbd.mbd_expdate<=:mbd_expdate_to AND mbd.mbd_pay_tag=0
+                                                                   ORDER BY mbd.mbd_expdate ASC, mb.mb_pk DESC",
+                                                                  ['mb_ud_pk'=>$_SESSION['ud_pk'], 'mbd_expdate_from'=>date('Y-m').'-01', 'mbd_expdate_to'=>date("Y-m", strtotime('+1 month')).'-01']);
+                                     $mbd_amount=0;
+                                     foreach ($row_my_billing as $my_billing) {
+                                       $mbd_amount+=(int)$my_billing['mbd_amount'];
+                                       echo '  
+                                       <tr>
+                                         <td>'.$my_billing['bi_shortname'].'</td>
+                                         <td>'.$my_billing['org_nickname'].'</td>
+                                         <td><a data-fancybox data-type="iframe" data-src="mycard_iframe.php?'.$my_billing['mb_pk'].'" href="javascript:;">'.$my_billing['cc_cardname'].'</a></td>
+                                         <td>'.$my_billing['mbd_bill_yy'].'-'.$my_billing['mbd_bill_mm'].'</td>
+                                         <td>'.number_format($my_billing['mbd_amount']).'</td>
+                                         <td>'.$my_billing['mbd_expdate'].'</td>
+                                         <td><a data-fancybox data-type="iframe" data-src="add_mybill.php?mb_pk='.$my_billing['mb_pk'].'&yy='.$my_billing['mbd_bill_yy'].'&mm='.$my_billing['mbd_bill_mm'].'" href="javascript:;"><img src="../img/component/bill.png"></a></td>
+                                       </tr>';
+                                     }
+
+                                    ?>
                                      <tr class="text-right">
-                                       <td colspan="7">未繳款金額：ＸＸＸ元</td>
+                                       <td colspan="7" class="px-2">未繳款金額：<?php echo $mbd_amount;?>元</td>
                                      </tr>
                                    </tbody>
                                  </table>
@@ -232,6 +205,7 @@
                                    <thead>
                                      <tr>
                                        <th scope="col">發卡單位</th>
+                                       <th scope="col">發卡組織</th>
                                        <th scope="col">信用卡名稱</th>
                                        <th scope="col">應繳金額</th>
                                        <th scope="col">已繳金額</th>
@@ -240,44 +214,44 @@
                                        <th scope="col">修改帳單</th>
                                      </tr>
                                    </thead>
-                                   <tbody>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXXX卡</td>
-                                       <td>XXX</td>
-                                       <td>XXX</td>
-                                       <td>每月X日</td>
-                                       <td>XXX</td>
-                                       <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXXX卡</td>
-                                       <td>XXX</td>
-                                       <td>XXX</td>
-                                       <td>每月X日</td>
-                                       <td>XXX</td>
-                                       <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
-                                     </tr>
-                                     <tr>
-                                       <th scope="row">XX銀行</th>
-                                       <td>XXXX卡</td>
-                                       <td>XXX</td>
-                                       <td>XXX</td>
-                                       <td>每月X日</td>
-                                       <td>XXX</td>
-                                       <td><a data-fancybox href="#bill_update"><img src="../img/component/bill.png"></a></td>
-                                     </tr>
+                                   <tbody class="to_tbody">
+                                    <?php 
+                                     $row_my_billing=$pdo->select("SELECT mb.mb_pk,
+                                                                          mbd.mbd_amount, mbd.mbd_expdate, mbd.mbd_bill_yy, mbd.mbd_bill_mm, 
+                                                                          mbd.mbd_amount_paid, mbd.mbd_pay_type, mbd.mbd_pay_date,
+                                                                          ccd.cc_cardname, ccd.bi_shortname, ccd.org_nickname
+                                                                   FROM my_billing as mb
+                                                                   INNER JOIN cc_detail as ccd ON ccd.Tb_index=mb.mb_bill_cc_pk
+                                                                   INNER JOIN my_billing_detail as mbd ON mbd.mbd_mb_pk=mb.mb_pk
+                                                                   WHERE mb.mb_ud_pk=:mb_ud_pk AND mbd.mbd_expdate>=:mbd_expdate_from AND mbd.mbd_expdate<=:mbd_expdate_to AND mbd.mbd_pay_tag=1
+                                                                   ORDER BY mbd.mbd_expdate ASC, mb.mb_pk DESC",
+                                                                  ['mb_ud_pk'=>$_SESSION['ud_pk'], 'mbd_expdate_from'=>date('Y-m').'-01', 'mbd_expdate_to'=>date("Y-m", strtotime('+1 month')).'-01']);
+                                     $mbd_amount_paid=0;
+                                     foreach ($row_my_billing as $my_billing) {
+                                       $mbd_amount_paid+=(int)$my_billing['mbd_amount_paid'];
+                                       $mbd_pay_type=['', '金融機構臨櫃繳款', '超商/代收處繳款', '金融機構自動轉帳', 'ATM/網路銀行轉帳', '全國繳費網繳款'];
+                                       echo '  
+                                       <tr>
+                                         <td>'.$my_billing['bi_shortname'].'</td>
+                                         <td>'.$my_billing['org_nickname'].'</td>
+                                         <td><a data-fancybox data-type="iframe" data-src="mycard_iframe.php?'.$my_billing['mb_pk'].'" href="javascript:;">'.$my_billing['cc_cardname'].'</a></td>
+                                         <td>'.number_format($my_billing['mbd_amount']).'</td>
+                                         <td>'.number_format($my_billing['mbd_amount_paid']).'</td>
+                                         <td>'.$my_billing['mbd_pay_date'].'</td>
+                                         <td>'.$mbd_pay_type[$my_billing['mbd_pay_type']].'</td>
+                                         <td><a data-fancybox data-type="iframe" data-src="add_mybill.php?mb_pk='.$my_billing['mb_pk'].'&yy='.$my_billing['mbd_bill_yy'].'&mm='.$my_billing['mbd_bill_mm'].'" href="javascript:;"><img src="../img/component/bill.png"></a></td>
+                                       </tr>';
+                                     }
+
+                                    ?>
+                                     
                                      <tr class="text-right">
-                                       <td colspan="7">已繳款金額：ＸＸＸ元</td>
+                                       <td colspan="8" class="px-2">已繳款金額：<?php echo $mbd_amount_paid;?>元</td>
                                      </tr>
                                    </tbody>
                                  </table>
-                                 
 
-                                 
                               </div>
-                            
                            
                           </div>
                           
@@ -288,527 +262,14 @@
 
 
 
-
-                    
-                <!-- fancybox -->
-
-                <!-- 帳單登錄(帳單) -->
-                 <div id="add_bill">
-                                  <div class="mem_logo">
-                                    <img src="../img/component/logo_ph.png" alt="">
-                                   </div>
-                                   <h1>我的帳單登入</h1>
-                                   <form class="px-md-2 check_in">
-                                     <div class="login_line">
-
-                               <div class="row">
-                                     <label class="col-sm-3 col-form-label">信用卡</label>
-                                     <div class="col-sm-9 form-inline">
-                                       <select select class="form-control" id="exampleFormControlSelect1">
-                                        <option selected>請選擇信用卡</option>
-                                        <option value="01">請選擇信用卡</option>
-                                        
-                                   </select>
-                                     </div>
-                                   </div>
-                               <div class="row">
-                                     <label class="col-sm-3 col-form-label">帳單月份</label>
-                                     <div class="col-sm-9 date_w form-inline">
-                                       <select select class="form-control" id="exampleFormControlSelect1">
-                                        <option selected>20XX</option>
-                                       </select>
-                                       年
-                                       <select select class="form-control" id="exampleFormControlSelect1">
-                                        <option selected>20XX</option>
-                                       </select>
-                                       月
-                                     </div>
-                                   </div>
-                              
-
-                              
-                              <div class="row">
-                                     <label class="col-sm-3 col-form-label">*本月應繳金額</label>
-                                     <div class="col-sm-9 date_w form-inline">
-                                       每月<input type="text" class="form-control" placeholder="">元
-                                     </div>
-                                   </div>
-                              <div class="row">
-                                    <label class="col-sm-3 col-form-label">繳款狀態</label>
-                                     <div class="col-sm-9 form-inline">
-                                        <div class="form-check form-check-inline">
-                                       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                       <label class="form-check-label" for="inlineRadio2">未繳</label>
-                                       </div>
-                                       <div class="form-check form-check-inline">
-                                       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                       <label class="form-check-label" for="inlineRadio2">已繳</label>
-                                       </div>
-                                     </div>
-                                   </div>
-                              <div class="row">
-                                     <label class="col-sm-3 col-form-label">*實際繳款日</label>
-                                     <div class="col-sm-9 form-inline">
-                                       <input type="text" class="form-control" placeholder="">
-                                     </div>
-                                   </div>
-                              <div class="row">
-                                     <label class="col-sm-3 col-form-label">*繳款方式</label>
-                                     <div class="col-sm-9 form-inline">
-                                       <select select class="form-control" id="exampleFormControlSelect1">
-                                        <option selected>請選擇</option>
-                                       </select>
-                                     </div>
-                                   </div>
-                              <div class="col-md-12 col  member_btn hv-center">
-                                   <button class="gray-layered btnOver" type="submit">確定</button>
-                                   <button class="gray-layered btnOver" type="submit">取消</button>
-                                   <button class="gray-layered btnOver" type="submit">刪除</button>
-                                </div>
-                               </div>
-                           </form> 
-                           <h5>帳單消費明細(可自行設定帳單消費項目內容，也可省略不填寫)</h5>
-                           <form class="px-md-2 check_in">
-                               <div class="login_line">
-
-                              <div class="row">
-                                     <label class="col-sm-3 col-form-label">*本月應繳金額</label>
-                                     <div class="col-sm-9 py-md-2">
-                                      <div class="row py-md-2">
-                                        <div class="col-md-6 date_w form-inline">購物<input type="text" class="form-control" placeholder="">元</div>
-                                        <div class="col-md-6 date_w form-inline">飲食<input type="text" class="form-control" placeholder="">元</div>
-                                      </div>
-                                      <div class="row py-md-2">
-                                        <div class="col-md-6 date_w form-inline">娛樂<input type="text" class="form-control" placeholder="">元</div>
-                                        <div class="col-md-6 date_w form-inline">旅遊<input type="text" class="form-control" placeholder="">元</div>
-                                      </div>
-                                      <div class="row py-md-2">
-                                        <div class="col-md-6 date_w form-inline">交通<input type="text" class="form-control" placeholder="">元</div>
-                                        <div class="col-md-6 date_w form-inline">水電<input type="text" class="form-control" placeholder="">元</div>
-                                      </div>
-                                      <div class="row py-md-2">
-                                        <div class="col-md-6 date_w form-inline">保險<input type="text" class="form-control" placeholder="">元</div>
-                                        <div class="col-md-6 date_w form-inline">投資<input type="text" class="form-control" placeholder="">元</div>
-                                      </div>
-                                      <div class="row py-md-2">
-                                        <div class="col-md-6 date_w form-inline">其他<input type="text" class="form-control" placeholder="">元</div>
-                                        <div class="col-md-6 date_w form-inline">本期循環息<input type="text" class="form-control" placeholder="">元</div>
-                                      </div>
-                                      <div class="row">
-                                        <div class="col-md-12 form-inline member_btn hv-center">
-                                          <input type="text" class="form-control" placeholder="">
-                                          <button class="gray-layered btnOver" type="submit">新增消費項目</button>
-                                          <span>本期帳單消費總額：　　　　    　元</span>
-                                        </div>
-                                      </div>  
-                                     </div>
-                                   </div>
-
-                             
-                              
-                              <div class="col-md-12 col  member_btn hv-center">
-                                   <p>注意事項：<br>
-                                    1.「本期帳單金額」：為實際應繳款的總費用。<br>
-                                    2.帳單消費明細：可自行選擇是否要輸入明細內容，或者不填寫亦可。<br>
-                                    3.以上消費紀錄，本網僅做統計之用，不涉及個人資料，亦不保證永久保存。若有需要請自行保存。</p>
-                              </div>
-                               
-                              <div class="col-md-12 col  member_btn hv-center">
-                                   <button class="gray-layered btnOver" type="submit">確定</button>
-                                   <button class="gray-layered btnOver" type="submit">取消</button>
-                                   <button class="gray-layered btnOver" type="submit">刪除</button>
-                                </div>
-                               </div>
-                           </form> 
-
-                                  
-                                 </div>
-                <!-- 修改帳單(帳單) -->
-                <div id="bill_update">
-                         <div class="mem_logo">
-                           <img src="../img/component/logo_ph.png" alt="">
-                          </div>
-                          <h1>修改帳單</h1>
-                          <form class="px-md-2 check_in">
-                            <div class="login_line">
-
-                      <div class="row">
-                            <label class="col-sm-3 col-form-label">信用卡</label>
-                            <div class="col-sm-9 form-inline">
-                              <select select class="form-control" id="exampleFormControlSelect1">
-                               <option selected>請選擇信用卡</option>
-                               <option value="01">請選擇信用卡</option>
-                               
-                          </select>
-                            </div>
-                          </div>
-                      <div class="row">
-                            <label class="col-sm-3 col-form-label">帳單月份</label>
-                            <div class="col-sm-9 date_w form-inline">
-                              <select select class="form-control" id="exampleFormControlSelect1">
-                               <option selected>20XX</option>
-                              </select>
-                              年
-                              <select select class="form-control" id="exampleFormControlSelect1">
-                               <option selected>20XX</option>
-                              </select>
-                              月
-                            </div>
-                          </div>
-                     
-
-                     
-                     <div class="row">
-                            <label class="col-sm-3 col-form-label">*本月應繳金額</label>
-                            <div class="col-sm-9 date_w form-inline">
-                              每月<input type="text" class="form-control" placeholder="">元
-                            </div>
-                          </div>
-                     <div class="row">
-                           <label class="col-sm-3 col-form-label">繳款狀態</label>
-                            <div class="col-sm-9 form-inline">
-                               <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                              <label class="form-check-label" for="inlineRadio2">未繳</label>
-                              </div>
-                              <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                              <label class="form-check-label" for="inlineRadio2">已繳</label>
-                              </div>
-                            </div>
-                          </div>
-                     <div class="row">
-                            <label class="col-sm-3 col-form-label">*實際繳款日</label>
-                            <div class="col-sm-9 form-inline">
-                              <input type="text" class="form-control" placeholder="">
-                            </div>
-                          </div>
-                     <div class="row">
-                            <label class="col-sm-3 col-form-label">*繳款方式</label>
-                            <div class="col-sm-9 form-inline">
-                              <select select class="form-control" id="exampleFormControlSelect1">
-                               <option selected>請選擇</option>
-                              </select>
-                            </div>
-                          </div>
-                     <div class="col-md-12 col  member_btn hv-center">
-                          <button class="gray-layered btnOver" type="submit">確定</button>
-                          <button class="gray-layered btnOver" type="submit">取消</button>
-                          <button class="gray-layered btnOver" type="submit">刪除</button>
-                       </div>
-                      </div>
-                  </form> 
-                  <h5>帳單消費明細(可自行設定帳單消費項目內容，也可省略不填寫)</h5>
-                  <form class="px-md-2 check_in">
-                      <div class="login_line">
-
-                     <div class="row">
-                            <label class="col-sm-3 col-form-label">*本月應繳金額</label>
-                            <div class="col-sm-9 py-md-2">
-                             <div class="row py-md-2">
-                               <div class="col-md-6 date_w form-inline">購物<input type="text" class="form-control" placeholder="">元</div>
-                               <div class="col-md-6 date_w form-inline">飲食<input type="text" class="form-control" placeholder="">元</div>
-                             </div>
-                             <div class="row py-md-2">
-                               <div class="col-md-6 date_w form-inline">娛樂<input type="text" class="form-control" placeholder="">元</div>
-                               <div class="col-md-6 date_w form-inline">旅遊<input type="text" class="form-control" placeholder="">元</div>
-                             </div>
-                             <div class="row py-md-2">
-                               <div class="col-md-6 date_w form-inline">交通<input type="text" class="form-control" placeholder="">元</div>
-                               <div class="col-md-6 date_w form-inline">水電<input type="text" class="form-control" placeholder="">元</div>
-                             </div>
-                             <div class="row py-md-2">
-                               <div class="col-md-6 date_w form-inline">保險<input type="text" class="form-control" placeholder="">元</div>
-                               <div class="col-md-6 date_w form-inline">投資<input type="text" class="form-control" placeholder="">元</div>
-                             </div>
-                             <div class="row py-md-2">
-                               <div class="col-md-6 date_w form-inline">其他<input type="text" class="form-control" placeholder="">元</div>
-                               <div class="col-md-6 date_w form-inline">本期循環息<input type="text" class="form-control" placeholder="">元</div>
-                             </div>
-                             <div class="row">
-                               <div class="col-md-12 form-inline member_btn hv-center">
-                                 <input type="text" class="form-control" placeholder="">
-                                 <button class="gray-layered btnOver" type="submit">新增消費項目</button>
-                                 <span>本期帳單消費總額：　　　　    　元</span>
-                               </div>
-                             </div>  
-                            </div>
-                          </div>
-
-                    
-                     
-                     <div class="col-md-12 col  member_btn hv-center">
-                          <p>注意事項：<br>
-                           1.「本期帳單金額」：為實際應繳款的總費用。<br>
-                           2.帳單消費明細：可自行選擇是否要輸入明細內容，或者不填寫亦可。<br>
-                           3.以上消費紀錄，本網僅做統計之用，不涉及個人資料，亦不保證永久保存。若有需要請自行保存。</p>
-                     </div>
-                      
-                     <div class="col-md-12 col  member_btn hv-center">
-                          <button class="gray-layered btnOver" type="submit">確定</button>
-                          <button class="gray-layered btnOver" type="submit">取消</button>
-                          <button class="gray-layered btnOver" type="submit">刪除</button>
-                       </div>
-                      </div>
-                  </form> 
-
-                  
-                </div>
-
-                <!-- fancybox END -->
-
-                    
-                  
-                    
-                    
-
-                   
-
-                    
-
-                   
-
-
-
-
                 </div>
             </div>
             <!--版面左側end-->
             
             <!--版面右側-->
-            <div class="index-content-right col0">
-                
-                <div class="row">
-                    <div class="col-md-12 col">
-                       <div class="cardshap hotCard tab_one primary_tab">
-                           <div class="title_tab hole">
-                               <h4>熱門優惠</h4>
-                               <span>謹慎理財 信用至上</span>
-                           </div>
-                           <div class="content_tab">
-                                  <!-- 熱門情報輪播 -->
-                               <div class="swiper-container HotNews_slide">
-                                   <div class="swiper-wrapper">
-
-                                       <div class="swiper-slide" > 
-                                         <div class="row no-gutters">
-                                           <div class="col-5">
-                                             <a class="img_a" href="#">
-                                               <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                             </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                              <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-
-                                         <div class="row no-gutters">
-                                           <div class="col-5">
-                                            <a class="img_a" href="#">
-                                             <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                            </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                             <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-
-                                         <div class="row no-gutters">
-                                           <div  class="col-5">
-                                            <a class="img_a" href="#">
-                                              <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                            </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                              <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-                                       </div>
-
-                                       <div class="swiper-slide" > 
-                                         <div class="row no-gutters">
-                                           <div class="col-5">
-                                             <a class="img_a" href="#">
-                                               <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                             </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                              <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-
-                                         <div class="row no-gutters">
-                                           <div class="col-5">
-                                            <a class="img_a" href="#">
-                                             <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                            </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                             <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-
-                                         <div class="row no-gutters">
-                                           <div  class="col-5">
-                                            <a class="img_a" href="#">
-                                              <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                            </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                              <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-                                       </div>
-
-                                       <div class="swiper-slide" > 
-                                         <div class="row no-gutters">
-                                           <div class="col-5">
-                                             <a class="img_a" href="#">
-                                               <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                             </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                              <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-
-                                         <div class="row no-gutters">
-                                           <div class="col-5">
-                                            <a class="img_a" href="#">
-                                             <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                            </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                             <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-
-                                         <div class="row no-gutters">
-                                           <div  class="col-5">
-                                            <a class="img_a" href="#">
-                                              <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                                            </a>
-                                           </div>
-                                           <div class="col-7">
-                                            <a href="#">
-                                              <h4>匯豐現金回饋玉璽卡</h4>
-                                            </a>
-                                             <p>國內消費享1.22% <br> 國內消費享2.22%</p>
-                                           </div>
-                                         </div>
-                                       </div>
-                                   </div>
-                                   
-                                   <!-- 如果需要导航按钮 -->
-                                   <div class="swiper-button-prev"><i class=" fa fa-angle-left"></i></div>
-                                   <div class="swiper-button-next"><i class=" fa fa-angle-right"></i></div>
-                               </div>
-                               <!-- 熱門情報輪播 END -->
-                           </div>
-                       </div>
-                    </div>
-
-                      <div class="col-md-12 col">
-                       <div class="cardshap primary_tab ">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item">
-                            <a class="nav-link active  pl-30" id="hotNews-tab" data-toggle="tab" href="#hotNews" role="tab" aria-controls="hotNews" aria-selected="true">
-                                <i class="icon" style="background-image: url(img/component/icon/index/icon3.png); background-size: 80%;"></i> 卡優公告
-                            </a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link pl-0 flex-x-center" id="hotGift-tab" data-toggle="tab" href="#hotGift" role="tab" aria-controls="hotGift" aria-selected="false">
-                                <i class="icon" style="background-image: url(img/component/icon_down/index/icon4.png); background-size: 76%;"></i> 卡優活動
-                            </a>
-                          </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade show active" id="hotNews" role="tabpanel" aria-labelledby="hotNews-tab">
-
-                            <ul class="tab_list cardu_li">
-                                <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                                <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                                <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                                <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                                <li><a href="">三張必備現金回饋卡! 國內國外高回饋</a></li>
-                            </ul>
-                           
-                          </div>
-                          <div class="tab-pane fade" id="hotGift" role="tabpanel" aria-labelledby="hotGift-tab">
-
-                            <ul class="tab_list cardu_li">
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                                <li><a href="">想辦卡看這篇　新戶辦卡懶人包</a></li>
-                            </ul>
-                           
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    
-
-                   
-                    
-                    <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-                     <!-- 廣告 -->
-                    <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x250" alt="">
-                    </div>
-
-
-                    
-
-                    
-
-                   
-
-
-
-                    
-                    <?php 
-                     //-- 共用Footer --
-                     if (wp_is_mobile()) {
-                        require '../share_area/phone/footer.php';
-                     }
-                     else{
-                       require '../share_area/footer.php';
-                      }
-                    ?>
-                    
-
-                </div>
-            </div>
+            <?php 
+             require 'right_area_div.php';
+            ?>
             <!--版面右側end-->
         </div>
         <!--版面end-->
@@ -824,6 +285,73 @@
          //-- 共用js --
          require '../share_area/share_js.php';
         ?>
+
+   <script type="text/javascript">
+     $(document).ready(function() {
+       $('#ch_expdate_btn').click(function(event) {
+         $.ajax({
+           url: '../ajax/member_ajax.php',
+           type: 'POST',
+           dataType: 'json',
+           data: {
+            type: 'ch_expdate',
+            from:$('.datepicker_range.from').val(),
+            to:$('.datepicker_range.to').val()
+           },
+           success:function (data) {
+
+            $('.from_tbody').html('');
+            $('.to_tbody').html('');
+            var mbd_amount=0, mbd_amount_paid=0;
+
+            //-- 未繳款 --
+            for (var i = 0; i < data['from'].length; i++) {
+              mbd_amount+=parseInt(data['from'][i]['mbd_amount']);
+              var txt_from='<tr>'+
+                              '<td>'+data['from'][i]['bi_shortname']+'</td>'+
+                              '<td>'+data['from'][i]['org_nickname']+'</td>'+
+                              '<td><a data-fancybox data-type="iframe" data-src="mycard_iframe.php?'+data['from'][i]['mb_pk']+'" href="javascript:;">'+data['from'][i]['cc_cardname']+'</a></td>'+
+                              '<td>'+data['from'][i]['mbd_bill_yy']+'-'+data['from'][i]['mbd_bill_mm']+'</td>'+
+                              '<td>'+accounting.formatMoney(data['from'][i]['mbd_amount'],'',0)+'</td>'+
+                              '<td>'+data['from'][i]['mbd_expdate']+'</td>'+
+                              '<td><a data-fancybox data-type="iframe" data-src="add_mybill.php?mb_pk='+data['from'][i]['mb_pk']+'&yy='+data['from'][i]['mbd_bill_yy']+'&mm='+data['from'][i]['mbd_bill_mm']+'" href="javascript:;"><img src="../img/component/bill.png"></a></td>'+
+                            '</tr>';
+              $('.from_tbody').append(txt_from);
+            } 
+
+            $('.from_tbody').append('<tr class="text-right">'+
+                                       '<td colspan="7" class="px-2">未繳款金額：'+mbd_amount+'元</td>'+
+                                    '</tr>');
+
+            //-- 已繳款 --
+            var mbd_pay_type=['', '金融機構臨櫃繳款', '超商/代收處繳款', '金融機構自動轉帳', 'ATM/網路銀行轉帳', '全國繳費網繳款'];
+            for (var i = 0; i < data['to'].length; i++) {
+              mbd_amount_paid+=parseInt(data['to'][i]['mbd_amount_paid']);
+              var txt_to='<tr>'+
+                             '<td>'+data['to'][i]['bi_shortname']+'</td>'+
+                             '<td>'+data['to'][i]['org_nickname']+'</td>'+
+                             '<td><a data-fancybox data-type="iframe" data-src="mycard_iframe.php?'+data['to'][i]['mb_pk']+'" href="javascript:;">'+data['to'][i]['cc_cardname']+'</a></td>'+
+                             '<td>'+accounting.formatMoney(data['to'][i]['mbd_amount'],'',0)+'</td>'+
+                             '<td>'+accounting.formatMoney(data['to'][i]['mbd_amount_paid'],'',0)+'</td>'+
+                             '<td>'+data['to'][i]['mbd_pay_date']+'</td>'+
+                             '<td>'+mbd_pay_type[data['to'][i]['mbd_pay_type']]+'</td>'+
+                             '<td><a data-fancybox data-type="iframe" data-src="add_mybill.php?mb_pk='+data['to'][i]['mb_pk']+'&yy='+data['to'][i]['mbd_bill_yy']+'&mm='+data['to'][i]['mbd_bill_mm']+'" href="javascript:;"><img src="../img/component/bill.png"></a></td>'+
+                        '</tr>';
+              $('.to_tbody').append(txt_to);
+            }
+
+            $('.to_tbody').append('<tr class="text-right">'+
+                                       '<td colspan="8" class="px-2">已繳款金額：：'+mbd_amount_paid+'元</td>'+
+                                    '</tr>');
+           },
+           error: function (xhr) {
+             alert("錯誤提示： " + xhr.status + " " + xhr.statusText+" 請盡速與我們聯絡，我們將盡快處理");
+           }
+         });
+         
+       });
+     });
+   </script>
 
   </body>
 </html>

@@ -54,7 +54,7 @@
      </tr>
    </tbody></table>
   ';
-  send_Mail('卡優新聞網', 'paper@cardu.com.tw', $row['ud_nickname'].'的會員確認信', $body_data, [$_POST['ud_nickname']], [$_POST['ud_email']]);
+  send_Mail('卡優新聞網', 'paper@cardu.com.tw', $_POST['ud_nickname'].'的會員確認信', $body_data, [$_POST['ud_nickname']], [$_POST['ud_email']]);
 
 
   
@@ -224,7 +224,7 @@
                                 
                                <div class="row">
                                    <label class="col-sm-2 col-form-label">*Email</label>
-                                   <div class="col-sm-10 form-inline login_w">
+                                   <div class="col-sm-10  login_w py-2">
                                      <input type="email" class="form-control" id="inputEmail3" name="ud_email" placeholder="建議輸入常用的Gmail信箱">
                                    </div>
                                  </div>
@@ -236,9 +236,9 @@
                                  </div>
                                 <div class="row">
                                    <label label for="inputAddress" class="col-sm-2 col-form-label">地址</label>
-                                     <div class="col-sm-10 date_w form-inline">
+                                     <div class="col-sm-10 date_w ">
                                       <div class="row no-gutters">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 form-inline">
                                           <div id="twzipcode" class="py-2"></div>
                                         </div>
                                         <div class="col-md-12 pb-2 login_w">
@@ -417,56 +417,9 @@
       };
 
 
-      // GOOGLE 註冊
-      var googleUser = {};
-
-      $('#G_login').click(function(event) {
-        
-        if ($('[name="google_id"]').val()=='') {
-
-        auth2.attachClickHandler(document.getElementById('G_login'), {},
-            function(googleUser) {
-              // console.log("Signed in: "+googleUser.getBasicProfile().getId());
-              // console.log("Signed in: "+googleUser.getBasicProfile().getName());
-              // console.log("Signed in: "+googleUser.getBasicProfile().getImageUrl());
-              // console.log("Signed in: "+googleUser.getBasicProfile().getEmail());
-
-              $.ajax({
-                url: '../ajax/member_ajax.php',
-                type: 'POST',
-                data: {
-                 type:'F_G_aes_encrypt',
-                 id : googleUser.getBasicProfile().getId()
-               },
-               success:function (data) {
-                 $('[name="google_id"]').val(data);
-               }
-              });
-
-              $('[name="google_email"]').val(googleUser.getBasicProfile().getEmail());
-              $('[name="google_name"]').val(googleUser.getBasicProfile().getName());
-              $('[name="google_img"]').val(googleUser.getBasicProfile().getImageUrl());
-              
-              $('[name="ud_email"]').val(googleUser.getBasicProfile().getEmail());
-              $('[name="ud_nickname"]').val(googleUser.getBasicProfile().getName());
-              check_ud_nickname($('[name="ud_nickname"]').val());
-
-              $('.social_login').append('<p>已關聯google帳號：'+googleUser.getBasicProfile().getEmail()+'</p>');
-
-            }, function(error) {
-              console.log(JSON.stringify(error, undefined, 2));
-           });
-        }
-        else{
-          alert('您已關聯google帳號');
-        }
-      });
+      
 
 
-        function attachSignin(element) {
-          //console.log(element.id);
-          
-        }
 
 
 
@@ -536,6 +489,7 @@
                         check_ud_nickname($('[name="ud_nickname"]').val());
 
                         $('.social_login').append('<p>已關聯FB帳號：'+response.email+'</p>');
+                        $('#FB_login').css('display', 'none');
                         
                       });
 
@@ -550,6 +504,12 @@
           }
           
         });
+
+
+
+
+        // GOOGLE 註冊 (在community_login.js做串接)
+        
 
 
         
@@ -647,22 +607,7 @@
         });
 
 
-        //-- 日期 --
-        $('.datepicker').datepicker({
-            dateFormat: "yy-mm-dd",
-            yearRange: "-100:+0",
-            maxDate:"0",
-            changeMonth: true,
-            changeYear: true,
-            dayNamesMin :["日","一","二","三","四","五","六"],
-            dayNames :["日","一","二","三","四","五","六"],
-            monthNamesShort  :["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]
-        });
-
-        //-- 地址 --
-        $('#twzipcode').twzipcode({
-          'css': ['form-control mr-2', 'form-control mr-2', 'form-control']
-        });
+        
       });
     </script>
 

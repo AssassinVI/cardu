@@ -176,3 +176,90 @@ function cardRank_log(url, rank_id, log_type, target='') {
 //   });
 // }
 /*==================== 卡排行點閱數 OR 辦卡數 +1 END ===========================*/
+
+
+
+
+/*==================== 會員訂閱功能 ===========================*/
+function mySubscription(bi_pk='', si_pk='') {
+  $.ajax({
+    url: '../ajax/member_ajax.php',
+    type: 'POST',
+    data: {
+      type: 'my_subscription',
+      bi_pk: bi_pk,
+      si_pk: si_pk
+    },
+    success:function (data) {
+      if (data=='0') {
+        alert('請勿重複訂閱');
+      }
+      else{
+        alert('訂閱成功!');
+      }
+    },
+    error: function (xhr) {
+      alert("錯誤提示： " + xhr.status + " " + xhr.statusText+" 請盡速與我們聯絡，我們將盡快處理");
+    }
+  });
+  
+}
+/*==================== 會員訂閱功能 END ===========================*/
+
+
+
+
+
+/*==================== 會員收藏功能 ===========================*/
+
+function my_favorite(news_id) {
+  $.ajax({
+    url: '../ajax/member_ajax.php',
+    type: 'POST',
+    data: {
+      type: 'my_favorite',
+      news_id: news_id
+    },
+    success:function (data) {
+      if (data=='0') {
+        alert('請勿重複收藏');
+      }
+      else{
+        alert('收藏成功!');
+      }
+    },
+    error: function (xhr) {
+      alert("錯誤提示： " + xhr.status + " " + xhr.statusText+" 請盡速與我們聯絡，我們將盡快處理");
+    }
+  });
+  
+}
+/*==================== 會員收藏功能 END ===========================*/
+
+
+
+
+
+
+
+/*==================== 讀取會員留言 ===========================*/
+function mem_discuss() {
+  $.ajax({
+    url: '../ajax/member_ajax.php',
+    type: 'POST',
+    data: {
+      type: 'loading_discuss',
+      ds_type_pk:$('[name="ds_type_pk"]').val()
+    },
+    success:function (data) {
+      //console.log(data);
+      $('.discuss_div').html('');
+      $('.discuss_div').append(data);
+    },
+    error: function (xhr) {
+      alert("錯誤提示： " + xhr.status + " " + xhr.statusText+" 請盡速與我們聯絡，我們將盡快處理");
+    }
+  });
+  
+}
+/*==================== 讀取會員留言 END ===========================*/

@@ -40,6 +40,85 @@ gapi.load('auth2', function(){
     //scope: 'additional_scope'
   });
   //attachSignin(document.getElementById('G_login'));
+
+  //-- 套用登入到指定元素 --
+
+  if ($('#G_login').length>0) {
+
+    auth2.attachClickHandler(document.getElementById('G_login'), {},
+        function(googleUser) {
+          // console.log("Signed in: "+googleUser.getBasicProfile().getId());
+          // console.log("Signed in: "+googleUser.getBasicProfile().getName());
+          // console.log("Signed in: "+googleUser.getBasicProfile().getImageUrl());
+          // console.log("Signed in: "+googleUser.getBasicProfile().getEmail());
+
+          $.ajax({
+            url: '../ajax/member_ajax.php',
+            type: 'POST',
+            data: {
+             type:'F_G_aes_encrypt',
+             id : googleUser.getBasicProfile().getId()
+           },
+           success:function (data) {
+             $('[name="google_id"]').val(data);
+           }
+          });
+
+          $('[name="google_email"]').val(googleUser.getBasicProfile().getEmail());
+          $('[name="google_name"]').val(googleUser.getBasicProfile().getName());
+          $('[name="google_img"]').val(googleUser.getBasicProfile().getImageUrl());
+          
+          $('[name="ud_email"]').val(googleUser.getBasicProfile().getEmail());
+          $('[name="ud_nickname"]').val(googleUser.getBasicProfile().getName());
+          check_ud_nickname($('[name="ud_nickname"]').val());
+
+          $('.social_login').append('<p>已關聯google帳號：'+googleUser.getBasicProfile().getEmail()+'</p>');
+          $('#G_login').css('display', 'none');
+
+        }, function(error) {
+          console.log(JSON.stringify(error, undefined, 2));
+       });
+  }
+  
+  else if($('#mem_G_login').length>0){
+
+    auth2.attachClickHandler(document.getElementById('mem_G_login'), {},
+        function(googleUser) {
+          // console.log("Signed in: "+googleUser.getBasicProfile().getId());
+          // console.log("Signed in: "+googleUser.getBasicProfile().getName());
+          // console.log("Signed in: "+googleUser.getBasicProfile().getImageUrl());
+          // console.log("Signed in: "+googleUser.getBasicProfile().getEmail());
+
+          $.ajax({
+            url: '../ajax/member_ajax.php',
+            type: 'POST',
+            data: {
+              type: 'FB_G_login',
+              ud_email: googleUser.getBasicProfile().getEmail()
+            },
+            success:function (data) {
+              
+              if (data!='') {
+                 alert(data+'歡迎登入~');
+                 location.reload();
+              }
+              else{
+                 alert('您的Google帳號尚未註冊');
+                 location.href="../member/sign_second.php";
+              }
+            }
+          });
+
+        }, function(error) {
+          console.log(JSON.stringify(error, undefined, 2));
+       });
+
+  }
+
+
+  
+
+
 });
 // ========================================
 // Google 程式 ===================================
@@ -66,7 +145,8 @@ $('#mem_FB_login').click(function(event) {
               },
               success:function (data) {
                 
-                if (data=='1') {
+                if (data!='') {
+                   alert(data+'歡迎登入~');
                    location.reload();
                 }
                 else{
@@ -85,41 +165,6 @@ $('#mem_FB_login').click(function(event) {
 });
 
 
-
-
-$('#mem_G_login').click(function(event) {
-
-  auth2.attachClickHandler(document.getElementById('mem_G_login'), {},
-      function(googleUser) {
-        // console.log("Signed in: "+googleUser.getBasicProfile().getId());
-        // console.log("Signed in: "+googleUser.getBasicProfile().getName());
-        // console.log("Signed in: "+googleUser.getBasicProfile().getImageUrl());
-        // console.log("Signed in: "+googleUser.getBasicProfile().getEmail());
-
-        $.ajax({
-          url: '../ajax/member_ajax.php',
-          type: 'POST',
-          data: {
-            type: 'FB_G_login',
-            ud_email: googleUser.getBasicProfile().getEmail()
-          },
-          success:function (data) {
-            
-            if (data=='1') {
-               location.reload();
-            }
-            else{
-               alert('您的Google帳號尚未註冊');
-               location.href="../member/sign_second.php";
-            }
-          }
-        });
-
-      }, function(error) {
-        console.log(JSON.stringify(error, undefined, 2));
-     });
-   
-});
 
 
 

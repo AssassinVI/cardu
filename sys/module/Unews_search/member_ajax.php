@@ -8,7 +8,7 @@ require '../../core/inc/ssp.class.php';
 
 
 // DB table to use
-$table = 'appNews';
+$table = 'NewsAndType';
  
 // Table's primary key
 $primaryKey = 'Tb_index';
@@ -150,7 +150,10 @@ if (!empty($_GET['area_id'])) {
    
    //-- 選情報分類 --
    if (!empty($_GET['ns_nt_pk'])) {
-     $area_news_type_txt=" ns_nt_pk LIKE '%".$_GET['ns_nt_pk']."%' AND ";
+     
+     //-- 判斷優旅行 --
+     $area_news_type_txt= $_GET['area_id']=='at2019011117461656' ? " unit_id LIKE '%".$_GET['ns_nt_pk']."%' AND " : " ns_nt_pk LIKE '%".$_GET['ns_nt_pk']."%' AND ";
+
    }
    //-- 選情報分類 (全部) --
    else{

@@ -39,71 +39,25 @@
            <div class="swiper-container sub_slide2">
                <div class="swiper-wrapper">
 
-                   <div class="swiper-slide">
-                    <div class="cards-3 text-center">
-                      <a href="#">
-                       <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                           
+                   <?php 
+                     $row_notice=$pdo->select("SELECT aTitle, aPic, Tb_index FROM appNotice WHERE note_type=0 ORDER BY StartDate DESC LIMIT 0,6");
+
+                     foreach ($row_notice as $notice_one) {
+
+                       $aTitle=mb_substr($notice_one['aTitle'], 0,14);
+                       
+                       echo '
+                       <div class="swiper-slide">
+                        <div class="cards-3 text-center">
+                        <a href="notify_detail.php?'.$notice_one['Tb_index'].'" title="'.$notice_one['aTitle'].'">
+                         <div class="img_div" style="background-image: url(../sys/img/'.$notice_one['aPic'].');">
+                         </div>
+                         <span class="px-2">'.$aTitle.'</span>
+                        </a>
                        </div>
-                       <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
-                      </a>
-                    </div>
-                   </div>
-
-                   <div class="swiper-slide">
-                     <div class="cards-3 text-center">
-                       <a href="#">
-                        <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                            
-                        </div>
-                        <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
-                       </a>
-                     </div>
-                   </div>
-
-                   <div class="swiper-slide">
-                     <div class="cards-3 text-center">
-                       <a href="#">
-                        <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                            
-                        </div>
-                        <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
-                       </a>
-                     </div>
-                   </div>
-
-                   <div class="swiper-slide">
-                     <div class="cards-3 text-center">
-                       <a href="#">
-                        <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                            
-                        </div>
-                        <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
-                       </a>
-                     </div>
-                   </div>
-
-                   <div class="swiper-slide">
-                     <div class="cards-3 text-center">
-                       <a href="#">
-                        <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                            
-                        </div>
-                        <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
-                       </a>
-                     </div>
-                   </div>
-
-                   <div class="swiper-slide">
-                     <div class="cards-3 text-center">
-                       <a href="#">
-                        <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                            
-                        </div>
-                        <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
-                       </a>
-                     </div>
-                   </div>
+                      </div>';
+                     }
+                   ?>
 
                </div>
                
@@ -112,121 +66,33 @@
                <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
                
            </div>
-            
-
-
-            <br>
-              <div class="px-md-2 member_info">
-                 <h4>1.會員專區</h4>
-                 <p>
-                 卡優新聞網以卡優、卡油、卡友為宗旨，提供銀行與商店所發行的各種信用卡、金融卡、儲值卡與會員卡，以及各種購物、美食、休閒、旅遊、生活的卡好康與優情報等相關訊息，讓會員可以快速地掌握最新、最正確的資訊。卡優新聞網是您每天必上的優質網站，只要您註冊並登錄卡優新聞網，即可享受本網站所提供給會員獨享的免費服務。  
-                 </p>
-                 <h5>【訂閱電子報】</h5>
-                 <p>卡優新聞網將會不定期發送電子報，透過e-mail即可以獲得銀行、商店所提供的各式好康訊息與新聞，讓您掌握商務脈動比別人快一步。</p>
-
-                 <h5>【活動獎勵】</h5>
-                 <p>卡優新聞網不定期為各位會員準備多種有趣的活動，當您參加卡優活動時，還可獲得卡優新聞網所給予的積分獎勵喔！</p>
-                 <br>
-                 <h4>2.我的卡優</h4>
-                 <p>
-                  只要註冊成為卡優新聞網的會員，登入帳密後即可享受本網站所給您的個人化功能如下。
-                 </p>
-                 <h5>【我的信用卡】</h5>
-                 <p>只要選擇您的信用卡名稱及卡別,就可以立即擁有該卡片所有的好康資訊及權益資
-                    料,簡單便利,不用搜尋一目瞭然,馬上註冊即刻享有會員獨特的客制化服務。
-                 </p>
-
-                 <h5>【我的帳單】</h5>
-                 <p>填入信用卡帳單金額後,系統即會自動提醒繳費,讓您不再漏繳任何信用卡帳單,並
-                    可自行設定消費類別、方便管理帳務,更能統計各銀行、各類別的消費總額,是您最佳的記帳工具。
-                 </p>
-
-                 <h5>【我的資訊】</h5>
-                 <p>您可訂閱有興趣的銀行或商店,隨時掌握最新新聞與好康優惠,輕鬆成為生活理財達人。</p>
-
-                  <h5>【我的文章】</h5>
-                 <p>您可以收藏有興趣的新聞與好康優惠內容,可以永久保留,方便日後查看。</p>
-
-                 <h5>【我的收藏】</h5>
-                 <p>您可以收藏有興趣的新聞與好康優惠內容,可以永久保留,方便日後查看。</p>
-
-                 <h5>【我的行事曆】</h5>
-                 <p>您可以在行事曆中查看您所加入的帳單最後繳費日提醒,也可以查看加入收藏的好康訊息,提醒您好康截止日期。</p>
-              </div>
-
-           
           </div>
-          <div class="tab-pane fade" id="goodPerson" role="tabpanel" aria-labelledby="goodPerson-tab">
 
-            
+
+
+          <div class="tab-pane fade" id="goodPerson" role="tabpanel" aria-labelledby="goodPerson-tab">
              <div class="swiper-container sub_slide2">
                 <div class="swiper-wrapper">
 
-                    <div class="swiper-slide">
-                     <div class="cards-3 text-center">
-                       <a href="#">
-                        <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                            
+                    <?php 
+                      $row_notice=$pdo->select("SELECT aTitle, aPic, Tb_index FROM appNotice WHERE note_type=1 ORDER BY StartDate DESC LIMIT 0,6");
+
+                      foreach ($row_notice as $notice_one) {
+
+                        $aTitle=mb_substr($notice_one['aTitle'], 0,14);
+                        
+                        echo '
+                        <div class="swiper-slide">
+                         <div class="cards-3 text-center">
+                         <a href="notify_detail.php?'.$notice_one['Tb_index'].'" title="'.$notice_one['aTitle'].'">
+                          <div class="img_div" style="background-image: url(../sys/img/'.$notice_one['aPic'].');">
+                          </div>
+                          <span class="px-2">'.$aTitle.'</span>
+                         </a>
                         </div>
-                        <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
-                       </a>
-                     </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                      <div class="cards-3 text-center">
-                        <a href="#">
-                         <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                             
-                         </div>
-                         <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
-                        </a>
-                      </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                      <div class="cards-3 text-center">
-                        <a href="#">
-                         <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                             
-                         </div>
-                         <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
-                        </a>
-                      </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                      <div class="cards-3 text-center">
-                        <a href="#">
-                         <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                             
-                         </div>
-                         <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
-                        </a>
-                      </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                      <div class="cards-3 text-center">
-                        <a href="#">
-                         <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                             
-                         </div>
-                         <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
-                        </a>
-                      </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                      <div class="cards-3 text-center">
-                        <a href="#">
-                         <div class="img_div" style="background-image: url(../img/component/photo2.jpg);">
-                             
-                         </div>
-                         <span class="px-2">遊日血拚大回饋，信用卡大調查</span>
-                        </a>
-                      </div>
-                    </div>
+                       </div>';
+                      }
+                    ?>
 
                 </div>
                 
@@ -236,47 +102,47 @@
                 
             </div>
 
-            <br>
-              <div class="px-md-2 member_info">
-                 <h4>1.會員專區</h4>
-                 <p>
-                 卡優新聞網以卡優、卡油、卡友為宗旨，提供銀行與商店所發行的各種信用卡、金融卡、儲值卡與會員卡，以及各種購物、美食、休閒、旅遊、生活的卡好康與優情報等相關訊息，讓會員可以快速地掌握最新、最正確的資訊。卡優新聞網是您每天必上的優質網站，只要您註冊並登錄卡優新聞網，即可享受本網站所提供給會員獨享的免費服務。  
-                 </p>
-                 <h5>【訂閱電子報】</h5>
-                 <p>卡優新聞網將會不定期發送電子報，透過e-mail即可以獲得銀行、商店所提供的各式好康訊息與新聞，讓您掌握商務脈動比別人快一步。</p>
-
-                 <h5>【活動獎勵】</h5>
-                 <p>卡優新聞網不定期為各位會員準備多種有趣的活動，當您參加卡優活動時，還可獲得卡優新聞網所給予的積分獎勵喔！</p>
-                 <br>
-                 <h4>2.我的卡優</h4>
-                 <p>
-                  只要註冊成為卡優新聞網的會員，登入帳密後即可享受本網站所給您的個人化功能如下。
-                 </p>
-                 <h5>【我的信用卡】</h5>
-                 <p>只要選擇您的信用卡名稱及卡別,就可以立即擁有該卡片所有的好康資訊及權益資
-                    料,簡單便利,不用搜尋一目瞭然,馬上註冊即刻享有會員獨特的客制化服務。
-                 </p>
-
-                 <h5>【我的帳單】</h5>
-                 <p>填入信用卡帳單金額後,系統即會自動提醒繳費,讓您不再漏繳任何信用卡帳單,並
-                    可自行設定消費類別、方便管理帳務,更能統計各銀行、各類別的消費總額,是您最佳的記帳工具。
-                 </p>
-
-                 <h5>【我的資訊】</h5>
-                 <p>您可訂閱有興趣的銀行或商店,隨時掌握最新新聞與好康優惠,輕鬆成為生活理財達人。</p>
-
-                  <h5>【我的文章】</h5>
-                 <p>您可以收藏有興趣的新聞與好康優惠內容,可以永久保留,方便日後查看。</p>
-
-                 <h5>【我的收藏】</h5>
-                 <p>您可以收藏有興趣的新聞與好康優惠內容,可以永久保留,方便日後查看。</p>
-
-                 <h5>【我的行事曆】</h5>
-                 <p>您可以在行事曆中查看您所加入的帳單最後繳費日提醒,也可以查看加入收藏的好康訊息,提醒您好康截止日期。</p>
-              </div>
-           
           </div>
         </div>
+
+        <div class="px-md-2 member_info">
+           <h4>1.會員專區</h4>
+           <p>
+           卡優新聞網以卡優、卡油、卡友為宗旨，提供銀行與商店所發行的各種信用卡、金融卡、儲值卡與會員卡，以及各種購物、美食、休閒、旅遊、生活的卡好康與優情報等相關訊息，讓會員可以快速地掌握最新、最正確的資訊。卡優新聞網是您每天必上的優質網站，只要您註冊並登錄卡優新聞網，即可享受本網站所提供給會員獨享的免費服務。  
+           </p>
+           <h5>【訂閱電子報】</h5>
+           <p>卡優新聞網將會不定期發送電子報，透過e-mail即可以獲得銀行、商店所提供的各式好康訊息與新聞，讓您掌握商務脈動比別人快一步。</p>
+
+           <h5>【活動獎勵】</h5>
+           <p>卡優新聞網不定期為各位會員準備多種有趣的活動，當您參加卡優活動時，還可獲得卡優新聞網所給予的積分獎勵喔！</p>
+           <br>
+           <h4>2.我的卡優</h4>
+           <p>
+            只要註冊成為卡優新聞網的會員，登入帳密後即可享受本網站所給您的個人化功能如下。
+           </p>
+           <h5>【我的信用卡】</h5>
+           <p>只要選擇您的信用卡名稱及卡別,就可以立即擁有該卡片所有的好康資訊及權益資
+              料,簡單便利,不用搜尋一目瞭然,馬上註冊即刻享有會員獨特的客制化服務。
+           </p>
+
+           <h5>【我的帳單】</h5>
+           <p>填入信用卡帳單金額後,系統即會自動提醒繳費,讓您不再漏繳任何信用卡帳單,並
+              可自行設定消費類別、方便管理帳務,更能統計各銀行、各類別的消費總額,是您最佳的記帳工具。
+           </p>
+
+           <h5>【我的資訊】</h5>
+           <p>您可訂閱有興趣的銀行或商店,隨時掌握最新新聞與好康優惠,輕鬆成為生活理財達人。</p>
+
+            <h5>【我的文章】</h5>
+           <p>您可以收藏有興趣的新聞與好康優惠內容,可以永久保留,方便日後查看。</p>
+
+           <h5>【我的收藏】</h5>
+           <p>您可以收藏有興趣的新聞與好康優惠內容,可以永久保留,方便日後查看。</p>
+
+           <h5>【我的行事曆】</h5>
+           <p>您可以在行事曆中查看您所加入的帳單最後繳費日提醒,也可以查看加入收藏的好康訊息,提醒您好康截止日期。</p>
+        </div>
+
       </div>
     </div>
   </div>

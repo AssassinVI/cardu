@@ -221,7 +221,11 @@ function location_up($location_path,$alert_txt='')
 
    if ($location_path=='back') {
      echo "history.back();"; //返回上一頁
-   }else{
+   }
+   elseif($location_path=='no'){
+
+   }
+   else{
      echo "location.replace('".$location_path."');"; //網頁跳轉
    }
    

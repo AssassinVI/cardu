@@ -954,7 +954,11 @@ if ($_GET) {
               err_txt = err_txt + '發卡組織&銀行關聯，';
             }
             err_txt = CKEDITOR.instances.ckeditor.getData()=='' ? err_txt + '內容，' : err_txt;
-            err_txt = $('[name="ns_photo_1"]').val()=='' && $('[name="old_ns_photo_1"]').val()==undefined ? err_txt + '圖檔(上)，' : err_txt;
+            
+            //-- 如是權益條款可不必上圖檔 --
+            if ($('[name="area_id"]:checked').val()!='at2019021114161530') {
+              err_txt = $('[name="ns_photo_1"]').val()=='' && $('[name="old_ns_photo_1"]').val()==undefined ? err_txt + '圖檔(上)，' : err_txt;
+            }
 
 
           	if (err_txt!='') {
@@ -984,7 +988,11 @@ if ($_GET) {
               err_txt = err_txt + '發卡組織&銀行關聯，';
             }
             err_txt = CKEDITOR.instances.ckeditor.getData()=='' ? err_txt + '內容，' : err_txt;
-            err_txt = $('[name="ns_photo_1"]').val()=='' && $('[name="old_ns_photo_1"]').val()==undefined ? err_txt + '圖檔(上)，' : err_txt;
+
+            //-- 如是權益條款可不必上圖檔 --
+            if ($('[name="area_id"]:checked').val()!='at2019021114161530') {
+              err_txt = $('[name="ns_photo_1"]').val()=='' && $('[name="old_ns_photo_1"]').val()==undefined ? err_txt + '圖檔(上)，' : err_txt;
+            }
 
 
 

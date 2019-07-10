@@ -15,10 +15,17 @@
        //-- 優旅行 --
        if ($_POST['area_id']=='at2019011117461656') {
 
-          $row_news_type=$pdo->select("SELECT Tb_index, nt_name, unit_id FROM news_type WHERE area_id=:area_id AND nt_sp=0 ORDER BY OrderBy ASC", ['area_id'=>$_POST['area_id']]);
+          $row_news_type=$pdo->select("SELECT nt.Tb_index, nt.nt_name, nt.unit_id, un.un_name
+                                       FROM news_type as nt
+                                       INNER JOIN appUnit as un ON un.Tb_index=nt.unit_id
+                                       WHERE nt.area_id=:area_id AND nt.nt_sp=0 
+                                       GROUP BY nt.unit_id
+                                       ORDER BY un.OrderBy ASC", 
+                                       ['area_id'=>$_POST['area_id']]);
           for ($i=0; $i <count($row_news_type) ; $i++) { 
-             $unit_name=$pdo->select("SELECT un_name FROM appUnit WHERE Tb_index=:Tb_index", ['Tb_index'=>$row_news_type[$i]['unit_id']], 'one');
-             $row_news_type[$i]['nt_name']='['.$unit_name['un_name'].']'.$row_news_type[$i]['nt_name'];
+             // $unit_name=$pdo->select("SELECT un_name FROM appUnit WHERE Tb_index=:Tb_index", ['Tb_index'=>$row_news_type[$i]['unit_id']], 'one');
+             // $row_news_type[$i]['nt_name']='['.$unit_name['un_name'].']'.$row_news_type[$i]['nt_name'];
+             $row_news_type[$i]['nt_name']=$row_news_type[$i]['un_name'];
           }
        }
        else{

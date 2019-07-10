@@ -159,12 +159,12 @@
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item">
                 <a class="nav-link active  pl-30" id="hotNews-tab"  href="#hotNews" tab-target="#hotNews-tab-con">
-                    <i class="icon" style="background-image: url(img/component/icon/index/icon3.png); background-size: 80%;"></i> 卡優公告
+                     卡優公告
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link pl-0 flex-x-center" id="hotGift-tab" href="#hotGift" tab-target="#hotGift-tab-con">
-                    <i class="icon" style="background-image: url(img/component/icon_down/index/icon4.png); background-size: 76%;"></i> 卡優活動
+                     卡優活動
                 </a>
               </li>
             </ul>

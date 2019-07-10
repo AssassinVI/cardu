@@ -179,7 +179,7 @@ if ($_GET) {
         $('[name="ns_nt_sp_pk"]').html('<option value="">-- 全部 --</option>');
          
          if ($(this).val()!='') {
-
+           var _this=$(this);
           //-- 情報分類 --
           $.ajax({
             url: 'admin_ajax.php',
@@ -191,7 +191,15 @@ if ($_GET) {
             },
             success:function (data) {
               $.each(data, function(index, val) {
-                 $('[name="ns_nt_pk"]').append('<option value="'+this['Tb_index']+'">'+this['nt_name']+'</option>');
+              	//-- 優旅行 --
+              	if (_this.val()=='at2019011117461656') {
+                   $('[name="ns_nt_pk"]').append('<option value="'+this['unit_id']+'">'+this['nt_name']+'</option>');
+              	}
+              	//-- 優行動pay、優票證... --
+              	else{
+              	   $('[name="ns_nt_pk"]').append('<option value="'+this['Tb_index']+'">'+this['nt_name']+'</option>');
+              	}
+                 
               });
             }
           });
