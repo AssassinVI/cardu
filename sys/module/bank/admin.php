@@ -1,6 +1,8 @@
-<?php 
-include("../../core/page/header01.php");//載入頁面heaer01
-include("../../core/page/header02.php");//載入頁面heaer02?>
+<?php include("../../core/page/header01.php");//載入頁面heaer01?>
+<style type="text/css">
+  #table_id_example_length, #table_id_example_filter{ display: none; }
+</style>
+<?php include("../../core/page/header02.php");//載入頁面heaer02?>
 <?php 
 if ($_POST) {
    // -- 更新排序 --
@@ -47,7 +49,7 @@ if ($_GET) {
         <i class="fa fa-sort-amount-desc"></i> 更新排序</button> -->
 
 	    <a href="manager.php?MT_id=<?php echo $_GET['MT_id'];?>">
-        <button type="button" class="btn btn-default">
+        <button type="button" class="btn btn-default" style="font-size: 18px;">
         <i class="fa fa-plus" aria-hidden="true"></i> 新增</button>
         </a>
 	  </div>
@@ -111,7 +113,7 @@ if ($_GET) {
             "sSortDescending": ": 以降序排列此列"
         }
         	},
-        "ajax": "member_ajax.php?MT_id=<?php echo $_GET['MT_id'];?>",
+        "ajax": "admin_ajax.php?MT_id=<?php echo $_GET['MT_id'];?>",
         "processing": true,
         "serverSide": true
        

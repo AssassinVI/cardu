@@ -116,7 +116,7 @@ if ($_POST) {
       $StartDate=empty($_POST['StartDate']) ? date('Y-m-d') : $_POST['StartDate'];
       $EndDate=empty($_POST['EndDate']) ? '2200-12-31' : $_POST['EndDate'];
       $ns_date=empty($_POST['ns_date']) ? date('Y-m-d') : $_POST['ns_date'];
-      $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0: 1 ;
+
 
       //-- 無發卡組織/銀行 --
       if(!empty($_POST['no_BankOrg'])){
@@ -151,7 +151,6 @@ if ($_POST) {
                    'ns_cdate'=>date('Y-m-d H:i:s'),
 		          'StartDate'=>$StartDate,
 		            'EndDate'=>$EndDate,
-		        'OnLineOrNot'=>$OnLineOrNot,
               'ns_verify'=>$_POST['ns_verify']
 		          );
   
@@ -256,7 +255,6 @@ if ($_POST) {
    $StartDate=empty($_POST['StartDate']) ? date('Y-m-d') : $_POST['StartDate'];
    $EndDate=empty($_POST['EndDate']) ? '2200-12-31' : $_POST['EndDate'];
    $ns_date=empty($_POST['ns_date']) ? date('Y-m-d') : $_POST['ns_date'];
-   $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0: 1 ;
 
    //-- 無發卡組織/銀行 --
    if(!empty($_POST['no_BankOrg'])){
@@ -283,7 +281,6 @@ if ($_POST) {
                     'ns_date'=>$ns_date,
 		          'StartDate'=>$StartDate,
 		            'EndDate'=>$EndDate,
-		        'OnLineOrNot'=>$OnLineOrNot,
               'ns_verify'=>$_POST['ns_verify']
 		          );
 
@@ -494,14 +491,16 @@ if ($_GET) {
                 <?php 
                   if (!empty($row['ns_news'])) {
                     for ($i=0; $i <count($ns_news) ; $i++) {
-                       if (strpos($ns_news[$i] , '_ex')===FALSE) {
-                         $ns_news_name=pdo_select("SELECT ns_ftitle FROM appNews WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_news[$i]]); 
-                          echo '<div class="btn btn-success btn-block">'.$ns_news_name['ns_ftitle'].' <input type="hidden" name="ns_news[]" ns_ftitle="'.$ns_news_name['ns_ftitle'].'" value="'.$ns_news[$i].'"><button class="del_ns_news btn btn-danger" type="button">Ｘ</button></div>';
-                       }
-                       else{
-                         $ns_news_name=pdo_select("SELECT ne_ns_pk_ext_ftitle FROM news_extends_custom WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_news[$i]]); 
-                          echo '<div class="btn btn-success btn-block">'.$ns_news_name['ne_ns_pk_ext_ftitle'].' <input type="hidden" name="ns_news[]" ns_ftitle="'.$ns_news_name['ne_ns_pk_ext_ftitle'].'" value="'.$ns_news[$i].'"><button class="del_ns_news btn btn-danger" type="button">Ｘ</button></div>';
-                       }
+
+                      if (strpos($ns_news[$i] , '_ex')===FALSE) {
+                        $ns_news_name=pdo_select("SELECT ns_ftitle FROM appNews WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_news[$i]]); 
+                         echo '<span class="btn btn-success btn-block">'.$ns_news_name['ns_ftitle'].' <input type="hidden" name="ns_news[]" ns_ftitle="'.$ns_news_name['ns_ftitle'].'" value="'.$ns_news[$i].'"><button class="del_ns_news btn btn-danger" type="button">Ｘ</button></span>';
+                      }
+                      else{
+                        $ns_news_name=pdo_select("SELECT ne_ns_pk_ext_ftitle FROM news_extends_custom WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_news[$i]]); 
+                         echo '<span class="btn btn-success btn-block">'.$ns_news_name['ne_ns_pk_ext_ftitle'].' <input type="hidden" name="ns_news[]" ns_ftitle="'.$ns_news_name['ne_ns_pk_ext_ftitle'].'" value="'.$ns_news[$i].'"><button class="del_ns_news btn btn-danger" type="button">Ｘ</button></span>';
+                      }
+                      
                      }
                   }
                 ?>
@@ -511,7 +510,7 @@ if ($_GET) {
               </div>
 							<div class="col-md-2">
 								<a href="../news_public/news_windows.php" data-fancybox data-type="iframe" class="btn btn-info">查詢文章</a>
-								<a href="../news_public/news_extends_custom_windows.php" data-fancybox data-type="iframe" class="btn btn-info">輸入</a>
+                <a href="../news_public/news_extends_custom_windows.php" data-fancybox data-type="iframe" class="btn btn-info">輸入</a>
                 <a href="../news_public/news_extends_sort_windows.php" data-fancybox data-type="iframe" class="btn btn-info">排序</a>
 							</div>
 						</div>
@@ -632,25 +631,25 @@ if ($_GET) {
 							</div>
 						</div>
 
-			     <div class="form-group">
-						<label class="col-md-2 control-label" for="OnLineOrNot">是否上線</label>
-					    <div class="col-md-10">
-                        <div class="switch" style="padding-top: 8px;">
-                          <div class="onoffswitch">
-                           <input type="checkbox" class="onoffswitch-checkbox" id="OnLineOrNot" value="1" name="OnLineOrNot" <?php echo $check=!isset($row['OnLineOrNot']) || $row['OnLineOrNot']==1 ? 'checked' : ''; ?>>
-                           <label class="onoffswitch-label" for="OnLineOrNot">
-                            <span class="onoffswitch-inner"></span>
-                            <span class="onoffswitch-switch"></span>
-                          </label>
-                          </div>
-                        </div>
+						<!-- <div class="form-group">
+							<label class="col-md-2 control-label" for="OnLineOrNot">是否上線</label>
+							<div class="col-md-10">
+                <div class="switch" style="padding-top: 8px;">
+                   <div class="onoffswitch">
+                     <input type="checkbox" class="onoffswitch-checkbox" id="OnLineOrNot" value="1" name="OnLineOrNot" <?php //echo $check=!isset($row['OnLineOrNot']) || $row['OnLineOrNot']==1 ? 'checked' : ''; ?>>
+                      <label class="onoffswitch-label" for="OnLineOrNot">
+                         <span class="onoffswitch-inner"></span>
+                         <span class="onoffswitch-switch"></span>
+                      </label>
+                      </div>
+                    </div>
 								
-					    </div>
-				     </div>
+							</div>
+						</div> -->
 
 						<input type="hidden" id="Tb_index" name="Tb_index" value="<?php echo $_GET['Tb_index'];?>">
-						<input type="hidden" id="mt_id" name="mt_id" value="<?php echo $_GET['MT_id'];?>">
-            <input type="hidden" id="ns_verify" name="ns_verify" value="3">
+						<input type="hidden" id="mt_id" name="mt_id" value="site2018111917514269">
+            <input type="hidden" id="ns_verify" name="ns_verify" value="2">
 					</form>
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
@@ -666,7 +665,9 @@ if ($_GET) {
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body text-center">
-          <button type="button" id="submit_btn" class="btn btn-info btn-raised">更新</button>
+          <button type="button" id="draft_btn" class="btn btn-default btn-flat">暫存草稿</button>
+          <button type="button" id="submit_btn" class="btn btn-info btn-raised">預覽</button>
+          <button type="button" class="btn btn-danger btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="getBack()">放棄</button>
 
 					
 				</div><!-- /.panel-body -->
@@ -710,13 +711,35 @@ if ($_GET) {
           	}
           	else{
 
-             $('#ns_verify').val(3);
+             $('#ns_verify').val(2);
 
              $('#put_form').submit();
           	}
           });
 
+          //-- 草稿 ---
+          $("#draft_btn").click(function(event) {
 
+            var err_txt='';
+            err_txt = err_txt + check_input( '[name="ns_nt_pk"]', '新聞分類，' );
+            err_txt = err_txt + check_input( '#ns_ftitle', '主標題，' );
+            err_txt = err_txt + check_input( '#ns_stitle', '副標題，' );
+            err_txt = CKEDITOR.instances.ckeditor.getData()=='' ? err_txt + '內容，' : err_txt;
+            err_txt = err_txt + check_input( '[name="ns_label[]"]', '標籤，' );
+            err_txt = err_txt + check_input( '#ns_reporter', '撰文者' );
+            err_txt = err_txt + check_input( '[name="ns_reporter_type"]', '撰文者類型' );
+
+
+            if (err_txt!='') {
+             alert("請輸入"+err_txt+"!!");
+            }
+            else{
+
+            $('#ns_verify').val(0);
+
+             $('#put_form').submit();
+            }
+          });
 
     //------------------------------- 拖曳更新排序 -------------------------
        $( "#over_ex_news" ).sortable({

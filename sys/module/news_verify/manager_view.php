@@ -26,7 +26,7 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>網頁預覽
@@ -84,22 +84,15 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-6">
-							<button type="button" id="confirm_btn" class="btn btn-info btn-block btn-flat">確定</button>
-						</div>
-            <div class="col-lg-6">
-              <button type="button" id="back_btn" class="btn btn-danger btn-block btn-flat" >返回</button>
-            </div>
-					</div>
-					
-				</div><!-- /.panel-body -->
+				<div class="panel-body text-center">
+          <button type="button" id="confirm_btn" class="btn btn-info btn-flat">確定</button>
+          <button type="button" id="back_btn" class="btn btn-danger btn-flat" >返回</button>
+        </div><!-- /.panel-body -->
 			</div><!-- /.panel -->
 		</div>
 	</div>

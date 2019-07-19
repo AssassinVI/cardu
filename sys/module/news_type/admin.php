@@ -4,8 +4,8 @@ include("../../core/page/header02.php");//載入頁面heaer02?>
 <?php 
 if ($_POST) {
    // -- 更新排序 --
-  for ($i=0; $i <count($_POST['OrderBy']) ; $i++) { 
-    $data=["OrderBy"=>$_POST['OrderBy'][$i]];
+  for ($i=0; $i <count($_POST['Tb_index']) ; $i++) { 
+    $data=["OrderBy"=>($i+1)];
     $where=["Tb_index"=>$_POST['Tb_index'][$i]];
     pdo_update('news_type', $data, $where);
   }
@@ -15,7 +15,7 @@ if ($_GET) {
 
    if (!empty($_GET['Tb_index'])) {//刪除
 
-    $where=['Tb_index'=>$_GET['Tb_index']];
+     $where=['Tb_index'=>$_GET['Tb_index']];
    	 pdo_delete('news_type', $where);
    }
    
@@ -61,7 +61,7 @@ if ($_GET) {
 
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="tb">
 
 						<?php $i=1; while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {?>
 							<tr>
@@ -70,7 +70,10 @@ if ($_GET) {
 								<td>
 									<?php  echo $OnLineOrNot=$row['OnLineOrNot']==0 ? '未使用':'使用中'; ?>
 								</td>
-								<td><input type="number" class="sort_in" name="OrderBy" Tb_index="<?php echo $row['Tb_index'];?>" value="<?php echo $row['OrderBy'] ?>"></td>
+								<td>
+									<span><?php echo $row['OrderBy'] ?></span>
+                                    <input type="hidden" class="sort_in" name="OrderBy" Tb_index="<?php echo $row['Tb_index'];?>" value="<?php echo $row['OrderBy'] ?>">
+								</td>
 								<td><?php echo $row['nt_online'];?></td>
 								<td><?php echo $row['nt_total'];?></td>
 				
@@ -103,6 +106,8 @@ if ($_GET) {
  ?>
 
    <div class="col-lg-12 text-right">
+   	       <button id="sort_sp_btn" type="button" class="btn btn-default">
+   	       <i class="fa fa-sort-amount-desc"></i> 更新排序</button>
 
    		    <a href="manager_sp.php?MT_id=<?php echo $_GET['MT_id'];?>">
    	        <button type="button" class="btn btn-default">
@@ -132,7 +137,7 @@ if ($_GET) {
 
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="tb_sp">
 
 							<tr>
 								<td>0</td>
@@ -169,7 +174,9 @@ if ($_GET) {
 								<td>
 									<?php  echo $OnLineOrNot; ?> 
 								</td>
-								<td><input type="number" class="sort_in" name="OrderBy" Tb_index="<?php echo $row['Tb_index'];?>" value="<?php echo $row['OrderBy'] ?>"></td>
+								<td>
+                                   <span><?php echo $row['OrderBy'] ?></span>
+								   <input type="hidden" class="sort_sp_in" name="OrderBy" Tb_index="<?php echo $row['Tb_index'];?>" value="<?php echo $row['OrderBy'] ?>"></td>
 								<td style="color:<?php echo $time_color;?>;"><?php echo $row['nt_sp_begin_date'].' to '.$row['nt_sp_end_date'];?></td>
 								<td><?php echo $row['nt_online'];?></td>
 								<td><?php echo $row['nt_total'];?></td>
@@ -211,19 +218,54 @@ if ($_GET) {
 <?php  include("../../core/page/footer01.php");//載入頁面footer01.php?>
 <script type="text/javascript">
 	$(document).ready(function() {
+
+        
+        //------------------------------- 拖曳更新排序 -------------------------
+        $( ".table-responsive .tb" ).sortable({
+                 revert: 300,
+                 placeholder: "sortable_new_placeholder"
+        });
+
+
+        //------------------------------- 拖曳更新排序 -------------------------
+        $( ".table-responsive .tb_sp" ).sortable({
+                 revert: 300,
+                 placeholder: "sortable_new_placeholder"
+        });
+
+
 		$("#sort_btn").click(function(event) {
 		        
         var arr_OrderBy=new Array();
         var arr_Tb_index=new Array();
 
           $(".sort_in").each(function(index, el) {
+
+                arr_Tb_index.push($(this).attr('Tb_index'));
+          });
+
+
+          var data={ Tb_index: arr_Tb_index };
+          console.log(data);
+             ajax_in('admin.php', data, 'no', 'no');
+
+          alert('更新排序');
+         location.replace('admin.php?MT_id=<?php echo $_GET['MT_id'];?>');
+		});
+
+
+
+		$("#sort_sp_btn").click(function(event) {
+		        
+        var arr_OrderBy=new Array();
+        var arr_Tb_index=new Array();
+
+          $(".sort_sp_in").each(function(index, el) {
            
-             	arr_OrderBy.push($(this).val());
                 arr_Tb_index.push($(this).attr('Tb_index'));
           });
 
           var data={ 
-                        OrderBy: arr_OrderBy,
                        Tb_index: arr_Tb_index 
                       };
              ajax_in('admin.php', data, 'no', 'no');

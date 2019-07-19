@@ -43,6 +43,10 @@ $company = pdo_select("SELECT * FROM company_base WHERE webLang='tw'", 'no');
     .nowrap{white-space: nowrap;}
     #page-wrapper{ margin:0; }
 
+    .close_fancybox{ position: absolute; top: 0; right: -15px; padding: 5px 9px; background: red; color: #fff; }
+
+    .overflow-h35{ overflow: auto; height: 350px; margin-bottom: 20px; }
+
     /*-- 讀取動畫 --*/
     .ns_loading{
       display: none;

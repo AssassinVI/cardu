@@ -20,3 +20,7 @@
 .bank_logo{ width: 30px; }
 
 .over-85{ overflow: auto; height: 88vh; }
+
+.sortable_new_placeholder{ border: 0px solid #ccc !important;  }
+
+.dataTables_length{ display: none; }

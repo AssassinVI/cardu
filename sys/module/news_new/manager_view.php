@@ -94,7 +94,7 @@ if ($_GET) {
 				<div class="panel-body text-center">
           <button type="button" id="confirm_btn" class="btn btn-info btn-flat">確定</button>
           <button type="button" id="back_btn" class="btn btn-danger btn-flat" >返回</button>
-        </div><!-- /.panel-body -->
+				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
 		</div>
 	</div>
@@ -109,11 +109,11 @@ if ($_GET) {
           img_txt('.news_div p img');
 
           $('#confirm_btn').click(function(event) {
-            location.replace('admin.php?MT_id=<?php echo $_GET['MT_id'];?>');
+            location.replace('../news/admin.php?MT_id=<?php echo $_GET['MT_id'];?>');
           });
 
           $('#back_btn').click(function(event) {
-            location.replace('manager.php?MT_id=<?php echo $_GET['MT_id'];?>&Tb_index=<?php echo $_GET['Tb_index'];?>');
+            location.replace('../news/manager.php?MT_id=<?php echo $_GET['MT_id'];?>&Tb_index=<?php echo $_GET['Tb_index'];?>');
           });
           
 

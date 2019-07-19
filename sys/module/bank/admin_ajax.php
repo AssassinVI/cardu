@@ -47,17 +47,10 @@ $columns = array(
         'formatter' => function( $d, $row ) {
 
             return '            <a href="manager.php?MT_id=' . $_GET['MT_id'] . '&Tb_index=' . $d . '" >
-								<button type="button" class="btn btn-rounded btn-info btn-sm">
 								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								編輯</button>
+								編輯
 								</a>
-
-								<a href="admin.php?MT_id=' . $_GET['MT_id'] . '&Tb_index=' . $d . '"
-								   onclick="if (!confirm(\'確定要刪除 [' . $d . '] ?\')) {return false;}">
-								<button type="button" class="btn btn-rounded btn-warning btn-sm">
-								<i class="fa fa-trash" aria-hidden="true"></i>
-								刪除</button>
-								</a>';
+								';
         }
     )
 );

@@ -57,7 +57,9 @@ if ($_GET) {
 								<th>新聞狀態</th>
 								<th>完稿時間</th>
 								<th>記者/作者</th>
-								<th class="text-right">管理</th>
+								<th>預覽</th>
+								<th>審核</th>
+								<th>修改</th>
 
 							</tr>
 						</thead>
@@ -101,30 +103,23 @@ if ($_GET) {
 								<td><?php echo $ns_verify;?></td>
 								<td><?php echo $row['ns_fwdate'];?></td>
 								<td><?php echo $row['ns_reporter'];?></td>
-						
-								<td class="text-right">
-
-								<a href="javascript:;" onclick="window.open('../news_public/newsView_windows.php?Tb_index=<?php echo $row['Tb_index'];?>', '<?php echo $row['ns_ftitle']; ?>', config='height=800,width=900');" >
-								<button type="button" class="btn btn-rounded btn-default btn-sm">
-								<i class="fa fa-binoculars" aria-hidden="true"></i>
-								預覽</button>
-								</a>
-
-								<a href="manager_verify.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
-								<button type="button" class="btn btn-rounded btn-warning btn-sm">
-								<i class="fa fa-file-text" aria-hidden="true"></i>
-								審核</button>
-								</a>
-
-								<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
-								<button type="button" class="btn btn-rounded btn-info btn-sm">
-								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								修改</button>
-								</a>
-
-								
-
-					
+						        <td>
+						        	<a href="javascript:;" onclick="window.open('../news_public/newsView_windows.php?Tb_index=<?php echo $row['Tb_index'];?>', '<?php echo $row['ns_ftitle']; ?>', config='height=800,width=900');" >
+						        	<i class="fa fa-binoculars" aria-hidden="true"></i>
+						        	預覽
+						        	</a>
+						        </td>
+						        <td>
+						          <a href="manager_verify.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
+						          <i class="fa fa-file-text" aria-hidden="true"></i>
+						          審核
+						          </a>
+						        </td>
+								<td>
+								  <a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
+								  <i class="fa fa-pencil-square" aria-hidden="true"></i>
+								  修改
+								  </a>
 								</td>
 							</tr>
 						<?php $i++; }?>

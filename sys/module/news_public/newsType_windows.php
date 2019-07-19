@@ -24,6 +24,10 @@
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
+ 
+ <!-- 關閉視窗 -->
+ <a class="close_fancybox" href="javascript:;">Ｘ</a>
+
 	<div class="row">
 		<div class="col-xs-6">
 			<div class="panel panel-default">
@@ -231,18 +235,11 @@
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-4">
-							<button type="button" class="btn btn-default btn-block btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
-						</div>
-						<div class="col-lg-4">
-						   <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">確定</button>
-						</div>
-						<div class="col-lg-4">
-							<button type="button" id="close_btn" class="btn btn-default btn-block btn-flat" >重設</button>
-						</div>
-					</div>
+				<div class="panel-body text-center">
+          <button type="button" id="submit_btn" class="btn btn-info  btn-raised">確定</button>
+          <button type="button" class="btn btn-default  btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
+          <button type="button" id="close_btn" class="btn btn-default  btn-flat" >重設</button>
+
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
@@ -308,18 +305,18 @@
          //-- 重設 --
          $('#close_btn').click(function(event) {
          	$('.put_form').trigger('reset');
-         	$('.show_check').parent().next().slideUp('300');
+         	$('.show_check').parent().next().css('display', 'none');
          });
 
 
          //-- 其他要上刊單元下拉 --
          $('.show_check').change(function(event) {
          	if ($(this).prop('checked')==true) {
-         		$(this).parent().next().slideDown('300');
+         		$(this).parent().next().css('display', 'block');
          	}
          	else{
          		$(this).parent().next().find('[type="checkbox"]').prop('checked', false);
-         		$(this).parent().next().slideUp('300');
+         		$(this).parent().next().css('display', 'none');
          	}
          });
 
@@ -327,11 +324,11 @@
          $('.show_type').change(function(event) {
          	var unit_id=$(this).val();
          	if ($(this).prop('checked')==true) {
-         		$(this).parents('.type').find('[link_unit="'+unit_id+'"]').slideDown('300');
+         		$(this).parents('.type').find('[link_unit="'+unit_id+'"]').css('display', 'block');
          	}
          	else{
          		$(this).parents('.type').find('[link_unit="'+unit_id+'"]').find('[type="checkbox"]').prop('checked', false);
-         		$(this).parents('.type').find('[link_unit="'+unit_id+'"]').slideUp('300');
+         		$(this).parents('.type').find('[link_unit="'+unit_id+'"]').css('display', 'none');
          	}
          });
       

@@ -46,10 +46,11 @@
     //-- 有選主分類 --
     if (!empty($_POST['ns_nt_pk'])) {
 
-      $sql_query="SELECT ns_nt_pk, ns_ftitle, ns_viewcount, ns_date, ns_reporter, Tb_index 
-                  FROM appNews 
-                  WHERE ns_nt_pk = :ns_nt_pk ".$keyWord_txt."
-                  ORDER BY ns_date DESC 
+      $sql_query="SELECT n.ns_nt_pk, n.ns_ftitle, n.ns_viewcount, n.ns_date, n.ns_reporter, n.Tb_index, a.at_name, n.nt_name, n.ns_viewcount, n.ns_vfdate
+                  FROM NewsAndType as n 
+                  LEFT JOIN appArea as a ON a.Tb_index=n.area_id 
+                  WHERE n.ns_nt_pk = :ns_nt_pk ".$keyWord_txt." AND n.ns_verify=3
+                  ORDER BY n.ns_date DESC 
                   LIMIT ".$page.",".$num;
       
       $row=$pdo->select($sql_query, ['ns_nt_pk'=>$_POST['ns_nt_pk']]);
@@ -59,10 +60,11 @@
 
       $area_ns_nt_pk=implode(',', $area_ns_nt_pk);
 
-      $sql_query="SELECT ns_nt_pk, ns_ftitle, ns_viewcount, ns_date, ns_reporter, Tb_index 
-                FROM appNews 
-                WHERE ns_nt_pk IN (".$area_ns_nt_pk.") ".$keyWord_txt."
-                ORDER BY ns_date DESC 
+      $sql_query="SELECT n.ns_nt_pk, n.ns_ftitle, n.ns_viewcount, n.ns_date, n.ns_reporter, n.Tb_index, a.at_name, n.nt_name, n.ns_viewcount, n.ns_vfdate
+                FROM NewsAndType as n 
+                LEFT JOIN appArea as a ON a.Tb_index=n.area_id 
+                WHERE n.ns_nt_pk IN (".$area_ns_nt_pk.") ".$keyWord_txt." AND n.ns_verify=3
+                ORDER BY n.ns_date DESC 
                 LIMIT ".$page.",".$num;
 
       $row=$pdo->select($sql_query);
@@ -77,6 +79,21 @@
 
     echo json_encode($row);
   }
+
+
+  //------------------------------ 輸入標題網址 -----------------------------------------
+  elseif($_POST['type']=='news_extends'){
+    $Tb_index='news_ex'.date('YmdHis').rand(0,99);
+    $param=[
+      'Tb_index'=>$Tb_index,
+      'ne_ns_pk_ext_ftitle'=>$_POST['ne_ns_pk_ext_ftitle'],
+      'ne_ns_pk_ext_url'=>$_POST['ne_ns_pk_ext_url']
+    ];
+    $pdo->insert('news_extends_custom', $param);
+    echo $Tb_index;
+  }
+
+
   
   //------------------------------ 頁數 -----------------------------------------
   elseif($_POST['type']=='page'){

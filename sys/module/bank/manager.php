@@ -179,7 +179,7 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>銀行資料編輯
@@ -320,7 +320,8 @@ if ($_GET) {
 								<label><input type="radio" name="bd_type" value="2" <?php echo $bd_type_2;?> > 金融卡</label>
 							</div>
 						</div>
-
+                     
+                     <div class="bd_div">
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="bd_src">申請書提供方式 <span class="text-danger">*</span></label>
 							<div class="col-md-10">
@@ -378,6 +379,7 @@ if ($_GET) {
 								<input type="text" class="form-control" id="bd_url" name="bd_url" value="<?php echo $row['bd_url'];?>">
 							</div>
 						</div>
+					</div>
 
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="bi_msg_assign_title">卡好康線上辦卡文字</label>
@@ -425,7 +427,16 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="OnLineOrNot">是否上線</label>
 							<div class="col-md-10">
-								<input style="width: 20px; height: 20px;" id="OnLineOrNot" name="OnLineOrNot" type="checkbox" value="1" <?php echo $check=!isset($row['OnLineOrNot']) || $row['OnLineOrNot']==1 ? 'checked' : ''; ?>  />
+							<div class="switch" style="padding-top: 8px;">
+                                <div class="onoffswitch">
+                                    <input type="checkbox" class="onoffswitch-checkbox" id="OnLineOrNot" value="1" name="OnLineOrNot" <?php echo $check=!isset($row['OnLineOrNot']) || $row['OnLineOrNot']==1 ? 'checked' : ''; ?>>
+                                    <label class="onoffswitch-label" for="OnLineOrNot">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+								<!-- <input style="width: 20px; height: 20px;" id="OnLineOrNot" name="OnLineOrNot" type="checkbox" value="1"   > -->
 							</div>
 						</div>
 
@@ -441,24 +452,23 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-6">
-							<button type="button" class="btn btn-danger btn-block btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="clean_all()">重設表單</button>
-						</div>
-						<div class="col-lg-6">
+				<div class="panel-body text-center">
+					
+
 						<?php if(empty($_GET['Tb_index'])){?>
-							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">儲存</button>
+							<button type="button" id="submit_btn" class="btn btn-success btn-raised">確定</button>
 						<?php }else{?>
-						    <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">更新</button>
+						    <button type="button" id="submit_btn" class="btn btn-success btn-raised">更新</button>
 						<?php }?>
-						</div>
-					</div>
+
+						 <button type="button" class="btn btn-danger btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="getBack()">放棄</button>
+						
+
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
@@ -470,6 +480,51 @@ if ($_GET) {
 <?php  include("../../core/page/footer01.php");//載入頁面footer02.php?>
 <script type="text/javascript">
 	$(document).ready(function() {
+       
+
+        //-- 判斷申請書 --
+		$('[name="bd_type"]').change(function(event) {
+
+			if ($(this).val()=='0') {
+               $('.bd_div').css('display', 'none');
+			}
+			else if($(this).val()=='1'){
+               $('.bd_div').css('display', 'block');
+               $('.bd_div').find('.form-group').css('display', 'none');
+               $('.bd_div').find('.form-group:nth-child(1)').css('display', 'block');
+               $('.bd_div').find('.form-group:nth-child(1) .control-label').html('信用卡申請書提供方式 <span class="text-danger">*</span>');
+               $('.bd_div').find('.form-group:nth-child(2) label').html('信用卡申請書名稱');
+               $('.bd_div').find('.form-group:nth-child(3) label').html('信用卡申請書檔案');
+               $('.bd_div').find('.form-group:nth-child(5) label').html('信用卡申請書網址');
+               $('[name="bd_src"]').prop('checked', false);
+			}
+			else if($(this).val()=='2'){
+               $('.bd_div').css('display', 'block');
+               $('.bd_div').find('.form-group').css('display', 'none');
+               $('.bd_div').find('.form-group:nth-child(1)').css('display', 'block');
+               $('.bd_div').find('.form-group:nth-child(1) .control-label').html('金融卡申請書提供方式 <span class="text-danger">*</span>');
+               $('.bd_div').find('.form-group:nth-child(2) label').html('金融卡申請書名稱');
+               $('.bd_div').find('.form-group:nth-child(3) label').html('金融卡申請書檔案');
+               $('.bd_div').find('.form-group:nth-child(5) label').html('金融卡申請書網址');
+               $('[name="bd_src"]').prop('checked', false);
+			}
+		});
+
+        //-- 判斷申請書提供方式 --
+		$('[name="bd_src"]').change(function(event) {
+			if ($(this).val()=='0'){
+              $(this).parents('.form-group').nextAll().css('display', 'none');
+			}
+			else if($(this).val()=='1') {
+               $(this).parents('.form-group').nextAll().css('display', 'block');
+               $('[name="bd_url"]').parents('.form-group').css('display', 'none');
+			}
+			else if($(this).val()=='2'){
+               $(this).parents('.form-group').nextAll().css('display', 'none');
+               $('[name="bd_url"]').parents('.form-group').css('display', 'block');
+			}
+		});
+
 
 		$('.twzipcode').twzipcode({
 		'zipcodeSel'  : '<?php echo $zipcode;?>' // 此參數會優先於 countySel, districtSel

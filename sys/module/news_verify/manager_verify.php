@@ -24,10 +24,14 @@ if($_POST){
     'ns_vfman_2'=>$_SESSION['admin_index'],
     'ns_vfman_2_name'=>$_SESSION['admin_name'],
     'ns_vfdate'=>date('Y-m-d H:i:s'),
-    'ns_reason'=>$_POST['ns_reason']
+    'ns_reason'=>$_POST['ns_reason'],
   ];
   $where=['Tb_index'=>$_POST['Tb_index']];
   pdo_update('appNews', $parem, $where);
+  
+  //-- 更新排序 --
+  $row_news=$NewPdo->select("SELECT ns_nt_pk FROM appNews WHERE Tb_index=:Tb_index", ['Tb_index'=>$_POST['Tb_index']], 'one');
+  $NewPdo->select("UPDATE appNews SET ns_sort=ns_sort+1, ns_nt_pk_sort=ns_nt_pk_sort+1 WHERE ns_nt_pk=:ns_nt_pk", ['ns_nt_pk'=>$row_news['ns_nt_pk']]);
   
   location_up('admin.php?MT_id='.$_POST['MT_id'], '審核完成');
 }

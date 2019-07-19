@@ -14,6 +14,8 @@
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
+	<!-- 關閉視窗 -->
+	<a class="close_fancybox" href="javascript:;">Ｘ</a>
 	<div class="row">
 		<div class="col-lg-3">
 			<div class="panel panel-default">
@@ -48,11 +50,11 @@
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-xs-12">關鍵字</label>
+							<label class="control-label col-xs-2">關鍵字</label>
 							<div class="col-xs-8">
 								<input type="text" id="st_keyWord" class="form-control">
 							</div>
-							<div class="col-xs-4 text-center">
+							<div class="col-xs-2 text-center">
 								<button type="button" id="search_store" class="btn btn-success">搜尋</button>
 							</div>
 						</div>
@@ -60,7 +62,7 @@
 						
 						<div class="form-group">
 						  <div class="col-md-12 ">
-							<label>無商店 <input id="no_store" type="radio" name="ns_store" st_name="無商店" value="no"></label>
+							<!-- <label>無商店 <input id="no_store" type="radio" name="ns_store" st_name="無商店" value="no"></label> -->
 						  </div>
 						</div>
 					</form>
@@ -125,10 +127,11 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-xs-6">
-							<button type="button" class="btn btn-default btn-block btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
+							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">確定</button>
+							
 						</div>
 						<div class="col-xs-6">
-						   <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">確定</button>
+						   <button type="button" class="btn btn-default btn-block btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
 						</div>
 					</div>
 					

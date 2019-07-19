@@ -1,11 +1,6 @@
 <?php include("../../core/page/header01.php");//載入頁面heaer01 ?>
 <style type="text/css">
-	.fancybox-slide--iframe .fancybox-content {
-    width  : 700px;
-    max-width  : 80%;
-    max-height : 80%;
-    margin: 0;
-}
+
 
 #over_bank{ margin-bottom: 15px; }
 .form-group{ margin-bottom:0; padding: 1rem 0; }
@@ -121,7 +116,6 @@ if ($_POST) {
       $StartDate=empty($_POST['StartDate']) ? date('Y-m-d') : $_POST['StartDate'];
       $EndDate=empty($_POST['EndDate']) ? '2200-12-31' : $_POST['EndDate'];
       $ns_date=empty($_POST['ns_date']) ? date('Y-m-d') : $_POST['ns_date'];
-      $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0: 1 ;
 
       //-- 無發卡組織/銀行 --
       if(!empty($_POST['no_BankOrg'])){
@@ -156,7 +150,6 @@ if ($_POST) {
                    'ns_cdate'=>date('Y-m-d H:i:s'),
 		          'StartDate'=>$StartDate,
 		            'EndDate'=>$EndDate,
-		        'OnLineOrNot'=>$OnLineOrNot,
               'ns_verify'=>$_POST['ns_verify']
 		          );
   
@@ -328,14 +321,14 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>網頁資料編輯
 					</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
-					<form id="put_form" action="manager.php" method="POST" enctype='multipart/form-data' class="form-horizontal">
+					<form id="put_form" action="" method="POST" enctype='multipart/form-data' class="form-horizontal">
 
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="ns_nt_pk"><span class="text-danger">*</span> 新聞分類</label>
@@ -408,7 +401,7 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="ns_ftitle"><span class="text-danger">*</span>主標題</label>
 							<div class="col-md-10">
-								<input type="text" class="form-control" id="ns_ftitle" name="ns_ftitle" maxlength="20" value="<?php echo $row['ns_ftitle'];?>">
+								<input type="text" class="form-control title_w" id="ns_ftitle" name="ns_ftitle" value="<?php echo $row['ns_ftitle'];?>">
                 <span class="text-danger">(限20個字)</span>
 							</div>
 						</div>
@@ -416,7 +409,7 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="ns_stitle"><span class="text-danger">*</span>副標題</label>
 							<div class="col-md-10">
-								<input type="text" class="form-control" id="ns_stitle" name="ns_stitle" maxlength="20" value="<?php echo $row['ns_stitle'];?>">
+								<input type="text" class="form-control title_w" id="ns_stitle" name="ns_stitle" value="<?php echo $row['ns_stitle'];?>">
                 <span class="text-danger">(限20個字)</span>
 							</div>
 						</div>
@@ -431,13 +424,13 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="ns_photo_1">圖檔(上)</label>
 							<div class="col-md-2">
-								<input type="file" name="ns_photo_1" class="form-control" id="ns_photo_1" onchange="file_viewer_load_new(this, '#img_box')">
+								<input type="file" name="ns_photo_1" class="form-control " id="ns_photo_1" onchange="file_viewer_load_new(this, '#img_box')">
 								<span class="text-danger">( 圖檔尺寸: 寬度不超過750pixles )</span>
 							</div>
 
 							<label class="col-md-1 control-label" for="ns_alt_1">圖說</label>
 							<div class="col-md-7">
-								<input type="text" class="form-control" id="ns_alt_1" name="ns_alt_1" maxlength="50" value="<?php echo $row['ns_alt_1'];?>">
+								<input type="text" class="form-control imgTxt_w" id="ns_alt_1" name="ns_alt_1" maxlength="50" value="<?php echo $row['ns_alt_1'];?>">
 								<span class="text-danger">(限50個字)</span>
 							</div>
 						</div>
@@ -470,7 +463,7 @@ if ($_GET) {
 
 							<label class="col-md-1 control-label" for="ns_alt_2">圖說</label>
 							<div class="col-md-7">
-								<input type="text" class="form-control" id="ns_alt_2" name="ns_alt_2" maxlength="50" value="<?php echo $row['ns_alt_2'];?>">
+								<input type="text" class="form-control imgTxt_w" id="ns_alt_2" name="ns_alt_2" maxlength="50" value="<?php echo $row['ns_alt_2'];?>">
 								<span class="text-danger">(限50個字)</span>
 							</div>
 						</div>
@@ -499,8 +492,14 @@ if ($_GET) {
                 <?php 
                   if (!empty($row['ns_news'])) {
                     for ($i=0; $i <count($ns_news) ; $i++) {
-                      $ns_news_name=pdo_select("SELECT ns_ftitle FROM appNews WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_news[$i]]); 
-                       echo '<span class="btn btn-success btn-block">'.$ns_news_name['ns_ftitle'].' <input type="hidden" name="ns_news[]" ns_ftitle="'.$ns_news_name['ns_ftitle'].'" value="'.$ns_news[$i].'"><button class="del_ns_news btn btn-danger" type="button">Ｘ</button></span>';
+                       if (strpos($ns_news[$i] , '_ex')===FALSE) {
+                         $ns_news_name=pdo_select("SELECT ns_ftitle FROM appNews WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_news[$i]]); 
+                          echo '<div class="btn btn-success btn-block">'.$ns_news_name['ns_ftitle'].' <input type="hidden" name="ns_news[]" ns_ftitle="'.$ns_news_name['ns_ftitle'].'" value="'.$ns_news[$i].'"><button class="del_ns_news btn btn-danger" type="button">Ｘ</button></div>';
+                       }
+                       else{
+                         $ns_news_name=pdo_select("SELECT ne_ns_pk_ext_ftitle FROM news_extends_custom WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_news[$i]]); 
+                          echo '<div class="btn btn-success btn-block">'.$ns_news_name['ne_ns_pk_ext_ftitle'].' <input type="hidden" name="ns_news[]" ns_ftitle="'.$ns_news_name['ne_ns_pk_ext_ftitle'].'" value="'.$ns_news[$i].'"><button class="del_ns_news btn btn-danger" type="button">Ｘ</button></div>';
+                       }
                      }
                   }
                 ?>
@@ -510,6 +509,8 @@ if ($_GET) {
               </div>
 							<div class="col-md-2">
 								<a href="../news_public/news_windows.php" data-fancybox data-type="iframe" class="btn btn-info">查詢文章</a>
+								<a href="../news_public/news_extends_custom_windows.php" data-fancybox data-type="iframe" class="btn btn-info">輸入</a>
+                <a href="../news_public/news_extends_sort_windows.php" data-fancybox data-type="iframe" class="btn btn-info">排序</a>
 							</div>
 						</div>
 
@@ -549,11 +550,11 @@ if ($_GET) {
                                        $org_name=pdo_select("SELECT mt_id, org_name FROM card_org WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_org[$i]]);
                                        //-- 信用卡 --
                                        if ($org_name['mt_id']=='site2018110611172385') {
-                                         echo '<span class="label">[信用卡] '.$org_name['org_name'].' <input type="hidden" name="ns_org[]" value="'.$ns_org[$i].'"></span>、';
+                                         echo '<span class="label">[信用卡]'.$org_name['org_name'].' <input type="hidden" name="ns_org[]" value="'.$ns_org[$i].'"></span>、';
                                        }
                                        //-- 金融卡 --
                                        else{
-                                         echo '<span class="label">[金融卡] '.$org_name['org_name'].' <input type="hidden" name="ns_org[]" value="'.$ns_org[$i].'"></span>、';
+                                         echo '<span class="label">[金融卡]'.$org_name['org_name'].' <input type="hidden" name="ns_org[]" value="'.$ns_org[$i].'"></span>、';
                                        }
                                     }
 								   }
@@ -565,12 +566,12 @@ if ($_GET) {
 								<a href="../news_public/newsOrg_windows.php" data-fancybox data-type="iframe" class="btn btn-info btn-block my-025">選擇發卡組織</a>
                 <a href="javascript:;" id="clean_BankOrg" class="btn btn-default btn-block my-025">清除</a>
                 <?php
-                  if ($row['ns_bank']=='no' && $row['ns_org']=='no') {
-                    echo '<label><input type="checkbox" name="no_BankOrg" checked value="1"> 無發卡組織/銀行</label>';
-                  }
-                  else{
-                    echo '<label><input type="checkbox" name="no_BankOrg" value="1"> 無發卡組織/銀行</label>';
-                  }
+                  // if ($row['ns_bank']=='no' && $row['ns_org']=='no') {
+                  //   echo '<label><input type="checkbox" name="no_BankOrg" checked value="1"> 無發卡組織/銀行</label>';
+                  // }
+                  // else{
+                  //   echo '<label><input type="checkbox" name="no_BankOrg" value="1"> 無發卡組織/銀行</label>';
+                  // }
                 ?>
 							</div>
 						</div>
@@ -602,7 +603,7 @@ if ($_GET) {
 								<input type="text" class="form-control" id="ns_reporter" name="ns_reporter" value="<?php echo $ns_reporter;?>">
 							</div>
 							<div class="col-md-5">
-								<label><input type="radio" name="ns_reporter_type" value="1" <?php echo $ns_reporter_type1;?> > 記者｜</label>
+								<label><input checked type="radio" name="ns_reporter_type" value="1" <?php echo $ns_reporter_type1;?> > 記者｜</label>
 								<label><input type="radio" name="ns_reporter_type" value="2" <?php echo $ns_reporter_type2;?> > 作者｜</label>
 							</div>
 						</div>
@@ -610,7 +611,7 @@ if ($_GET) {
                         <div class="form-group">
 							<label class="col-md-2 control-label" for="ns_date">新聞發布日期</label>
 							<div class="col-md-10">
-								<input type="date" class="form-control" id="ns_date" name="ns_date" value="<?php echo $ns_date;?>">
+								<input type="text" class="form-control datepicker" id="ns_date" name="ns_date" value="<?php echo $ns_date;?>">
 							</div>
 						</div>
 
@@ -618,23 +619,32 @@ if ($_GET) {
 							<label class="col-md-2 control-label" for="StartDate">新聞上架日期</label>
 							<div class="col-md-10 row">
 								<div class="col-md-5">
-								  <input type="date" class="form-control" id="StartDate" name="StartDate" value="<?php echo $StartDate;?>">
+								  <input type="text" class="form-control datepicker" id="StartDate" name="StartDate" value="<?php echo $StartDate;?>">
 								</div>
                                 <div class="col-md-1"><h3>至</h3></div>
 								<div class="col-md-5">
-								  <input type="date" class="form-control" id="EndDate" name="EndDate" value="<?php echo $EndDate;?>">
+								  <input type="text" class="form-control datepicker" id="EndDate" name="EndDate" value="<?php echo $EndDate;?>">
 								</div>
 								<div class="col-md-1"><h3>止</h3></div>
 								
 							</div>
 						</div>
 
-						<div class="form-group">
-							<label class="col-md-2 control-label" for="OnLineOrNot">是否上線</label>
-							<div class="col-md-10">
-								<input style="width: 20px; height: 20px;" id="OnLineOrNot" name="OnLineOrNot" type="checkbox" value="1" <?php echo $check=!isset($row['OnLineOrNot']) || $row['OnLineOrNot']==1 ? 'checked' : ''; ?>  />
-							</div>
-						</div>
+			     <!-- <div class="form-group">
+						<label class="col-md-2 control-label" for="OnLineOrNot">是否上線</label>
+					    <div class="col-md-10">
+                        <div class="switch" style="padding-top: 8px;">
+                          <div class="onoffswitch">
+                           <input type="checkbox" class="onoffswitch-checkbox" id="OnLineOrNot" value="1" name="OnLineOrNot" <?php //echo $check=!isset($row['OnLineOrNot']) || $row['OnLineOrNot']==1 ? 'checked' : ''; ?>>
+                           <label class="onoffswitch-label" for="OnLineOrNot">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                          </label>
+                          </div>
+                        </div>
+								
+					    </div>
+				     </div> -->
 
 						<input type="hidden" id="Tb_index" name="Tb_index" value="<?php echo $_GET['Tb_index'];?>">
 						<input type="hidden" id="mt_id" name="mt_id" value="<?php echo $_GET['MT_id'];?>">
@@ -648,22 +658,14 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-4">
-						<?php if(empty($_GET['Tb_index'])){?>
-							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">預覽</button>
-						<?php }else{?>
-						    <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">更新</button>
-						<?php }?>
-						</div>
+				<div class="panel-body text-center">
+          <button type="button" id="submit_btn" class="btn btn-info btn-raised">更新</button>
 
-					</div>
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->

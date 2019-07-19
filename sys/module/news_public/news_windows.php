@@ -16,6 +16,8 @@
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
+	<!-- 關閉視窗 -->
+	<a class="close_fancybox" href="javascript:;">Ｘ</a>
 	<div class="row">
 		<div class="col-lg-3">
 			<div class="panel panel-default">
@@ -56,7 +58,7 @@
 						<div class="form-group">
 							<label class="control-label col-xs-2">關鍵字</label>
 							<div class="col-xs-8">
-								<input type="text" id="ns_keyWord" class="form-control">
+								<input type="text" id="ns_keyWord" class="form-control" placeholder="2個以上的關鍵字，、或空白都可查詢">
 							</div>
 							<div class="col-xs-2 text-center">
 								<button type="button" id="search_news" class="btn btn-success">搜尋</button>
@@ -90,7 +92,7 @@
 						</div>
 					  
 					</div>
-					<div class="table-responsive">
+					<div class="table-responsive overflow-h35">
 						<table class="table no-margin table-hover">
 							<thead>
 								<tr>

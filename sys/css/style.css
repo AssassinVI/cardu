@@ -2088,15 +2088,15 @@ div.dt-button-info {
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-  background: #f2fbff;
+  background: #b9e9ff;
 }
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
   border: 1px solid #dddddd;
-  background: #ffffff;
+  background: #767676;
   font-weight: normal;
-  color: #212121;
+  color: #fff;
 }
 .ui-jqgrid .ui-pg-input {
   font-size: inherit;

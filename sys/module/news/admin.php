@@ -36,10 +36,10 @@ if ($_GET) {
 		<p>本頁面條列出所有的文章清單，如需檢看或進行管理，請由每篇文章右側 管理區進行，感恩</p>
 	   <div class="new_div">
 
-	    <a href="manager.php?MT_id=<?php echo $_GET['MT_id'];?>">
+	    <!-- <a href="manager.php?MT_id=<?php //echo $_GET['MT_id'];?>">
         <button type="button" class="btn btn-default">
         <i class="fa fa-plus" aria-hidden="true"></i> 新增</button>
-        </a>
+        </a> -->
 	  </div>
 	</div>
 	<div class="row">
@@ -60,7 +60,9 @@ if ($_GET) {
 								<th>審核者</th>
 								<th>審核時間</th>
 								<th>審核原因</th>
-								<th class="text-right">管理</th>
+								<th>預覽</th>
+								<th>編輯</th>
+								<th>刪除</th>
 
 							</tr>
 						</thead>
@@ -70,7 +72,8 @@ if ($_GET) {
 						     $i=1;
 						     while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
 
-
+                              $ns_fwdate=$row['ns_fwdate']=='0000-00-00 00:00:00' ? '':$row['ns_fwdate'];
+                              $ns_vfdate=$row['ns_vfdate']=='0000-00-00 00:00:00' ? '':$row['ns_vfdate'];
 
 						      $ns_nt_pk=pdo_select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_pk']]);
 						      $ns_nt_pk=$ns_nt_pk['nt_name'];
@@ -105,32 +108,31 @@ if ($_GET) {
 								<td><?php echo $ns_nt_pk;?></td>
 								<td><?php echo $row['ns_ftitle'] ?></td>
 								<td><?php echo $ns_verify;?></td>
-								<td><?php echo $row['ns_fwdate'];?></td>
+								<td><?php echo $ns_fwdate;?></td>
 								<td><?php echo $StartAndEndDate;?></td>
 								<td><?php echo $row['ns_reporter'];?></td>
 								<td><?php echo $row['ns_vfman_2_name'];?></td>
-								<td><?php echo $row['ns_vfdate'];?></td>
+								<td><?php echo $ns_vfdate;?></td>
 								<td><?php echo $row['ns_reason'];?></td>
 						
-								<td class="text-right">
-
-								<a href="javascript:;" onclick="window.open('../news_public/newsView_windows.php?Tb_index=<?php echo $row['Tb_index'];?>', '<?php echo $row['ns_ftitle']; ?>', config='height=800,width=900');" class="btn btn-rounded btn-default btn-sm">
+								<td>
+								<a href="javascript:;" onclick="window.open('../news_public/newsView_windows.php?Tb_index=<?php echo $row['Tb_index'];?>', '<?php echo $row['ns_ftitle']; ?>', config='height=800,width=900');" >
 								<i class="fa fa-binoculars" aria-hidden="true"></i>
 								預覽
 								</a>
-
-								<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" <?php echo $edit_disabled;?> class="btn btn-rounded btn-info btn-sm" >
-								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								編輯
-								</a>
-
-								<a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" class="btn btn-rounded btn-warning btn-sm"
-								   onclick="if (!confirm('確定要刪除 [<?php echo $row['ns_ftitle']?>] ?')) {return false;}" <?php echo $del_disabled;?>>
-								<i class="fa fa-trash" aria-hidden="true"></i>
-								刪除
-								</a>
-
-					
+								</td>
+								<td>
+									<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" <?php echo $edit_disabled;?> >
+									<i class="fa fa-pencil-square" aria-hidden="true"></i>
+									編輯
+									</a>
+								</td>
+								<td>
+									<a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
+									   onclick="if (!confirm('確定要刪除 [<?php echo $row['ns_ftitle']?>] ?')) {return false;}" <?php echo $del_disabled;?>>
+									<i class="fa fa-trash" aria-hidden="true"></i>
+									刪除
+									</a>
 								</td>
 							</tr>
 						<?php $i++; }?>

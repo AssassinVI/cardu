@@ -70,14 +70,14 @@ if ($_GET) {
                       <div class="form-group">
                             <label class="col-md-2 control-label" >新聞上架時間</label>
                             <div class="col-md-10 form-inline">
-                              <input type="date" name="StartDate" class="form-control" value="<?php echo date('Y-m-d', strtotime('-3 month'));?>"> ~ <input type="date" name="EndDate" class="form-control" value="<?php echo date('Y-m-d');?>">
+                              <input type="text" name="StartDate" class="form-control datepicker_range from" value="<?php echo date('Y-m-d', strtotime('-3 month'));?>"> ~ <input type="text" name="EndDate" class="form-control datepicker_range to" value="<?php echo date('Y-m-d');?>">
                             </div>
                       </div>
 
                       <div class="form-group">
                             <label class="col-md-2 control-label" >審核期間</label>
                             <div class="col-md-10 form-inline">
-                              <input type="date" name="ns_st_vfdate" class="form-control"> ~ <input type="date" name="ns_en_vfdate" class="form-control">
+                              <input type="text" name="ns_st_vfdate" class="form-control datepicker_range from"> ~ <input type="text" name="ns_en_vfdate" class="form-control datepicker_range to">
                             </div>
                       </div>
 
