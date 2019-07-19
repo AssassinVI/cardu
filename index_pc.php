@@ -260,11 +260,33 @@
                     <div class="pl-5 row no-gutters show">
                       <div class="word col-6">
                         <span class="title blue_br shadow_text">中油</span>
-                        <span class="blue_font">92無鉛</span> 30.0  /  <span class="blue_font">95無鉛</span> 31.5  /  <span class="blue_font">98無鉛</span> 33.5  /  <span class="blue_font">柴油</span> 28.2
+                        <?php 
+                          $oil_time=$pdo->select("SELECT op_valid_time FROM oil_price WHERE op_store=1 AND op_valid_time<=DATE(NOW()) ORDER BY op_valid_time DESC LIMIT 0,1", 'no', 'one');
+
+                          $row_oil=$pdo->select("SELECT op_oil_type, op_price FROM oil_price WHERE op_store=1 AND op_valid_time=:op_valid_time ORDER BY op_showorder ASC", 
+                                                ['op_valid_time'=>$oil_time['op_valid_time']]);
+                          $oil_txt='';
+                          foreach ($row_oil as $oil_one) {
+                            $oil_txt.='<span class="blue_font">'.$oil_one['op_oil_type'].'</span> '.$oil_one['op_price'].' / ';
+                          }
+                          echo substr($oil_txt, 0,-3);
+                        ?>
                       </div>
                       <div class="word col-6">
                         <span class="title green_br shadow_text">台塑</span>
-                        <span class="blue_font">92無鉛</span> 30.0  /  <span class="blue_font">95無鉛</span> 31.5  /  <span class="blue_font">98無鉛</span> 33.5  /  <span class="blue_font">柴油</span> 28.2
+
+                        <?php 
+                          $oil_time=$pdo->select("SELECT op_valid_time FROM oil_price WHERE op_store=2 AND op_valid_time<=DATE(NOW()) ORDER BY op_valid_time DESC LIMIT 0,1", 'no', 'one');
+
+                          $row_oil=$pdo->select("SELECT op_oil_type, op_price FROM oil_price WHERE op_store=2 AND op_valid_time=:op_valid_time ORDER BY op_showorder ASC", 
+                                                ['op_valid_time'=>$oil_time['op_valid_time']]);
+                          $oil_txt='';
+                          foreach ($row_oil as $oil_one) {
+                            $oil_txt.='<span class="blue_font">'.$oil_one['op_oil_type'].'</span> '.$oil_one['op_price'].' / ';
+                          }
+                          echo substr($oil_txt, 0,-3);
+                        ?>
+                        
                       </div>
                     </div>
                     <div class="pl-5 row no-gutters ">

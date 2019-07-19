@@ -83,7 +83,7 @@ if ($_GET) {
 
 								<td class="text-right">
 
-								<a href="javascript:;" onclick="window.open('newsView_windows.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>','公告活動預覽', config='height=800,width=900');" class="btn btn-rounded btn-default btn-sm">
+								<a target="_blank" href="newsView_windows.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" class="btn btn-rounded btn-default btn-sm">
 								<i class="fa fa-binoculars" aria-hidden="true"></i>
 								預覽
 								</a>

@@ -36,10 +36,9 @@
 
 							  <div>
                                <?php if(!empty($row['aPic'])){ ?>
-                                 <div class="img_div">
-                                 	<img style="width: 100%;" src="../../img/<?php echo $row['aPic'];?>" alt="">
-                                 	<p>▲<?php echo $row['aPic_txt'];?></p>
-                                 </div>
+                                 <p>
+                                 	<img style="width: 100%;" src="../../img/<?php echo $row['aPic'];?>" alt="<?php echo $row['aPic_txt'];?>">
+                                 </p>
                                <?php } ?>
 							  	
 
@@ -73,7 +72,13 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-
+       //-- alt 圖說 & 手機加入fancybox --
+       img_txt('.news_div p img');
+               
+       //-- 圖寬限制 --
+       img_750_w('.news_div img');
+       //-- table 優化 --
+       html_table('.news_div>table');
       
       });
     
