@@ -100,16 +100,19 @@ if ($_POST) {
 if ($_GET) {
  	$where=['Tb_index'=>$_GET['Tb_index']];
  	$row=pdo_select('SELECT * FROM card_func WHERE Tb_index=:Tb_index', $where);
+
+ 	$card_type=$_GET['MT_id']=='site2018110517362644' ? '信用卡':'金融卡';
+ 	$newORedit=empty($_GET['Tb_index']) ? '新增':'修改';
 }
 ?>
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<header>網頁資料編輯
+					<header><?php echo $newORedit.$card_type; ?>功能
 					</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
@@ -192,7 +195,15 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="OnLineOrNot"><span class="text-danger">*</span> 是否上線</label>
 							<div class="col-md-10">
-								<input style="width: 20px; height: 20px;" id="OnLineOrNot" name="OnLineOrNot" type="checkbox" value="1" <?php echo $check=!isset($row['OnLineOrNot']) || $row['OnLineOrNot']==1 ? 'checked' : ''; ?>  />
+												<div class="switch" style="padding-top: 8px;">
+								                  <div class="onoffswitch">
+								                   <input type="checkbox" class="onoffswitch-checkbox" id="OnLineOrNot" value="1" name="OnLineOrNot" <?php echo $check=!isset($row['OnLineOrNot']) || $row['OnLineOrNot']==1 ? 'checked' : ''; ?>>
+								                   <label class="onoffswitch-label" for="OnLineOrNot">
+								                    <span class="onoffswitch-inner"></span>
+								                    <span class="onoffswitch-switch"></span>
+								                  </label>
+								                  </div>
+								                </div>
 							</div>
 						</div>
 
@@ -207,24 +218,18 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-6">
-							<button type="button" class="btn btn-danger btn-block btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="clean_all()">重設表單</button>
-						</div>
-						<div class="col-lg-6">
-						<?php if(empty($_GET['Tb_index'])){?>
-							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">儲存</button>
-						<?php }else{?>
-						    <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">更新</button>
-						<?php }?>
-						</div>
-					</div>
+				<div class="panel-body text-center">
+					<?php if(empty($_GET['Tb_index'])){?>
+						<button type="button" id="submit_btn" class="btn btn-info btn-raised">儲存</button>
+					<?php }else{?>
+					    <button type="button" id="submit_btn" class="btn btn-info btn-raised">更新</button>
+					<?php }?>
+					<button type="button" class="btn btn-danger btn-flat" onclick="getBack()">放棄</button>
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->

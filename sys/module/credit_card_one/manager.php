@@ -320,26 +320,29 @@ if ($_GET) {
                 <input type="file" name="cc_photo" class="form-control" id="cc_photo" onchange="file_viewer_load_new(this, '#img_box')">
                 <span class="text-danger">圖片尺寸: 300*190 去背png檔</span>
               </div>
+
+              <div id="img_box" class="col-md-3">
+                <?php if(empty($row_card['cc_photo'])){?>
+                  <div id="img_div">
+                    <img id="one_img" src="../../img/CardSample.png" alt="">
+                  </div>
+                <?php } ?>
+              </div>
+              <?php if(!empty($row_card['cc_photo'])){?>
+                <div  class="col-md-3">
+                   <div id="img_div" >
+                    <p>目前檔案</p>
+                   <button type="button" id="one_del_img"> X </button>
+                    <span class="img_check"><i class="fa fa-check"></i></span>
+                    <img style="width: 120px" src="../../img/<?php echo $row_card['cc_photo'];?>">
+                    <input type="hidden" name="old_file" value="<?php echo $row_card['cc_photo'];?>">
+                  </div>
+                </div>
+              <?php }?>  
               
             </div>
 
-            <div class="form-group">
-               <label class="col-md-2 control-label" ></label>
-               <div id="img_box" class="col-md-4">
-                
-              </div>
-            <?php if(!empty($row_card['cc_photo'])){?>
-              <div  class="col-md-4">
-                 <div id="img_div" >
-                  <p>目前檔案</p>
-                 <button type="button" id="one_del_img"> X </button>
-                  <span class="img_check"><i class="fa fa-check"></i></span>
-                  <img style="width: 120px" src="../../img/<?php echo $row_card['cc_photo'];?>">
-                  <input type="hidden" name="old_file" value="<?php echo $row_card['cc_photo'];?>">
-                </div>
-              </div>
-            <?php }?>   
-            </div>
+
 
 						<div class="form-group">
 						  <label class="col-md-2 control-label" >信用卡特色</label>
@@ -530,15 +533,15 @@ if ($_GET) {
                                         <div class="form-group">
                                           <label class="col-md-2 control-label" ><span class="text-danger">*</span> 生效日期</label>
                                           <div class="col-md-8">
-                                            <input type="date" name="StartDate" class="form-control" value="">
-                                            <span class="text-danger">空值視為今天</span>
+                                            <input type="text" name="StartDate" class="form-control datepicker" value="">
+                                            
                                           </div>
                                         </div>
 
                                         <div class="form-group">
                                           <label class="col-md-2 control-label" >截止日期</label>
                                           <div class="col-md-8">
-                                            <input type="date" name="EndDate" class="form-control" value="">
+                                            <input type="text" name="EndDate" class="form-control datepicker" value="">
                                           </div>
                                         </div>
 
@@ -614,7 +617,7 @@ if ($_GET) {
                                           <label class="col-md-2 control-label" ><span class="text-danger">*</span> 生效日期</label>
                                           <div class="col-md-8">
                                             <input type="date" name="StartDate" class="form-control">
-                                            <span class="text-danger">空值視為今天</span>
+                                            
                                           </div>
                                         </div>
 
@@ -709,6 +712,13 @@ if ($_GET) {
       $('#interest_div').css('display', 'block');
       $('.schedule_div').css('display', 'none');
       $('.new_schedule').css('display', 'inline-block');
+      //-- 恢復可輸入狀態 --
+      $('.new_interest_div [name="content"]').prop('readonly', false);
+      $('.new_interest_div [name="sm_content"]').prop('readonly', false);
+      $('.new_interest_div [name="note"]').prop('readonly', false);
+      $('.new_interest_div [name="number_data"]').prop('readonly', false);
+      $('.new_interest_div [name="StartDate"]').prop('readonly', false);
+      $('.new_interest_div [name="EndDate"]').prop('readonly', false);
 
        //-- 撈取權益 --
        $.ajax({
@@ -720,6 +730,7 @@ if ($_GET) {
           eq_id: $(this).attr('card_eq_id'),
         },
         success:function (data) {
+          console.log(data);
           var eq_type_arr={'txt':'(一般文字內容)', 'big':'(比大)', 'small':'(比小)'};
           $('#interest_div .panel-heading span').html(data['eq_name']);
           $('#interest_div .eq_type').html(eq_type_arr[data['eq_type']]);
@@ -799,7 +810,7 @@ if ($_GET) {
                   $('.new_interest_div [name="note"]').prop('readonly', false);
                   $('.new_interest_div [name="number_data"]').prop('readonly', false);
                   $('.new_interest_div [name="StartDate"]').prop('readonly', false);
-                  $('.new_interest_div [name="EndDate"]').prop('readonly', false);;
+                  $('.new_interest_div [name="EndDate"]').prop('readonly', false);
                   
                   $('.new_interest_div .Template').css('display', 'inline-block');
 
@@ -999,6 +1010,7 @@ function ch_card_eq(eq_id) {
      card_id: $('#Tb_index').val()
    },
    success:function (data) {
+     console.log(data);
      $('.new_interest_div input:not([name="interest_id"])').val('');
      $('.new_interest_div textarea').val('');
 
@@ -1032,4 +1044,3 @@ function ch_card_eq(eq_id) {
 }
 </script>
 <?php  include("../../core/page/footer02.php");//載入頁面footer02.php?>
-

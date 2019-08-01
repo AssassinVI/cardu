@@ -129,10 +129,9 @@ if ($_GET) {
                 <div>
                                
                                <?php if(!empty($row['ns_photo_1'])){ ?>
-                                 <div class="img_div">
-                                  <img style="width: 100%;" src="../../img/<?php echo $row['ns_photo_1'];?>" alt="">
-                                  <p>▲<?php echo $row['ns_alt_1'];?></p>
-                                 </div>
+                                 <p>
+                                  <img src="../../img/<?php echo $row['ns_photo_1'];?>" alt="<?php echo $row['ns_alt_1'];?>">
+                                 </p>
                                <?php } ?>
                   
 
@@ -141,16 +140,10 @@ if ($_GET) {
                                 </div>
                                
                                <?php if(!empty($row['ns_photo_2'])){ ?>
-                  <div class="img_div">
-                    <img style="width: 100%;" src="../../img/<?php echo $row['ns_photo_2'];?>" alt="">
-                    <?php 
-                      if (!empty($row['ns_alt_2'])) {
-                        echo '<p>▲'.$row['ns_alt_2'].'</p>';
-                      }
-                    ?>
-                    
-                  </div>
-                 <?php } ?>
+                                <p>
+                                 <img src="../../img/<?php echo $row['ns_photo_2'];?>" alt="<?php echo $row['ns_alt_2'];?>">
+                                </p>
+                               <?php } ?>
 
                  <?php echo $note; ?>
                  <?php echo $ns_news_txt; ?>
@@ -221,8 +214,13 @@ if ($_GET) {
 <script type="text/javascript">
 	$(document).ready(function() {
 
-          //-- alt 圖說 --
+          //-- alt 圖說 & 手機加入fancybox --
           img_txt('.news_div p img');
+                  
+          //-- 圖寬限制 --
+          img_750_w('.news_div p img');
+          //-- table 優化 --
+          html_table('.news_div>table');
 
 
           //-- 查看展開 --

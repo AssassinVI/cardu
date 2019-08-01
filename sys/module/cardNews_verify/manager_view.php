@@ -105,10 +105,10 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<header>網頁預覽
+					<header>卡情報預覽
 					</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
@@ -136,10 +136,9 @@ if ($_GET) {
                 <div>
                                
                                <?php if(!empty($row['ns_photo_1'])){ ?>
-                                 <div class="img_div">
-                                  <img style="width: 100%;" src="../../img/<?php echo $row['ns_photo_1'];?>" alt="">
-                                  <p>▲<?php echo $row['ns_alt_1'];?></p>
-                                 </div>
+                                 <p>
+                                  <img src="../../img/<?php echo $row['ns_photo_1'];?>" alt="<?php echo $row['ns_alt_1'];?>">
+                                 </p>
                                <?php } ?>
                   
 
@@ -148,16 +147,10 @@ if ($_GET) {
                                 </div>
                                
                                <?php if(!empty($row['ns_photo_2'])){ ?>
-                  <div class="img_div">
-                    <img style="width: 100%;" src="../../img/<?php echo $row['ns_photo_2'];?>" alt="">
-                    <?php 
-                      if (!empty($row['ns_alt_2'])) {
-                        echo '<p>▲'.$row['ns_alt_2'].'</p>';
-                      }
-                    ?>
-                    
-                  </div>
-                 <?php } ?>
+                                 <p>
+                                  <img src="../../img/<?php echo $row['ns_photo_2'];?>" alt="<?php echo $row['ns_alt_2'];?>">
+                                 </p>
+                               <?php } ?>
 
                  <?php echo $note; ?>
                  <?php echo $ns_news_txt; ?>
@@ -204,20 +197,14 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-6">
-							<button type="button" id="confirm_btn" class="btn btn-info btn-block btn-flat">確定</button>
-						</div>
-            <div class="col-lg-6">
-              <button type="button" id="back_btn" class="btn btn-danger btn-block btn-flat" >返回</button>
-            </div>
-					</div>
+				<div class="panel-body text-center">
+          <button type="button" id="confirm_btn" class="btn btn-info  btn-flat">確定</button>
+          <button type="button" id="back_btn" class="btn btn-danger  btn-flat" >返回</button>
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
@@ -230,8 +217,13 @@ if ($_GET) {
 <script type="text/javascript">
 	$(document).ready(function() {
 
-          //-- alt 圖說 --
+          //-- alt 圖說 & 手機加入fancybox --
           img_txt('.news_div p img');
+                  
+          //-- 圖寬限制 --
+          img_750_w('.news_div p img');
+          //-- table 優化 --
+          html_table('.news_div>table');
 
 
           //-- 查看展開 --

@@ -172,10 +172,18 @@ else{
           foreach ($row as $row_one) {
           
             //-- 情報分類 (名稱) --
-            $row_type_arr=[];
-            $row_type=pdo_select("SELECT Tb_index, nt_name FROM news_type", 'no');
-            foreach ($row_type as $row_type_one) {
-               $row_type_arr[$row_type_one['Tb_index']]=$row_type_one['nt_name'];
+            //-- 主分類 --
+            $ns_nt_pk_arr=explode(',', $row_one['ns_nt_pk']);
+            $ns_nt_pk=pdo_select("SELECT nt.area_id, nt.nt_name, un.un_name
+                                  FROM news_type as nt
+                                  INNER JOIN appUnit as un ON un.Tb_index=nt.unit_id
+                                  WHERE nt.Tb_index=:Tb_index", ['Tb_index'=>$ns_nt_pk_arr[0]]);
+            //-- 優旅行 --
+            if ($ns_nt_pk['area_id']=='at2019011117461656') {
+              $nt_name=$ns_nt_pk['un_name'];
+            }
+            else{
+              $nt_name=$ns_nt_pk['nt_name'];
             }
 
             //-- 情報狀態 --
@@ -194,7 +202,7 @@ else{
           echo '
           <tr>
 
-          <td>'.$row_type_arr[$row_one['ns_nt_pk']].'</td>
+          <td>'.$nt_name.'</td>
           <td>'.$row_one['ns_ftitle'].'</td>
           <td>'.$store_names_arr[$row_one['ns_store']].'</td>
           <td>'.$row_one['ns_viewcount'].'</td>

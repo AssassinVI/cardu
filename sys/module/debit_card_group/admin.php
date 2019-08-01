@@ -24,9 +24,7 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 
-	<div class="row">
-		<div class="col-lg-4">
-			<div class="panel panel-success">
+			<div class="panel panel-success" style="width: 700px;">
                  <div class="panel-heading">
                      修改信用卡群組
                  </div>
@@ -46,13 +44,7 @@ if ($_GET) {
                      		</div>
                      	</div>
 
-                     	<div class="form-group">
-                     	      <label class="col-md-2 control-label">信用卡狀態</label>
-                     	      <div class="col-md-10">
-                     	        <label><input type="checkbox" id='show_stop_dc' name="show_stop_dc" value="show_stop"> 顯示停發或停卡</label>
-                     	      </div>
-                     	</div>
-                      
+                     	
                       <div class="form-group">
                             <label class="col-md-2 control-label"><span class="text-danger">*</span>信用卡名稱</label>
                             <div class="col-md-10 ">
@@ -60,6 +52,15 @@ if ($_GET) {
                                <option value="">請選擇</option>
                               </select>
                             </div>
+                      </div>
+
+
+
+                      <div class="form-group">
+                     	      <label class="col-md-2 control-label">信用卡狀態</label>
+                     	      <div class="col-md-10">
+                     	        <label><input type="checkbox" id='show_stop_dc' name="show_stop_dc" value="show_stop"> 顯示停發或停卡</label>
+                     	      </div>
                       </div>
 
                       
@@ -72,12 +73,8 @@ if ($_GET) {
                      </form>
                  </div>
              </div>
-	</div>
 
 
-   
-	
-</div>
 </div><!-- /#page-content -->
 <?php  include("../../core/page/footer01.php");//載入頁面footer01.php?>
 <script type="text/javascript">

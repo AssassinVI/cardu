@@ -332,8 +332,15 @@ if ($_GET) {
                 <div class="form-group">
                   <div class="col-md-12">
                     <h4>合作廠商：</h4>
-                    <label><input type="checkbox" name="google" value="google"> Google｜</label>
-                    <label><input type="checkbox" name="yahoo" value="yahoo"> Yahoo｜</label><label><input type="checkbox" name="msn" value="msn"> MSN｜</label><label><input type="checkbox" name="hinet" value="hinet"> HiNet｜</label><label><input type="checkbox" name="yam" value="yam"> Yam天空｜</label><label><input type="checkbox" name="newsrepb" value="newsrepb"> Newsrepublic｜</label><label><input type="checkbox" name="linetoday" value="linetoday"> Line Today</label>
+                    <label><input type="checkbox" name="Google" value="Google"> Google｜</label>
+                    <label><input type="checkbox" name="Yahoo" value="Yahoo"> Yahoo｜</label>
+                    <label><input type="checkbox" name="PChome" value="PChome"> PChome｜</label>
+                    <label><input type="checkbox" name="HiNet" value="HiNet"> HiNet｜</label>
+                    <label><input type="checkbox" name="MSN" value="MSN"> MSN｜</label>
+                    <label><input type="checkbox" name="yam" value="yam"> Yam天空｜</label>
+                    <label><input type="checkbox" name="newsrepb" value="newsrepb"> Newsrepublic｜</label>
+                    <label><input type="checkbox" name="Life" value="Life"> Life｜</label>
+                    <label><input type="checkbox" name="linetoday" value="linetoday"> Line Today</label>
                   </div>
                 </div>
                 <input type="hidden" name="MT_id" value="<?php echo $_GET['MT_id'];?>">
@@ -353,8 +360,6 @@ if ($_GET) {
 <script type="text/javascript">
 	$(document).ready(function() {
 
-         //-- alt 圖說 --
-         img_txt('.news_div p img');
 
 
           $('#confirm_btn').click(function(event) {
@@ -493,6 +498,14 @@ if ($_GET) {
 
 	$(window).on('load',  function(event){
 		sessionStorage.clear();
+
+    //-- alt 圖說 & 手機加入fancybox --
+    img_txt('.news_div p img');
+            
+    //-- 圖寬限制 --
+    img_750_w('.news_div p img');
+    //-- table 優化 --
+    html_table('.news_div>table');
         
         //-- 新聞分類 --
 		if ($('[name="ns_nt_pk"]').length>0) {

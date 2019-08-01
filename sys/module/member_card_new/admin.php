@@ -161,7 +161,8 @@ if ($_GET) {
     $st_label=empty($row['st_label']) ? '' : explode(',', $row['st_label']);
     $zipcode=substr($row['st_adds'], 0,3);
     $adds=explode(',', $row['st_adds']);
-
+  
+  $header_txt=strpos($_SERVER['QUERY_STRING'], 'Tb_index')!==FALSE ? '修改會員卡':'新增會員卡';
 }
 
 
@@ -170,11 +171,11 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
       <form id="put_form" action="admin.php" method="POST" enctype='multipart/form-data' class="form-horizontal">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<header>新增會員卡
+					<header><?php echo $header_txt; ?>
 					</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
@@ -216,7 +217,7 @@ if ($_GET) {
               <label class="col-md-2 control-label"><span class="text-danger">*</span>卡片屬性</label>
               <div class="col-md-10">
                 <?php 
-                  $row_attr=$NewPdo->select("SELECT * FROM card_attr WHERE mt_id='site2019041013013951'");
+                  $row_attr=$NewPdo->select("SELECT * FROM card_attr WHERE mt_id='site2019041013013951' AND OnLineOrNot='1'");
                   foreach ($row_attr as $row_attr_one) {
                     echo '<label><input type="checkbox" name="card_attr[]" value="'.$row_attr_one['Tb_index'].'">'.$row_attr_one['attr_name'].'</label>｜';
                   }
@@ -305,24 +306,18 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-6">
-						<?php if(empty($_GET['Tb_index'])){?>
-							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">儲存</button>
-						<?php }else{?>
-						    <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">更新</button>
-						<?php }?>
-						</div>
-            <div class="col-lg-6">
-              <button type="button" class="btn btn-danger btn-block btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="clean_all()">重設表單</button>
-            </div>
-					</div>
+				<div class="panel-body text-center">
+				  	<?php if(empty($_GET['Tb_index'])){?>
+              <button type="button" id="submit_btn" class="btn btn-info btn-raised">儲存</button>
+            <?php }else{?>
+                <button type="button" id="submit_btn" class="btn btn-info btn-raised">更新</button>
+            <?php }?>
+            <button type="button" class="btn btn-danger btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="getBack()">放棄</button>
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->

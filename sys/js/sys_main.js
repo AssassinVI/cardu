@@ -1,6 +1,6 @@
 $(document).ready(function() {
   if ($('#ckeditor').length>0) {
-      CKEDITOR.replace('ckeditor',{filebrowserUploadUrl:'../../js/plugins/ckeditor/php/upload.php',filebrowserImageUploadUrl : '../../js/plugins/ckeditor/php/upload_img.php', height:600});
+      CKEDITOR.replace('ckeditor',{filebrowserUploadUrl:'../../js/plugins/ckeditor/php/upload.php',filebrowserImageUploadUrl : '../../js/plugins/ckeditor/php/upload_img.php', width:800, height:600});
   }
 
   //-- 日期 --
@@ -337,6 +337,9 @@ function check_input(id,txt) {
            'margin-left': 'auto',
            'margin-right': 'auto'
           });
+       }
+       else{
+        $(this).css('width', '100%');
        }
        //-- 文繞圖 --
        if ($(this).width()<450 && $(window).width()>768) {

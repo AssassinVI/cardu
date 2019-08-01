@@ -42,13 +42,8 @@ if ($_GET) {
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="col-lg-12">
 		<h2 class="text-primary"><?php echo $page_name['MT_Name']?> 列表</h2>
-		<p>本頁面條列出所有的文章清單，如需檢看或進行管理，請由每篇文章右側 管理區進行，感恩</p>
 	   <div class="new_div">
 
-	    <a href="manager.php?MT_id=<?php echo $_GET['MT_id'];?>">
-        <button type="button" class="btn btn-default">
-        <i class="fa fa-plus" aria-hidden="true"></i> 新增</button>
-        </a>
 	  </div>
 	</div>
 	<div class="row">
@@ -62,7 +57,6 @@ if ($_GET) {
 								<th>版區分類</th>
 								<th>主分類</th>
 								<th>主標題</th>
-								<th>商店名稱</th>
 								<th>情報銀行</th>
 								<th>上架期間</th>
 								<th>撰稿者</th>
@@ -71,7 +65,9 @@ if ($_GET) {
 								<th>審核者</th>
 								<th>審核時間</th>
 								<th>審核原因</th>
-								<th class="text-right">管理</th>
+								<th>預覽</th>
+								<th>編輯</th>
+								<th>刪除</th>
 
 							</tr>
 						</thead>
@@ -92,10 +88,13 @@ if ($_GET) {
 						                                  LIMIT 0,1", $where, 'one');
 
 
-                              //-- 商店 --
-                              $ns_store=pdo_select('SELECT * FROM store WHERE Tb_index=:Tb_index', ['Tb_index'=>$row['ns_store']]);
 
 						      $ns_nt_pk=pdo_select("SELECT area_id, nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_pk']]);
+
+						      $ns_vfdate=$row['ns_vfdate']=='0000-00-00 00:00:00' ? '':$row['ns_vfdate'];
+						      $ns_fwdate=$row['ns_fwdate']=='0000-00-00 00:00:00' ? '':$row['ns_fwdate'];
+
+						      $nt_name=$ns_nt_pk['nt_name']=='新卡訊' || $ns_nt_pk['nt_name']=='權益條款' ? '': $ns_nt_pk['nt_name'];
                               //審核狀態 ns_verify 0.草稿; 1.送一審中; 2.送二審中; 3.審核通過; 4.退回一審; 5.退稿; 6.退件 9.放棄
                               switch ($row['ns_verify']) {
                               	case 0:
@@ -124,38 +123,36 @@ if ($_GET) {
 							?>
 							<tr>
 								<td><?php echo $area_arr[$ns_nt_pk['area_id']]; ?></td>
-								<td><?php echo $ns_nt_pk['nt_name'];?></td>
+								<td><?php echo $nt_name;?></td>
 								<td><?php echo $row['ns_ftitle']; ?></td>
-								<td><?php echo $ns_store['st_name']; ?></td>
 								<td><?php echo $row_bank['bi_shortname']; ?></td>
 								
 								<td><?php echo $StartAndEndDate;?></td>
 								<td><?php echo $row['ns_reporter'];?></td>
-								<td><?php echo $row['ns_fwdate'];?></td>
+								<td><?php echo $ns_fwdate;?></td>
 								<td><?php echo $ns_verify;?></td>
 								<td><?php echo $row['ns_vfman_2_name'];?></td>
-								<td><?php echo $row['ns_vfdate'];?></td>
+								<td><?php echo $ns_vfdate;?></td>
 								<td><?php echo $row['ns_reason'];?></td>
 						
-								<td class="text-right">
-
-								<a href="javascript:;" onclick="window.open('../cardNews_public/newsView_windows.php?Tb_index=<?php echo $row['Tb_index'];?>', '<?php echo $row['ns_ftitle']; ?>', config='height=800,width=900');" class="btn btn-rounded btn-default btn-sm">
-								<i class="fa fa-binoculars" aria-hidden="true"></i>
-								預覽
-								</a>
-
-								<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" <?php echo $edit_disabled;?> class="btn btn-rounded btn-info btn-sm" >
-								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								編輯
-								</a>
-
-								<a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" class="btn btn-rounded btn-warning btn-sm"
-								   onclick="if (!confirm('確定要刪除 [<?php echo $row['ns_ftitle']?>] ?')) {return false;}" <?php echo $del_disabled;?>>
-								<i class="fa fa-trash" aria-hidden="true"></i>
-								刪除
-								</a>
-
-					
+								<td>
+								  <a href="javascript:;" onclick="window.open('../cardNews_public/newsView_windows.php?Tb_index=<?php echo $row['Tb_index'];?>', '<?php echo $row['ns_ftitle']; ?>', config='height=800,width=900');">
+								  <i class="fa fa-binoculars" aria-hidden="true"></i>
+								  預覽
+								  </a>
+								</td>
+								<td>
+									<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" <?php echo $edit_disabled;?> >
+									<i class="fa fa-pencil-square" aria-hidden="true"></i>
+									編輯
+									</a>
+								</td>
+								<td>
+									<a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
+									   onclick="if (!confirm('確定要刪除 [<?php echo $row['ns_ftitle']?>] ?')) {return false;}" <?php echo $del_disabled;?>>
+									<i class="fa fa-trash" aria-hidden="true"></i>
+									刪除
+									</a>
 								</td>
 							</tr>
 						<?php $i++; }?>

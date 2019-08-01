@@ -11,6 +11,8 @@
 	.col-md.hv-center p {font-size: 16px;}
 	.imp_int .collapse_txt{ font-size: 15px; }
 
+  .other_cc a{ display: block; font-size: 15px;}
+
 	/*----------------------------- 工具提示框 ----------------------------------*/
 
 	.tooltip-inner{padding: .7rem 1rem; color: #000; text-align: left; background-color: #fff; border-radius: 0.8rem; border: 1px solid #d0b3e9; box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15); font-size: 15px;}
@@ -28,10 +30,19 @@
    //-- 卡排行分類資料 --
    $row_type=$NewPdo->select("SELECT cc_so_type_01_cname, cc_so_type_02_cname, cc_so_type_03_cname FROM credit_cardrank_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ccs_cc_so_pk']], 'one');
 
+   //-- 信用卡組 --
+   if (empty($row['ccs_cc_pk'])) {
+     $row_cc=$NewPdo->select("SELECT * FROM credit_card WHERE cc_group_id=:cc_group_id LIMIT 0,1", ['cc_group_id'=>$row['ccs_cc_group_id']], 'one');
+   }
    //-- 信用卡 --
-   $row_cc=$NewPdo->select("SELECT * FROM credit_card WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ccs_cc_pk']], 'one');
+   else{
+     $row_cc=$NewPdo->select("SELECT * FROM credit_card WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ccs_cc_pk']], 'one');
+   }
+   
    $ccs_cc_cardname=explode(']', $row['ccs_cc_cardname']);
    $ccs_cc_cardname=$ccs_cc_cardname[1];
+
+   $cc_photo=empty($row_cc['cc_photo']) ? '../../../sys/img/CardSample.png':'../../../sys/img/'.$row_cc['cc_photo'];
 ?>
 
 
@@ -80,7 +91,7 @@
                                     <div class="col-md-4 hv-center">
                                        <div class="rank_care ">
                                          <a href="#">
-                                          <img class="rank_img" src="../../../sys/img/<?php echo $row_cc['cc_photo'] ; ?>" title="<?php echo $ccs_cc_cardname; ?>">
+                                          <img class="rank_img" src="<?php echo $cc_photo; ?>" title="<?php echo $ccs_cc_cardname; ?>">
                                          </a>
                                       </div>
                                     </div>
@@ -104,30 +115,67 @@
                                     <div class="col-md hv-center border-left border-right">
                                       <?php
                                      	  if (empty($row['ccs_typename_02_memo'])) {
-                                     	  	if (mb_strlen($row['ccs_typename_02'],'utf-8')>40) {
-                                     	  	   echo '<p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$row['ccs_typename_02'].'">'.mb_substr($row['ccs_typename_02'], 0, 40, 'utf-8').'...</p>';
-                                     	  	}
-                                     	  	else{
-                                               echo '<p class=" hv-center mb-0">'.$row['ccs_typename_02'].'</p>';
-                                     	  	} 
+
+                                           if (mb_strlen($row['ccs_typename_02'],'utf-8')>40) {
+                                                echo '<p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$row['ccs_typename_02'].'">'.mb_substr($row['ccs_typename_02'], 0, 40, 'utf-8').'...</p>';
+                                            }
+                                             else{
+                                                echo '<p class=" hv-center mb-0">'.$row['ccs_typename_02'].'</p>';
+                                            } 
                                      	  }
                                      	  else{
                                      	  	echo '<p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$row['ccs_typename_02_memo'].'">'.$row['ccs_typename_02'].'</p>';
                                      	  }
                                      	?>
+
+
                                     </div>
                                     <div class="col-md hv-center">
                                       <?php
+                                        $ccs_typename_03=mb_strlen($row['ccs_typename_03'],'utf-8')>40 ? mb_substr($row['ccs_typename_03'], 0, 40, 'utf-8').'...':$row['ccs_typename_03'];
+
                                      	  if (empty($row['ccs_typename_03_memo'])) {
-                                     	  	if (mb_strlen($row['ccs_typename_03'],'utf-8')>40) {
-                                     	  	   echo '<p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$row['ccs_typename_03'].'">'.mb_substr($row['ccs_typename_03'], 0, 40, 'utf-8').'...</p>';
-                                     	  	}
-                                     	  	else{
-                                               echo '<p class=" hv-center mb-0">'.$row['ccs_typename_03'].'</p>';
-                                     	  	} 
+                                          
+                                          if (empty($row['ccs_cc_pk2'])){
+                                             
+                                             if (mb_strlen($row['ccs_typename_03'],'utf-8')>40) {
+                                              echo '<p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$row['ccs_typename_03'].'">'.$ccs_typename_03.'</p>';
+                                             }
+                                             else{
+                                              echo '<p class=" hv-center mb-0">'.$ccs_typename_03.'</p>';
+                                             } 
+                                          }
+                                          //-- 其他信用卡 --
+                                          else{
+                                              $ccs_cc_pk2=explode(',', $row['ccs_cc_pk2']);
+                                              $cc_name=explode("\n", $row['ccs_typename_03']);
+
+                                              echo '<div class="other_cc">';
+                                              for ($i=0; $i <count($ccs_cc_pk2) ; $i++) { 
+                                                $row_cc_id=$NewPdo->select("SELECT cc_group_id FROM credit_card WHERE Tb_index=:Tb_index", ['Tb_index'=>$ccs_cc_pk2[$i]], 'one');
+                                                echo '<a target="_black" href="../../../card/creditcard.php?cc_pk='.$ccs_cc_pk2[$i].'&cc_group_id='.$row_cc_id['cc_group_id'].'">'.$cc_name[$i].'</a>';
+                                              }
+                                              echo '</div>';
+                                            
+                                          }
+                                     	  	
                                      	  }
                                      	  else{
-                                     	  	echo '<p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$row['ccs_typename_03_memo'].'">'.$row['ccs_typename_03'].'</p>';
+                                          if (empty($row['ccs_cc_pk2'])){
+                                            echo '<p class=" hv-center mb-0" data-toggle="tooltip" data-placement="bottom" title="'.$row['ccs_typename_03_memo'].'">'.$ccs_typename_03.'</p>';
+                                          }
+                                          else{
+                                            $ccs_cc_pk2=explode(',', $row['ccs_cc_pk2']);
+                                            $cc_name=explode("\n", $row['ccs_typename_03']);
+
+                                            echo '<div class="other_cc">';
+                                            for ($i=0; $i <count($ccs_cc_pk2) ; $i++) { 
+                                              $row_cc_id=$NewPdo->select("SELECT cc_group_id FROM credit_card WHERE Tb_index=:Tb_index", ['Tb_index'=>$ccs_cc_pk2[$i]], 'one');
+                                              echo '<a target="_black" href="../../../card/creditcard.php?cc_pk='.$ccs_cc_pk2[$i].'&cc_group_id='.$row_cc_id['cc_group_id'].'">'.$cc_name[$i].'</a>';
+                                            }
+                                            echo '</div>';
+                                          }
+                                          
                                      	  }
                                      	?>
                                     </div>

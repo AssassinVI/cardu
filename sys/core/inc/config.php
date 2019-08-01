@@ -16,6 +16,24 @@ function pdo_conn() {
 }
 
 
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ PDO連線(廣告用) @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+function ad_pdo_conn() {
+    $dbanme = 'srltw_carduad'; //資料庫名稱
+    $user_id = 'srltw_newsite'; //使用者ID
+    $user_pwd = '1qazXSW@3'; //使用者密碼
+
+    $dsn = "mysql:host=localhost;dbname=" . $dbanme;
+    $db = new PDO($dsn, $user_id, $user_pwd);
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); //禁用prepared statements的模擬效果
+    $db->exec("SET NAMES UTF8");
+    return $db;
+}
+
+
+
+
+
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 給DataTable 用 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 $DataTable_sql_conn=array(
     'user' => 'srltw_newsite',

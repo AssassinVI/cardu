@@ -59,7 +59,8 @@ if ($_GET) {
         								<th>權益icon</th>
         								<th>權益類型</th>
         								<th>量化規則</th>
-        								<th class="text-right">管理</th>
+        								<th style="width: 80px;">編輯</th>
+                        <th style="width: 80px;">刪除</th>
 
         							</tr>
         						</thead>
@@ -91,23 +92,19 @@ if ($_GET) {
         								<td><img style="width: 30px;" src="../../img/<?php echo $row['eq_image'] ?>"></td>
         								<td><?php echo $eq_type; ?></td>
         								<td><?php echo $row['eq_txt'] ?></td>
-        								<td class="text-right">
-
-        								<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
-        								<button type="button" class="btn btn-rounded btn-info btn-sm">
-        								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-        								編輯</button>
-        								</a>
-
-        								<a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
-        								   onclick="if (!confirm('確定要刪除 [<?php echo $row['pref_name']?>] ?')) {return false;}">
-        								<button type="button" class="btn btn-rounded btn-warning btn-sm">
-        								<i class="fa fa-trash" aria-hidden="true"></i>
-        								刪除</button>
-        								</a>
-
-        					
-        								</td>
+                        <td >
+                          <a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
+                            <i class="fa fa-pencil-square" aria-hidden="true"></i>編輯
+                          </a>
+                        </td>
+                        <td>
+                        <?php if(in_array($_GET['MT_id'].'-del', $_SESSION['group']) || $_SESSION['admin_per']=='admin'){?>
+                          <a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
+                             onclick="if (!confirm('確定要刪除 [<?php echo $row['aTitle']?>] ?')) {return false;}">
+                          <i class="fa fa-trash" aria-hidden="true"></i>刪除
+                          </a>
+                        <?php }?>
+                        </td>
 
         								<input type="hidden" class="sort_in" name="OrderBy[]" value="<?php echo $row['Tb_index'];?>">
         							</tr>
@@ -134,7 +131,8 @@ if ($_GET) {
 								<th>權益icon</th>
 								<th>權益類型</th>
 								<th>量化規則</th>
-								<th class="text-right">管理</th>
+								<th style="width: 80px;">編輯</th>
+                <th style="width: 80px;">刪除</th>
 
 							</tr>
 						</thead>
@@ -168,23 +166,19 @@ if ($_GET) {
 								<td><?php echo $eq_image; ?></td>
 								<td><?php echo $eq_type; ?></td>
 								<td><?php echo $row['eq_txt'] ?></td>
-								<td class="text-right">
-
-								<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
-								<button type="button" class="btn btn-rounded btn-info btn-sm">
-								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								編輯</button>
-								</a>
-
-								<a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
-								   onclick="if (!confirm('確定要刪除 [<?php echo $row['pref_name']?>] ?')) {return false;}">
-								<button type="button" class="btn btn-rounded btn-warning btn-sm">
-								<i class="fa fa-trash" aria-hidden="true"></i>
-								刪除</button>
-								</a>
-
-					
-								</td>
+								<td >
+                  <a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
+                    <i class="fa fa-pencil-square" aria-hidden="true"></i>編輯
+                  </a>
+                </td>
+                <td>
+                <?php if(in_array($_GET['MT_id'].'-del', $_SESSION['group']) || $_SESSION['admin_per']=='admin'){?>
+                  <a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
+                     onclick="if (!confirm('確定要刪除 [<?php echo $row['aTitle']?>] ?')) {return false;}">
+                  <i class="fa fa-trash" aria-hidden="true"></i>刪除
+                  </a>
+                <?php }?>
+                </td>
 
 								<input type="hidden" class="sort_in" name="OrderBy[]" value="<?php echo $row['Tb_index'];?>">
 							</tr>
@@ -202,8 +196,8 @@ if ($_GET) {
 	$(document).ready(function() {
 		//-- 拖曳更新排序 --
        $( ".table-responsive .table tbody" ).sortable({
-
              revert: 300,
+             placeholder: "sortable_new_placeholder",
              update: function( event, ui ) {
              	$("#sort_btn").css('display', 'inline-block');
              }

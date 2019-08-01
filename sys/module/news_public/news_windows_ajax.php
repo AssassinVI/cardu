@@ -127,7 +127,7 @@
 
      $sql_query="SELECT count(*) as total
                  FROM appNews 
-                 WHERE ns_nt_pk = :ns_nt_pk ".$keyWord_txt;
+                 WHERE ns_nt_pk = :ns_nt_pk AND ns_verify=3 ".$keyWord_txt;
      
      $row=$pdo->select($sql_query, ['ns_nt_pk'=>$_POST['ns_nt_pk']],'one');
     }
@@ -138,7 +138,7 @@
 
     $sql_query="SELECT count(*) as total
                 FROM appNews 
-                WHERE ns_nt_pk IN (".$area_ns_nt_pk.") ".$keyWord_txt;
+                WHERE ns_nt_pk IN (".$area_ns_nt_pk.") AND ns_verify=3 ".$keyWord_txt;
     
     $row=$pdo->select($sql_query, 'no','one');
     }

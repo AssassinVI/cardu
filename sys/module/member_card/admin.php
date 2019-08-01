@@ -11,21 +11,13 @@ if ($_POST) {
   }
 }
 
-if ($_GET) {
-
-   
-   //-- 商店分類 --
-   $row_type=$NewPdo->select("SELECT * FROM store_type ORDER BY OrderBy ASC");
-
-}
 
 ?>
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
 
-	<div class="row">
-		<div class="col-lg-4">
+		<div style="width: 800px;">
 			<div class="panel panel-success">
                  <div class="panel-heading">
                      會員卡查詢
@@ -38,12 +30,13 @@ if ($_GET) {
                         <div class="col-md-10 ">
                           <select id="st_type">
                             <option value="">-- 商店類別 --</option>
+                            <option value="st2019013117015133">集點店家</option>
                             <?php
                               //-- 商店分類 --
-                               $row_type=$NewPdo->select("SELECT * FROM store_type ORDER BY OrderBy ASC");
-                              foreach ($row_type as $row_type_one) {
-                                echo '<option value="'.$row_type_one['Tb_index'].'">'.$row_type_one['st_name'].'</option>';
-                              }
+                              //  $row_type=$NewPdo->select("SELECT * FROM store_type ORDER BY OrderBy ASC");
+                              // foreach ($row_type as $row_type_one) {
+                              //   echo '<option value="'.$row_type_one['Tb_index'].'">'.$row_type_one['st_name'].'</option>';
+                              // }
                             ?>
                           </select>
                           <select id="st_main_type">
@@ -69,6 +62,14 @@ if ($_GET) {
 
 
                       <div class="form-group">
+                         <label class="col-md-2 control-label" >關鍵字</label>
+                         <div class="col-md-10">
+                           <input type="text" class="form-control" name="keywords" placeholder="請輸入關鍵字，以「,」或「空白」區隔均可">
+                         </div>
+                      </div>
+
+
+                      <div class="form-group">
                         <div class="col-md-12 text-right">
                             <button type="button" id="search_btn" class="btn btn-success btn-raised">確定</button>
                         </div>
@@ -79,10 +80,6 @@ if ($_GET) {
              </div>
 	</div>
 
-
-   
-	
-</div>
 </div><!-- /#page-content -->
 <?php  include("../../core/page/footer01.php");//載入頁面footer01.php?>
 <script type="text/javascript">
@@ -231,20 +228,20 @@ if ($_GET) {
   });
 
   $(window).on('load', function(event) {
-    $.ajax({
-         url: 'admin_ajax.php',
-         type: 'POST',
-         dataType: 'json',
-         data: {
-          st_type: $('#select_type').val()
-        },
-        success:function (data) {
-          $("#select_card").html('<option value="">-- 全部 --</option>');
-          $.each(data, function(index, val) {
-             $("#select_card").append('<option value="'+this['st_name']+'">'+this['st_name']+'</option>');
-          });
-        }
-       });
+    // $.ajax({
+    //      url: 'admin_ajax.php',
+    //      type: 'POST',
+    //      dataType: 'json',
+    //      data: {
+    //       st_type: $('#select_type').val()
+    //     },
+    //     success:function (data) {
+    //       $("#select_card").html('<option value="">-- 全部 --</option>');
+    //       $.each(data, function(index, val) {
+    //          $("#select_card").append('<option value="'+this['st_name']+'">'+this['st_name']+'</option>');
+    //       });
+    //     }
+    //    });
   });
 		
 </script>

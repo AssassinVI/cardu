@@ -31,7 +31,8 @@
   //-- 新增、更新信用卡權益項目資料 --
   elseif($_POST['type']=='int_up_eq'){
     
-    $row_card_eq=$pdo->select("SELECT COUNT(*) as totle FROM credit_card_eq WHERE card_id=:card_id AND eq_id=:eq_id", ['card_id'=>$_POST['card_id'], 'eq_id'=>$_POST['eq_id']], 'one' );
+    $row_card_eq=$pdo->select("SELECT COUNT(*) as totle FROM credit_card_eq WHERE card_id=:card_id AND eq_id=:eq_id AND EndDate>=:today", 
+                               ['card_id'=>$_POST['card_id'], 'eq_id'=>$_POST['eq_id'], 'today'=>date('Y-m-d')], 'one' );
     
     //--新增--
     if ($row_card_eq['totle']==0) {

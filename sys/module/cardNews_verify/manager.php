@@ -134,7 +134,7 @@ if ($_POST) {
       $StartDate=empty($_POST['StartDate']) ? date('Y-m-d') : $_POST['StartDate'];
       $EndDate=empty($_POST['EndDate']) ? '2200-12-31' : $_POST['EndDate'];
       $ns_date=empty($_POST['ns_date']) ? date('Y-m-d') : $_POST['ns_date'];
-      $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0: 1 ;
+
 
       //-- 無發卡組織/銀行 --
       if(!empty($_POST['no_BankOrg'])){
@@ -170,7 +170,6 @@ if ($_POST) {
               'activity_e_date'=>$activity_e_date,
 		          'StartDate'=>$StartDate,
 		            'EndDate'=>$EndDate,
-		        'OnLineOrNot'=>$OnLineOrNot,
               'ns_verify'=>$_POST['ns_verify']
 		          );
   
@@ -323,7 +322,6 @@ if ($_POST) {
    $StartDate=empty($_POST['StartDate']) ? date('Y-m-d') : $_POST['StartDate'];
    $EndDate=empty($_POST['EndDate']) ? '2200-12-31' : $_POST['EndDate'];
    $ns_date=empty($_POST['ns_date']) ? date('Y-m-d') : $_POST['ns_date'];
-   $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0: 1 ;
 
    //-- 無發卡組織/銀行 --
    if(!empty($_POST['no_BankOrg'])){
@@ -350,7 +348,6 @@ if ($_POST) {
         'activity_e_date'=>$activity_e_date,
 		          'StartDate'=>$StartDate,
 		            'EndDate'=>$EndDate,
-		        'OnLineOrNot'=>$OnLineOrNot,
               'ns_verify'=>$_POST['ns_verify']
 		          );
 
@@ -449,7 +446,7 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>網頁資料編輯
@@ -646,7 +643,7 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="ns_ftitle"><span class="text-danger">*</span>主標題</label>
 							<div class="col-md-10">
-								<input type="text" class="form-control" id="ns_ftitle" name="ns_ftitle" maxlength="20" value="<?php echo $row['ns_ftitle'];?>">
+								<input type="text" class="form-control title_w" id="ns_ftitle" name="ns_ftitle" maxlength="20" value="<?php echo $row['ns_ftitle'];?>">
                 <span class="text-danger">(限20個字)</span>
 							</div>
 						</div>
@@ -654,7 +651,7 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="ns_stitle">副標題</label>
 							<div class="col-md-10">
-								<input type="text" class="form-control" id="ns_stitle" name="ns_stitle" maxlength="20" value="<?php echo $row['ns_stitle'];?>">
+								<input type="text" class="form-control title_w" id="ns_stitle" name="ns_stitle" maxlength="20" value="<?php echo $row['ns_stitle'];?>">
                 <span class="text-danger">(限20個字)</span>
 							</div>
 						</div>
@@ -663,11 +660,11 @@ if ($_GET) {
               <label class="col-md-2 control-label" for="activity_s_date">活動期間</label>
               <div class="col-md-10 row">
                 <div class="col-md-5">
-                  <input type="date" class="form-control" id="activity_s_date" name="activity_s_date" value="<?php echo $activity_s_date;?>">
+                  <input type="text" class="form-control datepicker_range from" id="activity_s_date" name="activity_s_date" value="<?php echo $activity_s_date;?>">
                 </div>
                     <div class="col-md-1"><h3>至</h3></div>
                 <div class="col-md-5">
-                  <input type="date" class="form-control" id="activity_e_date" name="activity_e_date" value="<?php echo $activity_e_date;?>">
+                  <input type="text" class="form-control datepicker_range to" id="activity_e_date" name="activity_e_date" value="<?php echo $activity_e_date;?>">
                 </div>
                 <div class="col-md-1"><h3>止</h3></div>
                 <div class="col-md-12">
@@ -680,11 +677,11 @@ if ($_GET) {
               <label class="col-md-2 control-label" for="StartDate"><span class="text-danger">*</span> 上架期間</label>
               <div class="col-md-10 row">
                 <div class="col-md-5">
-                  <input type="date" class="form-control" id="StartDate" name="StartDate" value="<?php echo $StartDate;?>">
+                  <input type="text" class="form-control datepicker_range from" id="StartDate" name="StartDate" value="<?php echo $StartDate;?>">
                 </div>
                                 <div class="col-md-1"><h3>至</h3></div>
                 <div class="col-md-5">
-                  <input type="date" class="form-control" id="EndDate" name="EndDate" value="<?php echo $EndDate;?>">
+                  <input type="text" class="form-control datepicker_range to" id="EndDate" name="EndDate" value="<?php echo $EndDate;?>">
                 </div>
                 <div class="col-md-1"><h3>止</h3></div>
                 <div class="col-md-12">
@@ -710,7 +707,7 @@ if ($_GET) {
 						<div class="form-group">
               <label class="col-md-2 control-label" for="ckeditor">注意事項</label>
               <div class="col-md-10">
-                <textarea class="form-control" name="note" ><?php echo $row['note'];?></textarea>
+                <textarea class="form-control" name="note" rows="10"><?php echo $row['note'];?></textarea>
               </div>
             </div>
 
@@ -728,6 +725,8 @@ if ($_GET) {
               </div>
               <div class="col-md-2">
                 <a href="../cardNews_public/news_windows.php" data-fancybox data-type="iframe" class="btn btn-info">查詢文章</a>
+                <a href="../cardNews_public/news_extends_custom_windows.php" data-fancybox data-type="iframe" class="btn btn-info">輸入</a>
+                <a href="../cardNews_public/news_extends_sort_windows.php" data-fancybox data-type="iframe" class="btn btn-info">排序</a>
               </div>
             </div>
 
@@ -740,7 +739,7 @@ if ($_GET) {
 
 							<label class="col-md-1 control-label" for="ns_alt_1">圖說</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" id="ns_alt_1" name="ns_alt_1" maxlength="50" value="<?php echo $row['ns_alt_1'];?>">
+								<input type="text" class="form-control imgTxt_w" id="ns_alt_1" name="ns_alt_1" maxlength="50" value="<?php echo $row['ns_alt_1'];?>">
 								<span class="text-danger">(限50個字)</span>
 							</div>
 						</div>
@@ -773,7 +772,7 @@ if ($_GET) {
 
 							<label class="col-md-1 control-label" for="ns_alt_2">圖說</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" id="ns_alt_2" name="ns_alt_2" maxlength="50" value="<?php echo $row['ns_alt_2'];?>">
+								<input type="text" class="form-control imgTxt_w" id="ns_alt_2" name="ns_alt_2" maxlength="50" value="<?php echo $row['ns_alt_2'];?>">
 								<span class="text-danger">(限50個字)</span>
 							</div>
 						</div>
@@ -816,13 +815,6 @@ if ($_GET) {
 
 
 
-						<div class="form-group">
-							<label class="col-md-2 control-label" for="OnLineOrNot">是否上線</label>
-							<div class="col-md-10">
-								<input style="width: 20px; height: 20px;" id="OnLineOrNot" name="OnLineOrNot" type="checkbox" value="1" <?php echo $check=!isset($row['OnLineOrNot']) || $row['OnLineOrNot']==1 ? 'checked' : ''; ?>  />
-							</div>
-						</div>
-
 						<input type="hidden" id="Tb_index" name="Tb_index" value="<?php echo $_GET['Tb_index'];?>">
 						<input type="hidden" id="mt_id" name="mt_id" value="<?php echo $_GET['MT_id'];?>">
             <input type="hidden" id="ns_verify" name="ns_verify" value="2">
@@ -835,21 +827,17 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-4">
-						<?php if(empty($_GET['Tb_index'])){?>
-							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">預覽</button>
-						<?php }else{?>
-						    <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">更新</button>
-						<?php }?>
-						</div>
-					</div>
+				<div class="panel-body text-center">
+					<?php if(empty($_GET['Tb_index'])){?>
+            <button type="button" id="submit_btn" class="btn btn-info btn-raised">預覽</button>
+          <?php }else{?>
+              <button type="button" id="submit_btn" class="btn btn-info btn-raised">更新</button>
+          <?php }?>
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
@@ -1044,7 +1032,16 @@ if ($_GET) {
                $(this).parent().html('');
 			}
 		});
-      });
+
+
+
+    //----------------------------- 活動最後日期同步上架最後日期 -----------------------------------
+    $('#activity_e_date').change(function(event) {
+      $('#EndDate').val($(this).val());
+    });
+
+});
+//-- JQUERY END --
 
 
 	$(window).on('load',  function(event){

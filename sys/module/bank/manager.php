@@ -173,6 +173,8 @@ if ($_GET) {
  	$bd_src_0=$row['bd_src']=='0' ? 'checked':'';
  	$bd_src_1=$row['bd_src']=='1' ? 'checked':'';
  	$bd_src_2=$row['bd_src']=='2' ? 'checked':'';
+
+ 	$bd_div_display=$row['bd_type']=='0' ? 'style="display: none;"':'';
 }
 ?>
 
@@ -321,7 +323,7 @@ if ($_GET) {
 							</div>
 						</div>
                      
-                     <div class="bd_div">
+                     <div class="bd_div" <?php echo $bd_div_display; ?>>
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="bd_src">申請書提供方式 <span class="text-danger">*</span></label>
 							<div class="col-md-10">
@@ -481,48 +483,25 @@ if ($_GET) {
 <script type="text/javascript">
 	$(document).ready(function() {
        
+        if ($('[name="bd_type"]:checked').length) {
+        	ch_bd_type($('[name="bd_type"]:checked').val());
+        }
+
+        if ($('[name="bd_src"]:checked').length) {
+        	ch_bd_src($('[name="bd_src"]:checked').val());
+        }
+
+
+
 
         //-- 判斷申請書 --
 		$('[name="bd_type"]').change(function(event) {
-
-			if ($(this).val()=='0') {
-               $('.bd_div').css('display', 'none');
-			}
-			else if($(this).val()=='1'){
-               $('.bd_div').css('display', 'block');
-               $('.bd_div').find('.form-group').css('display', 'none');
-               $('.bd_div').find('.form-group:nth-child(1)').css('display', 'block');
-               $('.bd_div').find('.form-group:nth-child(1) .control-label').html('信用卡申請書提供方式 <span class="text-danger">*</span>');
-               $('.bd_div').find('.form-group:nth-child(2) label').html('信用卡申請書名稱');
-               $('.bd_div').find('.form-group:nth-child(3) label').html('信用卡申請書檔案');
-               $('.bd_div').find('.form-group:nth-child(5) label').html('信用卡申請書網址');
-               $('[name="bd_src"]').prop('checked', false);
-			}
-			else if($(this).val()=='2'){
-               $('.bd_div').css('display', 'block');
-               $('.bd_div').find('.form-group').css('display', 'none');
-               $('.bd_div').find('.form-group:nth-child(1)').css('display', 'block');
-               $('.bd_div').find('.form-group:nth-child(1) .control-label').html('金融卡申請書提供方式 <span class="text-danger">*</span>');
-               $('.bd_div').find('.form-group:nth-child(2) label').html('金融卡申請書名稱');
-               $('.bd_div').find('.form-group:nth-child(3) label').html('金融卡申請書檔案');
-               $('.bd_div').find('.form-group:nth-child(5) label').html('金融卡申請書網址');
-               $('[name="bd_src"]').prop('checked', false);
-			}
+			ch_bd_type($(this).val());
 		});
 
         //-- 判斷申請書提供方式 --
 		$('[name="bd_src"]').change(function(event) {
-			if ($(this).val()=='0'){
-              $(this).parents('.form-group').nextAll().css('display', 'none');
-			}
-			else if($(this).val()=='1') {
-               $(this).parents('.form-group').nextAll().css('display', 'block');
-               $('[name="bd_url"]').parents('.form-group').css('display', 'none');
-			}
-			else if($(this).val()=='2'){
-               $(this).parents('.form-group').nextAll().css('display', 'none');
-               $('[name="bd_url"]').parents('.form-group').css('display', 'block');
-			}
+			ch_bd_src($(this).val());
 		});
 
 
@@ -582,6 +561,52 @@ if ($_GET) {
 			}
 		});
       });
+
+
+
+function ch_bd_type(type_num) {
+  
+  			if (type_num=='0') {
+                 $('.bd_div').css('display', 'none');
+  			}
+  			else if(type_num=='1'){
+                 $('.bd_div').css('display', 'block');
+                 $('.bd_div').find('.form-group').css('display', 'none');
+                 $('.bd_div').find('.form-group:nth-child(1)').css('display', 'block');
+                 $('.bd_div').find('.form-group:nth-child(1) .control-label').html('信用卡申請書提供方式 <span class="text-danger">*</span>');
+                 $('.bd_div').find('.form-group:nth-child(2) label').html('信用卡申請書名稱');
+                 $('.bd_div').find('.form-group:nth-child(3) label').html('信用卡申請書檔案');
+                 $('.bd_div').find('.form-group:nth-child(5) label').html('信用卡申請書網址');
+                 //$('[name="bd_src"]').prop('checked', false);
+  			}
+  			else if(type_num=='2'){
+                 $('.bd_div').css('display', 'block');
+                 $('.bd_div').find('.form-group').css('display', 'none');
+                 $('.bd_div').find('.form-group:nth-child(1)').css('display', 'block');
+                 $('.bd_div').find('.form-group:nth-child(1) .control-label').html('金融卡申請書提供方式 <span class="text-danger">*</span>');
+                 $('.bd_div').find('.form-group:nth-child(2) label').html('金融卡申請書名稱');
+                 $('.bd_div').find('.form-group:nth-child(3) label').html('金融卡申請書檔案');
+                 $('.bd_div').find('.form-group:nth-child(5) label').html('金融卡申請書網址');
+                 //$('[name="bd_src"]').prop('checked', false);
+  			}
+}
+
+
+
+function ch_bd_src(src_num) {
+	
+   			if (src_num=='0'){
+                 $('[name="bd_src"]').parents('.form-group').nextAll().css('display', 'none');
+   			}
+   			else if(src_num=='1') {
+                  $('[name="bd_src"]').parents('.form-group').nextAll().css('display', 'block');
+                  $('[name="bd_url"]').parents('.form-group').css('display', 'none');
+   			}
+   			else if(src_num=='2'){
+                  $('[name="bd_src"]').parents('.form-group').nextAll().css('display', 'none');
+                  $('[name="bd_url"]').parents('.form-group').css('display', 'block');
+   			}
+}
 </script>
 <?php  include("../../core/page/footer02.php");//載入頁面footer02.php?>
 

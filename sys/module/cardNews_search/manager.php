@@ -728,6 +728,8 @@ if ($_GET) {
               </div>
               <div class="col-md-2">
                 <a href="../cardNews_public/news_windows.php" data-fancybox data-type="iframe" class="btn btn-info">查詢文章</a>
+                <a href="../news_public/news_extends_custom_windows.php" data-fancybox data-type="iframe" class="btn btn-info">輸入</a>
+                <a href="../news_public/news_extends_sort_windows.php" data-fancybox data-type="iframe" class="btn btn-info">排序</a>
               </div>
             </div>
 

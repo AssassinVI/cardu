@@ -33,6 +33,8 @@ if ($_GET) {
    $pdo=pdo_conn();
    $sql=$pdo->prepare("SELECT * FROM card_attr WHERE mt_id=:mt_id  ORDER BY OrderBy ASC");
    $sql->execute( ["mt_id"=>$_GET['MT_id']] );
+
+   $OnLineOrNot=$row['OnLineOrNot']=='0' ? '關閉':'使用中';
 }
 
 ?>
@@ -63,7 +65,9 @@ if ($_GET) {
 							<tr>
 								<th>#</th>
 								<th>名稱</th>
-								<th class="text-right">管理</th>
+								<th>使用狀態</th>
+								<th style="width: 80px;">編輯</th>
+								<th style="width: 80px;">刪除</th>
 
 							</tr>
 						</thead>
@@ -75,20 +79,24 @@ if ($_GET) {
 								<td><?php echo $row['attr_name'] ?></td>
 				
 								
-								<td class="text-right">
-
+								<td><?php echo $OnLineOrNot; ?></td>
+								
+								<td>
 								<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
-								<button type="button" class="btn btn-rounded btn-info btn-sm">
 								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								編輯</button>
+								編輯
 								</a>
-
-								<a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
-								   onclick="if (!confirm('確定要刪除 [<?php echo $row['attr_name']?>] ?')) {return false;}">
-								<button type="button" class="btn btn-rounded btn-warning btn-sm">
-								<i class="fa fa-trash" aria-hidden="true"></i>
-								刪除</button>
-								</a>
+								</td>
+                                
+                                <td>
+                                <?php if(in_array($_GET['MT_id'].'-del', $_SESSION['group']) || $_SESSION['admin_per']=='admin'){?>
+								   <a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
+								      onclick="if (!confirm('確定要刪除 [<?php echo $row['attr_name']?>] ?')) {return false;}">
+								   <i class="fa fa-trash" aria-hidden="true"></i>
+								   刪除
+								   </a>
+							    <?php }?>
+								</td>
 
 					
 								</td>
@@ -109,8 +117,8 @@ if ($_GET) {
 	$(document).ready(function() {
 		//-- 拖曳更新排序 --
        $( ".table-responsive .table tbody" ).sortable({
-
              revert: 300,
+             placeholder: "sortable_new_placeholder",
              update: function( event, ui ) {
              	$("#sort_btn").css('display', 'inline-block');
              }

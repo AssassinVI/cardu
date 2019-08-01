@@ -8,17 +8,18 @@ if ($_POST) {
 		$Tb_index='nt'.date('YmdHis').rand(0,99);
      
 
-  $OrderBy=pdo_select("SELECT OrderBy FROM news_type WHERE mt_id=:mt_id ORDER BY OrderBy DESC LIMIT 0,1", ['mt_id'=>$_POST['mt_id']]);
+  $OrderBy=pdo_select("SELECT OrderBy FROM news_type WHERE mt_id=:mt_id AND nt_sp=0 ORDER BY OrderBy DESC LIMIT 0,1", ['mt_id'=>$_POST['mt_id']]);
   $OrderBy=(int)$OrderBy['OrderBy']+1;
 
   $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0:1;
 
 	$param=  ['Tb_index'=>$Tb_index,
 			     'mt_id'=>$_POST['mt_id'],
+			     'area_id'=>'at2019021114154632',
 			     'unit_id'=>$_POST['unit_id'],
 			     'nt_name'=>$_POST['nt_name'],
-           'nt_define'=>$_POST['nt_define'],
-           'OrderBy'=>$OrderBy,
+                 'nt_define'=>$_POST['nt_define'],
+                 'OrderBy'=>$OrderBy,
 			     'OnLineOrNot'=>$OnLineOrNot
 			  ];
 	pdo_insert('news_type', $param);

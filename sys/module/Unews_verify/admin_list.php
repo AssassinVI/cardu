@@ -77,7 +77,9 @@ if ($_GET) {
                                 <th>情報銀行</th>
                                 <th>完稿時間</th>
 								<th>撰稿者</th>
-								<th class="text-right">管理</th>
+								<th style="width: 80px;">預覽</th>
+								<th style="width: 80px;">審核</th>
+								<th style="width: 80px;">修改</th>
 
 							</tr>
 						</thead>
@@ -90,7 +92,19 @@ if ($_GET) {
 						      //-- 商店 --
 						      $ns_store=pdo_select('SELECT * FROM store WHERE Tb_index=:Tb_index', ['Tb_index'=>$row['ns_store']]);
 
-						      $ns_nt_pk=pdo_select("SELECT area_id, nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_pk']]);
+						      //-- 主分類 --
+                              $ns_nt_pk_arr=explode(',', $row['ns_nt_pk']);
+						      $ns_nt_pk=pdo_select("SELECT nt.area_id, nt.nt_name, un.un_name
+						      	                    FROM news_type as nt
+						      	                    INNER JOIN appUnit as un ON un.Tb_index=nt.unit_id
+						      	                    WHERE nt.Tb_index=:Tb_index", ['Tb_index'=>$ns_nt_pk_arr[0]]);
+						      //-- 優旅行 --
+						      if ($ns_nt_pk['area_id']=='at2019011117461656') {
+						      	$nt_name=$ns_nt_pk['un_name'];
+						      }
+						      else{
+						      	$nt_name=$ns_nt_pk['nt_name'];
+						      }
 
                               //審核狀態 ns_verify 0.草稿; 1.送一審中; 2.送二審中; 3.審核通過; 4.退回一審; 5.退稿; 6.退件 9.放棄
                               switch ($row['ns_verify']) {
@@ -119,7 +133,7 @@ if ($_GET) {
 							?>
 							<tr>
 								<td><?php echo $area_arr[$ns_nt_pk['area_id']]; ?></td>
-								<td><?php echo $ns_nt_pk['nt_name'];?></td>
+								<td><?php echo $nt_name;?></td>
 								<td><?php echo $row['ns_ftitle']; ?></td>
 								<td><?php echo $ns_store['st_name']; ?></td>
 								<td><?php echo $ns_verify;?></td>
@@ -127,30 +141,30 @@ if ($_GET) {
 								<td><?php echo $row['ns_fwdate'];?></td>
 								<td><?php echo $row['ns_reporter'];?></td>
 						
-								<td class="text-right">
+								<td>
+								  <a href="javascript:;" onclick="window.open('../Unews_public/newsView_windows.php?Tb_index=<?php echo $row['Tb_index'];?>', '<?php echo $row['ns_ftitle']; ?>', config='height=800,width=900');" >
+								  <i class="fa fa-binoculars" aria-hidden="true"></i>預覽
+								  </a>
+								</td>
+                                
+                                <td>
+								 <a href="manager_verify.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
+								  <i class="fa fa-file-text" aria-hidden="true"></i>
+								  審核
+								 </a>
+						    	</td>
 
-								<a href="javascript:;" onclick="window.open('../Unews_public/newsView_windows.php?Tb_index=<?php echo $row['Tb_index'];?>', '<?php echo $row['ns_ftitle']; ?>', config='height=800,width=900');" >
-								<button type="button" class="btn btn-rounded btn-default btn-sm">
-								<i class="fa fa-binoculars" aria-hidden="true"></i>
-								預覽</button>
-								</a>
-
-								<a href="manager_verify.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
-								<button type="button" class="btn btn-rounded btn-warning btn-sm">
-								<i class="fa fa-file-text" aria-hidden="true"></i>
-								審核</button>
-								</a>
-
-								<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
-								<button type="button" class="btn btn-rounded btn-info btn-sm">
-								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								修改</button>
-								</a>
+                                <td>
+								 <a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
+								   <i class="fa fa-pencil-square" aria-hidden="true"></i>
+								   修改
+								 </a>
+							    </td>
 
 								
 
 					
-								</td>
+								
 							</tr>
 						<?php $i++; }?>
 						</tbody>

@@ -46,10 +46,9 @@ if ($_GET) {
                 <div>
                                
                                <?php if(!empty($row['ns_photo_1'])){ ?>
-                                 <div class="img_div">
-                                  <img style="width: 100%;" src="../../img/<?php echo $row['ns_photo_1'];?>" alt="">
-                                  <p>▲<?php echo $row['ns_alt_1'];?></p>
-                                 </div>
+                                 <p>
+                                  <img src="../../img/<?php echo $row['ns_photo_1'];?>" alt="<?php echo $row['ns_alt_1'];?>">
+                                 </p>
                                <?php } ?>
                   
 
@@ -105,8 +104,13 @@ if ($_GET) {
 <script type="text/javascript">
 	$(document).ready(function() {
 
-          //-- alt 圖說 --
+          //-- alt 圖說 & 手機加入fancybox --
           img_txt('.news_div p img');
+                  
+          //-- 圖寬限制 --
+          img_750_w('.news_div img');
+          //-- table 優化 --
+          html_table('.news_div>table');
 
           $('#confirm_btn').click(function(event) {
             location.replace('admin.php?MT_id=<?php echo $_GET['MT_id'];?>');

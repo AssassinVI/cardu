@@ -8,7 +8,7 @@ if ($_POST) {
 		$Tb_index='nt'.date('YmdHis').rand(0,99);
      
 
-  $OrderBy=pdo_select("SELECT OrderBy FROM news_type ORDER BY OrderBy DESC LIMIT 0,1", 'no');
+  $OrderBy=pdo_select("SELECT OrderBy FROM news_type WHERE mt_id=:mt_id AND nt_sp=1 ORDER BY OrderBy DESC LIMIT 0,1", 'no');
   $OrderBy=(int)$OrderBy['OrderBy']+1;
 
   $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0:1;
@@ -69,29 +69,7 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="unit_id"><span class="text-danger">*</span>主題單元</label>
 							<div class="col-md-10">
-								<?php 
-								  //-- 版區 --
-                                  $area=$NewPdo->select("SELECT * FROM appArea WHERE Tb_index=:Tb_index", ['Tb_index'=>'at2019021114154632'], 'one');
-
-                                  //-- 單元 --
-                                  $unit=$NewPdo->select("SELECT * FROM appUnit");
-                                  $unit_arr=[];
-                                  foreach ($unit as $unit_one) {
-                                  	$unit_arr[$unit_one['Tb_index']]=$unit_one['un_name'];
-                                  }
-
-                                  $at_unit=explode(',', $area['at_unit']);
-                                  foreach ($at_unit as $at_unit_one) {
-                                  	if ($row['unit_id']== $at_unit_one) {
-                                  		echo '<label><input type="radio" name="unit_id" value="'.$at_unit_one.'" checked> '.$unit_arr[$at_unit_one].'</label>｜';
-                                  	}
-                                  	else{
-                                  		echo '<label><input type="radio" name="unit_id" value="'.$at_unit_one.'"> '.$unit_arr[$at_unit_one].'</label>｜';
-                                  	}
-                                  	
-                                  }
-								?>
-								
+								<label><input type="radio" name="unit_id" value="un2019011716575635" checked> 卡好康</label>
 							</div>
 			            </div>
 
@@ -114,13 +92,13 @@ if ($_GET) {
               <div class="col-md-10">
                 <div class="row">
                   <div class="col-md-5">
-                    <input type="date" class="form-control" id="nt_sp_begin_date" name="nt_sp_begin_date" value="<?php echo $row['nt_sp_begin_date'];?>">
+                    <input type="text" class="form-control datepicker_range from" id="nt_sp_begin_date" name="nt_sp_begin_date" placeholder="年-月-日" value="<?php echo $row['nt_sp_begin_date'];?>" >
                   </div>
                   <div class="col-md-2">
                     <h3 class="text-center">到</h3>
                   </div>
                   <div class="col-md-5">
-                    <input type="date" class="form-control" id="nt_sp_end_date" name="nt_sp_end_date" value="<?php echo $row['nt_sp_end_date'];?>">
+                    <input type="text" class="form-control datepicker_range to" id="nt_sp_end_date" name="nt_sp_end_date" placeholder="年-月-日" value="<?php echo $row['nt_sp_end_date'];?>">
                   </div>
                   
                 </div>

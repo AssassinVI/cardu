@@ -95,7 +95,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<header>新聞預覽</header>
+					<header>預覽卡情報</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
 					<form class="form-horizontal put_form">
@@ -124,10 +124,9 @@
 							  </div>
 							  <div>
                                <?php if(!empty($row['ns_photo_1'])){ ?>
-                                 <div class="img_div">
-                                 	<img style="width: 100%;" src="../../img/<?php echo $row['ns_photo_1'];?>" alt="">
-                                 	<p>▲<?php echo $row['ns_alt_1'];?></p>
-                                 </div>
+                                  <p>
+                                  <img src="../../img/<?php echo $row['ns_photo_1'];?>" alt="<?php echo $row['ns_alt_1'];?>">
+                                 </p>
                                <?php } ?>
 							  	
 
@@ -136,11 +135,10 @@
                                 </div>
                                
                                <?php if(!empty($row['ns_photo_2'])){ ?>
-							  	<div class="img_div">
-							  		<img style="width: 100%;" src="../../img/<?php echo $row['ns_photo_2'];?>" alt="">
-							  		<p>▲<?php echo $row['ns_alt_2'];?></p>
-							  	</div>
-							   <?php } ?>
+							  	               <p>
+                                  <img src="../../img/<?php echo $row['ns_photo_2'];?>" alt="<?php echo $row['ns_alt_2'];?>">
+                                 </p>
+							                 <?php } ?>
 
                   <?php echo $note; ?>
                   <?php echo $ns_news_txt; ?>
@@ -216,10 +214,6 @@
 <?php  include("../../core/page/windows_footer01.php");//載入頁面footer02.php?>
 <script type="text/javascript">
 	$(document).ready(function() {
-
-		//-- alt 圖說 --
-		img_txt('.news_div p img');
-
     
     //-- 查看展開 --
     $('.check_bank_card').click(function(event) {
@@ -228,6 +222,19 @@
 
       
 });
+
+
+$(window).on('load',  function(event) {
+        
+      //-- alt 圖說 --
+      img_txt('.news_div p img');
+
+      //-- 圖寬限制 --
+      img_750_w('.news_div p img');
+      //-- table 優化 --
+      html_table('.news_div>table');
+
+  });
 
 	
 </script>

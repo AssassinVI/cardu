@@ -52,7 +52,7 @@ if ($_POST) {
     }
     
 	//-- 跳至修改單卡權益 --
-	//location_up('../debit_card_one/manager.php?MT_id=site2019031616304770&Tb_index='.$Tb_index.'0','成功新增');
+	location_up('../debit_card_one/manager.php?MT_id=site2019033014263399&Tb_index='.$Tb_index.'0','成功新增');
    }
 
    //修改
@@ -108,7 +108,7 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>新增金融卡
@@ -142,8 +142,28 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="note"><span class="text-danger">*</span> 發卡組織/卡等</label>
 							<div class="col-md-10">
+								<table>
+								  <tbody>
 								<?php
+
 								     foreach ($org as $org_one) {
+								      echo '<tr class="card_level">';
+								      echo '<td><label><input type="checkbox" name="dc_debitorg[]" > '.$org_one['org_nickname'].'</label></td>';
+
+                                       $card_level=$NewPdo->select("SELECT ol.level_id 
+                                       	                            FROM org_level as ol
+                                       	                            INNER JOIN card_level as cl ON cl.Tb_index=ol.level_id
+                                       	                            WHERE ol.org_id=:org_id 
+                                       	                            ORDER BY cl.OrderBy ASC", ['org_id'=>$org_one['Tb_index']]);
+                                       foreach ($card_level as $card_level_one) {
+                                       	echo '<td><label><input type="checkbox" disabled name="dc_card_orglevel[]" value="'.$org_one['Tb_index'].','.$card_level_one['level_id'].'"> '.$level_name[$card_level_one['level_id']].'</label></td>';
+                                       }
+
+								      echo '</tr>';
+								     }
+
+
+								    /* foreach ($org as $org_one) {
 								      echo '<div class="card_level">';
 								      echo '<label><input type="checkbox" name="dc_debitorg[]" > '.$org_one['org_nickname'].'</label>';
                                       echo '<div>';
@@ -153,16 +173,17 @@ if ($_GET) {
                                        }
 								      echo '</div>';
 								      echo '</div>';
-								     }
+								     }*/
 								?>
-								
+								</tbody>
+							  </table>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-md-2 control-label" >發行日期</label>
 							<div class="col-md-10 form-inline">
-								<input type="date" class="form-control" id="dc_publish" name="dc_publish" value="<?php echo $row['dc_publish'];?>">
+								<input type="text" class="form-control datepicker" id="dc_publish" name="dc_publish" value="<?php echo $row['dc_publish'];?>">
 							</div>
 						</div>
 
@@ -232,24 +253,19 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-6">
-							<button type="button" class="btn btn-danger btn-block btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="clean_all()">重設表單</button>
-						</div>
-						<div class="col-lg-6">
-						<?php if(empty($_GET['Tb_index'])){?>
-							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">儲存</button>
-						<?php }else{?>
-						    <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">更新</button>
-						<?php }?>
-						</div>
-					</div>
+				<div class="panel-body text-center">
+					<?php if(empty($_GET['Tb_index'])){?>
+						<button type="button" id="submit_btn" class="btn btn-info btn-raised">儲存</button>
+					<?php }else{?>
+					    <button type="button" id="submit_btn" class="btn btn-info btn-raised">更新</button>
+					<?php }?>
+
+					<button type="button" class="btn btn-danger btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="grtBack()">放棄</button>
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
@@ -285,11 +301,11 @@ if ($_GET) {
           //-- 展開卡等 --
           $('.card_level [name="dc_debitorg[]"]').change(function(event) {
           	if ($(this).prop('checked')==true) {
-          	  $(this).parent().next().css('display', 'block');
+          	  $(this).parents('td').nextAll().find('input').prop('disabled', false);
           	}
           	else{
-          	  $(this).parent().next().css('display', 'none');
-          	  $(this).parent().next().find('[name="dc_debitlevel[]"]').prop('checked', false);
+          	  $(this).parents('td').nextAll().find('input').prop('disabled', true);
+          	  $(this).parents('td').nextAll().find('input').prop('checked', false);
           	}
           });
 

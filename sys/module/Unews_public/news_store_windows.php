@@ -14,8 +14,11 @@
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
+	<!-- 關閉視窗 -->
+	<a class="close_fancybox" href="javascript:;">Ｘ</a>
+
 	<div class="row">
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>商店搜尋
@@ -48,17 +51,16 @@
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-md-2">關鍵字</label>
-							<div class="col-md-10">
+							<label class="control-label col-xs-2">關鍵字</label>
+							<div class="col-xs-8">
 								<input type="text" id="st_keyWord" class="form-control">
+							</div>
+							<div class="col-xs-2 ">
+								<button type="button" id="search_store" class="btn btn-success">搜尋</button>
 							</div>
 						</div>
                         
-                        <div class="form-group">
-                        	<div class="col-md-12 text-center">
-								<button type="button" id="search_store" class="btn btn-success">搜尋</button>
-							</div>
-                        </div>
+
 						
 						<div class="form-group">
 						  <div class="col-md-12 ">
@@ -72,7 +74,7 @@
 		</div>
 
 
-        <div id="search_div" class="col-lg-3">
+        <div id="search_div" class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>搜尋結果</header>
@@ -119,20 +121,14 @@
 		</div>
 		
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-xs-6">
-							<button type="button" class="btn btn-default btn-block btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
-						</div>
-						<div class="col-xs-6">
-						   <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">確定</button>
-						</div>
-					</div>
+				<div class="panel-body text-center">
+					<button type="button" id="submit_btn" class="btn btn-info btn-raised">確定</button>
+					<button type="button" class="btn btn-default btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->

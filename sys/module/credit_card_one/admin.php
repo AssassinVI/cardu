@@ -24,9 +24,7 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 
-	<div class="row">
-		<div class="col-lg-4">
-			<div class="panel panel-success">
+			<div class="panel panel-success" style="width: 700px;">
                  <div class="panel-heading">
                      修改單卡權益
                  </div>
@@ -81,12 +79,7 @@ if ($_GET) {
                      </form>
                  </div>
              </div>
-	</div>
 
-
-   
-	
-</div>
 </div><!-- /#page-content -->
 <?php  include("../../core/page/footer01.php");//載入頁面footer01.php?>
 <script type="text/javascript">
@@ -167,18 +160,20 @@ if ($_GET) {
           success:function (data) {
             $("#select_card_level").html('<option value="">請選擇</option>');
             
+            //-- 只有單張直接選取 --
+            var sel_one_card=data.length==1 ? 'selected':'';
+
             //-- 正常使用 --
             $.each(data, function(index, val) {
               if (this['cc_stop_publish']=='0' && this['cc_stop_card']=='0') {
-                $("#select_card_level").append('<option value="'+this['Tb_index']+'">'+this['level_name']+'</option>');
-
+                $("#select_card_level").append('<option '+sel_one_card+' value="'+this['Tb_index']+'">'+this['level_name']+'</option>');
               }
             });
             
             //-- 停發/停卡 --
             $.each(data, function(index, val){
               if (this['cc_stop_publish']=='1' || this['cc_stop_card']=='1'){
-                   $("#select_card_level").append('<option status="stop" value="'+this['Tb_index']+'">'+this['level_name']+'('+this['cc_status_name']+')</option>');
+                   $("#select_card_level").append('<option '+sel_one_card+' status="stop" value="'+this['Tb_index']+'">'+this['level_name']+'('+this['cc_status_name']+')</option>');
               }
             });
           }

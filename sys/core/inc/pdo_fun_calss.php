@@ -5,28 +5,48 @@
   */
  class PDO_fun
  {
- 	
- 	private $_dbname = 'srltw_cardu'; //資料庫名稱
-	private $_user_id = 'srltw_newsite'; //使用者ID
-	private $_user_pwd = '1qazXSW@3'; //使用者密碼
-	
 
+      //-- 一般 --
+      private $_dbname = 'srltw_cardu'; //資料庫名稱
+	  private $_user_id = 'srltw_newsite'; //使用者ID
+	  private $_user_pwd = '1qazXSW@3'; //使用者密碼
+        
+      //-- 廣告 --
+	  private $_ad_dbname = 'srltw_carduad'; //資料庫名稱
+	  private $_ad_user_id = 'srltw_newsite'; //使用者ID
+	  private $_ad_user_pwd = '1qazXSW@3'; //使用者密碼
+        
+ 		
 	public $pdo_obj; //PDO物件
     public $tb_name; //新增、修改、刪除 資料表名稱
 
     
     //-- 建構子 --
-	function __construct()
+	function __construct($db_type='cardu')
 	{
-		$this->_pdo_conn();
+        
+		if ($db_type=='cardu') {
+		   $this->_pdo_conn(); 
+		}
+		elseif($db_type=='carduad'){
+		   $this->_ad_pdo_conn(); 
+		}
+		
 	}
 
 	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ PDO連線 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
- 	 function _pdo_conn() {
+ 	function _pdo_conn() {
 		$this->pdo_obj = new PDO("mysql:host=localhost;dbname=".$this->_dbname, $this->_user_id, $this->_user_pwd);
 		$this->pdo_obj->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); //禁用prepared statements的模擬效果
 		$this->pdo_obj->exec("SET NAMES UTF8");
 	}
+
+	function _ad_pdo_conn() {
+		$this->pdo_obj = new PDO("mysql:host=localhost;dbname=".$this->_ad_dbname, $this->_ad_user_id, $this->_ad_user_pwd);
+		$this->pdo_obj->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); //禁用prepared statements的模擬效果
+		$this->pdo_obj->exec("SET NAMES UTF8");
+	}
+
 
 
 	/* ----------------------- PDO 查詢 --------------------------- */

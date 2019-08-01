@@ -77,6 +77,23 @@
 
     echo json_encode($row);
   }
+
+
+
+
+  //------------------------------ 輸入標題網址 -----------------------------------------
+  elseif($_POST['type']=='news_extends'){
+    $Tb_index='news_ex'.date('YmdHis').rand(0,99);
+    $param=[
+      'Tb_index'=>$Tb_index,
+      'ne_ns_pk_ext_ftitle'=>$_POST['ne_ns_pk_ext_ftitle'],
+      'ne_ns_pk_ext_url'=>$_POST['ne_ns_pk_ext_url']
+    ];
+    $pdo->insert('news_extends_custom', $param);
+    echo $Tb_index;
+  }
+
+
   
   //------------------------------ 頁數 -----------------------------------------
   elseif($_POST['type']=='page'){

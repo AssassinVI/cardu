@@ -67,6 +67,7 @@ if ($_POST) {
               $group=pdo_select("SELECT Permissions FROM sysAdminGroup WHERE Tb_index=:Tb_index", $group_where);
               $group_txt.=$group['Permissions'];
             }
+            $group_txt=substr($group_txt, 0,-1);
 
             $group_array=explode(',', $group_txt);
 

@@ -43,7 +43,7 @@ if ($_GET) {
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="col-lg-12">
 		<h2 class="text-primary"><?php echo $page_name['MT_Name']?> 列表</h2>
-		<p>本頁面條列出所有的文章清單，如需檢看或進行管理，請由每篇文章右側 管理區進行，感恩 <b class="text-danger">(點擊空白處拖曳可更改排序)</b></p>
+		<p><b class="text-danger">(點擊空白處拖曳可更改排序)</b></p>
 	   <div class="new_div">
 
         <button style="display: none;" id="sort_btn" type="button" class="btn btn-success">
@@ -71,7 +71,8 @@ if ($_GET) {
 								<th>項目2名稱</th>
 								<th>項目3名稱</th>
 								<th>使用狀態</th>
-								<th class="text-right">管理</th>
+								<th style="width: 80px;">編輯</th>
+								<th style="width: 80px;">刪除</th>
 
 							</tr>
 						</thead>
@@ -100,22 +101,19 @@ if ($_GET) {
 								<th><?php echo $row['cc_so_type_02_cname'] ?></th>
 								<th><?php echo $row['cc_so_type_03_cname'] ?></th>
                                 <td class="nowrap"><?php echo $cc_so_status;?></td>
-								<td class="text-right nowrap">
-
-								<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
-								<button type="button" class="btn btn-rounded btn-info btn-sm">
-								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								編輯</button>
-								</a>
-
-								<a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
-								   onclick="if (!confirm('確定要刪除 [<?php echo $row['aTitle']?>] ?')) {return false;}">
-								<button type="button" class="btn btn-rounded btn-warning btn-sm">
-								<i class="fa fa-trash" aria-hidden="true"></i>
-								刪除</button>
-								</a>
-
+								<td>
+								  <a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
+								  <i class="fa fa-pencil-square" aria-hidden="true"></i>編輯
+								  </a>
 								</td>
+                                <td>
+								  <a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
+								     onclick="if (!confirm('確定要刪除 [<?php echo $row['aTitle']?>] ?')) {return false;}">
+								  <i class="fa fa-trash" aria-hidden="true"></i>刪除
+								  </a>
+							    </td>
+
+								
 
 								<input type="hidden" class="sort_in" name="cc_so_order[]" value="<?php echo $row['Tb_index'];?>">
 							</tr>

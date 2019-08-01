@@ -38,9 +38,9 @@ while ($bar = $sql->fetch(PDO::FETCH_ASSOC)) {
     
 
     if (isset($_SESSION['group'])) {
-        if (!in_array($bar['mt_Tb_index'], $_SESSION['group'])) {
+       if (!in_array($bar['mt_Tb_index'], $_SESSION['group'])) {
            continue;
-        }
+       }
     }elseif ($_SESSION['admin_per']!='admin') {
         continue;
     }

@@ -6,6 +6,9 @@
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
+	<!-- 關閉視窗 -->
+	<a class="close_fancybox" href="javascript:;">Ｘ</a>
+	
 	<div class="row">
 		<div class="col-lg-3">
 			<div class="panel panel-default">

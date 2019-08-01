@@ -30,7 +30,7 @@ if ($_GET) {
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="col-lg-12">
 		<h2 class="text-primary"><?php echo $page_name['MT_Name']?> 列表</h2>
-		<p>本頁面條列出所有的文章清單，如需檢看或進行管理，請由每篇文章右側 管理區進行，感恩</p>
+		<span class="text-danger">(點擊空白處拖曳可更改排序)</span>
 	   <div class="new_div">
 
         <button id="sort_btn" type="button" class="btn btn-default">
@@ -81,9 +81,7 @@ if ($_GET) {
 								<td class="text-right">
 
 								<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
-								<button type="button" class="btn btn-rounded btn-info btn-sm">
-								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								編輯</button>
+								  <i class="fa fa-pencil-square" aria-hidden="true"></i>編輯
 								</a>
 
 								
@@ -133,7 +131,8 @@ if ($_GET) {
 								<th>檔期時間</th>
 								<th>上架中數量</th>
 								<th>累計總數</th>
-								<th class="text-right">管理</th>
+								<th style="width: 80px;">編輯</th>
+								<th style="width: 80px;">刪除</th>
 
 							</tr>
 						</thead>
@@ -143,6 +142,7 @@ if ($_GET) {
 								<td>0</td>
 								<td> <input type="radio" name="nt_sp_idx" index="null"></td>
 								<td>無預設首頁</td>
+								<td></td>
 								<td></td>
 								<td></td>
 								<td></td>
@@ -181,30 +181,30 @@ if ($_GET) {
 								<td><?php echo $row['nt_online'];?></td>
 								<td><?php echo $row['nt_total'];?></td>
 
-								<td class="text-right">
-								<a href="manager_sp.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
-								<button type="button" class="btn btn-rounded btn-info btn-sm">
-								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								編輯</button>
-								</a>
+								<td>
+								  <a href="manager_sp.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
+								  <i class="fa fa-pencil-square" aria-hidden="true"></i>編輯
+								  </a>
+								</td>
                              
-                            <?php
-                              if($is_del_btn){
-                            ?>
 
-                               <a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
+                              <td>
+                               <?php
+                                 if($is_del_btn){
+                               ?>
+                               
+                                <a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
 								   onclick="if (!confirm('確定要刪除 [<?php echo $row['nt_name']?>] ?')) {return false;}">
-								<button type="button" class="btn btn-rounded btn-warning btn-sm">
-								<i class="fa fa-trash" aria-hidden="true"></i>
-								刪除</button>
+								<i class="fa fa-trash" aria-hidden="true"></i>刪除
 								</a>
-                            <?php
-                              }
-                            ?> 
+                               <?php
+                                 }
+                               ?> 
+                             </td>
 								
 
 					
-								</td>
+								
 							</tr>
 						<?php $i++; }?>
 						</tbody>
@@ -232,8 +232,8 @@ if ($_GET) {
                  revert: 300,
                  placeholder: "sortable_new_placeholder"
         });
-
-
+ 
+        //------------------------------- 更新排序(主題) -------------------------
 		$("#sort_btn").click(function(event) {
 		        
         var arr_OrderBy=new Array();
@@ -246,7 +246,7 @@ if ($_GET) {
 
 
           var data={ Tb_index: arr_Tb_index };
-          console.log(data);
+         
              ajax_in('admin.php', data, 'no', 'no');
 
           alert('更新排序');
@@ -254,7 +254,7 @@ if ($_GET) {
 		});
 
 
-
+        //------------------------------- 更新排序(特別議題) -------------------------
 		$("#sort_sp_btn").click(function(event) {
 		        
         var arr_OrderBy=new Array();

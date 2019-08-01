@@ -28,6 +28,7 @@ if ($_GET) {
    $sql=$pdo->prepare("SELECT * FROM card_org WHERE mt_id=:mt_id  ORDER BY OrderBy ASC");
    $sql->execute( ["mt_id"=>$_GET['MT_id']] );
 
+   $card_type=$_GET['MT_id']=='site2018110611172385' ? '信用卡':'金融卡';
 
 }
 
@@ -36,8 +37,8 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="col-lg-12">
-		<h2 class="text-primary"><?php echo $page_name['MT_Name']?> 列表</h2>
-		<p>本頁面條列出所有的文章清單，如需檢看或進行管理，請由每篇文章右側 管理區進行，感恩 <b class="text-danger">(點擊空白處拖曳可更改排序)</b></p>
+		<h2 class="text-primary"><?php echo $card_type.$page_name['MT_Name']?> 列表</h2>
+        <p class="text-danger">(點擊空白處拖曳可更改排序)</p>
 	   <div class="new_div">
 
         <button style="display: none;" id="sort_btn" type="button" class="btn btn-success">
@@ -62,7 +63,8 @@ if ($_GET) {
 								<th>組織簡稱</th>
 								<th>圖示</th>
 								<th>狀態</th>
-								<th class="text-right">管理</th>
+								<th style="width: 80px;">編輯</th>
+								<th style="width: 80px;">刪除</th>
 
 							</tr>
 						</thead>
@@ -70,6 +72,7 @@ if ($_GET) {
 
 						<?php $i=1; while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {
                                 $OnLineOrNot=$row['OnLineOrNot']=='1' ? '使用中': '未使用';
+
 							?>
 							<tr style="background-color: #fff;">
 								<td><?php echo $i?></td>
@@ -77,22 +80,27 @@ if ($_GET) {
 								<td><?php echo $row['org_nickname'] ?></td>
 								<td><img style="width: 50px;" src="../../img/<?php echo $row['org_image'] ?>"></td>
                                 <td><?php echo $OnLineOrNot;?></td>
-								<td class="text-right">
 
+								<td>
 								<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
-								<button type="button" class="btn btn-rounded btn-info btn-sm">
 								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								編輯</button>
+								編輯
 								</a>
-
-								<a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
-								   onclick="if (!confirm('確定要刪除 [<?php echo $row['org_name']?>] ?')) {return false;}">
-								<button type="button" class="btn btn-rounded btn-warning btn-sm">
-								<i class="fa fa-trash" aria-hidden="true"></i>
-								刪除</button>
-								</a>
-
 								</td>
+                                
+                                <td>
+                                	
+                                 <?php if(in_array($_GET['MT_id'].'-del', $_SESSION['group']) || $_SESSION['admin_per']=='admin'){?>
+
+								  <a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
+								   onclick="if (!confirm('確定要刪除 [<?php echo $row['org_name']?>] ?')) {return false;}">
+								  <i class="fa fa-trash" aria-hidden="true"></i>
+								  刪除
+								  </a>
+
+								<?php }?>
+							    </td>
+
 
 								<input type="hidden" class="sort_in" name="OrderBy[]" value="<?php echo $row['Tb_index'];?>">
 							</tr>
@@ -111,8 +119,8 @@ if ($_GET) {
 
        //-- 拖曳更新排序 --
        $( ".table-responsive .table tbody" ).sortable({
-
              revert: 300,
+             placeholder: "sortable_new_placeholder",
              update: function( event, ui ) {
              	$("#sort_btn").css('display', 'inline-block');
              }

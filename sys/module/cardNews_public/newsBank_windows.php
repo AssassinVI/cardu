@@ -22,6 +22,9 @@
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
+	<!-- 關閉視窗 -->
+	<a class="close_fancybox" href="javascript:;">Ｘ</a>
+	
 	<div class="row">
 		<div class="col-lg-3">
 			<div class="panel panel-default">
@@ -60,10 +63,8 @@
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body text-center">
-					<button type="button" class="btn btn-default  btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
-					<button type="button" id="submit_btn" class="btn btn-info  btn-raised">確定</button>
-
-					
+					<button type="button" id="submit_btn" class="btn btn-info btn-raised">確定</button>
+					<button type="button" class="btn btn-default btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
 		</div>

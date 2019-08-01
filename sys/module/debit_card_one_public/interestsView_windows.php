@@ -1,7 +1,8 @@
 <?php include("../../core/page/windows_header01.php");//載入頁面heaer01 ?>
 <style type="text/css">
- .table-hover>tbody>.activity>td{ background-color: #ffed50; }
- .table-hover>tbody>.activity:hover>td{ background-color: #f9df05; }
+ .table-hover>tbody>.activity>td{ background-color: #FF9291; }
+ .table-hover>tbody>.activity:hover>td{ background-color: #e48483; }
+ .table-hover>tbody>tr>td{ font-size: 15px; }
 </style>
 <?php include("../../core/page/windows_header02.php");//載入頁面heaer02?>
 <?php 
@@ -60,7 +61,7 @@
             </table>
 
             <div>
-              <span style="display: inline-block; width: 20px; height: 10px; background-color: #ffed50;"></span> 目前生效權益
+              <span style="display: inline-block; width: 20px; height: 10px; background-color: #fe9191;"></span> 目前生效權益
             </div>
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->

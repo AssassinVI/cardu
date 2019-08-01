@@ -120,7 +120,7 @@ if ($_GET) {
 								<input type="text" class="form-control" readonly id="ccs_cc_cardname" name="ccs_cc_cardname" value="<?php echo $row['ccs_cc_cardname'];?>">
 							</div>
               <div class="col-md-6">
-                <a id="ccard_name_btn" href="../credit_cardrank_public/card_one_windows.php" class="btn btn-default" data-fancybox data-type="iframe" >選擇卡片</a>
+                <a id="ccard_name_btn" href="../credit_cardrank_public/card_one_windows.php" class="btn btn-success" data-fancybox data-type="iframe" >選擇卡片</a>
                 <label><input type="radio" <?php echo $card_One; ?> name="card_OneOrGroup" value="one">單卡</label>｜<label><input type="radio" <?php echo $card_Group; ?> name="card_OneOrGroup" value="group">卡組</label>
                 <span class="text-danger">註：先勾選信用卡為單卡或卡組</span>
               </div>

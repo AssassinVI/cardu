@@ -59,8 +59,8 @@ $columns = array(
         'db'        => 'Tb_index',
         'dt'        => 13,
         'formatter' => function( $d, $row ) {
-            //-- 主標 --
-            $row_name=pdo_select("SELECT ns_ftitle FROM NewsAndType WHERE Tb_index=:Tb_index", ['Tb_index'=>$d]);
+            //-- 主標 + 網址 --
+            $row_name=pdo_select("SELECT * FROM NewsAndType WHERE Tb_index=:Tb_index", ['Tb_index'=>$d]);
             $url=news_url($row_name['mt_id'], $row_name['Tb_index'], $row_name['ns_nt_pk'], $row_name['area_id']);
             return '            
                                 <a href="javascript:;" onclick="window.open(\'../news_public/newsView_windows.php?Tb_index='.$d.'\', \''.$row_name['ns_ftitle'].'\', config=\'height=800,width=900\');" >

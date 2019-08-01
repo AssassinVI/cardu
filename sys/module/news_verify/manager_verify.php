@@ -32,6 +32,9 @@ if($_POST){
   //-- 更新排序 --
   $row_news=$NewPdo->select("SELECT ns_nt_pk FROM appNews WHERE Tb_index=:Tb_index", ['Tb_index'=>$_POST['Tb_index']], 'one');
   $NewPdo->select("UPDATE appNews SET ns_sort=ns_sort+1, ns_nt_pk_sort=ns_nt_pk_sort+1 WHERE ns_nt_pk=:ns_nt_pk", ['ns_nt_pk'=>$row_news['ns_nt_pk']]);
+
+  //-- 分類上架數量+1 & 累計總數+1 --
+  $NewPdo->select("UPDATE news_type SET nt_online=nt_online+1, nt_total=nt_total+1 WHERE Tb_index=:Tb_index", ['Tb_index'=>$row_news['ns_nt_pk']]);
   
   location_up('admin.php?MT_id='.$_POST['MT_id'], '審核完成');
 }
@@ -279,8 +282,6 @@ if ($_GET) {
 <script type="text/javascript">
 	$(document).ready(function() {
 
-         //-- alt 圖說 --
-         img_txt('.news_div p img');
 
 
           $('#confirm_btn').click(function(event) {
@@ -415,10 +416,19 @@ if ($_GET) {
 
 
       });
-
+  
 
 	$(window).on('load',  function(event){
 		sessionStorage.clear();
+
+
+    //-- alt 圖說 --
+    img_txt('.news_div p img');
+
+    //-- 圖寬限制 --
+    img_750_w('.news_div img');
+    //-- table 優化 --
+    html_table('.news_div>table');
         
         //-- 新聞分類 --
 		if ($('[name="ns_nt_pk"]').length>0) {

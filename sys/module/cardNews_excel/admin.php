@@ -30,7 +30,7 @@ if ($_GET) {
 		<div class="col-lg-6">
 			<div class="panel panel-success">
                  <div class="panel-heading">
-                     卡情報查詢
+                     匯出Excel
                  </div>
                  <div class="panel-body">
                      <form id="search_ns_form" class="form-horizontal" method="POST" action="show_excel.php" target='TheWindows'>
@@ -90,7 +90,7 @@ if ($_GET) {
                       </div>
 
                       <div class="form-group">
-                        <label class="col-md-2 control-label" >新聞狀態</label>
+                        <label class="col-md-2 control-label" >情報狀態</label>
                         <div class="col-md-10">
                           <select class="form-control"  name="ns_verify">
                             <option value="3">上架中</option>

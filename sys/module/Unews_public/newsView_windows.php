@@ -13,7 +13,23 @@
 
    $newsType_name=$NewPdo->select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_pk']], 'one');
   $newsType_sp_name=$NewPdo->select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_sp_pk']], 'one');
-  $newsType_txt=empty($newsType_sp_name['nt_name']) ? $newsType_name['nt_name'] : $newsType_name['nt_name'].'｜'.$newsType_sp_name['nt_name'].'｜';
+  
+  //-- 情報分類 --
+  $ns_nt_pk_sql=str_replace(",", "','", $row['ns_nt_pk']);
+  $ns_nt_pk_sql="'".$ns_nt_pk_sql."'";
+  $newsType_name=$NewPdo->select("SELECT nt.nt_name, un.un_name
+                                  FROM news_type as nt 
+                                  INNER JOIN appUnit as un ON un.Tb_index=nt.unit_id
+                                  WHERE nt.Tb_index IN ($ns_nt_pk_sql)");
+  $newsType_name_txt='';
+  foreach ($newsType_name as $newsType_name_one) {
+    $newsType_name_txt.=$newsType_name_one['un_name'].'-'.$newsType_name_one['nt_name'].'，';
+  }
+  $newsType_name_txt=mb_substr($newsType_name_txt, 0,-1);
+  $newsType_sp_name=$NewPdo->select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_sp_pk']], 'one');
+  $newsType_txt=empty($newsType_sp_name['nt_name']) ? $newsType_name_txt : $newsType_name_txt.'｜'.$newsType_sp_name['nt_name'].'｜';
+  //-- 情報分類 --
+
   $Start_End_day=$row['StartDate'].' ~ '.$row['EndDate'];
 
   //-- 情報來源 --
@@ -101,11 +117,12 @@
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
+  
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<header>新聞預覽</header>
+					<header>優情報預覽</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
 					<form class="form-horizontal put_form">
@@ -120,10 +137,9 @@
 							  </div>
 							  <div>
                                <?php if(!empty($row['ns_photo_1'])){ ?>
-                                 <div class="img_div">
-                                 	<img style="width: 100%;" src="../../img/<?php echo $row['ns_photo_1'];?>" alt="">
-                                 	<p>▲<?php echo $row['ns_alt_1'];?></p>
-                                 </div>
+                                 <p>
+                                  <img src="../../img/<?php echo $row['ns_photo_1'];?>" alt="<?php echo $row['ns_alt_1'];?>">
+                                 </p>
                                <?php } ?>
 							  	
 
@@ -132,11 +148,10 @@
                                 </div>
                                
                                <?php if(!empty($row['ns_photo_2'])){ ?>
-							  	<div class="img_div">
-							  		<img style="width: 100%;" src="../../img/<?php echo $row['ns_photo_2'];?>" alt="">
-							  		<p>▲<?php echo $row['ns_alt_2'];?></p>
-							  	</div>
-							   <?php } ?>
+							  	                <p>
+                                   <img src="../../img/<?php echo $row['ns_photo_2'];?>" alt="<?php echo $row['ns_alt_2'];?>">
+                                  </p>
+							                 <?php } ?>
 
                                 <?php echo $note; ?>
                                 <?php echo $ns_news_txt; ?>
@@ -189,53 +204,19 @@
 
 <?php  include("../../core/page/windows_footer01.php");//載入頁面footer02.php?>
 <script type="text/javascript">
-	$(document).ready(function() {
-
-		//-- alt 圖說 --
-		img_txt('.news_div p img');
-
-         //  $("#submit_btn").click(function(event) {
-           
-         //      $("#over_bank",parent.document).html('');
-              
-         //      var news_bank_arr=[];
-         //      $.each($('[name="news_bank"]:checked'), function() {
-         //      	 //-- 銀行 --
-         //         $("#over_bank",parent.document).append( '<span class="label">'+$(this).attr('bankName')+' <input type="hidden" name="ns_bank[]" value="'+$(this).val()+'"></span>、' );
-
-         //         news_bank_arr.push($(this).val());
-         //      });
-
-         //       //-- 記錄暫存 --
-         //       sessionStorage.setItem("news_bank", news_bank_arr);
-         //      parent.jQuery.fancybox.close();	
-            
-         //  });
-         
-         // //-- 重設 --
-         // $('#close_btn').click(function(event) {
-         // 	$('.put_form').trigger('reset');
-         // });
-
-      
-      });
-    
-    //-- 讀取記錄 --
-	// $(window).on('load',  function(event) {
+   
+  
+	$(window).on('load',  function(event) {
         
-	// 	if (sessionStorage.getItem("news_bank")!=undefined) {
+		    //-- alt 圖說 & 手機加入fancybox --
+        img_txt('.news_div p img');
+                
+        //-- 圖寬限制 --
+        img_750_w('.news_div p img');
+        //-- table 優化 --
+        html_table('.news_div>table');
 
-	// 		var news_bank_arr=sessionStorage.getItem("news_bank");
-	// 		    news_bank_arr=news_bank_arr.split(',');
-
-	// 		for (var i = 0; i < news_bank_arr.length; i++) {
-				
-	// 			$('[value="'+news_bank_arr[i]+'"]').prop('checked', true); 
-	// 		}
-			
-	// 	}
-
-	// });
+	});
 	
 </script>
 <?php  include("../../core/page/windows_footer02.php");//載入頁面footer02.php?>

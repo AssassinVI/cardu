@@ -28,6 +28,12 @@ if($_POST){
   ];
   $where=['Tb_index'=>$_POST['Tb_index']];
   pdo_update('appNews', $parem, $where);
+
+  //-- 分類上架數量-1 & 累計總數-1 --
+  if ($_POST['ns_verify']=='5' || $_POST['ns_verify']=='6') {
+    $row_news=$NewPdo->select("SELECT ns_nt_pk FROM appNews WHERE Tb_index=:Tb_index", ['Tb_index'=>$_POST['Tb_index']], 'one');
+    $NewPdo->select("UPDATE news_type SET nt_online=nt_online-1, nt_total=nt_total-1 WHERE Tb_index=:Tb_index", ['Tb_index'=>$row_news['ns_nt_pk']]);
+  }
   
   location_up('admin.php?MT_id='.$_POST['MT_id'], '審核完成');
 }

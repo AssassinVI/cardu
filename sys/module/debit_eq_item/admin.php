@@ -59,7 +59,8 @@ if ($_GET) {
 								<th>權益項目</th>
 								<th>權益類型</th>
 								<th>量化規則</th>
-								<th class="text-right">管理</th>
+								<th>編輯</th>
+								<th>刪除</th>
 
 							</tr>
 						</thead>
@@ -91,24 +92,21 @@ if ($_GET) {
 								<td><?php echo $row['eq_name'] ?></td>
 								<td><?php echo $eq_type; ?></td>
 								<td><?php echo $row['eq_txt'] ?></td>
-								<td class="text-right">
-
-								<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
-								<button type="button" class="btn btn-rounded btn-info btn-sm">
-								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								編輯</button>
-								</a>
-
-								<a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
+								<td style="width: 80px;">
+								  <a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
+								  <i class="fa fa-pencil-square" aria-hidden="true"></i>
+								  編輯
+								  </a>
+								</td>
+                                <td style="width: 80px;">
+								  <a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
 								   onclick="if (!confirm('確定要刪除 [<?php echo $row['pref_name']?>] ?')) {return false;}">
-								<button type="button" class="btn btn-rounded btn-warning btn-sm">
-								<i class="fa fa-trash" aria-hidden="true"></i>
-								刪除</button>
-								</a>
+								  <i class="fa fa-trash" aria-hidden="true"></i>
+								  刪除
+								  </a>
+							    </td>
 
 					
-								</td>
-
 								<input type="hidden" class="sort_in" name="OrderBy[]" value="<?php echo $row['Tb_index'];?>">
 							</tr>
 						<?php $i++; }?>

@@ -13,9 +13,22 @@ if ($_GET) {
 
   $ns_reporter_type=$row['ns_reporter_type']==2 ? '發表人':'記者';
   
-  $newsType_name=$NewPdo->select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_pk']], 'one');
+  //-- 情報分類 --
+  $ns_nt_pk_sql=str_replace(",", "','", $row['ns_nt_pk']);
+  $ns_nt_pk_sql="'".$ns_nt_pk_sql."'";
+  $newsType_name=$NewPdo->select("SELECT nt.nt_name, un.un_name
+                                  FROM news_type as nt 
+                                  INNER JOIN appUnit as un ON un.Tb_index=nt.unit_id
+                                  WHERE nt.Tb_index IN ($ns_nt_pk_sql)");
+  $newsType_name_txt='';
+  foreach ($newsType_name as $newsType_name_one) {
+    $newsType_name_txt.=$newsType_name_one['un_name'].'-'.$newsType_name_one['nt_name'].'，';
+  }
+  $newsType_name_txt=mb_substr($newsType_name_txt, 0,-1);
   $newsType_sp_name=$NewPdo->select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_sp_pk']], 'one');
-  $newsType_txt=empty($newsType_sp_name['nt_name']) ? $newsType_name['nt_name'] : $newsType_name['nt_name'].'｜'.$newsType_sp_name['nt_name'].'｜';
+  $newsType_txt=empty($newsType_sp_name['nt_name']) ? $newsType_name_txt : $newsType_name_txt.'｜'.$newsType_sp_name['nt_name'].'｜';
+  //-- 情報分類 --
+
   $Start_End_day=$row['StartDate'].' ~ '.$row['EndDate'];
 
   //-- 情報來源 --
@@ -106,10 +119,10 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<header>網頁預覽
+					<header>預覽優情報
 					</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
@@ -124,10 +137,9 @@ if ($_GET) {
                 <div>
                                
                                <?php if(!empty($row['ns_photo_1'])){ ?>
-                                 <div class="img_div">
-                                  <img style="width: 100%;" src="../../img/<?php echo $row['ns_photo_1'];?>" alt="">
-                                  <p>▲<?php echo $row['ns_alt_1'];?></p>
-                                 </div>
+                                 <p>
+                                  <img src="../../img/<?php echo $row['ns_photo_1'];?>" alt="<?php echo $row['ns_alt_1'];?>">
+                                 </p>
                                <?php } ?>
                   
 
@@ -136,16 +148,10 @@ if ($_GET) {
                                 </div>
                                
                                <?php if(!empty($row['ns_photo_2'])){ ?>
-                  <div class="img_div">
-                    <img style="width: 100%;" src="../../img/<?php echo $row['ns_photo_2'];?>" alt="">
-                    <?php 
-                      if (!empty($row['ns_alt_2'])) {
-                        echo '<p>▲'.$row['ns_alt_2'].'</p>';
-                      }
-                    ?>
-                    
-                  </div>
-                 <?php } ?>
+                                 <p>
+                                  <img src="../../img/<?php echo $row['ns_photo_2'];?>" alt="<?php echo $row['ns_alt_2'];?>">
+                                 </p>
+                               <?php } ?>
 
                  <?php echo $note; ?>
                  <?php echo $ns_news_txt; ?>
@@ -169,21 +175,15 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-6">
-							<button type="button" id="confirm_btn" class="btn btn-info btn-block btn-flat">確定</button>
-						</div>
-            <div class="col-lg-6">
-              <button type="button" id="back_btn" class="btn btn-danger btn-block btn-flat" >返回</button>
-            </div>
-					</div>
-					
+				<div class="panel-body text-center">
+          <button type="button" id="confirm_btn" class="btn btn-info btn-flat">確定</button>
+          <button type="button" id="back_btn" class="btn btn-danger btn-flat" >返回</button>
+
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
 		</div>
@@ -195,8 +195,13 @@ if ($_GET) {
 <script type="text/javascript">
 	$(document).ready(function() {
 
-          //-- alt 圖說 --
+          //-- alt 圖說 & 手機加入fancybox --
           img_txt('.news_div p img');
+                  
+          //-- 圖寬限制 --
+          img_750_w('.news_div p img');
+          //-- table 優化 --
+          html_table('.news_div>table');
 
           $('#confirm_btn').click(function(event) {
             location.replace('admin.php?MT_id=<?php echo $_GET['MT_id'];?>');

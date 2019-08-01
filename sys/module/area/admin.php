@@ -50,7 +50,6 @@ if ($_GET) {
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="col-lg-12">
 		<h2 class="text-primary"><?php echo $page_name['MT_Name']?> 列表</h2>
-		<p>本頁面條列出所有的文章清單，如需檢看或進行管理，請由每篇文章右側 管理區進行，感恩</p>
 	   <div class="new_div">
 
         <button id="sort_btn" type="button" class="btn btn-default">
@@ -101,7 +100,7 @@ if ($_GET) {
                                 <td><?php echo $at_unit4=empty($at_unit[3]) ? '': $unit_arr[$at_unit[3]] ; ?></td>
                                 <td><?php echo $at_unit5=empty($at_unit[4]) ? '': $unit_arr[$at_unit[4]] ; ?></td>
 
-								<td><?php  echo $OnLineOrNot=$row['OnLineOrNot']==0 ? '未使用':'使用中'; ?></td>
+								<td><?php  echo $OnLineOrNot=$row['OnLineOrNot']==0 ? '關閉':'使用中'; ?></td>
 								<td><input type="number" class="sort_in" name="OrderBy" Tb_index="<?php echo $row['Tb_index'];?>" value="<?php echo $row['OrderBy'] ?>"></td>
 				
 								

@@ -12,43 +12,6 @@
 <?php include("../../core/page/header02.php");//載入頁面heaer02?>
 <?php 
 if ($_POST) {
-
-    if (!empty($_POST['type']) && $_POST['type']=='delete') { //刪除
-    	if (!empty($_POST['ns_photo_1'])) {
-    		    $param=array('ns_photo_1'=>'');
-            $where=array('Tb_index'=>$_POST['Tb_index']);
-            pdo_update('appNews', $param, $where);
-
-            unlink('../../img/'.$_POST['ns_photo_1']);
-    	}
-      elseif(!empty($_POST['ns_photo_2'])){
-            $param=array('ns_photo_2'=>'');
-            $where=array('Tb_index'=>$_POST['Tb_index']);
-            pdo_update('appNews', $param, $where);
-
-            unlink('../../img/'.$_POST['ns_photo_2']);
-      }
-     //  else{
-    	// 	 //----------------------- 多檔刪除 -------------------------------
-    	// 	$sel_where=array('Tb_index'=>$_POST['Tb_index']);
-    	// 	$otr_file=pdo_select('SELECT OtherFile FROM appNews WHERE Tb_index=:Tb_index', $sel_where);
-    	// 	$otr_file=explode(',', $otr_file['OtherFile']);
-
-    	// 	for ($i=0; $i <count($otr_file)-1 ; $i++) { //比對 
-    	// 		 if ($otr_file[$i]!=$_POST['OtherFile']) {
-    	// 		 	$new_file.=$otr_file[$i].',';
-    	// 		 }else{
-    	// 		 	 unlink('../../other_file/'.$_POST['OtherFile']);
-    	// 		 }
-    	// 	}
-    	// 	$param=array('OtherFile'=>$new_file);
-     //        $where=array('Tb_index'=>$_POST['Tb_index']);
-     //        pdo_update('appNews', $param, $where);
-    	// }
-
-       exit();
-  	}
-
    
    //========================================= 新增=========================================
    //========================================= 新增=========================================
@@ -165,135 +128,7 @@ if ($_POST) {
    }
 
 
-   //========================================= 修改=========================================
-   //========================================= 修改=========================================
-   //========================================= 修改=========================================
-
-   else{ 
-
-   	$Tb_index =$_POST['Tb_index'];
-
-
-     //----------------------- 檔案判斷 -------------------------
-   	   //-- 上圖檔 --
-      if (!empty($_FILES['ns_photo_1']['name'])) {
-
-      	if (test_img($_FILES['ns_photo_1']['name'])){
-      			$type=explode('/', $_FILES['ns_photo_1']['type']);
-      			$ns_photo_1=$Tb_index.'_1-'.date("His").'.'.$type[1];
-      		    ecstart_convert_jpeg_NEW($_FILES['ns_photo_1']['tmp_name'],'../../img/'.$ns_photo_1, 750);
-
-      		  $ns_photo_1_param=array('ns_photo_1'=>$ns_photo_1);
-      		  $ns_photo_1_where=array('Tb_index'=>$Tb_index);
-      		  pdo_update('appNews', $ns_photo_1_param, $ns_photo_1_where);
-      	}else{
-      		location_up('admin.php?MT_id='.$_POST['mt_id'],'圖檔錯誤!請上傳圖片檔');
-      		exit();
-      	}
-      }
- 
-       //-- 下圖檔 --
-      if (!empty($_FILES['ns_photo_2']['name'])) {
-
-      	if (test_img($_FILES['ns_photo_2']['name'])){
-      			$type=explode('/', $_FILES['ns_photo_2']['type']);
-      			$ns_photo_2=$Tb_index.'_2-'.date("His").'.'.$type[1];
-      		    ecstart_convert_jpeg_NEW($_FILES['ns_photo_2']['tmp_name'],'../../img/'.$ns_photo_2, 750);
-
-      		  $ns_photo_2_param=array('ns_photo_2'=>$ns_photo_2);
-      		  $ns_photo_2_where=array('Tb_index'=>$Tb_index);
-      		  pdo_update('appNews', $ns_photo_2_param, $ns_photo_2_where);
-      	}else{
-      		location_up('admin.php?MT_id='.$_POST['mt_id'],'圖檔錯誤!請上傳圖片檔');
-      		exit();
-      	}
-      }
-
-
-      //-------------------- 多檔上傳 ------------------------------
-      // if (!empty($_FILES['OtherFile']['name'][0])) {
-
-      // 	$sel_where=array('Tb_index'=>$Tb_index);
-      // 	$now_file =pdo_select("SELECT OtherFile FROM appNews WHERE Tb_index=:Tb_index", $sel_where);
-      // 	if (!empty($now_file['OtherFile'])) {
-      // 	   $sel_file=explode(',', $now_file['OtherFile']);
-      //      $file_num=explode('_', $sel_file[count($sel_file)-2]);
-      //      $file_num=explode('.', $file_num[2]);
-      //      $file_num=(int)$file_num[0]+1;
-      // 	}else{
-      // 	   $file_num=0;
-      // 	}
-
-      // 	for ($i=0; $i <count($_FILES['OtherFile']['name']) ; $i++) { 
-
-      // 	  if (test_file($_FILES['OtherFile']['name'][$i])){
-      //           $type=explode('/', $_FILES['OtherFile']['type'][$i]);
-      //       	$OtherFile.=$Tb_index.'-'.date("His").'_other_'.($file_num+$i).'.'.$type[1].',';
-      //          more_other_upload('OtherFile', $i, $Tb_index.'-'.date("His").'_other_'.($file_num+$i).'.'.$type[1]);
-      // 	 }else{
-      // 	 		   location_up('admin.php?MT_id='.$_POST['mt_id'],'檔案錯誤!請上傳正確檔案');
-      // 	 	       exit();
-      // 	 }
-      // 	}
-
-      // 	$OtherFile=$now_file['OtherFile'].$OtherFile;
-      	 
-      //   $OtherFile_param=array('OtherFile'=>$OtherFile);
-      //   $OtherFile_where=array('Tb_index'=>$Tb_index);
-      //   pdo_update('appNews', $OtherFile_param, $OtherFile_where);
-      // }
-      	//--------------------------- 多檔上傳END -----------------------------------
    
-   $ns_nt_pk=empty($_POST['ns_nt_pk']) ? '': $_POST['ns_nt_pk'];
-   $ns_nt_sp_pk=empty($_POST['ns_nt_sp_pk']) ? '': $_POST['ns_nt_sp_pk'];
-   $ns_nt_ot_pk=empty($_POST['ns_nt_ot_pk']) ? '': implode(',', $_POST['ns_nt_ot_pk']);
-   $ns_store=empty($_POST['ns_store']) ? '' : $_POST['ns_store'];
-   $ns_news=empty($_POST['ns_news']) ? '' : implode(',', $_POST['ns_news']);
-   $ns_label=empty($_POST['ns_label']) ? '': implode(',', $_POST['ns_label']);
-   $ns_bank=empty($_POST['ns_bank']) ? '' : implode(',', $_POST['ns_bank']);
-   $ns_org=empty($_POST['ns_org']) ? '' : implode(',', $_POST['ns_org']);
-   $StartDate=empty($_POST['StartDate']) ? date('Y-m-d') : $_POST['StartDate'];
-   $EndDate=empty($_POST['EndDate']) ? '2200-12-31' : $_POST['EndDate'];
-   $ns_date=empty($_POST['ns_date']) ? date('Y-m-d') : $_POST['ns_date'];
-
-   //-- 無發卡組織/銀行 --
-   if(!empty($_POST['no_BankOrg'])){
-      $ns_bank='no';
-      $ns_org='no';
-   }
-    
-    $param=array(  
-                   'ns_nt_pk'=>$ns_nt_pk,
-                'ns_nt_sp_pk'=>$ns_nt_sp_pk,
-                'ns_nt_ot_pk'=>$ns_nt_ot_pk,
-                'ns_store'=>$ns_store,
-                 'ns_news'=>$ns_news,
-		          'ns_ftitle'=>$_POST['ns_ftitle'],
-		          'ns_stitle'=>$_POST['ns_stitle'],
-		         'ns_msghtml'=>$_POST['ns_msghtml'],
-		           'ns_alt_1'=>$_POST['ns_alt_1'],
-		           'ns_alt_2'=>$_POST['ns_alt_2'],
-		           'ns_label'=>$ns_label,
-		            'ns_bank'=>$ns_bank,
-		             'ns_org'=>$ns_org,
-		        'ns_reporter'=>$_POST['ns_reporter'],
-		   'ns_reporter_type'=>$_POST['ns_reporter_type'],
-                    'ns_date'=>$ns_date,
-		          'StartDate'=>$StartDate,
-		            'EndDate'=>$EndDate,
-              'ns_verify'=>$_POST['ns_verify']
-		          );
-
-    //-- 完稿時間 --
-  if ($_POST['ns_verify']==2) {
-    $param=array_merge($param, ['ns_fwdate'=>date('Y-m-d H:i:s')]);
-  }
-
-    $where=array( 'Tb_index'=>$Tb_index );
-	pdo_update('appNews', $param, $where);
-	
-  location_up('manager_view.php?MT_id='.$_POST['mt_id'].'&Tb_index='.$Tb_index,'');
-  }
 }
 
 if ($_GET) {
@@ -311,7 +146,7 @@ if ($_GET) {
  	$ns_reporter_type1=$row['ns_reporter_type']==1 ? 'checked': '';
  	$ns_reporter_type2=$row['ns_reporter_type']==2 ? 'checked': '';
  	$StartDate=empty($row['StartDate']) ? date('Y-m-d'): $row['StartDate'];
- 	$EndDate=empty($row['EndDate']) ? date('Y-m-d', strtotime('+3 month')) : $row['EndDate'];
+ 	$EndDate=empty($row['EndDate']) ? date('Y-m-d', strtotime('+6 month')) : $row['EndDate'];
 }
 
 
@@ -620,11 +455,11 @@ if ($_GET) {
 							<label class="col-md-2 control-label" for="StartDate">新聞上架日期</label>
 							<div class="col-md-10 row">
 								<div class="col-md-5">
-								  <input type="text" class="form-control datepicker" id="StartDate" name="StartDate" value="<?php echo $StartDate;?>">
+								  <input type="text" class="form-control datepicker_range from" id="StartDate" name="StartDate" value="<?php echo $StartDate;?>">
 								</div>
                                 <div class="col-md-1"><h3>至</h3></div>
 								<div class="col-md-5">
-								  <input type="text" class="form-control datepicker" id="EndDate" name="EndDate" value="<?php echo $EndDate;?>">
+								  <input type="text" class="form-control datepicker_range to" id="EndDate" name="EndDate" value="<?php echo $EndDate;?>">
 								</div>
 								<div class="col-md-1"><h3>止</h3></div>
 								
@@ -680,7 +515,11 @@ if ($_GET) {
 <?php  include("../../core/page/footer01.php");//載入頁面footer02.php?>
 <script type="text/javascript">
 	$(document).ready(function() {
-
+         
+          //-- 新聞發佈日連動新聞上架日期 --
+          $('#ns_date').change(function(event) {
+            $('#StartDate').val($(this).val());
+          });
           
           //-- 清除銀行、發卡組織 --
           $('#clean_BankOrg').click(function(event) {

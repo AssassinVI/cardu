@@ -239,8 +239,6 @@
           <button type="button" id="submit_btn" class="btn btn-info  btn-raised">確定</button>
           <button type="button" class="btn btn-default  btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
           <button type="button" id="close_btn" class="btn btn-default  btn-flat" >重設</button>
-
-					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
 		</div>

@@ -13,7 +13,7 @@ if ($_POST) {
   // }
   
   //-- 搜尋URL --
-  $news_ajax_url='member_ajax.php?MT_id='.$_GET['MT_id'].
+  $news_ajax_url='admin_list_ajax.php?MT_id='.$_GET['MT_id'].
   '&area_id='.$_POST['area_id'].
   '&ns_nt_pk='.$_POST['ns_nt_pk'].
   '&ns_nt_sp_pk='.$_POST['ns_nt_sp_pk'].
@@ -44,7 +44,6 @@ if ($_GET) {
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="col-lg-12">
 		<h2 class="text-primary"><?php echo $page_name['MT_Name']?> 列表</h2>
-		<p>本頁面條列出所有的文章清單，如需檢看或進行管理，請由每篇文章右側 管理區進行，感恩</p>
 	   <div class="new_div">
 
        <!--  <button id="sort_btn" type="button" class="btn btn-default">
@@ -60,27 +59,36 @@ if ($_GET) {
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 			<div class="panel-body">
+        <div class="text-right">
+          <?php 
+           if (!empty($_POST['ns_nt_pk'])) {
+          ?>
+            <a href="javascript:;" onclick="window.open('../Unews_public/news_sort_windows.php?ns_nt_pk=<?php echo $_POST['ns_nt_pk'];?>', '文章排序', config='height=800,width=1450');" >文章排序</a>
+          <?php
+           }
+          ?>
+        </div>
 				<div class="table-responsive">
 					<table id="table_id_example" class="display">
 						<thead>
 							<tr>
-                <th>版區分類</th>
-								<th>主分類</th>
+                <th style="width: 30px">版區分類</th>
+								<th style="width: 50px">主分類</th>
 								<th>主標題</th>
                 <th>商店名稱</th>
                 <th>卡組織/銀行</th>
 								<th>點閱數(PC)</th>
 								<th>點閱數(手機)</th>
 								<th>FB按讚數</th>
-								<th>情報狀態</th>
-                <th>活動期間</th>
-								<th>上架期間</th>
+								<th style="width: 50px">情報狀態</th>
+                <th style="width: 85px">活動期間</th>
+								<th style="width: 85px">上架期間</th>
                 <th>撰稿者</th>
                 <th>審核者</th>
-                <th>審核時間</th>
-                
+                <th style="width: 85px">審核時間</th>
+                <th>排序</th>
 								
-								<th>管理</th>
+								<th style="width: 320px;">管理</th>
 
 							</tr>
 						</thead>
@@ -100,7 +108,7 @@ if ($_GET) {
 	$(document).ready(function() {
 
      var table = $('#table_id_example').DataTable({
-        //"order": [[13,'desc']],
+        "order": [[14,'asc'],[13,'desc']],
         	language:{
         "sProcessing": "處理中...",
         "sLengthMenu": "顯示 _MENU_ 項結果",
@@ -127,8 +135,8 @@ if ($_GET) {
         	},
          //-- GET 數過多導致資訊錯誤 (少兩列就正常) --
         "ajax": {
-          url:"<?php echo $news_ajax_url;?>"
-         
+          "url":"<?php echo $news_ajax_url;?>",
+          "type": "POST"
         },
         "processing": true,
         "serverSide": true
@@ -174,7 +182,7 @@ if ($_GET) {
       if (confirm('是否確定要刪除 ['+$(this).parents('tr').find('td:nth-child(3)').html()+'] ? \r\n 按[確定]確定刪除 \r\n 按[取消]取消刪除')) {
         if (confirm('再次確定是否要刪除 ['+$(this).parents('tr').find('td:nth-child(3)').html()+'] ? \r\n 按[確定]確定刪除 \r\n 按[取消]取消刪除')) {
           $.ajax({
-            url: 'admin_list_ajax.php',
+            url: 'admin_list_del_ajax.php',
             type: 'POST',
             data: {
               type:'delete',

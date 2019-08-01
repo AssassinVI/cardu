@@ -73,26 +73,26 @@ if ($_GET) {
                       <div class="form-group">
                             <label class="col-md-2 control-label" >活動期間</label>
                             <div class="col-md-10 form-inline">
-                              <input type="date" name="activity_s_date" class="form-control"> ~ <input type="date" name="activity_e_date" class="form-control">
+                              <input type="text" name="activity_s_date " class="form-control datepicker_range from"> ~ <input type="text" name="activity_e_date" class="form-control datepicker_range to">
                             </div>
                       </div>
                       
                       <div class="form-group">
                             <label class="col-md-2 control-label" >上架時間</label>
                             <div class="col-md-10 form-inline">
-                              <input type="date" name="StartDate" class="form-control" value=""> ~ <input type="date" name="EndDate" class="form-control" value="">
+                              <input type="text" name="StartDate" class="form-control datepicker_range from" value=""> ~ <input type="text" name="EndDate" class="form-control datepicker_range to" value="">
                             </div>
                       </div>
 
                       <div class="form-group">
                             <label class="col-md-2 control-label" >審核期間</label>
                             <div class="col-md-10 form-inline">
-                              <input type="date" name="ns_st_vfdate" class="form-control"> ~ <input type="date" name="ns_en_vfdate" class="form-control">
+                              <input type="text" name="ns_st_vfdate" class="form-control datepicker_range from"> ~ <input type="text" name="ns_en_vfdate" class="form-control datepicker_range to">
                             </div>
                       </div>
 
                       <div class="form-group">
-                        <label class="col-md-2 control-label" >新聞狀態</label>
+                        <label class="col-md-2 control-label" >情報狀態</label>
                         <div class="col-md-10">
                           <select class="form-control"  name="ns_verify">
                             <option value="3">上架中</option>

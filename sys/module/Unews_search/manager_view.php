@@ -15,7 +15,23 @@ if ($_GET) {
   
   $newsType_name=$NewPdo->select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_pk']], 'one');
   $newsType_sp_name=$NewPdo->select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_sp_pk']], 'one');
-  $newsType_txt=empty($newsType_sp_name['nt_name']) ? $newsType_name['nt_name'] : $newsType_name['nt_name'].'｜'.$newsType_sp_name['nt_name'].'｜';
+  
+  //-- 情報分類 --
+  $ns_nt_pk_sql=str_replace(",", "','", $row['ns_nt_pk']);
+  $ns_nt_pk_sql="'".$ns_nt_pk_sql."'";
+  $newsType_name=$NewPdo->select("SELECT nt.nt_name, un.un_name
+                                  FROM news_type as nt 
+                                  INNER JOIN appUnit as un ON un.Tb_index=nt.unit_id
+                                  WHERE nt.Tb_index IN ($ns_nt_pk_sql)");
+  $newsType_name_txt='';
+  foreach ($newsType_name as $newsType_name_one) {
+    $newsType_name_txt.=$newsType_name_one['un_name'].'-'.$newsType_name_one['nt_name'].'，';
+  }
+  $newsType_name_txt=mb_substr($newsType_name_txt, 0,-1);
+  $newsType_sp_name=$NewPdo->select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_sp_pk']], 'one');
+  $newsType_txt=empty($newsType_sp_name['nt_name']) ? $newsType_name_txt : $newsType_name_txt.'｜'.$newsType_sp_name['nt_name'].'｜';
+  //-- 情報分類 --
+
   $Start_End_day=$row['StartDate'].' ~ '.$row['EndDate'];
 
   //-- 情報來源 --

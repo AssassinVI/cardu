@@ -4,8 +4,8 @@ include("../../core/page/header02.php");//載入頁面heaer02?>
 <?php 
 if ($_POST) {
    // -- 更新排序 --
-  for ($i=0; $i <count($_POST['OrderBy']) ; $i++) { 
-    $data=["OrderBy"=>$_POST['OrderBy'][$i]];
+  for ($i=0; $i <count($_POST['Tb_index']) ; $i++) { 
+    $data=["OrderBy"=>($i+1)];
     $where=["Tb_index"=>$_POST['Tb_index'][$i]];
     pdo_update('news_type', $data, $where);
   }
@@ -40,7 +40,6 @@ if ($_GET) {
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="col-lg-12">
 		<h2 class="text-primary"><?php echo $area['at_name'].' '.$page_name['MT_Name']?> 列表</h2>
-		<p>本頁面條列出所有的文章清單，如需檢看或進行管理，請由每篇文章右側 管理區進行，感恩</p>
 	   <div class="new_div">
 
         <button id="sort_btn" type="button" class="btn btn-default">
@@ -72,7 +71,7 @@ if ($_GET) {
 
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="tb">
 
 						<?php 
 						  $i=1; foreach ($row as $row_one) {
@@ -83,11 +82,14 @@ if ($_GET) {
 								<td><?php echo $unit_arr[$row_one['unit_id']]; ?></td>
 								<td><?php echo $row_one['nt_name']; ?></td>
 								<td>
-									<?php  echo $OnLineOrNot=$row_one['OnLineOrNot']==0 ? '未使用':'使用中'; ?>
+									<?php  echo $OnLineOrNot=$row_one['OnLineOrNot']==0 ? '關閉':'使用中'; ?>
 								</td>
 								<td><?php echo $row_one['nt_online'];?></td>
 								<td><?php echo $row_one['nt_total'];?></td>
-								<td><input type="number" class="sort_in" name="OrderBy" Tb_index="<?php echo $row_one['Tb_index'];?>" value="<?php echo $row_one['OrderBy'] ?>"></td>
+								<td>
+                                   <span><?php echo $row_one['OrderBy'] ?></span>
+                                   <input type="hidden" class="sort_in" name="OrderBy" Tb_index="<?php echo $row_one['Tb_index'];?>" value="<?php echo $row_one['OrderBy'] ?>">
+								</td>
 				
 								
 								<td class="text-right">
@@ -118,6 +120,9 @@ if ($_GET) {
 
    <div class="col-lg-12 text-right">
 
+   	       <button id="sort_sp_btn" type="button" class="btn btn-default">
+   	       <i class="fa fa-sort-amount-desc"></i> 更新排序</button>
+
    		    <a href="manager_sp.php?MT_id=<?php echo $_GET['MT_id'];?>&area_id=<?php echo $_GET['area_id'];?>">
    	          <button type="button" class="btn btn-default">
    	          <i class="fa fa-plus" aria-hidden="true"></i> 新增特別議題</button>
@@ -146,7 +151,7 @@ if ($_GET) {
 
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="tb_sp">
 
 							<tr>
 								<td>0</td>
@@ -184,7 +189,10 @@ if ($_GET) {
 								<td>
 									<?php  echo $OnLineOrNot; ?> 
 								</td>
-								<td><input type="number" class="sort_in" name="OrderBy" Tb_index="<?php echo $row_sp_one['Tb_index'];?>" value="<?php echo $row_sp_one['OrderBy'] ?>"></td>
+								<td>
+									<span><?php echo $row_sp_one['OrderBy'] ?></span>
+									<input type="hidden" class="sort_sp_in" name="OrderBy" Tb_index="<?php echo $row_sp_one['Tb_index'];?>" value="<?php echo $row_sp_one['OrderBy'] ?>">
+								</td>
 								<td style="color:<?php echo $time_color;?>;"><?php echo $row_sp_one['nt_sp_begin_date'].' to '.$row_sp_one['nt_sp_end_date'];?></td>
 								<td><?php echo $row_sp_one['nt_online'];?></td>
 								<td><?php echo $row_sp_one['nt_total'];?></td>
@@ -228,25 +236,62 @@ if ($_GET) {
 <?php  include("../../core/page/footer01.php");//載入頁面footer01.php?>
 <script type="text/javascript">
 	$(document).ready(function() {
+
+      
+      //------------------------------- 拖曳更新排序 -------------------------
+      $( ".table-responsive .tb" ).sortable({
+               revert: 300,
+               placeholder: "sortable_new_placeholder"
+      });
+
+
+      //------------------------------- 拖曳更新排序 -------------------------
+      $( ".table-responsive .tb_sp" ).sortable({
+               revert: 300,
+               placeholder: "sortable_new_placeholder"
+      });
+
+
+
+		//------------------------------- 更新排序(主題) -------------------------
 		$("#sort_btn").click(function(event) {
 		        
         var arr_OrderBy=new Array();
         var arr_Tb_index=new Array();
 
           $(".sort_in").each(function(index, el) {
+
+                arr_Tb_index.push($(this).attr('Tb_index'));
+          });
+
+
+          var data={ Tb_index: arr_Tb_index };
+          
+             ajax_in('admin_type.php', data, 'no', 'no');
+
+          alert('更新排序');
+         location.replace('admin_type.php?MT_id=<?php echo $_GET['MT_id'];?>&area_id=<?php echo $_GET['area_id'];?>');
+		});
+
+
+        //------------------------------- 更新排序(特別議題) -------------------------
+		$("#sort_sp_btn").click(function(event) {
+		        
+        var arr_OrderBy=new Array();
+        var arr_Tb_index=new Array();
+
+          $(".sort_sp_in").each(function(index, el) {
            
-             	arr_OrderBy.push($(this).val());
                 arr_Tb_index.push($(this).attr('Tb_index'));
           });
 
           var data={ 
-                        OrderBy: arr_OrderBy,
                        Tb_index: arr_Tb_index 
                       };
-             ajax_in('admin.php', data, 'no', 'no');
+             ajax_in('admin_type.php', data, 'no', 'no');
 
           alert('更新排序');
-         location.replace('admin.php?MT_id=<?php echo $_GET['MT_id'];?>');
+         location.replace('admin_type.php?MT_id=<?php echo $_GET['MT_id'];?>&area_id=<?php echo $_GET['area_id'];?>');
 		});
 
 

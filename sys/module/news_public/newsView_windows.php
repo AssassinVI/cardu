@@ -104,56 +104,22 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-		//-- alt 圖說 --
-		img_txt('.news_div p img');
 
-		//-- 圖寬限制 --
-		img_750_w('.news_div img');
-		//-- table 優化 --
-		html_table('.news_div>table');
-
-         //  $("#submit_btn").click(function(event) {
-           
-         //      $("#over_bank",parent.document).html('');
-              
-         //      var news_bank_arr=[];
-         //      $.each($('[name="news_bank"]:checked'), function() {
-         //      	 //-- 銀行 --
-         //         $("#over_bank",parent.document).append( '<span class="label">'+$(this).attr('bankName')+' <input type="hidden" name="ns_bank[]" value="'+$(this).val()+'"></span>、' );
-
-         //         news_bank_arr.push($(this).val());
-         //      });
-
-         //       //-- 記錄暫存 --
-         //       sessionStorage.setItem("news_bank", news_bank_arr);
-         //      parent.jQuery.fancybox.close();	
-            
-         //  });
-         
-         // //-- 重設 --
-         // $('#close_btn').click(function(event) {
-         // 	$('.put_form').trigger('reset');
-         // });
 
       
       });
-    
-    //-- 讀取記錄 --
-	// $(window).on('load',  function(event) {
+
+	$(window).on('load',  function(event) {
         
-	// 	if (sessionStorage.getItem("news_bank")!=undefined) {
+      //-- alt 圖說 --
+      img_txt('.news_div p img');
 
-	// 		var news_bank_arr=sessionStorage.getItem("news_bank");
-	// 		    news_bank_arr=news_bank_arr.split(',');
+      //-- 圖寬限制 --
+      img_750_w('.news_div img');
+      //-- table 優化 --
+      html_table('.news_div>table');
 
-	// 		for (var i = 0; i < news_bank_arr.length; i++) {
-				
-	// 			$('[value="'+news_bank_arr[i]+'"]').prop('checked', true); 
-	// 		}
-			
-	// 	}
-
-	// });
+	});
 	
 </script>
 <?php  include("../../core/page/windows_footer02.php");//載入頁面footer02.php?>

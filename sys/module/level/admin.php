@@ -17,22 +17,14 @@ if ($_GET) {
 
     $where=['Tb_index'=>$_GET['Tb_index']];
 
-   	$del_row=pdo_select('SELECT aPic, OtherFile FROM card_level WHERE Tb_index=:Tb_index', $where);
-   	if (isset($del_row['aPic'])) { unlink('../../img/'.$del_row['aPic']); }
-    if (isset($del_row['OtherFile'])) {
-
-      $OtherFile=explode(',', $del_row['OtherFile']);
-      for ($i=0; $i <count($OtherFile)-1 ; $i++) { 
-      	 unlink('../../img/'.$OtherFile[$i]); 
-      }
-   }
-
    	 pdo_delete('card_level', $where);
    }
    
    $pdo=pdo_conn();
    $sql=$pdo->prepare("SELECT * FROM card_level WHERE mt_id=:mt_id  ORDER BY OrderBy ASC");
    $sql->execute( ["mt_id"=>$_GET['MT_id']] );
+
+   $OnLineOrNot=$row['OnLineOrNot']=='0' ? '關閉':'使用中';
 }
 
 ?>
@@ -41,7 +33,7 @@ if ($_GET) {
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="col-lg-12">
 		<h2 class="text-primary"><?php echo $page_name['MT_Name']?> 列表</h2>
-		<p>本頁面條列出所有的文章清單，如需檢看或進行管理，請由每篇文章右側 管理區進行，感恩 <b class="text-danger">(點擊空白處拖曳可更改排序)</b></p>
+		<p><b class="text-danger">(點擊空白處拖曳可更改排序)</b></p>
 	   <div class="new_div">
 
         <button style="display: none;" id="sort_btn" type="button" class="btn btn-success">
@@ -63,7 +55,9 @@ if ($_GET) {
 							<tr>
 								<th>#</th>
 								<th>名稱</th>
-								<th class="text-right">管理</th>
+								<th>使用狀態</th>
+								<th style="width: 80px;">編輯</th>
+								<th style="width: 80px;">刪除</th>
 
 							</tr>
 						</thead>
@@ -72,26 +66,28 @@ if ($_GET) {
 						<?php $i=1; while ($row=$sql->fetch(PDO::FETCH_ASSOC)) {?>
 							<tr>
 								<td><?php echo $i?></td>
-								<td><?php echo $row['attr_name'] ?></td>
-				
+								<td><?php echo $row['attr_name']; ?></td>
+				                <td><?php echo $OnLineOrNot; ?></td>
 								
-								<td class="text-right">
-
+								<td>
 								<a href="manager.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" >
-								<button type="button" class="btn btn-rounded btn-info btn-sm">
 								<i class="fa fa-pencil-square" aria-hidden="true"></i>
-								編輯</button>
+								編輯
 								</a>
-
-								<a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
-								   onclick="if (!confirm('確定要刪除 [<?php echo $row['attr_name']?>] ?')) {return false;}">
-								<button type="button" class="btn btn-rounded btn-warning btn-sm">
-								<i class="fa fa-trash" aria-hidden="true"></i>
-								刪除</button>
-								</a>
+								</td>
+                                
+                                <td>
+                                <?php if(in_array($_GET['MT_id'].'-del', $_SESSION['group']) || $_SESSION['admin_per']=='admin'){?>
+								   <a href="admin.php?MT_id=<?php echo $_GET['MT_id']?>&Tb_index=<?php echo $row['Tb_index'];?>" 
+								      onclick="if (!confirm('確定要刪除 [<?php echo $row['attr_name']?>] ?')) {return false;}">
+								   <i class="fa fa-trash" aria-hidden="true"></i>
+								   刪除
+								   </a>
+							    <?php }?>
+								</td>
 
 					
-								</td>
+								
 
 								<input type="hidden" class="sort_in" name="OrderBy[]" value="<?php echo $row['Tb_index'];?>">
 							</tr>
@@ -111,6 +107,7 @@ if ($_GET) {
        $( ".table-responsive .table tbody" ).sortable({
 
              revert: 300,
+             placeholder: "sortable_new_placeholder",
              update: function( event, ui ) {
              	$("#sort_btn").css('display', 'inline-block');
              }

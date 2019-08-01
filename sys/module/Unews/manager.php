@@ -1,11 +1,6 @@
 <?php include("../../core/page/header01.php");//載入頁面heaer01 ?>
 <style type="text/css">
-	.fancybox-slide--iframe .fancybox-content {
-    width  : 700px;
-    max-width  : 80%;
-    max-height : 80%;
-    margin: 0;
-}
+
 
 #over_bank{ margin-bottom: 15px; }
 .form-group{ margin-bottom:0; padding: 1rem 0; }
@@ -114,7 +109,7 @@ if ($_POST) {
         }
       }else{ $OtherFile=''; }
       
-      $ns_nt_pk=empty($_POST['ns_nt_pk']) ? '': $_POST['ns_nt_pk'];
+      $ns_nt_pk=empty($_POST['ns_nt_pk']) ? '': implode(',', $_POST['ns_nt_pk']);
       $ns_nt_sp_pk=empty($_POST['ns_nt_sp_pk']) ? '': $_POST['ns_nt_sp_pk'];
       $ns_nt_ot_pk=empty($_POST['ns_nt_ot_pk']) ? '': implode(',', $_POST['ns_nt_ot_pk']);
       $ns_store=empty($_POST['ns_store']) ? '' : $_POST['ns_store'];
@@ -128,7 +123,6 @@ if ($_POST) {
       $StartDate=empty($_POST['StartDate']) ? date('Y-m-d') : $_POST['StartDate'];
       $EndDate=empty($_POST['EndDate']) ? '2200-12-31' : $_POST['EndDate'];
       $ns_date=empty($_POST['ns_date']) ? date('Y-m-d') : $_POST['ns_date'];
-      $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0: 1 ;
 
       //-- 無發卡組織/銀行 --
       if(!empty($_POST['no_BankOrg'])){
@@ -171,7 +165,6 @@ if ($_POST) {
               'activity_e_date'=>$activity_e_date,
 		          'StartDate'=>$StartDate,
 		            'EndDate'=>$EndDate,
-		        'OnLineOrNot'=>$OnLineOrNot,
               'ns_verify'=>$_POST['ns_verify']
 		          );
   
@@ -265,7 +258,7 @@ if ($_POST) {
       }
       	//--------------------------- 多檔上傳END -----------------------------------
    
-   $ns_nt_pk=empty($_POST['ns_nt_pk']) ? '': $_POST['ns_nt_pk'];
+   $ns_nt_pk=empty($_POST['ns_nt_pk']) ? '': implode(',', $_POST['ns_nt_pk']);
    $ns_nt_sp_pk=empty($_POST['ns_nt_sp_pk']) ? '': $_POST['ns_nt_sp_pk'];
    $ns_nt_ot_pk=empty($_POST['ns_nt_ot_pk']) ? '': implode(',', $_POST['ns_nt_ot_pk']);
    $ns_store=empty($_POST['ns_store']) ? '' : $_POST['ns_store'];
@@ -279,7 +272,6 @@ if ($_POST) {
    $StartDate=empty($_POST['StartDate']) ? date('Y-m-d') : $_POST['StartDate'];
    $EndDate=empty($_POST['EndDate']) ? '2200-12-31' : $_POST['EndDate'];
    $ns_date=empty($_POST['ns_date']) ? date('Y-m-d') : $_POST['ns_date'];
-   $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0: 1 ;
 
    //-- 無發卡組織/銀行 --
    if(!empty($_POST['no_BankOrg'])){
@@ -313,7 +305,6 @@ if ($_POST) {
         'activity_e_date'=>$activity_e_date,
 		          'StartDate'=>$StartDate,
 		            'EndDate'=>$EndDate,
-		        'OnLineOrNot'=>$OnLineOrNot,
               'ns_verify'=>$_POST['ns_verify']
 		          );
 
@@ -334,7 +325,8 @@ if ($_GET) {
  	$row=pdo_select('SELECT * FROM appNews WHERE Tb_index=:Tb_index', $where);
 
     //-- 版區，次版區 --
-    $where_type=['Tb_index'=>$row['ns_nt_pk']];
+    $ns_nt_pk=explode(',', $row['ns_nt_pk']);
+    $where_type=['Tb_index'=>$ns_nt_pk[0]];
     $Unews_type=pdo_select('SELECT * FROM news_type WHERE Tb_index=:Tb_index', $where_type);
     
     $ns_nt_ot_pk=empty($row['ns_nt_ot_pk']) ? '': explode(',', $row['ns_nt_ot_pk']);
@@ -364,10 +356,10 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<header>網頁資料編輯
+					<header>修改優情報
 					</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
@@ -390,31 +382,31 @@ if ($_GET) {
                    
 
                    //-- 優旅行-次版區 --
-                   if ($row_area_one['Tb_index']=='at2019011117461656') {
+                   // if ($row_area_one['Tb_index']=='at2019011117461656') {
 
-                     $at_unit=explode(',', $row_area_one['at_unit']);
-                     for ($i=0; $i <count($at_unit) ; $i++) { 
-                       $at_unit[$i]="'".$at_unit[$i]."'";
-                     }
-                     $at_unit=implode(',', $at_unit);
+                   //   $at_unit=explode(',', $row_area_one['at_unit']);
+                   //   for ($i=0; $i <count($at_unit) ; $i++) { 
+                   //     $at_unit[$i]="'".$at_unit[$i]."'";
+                   //   }
+                   //   $at_unit=implode(',', $at_unit);
 
-                     $row_unit=$NewPdo->select("SELECT * FROM appUnit WHERE Tb_index IN (".$at_unit.") ORDER BY OrderBy ASC");
+                   //   $row_unit=$NewPdo->select("SELECT * FROM appUnit WHERE Tb_index IN (".$at_unit.") ORDER BY OrderBy ASC");
 
-                      $block_travel_div=$Unews_type['area_id']=='at2019011117461656' ? 'style="display:inline-block;"' : '';
+                   //    $block_travel_div=$Unews_type['area_id']=='at2019011117461656' ? 'style="display:inline-block;"' : '';
 
-                      echo '<div '.$block_travel_div.' class="travel_div"><span>優旅行-次版區：</span>';
-                       foreach ($row_unit as $row_unit_one) {
+                   //    echo '<div '.$block_travel_div.' class="travel_div"><span>優旅行-次版區：</span>';
+                   //     foreach ($row_unit as $row_unit_one) {
 
-                         if($Unews_type['unit_id']==$row_unit_one['Tb_index']){
-                           echo '<label><input type="radio" checked name="unit_id" value="'.$row_unit_one['Tb_index'].'"> '.$row_unit_one['un_name'].'｜</label>';
-                         }
-                         else{
-                          echo '<label><input type="radio" name="unit_id" value="'.$row_unit_one['Tb_index'].'"> '.$row_unit_one['un_name'].'｜</label>';
-                         }
+                   //       if($Unews_type['unit_id']==$row_unit_one['Tb_index']){
+                   //         echo '<label><input type="radio" checked name="unit_id" value="'.$row_unit_one['Tb_index'].'"> '.$row_unit_one['un_name'].'｜</label>';
+                   //       }
+                   //       else{
+                   //        echo '<label><input type="radio" name="unit_id" value="'.$row_unit_one['Tb_index'].'"> '.$row_unit_one['un_name'].'｜</label>';
+                   //       }
                          
-                       }
-                      echo "</div>";
-                   }
+                   //     }
+                   //    echo "</div>";
+                   // }
                  }
 
                  
@@ -428,8 +420,25 @@ if ($_GET) {
 							<div class="col-md-8" id="ns_nt_pk">
 								<?php
                   if(!empty($row['ns_nt_pk'])){
-                      $nt_name=pdo_select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_pk']]);
-                      echo '<span class="btn btn-success">'.$nt_name['nt_name'].' <input type="hidden" name="ns_nt_pk" value="'.$row['ns_nt_pk'].'"></span> ';
+                      $ns_nt_pk_arr=explode(',', $row['ns_nt_pk']);
+                      foreach ($ns_nt_pk_arr as $ns_nt_pk) {
+                        
+                        //-- 優情報 --
+                        if ($Unews_type['area_id']=='at2019011117461656') {
+                          $nt_name=$NewPdo->select("SELECT nt.nt_name, un.un_name, nt.unit_id
+                                                    FROM news_type as nt
+                                                    INNER JOIN appUnit as un ON un.Tb_index=nt.unit_id
+                                                    WHERE nt.Tb_index=:Tb_index", 
+                                                    ['Tb_index'=>$ns_nt_pk],'one');
+                          echo '<span class="btn btn-success">'.$nt_name['un_name'].'-'.$nt_name['nt_name'].' <input type="hidden" name="ns_nt_pk[]" unit_id="'.$nt_name['unit_id'].'" value="'.$ns_nt_pk.'"></span> ';
+                        }
+                        else{
+                          $nt_name=$NewPdo->select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_nt_pk],'one');
+                          echo '<span class="btn btn-success">'.$nt_name['nt_name'].' <input type="hidden" name="ns_nt_pk[]" value="'.$ns_nt_pk.'"></span> ';
+                        }
+                        
+                        
+                      }
                   }
 
                   if(!empty($row['ns_nt_sp_pk'])){
@@ -544,7 +553,7 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="ns_ftitle"><span class="text-danger">*</span>主標題</label>
 							<div class="col-md-10">
-								<input type="text" class="form-control" id="ns_ftitle" name="ns_ftitle"  value="<?php echo $row['ns_ftitle'];?>">
+								<input type="text" class="form-control title_w" id="ns_ftitle" name="ns_ftitle"  value="<?php echo $row['ns_ftitle'];?>">
                 <span class="text-danger">(限20個字)</span>
 							</div>
 						</div>
@@ -552,7 +561,7 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="ns_stitle">副標題</label>
 							<div class="col-md-10">
-								<input type="text" class="form-control" id="ns_stitle" name="ns_stitle"  value="<?php echo $row['ns_stitle'];?>">
+								<input type="text" class="form-control title_w" id="ns_stitle" name="ns_stitle"  value="<?php echo $row['ns_stitle'];?>">
                 <span class="text-danger">(限20個字)</span>
 							</div>
 						</div>
@@ -561,11 +570,11 @@ if ($_GET) {
               <label class="col-md-2 control-label" for="activity_s_date">活動期間</label>
               <div class="col-md-10 row">
                 <div class="col-md-5">
-                  <input type="date" class="form-control" id="activity_s_date" name="activity_s_date" value="<?php echo $activity_s_date;?>">
+                  <input type="text" class="form-control datepicker from" id="activity_s_date" name="activity_s_date" value="<?php echo $activity_s_date;?>">
                 </div>
                     <div class="col-md-1"><h3>至</h3></div>
                 <div class="col-md-5">
-                  <input type="date" class="form-control" id="activity_e_date" name="activity_e_date" value="<?php echo $activity_e_date;?>">
+                  <input type="text" class="form-control datepicker to" id="activity_e_date" name="activity_e_date" value="<?php echo $activity_e_date;?>">
                 </div>
                 <div class="col-md-1"><h3>止</h3></div>
                 <div class="col-md-12">
@@ -578,11 +587,11 @@ if ($_GET) {
               <label class="col-md-2 control-label" for="StartDate"><span class="text-danger">*</span> 上架期間</label>
               <div class="col-md-10 row">
                 <div class="col-md-5">
-                  <input type="date" class="form-control" id="StartDate" name="StartDate" value="<?php echo $StartDate;?>">
+                  <input type="text" class="form-control datepicker from" id="StartDate" name="StartDate" value="<?php echo $StartDate;?>">
                 </div>
                                 <div class="col-md-1"><h3>至</h3></div>
                 <div class="col-md-5">
-                  <input type="date" class="form-control" id="EndDate" name="EndDate" value="<?php echo $EndDate;?>">
+                  <input type="text" class="form-control datepicker to" id="EndDate" name="EndDate" value="<?php echo $EndDate;?>">
                 </div>
                 <div class="col-md-1"><h3>止</h3></div>
                 <div class="col-md-12">
@@ -601,7 +610,7 @@ if ($_GET) {
 						<div class="form-group">
               <label class="col-md-2 control-label" for="ckeditor">注意事項</label>
               <div class="col-md-10">
-                <textarea class="form-control" name="note" ><?php echo $row['note'];?></textarea>
+                <textarea class="form-control" name="note" rows="10"><?php echo $row['note'];?></textarea>
               </div>
             </div>
 
@@ -626,6 +635,8 @@ if ($_GET) {
               </div>
               <div class="col-md-2">
                 <a href="../Unews_public/news_windows.php" data-fancybox data-type="iframe" class="btn btn-info">查詢文章</a>
+                <a href="../Unews_public/news_extends_custom_windows.php" data-fancybox data-type="iframe" class="btn btn-info">輸入</a>
+                <a href="../Unews_public/news_extends_sort_windows.php" data-fancybox data-type="iframe" class="btn btn-info">排序</a>
               </div>
             </div>
 
@@ -638,7 +649,7 @@ if ($_GET) {
 
 							<label class="col-md-1 control-label" for="ns_alt_1">圖說</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" id="ns_alt_1" name="ns_alt_1" maxlength="50" value="<?php echo $row['ns_alt_1'];?>">
+								<input type="text" class="form-control imgTxt_w" id="ns_alt_1" name="ns_alt_1" maxlength="50" value="<?php echo $row['ns_alt_1'];?>">
 								<span class="text-danger">(限50個字)</span>
 							</div>
 						</div>
@@ -671,7 +682,7 @@ if ($_GET) {
 
 							<label class="col-md-1 control-label" for="ns_alt_2">圖說</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" id="ns_alt_2" name="ns_alt_2" maxlength="50" value="<?php echo $row['ns_alt_2'];?>">
+								<input type="text" class="form-control imgTxt_w" id="ns_alt_2" name="ns_alt_2" maxlength="50" value="<?php echo $row['ns_alt_2'];?>">
 								<span class="text-danger">(限50個字)</span>
 							</div>
 						</div>
@@ -765,16 +776,6 @@ if ($_GET) {
 
             
 
-						
-
-
-						<div class="form-group">
-							<label class="col-md-2 control-label" for="OnLineOrNot">是否上線</label>
-							<div class="col-md-10">
-								<input style="width: 20px; height: 20px;" id="OnLineOrNot" name="OnLineOrNot" type="checkbox" value="1" <?php echo $check=!isset($row['OnLineOrNot']) || $row['OnLineOrNot']==1 ? 'checked' : ''; ?>  />
-							</div>
-						</div>
-
 						<input type="hidden" id="Tb_index" name="Tb_index" value="<?php echo $_GET['Tb_index'];?>">
 						<input type="hidden" id="mt_id" name="mt_id" value="<?php echo $_GET['MT_id'];?>">
             <input type="hidden" id="ns_verify" name="ns_verify" value="2">
@@ -787,27 +788,15 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-4">
-							<button type="button" id="draft_btn" class="btn btn-default btn-block btn-flat"  >草稿</button>
-						</div>
-						<div class="col-lg-4">
-						<?php if(empty($_GET['Tb_index'])){?>
-							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">預覽</button>
-						<?php }else{?>
-						    <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">更新</button>
-						<?php }?>
-						</div>
-            <div class="col-lg-4">
-              <button type="button" class="btn btn-danger btn-block btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="clean_all()">重設表單</button>
-            </div>
-					</div>
+				<div class="panel-body text-center">
+          <button type="button" id="draft_btn" class="btn btn-default btn-flat">暫存草稿</button>
+          <button type="button" id="submit_btn" class="btn btn-info btn-raised">預覽</button>
+          <button type="button" class="btn btn-danger btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="getBack()">放棄</button>
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
@@ -833,15 +822,15 @@ if ($_GET) {
              sessionStorage.removeItem("news_ot_type");
 
              //-- 優旅行 --
-             if ($(this).val()=='at2019011117461656') {
-              $('.travel_div').css('display', 'inline-block');
-              $('#ns_nt_pk_div').css('display', 'none');
-              $('#ns_nt_ot_pk_div').css('display', 'none');
-              $('.travel_div [name="unit_id"]').prop('checked', false);
-             }
-             else{
-              $('.travel_div').css('display', 'none');
-             }
+             // if ($(this).val()=='at2019011117461656') {
+             //  $('.travel_div').css('display', 'inline-block');
+             //  $('#ns_nt_pk_div').css('display', 'none');
+             //  $('#ns_nt_ot_pk_div').css('display', 'none');
+             //  $('.travel_div [name="unit_id"]').prop('checked', false);
+             // }
+             // else{
+             //  $('.travel_div').css('display', 'none');
+             // }
           });
           //-- 版區次版區 END --
 
@@ -882,7 +871,7 @@ if ($_GET) {
           	var err_txt='';
             
             err_txt = err_txt + check_input( '[name="area_id"]', '版區分類，' );
-          	err_txt = err_txt + check_input( '[name="ns_nt_pk"]', '情報分類，' );
+          	err_txt = err_txt + check_input( '[name="ns_nt_pk[]"]', '情報分類，' );
             err_txt = err_txt + check_input( '[name="ns_store"]', '關聯商店，' );
           	err_txt = err_txt + check_input( '#ns_ftitle', '主標題，' );
             err_txt = err_txt + check_input( '#StartDate', '上架起始日，' );
@@ -908,13 +897,13 @@ if ($_GET) {
 
             var err_txt='';
             err_txt = err_txt + check_input( '[name="area_id"]', '版區分類，' );
-            err_txt = err_txt + check_input( '[name="ns_nt_pk"]', '情報分類，' );
+            err_txt = err_txt + check_input( '[name="ns_nt_pk[]"]', '情報分類，' );
             err_txt = err_txt + check_input( '[name="ns_store"]', '關聯商店，' );
             err_txt = err_txt + check_input( '#ns_ftitle', '主標題，' );
             err_txt = err_txt + check_input( '#StartDate', '上架起始日，' );
             err_txt = err_txt + check_input( '[name="ns_store"]', '上架結束日，' );
             err_txt = CKEDITOR.instances.ckeditor.getData()=='' ? err_txt + '內容，' : err_txt;
-            err_txt = $('[name="ns_photo_1"]').val()=='' && $('[name="old_ns_photo_1"]').val()==undefined ? err_txt + '主圖檔' : err_txt;
+            //err_txt = $('[name="ns_photo_1"]').val()=='' && $('[name="old_ns_photo_1"]').val()==undefined ? err_txt + '主圖檔' : err_txt;
 
 
 
@@ -1006,16 +995,33 @@ if ($_GET) {
                $(this).parent().html('');
 			}
 		});
-      });
+
+   
+   //----------------------------- 活動最後日期同步上架最後日期 -----------------------------------
+   $('#activity_e_date').change(function(event) {
+     $('#EndDate').val($(this).val());
+   });
+
+});
+//-- JQUERY END --
 
 
 	$(window).on('load',  function(event){
 		sessionStorage.clear();
         
     //-- 新聞分類 --
-		if ($('[name="ns_nt_pk"]').length>0) {
+		if ($('[name="ns_nt_pk[]"]').length>0) {
 			//-- 記錄暫存 --
-       sessionStorage.setItem("news_type", $('[name="ns_nt_pk"]').val());
+      var ns_nt_pk_arr=[];
+      $.each($('[name="ns_nt_pk[]"]'), function(index, val) {
+        ns_nt_pk_arr.push($(this).val());
+      });
+
+       sessionStorage.setItem("news_type", ns_nt_pk_arr);
+
+      if ($('[name="ns_nt_pk[]"]').attr('unit_id')!=null) {
+        sessionStorage.setItem("news_unit", $('[name="ns_nt_pk[]"]').attr('unit_id'));
+      }
        sessionStorage.setItem("news_sp_type", $('[name="ns_nt_sp_pk"]').val());
 		}
 
@@ -1087,4 +1093,3 @@ if ($_GET) {
 	});
 </script>
 <?php  include("../../core/page/footer02.php");//載入頁面footer02.php?>
-

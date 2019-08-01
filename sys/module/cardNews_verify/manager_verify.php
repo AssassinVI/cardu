@@ -1,6 +1,6 @@
 <?php include("../../core/page/header01.php");//載入頁面heaer01 ?>
 <style type="text/css">
-.news_div{ width: 782px; margin:auto; padding: 15px; border: 1px solid #ccc;  border-radius: 20px 0;}
+.news_div{ width: 802px; margin:auto; padding: 15px; border: 1px solid #ccc;  border-radius: 20px 0;}
   .news_div h2{  font-weight: 600; color: #3c4f97; font-size: 26px; }
   .news_div h4{ font-weight: 500; font-size: 20px; }
   .news_div p{ font-size: 16px; }
@@ -28,6 +28,13 @@ if($_POST){
   ];
   $where=['Tb_index'=>$_POST['Tb_index']];
   pdo_update('appNews', $parem, $where);
+
+  //-- 更新排序 --
+  $row_news=$NewPdo->select("SELECT ns_nt_pk FROM appNews WHERE Tb_index=:Tb_index", ['Tb_index'=>$_POST['Tb_index']], 'one');
+  $NewPdo->select("UPDATE appNews SET ns_sort=ns_sort+1, ns_nt_pk_sort=ns_nt_pk_sort+1 WHERE ns_nt_pk=:ns_nt_pk", ['ns_nt_pk'=>$row_news['ns_nt_pk']]);
+
+  //-- 分類上架數量+1 & 累計總數+1 --
+  $NewPdo->select("UPDATE news_type SET nt_online=nt_online+1, nt_total=nt_total+1 WHERE Tb_index=:Tb_index", ['Tb_index'=>$row_news['ns_nt_pk']]);
   
   location_up('admin.php?MT_id='.$_POST['MT_id'], '審核完成');
 }
@@ -231,10 +238,9 @@ if ($_GET) {
                 <div>
                                
                                <?php if(!empty($row['ns_photo_1'])){ ?>
-                                 <div class="img_div">
-                                  <img style="width: 100%;" src="../../img/<?php echo $row['ns_photo_1'];?>" alt="">
-                                  <p>▲<?php echo $row['ns_alt_1'];?></p>
-                                 </div>
+                                 <p>
+                                  <img src="../../img/<?php echo $row['ns_photo_1'];?>" alt="<?php echo $row['ns_alt_1'];?>">
+                                 </p>
                                <?php } ?>
                   
 
@@ -243,11 +249,10 @@ if ($_GET) {
                                 </div>
                                
                                <?php if(!empty($row['ns_photo_2'])){ ?>
-                  <div class="img_div">
-                    <img style="width: 100%;" src="../../img/<?php echo $row['ns_photo_2'];?>" alt="">
-                    <p>▲<?php echo $row['ns_alt_2'];?></p>
-                  </div>
-                 <?php } ?>
+                                 <p>
+                                  <img src="../../img/<?php echo $row['ns_photo_1'];?>" alt="<?php echo $row['ns_alt_1'];?>">
+                                 </p>
+                               <?php } ?>
 
                                 <?php echo $note; ?>
                                 <?php echo $ns_news_txt; ?>
@@ -382,7 +387,14 @@ if ($_GET) {
                   <div class="col-md-12">
                     <h4>合作廠商：</h4>
                     <label><input type="checkbox" name="google" value="google"> Google｜</label>
-                    <label><input type="checkbox" name="yahoo" value="yahoo"> Yahoo｜</label><label><input type="checkbox" name="msn" value="msn"> MSN｜</label><label><input type="checkbox" name="hinet" value="hinet"> HiNet｜</label><label><input type="checkbox" name="yam" value="yam"> Yam天空｜</label><label><input type="checkbox" name="newsrepb" value="newsrepb"> Newsrepublic｜</label><label><input type="checkbox" name="linetoday" value="linetoday"> Line Today</label>
+                    <label><input type="checkbox" name="yahoo" value="yahoo"> Yahoo｜</label>
+                    <label><input type="checkbox" name="PChome" value="PChome">PChome｜</label>
+                    <label><input type="checkbox" name="hinet" value="hinet"> HiNet｜</label>
+                    <label><input type="checkbox" name="msn" value="msn"> MSN｜</label>
+                    <label><input type="checkbox" name="yam" value="yam"> Yam天空｜</label>
+                    <label><input type="checkbox" name="newsrepb" value="newsrepb"> Newsrepublic｜</label>
+                    <label><input type="checkbox" name="Life" value="Life">Life｜</label>
+                    <label><input type="checkbox" name="linetoday" value="linetoday"> Line Today</label>
                   </div>
                 </div>
                 <input type="hidden" name="MT_id" value="<?php echo $_GET['MT_id'];?>">
@@ -401,10 +413,6 @@ if ($_GET) {
 <?php  include("../../core/page/footer01.php");//載入頁面footer02.php?>
 <script type="text/javascript">
 	$(document).ready(function() {
-
-         //-- alt 圖說 --
-         img_txt('.news_div p img');
-
 
 
          //-- 查看展開 --
@@ -498,6 +506,14 @@ if ($_GET) {
 
 	$(window).on('load',  function(event){
 		sessionStorage.clear();
+
+    //-- alt 圖說 & 手機加入fancybox --
+    img_txt('.news_div p img');
+            
+    //-- 圖寬限制 --
+    img_750_w('.news_div p img');
+    //-- table 優化 --
+    html_table('.news_div>table');
         
         //-- 新聞分類 --
 		if ($('[name="ns_nt_pk"]').length>0) {

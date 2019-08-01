@@ -302,32 +302,36 @@ if ($_GET) {
 							</div>
 						</div>
 
-						<div class="form-group">
+
+
+            <div class="form-group">
               <label class="col-md-2 control-label" for="dc_photo"> 金融卡圖檔</label>
               <div class="col-md-4">
                 <input type="file" name="dc_photo" class="form-control" id="dc_photo" onchange="file_viewer_load_new(this, '#img_box')">
                 <span class="text-danger">圖片尺寸: 300*190 去背png檔</span>
               </div>
+
+              <div id="img_box" class="col-md-3">
+                <?php if(empty($row_card['dc_photo'])){?>
+                  <div id="img_div">
+                    <img id="one_img" src="../../img/CardSample.png" alt="">
+                  </div>
+                <?php } ?>
+              </div>
+              <?php if(!empty($row_card['dc_photo'])){?>
+                <div  class="col-md-3">
+                   <div id="img_div" >
+                    <p>目前檔案</p>
+                   <button type="button" id="one_del_img"> X </button>
+                    <span class="img_check"><i class="fa fa-check"></i></span>
+                    <img style="width: 120px" src="../../img/<?php echo $row_card['dc_photo'];?>">
+                    <input type="hidden" name="old_file" value="<?php echo $row_card['dc_photo'];?>">
+                  </div>
+                </div>
+              <?php }?>  
               
             </div>
 
-            <div class="form-group">
-               <label class="col-md-2 control-label" ></label>
-               <div id="img_box" class="col-md-4">
-                
-              </div>
-            <?php if(!empty($row_card['dc_photo'])){?>
-              <div  class="col-md-4">
-                 <div id="img_div" >
-                  <p>目前檔案</p>
-                 <button type="button" id="one_del_img"> X </button>
-                  <span class="img_check"><i class="fa fa-check"></i></span>
-                  <img style="width: 120px" src="../../img/<?php echo $row_card['dc_photo'];?>">
-                  <input type="hidden" name="old_file" value="<?php echo $row_card['dc_photo'];?>">
-                </div>
-              </div>
-            <?php }?>   
-            </div>
 
 						<div class="form-group">
 						  <label class="col-md-2 control-label" >金融卡特色</label>
@@ -500,7 +504,7 @@ if ($_GET) {
                                           <label class="col-md-2 control-label" ><span class="text-danger">*</span> 生效日期</label>
                                           <div class="col-md-8">
                                             <input type="date" name="StartDate" class="form-control" value="">
-                                            <span class="text-danger">空值視為今天</span>
+                                            <!-- <span class="text-danger">空值視為今天</span> -->
                                           </div>
                                         </div>
 

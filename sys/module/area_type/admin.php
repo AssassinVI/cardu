@@ -38,17 +38,17 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 
-	<div class="row">
-		<div class="col-lg-4">
-			<div class="panel panel-success">
+
+
+			<div class="panel panel-success" style="width: 600px;">
                  <div class="panel-heading">
                      版區選擇
                  </div>
                  <div class="panel-body">
                      <div class="form-horizontal">
                      	<div class="form-group">
-                     		<label class="col-md-1 control-label" for="nt_define">版區</label>
-                     		<div class="col-md-9">
+                     		<label class="col-md-2 control-label" for="nt_define">版區</label>
+                     		<div class="col-md-8">
                      		  <select class="form-control" id="select_area">
                      		  	<?php
                                  foreach ($row as $row_one) {
@@ -64,12 +64,11 @@ if ($_GET) {
                      </div>
                  </div>
              </div>
-	</div>
+
 
 
    
-	
-</div>
+
 </div><!-- /#page-content -->
 <?php  include("../../core/page/footer01.php");//載入頁面footer01.php?>
 <script type="text/javascript">

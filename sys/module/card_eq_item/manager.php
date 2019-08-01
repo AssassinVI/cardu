@@ -75,16 +75,18 @@ if ($_POST) {
 if ($_GET) {
  	$where=['Tb_index'=>$_GET['Tb_index']];
  	$row=pdo_select('SELECT * FROM card_eq_item WHERE Tb_index=:Tb_index', $where);
+
+ 	$newORedit=empty($_GET['Tb_index']) ? '新增權益項目':'修改權益項目';
 }
 ?>
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<header>網頁資料編輯
+					<header><?php echo $newORedit; ?>
 					</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
@@ -156,24 +158,18 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-6">
-							<button type="button" class="btn btn-danger btn-block btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="clean_all()">重設表單</button>
-						</div>
-						<div class="col-lg-6">
-						<?php if(empty($_GET['Tb_index'])){?>
-							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">儲存</button>
-						<?php }else{?>
-						    <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">更新</button>
-						<?php }?>
-						</div>
-					</div>
+				<div class="panel-body text-center">
+					<?php if(empty($_GET['Tb_index'])){?>
+						<button type="button" id="submit_btn" class="btn btn-info btn-raised">儲存</button>
+					<?php }else{?>
+					    <button type="button" id="submit_btn" class="btn btn-info btn-raised">更新</button>
+					<?php }?>
+					<button type="button" class="btn btn-danger btn-flat" onclick="getBack()">放棄</button>
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->

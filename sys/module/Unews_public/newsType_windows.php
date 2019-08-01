@@ -9,14 +9,27 @@
 <?php 
   
    $pdo=pdo_conn();
+   
+   //-- 非優旅行 --
+   if ($_GET['area_id']!='at2019011117461656') {
+     //-- 主分類 --
+     $sql=$pdo->prepare("SELECT * FROM news_type WHERE mt_id='site2019011116103929' AND area_id=:area_id AND nt_sp='0' AND OnLineOrNot=1");
+     $sql->execute(['area_id'=>$_GET['area_id']]);
+     $row_type=$sql->fetchAll(PDO::FETCH_ASSOC);
+   }
+   //-- 優旅行 --
+   else{
+     
+     $row_area=$NewPdo->select("SELECT at_unit FROM appArea WHERE Tb_index=:Tb_index", ['Tb_index'=>$_GET['area_id']], 'one');
+     $area_sql=str_replace(",","','",$row_area['at_unit']);
+     $area_sql="'".$area_sql."'";
+     $row_type=$NewPdo->select("SELECT Tb_index, un_name FROM appUnit WHERE Tb_index IN ($area_sql) ORDER BY field($area_sql)");
+     
+   }
 
-   //-- 主分類 --
-   $sql=$pdo->prepare("SELECT * FROM news_type WHERE mt_id='site2019011116103929' AND area_id=:area_id AND unit_id LIKE :unit_id AND nt_sp='0' AND OnLineOrNot=1");
-   $sql->execute(['area_id'=>$_GET['area_id'], 'unit_id'=>'%'.$_GET['unit_id'].'%']);
-   $row_type=$sql->fetchAll(PDO::FETCH_ASSOC);
    
    //-- 特別議題 --
-   $sql=$pdo->prepare("SELECT * FROM news_type WHERE mt_id='site2019011116103929' AND area_id=:area_id AND nt_sp='1' AND unit_id LIKE :unit_id AND nt_sp_begin_date<=:nt_sp_begin_date AND nt_sp_end_date>=:nt_sp_end_date AND OnLineOrNot=1");
+   $sql=$pdo->prepare("SELECT * FROM news_type WHERE mt_id='site2019011116103929' AND area_id=:area_id AND unit_id LIKE :unit_id AND nt_sp='1' AND nt_sp_begin_date<=:nt_sp_begin_date AND nt_sp_end_date>=:nt_sp_end_date AND OnLineOrNot=1");
    $sql->execute(['area_id'=>$_GET['area_id'], 'unit_id'=>'%'.$_GET['unit_id'].'%', 'nt_sp_begin_date'=>date('Y-m-d'), 'nt_sp_end_date'=>date('Y-m-d')]);
    $row_sp_type=$sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -24,6 +37,9 @@
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
+  <!-- 關閉視窗 -->
+  <a class="close_fancybox" href="javascript:;">Ｘ</a>
+
 	<div class="row">
 		<div class="col-xs-6">
 			<div class="panel panel-default">
@@ -39,8 +55,8 @@
                                
 								<?php
                                   foreach ($row_type as $row_type_one) {
-                                    //-- 優旅行 先改回原狀 --
-                                    if ($_GET['unit_id']) {
+                                    //-- 非優旅行 --
+                                    if ($_GET['area_id']!='at2019011117461656') {
                                       echo '
                                        <div class="row">
                                         <div class="col-xs-7">
@@ -53,18 +69,16 @@
                                         </div>
                                        </div> ';
                                     }
-                                    //-- 其他 --
+                                    //-- 優旅行 --
                                     else{
                                         echo '
                                            <div class="row">
                                             <div class="col-xs-7">
                                               <label>
-                                                <input type="radio" name="news_type" typeName="'.$row_type_one['nt_name'].'" value="'.$row_type_one['Tb_index'].'"> '.$row_type_one['nt_name'].'
+                                                <input type="radio" name="news_unit" typeName="'.$row_type_one['un_name'].'" value="'.$row_type_one['Tb_index'].'"> '.$row_type_one['un_name'].'
                                               </label> 
                                             </div>
-                                            <div class="col-xs-1">
-                                                <a href="javascript:;" data-toggle="tooltip" data-placement="right" title="" data-original-title="'.$row_type_one['nt_define'].'"><i class="fa fa-question-circle"></i></a>
-                                            </div>
+                                           
                                            </div> ';
                                     }
                                   }
@@ -127,12 +141,25 @@
 
 		</div>
 
+
+    <div id="travel_area" class="col-xs-12" style="display: none;">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <header>地區</header>
+        </div><!-- /.panel-heading -->
+        <div class="panel-body">
+          <div class="row">
+          </div>
+        </div>
+      </div>
+    </div>
+
 		<div class="col-xs-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>選擇要上刊到其他單元</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
+				<div class="panel-body" style="height: 190px; overflow: auto;">
 				 <form class="put_form">
 
 				  <div  class="type_div">
@@ -278,18 +305,11 @@
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-4">
-							<button type="button" class="btn btn-default btn-block btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
-						</div>
-						<div class="col-lg-4">
-						   <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">確定</button>
-						</div>
-						<div class="col-lg-4">
-							<button type="button" id="close_btn" class="btn btn-default btn-block btn-flat" >重設</button>
-						</div>
-					</div>
+				<div class="panel-body text-center">
+          <button type="button" id="submit_btn" class="btn btn-info btn-raised">確定</button>
+          <button type="button" id="close_btn" class="btn btn-default btn-flat" >重設</button>
+          <button type="button" class="btn btn-default btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
+				
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
@@ -314,11 +334,14 @@
               //--------------- 主分類 -------------------
               var news_type_txt='';
               $.each($('[name="news_type"]:checked'), function(index, val) {
-                 $("#ns_nt_pk",parent.document).append( '<span class="btn btn-success">'+$(this).attr('typeName')+' <input type="hidden" name="ns_nt_pk" value="'+$(this).val()+'"></span>' );
+                 $("#ns_nt_pk",parent.document).append( '<span class="btn btn-success">'+$(this).attr('typeName')+' <input type="hidden" name="ns_nt_pk[]" value="'+$(this).val()+'"></span>' );
                  news_type_txt+=$(this).val()+',';
               });
               
               //-- 記錄暫存 --
+              if ($('[name="news_unit"]').length>0) {
+                sessionStorage.setItem("news_unit", $('[name="news_unit"]:checked').val());
+              }
               sessionStorage.setItem("news_type", news_type_txt.slice(0, -1));
 
 
@@ -360,18 +383,18 @@
          //-- 重設 --
          $('#close_btn').click(function(event) {
          	$('.put_form').trigger('reset');
-         	$('.show_check').parent().next().slideUp('300');
+         	$('.show_check').parent().next().css('display', 'none');
          });
 
 
          //-- 其他要上刊單元下拉 --
          $('.show_check').change(function(event) {
          	if ($(this).prop('checked')==true) {
-         		$(this).parent().next().slideDown('300');
+         		$(this).parent().next().css('display', 'block');
          	}
          	else{
          		$(this).parent().next().find('[type="checkbox"]').prop('checked', false);
-         		$(this).parent().next().slideUp('300');
+         		$(this).parent().next().css('display', 'none');
          	}
          });
 
@@ -379,27 +402,45 @@
          $('.show_type').change(function(event) {
          	var unit_id=$(this).val();
          	if ($(this).prop('checked')==true) {
-         		$(this).parents('.type').find('[link_unit="'+unit_id+'"]').slideDown('300');
+         		$(this).parents('.type').find('[link_unit="'+unit_id+'"]').css('display', 'block');
          	}
          	else{
          		$(this).parents('.type').find('[link_unit="'+unit_id+'"]').find('[type="checkbox"]').prop('checked', false);
-         		$(this).parents('.type').find('[link_unit="'+unit_id+'"]').slideUp('300');
+         		$(this).parents('.type').find('[link_unit="'+unit_id+'"]').css('display', 'none');
          	}
          });
+
+          
+          //-- 優旅行-選擇主分類 --
+          if ($('[name="news_unit"]').length>0) {
+            $('[name="news_unit"]').change(function(event) {
+              travel_ajax($(this));
+            });
+          }
       
       });
+      //-- document.ready END --
     
     //-- 讀取記錄 --
 	$(window).on('load',  function(event) {
-        
+
+    //-- 優旅行 --
+    if (sessionStorage.getItem("news_unit")!=undefined) {
+      $('[value="'+sessionStorage.getItem("news_unit")+'"]').prop('checked', true); 
+      travel_ajax($('[value="'+sessionStorage.getItem("news_unit")+'"]'));
+    } 
+    
+    //-- 主分類 --  
 		if (sessionStorage.getItem("news_type")!=undefined) {
 			$('[value="'+sessionStorage.getItem("news_type")+'"]').prop('checked', true); 
 		}
-
+    
+    //-- 特別議題 -- 
 		if (sessionStorage.getItem("news_sp_type")!=undefined) {
 			$('[value="'+sessionStorage.getItem("news_sp_type")+'"]').prop('checked', true); 
 		}
-
+    
+    //-- 上刊到其他單元 --
 		if (sessionStorage.getItem("news_ot_type")!=undefined) {
 			var news_ot_type=sessionStorage.getItem("news_ot_type").split(',');
 
@@ -421,6 +462,50 @@
 			}
 		}
 	});
+
+
+
+  function travel_ajax(dom) {
+   
+   $.ajax({
+     url: 'newsType_windows_ajax.php',
+     type: 'POST',
+     dataType: 'json',
+     data: {
+       unit_id: dom.val()
+     },
+     success:function (data) {
+       //-- 排除 刷卡秘笈、優惠情報 --
+       if (dom.val()!='un2019011717570690' && dom.val()!='un2019011717571414') {
+         $('#travel_area').css('display', 'block');
+         $('#travel_area .panel-body .row').html('');
+
+         $.each(data, function(index, val) {
+           var typeName=dom.attr('typeName')+'-'+this['nt_name'];
+           var html='<div class="col-xs-3"><label><input type="checkbox" typeName="'+typeName+'" name="news_type" value="'+this['Tb_index']+'"> '+this['nt_name']+'</label></div>';
+           $('#travel_area .panel-body .row').append(html);
+         });
+       }
+       else{
+          $('#travel_area').css('display', 'none');
+          $('#travel_area .panel-body .row').html('');
+
+          $.each(data, function(index, val) {
+            var html='<div class="col-xs-3"><label><input type="checkbox" typeName="'+this['nt_name']+'" name="news_type" value="'+this['Tb_index']+'" checked> '+this['nt_name']+'</label></div>';
+            $('#travel_area .panel-body .row').append(html);
+          });
+       }
+       
+       if (sessionStorage.getItem("news_type")!=undefined) {
+         var news_type_arr=sessionStorage.getItem("news_type").split(',');
+         for (var i = 0; i < news_type_arr.length; i++) {
+           $('[value="'+news_type_arr[i]+'"]').prop('checked', true);
+         }
+       }
+       
+     }
+   });
+  }
 	
 </script>
 <?php  include("../../core/page/windows_footer02.php");//載入頁面footer02.php?>

@@ -58,15 +58,9 @@
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-xs-6">
-							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">確定</button>
-						</div>
-						<div class="col-xs-6">
-							<button type="button" class="btn btn-default btn-block btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
-						</div>
-					</div>
+				<div class="panel-body text-center">
+					<button type="button" id="submit_btn" class="btn btn-info btn-raised">確定</button>
+					<button type="button" class="btn btn-default btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->

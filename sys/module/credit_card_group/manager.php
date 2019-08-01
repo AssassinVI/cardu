@@ -1,7 +1,8 @@
 <?php include("../../core/page/header01.php");//載入頁面heaer01 ?>
 <style type="text/css">
-	.card_level{ padding: 5px; border-bottom: 1px solid #ccc; }
-	.card_level div{ display: none; }
+	.card_level{  border-bottom: 1px solid #ccc; }
+	.card_level td{ padding:3px 5px;}
+	.card_level label{ margin-bottom: 0; }
 	.cc_apply_url{display: none;}
 	.cc_apply_file{ display: none; }
 
@@ -135,13 +136,13 @@ if ($_POST) {
 
 
       //-- 無申請書 --
-      if (empty($_POST['cc_doc_name'])) {
-      	 $param['cc_doc_name']='';
-      	 $param['cc_doc_path']='';
-      }
+      // if (empty($_POST['cc_doc_name'])) {
+      // 	 $param['cc_doc_name']='';
+      // 	 $param['cc_doc_path']='';
+      // }
 
       //-- 有選擇信用卡狀態 --
-      if (!empty($_POST['cc_group_state'])) {
+      if (isset($_POST['cc_group_state'])) {
       	$param['cc_group_state']=$_POST['cc_group_state'];
       }
 
@@ -151,9 +152,9 @@ if ($_POST) {
      	//- 正常使用 -
      	case 0:
 
-     	  $param['cc_status_name']='';
-     	  $param['cc_stop_publish']=0;
-     	  $param['cc_stop_card']=0;
+     	  $where= ['cc_group_id'=>$_POST['cc_group_id']] ;
+     	  pdo_update('credit_card', $param, $where);
+     	  location_up('../credit_card_one/manager.php?MT_id=site2019031616304770&Tb_index='.$Tb_index.'0','成功更新');
      		break;
      	//- 全部停發 -
         case 1:
@@ -161,6 +162,9 @@ if ($_POST) {
      	  $param['cc_status_name']='停發';
      	  $param['cc_stop_publish']=1;
      	  $param['cc_stop_card']=0;
+     	  $where= ['cc_group_id'=>$_POST['cc_group_id']] ;
+     	  pdo_update('credit_card', $param, $where);
+     	  location_up('manager.php?MT_id='.$_POST['mt_id'].'&cc_group_id='.$_POST['cc_group_id'],'成功更新');
      		break;
      	//- 全部停卡 -
         case 2:
@@ -168,21 +172,61 @@ if ($_POST) {
      	  $param['cc_status_name']='停卡';
      	  $param['cc_stop_publish']=0;
      	  $param['cc_stop_card']=1;
+     	  $where= ['cc_group_id'=>$_POST['cc_group_id']] ;
+     	  pdo_update('credit_card', $param, $where);
+     	  location_up('manager.php?MT_id='.$_POST['mt_id'].'&cc_group_id='.$_POST['cc_group_id'],'成功更新');
      		break;
      	//- 部分使用 -
      	case 3:
-     		# code...
+     		
+          $x=0;
+          foreach ($_POST['cc_card_orglevel'] as $card_orglevel) {
+          	$cc_card_orglevel=explode(',', $card_orglevel);
+          	$cc_card_org=$cc_card_orglevel[0];
+          	$cc_card_level=$cc_card_orglevel[1];
+
+
+          	if ($_POST['cc_card_status'][$x]=='0') {
+          	   $param['cc_status_name']='';
+     	       $param['cc_stop_publish']=0;
+     	       $param['cc_stop_card']=0;
+          	}
+          	elseif($_POST['cc_card_status'][$x]=='1'){
+               $param['cc_status_name']='停發';
+     	       $param['cc_stop_publish']=1;
+     	       $param['cc_stop_card']=0;
+          	}
+          	elseif($_POST['cc_card_status'][$x]=='2'){
+          	   $param['cc_status_name']='停卡';
+     	       $param['cc_stop_publish']=0;
+     	       $param['cc_stop_card']=1;
+          	}
+
+            //-- where --
+            $param['cc_group_id']=$_POST['cc_group_id'];
+            $param['cc_cardorg']=$cc_card_org;
+            $param['cc_cardlevel']=$cc_card_level;
+            $NewPdo->select("UPDATE credit_card 
+            	        SET cc_cardname=:cc_cardname, cc_bi_pk=:cc_bi_pk, 
+            	            cc_attr=:cc_attr, cc_doc_url=:cc_doc_url, 
+            	            cc_doc_name=:cc_doc_name, cc_publish=:cc_publish,
+            	            cc_group_state=3,
+            	            cc_status_name=:cc_status_name, cc_stop_publish=:cc_stop_publish,
+            	            cc_stop_card=:cc_stop_card 
+            	        WHERE cc_group_id=:cc_group_id AND cc_cardorg=:cc_cardorg AND cc_cardlevel=:cc_cardlevel", $param);
+            
+
+            $x++;
+          }
+
+           location_up('manager.php?MT_id='.$_POST['mt_id'].'&cc_group_id='.$_POST['cc_group_id'],'成功更新');
      		break;
      	default:
 		# code...
 		    break;
      }
-    
-    
-    $where= ['cc_group_id'=>$_POST['cc_group_id']] ;
-	pdo_update('credit_card', $param, $where);
 	
-	location_up('admin.php?MT_id='.$_POST['mt_id'],'成功更新');
+	// location_up('admin.php?MT_id='.$_POST['mt_id'],'成功更新');
    }
 }
 
@@ -216,17 +260,16 @@ if ($_GET) {
    $cc_doc_url_display=!empty($row_card['cc_doc_url']) ? 'style="display: block"':'';
    $cc_doc_path_display=!empty($row_card['cc_doc_path']) ? 'style="display: block"':'';
 
-
 }
 ?>
 
 
 <div class="wrapper wrapper-content animated fadeInRight" >
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<header>信用卡資料編輯
+					<header>修改信用卡
 					</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
@@ -294,8 +337,10 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="note"><span class="text-danger">*</span> 發卡組織/卡等</label>
 							<div class="col-md-10">
+								<table >
+								  <tbody id="orglevel_tb">
 								<?php
-
+         
 								     //-- 撈取組織 --
 								     foreach ($org as $org_one) {
                                        
@@ -303,52 +348,76 @@ if ($_GET) {
 								       $cc_cardlevel=[];
 								       //- 卡片狀態 -
 								       $cc_status_name=[];
-                                       $row_orglevel=$NewPdo->select("SELECT cc_cardorg, cc_cardlevel, cc_status_name FROM credit_card WHERE cc_group_id=:cc_group_id AND cc_cardorg=:cc_cardorg", ['cc_group_id'=>$row_card['cc_group_id'], 'cc_cardorg'=>$org_one['Tb_index']]);
+								       $cc_stop_publish=[];
+								       $cc_stop_card=[];
+                                       $row_orglevel=$NewPdo->select("SELECT cc.cc_cardorg, cc.cc_cardlevel, cc.cc_status_name, cc.cc_stop_publish, cc.cc_stop_card 
+                                       	                              FROM credit_card as cc
+                                       	                              INNER JOIN card_level as cl ON cl.Tb_index=cc.cc_cardlevel 
+                                       	                              WHERE cc.cc_group_id=:cc_group_id AND cc.cc_cardorg=:cc_cardorg
+                                       	                              ORDER BY cl.OrderBy", 
+                                       	                              ['cc_group_id'=>$row_card['cc_group_id'], 'cc_cardorg'=>$org_one['Tb_index']]);
                                        $row_orglevel_num=count($row_orglevel);
 
                                        foreach ($row_orglevel as $row_orglevel_one) {
                                        	$cc_cardorg=$row_orglevel_one['cc_cardorg'];
                                        	array_push($cc_cardlevel, $row_orglevel_one['cc_cardlevel']);
                                        	array_push($cc_status_name, $row_orglevel_one['cc_status_name']);
+                                       	array_push($cc_stop_publish, $row_orglevel_one['cc_stop_publish']);
+                                       	array_push($cc_stop_card, $row_orglevel_one['cc_stop_card']);
                                        }
                                        //-- 撈取勾選組織的卡等 END --
-
-
-								       echo '<div class="card_level">';
-
-								       if ($cc_cardorg==$org_one['Tb_index']) {
-								       	echo '<label><input type="checkbox" checked disabled name="cc_cardorg[]" > '.$org_one['org_nickname'].'</label>';
-								       	echo '<div style="display: block;">';
-								       }else{
-								       	echo '<label><input type="checkbox" disabled name="cc_cardorg[]" > '.$org_one['org_nickname'].'</label>';
-								       	echo '<div>';
-								       }
-								       
                                        
+                                       $check_org=$cc_cardorg==$org_one['Tb_index'] ? 'checked':'';
+
+								       echo '<tr class="card_level">';
+                                       echo '<td><label><input type="checkbox" '.$check_org.' disabled name="cc_cardorg[]" value="'.$org_one['Tb_index'].'" > '.$org_one['org_nickname'].'</label></td>';
+								       
 
                                        //-- 撈取卡等 --
-                                       $card_level=$NewPdo->select("SELECT level_id FROM org_level WHERE org_id=:org_id", ['org_id'=>$org_one['Tb_index']]);
+                                       $card_level=$NewPdo->select("SELECT ol.level_id 
+                                       	                            FROM org_level as ol
+                                       	                            INNER JOIN card_level as cl ON cl.Tb_index=ol.level_id 
+                                       	                            WHERE ol.org_id=:org_id
+                                       	                            ORDER BY cl.OrderBy", ['org_id'=>$org_one['Tb_index']]);
                                        $x=0;
                                        foreach ($card_level as $card_level_one) {
 
                                        	if ($cc_cardorg==$org_one['Tb_index'] && in_array($card_level_one['level_id'], $cc_cardlevel)) {
                                           
                                           //-- 停發/停卡字 --
-                                          $cc_status=empty($cc_status_name[$x]) ? '':'('.$cc_status_name[$x].')';
+                                       	  if ($cc_stop_publish[$x]=='1' && $cc_stop_card[$x]=='0') {
+                                       	  	$cc_status=1;
+                                       	  }
+                                       	  else if($cc_stop_publish[$x]=='0' && $cc_stop_card[$x]=='1'){
+                                            $cc_status=2;
+                                       	  }
+                                       	  else{
+                                       	  	$cc_status=0;
+                                       	  }
+
+                                          $cc_status_txt=empty($cc_status_name[$x]) ? '':'('.$cc_status_name[$x].')';
                                           $cc_status_color=empty($cc_status_name[$x]) ? '':'text-danger';
 
-                                       	  echo '<label class="'.$cc_status_color.'"><input type="checkbox" checked disabled name="cc_card_orglevel[]" value="'.$org_one['Tb_index'].','.$card_level_one['level_id'].'"> <span class="cc_name">'.$level_name[$card_level_one['level_id']].'</span><span class="cc_status">'.$cc_status.'<span></label>｜';
+                                       	  echo '<td>
+                                       	         <label class="'.$cc_status_color.'">
+                                       	           <input type="checkbox" checked disabled name="cc_card_orglevel[]" value="'.$org_one['Tb_index'].','.$card_level_one['level_id'].'"> 
+                                                   <input type="hidden" name="cc_card_status[]" value="'.$cc_status.'">
+                                       	           <span class="cc_name">'.$level_name[$card_level_one['level_id']].'</span><span class="cc_status">'.$cc_status_txt.'<span>
+                                       	         </label>
+                                       	        </td>';
                                        	  $x++;
                                        	}
                                        	else{
-                                       	  echo '<label><input type="checkbox" disabled name="cc_card_orglevel[]" value="'.$org_one['Tb_index'].','.$card_level_one['level_id'].'"> <span>'.$level_name[$card_level_one['level_id']].'</span></label>｜';
+                                       	  echo '<td><label><input type="checkbox" disabled name="cc_card_orglevel[]" value="'.$org_one['Tb_index'].','.$card_level_one['level_id'].'"> <span>'.$level_name[$card_level_one['level_id']].'</span></label></td>';
                                        	}
                                        }
 
-								      echo '</div>';
-								      echo '</div>';
+								      echo '</tr>';
 								     }
 								?>
+
+							   </tbody>
+						     </table>
 								
 							</div>
 						</div>
@@ -356,7 +425,7 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" >發行日期</label>
 							<div class="col-md-10 form-inline">
-								<input type="date" class="form-control" id="cc_publish" name="cc_publish" value="<?php echo $row_card['cc_publish'];?>">
+								<input type="text" class="form-control datepicker" id="cc_publish" name="cc_publish" value="<?php echo $row_card['cc_publish'];?>">
 							</div>
 						</div>
 
@@ -426,24 +495,18 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-6">
-							<button type="button" class="btn btn-danger btn-block btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="clean_all()">重設表單</button>
-						</div>
-						<div class="col-lg-6">
-						<?php if(empty($_GET['cc_group_id'])){?>
-							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">儲存</button>
-						<?php }else{?>
-						    <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">更新</button>
-						<?php }?>
-						</div>
-					</div>
+				<div class="panel-body text-center">
+					<?php if(empty($_GET['cc_group_id'])){?>
+						<button type="button" id="submit_btn" class="btn btn-info btn-raised">儲存</button>
+					<?php }else{?>
+					    <button type="button" id="submit_btn" class="btn btn-info btn-raised">更新</button>
+					<?php }?>
+					<button type="button" class="btn btn-danger btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="getBack()">放棄</button>
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
@@ -452,14 +515,25 @@ if ($_GET) {
 
 
 <!-- Fancybox_div -->
-<div id="cc_status" class="tool_alert">
+<div id="cc_status_org" class="tool_alert">
   <h4 class="text-center">請選擇要部份使用的處理方式</h4>
   <div class="a_div">
   	<a class="btn btn-default" href="javascript:;" status="0">正常使用</a>
   	<a class="btn btn-default" href="javascript:;" status="1">停發</a>
   	<a class="btn btn-default" href="javascript:;" status="2">停卡</a>
   </div>
-  
+  <!-- 要修改的卡組織ID -->
+  <input type="hidden" name="ch_org">
+</div>
+
+
+<div id="cc_status_level" class="tool_alert">
+  <h4 class="text-center">請選擇要部份使用的處理方式</h4>
+  <div class="a_div">
+  	<a class="btn btn-default" href="javascript:;" status="0">正常使用</a>
+  	<a class="btn btn-default" href="javascript:;" status="1">停發</a>
+  	<a class="btn btn-default" href="javascript:;" status="2">停卡</a>
+  </div>
   <!-- 要修改的卡等ID -->
   <input type="hidden" name="ch_orglevel">
 </div>
@@ -493,24 +567,12 @@ if ($_GET) {
     
 
 
-          //-- 展開卡等 --
-          $('.card_level [name="cc_cardorg[]"]').change(function(event) {
-          	if ($(this).prop('checked')==true) {
-          	  $(this).parent().next().css('display', 'block');
-          	}
-          	else{
-          	  $(this).parent().next().css('display', 'none');
-          	  $(this).parent().next().find('[name="cc_cardlevel[]"]').prop('checked', false);
-          	}
-          });
-
-
-
           $("#submit_btn").click(function(event) {
           		var err_txt='';
           		err_txt = err_txt + check_input( '[name="cc_cardname"]', '信用卡名稱，' );
           		err_txt = err_txt + check_input( '[name="cc_bi_pk"]', '發卡單位，' );
           		err_txt = err_txt + check_input( '[name="cc_attr[]"]', '信用卡屬性，' );
+          		err_txt = err_txt + check_input('[name="cc_group_state"]', '信用卡狀態，');
           		// err_txt = err_txt + check_input( '[name="cc_cardorg[]"]', '發卡組織，' );
           		err_txt = err_txt + check_input( '[name="cc_card_orglevel[]"]', '發卡組織/卡等' );
 
@@ -531,88 +593,247 @@ if ($_GET) {
 
 
     //---------------------- 切換狀態 ---------------------
-    $('[name="cc_group_state"]').click(function(event) {
+    $('[name="cc_group_state"]').change(function(event) {
+
     	
     	//-- 正常使用 --
         if ($(this).val()=='0') {
-        	alert("請選擇要正常使用的發卡組織");
-        	$('[name="cc_cardorg[]"]').prop('disabled', false);
-        	$('[name="cc_cardorg[]"]:checked').prop('disabled', true);
-        	$('[name="cc_card_orglevel[]"]').prop('disabled', false);
-        	$('[name="cc_card_orglevel[]"]:checked').prop('disabled', true);
+        	
+        	var state_1_fun= function () {
+        		
+        		alert("請選擇要正常使用的發卡組織");
+        		$('[name="cc_cardorg[]"]').prop('disabled', false);
+        		$('[name="cc_cardorg[]"]:checked').prop('disabled', true);
+        		$('[name="cc_cardorg[]"]:checked').parents('td').nextAll().find('input').prop('disabled', false);
+
+        		//$('[name="cc_card_orglevel[]"]').prop('disabled', false);
+        		$('[name="cc_card_orglevel[]"]:checked').prop('disabled', true);
+        	}
+        	
+        	reload_orglevel(state_1_fun);
         }
-        //-- 部分使用 --
-        else if($(this).val()=='3'){
-           $('[name="cc_card_orglevel[]"]:checked').prop('disabled', false);
-           
-        }
-        //-- 停發/停卡 --
-        else{
+
+        //-- 全部停發 --
+        else if($(this).val()=='1'){
         	$('[name="cc_cardorg[]"]').prop('disabled', true);
         	$('[name="cc_card_orglevel[]"]').prop('disabled', true);
+
+
+            if (confirm('確定將全部卡片停發 ?')) {
+               $('[name="cc_card_orglevel[]"]:checked').parent().addClass('text-danger');
+
+               if ($('[name="cc_card_orglevel[]"]:checked').parent().find('.cc_status').length<1) {
+               	$('[name="cc_card_orglevel[]"]:checked').next().after('<span class="cc_status">(停發)</span>');
+               }
+               else{
+               	$('[name="cc_card_orglevel[]"]:checked').parent().find('.cc_status').html('(停發)');
+               }
+            }
+            else{
+
+            	$(this).prop('checked', false);
+            	 // $('[name="cc_card_orglevel[]"]:checked').parent().removeClass('text-danger');
+            	 // if ($('[name="cc_card_orglevel[]"]:checked').parent().find('.cc_status').length>0){
+            	 // 	$('[name="cc_card_orglevel[]"]:checked').parent().find('.cc_status').remove();
+            	 // }
+            }
         }
+
+        //-- 全部停卡 --
+        else if ($(this).val()=='2') {
+            $('[name="cc_cardorg[]"]').prop('disabled', true);
+        	$('[name="cc_card_orglevel[]"]').prop('disabled', true);
+
+            if (confirm('確定將全部卡片停卡 ?')) {
+               $('[name="cc_card_orglevel[]"]:checked').parent().addClass('text-danger');
+               
+               if ($('[name="cc_card_orglevel[]"]:checked').parent().find('.cc_status').length<1) {
+               	$('[name="cc_card_orglevel[]"]:checked').next().after('<span class="cc_status">(停卡)</span>');
+               }
+               else{
+               	$('[name="cc_card_orglevel[]"]:checked').parent().find('.cc_status').html('(停卡)');
+               }
+            }
+            else{
+
+            	 $(this).prop('checked', false);
+            	 // $('[name="cc_card_orglevel[]"]:checked').parent().removeClass('text-danger');
+            	 // if ($('[name="cc_card_orglevel[]"]:checked').parent().find('.cc_status').length>0){
+            	 // 	$('[name="cc_card_orglevel[]"]:checked').parent().find('.cc_status').remove();
+            	 // }
+            }
+        }
+
+        //-- 部分使用 --
+        else if($(this).val()=='3'){
+
+           var state_3_fun=function () {
+           	 $('[name="cc_cardorg[]"]:checked').prop('disabled', false);
+           	 $('[name="cc_card_orglevel[]"]').prop('disabled', true);
+           	 $('[name="cc_card_orglevel[]"]:checked').prop('disabled', false);
+           }
+           
+           reload_orglevel(state_3_fun); 
+        }
+        
     });
+
+
+
+
+
+  //-- 展開卡等 / 部分使用組織 --
+  $('#orglevel_tb').on('change', '.card_level [name="cc_cardorg[]"]', function(event) {
+    
+    //- 展開卡等 -
+    if ($('[name="cc_group_state"]:checked').val()=='0') {
+       if ($(this).prop('checked')==true) {
+         $(this).parents('td').nextAll().find('input').prop('disabled', false);
+       }
+       else{
+         $(this).parents('td').nextAll().find('input').prop('disabled', true);
+         $(this).parents('td').nextAll().find('input').prop('checked', false);
+       }
+    }
+
+    //- 部分使用組織 -
+    else{
+      $(this).prop('checked', true);
+      
+      $('[name="ch_org"]').val($(this).val());
+      $.fancybox.open({
+      	src  : '#cc_status_org',
+      	type : 'inline'
+      });
+    }
+  	
+  });
+
+
+
+  //-- 勾選卡等提示 / 部分使用卡等 --
+  $('#orglevel_tb').on('change', '[name="cc_card_orglevel[]"]', function(event) {
+    
+    //- 勾選卡等提示 -
+  	if ($('[name="cc_group_state"]:checked').val()=='0') {
+  	   	if ($(this).prop('checked')==true) {
+  	     	if (!confirm('確定要新增卡等：'+$(this).next().html())) {
+  	          $(this).prop('checked', false);
+  	     	}
+  	     }
+  	     else{
+  	     	if (!confirm('確定要取消卡等：'+$(this).next().html())) {
+  	          $(this).prop('checked', true);
+  	     	}
+  	     }
+  	}
+
+  	//- 部分使用卡等 -
+  	else{
+  	  $(this).prop('checked', true);
+  	  
+  	  $('[name="ch_orglevel"]').val($(this).val());
+  	  $.fancybox.open({
+  	  	src  : '#cc_status_level',
+  	  	type : 'inline'
+  	  });
+  	}
+  	
+  });
+
+
 
 
 
     //------------------- 部分使用功能 -----------------------
+    
+    //-- 部分使用組織 --
+    // $('#orglevel_tb').on('click', '[name="cc_cardorg[]"]:checked', function(event) {
+    // 	event.preventDefault();
+    	
+    // 	$('[name="ch_org"]').val($(this).val());
 
-    $('[name="cc_card_orglevel[]"]:checked').click(function(event) {
-    	event.preventDefault();
-        
-        $('[name="ch_orglevel"]').val($(this).val());
+    // 	$.fancybox.open({
+    // 		src  : '#cc_status_org',
+    // 		type : 'inline'
+    // 	});
+    // });
 
-    	$.fancybox.open({
-    		src  : '#cc_status',
-    		type : 'inline'
-    	});
+    
+    // //-- 部分使用卡等 --
+    // $('#orglevel_tb').on('click', '[name="cc_card_orglevel[]"]:checked', function(event) {
+    // 	event.preventDefault();
+    	
+    // 	$('[name="ch_orglevel"]').val($(this).val());
+
+    // 	$.fancybox.open({
+    // 		src  : '#cc_status_level',
+    // 		type : 'inline'
+    // 	});
+    // });
+
+
+    //-- 部分使用卡組織 狀態選擇 --
+    $('#cc_status_org .a_div a').click(function(event) {
+       var obj=$('[name="cc_cardorg[]"][value="'+$('[name="ch_org"]').val()+'"]');
+
+       //-- 正常使用 --
+       if ($(this).attr('status')=='0') {
+           obj.parents('td').nextAll().find('input:checked').parent().removeClass('text-danger');
+           obj.parents('td').nextAll().find('input:checked').parent().find('.cc_status').html('');
+           obj.parents('td').nextAll().find('input:checked').parent().find('[name="cc_card_status[]"]').val('0');
+       }
+       // --停發--
+       else if ($(this).attr('status')=='1') {
+           obj.parents('td').nextAll().find('input:checked').parent().addClass('text-danger');
+           obj.parents('td').nextAll().find('input:checked').parent().find('.cc_status').html('(停發)');
+           obj.parents('td').nextAll().find('input:checked').parent().find('[name="cc_card_status[]"]').val('1');
+       }
+
+       else if($(this).attr('status')=='2'){
+       	   obj.parents('td').nextAll().find('input:checked').parent().addClass('text-danger');
+           obj.parents('td').nextAll().find('input:checked').parent().find('.cc_status').html('(停卡)');
+           obj.parents('td').nextAll().find('input:checked').parent().find('[name="cc_card_status[]"]').val('2');
+       }
+
+       $.fancybox.close();
     });
 
-    $('#cc_status .a_div a').click(function(event) {
-        var _this=$(this);
-    	$.ajax({
-    		url: 'admin_ajax.php',
-    		type: 'POST',
-    		data: {
-    			type:'ch_status',
-    			orglevel:$('[name="ch_orglevel"]').val(),
-    			cc_status:$(this).attr('status'),
-    			cc_group_id:$('#cc_group_id').val()
-    		},
-    		success:function (data) {
-               
-               var obj=$('[name="cc_card_orglevel[]"][value="'+$('[name="ch_orglevel"]').val()+'"]');
+
+    //-- 部分使用卡等 狀態選擇 --
+    $('#cc_status_level .a_div a').click(function(event) {
+        var obj=$('[name="cc_card_orglevel[]"][value="'+$('[name="ch_orglevel"]').val()+'"]');
                
                //-- 正常使用 --
-    		   if (_this.attr('status')=='0') {
+    		   if ($(this).attr('status')=='0') {
     		   	 obj.parent().removeClass('text-danger');
     		   	 var cc_name=obj.parent().find('span').html();
     		   	 obj.parent().find('.cc_name').html(cc_name);
     		   	 obj.parent().find('.cc_status').html('');
+    		   	 obj.next().val('0');
 
     		   }
     		   // --停發--
-    		   else if(_this.attr('status')=='1'){
+    		   else if($(this).attr('status')=='1'){
     		   	 obj.parent().addClass('text-danger');
                  var cc_name=obj.parent().find('span').html();
                  obj.parent().find('.cc_name').html(cc_name);
                  obj.parent().find('.cc_status').html('(停發)');
+                 obj.next().val('1');
     		   }
     		   // --停卡--
-    		   else if(_this.attr('status')=='2'){
+    		   else if($(this).attr('status')=='2'){
                  obj.parent().addClass('text-danger');
                  var cc_name=obj.parent().find('span').html();
     		   	 obj.parent().find('.cc_name').html(cc_name);
                  obj.parent().find('.cc_status').html('(停卡)');
+                 obj.next().val('2');
     		   }
-    		}
-    	});
 
     	$.fancybox.close();
     	
     });
-
-
+   
 
 
 
@@ -630,7 +851,28 @@ if ($_GET) {
 			}
 		});
 
+
+
+
       });
+
+
+//-- 重新讀取資料 --
+function reload_orglevel(callback=null) {
+		
+   $.ajax({
+   	url: 'manager_ajax.php',
+   	type: 'POST',
+   	data: {
+   	  cc_group_id: $('#cc_group_id').val()
+   	},
+   	success:function (data) {
+   	  $('#orglevel_tb').html(data);
+   	  callback();
+   	}
+   });
+   
+}
 </script>
 <?php  include("../../core/page/footer02.php");//載入頁面footer02.php?>
 

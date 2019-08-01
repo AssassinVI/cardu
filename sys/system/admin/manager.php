@@ -77,7 +77,7 @@ include("../../core/page/header02.php");//載入頁面heaer02
           <form class="form-horizontal">
             <div class="form-group">
               <label class="col-md-1 control-label" for="admin_per">權限名稱</label>
-              <div class="col-md-2">
+              <div class="col-md-11">
 
                 <?php 
                   $pre_admin=$row['admin_per']=='admin' ? 'checked' : '';
@@ -104,6 +104,9 @@ include("../../core/page/header02.php");//載入頁面heaer02
 
                 
               </div>
+              
+            </div>
+            <div class="form-group">
               <label class="col-md-1 control-label" for="admin_id">帳號</label>
               <div class="col-md-2">
                 <input type="text" class="form-control" id="admin_id" value="<?php echo $row['admin_id'];?>">

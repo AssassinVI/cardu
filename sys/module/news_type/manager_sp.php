@@ -8,7 +8,7 @@ if ($_POST) {
 		$Tb_index='nt'.date('YmdHis').rand(0,99);
      
 
-  $OrderBy=pdo_select("SELECT OrderBy FROM news_type ORDER BY OrderBy DESC LIMIT 0,1", 'no');
+  $OrderBy=pdo_select("SELECT OrderBy FROM news_type WHERE area_id='' AND nt_sp=1 ORDER BY OrderBy DESC LIMIT 0,1", 'no');
   $OrderBy=(int)$OrderBy['OrderBy']+1;
 
   $OnLineOrNot=empty($_POST['OnLineOrNot']) ? 0:1;

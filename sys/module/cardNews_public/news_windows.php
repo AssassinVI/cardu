@@ -9,13 +9,16 @@
   
   //-- 版區分類 --
    $row_area=$NewPdo->select("SELECT Tb_index,at_name FROM appArea WHERE Tb_index!='at2019021114160725' AND Tb_index!='at2019021114161530' ORDER BY OrderBy ASC");
-  //-- 新聞次版區 --
-   $row_type=$NewPdo->select("SELECT Tb_index,nt_name FROM news_type WHERE area_id='' AND nt_sp=0 ORDER BY OrderBy ASC");
+  //-- 卡好康次版區 --
+   $row_type=$NewPdo->select("SELECT Tb_index,nt_name FROM news_type WHERE area_id='at2019021114154632' AND nt_sp=0 ORDER BY OrderBy ASC");
 
 ?>
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
+	<!-- 關閉視窗 -->
+	<a class="close_fancybox" href="javascript:;">Ｘ</a>
+	
 	<div class="row">
 		<div class="col-lg-3">
 			<div class="panel panel-default">
@@ -34,7 +37,13 @@
 									<option value="">新聞</option>
 									<?php
                                       foreach ($row_area as $row_area_one) {
-                                      	echo '<option value="'.$row_area_one['Tb_index'].'">'.$row_area_one['at_name'].'</option>';
+                                      	if ($row_area_one['Tb_index']=='at2019021114154632') {
+                                      	  echo '<option selected value="'.$row_area_one['Tb_index'].'">'.$row_area_one['at_name'].'</option>';
+                                      	}
+                                      	else{
+                                      	  echo '<option value="'.$row_area_one['Tb_index'].'">'.$row_area_one['at_name'].'</option>';
+                                      	}
+                                      	
                                       }
                      		  	    ?>
 								</select>
@@ -137,17 +146,10 @@
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-xs-6">
-							<button type="button" class="btn btn-default btn-block btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
-						</div>
-						<div class="col-xs-6">
-						   <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">確定</button>
-						</div>
-					</div>
-					
-				</div><!-- /.panel-body -->
+				<div class="panel-body text-center">
+                   <button type="button" id="submit_btn" class="btn btn-info  btn-raised">確定</button>
+                   <button type="button" class="btn btn-default  btn-flat" onclick="javascript:parent.jQuery.fancybox.close();" >放棄</button>
+                </div><!-- /.panel-body -->
 			</div><!-- /.panel -->
 		</div>
 	</div>

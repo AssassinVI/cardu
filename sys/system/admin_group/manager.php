@@ -5,6 +5,7 @@
    .checkbox{ display: inline-block; }
    .unit_group{  }
    .folder_group{ background: #f3f3f4; }
+   .form-horizontal .checkbox{ min-height: 0px; }
  </style>
 <?php include("../../core/page/header02.php");//載入頁面heaer02?>
 <?php
@@ -299,7 +300,7 @@
 <?php  include("../../core/page/footer01.php");//載入頁面footer01.php?>
 
 
-
+<?php  ?>
 <script src="../../js/jquery.treetable.js"></script>
     <script>
       $("#product-table").treetable({ expandable: true });
@@ -310,6 +311,43 @@
         $(".selected").not(this).removeClass("selected");
         $(this).toggleClass("selected");
       });
+
+      //-- 信用卡 --
+      $('[name="group_check[]"][value="site2018110611172385"]').after('｜<label><input type="checkbox" class="checkbox" name="group_check[]" value="site2018110611172385-del"> 刪除的權限</label>');
+      $('[name="group_check[]"][value="site2018110611041573"]').after('｜<label><input type="checkbox" class="checkbox" name="group_check[]" value="site2018110611041573-del"> 刪除的權限</label>');
+      $('[name="group_check[]"][value="site2018110516373341"]').after('｜<label><input type="checkbox" class="checkbox" name="group_check[]" value="site2018110516373341-del"> 刪除的權限</label>');
+      $('[name="group_check[]"][value="site2018110517362644"]').after('｜<label><input type="checkbox" class="checkbox" name="group_check[]" value="site2018110517362644-del"> 刪除的權限</label>');
+      $('[name="group_check[]"][value="site2018110617521258"]').after('｜<label><input type="checkbox" class="checkbox" name="group_check[]" value="site2018110617521258-del"> 刪除的權限</label>');
+      $('[name="group_check[]"][value="site2019021216245137"]').after('｜<label><input type="checkbox" class="checkbox" name="group_check[]" value="site2019021216245137-del"> 刪除的權限</label>');
+
+      <?php 
+       $x=0;
+       foreach ($Permissions as $Permissions_one) {
+        if (strpos($Permissions_one, 'del')!==FALSE ) {
+          echo '$(\'[name="group_check[]"][value="'.$Permissions_one.'"]\').prop("checked", true);';
+        }
+        $x++;
+       }
+      ?>
+
+      //-- 金融卡 --
+      $('[name="group_check[]"][value="site2018120315164066"]').after('｜<label><input type="checkbox" class="checkbox" name="group_check[]" value="site2018120315164066-del"> 刪除的權限</label>');
+      $('[name="group_check[]"][value="site2019033012185470"]').after('｜<label><input type="checkbox" class="checkbox" name="group_check[]" value="site2019033012185470-del"> 刪除的權限</label>');
+      $('[name="group_check[]"][value="site2019021312385319"]').after('｜<label><input type="checkbox" class="checkbox" name="group_check[]" value="site2019021312385319-del"> 刪除的權限</label>');
+      $('[name="group_check[]"][value="site201902131239305"]').after('｜<label><input type="checkbox" class="checkbox" name="group_check[]" value="site201902131239305-del"> 刪除的權限</label>');
+      $('[name="group_check[]"][value="site2019021312591095"]').after('｜<label><input type="checkbox" class="checkbox" name="group_check[]" value="site2019021312591095-del"> 刪除的權限</label>');
+
+      <?php 
+       $x=0;
+       foreach ($Permissions as $Permissions_one) {
+        if (strpos($Permissions_one, 'del')!==FALSE ) {
+          echo '$(\'[name="group_check[]"][value="'.$Permissions_one.'"]\').prop("checked", true);';
+        }
+        $x++;
+       }
+      ?>
+
+      
 
       // Drag & Drop Example Code
       /*$("#product-table .file, #product-table .folder").draggable({

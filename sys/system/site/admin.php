@@ -44,7 +44,7 @@
 <table id="product-table"  class="table table-hover ">
   <caption style=" text-align:right">
   <a href="#" id="sort_btn" class="btn btn-white btn-sm"><i class="fa fa-sort-amount-desc"></i> 更新排序</a>
-<!--   <a href="manager.php" class="btn btn-white btn-sm"><i class="fa fa-folder-open-o"></i> 建立大分類</a>
+  <!-- <a href="manager.php" class="btn btn-white btn-sm"><i class="fa fa-folder-open-o"></i> 建立大分類</a>
   <a href="manager_data.php" class="btn btn-white btn-sm"><i class="fa fa-file-text-o"></i> 建立第一層單元</a> |  -->
   <a href="#" onclick="jQuery('#product-table').treetable('expandAll'); return false;">全部展開</a> | 
   <a href="#" onclick="jQuery('#product-table').treetable('collapseAll'); return false;">全部收合</a>

@@ -24,8 +24,17 @@ if ($_GET) {
    
    //-- 組織資料 --
    $pdo=pdo_conn();
+
+   //-- 信用卡 --
+   if ($_GET['MT_id']=='site2018110612493746') {
+   	$where=["mt_id"=>'site2018110611172385'];
+   }
+   //-- 金融卡 --
+   else{
+    $where=["mt_id"=>'site2018120315164066'];
+   }
    $sql_org=$pdo->prepare("SELECT * FROM card_org WHERE mt_id=:mt_id  ORDER BY OrderBy ASC");
-   $sql_org->execute( ["mt_id"=>'site2018110611172385'] );
+   $sql_org->execute( $where );
 
 
 }
@@ -56,9 +65,9 @@ if ($_GET) {
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th>#</th>
-								<th>組織簡稱</th>
-								<th>圖示</th>
+								<th style="width: 10px;">#</th>
+								<th style="width: 100px;">組織簡稱</th>
+								<th style="width: 66px;">圖示</th>
                                 <th>卡等名稱</th>
 
 							</tr>
@@ -69,8 +78,16 @@ if ($_GET) {
 
 							//-- 卡等資料 --
 							$level_txt='';
+							//-- 信用卡 --
+							if ($_GET['MT_id']=='site2018110612493746') {
+							  $where=["mt_id"=>'site2018110611041573'];
+							}
+							//-- 金融卡 --
+							else{
+							 $where=["mt_id"=>'site2019033012185470'];
+							}
 							$sql_level=$pdo->prepare("SELECT * FROM card_level WHERE mt_id=:mt_id  ORDER BY OrderBy ASC");
-							$sql_level->execute( ["mt_id"=>'site2018110611041573'] );
+							$sql_level->execute( $where );
 							while ($row_level=$sql_level->fetch(PDO::FETCH_ASSOC)){
 								 
 							   $is_org_level=pdo_select("SELECT COUNT(*) as total FROM org_level WHERE org_id =:org_id AND level_id =:level_id ", ['org_id'=>$row['Tb_index'], 'level_id'=>$row_level['Tb_index']]);

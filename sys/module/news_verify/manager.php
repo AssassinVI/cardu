@@ -619,11 +619,11 @@ if ($_GET) {
 							<label class="col-md-2 control-label" for="StartDate">新聞上架日期</label>
 							<div class="col-md-10 row">
 								<div class="col-md-5">
-								  <input type="text" class="form-control datepicker" id="StartDate" name="StartDate" value="<?php echo $StartDate;?>">
+								  <input type="text" class="form-control datepicker_range from" id="StartDate" name="StartDate" value="<?php echo $StartDate;?>">
 								</div>
                                 <div class="col-md-1"><h3>至</h3></div>
 								<div class="col-md-5">
-								  <input type="text" class="form-control datepicker" id="EndDate" name="EndDate" value="<?php echo $EndDate;?>">
+								  <input type="text" class="form-control datepicker_range to" id="EndDate" name="EndDate" value="<?php echo $EndDate;?>">
 								</div>
 								<div class="col-md-1"><h3>止</h3></div>
 								

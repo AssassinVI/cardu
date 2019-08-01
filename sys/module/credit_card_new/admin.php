@@ -1,7 +1,8 @@
 <?php include("../../core/page/header01.php");//載入頁面heaer01 ?>
 <style type="text/css">
-	.card_level{ padding: 5px; border-bottom: 1px solid #ccc; }
-	.card_level div{ display: none; }
+	.card_level{  border-bottom: 1px solid #ccc; }
+	.card_level td{ padding:3px 8px;}
+	.card_level label{ margin-bottom: 0; }
 	.cc_apply_url{display: none;}
 	.cc_apply_file{ display: none; }
 </style>
@@ -115,10 +116,10 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<header>信用卡資料編輯
+					<header>新增信用卡
 					</header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
@@ -159,27 +160,36 @@ if ($_GET) {
 						<div class="form-group">
 							<label class="col-md-2 control-label" for="note"><span class="text-danger">*</span> 發卡組織/卡等</label>
 							<div class="col-md-10">
+								<table >
+								  <tbody>
+								  
 								<?php
 								     foreach ($org as $org_one) {
-								      echo '<div class="card_level">';
-								      echo '<label><input type="checkbox" name="cc_cardorg[]" > '.$org_one['org_nickname'].'</label>';
-                                      echo '<div>';
-                                       $card_level=$NewPdo->select("SELECT level_id FROM org_level WHERE org_id=:org_id", ['org_id'=>$org_one['Tb_index']]);
+								      echo '<tr class="card_level">';
+								      echo '<td><label><input type="checkbox" name="cc_cardorg[]" > '.$org_one['org_nickname'].'</label></td>';
+
+                                       $card_level=$NewPdo->select("SELECT ol.level_id 
+                                       	                            FROM org_level as ol
+                                       	                            INNER JOIN card_level as cl ON cl.Tb_index=ol.level_id
+                                       	                            WHERE ol.org_id=:org_id 
+                                       	                            ORDER BY cl.OrderBy ASC", ['org_id'=>$org_one['Tb_index']]);
                                        foreach ($card_level as $card_level_one) {
-                                       	echo '<label><input type="checkbox" name="cc_card_orglevel[]" value="'.$org_one['Tb_index'].','.$card_level_one['level_id'].'"> '.$level_name[$card_level_one['level_id']].'</label>｜';
+                                       	echo '<td><label><input type="checkbox" disabled name="cc_card_orglevel[]" value="'.$org_one['Tb_index'].','.$card_level_one['level_id'].'"> '.$level_name[$card_level_one['level_id']].'</label></td>';
                                        }
-								      echo '</div>';
-								      echo '</div>';
+
+								      echo '</tr>';
 								     }
 								?>
-								
+
+								</tbody>
+							   </table>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-md-2 control-label" >發行日期</label>
 							<div class="col-md-10 form-inline">
-								<input type="date" class="form-control" id="cc_publish" name="cc_publish" value="<?php echo $row['cc_publish'];?>">
+								<input type="text" class="form-control datepicker" id="cc_publish" name="cc_publish" value="<?php echo $row['cc_publish'];?>">
 							</div>
 						</div>
 
@@ -249,24 +259,19 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-6">
-							<button type="button" class="btn btn-danger btn-block btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="clean_all()">重設表單</button>
-						</div>
-						<div class="col-lg-6">
-						<?php if(empty($_GET['Tb_index'])){?>
-							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">儲存</button>
-						<?php }else{?>
-						    <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">更新</button>
-						<?php }?>
-						</div>
-					</div>
+				<div class="panel-body text-center">
+					<?php if(empty($_GET['Tb_index'])){?>
+						<button type="button" id="submit_btn" class="btn btn-info btn-raised">儲存</button>
+					<?php }else{?>
+					    <button type="button" id="submit_btn" class="btn btn-info btn-raised">更新</button>
+					<?php }?>
+
+					<button type="button" class="btn btn-danger btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="getBack()">放棄</button>
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
@@ -302,11 +307,11 @@ if ($_GET) {
           //-- 展開卡等 --
           $('.card_level [name="cc_cardorg[]"]').change(function(event) {
           	if ($(this).prop('checked')==true) {
-          	  $(this).parent().next().css('display', 'block');
+          	  $(this).parents('td').nextAll().find('input').prop('disabled', false);
           	}
           	else{
-          	  $(this).parent().next().css('display', 'none');
-          	  $(this).parent().next().find('[name="cc_cardlevel[]"]').prop('checked', false);
+          	  $(this).parents('td').nextAll().find('input').prop('disabled', true);
+          	  $(this).parents('td').nextAll().find('input').prop('checked', false);
           	}
           });
 

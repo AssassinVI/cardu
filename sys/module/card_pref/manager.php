@@ -99,17 +99,18 @@ if ($_POST) {
 if ($_GET) {
  	$where=['Tb_index'=>$_GET['Tb_index']];
  	$row=pdo_select('SELECT * FROM card_pref WHERE Tb_index=:Tb_index', $where);
+
+ 	$newORedit=empty($_GET['Tb_index']) ? '新增優惠':'修改優惠';
 }
 ?>
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<header>網頁資料編輯
-					</header>
+					<header><?php echo $newORedit; ?></header>
 				</div><!-- /.panel-heading -->
 				<div class="panel-body">
 					<form id="put_form" action="manager.php" method="POST" enctype='multipart/form-data' class="form-horizontal">
@@ -143,6 +144,12 @@ if ($_GET) {
 							</div>
 						<?php }?>		
 						</div>
+                       
+
+
+                      <?php 
+                        if ($_GET['MT_id']!='site2019041013020371') {
+                      ?>
 
 
 						<div class="form-group">
@@ -169,8 +176,12 @@ if ($_GET) {
 							</div>
 						<?php }?>		
 						</div>
+					   
+					   
+					   <?php
+					     }
+					   ?> 
 
-					
 					
 
 						<div class="form-group">
@@ -198,24 +209,20 @@ if ($_GET) {
 
 		</div>
 
-		<div class="col-lg-3">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<header>儲存您的資料</header>
 				</div><!-- /.panel-heading -->
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-lg-6">
-							<button type="button" class="btn btn-danger btn-block btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="clean_all()">重設表單</button>
-						</div>
-						<div class="col-lg-6">
+				<div class="panel-body text-center">
+						
 						<?php if(empty($_GET['Tb_index'])){?>
-							<button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">儲存</button>
-						<?php }else{?>
-						    <button type="button" id="submit_btn" class="btn btn-info btn-block btn-raised">更新</button>
-						<?php }?>
-						</div>
-					</div>
+						<button type="button" id="submit_btn" class="btn btn-info btn-raised">儲存</button>
+					<?php }else{?>
+					    <button type="button" id="submit_btn" class="btn btn-info btn-raised">更新</button>
+					<?php }?>
+
+					<button type="button" class="btn btn-danger btn-flat" data-toggle="modal" data-target="#settingsModal1" onclick="getBack()">放棄</button>
 					
 				</div><!-- /.panel-body -->
 			</div><!-- /.panel -->
@@ -231,7 +238,7 @@ if ($_GET) {
           	  var err_txt='';
           	err_txt = err_txt + check_input( '[name="pref_name"]', '優惠名稱，' );
           	err_txt = $('[name="pref_image"]').val()=='' && $('[name="old_pref_image"]').val()==undefined ? err_txt + '優惠圖示，' : err_txt;
-          	err_txt = $('[name="pref_image"]').val()=='' && $('[name="old_pref_image_hover"]').val()==undefined ? err_txt + '優惠圖示(滑鼠經過)，' : err_txt;
+          	//err_txt = $('[name="pref_image"]').val()=='' && $('[name="old_pref_image_hover"]').val()==undefined ? err_txt + '優惠圖示(滑鼠經過)，' : err_txt;
           	err_txt = err_txt + check_input( '[name="pref_txt"]', '優惠範圍說明' );
 
           	

@@ -17,9 +17,7 @@ if ($_GET) {
 
 <div class="wrapper wrapper-content animated fadeInRight">
 	
-<div class="row">
-		<div class="col-lg-4">
-			<div class="panel panel-success">
+			<div class="panel panel-success" style="width: 700px;">
                  <div class="panel-heading">
                      分類選擇
                  </div>
@@ -55,8 +53,8 @@ if ($_GET) {
                      </div>
                  </div>
              </div>
-	</div>
-</div>
+	
+
 
 </div><!-- /#page-content -->
 <?php  include("../../core/page/footer01.php");//載入頁面footer01.php?>

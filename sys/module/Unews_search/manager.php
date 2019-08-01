@@ -332,6 +332,7 @@ if ($_GET) {
  	$row=pdo_select('SELECT * FROM appNews WHERE Tb_index=:Tb_index', $where);
 
     //-- 版區，次版區 --
+    $ns_nt_pk=explode(',', $row['ns_nt_pk']);
     $where_type=['Tb_index'=>$row['ns_nt_pk']];
     $Unews_type=pdo_select('SELECT * FROM news_type WHERE Tb_index=:Tb_index', $where_type);
     
@@ -388,31 +389,31 @@ if ($_GET) {
                    
 
                    //-- 優旅行-次版區 --
-                   if ($row_area_one['Tb_index']=='at2019011117461656') {
+                   // if ($row_area_one['Tb_index']=='at2019011117461656') {
 
-                     $at_unit=explode(',', $row_area_one['at_unit']);
-                     for ($i=0; $i <count($at_unit) ; $i++) { 
-                       $at_unit[$i]="'".$at_unit[$i]."'";
-                     }
-                     $at_unit=implode(',', $at_unit);
+                   //   $at_unit=explode(',', $row_area_one['at_unit']);
+                   //   for ($i=0; $i <count($at_unit) ; $i++) { 
+                   //     $at_unit[$i]="'".$at_unit[$i]."'";
+                   //   }
+                   //   $at_unit=implode(',', $at_unit);
 
-                     $row_unit=$NewPdo->select("SELECT * FROM appUnit WHERE Tb_index IN (".$at_unit.") ORDER BY OrderBy ASC");
+                   //   $row_unit=$NewPdo->select("SELECT * FROM appUnit WHERE Tb_index IN (".$at_unit.") ORDER BY OrderBy ASC");
 
-                      $block_travel_div=$Unews_type['area_id']=='at2019011117461656' ? 'style="display:inline-block;"' : '';
+                   //    $block_travel_div=$Unews_type['area_id']=='at2019011117461656' ? 'style="display:inline-block;"' : '';
 
-                      echo '<div '.$block_travel_div.' class="travel_div"><span>優旅行-次版區：</span>';
-                       foreach ($row_unit as $row_unit_one) {
+                   //    echo '<div '.$block_travel_div.' class="travel_div"><span>優旅行-次版區：</span>';
+                   //     foreach ($row_unit as $row_unit_one) {
 
-                         if($Unews_type['unit_id']==$row_unit_one['Tb_index']){
-                           echo '<label><input type="radio" checked name="unit_id" value="'.$row_unit_one['Tb_index'].'"> '.$row_unit_one['un_name'].'｜</label>';
-                         }
-                         else{
-                          echo '<label><input type="radio" name="unit_id" value="'.$row_unit_one['Tb_index'].'"> '.$row_unit_one['un_name'].'｜</label>';
-                         }
+                   //       if($Unews_type['unit_id']==$row_unit_one['Tb_index']){
+                   //         echo '<label><input type="radio" checked name="unit_id" value="'.$row_unit_one['Tb_index'].'"> '.$row_unit_one['un_name'].'｜</label>';
+                   //       }
+                   //       else{
+                   //        echo '<label><input type="radio" name="unit_id" value="'.$row_unit_one['Tb_index'].'"> '.$row_unit_one['un_name'].'｜</label>';
+                   //       }
                          
-                       }
-                      echo "</div>";
-                   }
+                   //     }
+                   //    echo "</div>";
+                   // }
                  }
 
                  
@@ -426,8 +427,23 @@ if ($_GET) {
 							<div class="col-md-8" id="ns_nt_pk">
 								<?php
                   if(!empty($row['ns_nt_pk'])){
-                      $nt_name=pdo_select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$row['ns_nt_pk']]);
-                      echo '<span class="btn btn-success">'.$nt_name['nt_name'].' <input type="hidden" name="ns_nt_pk" value="'.$row['ns_nt_pk'].'"></span> ';
+                      $ns_nt_pk_arr=explode(',', $row['ns_nt_pk']);
+                      foreach ($ns_nt_pk_arr as $ns_nt_pk) {
+                        
+                        //-- 優情報 --
+                        if ($Unews_type['area_id']=='at2019011117461656') {
+                          $nt_name=$NewPdo->select("SELECT nt.nt_name, un.un_name, nt.unit_id
+                                                    FROM news_type as nt
+                                                    INNER JOIN appUnit as un ON un.Tb_index=nt.unit_id
+                                                    WHERE nt.Tb_index=:Tb_index", 
+                                                    ['Tb_index'=>$ns_nt_pk],'one');
+                          echo '<span class="btn btn-success">'.$nt_name['un_name'].'-'.$nt_name['nt_name'].' <input type="hidden" name="ns_nt_pk[]" unit_id="'.$nt_name['unit_id'].'" value="'.$ns_nt_pk.'"></span> ';
+                        }
+                        else{
+                          $nt_name=$NewPdo->select("SELECT nt_name FROM news_type WHERE Tb_index=:Tb_index", ['Tb_index'=>$ns_nt_pk],'one');
+                          echo '<span class="btn btn-success">'.$nt_name['nt_name'].' <input type="hidden" name="ns_nt_pk[]" value="'.$ns_nt_pk.'"></span> ';
+                        }
+                      }
                   }
 
                   if(!empty($row['ns_nt_sp_pk'])){
@@ -833,15 +849,15 @@ if ($_GET) {
              sessionStorage.removeItem("news_ot_type");
 
              //-- 優旅行 --
-             if ($(this).val()=='at2019011117461656') {
-              $('.travel_div').css('display', 'inline-block');
-              $('#ns_nt_pk_div').css('display', 'none');
-              $('#ns_nt_ot_pk_div').css('display', 'none');
-              $('.travel_div [name="unit_id"]').prop('checked', false);
-             }
-             else{
-              $('.travel_div').css('display', 'none');
-             }
+             // if ($(this).val()=='at2019011117461656') {
+             //  $('.travel_div').css('display', 'inline-block');
+             //  $('#ns_nt_pk_div').css('display', 'none');
+             //  $('#ns_nt_ot_pk_div').css('display', 'none');
+             //  $('.travel_div [name="unit_id"]').prop('checked', false);
+             // }
+             // else{
+             //  $('.travel_div').css('display', 'none');
+             // }
           });
           //-- 版區次版區 END --
 
@@ -986,11 +1002,20 @@ if ($_GET) {
 		sessionStorage.clear();
         
     //-- 新聞分類 --
-		if ($('[name="ns_nt_pk"]').length>0) {
-			//-- 記錄暫存 --
-       sessionStorage.setItem("news_type", $('[name="ns_nt_pk"]').val());
+    if ($('[name="ns_nt_pk[]"]').length>0) {
+      //-- 記錄暫存 --
+      var ns_nt_pk_arr=[];
+      $.each($('[name="ns_nt_pk[]"]'), function(index, val) {
+        ns_nt_pk_arr.push($(this).val());
+      });
+
+       sessionStorage.setItem("news_type", ns_nt_pk_arr);
+
+      if ($('[name="ns_nt_pk[]"]').attr('unit_id')!=null) {
+        sessionStorage.setItem("news_unit", $('[name="ns_nt_pk[]"]').attr('unit_id'));
+      }
        sessionStorage.setItem("news_sp_type", $('[name="ns_nt_sp_pk"]').val());
-		}
+    }
 
     //-- 上刊到其他單元 --
     if($('[name="ns_nt_ot_pk[]"]').length>0){

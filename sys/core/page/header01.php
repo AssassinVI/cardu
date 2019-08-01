@@ -69,6 +69,8 @@ $parent_id=pdo_select("SELECT parent_id FROM maintable WHERE Tb_index=:Tb_index"
          #table_id_example tbody tr:hover, table.dataTable.display tbody tr:hover > .sorting_1, table.dataTable.order-column.hover tbody tr:hover > .sorting_1{ background-color: #ccc; }
          #table_id_example tbody tr:hover, table.dataTable.display tbody tr:hover > .sorting_2, table.dataTable.order-column.hover tbody tr:hover > .sorting_2{ background-color: #ccc; }
 
+         table.dataTable tbody th, table.dataTable tbody td{ padding: 8px 5px; }
+
 
         
         .active_lang{ padding: 6px 20px; margin: 2px; font-size: 14px; background: #1690d8; color: #fff;}
@@ -84,7 +86,7 @@ $parent_id=pdo_select("SELECT parent_id FROM maintable WHERE Tb_index=:Tb_index"
          .twzipcode{ display: inline-block; }
          .twzipcode input, .twzipcode select ,.adds{ font-size: 14px; padding: 5px; border: 1px solid #d6d6d6; }
          .adds{ width: 300px; }
-             #one_img{ width: 150px; border:1px solid #d6d6d6; padding: 3px;}
+             #one_img{ height: 110px; border:1px solid #d6d6d6; padding: 3px;}
              #one_del_img, #one_del_img_hover, .one_del_img, #one_del_file,.one_del_file,#one_del_video{ position: absolute; border: 0px; background-color: #ff243b; color: #fff; box-shadow: 1px 1px 2px rgba(0,0,0,0.5);}
          .img_check{ position: absolute; top: 40px; left: 75px; background: rgba(26,179,148,1); padding: 7px 10px; border-radius: 50px; font-size: 15px; color: #ffffff; display:none; }
          .sort_in{ padding: 3px 5px; width: 40px; border-radius: 3px; border: 1px solid #b6b6b6; }
