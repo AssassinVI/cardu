@@ -30,16 +30,34 @@
 
      //-- GOOGLE recaptcha 驗證程式 --
  	 GOOGLE_recaptcha('6Le2HRIUAAAAAJJbt4e5F6g6yuW-FmSAYg--3R43', $_POST['g-recaptcha-response'], 'send_error.php');
+   
+   $sqm_ud_pk=empty($_SESSION['ud_pk']) ? 0:$_SESSION['ud_pk'];
+   $sqm_ptext='錯誤內容:'.$_POST['error_content']."\r\n".'正確內容:'.$_POST['correct_content'];
+   $param=[
+    'sqm_ud_pk'=>$sqm_ud_pk,
+    'sqm_ud_nickname'=>$_POST['name'],
+    'sqm_mail'=>$_POST['my_mail'],
+    'sqm_type'=>2,
+    'sqm_type_name'=>$_POST['sqm_type_name'],
+    'sqm_no'=>$_POST['sqm_no'],
+    'sqm_title'=>$_POST['sqm_title'],
+    'sqm_link'=>$_POST['sqm_link'],
+    'sqm_referer'=>$_POST['sqm_referer'],
+    'sqm_ptext'=>$sqm_ptext,
+    'sqm_pdate'=>date('Y-m-d H:i:s')
+   ];
+
+   $pdo->insert('service_question_manage', $param);
 
  	     $body_data='
- 		 <img style="width:100px;" src="'.$URL.'/img/component/logo.png" alt=""><br>
+ 		   <img style="width:100px;" src="'.$URL.'/img/component/logo.png" alt=""><br>
          <p>
            回報者姓名:'.$_POST['name'].'<br>
            回報者Email:'.$_POST['my_mail'].'<br>
-           回報新聞:<a href="'.$_POST['send_news_url'].'">'.$_POST['send_news'].'</a><br>
+           回報新聞:<a href="'.$_POST['sqm_referer'].'">'.$_POST['sqm_title'].'</a><br>
            錯誤內容:'.$_POST['error_content'].'<br>
            正確內容:'.$_POST['correct_content'].'<br>
-           正確出處:'.$_POST['correct_url'].'<br>
+           正確出處:'.$_POST['sqm_link'].'<br>
          </p>
          ';
  		  

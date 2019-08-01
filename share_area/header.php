@@ -64,7 +64,7 @@
                                   <?php 
                                      $row_news=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, nt_name, pk
                                                              FROM  NewsAndType
-                                                             where mt_id = 'site2018111910430599' AND ns_vfdate<>'0000-00-00 00:00:00' AND ns_verify=3 
+                                                             where mt_id = 'site2018111910430599' AND ns_vfdate<>'0000-00-00 00:00:00' AND ns_verify=3 AND OnLineOrNot=1
                                                              AND  StartDate<=:StartDate AND EndDate>=:EndDate
                                                              order by ns_vfdate desc
                                                              LIMIT 0, 4",
@@ -363,7 +363,13 @@
                     </div>
                 
                 <div class="row">
-                    <div class="col-md-11 col text-right" ><img src="http://placehold.it/750x100" alt="banner"></div>
+                    
+                    <!-- //置頂橫幅 750x100 Begin -->
+                    <div class="col-md-11 col text-right top-ad" >
+                      <span class="ad-span"></span>
+                    </div>
+                    <!-- //置頂橫幅 750x100 End -->
+                              
                     <div class="col-md-1 col  text-left">
                         <!-- <div id="icon_head_fb" class="col0"><a href="#"><img src="img/component/icon_facebook.png" alt=""></a></div>
                         <div id="icon_head_rss" class="col0"><a href="#"><img src="img/component/icon_rss.png" alt=""></a></div> -->
@@ -386,7 +392,6 @@
               <form id="form_login" action="" method="POST">
                 <div class="form-group">
                   <input type="text" class="form-control" name="ud_userid_lg"  placeholder="會員帳號" value="<?php echo $ud_userid_lg;?>">
-                  
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control" name="ud_password_lg"  placeholder="會員密碼">
@@ -436,7 +441,8 @@
 
         <!-- 右邊浮動廣告 -->
         <div class="right-ad">
-           <img src="http://placehold.it/180x300" alt="banner">
+
+           <div class="ad-span" id="ad110_0"></div>
           <!-- 卡片比一比 -->
           <div class="card_compare mt-3">
             <h4><button class="contrast_card_close" type="button">Ｘ</button></h4>

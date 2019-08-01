@@ -35,16 +35,41 @@
     </div>
 
     <?php 
-     
+     //-- 新聞 --
      if (strpos($_SERVER['QUERY_STRING'], 'news')!==FALSE) {
        $row_news=$pdo->select("SELECT ns_ftitle, Tb_index, mt_id, ns_nt_pk, area_id FROM NewsAndType WHERE Tb_index=:Tb_index", ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
        $title=$row_news['ns_ftitle'];
        $url=news_url($row_news['mt_id'], $row_news['Tb_index'], $row_news['ns_nt_pk'], $row_news['area_id']);
      }
+
+     //-- 公告活動 --
      else if(strpos($_SERVER['QUERY_STRING'], 'note')!==FALSE){
         $row_note=$pdo->select("SELECT aTitle, Tb_index, note_type FROM appNotice WHERE Tb_index=:Tb_index", ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
         $title=$row_note['aTitle'];
         $url=$row_note['note_type']=='0' ? '../member/notify_detail.php?'.$row_note['Tb_index']:'../member/event_activity_detail.php?'.$row_note['Tb_index'];
+     }
+
+     //-- 信用卡 -- 
+     elseif(strpos($_SERVER['QUERY_STRING'], 'ccard')!==FALSE){
+       
+       $row_ccard=$pdo->select("SELECT cc_group_id, Tb_index, bi_shortname, cc_cardname, org_nickname, attr_name
+                               FROM cc_detail
+                               WHERE Tb_index=:Tb_index", 
+                               ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
+
+       $title=$row_ccard['bi_shortname'].$row_ccard['cc_cardname'].$row_ccard['org_nickname'].$row_ccard['attr_name'];
+       $url=$URL.'/card/creditcard.php?cc_pk='.$row_ccard['Tb_index'].'&cc_group_id='.$row_ccard['cc_group_id'];
+     }
+
+     //-- 金融卡 -- 
+     elseif(strpos($_SERVER['QUERY_STRING'], 'dcard')!==FALSE){
+       $row_ccard=$pdo->select("SELECT dc_group_id, Tb_index, bi_shortname, dc_cardname, org_nickname, attr_name
+                                FROM dc_detail
+                                WHERE Tb_index=:Tb_index", 
+                                ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
+       
+       $title=$row_ccard['bi_shortname'].$row_ccard['dc_cardname'].$row_ccard['org_nickname'].'卡';
+       $url=$URL.'/card/debitcard.php?dc_pk='.$row_ccard['Tb_index'].'&dc_group_id='.$row_ccard['dc_group_id'];
      }
      
     ?>
@@ -64,13 +89,13 @@
                    <div class="form-group row">
                      <label class="col-sm-3 col-form-label">您的姓名：</label>
                      <div class="col-sm-9">
-                       <input type="text" class="form-control" name="name">
+                       <input type="text" class="form-control" name="name" value="<?php echo $_SESSION['ud_nickname'];?>">
                      </div>
                    </div>
                    <div class="form-group row">
                      <label class="col-sm-3 col-form-label">你的Email：</label>
                      <div class="col-sm-9">
-                       <input type="text" class="form-control" name="my_mail">
+                       <input type="text" class="form-control" name="my_mail" value="<?php echo $_SESSION['ud_email'];?>">
                      </div>
                    </div>
                    <div class="form-group row">

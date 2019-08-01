@@ -1,12 +1,11 @@
-<?php 
-//===============================================================================================================
-//=========================================== 前台功能(pc) ====================================================================
-//===============================================================================================================
+<?php
 //@@@@@ (pc) @@@@@@@@@@
 //----- 單卡網址
 //----- 卡排行 比較文字判斷
 //----- 判斷新聞連結
 //----- 版區、次版區banner 四小三大輪播
+//----- 獲取廣告
+//----- 更新廣告曝光數
 //----- 各版區首頁-次版6篇文章
 //----- 分頁
 //----- MENU fun
@@ -14,11 +13,14 @@
 //----- 判斷手機AND平板
 //----- 新聞次版區list
 //----- 新聞內頁分享功能按鈕
+//----- 單卡內頁分享功能按鈕
 //----- 去除空白
 //----- 驗證cookie 登入
 //----- 信用卡List 樣板
 //----- 會員判斷
-//----- 網站404判斷
+//----- 判斷用戶端是什麼配備
+
+
 //@@@@@ (手機) @@@@@@@@@@
 //----- 版區、次版區banner 輪播 (手機板)
 //----- 首頁 卡情報、優票證、優旅行
@@ -27,6 +29,13 @@
 //----- 版區各分類3篇文章
 //----- 版區各特別議題5篇文章
 //----- 版區各刷卡整理||XX攻略5篇文章
+//$ad_URL='https://ad-yenweb.starwin.me';
+
+
+
+//===============================================================================================================
+//=========================================== 前台功能(pc) ====================================================================
+//===============================================================================================================
 
 
 /* ----------------------- 圖片檔案上傳 --------------------------- */
@@ -34,6 +43,7 @@ function fire_upload_pc($file_id, $file_name)
 {
    move_uploaded_file($_FILES[$file_id]['tmp_name'], '../sys/img/'.$file_name);
 }
+
 
 //-- 單卡網址 --
 function card_url($cc_pk, $cc_group_id)
@@ -196,8 +206,12 @@ function news_url($mt_id, $news_id, $news_type_id='', $news_area_id='')
 
 
 //------------------------------------ 版區、次版區banner 四小三大輪播 ---------------------------------------
-function slide_4s_3b($sql_carousel, $where_arr='no')
+function slide_4s_3b($sql_carousel, $where_arr='no', $aa_ap_pk=107)
 {
+  global $ad_URL;
+
+  $carousel_pdo=new PDO_fun;
+
   $txt='
    <div class="col-md-12 col">
     
@@ -207,17 +221,14 @@ function slide_4s_3b($sql_carousel, $where_arr='no')
             <div class="swiper-wrapper">';
   
 
-  //-- 廣告陣列 --
-  for ($i=0; $i <6 ; $i++) { 
-    $ad_arr[$i]=[
-    'Tb_index'=>'ad123456',
-    'ns_ftitle'=>'廣告',
-    'ns_msghtml'=>'我是廣告',
-    'ns_photo_1'=>'/img/component/photo2.jpg'
-    ];
-  }
+  //-- 廣告 --
+  //aa_ap_pk=107 卡版區大看版廣告 ID
+  //aa_ap_pk=106 優版區大看版廣告 ID
+  $ad_arr= get_ad($aa_ap_pk, 6);
+  
 
-  $carousel_pdo=new PDO_fun;
+  //-- 廣告 END --
+
   
   //-- 撈卡情報 --
   $row_slide=$carousel_pdo->select($sql_carousel , $where_arr);
@@ -241,19 +252,31 @@ function slide_4s_3b($sql_carousel, $where_arr='no')
 
       $active=$j==0 ? 'active':'';
       $index=($i*4)+$j;
-      $ns_ftitle=mb_substr($slide_all_arr[$index]['ns_ftitle'], 0,15,'utf-8');
-      $ns_msghtml=mb_substr(strip_tags(str_replace(["　",PHP_EOL], '', $slide_all_arr[$index]['ns_msghtml'])), 0,15,'utf-8');
+
+
+      //-- 判斷廣告 --
+      if ($slide_all_arr[$index]['type']=='ad') {
+        $ns_ftitle=mb_substr($slide_all_arr[$index]['aa_text'], 0,15,'utf-8');
+        $ns_msghtml=mb_substr(strip_tags(str_replace(["　",PHP_EOL], '', $slide_all_arr[$index]['aa_content'])), 0,15,'utf-8');
+        $a_url=$slide_all_arr[$index]['aa_url'];
+        $a_target=$slide_all_arr[$index]['aa_target'];
+        $ns_photo_1=$ad_URL.'/ad_images/'.$slide_all_arr[$index]['aa_media'];
+      }
+      else{
+        $ns_ftitle=mb_substr($slide_all_arr[$index]['ns_ftitle'], 0,15,'utf-8');
+        $ns_msghtml=mb_substr(strip_tags(str_replace(["　",PHP_EOL], '', $slide_all_arr[$index]['ns_msghtml'])), 0,15,'utf-8');
+        $a_url=news_url($slide_all_arr[$index]['mt_id'], $slide_all_arr[$index]['Tb_index'], $slide_all_arr[$index]['ns_nt_pk'], $slide_all_arr[$index]['area_id']);
+        $a_target='_self';
+        $ns_photo_1='/sys/img/'.$slide_all_arr[$index]['ns_photo_1'];
+      }
       
-      //-- 判斷網址 --
-      $a_url=news_url($slide_all_arr[$index]['mt_id'], $slide_all_arr[$index]['Tb_index'], $slide_all_arr[$index]['ns_nt_pk'], $slide_all_arr[$index]['area_id']);
-      //-- 判斷廣告圖片 --
-      $ns_photo_1=$j%2==1 ? $slide_all_arr[$index]['ns_photo_1'] : '/sys/img/'.$slide_all_arr[$index]['ns_photo_1'];
+      
       
       $slide_img.='
-      <a href="'.$a_url.'" index_img="'.($j+1).'" title="'.$slide_all_arr[$index]['ns_ftitle'].'" class="img_div '.$active.'" style="background-image: url('.$ns_photo_1.');">
+      <a href="'.$a_url.'" target="'.$a_target.'" index_img="'.($j+1).'" title="'.$slide_all_arr[$index]['ns_ftitle'].'" class="img_div '.$active.'" style="background-image: url('.$ns_photo_1.');">
       </a>';
       $slide_list.='
-       <a class="'.$active.'" href="'.$a_url.'" index="'.($j+1).'" title="'.$slide_all_arr[$index]['ns_ftitle'].'">
+       <a class="'.$active.'" href="'.$a_url.'" target="'.$a_target.'" index="'.($j+1).'" title="'.$slide_all_arr[$index]['ns_ftitle'].'">
           <h4>'.$ns_ftitle.'</h4>
           <p>'.$ns_msghtml.'...</p>
         </a>';
@@ -287,6 +310,91 @@ function slide_4s_3b($sql_carousel, $where_arr='no')
 
 echo $txt;
 }
+
+
+
+
+
+
+
+//-------------------------------------------- 獲取廣告 --------------------------------------------
+function get_ad($aa_ap_pk, $limit)
+{
+  global $ad_URL;
+  $ad_pdo=new PDO_fun('carduad');
+  
+  $row_ad=$ad_pdo->select("SELECT aa.aa_text, aa.aa_content, aa.aa_media, aa.aa_pk, aa.aa_ac_pk, aa.aa_aj_pk, aa.aa_ap_pk, aa.aa_next_url, aa.aa_target
+                           FROM ad_advertisement as aa 
+                           INNER JOIN ad_advertisement_date as aad ON aad.aad_aa_pk=aa.aa_pk
+                           WHERE aa.aa_ap_pk=:aa_ap_pk 
+                                 AND aa_enable = 1
+                                 AND date_format(now(), '%Y%m%d') BETWEEN date_format(aad.aad_bdate, '%Y%m%d') 
+                                 AND date_format(aad.aad_edate, '%Y%m%d')
+                           ORDER BY RAND() 
+                           LIMIT $limit",
+                           ['aa_ap_pk'=>$aa_ap_pk]);
+  $ad_arr=[];
+  foreach ($row_ad as $row_ad_one) {
+    
+    $adkey_first = urlencode($row_ad_one['aa_pk'].".".$row_ad_one['aa_ac_pk'].".".$row_ad_one['aa_aj_pk'].".".$row_ad_one['aa_ap_pk']);
+    $adurl_first = urlencode($row_ad_one['aa_next_url']);
+    $ad_next_first = $ad_URL."/click.htm?key=".$adkey_first."&next=".$adurl_first;
+
+    array_push($ad_arr, [
+    'type'=>'ad',
+    'aa_text'=>$row_ad_one['aa_text'],
+    'aa_content'=>$row_ad_one['aa_content'],
+    'aa_url'=>$ad_next_first,
+    'aa_media'=>$row_ad_one['aa_media'],
+    'aa_target'=>$row_ad_one['aa_target']
+    ]);
+    
+    // -- 更新廣告曝光數 --
+    update_ad_impression($row_ad_one['aa_pk']);
+  }
+
+  return $ad_arr;
+}
+
+
+
+
+
+
+//-------------------------------------------- 更新廣告曝光數 --------------------------------------------
+function update_ad_impression($aa_pk)
+{
+  $ad_pdo=new PDO_fun('carduad');
+  $ad_pdo->select("UPDATE ad_advertisement SET aa_impression=aa_impression+1 WHERE aa_pk=:aa_pk", ['aa_pk'=>$aa_pk]);
+
+  $row_impression_daily=$ad_pdo->select("SELECT COUNT(*) as total 
+                                        FROM ad_impression_daily 
+                                        WHERE aid_yymmdd=:aid_yymmdd AND aid_aa_pk=:aid_aa_pk",
+                                        ['aid_yymmdd'=>strtotime(date('Y/m/d 00:00:00')), 'aid_aa_pk'=>$aa_pk], 'one');
+
+  if ((int)$row_impression_daily['total']>0) {
+    $ad_pdo->select("UPDATE ad_impression_daily SET aid_count=aid_count+1 WHERE aid_yymmdd=:aid_yymmdd AND aid_aa_pk=:aid_aa_pk", 
+                    ['aid_yymmdd'=>strtotime(date('Y/m/d 00:00:00')), 'aid_aa_pk'=>$aa_pk]);
+  }
+  else{
+
+    $row_ad_advertisement=$ad_pdo->select("SELECT aa_ac_pk, aa_aj_pk, aa_ap_pk FROM ad_advertisement WHERE aa_pk=:aa_pk", ['aa_pk'=>$aa_pk], 'one');
+    $param=[
+     'aid_yy'=>date('Y'),
+     'aid_mm'=>date('m'),
+     'aid_dd'=>date('d'),
+     'aid_yymmdd'=>strtotime(date('Y/m/d 00:00:00')),
+     'aid_aa_pk'=>$aa_pk,
+     'aid_ac_pk'=>$row_ad_advertisement['aa_ac_pk'],
+     'aid_aj_pk'=>$row_ad_advertisement['aa_aj_pk'],
+     'aid_ap_pk'=>$row_ad_advertisement['aa_ap_pk'],
+     'aid_count'=>1
+    ];
+    $ad_pdo->insert('ad_impression_daily', $param);
+  }
+}
+
+
 
 
 
@@ -900,7 +1008,7 @@ function news_share_btn($FB_URL, $QUERY_STRING, $message_btn='Y')
      <!-- 信箱 -->
      <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_mail.php?'.$QUERY_STRING.'"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
      <!-- 回報 -->
-     <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
+     <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php?'.$QUERY_STRING.'"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
    </div>
   ';
 }
@@ -942,7 +1050,7 @@ function cc_share_btn($FB_URL, $cc_pk, $message_btn='Y')
      <!-- 信箱 -->
      <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_mail.php?'.$cc_pk.'"><img src="../img/component/search/mail.png" alt="" title="信箱"></a>
      <!-- 回報 -->
-     <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
+     <a href="javascript:;" data-fancybox data-modal="true" data-type="iframe" data-src="../share_area/send_error.php?'.$cc_pk.'"><img src="../img/component/search/mood.png" alt="" title="回報"></a>
    </div>
   ';
 }
@@ -1086,12 +1194,50 @@ function popular_card_txt($x, $row_car_d, $is_top_prize='Y' )
 
 
 
-//----------------------------------------------- 404 錯誤判斷 -----------------------------------------------------------
- // function check_error_404()
- // {
-   
- // }
-//----------------------------------------------- 404 錯誤判斷 END -----------------------------------------------------------
+
+//--------------------------------------------------------------
+ //判斷用戶端是什麼配備(Tracey Fan 20141024新寫法)
+function get_device_type(){
+  
+  $mobile_browser = false;
+    $user_agent = $_SERVER['HTTP_USER_AGENT'];
+    $accept = $_SERVER['HTTP_ACCEPT'];
+    
+  if(preg_match('/(acs|alav|alca|amoi|audi|aste|avan|benq|bird|blac|blaz|brew|cell|cldc|cmd-)/i',$user_agent)){
+       $mobile_browser = true;
+    }elseif(preg_match('/(dang|doco|erics|hipt|inno|ipaq|java|jigs|kddi|keji|leno|lg-c|lg-d|lg-g|lge-)/i',$user_agent)){
+       $mobile_browser = true;
+    }elseif(preg_match('/(maui|maxo|midp|mits|mmef|mobi|mot-|moto|mwbp|nec-|newt|noki|opwv)/i',$user_agent)){
+       $mobile_browser = true;
+    }elseif(preg_match('/(palm|pana|pant|pdxg|phil|play|pluc|port|prox|qtek|qwap|sage|sams|sany)/i',$user_agent)){
+       $mobile_browser = true;
+    }elseif(preg_match('/(sch-|sec-|send|seri|sgh-|shar|sie-|siem|smal|smar|sony|sph-|symb|t-mo)/i',$user_agent)){
+       $mobile_browser = true;
+    //}elseif(preg_match('/(teli|tim-|tosh|tsm-|upg1|upsi|vk-v|voda|w3cs|wap-|wapa|wapi)/i',$user_agent)){
+    }elseif(preg_match('/(teli|tim-|tsm-|upg1|upsi|vk-v|voda|w3cs|wap-|wapa|wapi)/i',$user_agent)){   
+       $mobile_browser = true;
+    }elseif(preg_match('/(wapp|wapr|webc|winw|winw|xda|xda-)/i',$user_agent)){
+       $mobile_browser = true;
+    }elseif(preg_match('/(up.browser|up.link|windowssce|iemobile|mini|mmp)/i',$user_agent)){
+       $mobile_browser = true;
+    }elseif(preg_match('/(symbian|midp|wap|phone|pocket|mobile|pda|psp)/i',$user_agent)){
+       $mobile_browser = true;
+    }elseif(preg_match('/(puffin|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini)/i',$user_agent)){
+       $mobile_browser = true;
+       $mobile_browser = true;
+    }
+    if((strpos($accept,'text/vnd.wap.wml')>0)||(strpos($accept,'application/vnd.wap.xhtml+xml')>0)){
+       $mobile_browser = true;
+    }
+  
+  if ($mobile_browser == true){
+    $type = 'androld';
+  } else {
+    $type = 'other';
+  }
+  return $type;
+
+}
 
 
 

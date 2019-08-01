@@ -53,6 +53,10 @@
                         <div class="swiper-wrapper">
                         
                         <?php 
+                         //-- 獲取廣告 --
+                         //-- 109 首頁大看板橫幅廣告 --
+                         $ad_arr=get_ad(109, 5);
+
                          //--- 新聞 Banner (NewsAndType view檢視表)---
                          $row_news=$pdo->select("SELECT Tb_index, ns_nt_pk, ns_ftitle, ns_msghtml, ns_photo_1, mt_id, area_id, nt_name, pk
                                                  FROM  NewsAndType
@@ -62,6 +66,7 @@
                                                  LIMIT 0, 10", ['StartDate'=>date('Y-m-d'), 'EndDate'=>date('Y-m-d')]);
 
                          $x=1;
+                         $ad_num=0;
                          $slide_txt='';
                          foreach ($row_news as $row_news_one) {
                           
@@ -79,11 +84,13 @@
                            
                            //-- 廣告 --
                            if ($x%2==0) {
-                             $slide_txt.='<div class="swiper-slide img_div" pagination-index="1" style="background-image: url(../img/component/slide_photo1.jpg);"> 
-                                          <a href="#" title="廣告">
-                                              <div class="word shadow_text" >我是廣告</div>
+                             
+                             $slide_txt.='<div class="swiper-slide img_div" pagination-index="1" style="background-image: url('.$ad_URL.'/ad_images/'.$ad_arr[$ad_num]['aa_media'].');"> 
+                                          <a target="_blank" href="'.$ad_arr[$ad_num]['aa_url'].'" title="'.$ad_arr[$ad_num]['aa_text'].'">
+                                              <div class="word shadow_text" >'.$ad_arr[$ad_num]['aa_text'].'</div>
                                           </a>
                                         </div>';
+                             $ad_num++;
                            }
 
                          $x++;
@@ -312,8 +319,12 @@
                 
                 <div class="row">
 
-                    <!--廣告-->
-                    <div class="col-md-12 col"><img src="http://placehold.it/750x100" alt="banner"></div><!--banner end -->
+                    <!-- 首頁鑽石橫幅 750x100 廣告-->
+                    <div class="col-md-12 col">
+                      <span id="ad9_0"></span>
+                      <!-- <img src="http://placehold.it/750x100" alt="banner"> -->
+                    </div>
+                    
                     
                     <!--============================================卡排行============================================-->
                     <div class="col-md-12 col">
@@ -390,10 +401,12 @@
                     <!--廣告-->
                     <div class="col-md-12 row">
                         <div class="col-md-6 col">
-                            <img src="http://placehold.it/365x100" alt="">
+                            <span id="ad105_0"></span>
+                            <!-- <img src="http://placehold.it/365x100" alt=""> -->
                         </div>
                         <div class="col-md-6 col">
-                            <img src="http://placehold.it/365x100">
+                            <span id="ad105_1"></span>
+                            <!-- <img src="http://placehold.it/365x100"> -->
                         </div>
                     </div>
                     <!--廣告end-->
@@ -506,7 +519,13 @@
                     <!--============================================卡情報end ============================================-->
                     
                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
+                    <div class="col-md-12 col">
+                      <div class="test">
+                        <!-- 首頁鑽石橫幅 750x100 廣告-->
+                        <span id="ad9_1"></span>
+                        <!-- <img src="http://placehold.it/750x100" alt="banner"> -->
+                      </div>
+                    </div><!--banner end -->
 
                     <!--============================================優行動Pay============================================-->
 
@@ -735,7 +754,13 @@
                     <!--============================================優票證&優集點end ============================================-->
 
                     <!--廣告-->
-                    <div class="col-md-12 col"><div class="test"><img src="http://placehold.it/750x100" alt="banner"></div></div><!--banner end -->
+                    <div class="col-md-12 col">
+                      <div class="test">
+                        <!-- 首頁鑽石橫幅 750x100 廣告-->
+                        <span id="ad9_2"></span>
+                        <!-- <img src="http://placehold.it/750x100" alt="banner"> -->
+                      </div>
+                    </div><!--banner end -->
 
                     <!--============================================優旅行============================================-->
 
@@ -1380,7 +1405,9 @@
                     
                     <!-- 廣告 -->
                     <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x100" alt="">
+                        <!-- //首頁白金橫幅(小) 300x100 -->
+                        <span id="ad12_0"></span>
+                        <!-- <img src="http://placehold.it/300x100" alt=""> -->
                     </div>
                     
                     <!--============================= 新卡訊 ===============================-->
@@ -1604,7 +1631,9 @@
 
                     <!-- 廣告 -->
                     <div class="col-md-12 col">
-                        <img src="http://placehold.it/300x100" alt="">
+                        <!-- //首頁白金橫幅(小) 300x100 -->
+                        <span id="ad12_1"></span>
+                        <!-- <img src="http://placehold.it/300x100" alt=""> -->
                     </div>
 
 
@@ -1664,6 +1693,17 @@
      //-- 共用JS --
      require 'share_area/share_js.php';
     ?>
+
+    <script type="text/javascript">
+
+      $('.top-ad .ad-span').attr('id', 'ad108_0');
+      add_cardu_ads("<?= $ad_URL?>/ad.htm?ap_pk=108&ids=ad108_0<?= (get_device_type() == "ios" || get_device_type() == "androld") ? "&mobile_device=ios" : "" ?>");
+      $('.right-ad .ad-span').attr('id', 'ad110_0');
+      add_cardu_ads("<?= $ad_URL?>/ad.htm?ap_pk=110&ids=ad110_0");
+      add_cardu_ads("<?= $ad_URL?>/ad.htm?ap_pk=9&ids=ad9_0:ad9_1:ad9_2<?= (get_device_type() == "ios" || get_device_type() == "androld") ? "&mobile_device=ios" : ""?>");
+      add_cardu_ads("<?= $ad_URL?>/ad.htm?ap_pk=12&ids=ad12_0:ad12_1:ad12_2<?= (get_device_type() == "ios" || get_device_type() == "androld") ? "&mobile_device=ios" : ""?>");
+      add_cardu_ads("<?= $ad_URL?>/ad.htm?ap_pk=105&ids=ad105_0:ad105_1:ad105_2<?= (get_device_type() == "ios" || get_device_type() == "androld") ? "&mobile_device=ios" : ""?>");
+    </script>
 
   </body>
 </html>

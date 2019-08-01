@@ -1,3 +1,22 @@
+//-- 廣告測試 --
+var ary_cardu_ads = new Array();
+        function add_cardu_ads(ad_url){
+          ary_cardu_ads.push(ad_url);
+        }
+    
+        if(ary_cardu_ads){
+              $(document).ready(function() {
+                for(i=0;i<ary_cardu_ads.length;i++){
+                  var ad = document.createElement('script'); ad.type = 'text/javascript'; ad.async = true;
+                  ad.src = ary_cardu_ads[i];
+                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ad, s);
+                }
+              });
+            }
+
+
+
+
 $(document).ready(function() {
 
             //--- 工具提示框 ---

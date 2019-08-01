@@ -89,7 +89,8 @@
                     <!--廣告-->
                     <div class="col-md-12 row">
                         <div class="col-md-6 col ad_news">
-                          <div class="row no-gutters">
+                          <div id="ad114_0"></div>
+                          <!-- <div class="row no-gutters">
                             <div class="col-md-6 h-center">
                              <img src="../img/component/ad_sm.png"> 
                             </div>
@@ -100,10 +101,11 @@
                             <h6>匯豐現金回饋卡</h6>
                             <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
                            </div>
-                         </div>
+                         </div> -->
                         </div>
                         <div class="col-md-6 col ad_news">
-                          <div class="row no-gutters">
+                          <div id="ad114_1"></div>
+                          <!-- <div class="row no-gutters">
                             <div class="col-md-6 h-center">
                              <img src="../img/component/ad_sm.png"> 
                             </div>
@@ -114,7 +116,7 @@
                             <h6>匯豐現金回饋卡</h6>
                             <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
                            </div>
-                         </div>
+                         </div> -->
                         </div>
                     </div>
                     <!--廣告end-->
@@ -276,9 +278,22 @@
      require '../share_area/share_js.php';
     ?>
     <script type="text/javascript">
-
+     add_cardu_ads("<?= $ad_URL?>/ad.htm?ap_pk=114&ids=ad114_0:ad114_1<?= (get_device_type() == "ios" || get_device_type() == "androld") ? "&mobile_device=ios" : ""?>");
 
     </script>
+
+                        <div class="row no-gutters">
+                            <div class="col-md-6 h-center">
+                             <img src="../img/component/ad_sm.png"> 
+                            </div>
+                           <div class="col-md-6">
+                            <div class="best">
+                             <img src="../img/component/best.png">
+                            </div>
+                            <h6>匯豐現金回饋卡</h6>
+                            <p>卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網卡優新聞網</p>
+                           </div>
+                         </div>
 
   </body>
 </html>

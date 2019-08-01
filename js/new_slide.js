@@ -78,11 +78,21 @@ $(document).ready(function() {
 	 });
 
 	 $('.slide_list a').click(function(event) {
-	 	location.href=$(this).attr('href');
+	 	if ($(this).attr('target')=='_blank') {
+	 	  window.open($(this).attr('href'), '_blank');
+	 	}
+	 	else{
+          location.href=$(this).attr('href');
+	 	}	 	
 	 });
 
 	 $('.slide_img a').click(function(event) {
-	 	location.href=$(this).attr('href');
+	 	if ($(this).attr('target')=='_blank') {
+	 	  window.open($(this).attr('href'), '_blank');
+	 	}
+	 	else{
+          location.href=$(this).attr('href');
+	 	}
 	 });
 
 

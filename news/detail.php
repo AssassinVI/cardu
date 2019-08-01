@@ -565,6 +565,8 @@ if (!$temparray[1]) {
         img_750_w('.detail_content img');
         //-- table 優化 --
         html_table('.detail_content>table');
+
+        
       });
 
       $(window).on('load', function() {

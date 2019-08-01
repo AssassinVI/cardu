@@ -40,18 +40,77 @@
         <form id="send_form" action="#" method="POST">
                 
                 <!-- 新聞資訊 -->
-                <input type="hidden" id="send_news" href="http://cardu.srl.tw/news/detail.php" value="JCB信用卡日本遊樂去　25家現金回饋總整理">
+                <?php 
+                 
+                 //-- 新聞 -- 
+                 if (strpos($_SERVER['QUERY_STRING'], 'news')!==FALSE) {
+                   $row_news=$pdo->select("SELECT n.ns_ftitle, n.Tb_index, n.mt_id, n.ns_nt_pk, n.area_id, a.at_name
+                                           FROM NewsAndType as n 
+                                           LEFT JOIN appArea as a ON a.Tb_index=n.area_id
+                                           WHERE n.Tb_index=:Tb_index", 
+                                           ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
+
+                   $sqm_referer=news_url($row_news['mt_id'], $row_news['Tb_index'], $row_news['ns_nt_pk'], $row_news['area_id']);
+                   $sqm_title=$row_news['ns_ftitle'];
+                   $sqm_type_name=empty($row_news['at_name']) ? '新聞': $row_news['at_name'];
+                   $sqm_no=$row_news['Tb_index'];
+                 }
+
+                 //-- 公告活動 -- 
+                 elseif(strpos($_SERVER['QUERY_STRING'], 'note')!==FALSE){
+                   $row_note=$pdo->select("SELECT note_type, aTitle, Tb_index
+                                           FROM appNotice
+                                           WHERE Tb_index=:Tb_index", 
+                                           ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
+
+                   $sqm_referer=$row_note['note_type']=='0' ? $URL.'/member/notify_detail.php?'.$row_note['Tb_index'] : $URL.'/member/event_activity_detail.php?'.$row_note['Tb_index'];
+                   $sqm_title=$row_note['aTitle'];
+                   $sqm_type_name=$row_note['note_type']=='0' ? '公告': '活動';
+                   $sqm_no=$row_note['Tb_index'];
+                 }
+
+                 //-- 信用卡 -- 
+                 elseif(strpos($_SERVER['QUERY_STRING'], 'ccard')!==FALSE){
+                   
+                   $row_ccard=$pdo->select("SELECT cc_group_id, Tb_index, bi_shortname, cc_cardname, org_nickname, attr_name
+                                           FROM cc_detail
+                                           WHERE Tb_index=:Tb_index", 
+                                           ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
+
+                   $sqm_referer=$URL.'/card/creditcard.php?cc_pk='.$row_ccard['Tb_index'].'&cc_group_id='.$row_ccard['cc_group_id'];
+                   $sqm_title=$row_ccard['bi_shortname'].$row_ccard['cc_cardname'].$row_ccard['org_nickname'].$row_ccard['attr_name'];
+                   $sqm_type_name='信用卡';
+                   $sqm_no=$row_ccard['Tb_index'];
+                 }
+
+                 //-- 金融卡 -- 
+                 elseif(strpos($_SERVER['QUERY_STRING'], 'dcard')!==FALSE){
+                   $row_ccard=$pdo->select("SELECT dc_group_id, Tb_index, bi_shortname, dc_cardname, org_nickname, attr_name
+                                            FROM dc_detail
+                                            WHERE Tb_index=:Tb_index", 
+                                            ['Tb_index'=>$_SERVER['QUERY_STRING']], 'one');
+
+                   $sqm_referer=$URL.'/card/debitcard.php?dc_pk='.$row_ccard['Tb_index'].'&dc_group_id='.$row_ccard['dc_group_id'];
+                   $sqm_title=$row_ccard['bi_shortname'].$row_ccard['dc_cardname'].$row_ccard['org_nickname'].'卡';
+                   $sqm_type_name='金融卡';
+                   $sqm_no=$row_ccard['Tb_index'];
+                 }
+                ?>
+                <input type="hidden" name="sqm_type_name" value="<?php echo $sqm_type_name;?>">
+                <input type="hidden" name="sqm_no" value="<?php echo $sqm_no;?>">
+                <input type="hidden" name="sqm_title" value="<?php echo $sqm_title;?>">
+                <input type="hidden" name="sqm_referer" value="<?php echo $sqm_referer;?>">
                    
                    <div class="form-group row">
                      <label class="col-sm-3 col-form-label"><span class="text-danger">*</span> 您的姓名：</label>
                      <div class="col-sm-9">
-                       <input type="text" class="form-control" name="name">
+                       <input type="text" class="form-control" name="name" value="<?php echo $_SESSION['ud_nickname'];?>">
                      </div>
                    </div>
                    <div class="form-group row">
                      <label class="col-sm-3 col-form-label"><span class="text-danger">*</span> 你的Email：</label>
                      <div class="col-sm-9">
-                       <input type="text" class="form-control" name="my_mail">
+                       <input type="text" class="form-control" name="my_mail" value="<?php echo $_SESSION['ud_email'];?>">
                      </div>
                    </div>
                    <div class="form-group row">
@@ -69,7 +128,7 @@
                    <div class="form-group row">
                      <label class="col-sm-3 col-form-label">正確出處：</label>
                      <div class="col-sm-9">
-                       <input type="text" class="form-control" name="correct_url">
+                       <input type="text" class="form-control" name="sqm_link" placeholder="http://XXXXX.com.tw">
                        <span>請填寫完整網址</span>
                      </div>
                    </div>
@@ -149,9 +208,11 @@
                   my_mail: $('[name="my_mail"]').val(),
                   error_content: $('[name="error_content"]').val(),
                   correct_content: $('[name="correct_content"]').val(),
-                  correct_url: $('[name="correct_url"]').val(),
-                  send_news:$('#send_news').val(),
-                  send_news_url:$('#send_news').attr('href'),
+                  sqm_link: $('[name="sqm_link"]').val(),
+                  sqm_type_name:$('[name="sqm_type_name"]').val(),
+                  sqm_no:$('[name="sqm_no"]').val(),
+                  sqm_title:$('[name="sqm_title"]').val(),
+                  sqm_referer:$('[name="sqm_referer"]').val(),
                   'g-recaptcha-response': grecaptcha_tokn
                 },
                 success:function (data) {
@@ -164,6 +225,7 @@
                   else{
                     alert('信件已寄出');
                     $('#send_form')[0].reset();
+                    parent.jQuery.fancybox.getInstance().close();
                   }
                 }
               });

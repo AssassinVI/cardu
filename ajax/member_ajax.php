@@ -53,12 +53,13 @@ if ($_POST) {
 	//-- FB 和 GOOGLE 登入 --
 	case 'FB_G_login':
 
-     $row=$pdo->select("SELECT ud_pk, ud_nickname, ud_photo FROM user_data WHERE ud_email=:ud_email", ['ud_email'=>$_POST['ud_email']], 'one');
+     $row=$pdo->select("SELECT ud_pk, ud_nickname, ud_photo, ud_email FROM user_data WHERE ud_email=:ud_email", ['ud_email'=>$_POST['ud_email']], 'one');
 
      setcookie('ud_pk', $row['ud_pk'], time()+3600000, '/');
      $_SESSION['ud_pk']=$row['ud_pk'];
      $_SESSION['ud_nickname']=$row['ud_nickname'];
      $_SESSION['ud_photo']=$row['ud_photo'];
+     $_SESSION['ud_email']=$row['ud_email'];
 
      $pdo->select("UPDATE user_data SET ud_logintime=:ud_logintime, ud_loginip=:ud_loginip, ud_logincnt=ud_logincnt+1 WHERE ud_pk=:ud_pk", 
                    ['ud_logintime'=>date('Y-m-d H:i:s'), 'ud_loginip'=>user_ip(), 'ud_pk'=>$row['ud_pk']]);

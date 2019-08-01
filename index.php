@@ -1,5 +1,5 @@
 <?php 
- require 'share_area/conn.php';
+   require 'share_area/conn.php'; 
 
    if (wp_is_mobile()) {
      include 'index_mobile.php';

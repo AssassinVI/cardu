@@ -11,12 +11,8 @@
                 
                  <?php 
                   //-- ad --
-                  $ad_arr=[
-                   'Tb_index'=>'ad123',
-                   'ns_photo_1'=>'../img/component/photo2.jpg',
-                   'ns_ftitle'=>'廣告',
-                   'ns_msghtml'=>'我是廣告...',
-                  ];
+                  $ad_arr=get_ad(115, 4);
+                  $ad_num=0;
 
 
                   //-- 卡情報(懶人包) --
@@ -26,8 +22,10 @@
                                               ORDER BY ns_fwdate DESC LIMIT 0,1");
 
                   for ($i=1; $i <3 ; $i++) { 
-                    $row_hot_news[$i]=$ad_arr;
+                    $row_hot_news[$i]=$ad_arr[$ad_num];
+                    $ad_num++;
                   }
+
 
                   
                   //-- 卡情報(開卡文) --
@@ -37,7 +35,8 @@
                                                ORDER BY ns_fwdate DESC LIMIT 0,1");
 
                   for ($i=1; $i <3 ; $i++) { 
-                    $row_hot_news2[$i]=$ad_arr;
+                    $row_hot_news2[$i]=$ad_arr[$ad_num];
+                    $ad_num++;
                   }
                  ?>
 
@@ -48,21 +47,34 @@
                            <?php 
                             $x=1;
                             foreach ($row_hot_news as $hot_news) {
-                             $ns_ftitle=mb_substr(myTrim($hot_news['ns_ftitle']), 0,15, 'utf-8');
-                             $ns_msghtml=mb_substr(strip_tags(myTrim($hot_news['ns_msghtml'])), 0,20, 'utf-8');
-                             //-- 判斷網址 --
-                             $news_url=$x==2 || $x==3 ? 'ad.php?'.$hot_news['Tb_index'] : '../message/detail.php?'.$hot_news['Tb_index'];
-                             //-- 判斷廣告圖片 --
-                             $ns_photo_1=$x==2 || $x==3 ? $hot_news['ns_photo_1'] : '../sys/img/'.$hot_news['ns_photo_1'];
+                             
+                             //-- 判斷廣告 --
+                             if (!empty($hot_news['type']) && $hot_news['type']=='ad') {
+                               $ns_ftitle_all=$hot_news['aa_text'];
+                               $ns_ftitle=mb_substr(myTrim($hot_news['aa_text']), 0,15, 'utf-8');
+                               $ns_msghtml=mb_substr(strip_tags(myTrim($hot_news['aa_content'])), 0,20, 'utf-8');
+                               $news_url=$hot_news['aa_url'];
+                               $ns_photo_1=$ad_URL.'/ad_images/'.$hot_news['aa_media'];
+                               $a_target=$hot_news['aa_target'];
+                             }
+                             else{
+                               $ns_ftitle_all=$hot_news['ns_ftitle'];
+                               $ns_ftitle=mb_substr(myTrim($hot_news['ns_ftitle']), 0,15, 'utf-8');
+                               $ns_msghtml=mb_substr(strip_tags(myTrim($hot_news['ns_msghtml'])), 0,20, 'utf-8');
+                               $news_url='../message/detail.php?'.$hot_news['Tb_index'];
+                               $ns_photo_1='../sys/img/'.$hot_news['ns_photo_1'];
+                               $a_target='_self';
+                             }
+                             
                               echo '
                              <div class="row no-gutters">
                              <div class="col-5">
-                               <a class="img_a" href="'.$news_url.'">
-                                 <div class="img_div w-h-100" title="'.$hot_news['ns_ftitle'].'" style="background-image: url('.$ns_photo_1.');"></div>
+                               <a class="img_a" href="'.$news_url.'" target="'.$a_target.'">
+                                 <div class="img_div w-h-100" title="'.$ns_ftitle_all.'" style="background-image: url('.$ns_photo_1.');"></div>
                                </a>
                              </div>
                              <div class="col-7">
-                              <a href="'.$news_url.'" title="'.$hot_news['ns_ftitle'].'">
+                              <a href="'.$news_url.'" title="'.$ns_ftitle_all.'" target="'.$a_target.'">
                                 <h4>'.$ns_ftitle.'</h4>
                               </a>
                                <p>'.$ns_msghtml.'</p>
@@ -76,21 +88,34 @@
                            <?php 
                             $x=1;
                             foreach ($row_hot_news2 as $hot_news) {
-                             $ns_ftitle=mb_substr(myTrim($hot_news['ns_ftitle']), 0,15, 'utf-8');
-                             $ns_msghtml=mb_substr(strip_tags(myTrim($hot_news['ns_msghtml'])), 0,20, 'utf-8');
-                             //-- 判斷網址 --
-                             $news_url=$x==2 || $x==3 ? 'ad.php?'.$hot_news['Tb_index'] : '../message/detail.php?'.$hot_news['Tb_index'];
-                             //-- 判斷廣告圖片 --
-                             $ns_photo_1=$x==2 || $x==3 ? $hot_news['ns_photo_1'] : '../sys/img/'.$hot_news['ns_photo_1'];
+
+                             //-- 判斷廣告 --
+                             if (!empty($hot_news['type']) && $hot_news['type']=='ad') {
+                               $ns_ftitle_all=$hot_news['aa_text'];
+                               $ns_ftitle=mb_substr(myTrim($hot_news['aa_text']), 0,15, 'utf-8');
+                               $ns_msghtml=mb_substr(strip_tags(myTrim($hot_news['aa_content'])), 0,20, 'utf-8');
+                               $news_url=$hot_news['aa_url'];
+                               $ns_photo_1=$ad_URL.'/ad_images/'.$hot_news['aa_media'];
+                               $a_target=$hot_news['aa_target'];
+                             }
+                             else{
+                               $ns_ftitle_all=$hot_news['ns_ftitle'];
+                               $ns_ftitle=mb_substr(myTrim($hot_news['ns_ftitle']), 0,15, 'utf-8');
+                               $ns_msghtml=mb_substr(strip_tags(myTrim($hot_news['ns_msghtml'])), 0,20, 'utf-8');
+                               $news_url='../message/detail.php?'.$hot_news['Tb_index'];
+                               $ns_photo_1='../sys/img/'.$hot_news['ns_photo_1'];
+                               $a_target='_self';
+                             }
+
                               echo '
                              <div class="row no-gutters">
                              <div class="col-5">
-                               <a class="img_a" href="'.$news_url.'">
-                                 <div class="img_div w-h-100" title="'.$hot_news['ns_ftitle'].'" style="background-image: url('.$ns_photo_1.');"></div>
+                               <a class="img_a" href="'.$news_url.'" target="'.$a_target.'">
+                                 <div class="img_div w-h-100" title="'.$ns_ftitle_all.'" style="background-image: url('.$ns_photo_1.');"></div>
                                </a>
                              </div>
                              <div class="col-7">
-                              <a href="'.$news_url.'" title="'.$hot_news['ns_ftitle'].'">
+                              <a href="'.$news_url.'" title="'.$ns_ftitle_all.'" target="'.$a_target.'">
                                 <h4>'.$ns_ftitle.'</h4>
                               </a>
                                <p>'.$ns_msghtml.'</p>
@@ -201,6 +226,7 @@
         <div class="col-md-12 col">
             <img src="http://placehold.it/300x250" alt="">
         </div>
+        
 
         <div class="col-md-12 col">
            <div class="cardshap hotCard tab_one blue_tab">
@@ -208,11 +234,20 @@
                    <h4>辦卡推薦 </h4>
                </div>
                <div class="content_tab">
+
+                <?php 
+                 //-- ad --
+                 $ad_arr=get_ad(116, 2);
+                 
+                 // foreach ($ad_arr as $key => $value) {
+                 //   # code...
+                 // }
+                ?>
+
                    <div class="row no-gutters">
                      <div class="col-5">
                       <a class="img_a" href="#">
                         <div class="img_div w-h-100" title="新聞" style="background-image: url(../img/component/photo1.jpg);"></div>
-                        
                       </a>
                       <span>謹慎理財 信用至上</span>
                      </div>
