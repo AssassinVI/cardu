@@ -1,2 +1,4 @@
 #忽略 error log
 error_log
+/.vscode
+.gitignore
